@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                5739329dd9ee
+                75ea42e14814
               </div>
             
           
@@ -530,7 +530,7 @@ The framebuffer, texture and render objects will no longer be accessible.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUShader">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUShader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertexcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geocode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">libcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShader" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUShader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertexcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geocode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">libcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pyGPUShader'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShader" title="Permalink to this definition">¶</a></dt>
 <dd><p>GPUShader combines multiple GLSL shaders into a program used for drawing.
 It must contain at least a vertex and fragment shaders.</p>
 <p>The GLSL <code class="docutils literal notranslate"><span class="pre">#version</span></code> directive is automatically included at the top of shaders,
@@ -550,6 +550,7 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><strong>geocode</strong> – Geometry shader code.</p></li>
 <li><p><strong>libcode</strong> – Code with functions and presets to be shared between shaders.</p></li>
 <li><p><strong>defines</strong> – Preprocessor directives.</p></li>
+<li><p><strong>name</strong> – Name of shader code, for debugging purposes.</p></li>
 </ul>
 </dd>
 </dl>
@@ -723,6 +724,17 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <dt class="sig sig-object py" id="gpu.types.GPUShader.uniform_vector_int">
 <span class="sig-name descname"><span class="pre">uniform_vector_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShader.uniform_vector_int" title="Permalink to this definition">¶</a></dt>
 <dd><p>See GPUShader.uniform_vector_float(…) description.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpu.types.GPUShader.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#gpu.types.GPUShader.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the shader object for debugging purposes (read-only).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
