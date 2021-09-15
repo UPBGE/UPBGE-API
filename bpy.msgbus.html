@@ -1,48 +1,24 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Message Bus (bpy.msgbus) &mdash; Blender Python API</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  
-
-  
-  
-
-  
     <link rel="canonical" href="https://docs.blender.org/api/current/bpy.msgbus.html" />
-
-  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
           href="_static/opensearch.xml"/>
@@ -52,36 +28,17 @@
     <link rel="prev" title="Data Access (bpy.data)" href="bpy.data.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> UPBGE 0.3 + Blender 3.0.0 Alpha Python API
-          
-
-          
-            
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                75ea42e14814
+                b5d15cbf5f1d
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -89,18 +46,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart: New to Blender or scripting and want to get your feet wet?</a></li>
@@ -151,75 +97,35 @@
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">UPBGE 0.3 + Blender 3.0.0 Alpha Python API</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Message Bus (bpy.msgbus)</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-bpy.msgbus">
-<span id="message-bus-bpy-msgbus"></span><h1>Message Bus (bpy.msgbus)<a class="headerlink" href="#module-bpy.msgbus" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-bpy.msgbus">
+<span id="message-bus-bpy-msgbus"></span><h1>Message Bus (bpy.msgbus)<a class="headerlink" href="#module-bpy.msgbus" title="Permalink to this headline"></a></h1>
 <p>The message bus system can be used to receive notifications when properties of
 Blender datablocks are changed via the data API.</p>
-<div class="section" id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline"></a></h2>
 <p>The message bus system is triggered by updates via the RNA system. This means
 that the following updates will result in a notification on the message bus:</p>
 <ul class="simple">
@@ -231,9 +137,9 @@ that the following updates will result in a notification on the message bus:</p>
 <li><p>Moving objects in the 3D Viewport.</p></li>
 <li><p>Changes performed by the animation system.</p></li>
 </ul>
-</div>
-<div class="section" id="example-use">
-<h2>Example Use<a class="headerlink" href="#example-use" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-use">
+<h2>Example Use<a class="headerlink" href="#example-use" title="Permalink to this headline"></a></h2>
 <p>Below is an example of subscription to changes in the active object’s location.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
@@ -270,13 +176,13 @@ certain type:</p>
 </div>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.msgbus.clear_by_owner">
-<span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">clear_by_owner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.clear_by_owner" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">clear_by_owner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.clear_by_owner" title="Permalink to this definition"></a></dt>
 <dd><p>Clear all subscribers using this owner.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.msgbus.publish_rna">
-<span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">publish_rna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.publish_rna" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">publish_rna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.publish_rna" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>key</strong> (<em>Muliple</em>) – <p>Represents the type of data being subscribed to</p>
@@ -294,7 +200,7 @@ In some cases it may be useful to publish changes explicitly using more general 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.msgbus.subscribe_rna">
-<span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">subscribe_rna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.subscribe_rna" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">subscribe_rna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.subscribe_rna" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -315,50 +221,37 @@ In some cases it may be useful to publish changes explicitly using more general 
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="bpy.ops.html" class="btn btn-neutral float-right" title="Operators (bpy.ops)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="bpy.data.html" class="btn btn-neutral float-left" title="Data Access (bpy.data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bpy.ops.html" class="btn btn-neutral float-right" title="Operators (bpy.ops)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright Blender Foundation.
-      <span class="lastupdated">
-        Last updated on 09/13/2021.
-      </span>
+    <p>&#169; Copyright Blender Foundation.
+      <span class="lastupdated">Last updated on 09/15/2021.
+      </span></p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
