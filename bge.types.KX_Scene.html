@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                bf21ec2a69c8
+                8f4ad37139a1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -475,12 +475,21 @@ The callbacks can take as argument the rendered camera, the camera could be temp
 <dl class="py method">
 <dt class="sig sig-object py" id="bge.types.KX_Scene.convertBlenderObject">
 <span class="sig-name descname"><span class="pre">convertBlenderObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blenderObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_Scene.convertBlenderObject" title="Permalink to this definition"></a></dt>
-<dd><p>Converts a bpy.types.Object into a <a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_GameObject</span></code></a> during runtime.
+<dd><p>Converts a <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a> into a <a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_GameObject</span></code></a> during runtime.
 For example, you can append an Object from another .blend file during bge runtime
 using: bpy.ops.wm.append(…) then convert this Object into a KX_GameObject to have
-logic bricks, physics… converted. This is meant to replace libload.
-:return: Returns the newly converted gameobject.
-:rtype: <a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">bge.types.KX_GameObject</span></code></a></p>
+logic bricks, physics… converted. This is meant to replace libload.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>blenderObject</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a>) – The Object to be converted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns the newly converted gameobject.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_GameObject</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -493,7 +502,7 @@ The conversion can be asynchronous or synchronous.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>blenderObjectsList</strong> (list of <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – The Object list to be converted.</p></li>
+<li><p><strong>blenderObjectsList</strong> (list of <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a>) – The Object list to be converted.</p></li>
 <li><p><strong>asynchronous</strong> (<em>boolean</em>) – The Object list conversion can be asynchronous or not.</p></li>
 </ul>
 </dd>
@@ -511,7 +520,7 @@ or synchronous.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>blenderCollection</strong> (<a class="reference internal" href="bpy.types.Collection.html#bpy.types.Collection" title="bpy.types.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Collection</span></code></a>) – The collection to be converted.</p></li>
+<li><p><strong>blenderCollection</strong> (<a class="reference internal" href="bpy.types.Collection.html#bpy.types.Collection" title="bpy.types.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Collection</span></code></a>) – The collection to be converted.</p></li>
 <li><p><strong>asynchronous</strong> (<em>boolean</em>) – The collection conversion can be asynchronous or not.</p></li>
 </ul>
 </dd>
@@ -526,7 +535,7 @@ For example, you can append an Action from another .blend file during bge runtim
 using: bpy.ops.wm.append(…) then register this Action to be abled to play it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Action</strong> (<a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a>) – The Action to be converted.</p>
+<dd class="field-odd"><p><strong>Action</strong> (<a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a>) – The Action to be converted.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -541,7 +550,7 @@ remove the action you need to call bpy.data.actions.remove(Action, do_unlink=Tru
 after you unregistered it from bge logic manager.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Action</strong> (<a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a>) – The Action to be unregistered.</p>
+<dd class="field-odd"><p><strong>Action</strong> (<a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a>) – The Action to be unregistered.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -554,8 +563,8 @@ during a second render pass in overlay using the KX_Camera passed as argument.</
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>kxCamera</strong> (<a class="reference internal" href="bge.types.KX_Camera.html#bge.types.KX_Camera" title="bge.types.KX_Camera"><code class="xref py py-class docutils literal notranslate"><span class="pre">bge.types.KX_Camera</span></code></a>) – The camera used to render the overlay collection.</p></li>
-<li><p><strong>blenderCollection</strong> (<a class="reference internal" href="bpy.types.Collection.html#bpy.types.Collection" title="bpy.types.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Collection</span></code></a>) – The overlay collection to add.</p></li>
+<li><p><strong>kxCamera</strong> (<a class="reference internal" href="bge.types.KX_Camera.html#bge.types.KX_Camera" title="bge.types.KX_Camera"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_Camera</span></code></a>) – The camera used to render the overlay collection.</p></li>
+<li><p><strong>blenderCollection</strong> (<a class="reference internal" href="bpy.types.Collection.html#bpy.types.Collection" title="bpy.types.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Collection</span></code></a>) – The overlay collection to add.</p></li>
 </ul>
 </dd>
 </dl>
@@ -567,7 +576,7 @@ during a second render pass in overlay using the KX_Camera passed as argument.</
 <dd><p>Removes an overlay collection (as with collection actuator).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>blenderCollection</strong> (<a class="reference internal" href="bpy.types.Collection.html#bpy.types.Collection" title="bpy.types.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Collection</span></code></a>) – The overlay collection to remove.</p>
+<dd class="field-odd"><p><strong>blenderCollection</strong> (<a class="reference internal" href="bpy.types.Collection.html#bpy.types.Collection" title="bpy.types.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Collection</span></code></a>) – The overlay collection to remove.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -602,7 +611,7 @@ during a second render pass in overlay using the KX_Camera passed as argument.</
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/20/2021.
+      <span class="lastupdated">Last updated on 09/21/2021.
       </span></p>
   </div>
 
