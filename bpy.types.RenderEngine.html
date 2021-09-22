@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                8f4ad37139a1
+                c282facda185
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -401,17 +401,6 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderEngine.bl_use_save_buffers">
-<span class="sig-name descname"><span class="pre">bl_use_save_buffers</span></span><a class="headerlink" href="#bpy.types.RenderEngine.bl_use_save_buffers" title="Permalink to this definition"></a></dt>
-<dd><p>Support render to an on disk buffer during rendering</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.RenderEngine.bl_use_shading_nodes_custom">
 <span class="sig-name descname"><span class="pre">bl_use_shading_nodes_custom</span></span><a class="headerlink" href="#bpy.types.RenderEngine.bl_use_shading_nodes_custom" title="Permalink to this definition"></a></dt>
 <dd><p>Don’t expose Cycles and Eevee shading nodes in the node editor user interface, so own nodes can be used instead</p>
@@ -515,26 +504,6 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderEngine.tile_x">
-<span class="sig-name descname"><span class="pre">tile_x</span></span><a class="headerlink" href="#bpy.types.RenderEngine.tile_x" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>int in [0, inf], default 0</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderEngine.tile_y">
-<span class="sig-name descname"><span class="pre">tile_y</span></span><a class="headerlink" href="#bpy.types.RenderEngine.tile_y" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>int in [0, inf], default 0</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.RenderEngine.use_highlight_tiles">
 <span class="sig-name descname"><span class="pre">use_highlight_tiles</span></span><a class="headerlink" href="#bpy.types.RenderEngine.use_highlight_tiles" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
@@ -561,13 +530,27 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.RenderEngine.render_frame_finish">
+<span class="sig-name descname"><span class="pre">render_frame_finish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.render_frame_finish" title="Permalink to this definition"></a></dt>
+<dd><p>Perform finishing operations after all view layers in a frame were rendered</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.RenderEngine.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.draw" title="Permalink to this definition"></a></dt>
+<dd><p>Draw render image</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.RenderEngine.bake">
 <span class="sig-name descname"><span class="pre">bake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_filter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.bake" title="Permalink to this definition"></a></dt>
 <dd><p>Bake passes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pass_type</strong> (<em>enum in</em><em> [</em><em>'COMBINED'</em><em>, </em><em>'AO'</em><em>, </em><em>'SHADOW'</em><em>, </em><em>'NORMAL'</em><em>, </em><em>'UV'</em><em>, </em><em>'ROUGHNESS'</em><em>, </em><em>'EMIT'</em><em>, </em><em>'ENVIRONMENT'</em><em>, </em><em>'DIFFUSE'</em><em>, </em><em>'GLOSSY'</em><em>, </em><em>'TRANSMISSION'</em><em>]</em>) – Pass, Pass to bake</p></li>
+<li><p><strong>pass_type</strong> (<em>enum in</em><em> [</em><em>'COMBINED'</em><em>, </em><em>'AO'</em><em>, </em><em>'SHADOW'</em><em>, </em><em>'POSITION'</em><em>, </em><em>'NORMAL'</em><em>, </em><em>'UV'</em><em>, </em><em>'ROUGHNESS'</em><em>, </em><em>'EMIT'</em><em>, </em><em>'ENVIRONMENT'</em><em>, </em><em>'DIFFUSE'</em><em>, </em><em>'GLOSSY'</em><em>, </em><em>'TRANSMISSION'</em><em>]</em>) – Pass, Pass to bake</p></li>
 <li><p><strong>pass_filter</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Pass Filter, Filter to combined, diffuse, glossy and transmission passes</p></li>
 <li><p><strong>width</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Width, Image width</p></li>
 <li><p><strong>height</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Height, Image height</p></li>
@@ -711,6 +694,26 @@
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.RenderEngine.pass_by_index_get">
+<span class="sig-name descname"><span class="pre">pass_by_index_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.pass_by_index_get" title="Permalink to this definition"></a></dt>
+<dd><p>pass_by_index_get</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layer</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Layer, Name of render layer to get pass for</p></li>
+<li><p><strong>index</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Index, Index of pass to get</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Index, Index of pass to get</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.RenderPass.html#bpy.types.RenderPass" title="bpy.types.RenderPass"><code class="xref py py-class docutils literal notranslate"><span class="pre">RenderPass</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -915,6 +918,29 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.RenderEngine.tile_highlight_set">
+<span class="sig-name descname"><span class="pre">tile_highlight_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.tile_highlight_set" title="Permalink to this definition"></a></dt>
+<dd><p>Set highlighted state of the given tile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – X</p></li>
+<li><p><strong>y</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Y</p></li>
+<li><p><strong>width</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Width</p></li>
+<li><p><strong>height</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Height</p></li>
+<li><p><strong>highlight</strong> (<em>boolean</em>) – Highlight</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.RenderEngine.tile_highlight_clear_all">
+<span class="sig-name descname"><span class="pre">tile_highlight_clear_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.tile_highlight_clear_all" title="Permalink to this definition"></a></dt>
+<dd><p>Clear highlight from all tiles</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.RenderEngine.register_pass">
 <span class="sig-name descname"><span class="pre">register_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chanid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.register_pass" title="Permalink to this definition"></a></dt>
 <dd><p>Register a render pass that will be part of the render with the current settings</p>
@@ -1014,7 +1040,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/21/2021.
+      <span class="lastupdated">Last updated on 09/22/2021.
       </span></p>
   </div>
 

@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                8f4ad37139a1
+                c282facda185
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -131,10 +131,32 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.end_factor">
 <span class="sig-name descname"><span class="pre">end_factor</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.end_factor" title="Permalink to this definition"></a></dt>
-<dd><p>Length difference for each segment</p>
+<dd><p>Added length to the end of each stroke relative to its length</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>float in [-inf, inf], default 0.1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.end_length">
+<span class="sig-name descname"><span class="pre">end_length</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.end_length" title="Permalink to this definition"></a></dt>
+<dd><p>Absolute added length to the end of each stroke</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [-inf, inf], default 0.1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.invert_curvature">
+<span class="sig-name descname"><span class="pre">invert_curvature</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.invert_curvature" title="Permalink to this definition"></a></dt>
+<dd><p>Invert the curvature of the stroke’s extension</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
 </dd>
 </dl>
 </dd></dl>
@@ -217,6 +239,17 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.max_angle">
+<span class="sig-name descname"><span class="pre">max_angle</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.max_angle" title="Permalink to this definition"></a></dt>
+<dd><p>Ignore points on the stroke that deviate from their neighbors by more than this angle when determining the extrapolation shape</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [0, 3.14159], default 2.96706</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.mode">
 <span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.mode" title="Permalink to this definition"></a></dt>
 <dd><p>Mode to define length</p>
@@ -236,10 +269,10 @@ Absolute – Length in geometry space.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.overshoot_factor">
 <span class="sig-name descname"><span class="pre">overshoot_factor</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.overshoot_factor" title="Permalink to this definition"></a></dt>
-<dd><p>Defines how precise must follow the stroke trajectory for the overshoot extremes</p>
+<dd><p>Defines what portion of the stroke is used for the calculation of the extension</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float in [0, 1], default 0.01</p>
+<dd class="field-odd"><p>float in [0, 1], default 0.1</p>
 </dd>
 </dl>
 </dd></dl>
@@ -256,12 +289,56 @@ Absolute – Length in geometry space.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.point_density">
+<span class="sig-name descname"><span class="pre">point_density</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.point_density" title="Permalink to this definition"></a></dt>
+<dd><p>Multiplied by Start/End for the total added point count</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [0.1, 1000], default 30.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.segment_influence">
+<span class="sig-name descname"><span class="pre">segment_influence</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.segment_influence" title="Permalink to this definition"></a></dt>
+<dd><p>Factor to determine how much the length of the individual segments should influence the final computed curvature. Higher factors makes small segments influence the overall curvature less</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [-2, 3], default 0.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.start_factor">
 <span class="sig-name descname"><span class="pre">start_factor</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.start_factor" title="Permalink to this definition"></a></dt>
-<dd><p>Length difference for each segment</p>
+<dd><p>Added length to the start of each stroke relative to its length</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>float in [-inf, inf], default 0.1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.start_length">
+<span class="sig-name descname"><span class="pre">start_length</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.start_length" title="Permalink to this definition"></a></dt>
+<dd><p>Absolute added length to the start of each stroke</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [-inf, inf], default 0.1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.LengthGpencilModifier.use_curvature">
+<span class="sig-name descname"><span class="pre">use_curvature</span></span><a class="headerlink" href="#bpy.types.LengthGpencilModifier.use_curvature" title="Permalink to this definition"></a></dt>
+<dd><p>Follow the curvature of the stroke</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default True</p>
 </dd>
 </dl>
 </dd></dl>
@@ -357,7 +434,7 @@ Absolute – Length in geometry space.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/21/2021.
+      <span class="lastupdated">Last updated on 09/22/2021.
       </span></p>
   </div>
 

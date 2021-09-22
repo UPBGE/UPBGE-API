@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                8f4ad37139a1
+                c282facda185
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -130,20 +130,16 @@
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ShaderNodeSubsurfaceScattering.falloff">
 <span class="sig-name descname"><span class="pre">falloff</span></span><a class="headerlink" href="#bpy.types.ShaderNodeSubsurfaceScattering.falloff" title="Permalink to this definition"></a></dt>
-<dd><p>Function to determine how much light nearby points contribute based on their distance to the shading point</p>
+<dd><p>Method for rendering subsurface scattering</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CUBIC</span></code>
-Cubic – Simple cubic falloff function.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GAUSSIAN</span></code>
-Gaussian – Normal distribution, multiple can be combined to fit more complex profiles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BURLEY</span></code>
-Christensen-Burley – Approximation to physically based volume scattering.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RANDOM_WALK_FIXED_RADIUS</span></code>
+Random Walk (Fixed Radius) – Volumetric approximation to physically based volume scattering, using the scattering radius as specified.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RANDOM_WALK</span></code>
-Random Walk – Volumetric approximation to physically based volume scattering.</p></li>
+Random Walk – Volumetric approximation to physically based volume scattering, with scattering radius automatically adjusted to match color textures.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘CUBIC’, ‘GAUSSIAN’, ‘BURLEY’, ‘RANDOM_WALK’], default ‘CUBIC’</p>
+<dd class="field-odd"><p>enum in [‘RANDOM_WALK_FIXED_RADIUS’, ‘RANDOM_WALK’], default ‘RANDOM_WALK_FIXED_RADIUS’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -335,7 +331,7 @@ Random Walk – Volumetric approximation to physically based volume scattering.<
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/21/2021.
+      <span class="lastupdated">Last updated on 09/22/2021.
       </span></p>
   </div>
 
