@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                16858a94cd2a
+                2b3b35c66149
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -1060,13 +1060,37 @@ Exact – Exact solver, slower, handles more cases.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.knife_tool">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">knife_tool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_occlude_geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.knife_tool" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">knife_tool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_occlude_geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible_measurements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_snapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_snapping_increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.523599</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.knife_tool" title="Permalink to this definition"></a></dt>
 <dd><p>Cut new topology</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>use_occlude_geometry</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Occlude Geometry, Only cut the front most geometry</p></li>
 <li><p><strong>only_selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Selected, Only cut selected geometry</p></li>
+<li><p><strong>xray</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X-Ray, Show cuts through geometry</p></li>
+<li><p><strong>visible_measurements</strong> (<em>enum in</em><em> [</em><em>'NONE'</em><em>, </em><em>'BOTH'</em><em>, </em><em>'DISTANCE'</em><em>, </em><em>'ANGLE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Measurements, Visible distance and angle measurements</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
+None – Show no measurements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOTH</span></code>
+Both – Show both distances and angles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DISTANCE</span></code>
+Distance – Show just distance measurements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ANGLE</span></code>
+Angle – Show just angle measurements.</p></li>
+</ul>
+</p></li>
+<li><p><strong>angle_snapping</strong> (<em>enum in</em><em> [</em><em>'NONE'</em><em>, </em><em>'SCREEN'</em><em>, </em><em>'RELATIVE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Angle Snapping, Angle snapping mode</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
+None – No angle snapping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCREEN</span></code>
+Screen – Screen space angle snapping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RELATIVE</span></code>
+Relative – Angle snapping relative to the previous cut edge.</p></li>
+</ul>
+</p></li>
+<li><p><strong>angle_snapping_increment</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1.5708</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle Snap Increment, The angle snap increment used when in constrained angle mode</p></li>
 <li><p><strong>wait_for_input</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Wait for Input</p></li>
 </ul>
 </dd>
@@ -2914,7 +2938,7 @@ Linear – Linear falloff.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/23/2021.
+      <span class="lastupdated">Last updated on 09/24/2021.
       </span></p>
   </div>
 
