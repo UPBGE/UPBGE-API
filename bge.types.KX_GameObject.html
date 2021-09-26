@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                b66042b2cd6a
+                bd7b64f50b2c
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -311,7 +311,7 @@ to mutate is an armature.</p>
 <dd><p>Enforces the object keeps rotating at a minimum velocity. A value of 0.0 disables this.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>non-negative float</p>
+<dd class="field-odd"><p>float (non-negative)</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -328,7 +328,7 @@ While objects are stationary the minimum velocity will not be applied.</p>
 A value of 0.0 disables clamping; it does not stop rotation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>non-negative float</p>
+<dd class="field-odd"><p>float (non-negative)</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -387,7 +387,7 @@ A value of 0.0 disables clamping; it does not stop rotation.</p>
 <dd><p>The object’s collision group.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>bitfield</p>
+<dd class="field-odd"><p>integer (bit mask)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -398,7 +398,7 @@ A value of 0.0 disables clamping; it does not stop rotation.</p>
 <dd><p>The object’s collision mask.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>bitfield</p>
+<dd class="field-odd"><p>integer (bit mask)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -491,7 +491,7 @@ used.</p>
 <dd><p>The layer mask used for shadow and real-time cube map render.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>bitfield</p>
+<dd class="field-odd"><p>integer (bit mask)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1627,7 +1627,7 @@ If there is no hit or the hit object is not a static mesh, None is returned as 4
 <li><p>2: return value is a 5-tuple and the 5th element is a 2-tuple (u, v) with the UV mapping of the hit point or None if no hit, or the object doesn’t use a mesh collision shape, or doesn’t have a UV mapping.</p></li>
 </ul>
 </p></li>
-<li><p><strong>mask</strong> (<em>bitfield</em>) – collision mask: The collision mask (16 layers mapped to a 16-bit integer) is combined with each object’s collision group, to hit only a subset of the objects in the scene. Only those objects for which <code class="docutils literal notranslate"><span class="pre">collisionGroup</span> <span class="pre">&amp;</span> <span class="pre">mask</span></code> is true can be hit.</p></li>
+<li><p><strong>mask</strong> (<em>integer</em><em> (</em><em>bit mask</em><em>)</em>) – collision mask: The collision mask (16 layers mapped to a 16-bit integer) is combined with each object’s collision group, to hit only a subset of the objects in the scene. Only those objects for which <code class="docutils literal notranslate"><span class="pre">collisionGroup</span> <span class="pre">&amp;</span> <span class="pre">mask</span></code> is true can be hit.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1769,17 +1769,17 @@ If there is no hit or the hit object is not a static mesh, None is returned as 4
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – the name of the action</p></li>
-<li><p><strong>start</strong> (<em>float</em>) – the start frame of the action</p></li>
-<li><p><strong>end</strong> (<em>float</em>) – the end frame of the action</p></li>
-<li><p><strong>layer</strong> (<em>integer</em>) – the layer the action will play in (actions in different layers are added/blended together)</p></li>
-<li><p><strong>priority</strong> (<em>integer</em>) – only play this action if there isn’t an action currently playing in this layer with a higher (lower number) priority</p></li>
-<li><p><strong>blendin</strong> (<em>float</em>) – the amount of blending between this animation and the previous one on this layer</p></li>
-<li><p><strong>play_mode</strong> (one of <a class="reference internal" href="bge.logic.html#gameobject-playaction-mode"><span class="std std-ref">these constants</span></a>) – the play mode</p></li>
-<li><p><strong>layer_weight</strong> (<em>float</em>) – how much of the previous layer to use for blending</p></li>
-<li><p><strong>ipo_flags</strong> (<em>int bitfield</em>) – flags for the old IPO behaviors (force, etc)</p></li>
-<li><p><strong>speed</strong> (<em>float</em>) – the playback speed of the action as a factor (1.0 = normal speed, 2.0 = 2x speed, etc)</p></li>
-<li><p><strong>blend_mode</strong> (one of <a class="reference internal" href="bge.logic.html#gameobject-playaction-blend"><span class="std std-ref">these constants</span></a>) – how to blend this layer with previous layers</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – the name of the action.</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – the start frame of the action.</p></li>
+<li><p><strong>end</strong> (<em>float</em>) – the end frame of the action.</p></li>
+<li><p><strong>layer</strong> (<em>integer</em>) – the layer the action will play in (actions in different layers are added/blended together).</p></li>
+<li><p><strong>priority</strong> (<em>integer</em>) – only play this action if there isn’t an action currently playing in this layer with a higher (lower number) priority.</p></li>
+<li><p><strong>blendin</strong> (<em>float</em>) – the amount of blending between this animation and the previous one on this layer.</p></li>
+<li><p><strong>play_mode</strong> (<em>integer</em>) – the play mode. one of <a class="reference internal" href="bge.logic.html#gameobject-playaction-mode"><span class="std std-ref">these constants</span></a>.</p></li>
+<li><p><strong>layer_weight</strong> (<em>float</em>) – how much of the previous layer to use for blending.</p></li>
+<li><p><strong>ipo_flags</strong> (<em>integer</em><em> (</em><em>bit mask</em><em>)</em>) – flags for the old IPO behaviors (force, etc).</p></li>
+<li><p><strong>speed</strong> (<em>float</em>) – the playback speed of the action as a factor (1.0 = normal speed, 2.0 = 2x speed, etc).</p></li>
+<li><p><strong>blend_mode</strong> (<em>integer</em>) – how to blend this layer with previous layers. one of <a class="reference internal" href="bge.logic.html#gameobject-playaction-blend"><span class="std std-ref">these constants</span></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1891,7 +1891,7 @@ If there is no hit or the hit object is not a static mesh, None is returned as 4
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/25/2021.
+      <span class="lastupdated">Last updated on 09/26/2021.
       </span></p>
   </div>
 
