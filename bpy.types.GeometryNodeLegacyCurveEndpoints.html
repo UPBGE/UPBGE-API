@@ -4,12 +4,12 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GeometryNodeCurveToPoints(GeometryNode) &mdash; Blender Python API</title>
+  <title>GeometryNodeLegacyCurveEndpoints(GeometryNode) &mdash; Blender Python API</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html" />
+    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeLegacyCurveEndpoints.html" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -24,8 +24,8 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GeometryNodeCurveTrim(GeometryNode)" href="bpy.types.GeometryNodeCurveTrim.html" />
-    <link rel="prev" title="GeometryNodeCurveToMesh(GeometryNode)" href="bpy.types.GeometryNodeCurveToMesh.html" /> 
+    <link rel="next" title="GeometryNodeLegacyCurveReverse(GeometryNode)" href="bpy.types.GeometryNodeLegacyCurveReverse.html" />
+    <link rel="prev" title="GeometryNodeLegacyAttributeVectorRotate(GeometryNode)" href="bpy.types.GeometryNodeLegacyAttributeVectorRotate.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                6234ad682e95
+                a5ace7d38697
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -112,7 +112,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="bpy.types.html">Types (bpy.types)</a> &raquo;</li>
-      <li>GeometryNodeCurveToPoints(GeometryNode)</li>
+      <li>GeometryNodeLegacyCurveEndpoints(GeometryNode)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -121,34 +121,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="geometrynodecurvetopoints-geometrynode">
-<h1>GeometryNodeCurveToPoints(GeometryNode)<a class="headerlink" href="#geometrynodecurvetopoints-geometrynode" title="Permalink to this headline"></a></h1>
+  <section id="geometrynodelegacycurveendpoints-geometrynode">
+<h1>GeometryNodeLegacyCurveEndpoints(GeometryNode)<a class="headerlink" href="#geometrynodelegacycurveendpoints-geometrynode" title="Permalink to this headline"></a></h1>
 <p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Node.html#bpy.types.Node" title="bpy.types.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a>, <a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal" title="bpy.types.NodeInternal"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal</span></code></a>, <a class="reference internal" href="bpy.types.GeometryNode.html#bpy.types.GeometryNode" title="bpy.types.GeometryNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNode</span></code></a></p>
 <dl class="py class">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeCurveToPoints">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeCurveToPoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GeometryNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeCurveToPoints" title="Permalink to this definition"></a></dt>
-<dd><dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeCurveToPoints.mode">
-<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#bpy.types.GeometryNodeCurveToPoints.mode" title="Permalink to this definition"></a></dt>
-<dd><p>How to generate points from the input curve</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">EVALUATED</span></code>
-Evaluated – Create points from the curve’s evaluated points, based on the resolution attribute for NURBS and Bezier splines.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COUNT</span></code>
-Count – Sample each spline by evenly distributing the specified number of points.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LENGTH</span></code>
-Length – Sample each spline by splitting it into segments with the specified length.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘EVALUATED’, ‘COUNT’, ‘LENGTH’], default ‘COUNT’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeCurveToPoints.is_registered_node_type">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeCurveToPoints.is_registered_node_type" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeLegacyCurveEndpoints">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeLegacyCurveEndpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GeometryNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeLegacyCurveEndpoints" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeLegacyCurveEndpoints.is_registered_node_type">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeLegacyCurveEndpoints.is_registered_node_type" title="Permalink to this definition"></a></dt>
 <dd><p>True if a registered node type</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -161,8 +142,8 @@ Length – Sample each spline by splitting it into segments with the specified l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeCurveToPoints.input_template">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">input_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeCurveToPoints.input_template" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeLegacyCurveEndpoints.input_template">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">input_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeLegacyCurveEndpoints.input_template" title="Permalink to this definition"></a></dt>
 <dd><p>Input socket template</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -178,8 +159,8 @@ Length – Sample each spline by splitting it into segments with the specified l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeCurveToPoints.output_template">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">output_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeCurveToPoints.output_template" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeLegacyCurveEndpoints.output_template">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">output_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeLegacyCurveEndpoints.output_template" title="Permalink to this definition"></a></dt>
 <dd><p>Output socket template</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -195,8 +176,8 @@ Length – Sample each spline by splitting it into segments with the specified l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeCurveToPoints.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeCurveToPoints.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeLegacyCurveEndpoints.bl_rna_get_subclass">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeLegacyCurveEndpoints.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -211,8 +192,8 @@ Length – Sample each spline by splitting it into segments with the specified l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeCurveToPoints.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeCurveToPoints.bl_rna_get_subclass_py" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeLegacyCurveEndpoints.bl_rna_get_subclass_py">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeLegacyCurveEndpoints.bl_rna_get_subclass_py" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -324,15 +305,15 @@ Length – Sample each spline by splitting it into segments with the specified l
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.types.GeometryNodeCurveToMesh.html" class="btn btn-neutral float-left" title="GeometryNodeCurveToMesh(GeometryNode)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.types.GeometryNodeCurveTrim.html" class="btn btn-neutral float-right" title="GeometryNodeCurveTrim(GeometryNode)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bpy.types.GeometryNodeLegacyAttributeVectorRotate.html" class="btn btn-neutral float-left" title="GeometryNodeLegacyAttributeVectorRotate(GeometryNode)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bpy.types.GeometryNodeLegacyCurveReverse.html" class="btn btn-neutral float-right" title="GeometryNodeLegacyCurveReverse(GeometryNode)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/28/2021.
+      <span class="lastupdated">Last updated on 09/29/2021.
       </span></p>
   </div>
 
