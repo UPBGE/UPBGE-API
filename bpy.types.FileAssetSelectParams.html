@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                a5ace7d38697
+                1bc432559275
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -129,35 +129,6 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">FileAssetSelectParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">FileSelectParams</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.FileAssetSelectParams" title="Permalink to this definition"></a></dt>
 <dd><p>Settings for the file selection in Asset Browser mode</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.FileAssetSelectParams.asset_category">
-<span class="sig-name descname"><span class="pre">asset_category</span></span><a class="headerlink" href="#bpy.types.FileAssetSelectParams.asset_category" title="Permalink to this definition"></a></dt>
-<dd><p>Determine which kind of assets to display</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">SCENES</span></code>
-Scenes – Show scenes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ANIMATIONS</span></code>
-Animations – Show animation data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OBJECTS_AND_COLLECTIONS</span></code>
-Objects &amp; Collections – Show objects and collections.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code>
-Geometry – Show meshes, curves, lattice, armatures and metaballs data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADING</span></code>
-Shading – Show materials, nodetrees, textures and Freestyle’s linestyles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IMAGES_AND_SOUNDS</span></code>
-Images &amp; Sounds – Show images, movie clips, sounds and masks.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ENVIRONMENTS</span></code>
-Environment – Show worlds, lights, cameras and speakers.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MISC</span></code>
-Miscellaneous – Show other data types.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘SCENES’, ‘ANIMATIONS’, ‘OBJECTS_AND_COLLECTIONS’, ‘GEOMETRY’, ‘SHADING’, ‘IMAGES_AND_SOUNDS’, ‘ENVIRONMENTS’, ‘MISC’], default ‘SCENES’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.FileAssetSelectParams.asset_library_ref">
 <span class="sig-name descname"><span class="pre">asset_library_ref</span></span><a class="headerlink" href="#bpy.types.FileAssetSelectParams.asset_library_ref" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
@@ -176,10 +147,12 @@ Miscellaneous – Show other data types.</p></li>
 Link – Import the assets as linked data-block.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">APPEND</span></code>
 Append – Import the assets as copied data-block, with no link to the original asset data-block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">APPEND_REUSE</span></code>
+Append (Reuse Data) – Import the assets as copied data-block while avoiding multiple copies of nested, typically heavy data. For example the textures of a material asset, or the mesh of an object asset, don’t have to be copied every time this asset is imported. The instances of the asset share the data instead.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘LINK’, ‘APPEND’], default ‘LINK’</p>
+<dd class="field-odd"><p>enum in [‘LINK’, ‘APPEND’, ‘APPEND_REUSE’], default ‘LINK’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -297,7 +270,7 @@ Append – Import the assets as copied data-block, with no link to the original 
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/29/2021.
+      <span class="lastupdated">Last updated on 09/30/2021.
       </span></p>
   </div>
 
