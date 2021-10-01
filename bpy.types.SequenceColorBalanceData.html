@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1bc432559275
+                62faf91968fd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -131,6 +131,22 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">SequenceColorBalanceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData" title="Permalink to this definition"></a></dt>
 <dd><p>Color balance parameters for a sequence strip and its modifiers</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.correction_method">
+<span class="sig-name descname"><span class="pre">correction_method</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.correction_method" title="Permalink to this definition"></a></dt>
+<dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LIFT_GAMMA_GAIN</span></code>
+Lift/Gamma/Gain.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OFFSET_POWER_SLOPE</span></code>
+Offset/Power/Slope (ASC-CDL) – ASC-CDL standard color correction.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>enum in [‘LIFT_GAMMA_GAIN’, ‘OFFSET_POWER_SLOPE’], default ‘LIFT_GAMMA_GAIN’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.gain">
 <span class="sig-name descname"><span class="pre">gain</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.gain" title="Permalink to this definition"></a></dt>
 <dd><p>Color balance gain (highlights)</p>
@@ -186,9 +202,75 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.invert_offset">
+<span class="sig-name descname"><span class="pre">invert_offset</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.invert_offset" title="Permalink to this definition"></a></dt>
+<dd><p>Invert the offset color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.invert_power">
+<span class="sig-name descname"><span class="pre">invert_power</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.invert_power" title="Permalink to this definition"></a></dt>
+<dd><p>Invert the power color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.invert_slope">
+<span class="sig-name descname"><span class="pre">invert_slope</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.invert_slope" title="Permalink to this definition"></a></dt>
+<dd><p>Invert the slope color`</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.lift">
 <span class="sig-name descname"><span class="pre">lift</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.lift" title="Permalink to this definition"></a></dt>
 <dd><p>Color balance lift (shadows)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float array of 3 items in [0, inf], default (1.0, 1.0, 1.0)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.offset" title="Permalink to this definition"></a></dt>
+<dd><p>Correction for entire tonal range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float array of 3 items in [0, inf], default (1.0, 1.0, 1.0)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.power">
+<span class="sig-name descname"><span class="pre">power</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.power" title="Permalink to this definition"></a></dt>
+<dd><p>Correction for midtones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float array of 3 items in [0, inf], default (1.0, 1.0, 1.0)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequenceColorBalanceData.slope">
+<span class="sig-name descname"><span class="pre">slope</span></span><a class="headerlink" href="#bpy.types.SequenceColorBalanceData.slope" title="Permalink to this definition"></a></dt>
+<dd><p>Correction for highlights</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>float array of 3 items in [0, inf], default (1.0, 1.0, 1.0)</p>
@@ -286,7 +368,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 09/30/2021.
+      <span class="lastupdated">Last updated on 10/01/2021.
       </span></p>
   </div>
 
