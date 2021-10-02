@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                62faf91968fd
+                bca11671b8d7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -869,6 +869,45 @@ Utility function for (tail - head)</p>
 <dd class="field-odd"><p>float multi-dimensional array of 4 * 4 items in [-inf, inf]</p>
 </dd>
 </dl>
+<p>This method enables conversions between Local and Pose space for bones in
+the middle of updating the armature without having to update dependencies
+after each change, by manually carrying updated matrices in a recursive walk.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_pose_matrices</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">matrix_map</span><span class="p">):</span>
+    <span class="s2">&quot;Assign pose space matrices of all bones at once, ignoring constraints.&quot;</span>
+
+    <span class="k">def</span> <span class="nf">rec</span><span class="p">(</span><span class="n">pbone</span><span class="p">,</span> <span class="n">parent_matrix</span><span class="p">):</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">matrix_map</span><span class="p">[</span><span class="n">pbone</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+
+        <span class="c1">## Instead of:</span>
+        <span class="c1"># pbone.matrix = matrix</span>
+        <span class="c1"># bpy.context.view_layer.update()</span>
+
+        <span class="c1"># Compute and assign local matrix, using the new parent matrix</span>
+        <span class="k">if</span> <span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+            <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
+                <span class="n">matrix</span><span class="p">,</span>
+                <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                <span class="n">parent_matrix</span><span class="o">=</span><span class="n">parent_matrix</span><span class="p">,</span>
+                <span class="n">parent_matrix_local</span><span class="o">=</span><span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                <span class="n">invert</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
+                <span class="n">matrix</span><span class="p">,</span>
+                <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                <span class="n">invert</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Recursively process children, passing the new matrix through</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">pbone</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="n">rec</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
+
+    <span class="c1"># Scan all bone trees from their roots</span>
+    <span class="k">for</span> <span class="n">pbone</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">bones</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+            <span class="n">rec</span><span class="p">(</span><span class="n">pbone</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1019,7 +1058,7 @@ but saved generating a list.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 10/01/2021.
+      <span class="lastupdated">Last updated on 10/02/2021.
       </span></p>
   </div>
 

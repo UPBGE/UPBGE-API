@@ -24,7 +24,7 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="KX_2DFilterManager(EXP_PyObjectPlus)" href="bge.types.KX_2DFilterManager.html" />
+    <link rel="next" title="KX_2DFilterOffScreen(EXP_Value)" href="bge.types.KX_2DFilterFrameBuffer.html" />
     <link rel="prev" title="EXP_Value(EXP_PyObjectPlus)" href="bge.types.EXP_Value.html" /> 
 </head>
 
@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                62faf91968fd
+                bca11671b8d7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -131,9 +131,15 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The vertex shader must not apply modelview and projection transformation. It should be similar to:</p>
-<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">main</span><span class="p">()</span>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">in</span> <span class="kt">vec4</span> <span class="n">pos</span><span class="p">;</span>
+<span class="k">in</span> <span class="kt">vec2</span> <span class="n">texCoord</span><span class="p">;</span>
+
+<span class="k">out</span> <span class="kt">vec4</span> <span class="n">bgl_TexCoord</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nb">gl_Position</span> <span class="o">=</span> <span class="nb">gl_Vertex</span><span class="p">;</span>
+    <span class="nb">gl_Position</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
+    <span class="n">bgl_TexCoord</span> <span class="o">=</span> <span class="kt">vec4</span><span class="p">(</span><span class="n">texCoord</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -143,11 +149,13 @@
 <span class="sig-name descname"><span class="pre">mipmap</span></span><a class="headerlink" href="#bge.types.KX_2DFilter.mipmap" title="Permalink to this definition"></a></dt>
 <dd><p>Request mipmap generation of the render <cite>bgl_RenderedTexture</cite> texture. Accessing mipmapping level is similar to:</p>
 <div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">uniform</span> <span class="kt">sampler2D</span> <span class="n">bgl_RenderedTexture</span><span class="p">;</span>
+<span class="k">in</span> <span class="kt">vec4</span> <span class="n">bgl_TexCoord</span><span class="p">;</span>
+<span class="k">out</span> <span class="kt">vec4</span> <span class="n">fragColor</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">float</span> <span class="n">level</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span> <span class="c1">// mipmap level</span>
-    <span class="nb">gl_FragColor</span> <span class="o">=</span> <span class="n">textureLod</span><span class="p">(</span><span class="n">bgl_RenderedTexture</span><span class="p">,</span> <span class="nb">gl_TexCoord</span><span class="p">[</span><span class="mo">0</span><span class="p">].</span><span class="n">st</span><span class="p">,</span> <span class="n">level</span><span class="p">);</span>
+    <span class="n">fragColor</span> <span class="o">=</span> <span class="n">textureLod</span><span class="p">(</span><span class="n">bgl_RenderedTexture</span><span class="p">,</span> <span class="n">bgl_TexCoord</span><span class="p">.</span><span class="n">xy</span><span class="p">,</span> <span class="n">level</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -161,10 +169,10 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bge.types.KX_2DFilter.offScreen">
 <span class="sig-name descname"><span class="pre">offScreen</span></span><a class="headerlink" href="#bge.types.KX_2DFilter.offScreen" title="Permalink to this definition"></a></dt>
-<dd><p>The custom off screen the filter render to (read-only).</p>
+<dd><p>The custom off screen (framebuffer in 0.3.0) the filter render to (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="bge.types.KX_2DFilterOffScreen.html#bge.types.KX_2DFilterOffScreen" title="bge.types.KX_2DFilterOffScreen"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_2DFilterOffScreen</span></code></a> or None</p>
+<dd class="field-odd"><p><a class="reference internal" href="bge.types.KX_2DFilterFrameBuffer.html#bge.types.KX_2DFilterFrameBuffer" title="bge.types.KX_2DFilterFrameBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_2DFilterFrameBuffer</span></code></a> or None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -203,14 +211,14 @@ should be followed by a call to <a class="reference internal" href="bge.types.BL
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bge.types.KX_2DFilter.addOffScreen">
-<span class="sig-name descname"><span class="pre">addOffScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mipmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_2DFilter.addOffScreen" title="Permalink to this definition"></a></dt>
-<dd><p>Register a custom off screen to render the filter to.</p>
+<span class="sig-name descname"><span class="pre">addOffScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mipmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_2DFilter.addOffScreen" title="Permalink to this definition"></a></dt>
+<dd><p>Register a custom off screen (framebuffer in 0.3.0) to render the filter to.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slots</strong> (<em>integer</em>) – The number of color texture attached to the off screen, between 0 and 8 excluded.</p></li>
-<li><p><strong>width</strong> (<em>integer</em>) – The off screen width, -1 if it can be resized dynamically when the viewport dimensions changed (optional).</p></li>
-<li><p><strong>height</strong> (<em>integer</em>) – The off screen height, -1 if it can be resized dynamically when the viewport dimensions changed (optional).</p></li>
+<li><p><strong>width</strong> (<em>integer</em>) – In 0.3.0, always canvas width (optional).</p></li>
+<li><p><strong>height</strong> (<em>integer</em>) – In 0.3.0, always canvas height (optional).</p></li>
 <li><p><strong>mipmap</strong> (<em>boolean</em>) – True if the color texture generate mipmap at the end of the filter rendering (optional).</p></li>
 </ul>
 </dd>
@@ -225,7 +233,7 @@ the next render of the filter and the it can change when the viewport is resized
 <dl class="py method">
 <dt class="sig sig-object py" id="bge.types.KX_2DFilter.removeOffScreen">
 <span class="sig-name descname"><span class="pre">removeOffScreen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_2DFilter.removeOffScreen" title="Permalink to this definition"></a></dt>
-<dd><p>Unregister the custom off screen the filter render to.</p>
+<dd><p>Unregister the custom off screen (framebuffer in 0.3.0) the filter render to.</p>
 </dd></dl>
 
 </dd></dl>
@@ -237,14 +245,14 @@ the next render of the filter and the it can change when the viewport is resized
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="bge.types.EXP_Value.html" class="btn btn-neutral float-left" title="EXP_Value(EXP_PyObjectPlus)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bge.types.KX_2DFilterManager.html" class="btn btn-neutral float-right" title="KX_2DFilterManager(EXP_PyObjectPlus)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bge.types.KX_2DFilterFrameBuffer.html" class="btn btn-neutral float-right" title="KX_2DFilterOffScreen(EXP_Value)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 10/01/2021.
+      <span class="lastupdated">Last updated on 10/02/2021.
       </span></p>
   </div>
 

@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                62faf91968fd
+                bca11671b8d7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -148,7 +148,7 @@
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bge.types.SCA_MouseFocusSensor.html#bge.types.SCA_MouseFocusSensor" title="bge.types.SCA_MouseFocusSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_MouseFocusSensor</span></code></a></p></li>
 <li><p><a class="reference internal" href="bge.types.SCA_NearSensor.html#bge.types.SCA_NearSensor" title="bge.types.SCA_NearSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_NearSensor</span></code></a></p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_NetworkMessageSensor</span></code></p></li>
+<li><p><a class="reference internal" href="bge.types.SCA_NetworkMessageSensor.html#bge.types.SCA_NetworkMessageSensor" title="bge.types.SCA_NetworkMessageSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_NetworkMessageSensor</span></code></a></p></li>
 <li><p><a class="reference internal" href="bge.types.SCA_RadarSensor.html#bge.types.SCA_RadarSensor" title="bge.types.SCA_RadarSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_RadarSensor</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
@@ -177,12 +177,12 @@
 </div>
 <p>See the actuator’s reference for available methods</p>
 <table class="hlist"><tr><td><ul class="simple">
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BL_ActionActuator</span></code></p></li>
+<li><p><a class="reference internal" href="bge.types.SCA_ActionActuator.html#bge.types.SCA_ActionActuator" title="bge.types.SCA_ActionActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_ActionActuator</span></code></a></p></li>
 <li><p><a class="reference internal" href="bge.types.SCA_CameraActuator.html#bge.types.SCA_CameraActuator" title="bge.types.SCA_CameraActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_CameraActuator</span></code></a></p></li>
 <li><p><a class="reference internal" href="bge.types.SCA_ConstraintActuator.html#bge.types.SCA_ConstraintActuator" title="bge.types.SCA_ConstraintActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_ConstraintActuator</span></code></a></p></li>
 <li><p><a class="reference internal" href="bge.types.SCA_GameActuator.html#bge.types.SCA_GameActuator" title="bge.types.SCA_GameActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_GameActuator</span></code></a></p></li>
 <li><p><a class="reference internal" href="bge.types.SCA_MouseActuator.html#bge.types.SCA_MouseActuator" title="bge.types.SCA_MouseActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_MouseActuator</span></code></a></p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_NetworkMessageActuator</span></code></p></li>
+<li><p><a class="reference internal" href="bge.types.SCA_NetworkMessageActuator.html#bge.types.SCA_NetworkMessageActuator" title="bge.types.SCA_NetworkMessageActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_NetworkMessageActuator</span></code></a></p></li>
 <li><p><a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bge.types.SCA_ObjectActuator" title="bge.types.SCA_ObjectActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SCA_ObjectActuator</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
@@ -298,7 +298,7 @@ If no joystick is available for a given slot, the slot is set to None.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.logic.getSceneList">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">getSceneList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.logic.getSceneList" title="Permalink to this definition"></a></dt>
-<dd><p>Gets a list of the current scenes loaded in the game engine.</p>
+<dd><p>Gets a list of the current scenes loaded in the game engine. Since 0.3, it contains only the current KX_Scene.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list of <a class="reference internal" href="bge.types.KX_Scene.html#bge.types.KX_Scene" title="bge.types.KX_Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">bge.types.KX_Scene</span></code></a></p>
@@ -359,7 +359,10 @@ If no joystick is available for a given slot, the slot is set to None.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.logic.LibLoad">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">LibLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_scripts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asynchronous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.logic.LibLoad" title="Permalink to this definition"></a></dt>
-<dd><p>Converts the all of the datablocks of the given type from the given blend.</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
+</div>
+<p>Converts the all of the datablocks of the given type from the given blend.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -386,7 +389,10 @@ If no joystick is available for a given slot, the slot is set to None.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.logic.LibNew">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">LibNew</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.logic.LibNew" title="Permalink to this definition"></a></dt>
-<dd><p>Uses existing datablock data and loads in as a new library.</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
+</div>
+<p>Uses existing datablock data and loads in as a new library.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -401,7 +407,10 @@ If no joystick is available for a given slot, the slot is set to None.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.logic.LibFree">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">LibFree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.logic.LibFree" title="Permalink to this definition"></a></dt>
-<dd><p>Frees a library, removing all objects and meshes from the currently active scenes.</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
+</div>
+<p>Frees a library, removing all objects and meshes from the currently active scenes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – The name of the library to free (the name used in LibNew)</p>
@@ -412,7 +421,10 @@ If no joystick is available for a given slot, the slot is set to None.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.logic.LibList">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">LibList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.logic.LibList" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a list of currently loaded libraries.</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
+</div>
+<p>Returns a list of currently loaded libraries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list [str]</p>
@@ -423,7 +435,10 @@ If no joystick is available for a given slot, the slot is set to None.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.logic.addScene">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">addScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.logic.addScene" title="Permalink to this definition"></a></dt>
-<dd><p>Loads a scene into the game engine.</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
+</div>
+<p>Loads a scene into the game engine.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This function is not effective immediately, the scene is queued
@@ -470,16 +485,16 @@ from <cite>getSceneList</cite></p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.logic.getSpectrum">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">getSpectrum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.logic.getSpectrum" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a 512 point list from the sound card.
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+</div>
+<p>Returns a 512 point list from the sound card.
 This only works if the fmod sound driver is being used.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list [float], len(<a class="reference internal" href="#bge.logic.getSpectrum" title="bge.logic.getSpectrum">getSpectrum</a>()) == 512</p>
 </dd>
 </dl>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.2.2.</span></p>
-</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1820,7 +1835,10 @@ it executes automatically once per frame until stopped by a controller</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.logic.RAS_2DFILTER_MOTIONBLUR">
 <span class="sig-prename descclassname"><span class="pre">bge.logic.</span></span><span class="sig-name descname"><span class="pre">RAS_2DFILTER_MOTIONBLUR</span></span><a class="headerlink" href="#bge.logic.RAS_2DFILTER_MOTIONBLUR" title="Permalink to this definition"></a></dt>
-<dd><p>Create and enable preset filters</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
+</div>
+<p>Create and enable preset filters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Value</dt>
 <dd class="field-odd"><p>1</p>
@@ -2623,7 +2641,7 @@ it executes automatically once per frame until stopped by a controller</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 10/01/2021.
+      <span class="lastupdated">Last updated on 10/02/2021.
       </span></p>
   </div>
 

@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                62faf91968fd
+                bca11671b8d7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -127,7 +127,22 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="bge.types.KX_LightObject">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">bge.types.</span></span><span class="sig-name descname"><span class="pre">KX_LightObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">KX_GameObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_LightObject" title="Permalink to this definition"></a></dt>
-<dd><p>A Light object.</p>
+<dd><p>A Light game object.</p>
+<p>It is possible to use attributes from :type: <a class="reference internal" href="bpy.types.Light.html#bpy.types.Light" title="bpy.types.Light"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bge</span>
+
+<span class="c1"># Use bge module to get/set game property + transform</span>
+<span class="n">kxlight</span> <span class="o">=</span> <span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">getCurrentController</span><span class="p">())</span><span class="o">.</span><span class="n">owner</span>
+<span class="n">kxlight</span><span class="p">[</span><span class="s2">&quot;Text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Text Example&quot;</span>
+<span class="n">kxlight</span><span class="o">.</span><span class="n">worldPosition</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+<span class="c1"># Use bpy.types.Light attributes to set other light settings</span>
+<span class="n">lightData</span> <span class="o">=</span> <span class="n">kxlight</span><span class="o">.</span><span class="n">blenderObject</span><span class="o">.</span><span class="n">data</span>
+<span class="n">lightData</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="n">lightData</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">lightData</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s2">&quot;POINT&quot;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -144,7 +159,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 10/01/2021.
+      <span class="lastupdated">Last updated on 10/02/2021.
       </span></p>
   </div>
 
