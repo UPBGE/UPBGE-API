@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                91fe70ab2ec9
+                bc0b5dd720c6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -201,7 +201,9 @@ In some cases it may be useful to publish changes explicitly using more general 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.msgbus.subscribe_rna">
 <span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">subscribe_rna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.subscribe_rna" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Register a message bus subscription. It will be cleared when another blend file is
+loaded, or can be cleared explicitly via <a class="reference internal" href="#bpy.msgbus.clear_by_owner" title="bpy.msgbus.clear_by_owner"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.msgbus.clear_by_owner()</span></code></a>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>key</strong> (<em>Muliple</em>) – <p>Represents the type of data being subscribed to</p>
@@ -221,6 +223,11 @@ In some cases it may be useful to publish changes explicitly using more general 
 </dl>
 </dd></dl>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All subscribers will be cleared on file-load. Subscribers can be re-registered on load,
+see <a class="reference internal" href="bpy.app.handlers.html#bpy.app.handlers.load_post" title="bpy.app.handlers.load_post"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.app.handlers.load_post</span></code></a>.</p>
+</div>
 </section>
 </section>
 
@@ -236,7 +243,7 @@ In some cases it may be useful to publish changes explicitly using more general 
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 10/08/2021.
+      <span class="lastupdated">Last updated on 10/09/2021.
       </span></p>
   </div>
 
