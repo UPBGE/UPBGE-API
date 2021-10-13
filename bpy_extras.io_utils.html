@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                456766b68778
+                ffcaf7d3e18e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -161,13 +161,24 @@ to be used from <a class="reference internal" href="bpy.types.Operator.html#bpy.
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.create_derived_objects">
-<span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">create_derived_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ob</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.create_derived_objects" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy_extras.io_utils.free_derived_objects">
-<span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">free_derived_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ob</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.free_derived_objects" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">create_derived_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objects</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.create_derived_objects" title="Permalink to this definition"></a></dt>
+<dd><p>This function takes a sequence of objects, returning their instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Depsgraph</span></code></a>) – The evaluated depsgraph.</p></li>
+<li><p><strong>objects</strong> (sequence of <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – A sequencer of objects.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary where each key is an object from <cite>objects</cite>,
+values are lists of (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>, <a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) tuples representing instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.unpack_list">
@@ -291,7 +302,7 @@ duplicate name is found.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 10/12/2021.
+      <span class="lastupdated">Last updated on 10/13/2021.
       </span></p>
   </div>
 
