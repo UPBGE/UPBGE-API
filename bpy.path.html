@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                fd716801c133
+                26f3f5d721a0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -138,6 +138,12 @@ when not set the current filename is used.</p></li>
 convenience, when the library is not None its path replaces <em>start</em>.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The absolute path.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -145,7 +151,9 @@ convenience, when the library is not None its path replaces <em>start</em>.</p><
 <dt class="sig sig-object py" id="bpy.path.basename">
 <span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">basename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.basename" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">os.path.basename</span></code>, but skips a “//” prefix.</p>
-<p>Use for Windows compatibility.</p>
+<p>Use for Windows compatibility.
+:return: The base name of the given path.
+:rtype: string</p>
 </dd></dl>
 
 <dl class="py function">
@@ -155,7 +163,13 @@ convenience, when the library is not None its path replaces <em>start</em>.</p><
 may cause problems under various circumstances,
 such as writing to a file.
 All characters besides A-Z/a-z, 0-9 are replaced with “_”
-or the <em>replace</em> argument if defined.</p>
+or the <em>replace</em> argument if defined.
+:arg name: The path name.
+:type name: string or bytes
+:arg replace: The replacement for non-valid characters.
+:type replace: string
+:return: The cleaned name.
+:rtype: string</p>
 </dd></dl>
 
 <dl class="py function">
@@ -166,9 +180,16 @@ Intended for use with filenames and module names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>has_ext</strong> – Remove file extension from name</p></li>
-<li><p><strong>title_case</strong> – Convert lowercase names to title case</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – The name to be used for displaying the user interface.</p></li>
+<li><p><strong>has_ext</strong> (<em>boolean</em>) – Remove file extension from name.</p></li>
+<li><p><strong>title_case</strong> (<em>boolean</em>) – Convert lowercase names to title case.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The display string.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
 </dd>
 </dl>
 </dd></dl>
@@ -177,14 +198,22 @@ Intended for use with filenames and module names.</p>
 <dt class="sig sig-object py" id="bpy.path.display_name_to_filepath">
 <span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">display_name_to_filepath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.display_name_to_filepath" title="Permalink to this definition"></a></dt>
 <dd><p>Performs the reverse of display_name using literal versions of characters
-which aren’t supported in a filepath.</p>
+which aren’t supported in a filepath.
+:arg name: The display name to convert.
+:type name: string
+:return: The file path.
+:rtype: string</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.display_name_from_filepath">
 <span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">display_name_from_filepath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.display_name_from_filepath" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the path stripped of directory and extension,
-ensured to be utf8 compatible.</p>
+ensured to be utf8 compatible.
+:arg name: The file path to convert.
+:type name: string
+:return: The display name.
+:rtype: string</p>
 </dd></dl>
 
 <dl class="py function">
@@ -194,10 +223,17 @@ ensured to be utf8 compatible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>string</em>) – The file path.</p></li>
 <li><p><strong>ext</strong> (<em>string</em>) – The extension to check for, can be a compound extension. Should
 start with a dot, such as ‘.blend’ or ‘.tar.gz’.</p></li>
-<li><p><strong>case_sensitive</strong> (<em>bool</em>) – Check for matching case when comparing extensions.</p></li>
+<li><p><strong>case_sensitive</strong> (<em>boolean</em>) – Check for matching case when comparing extensions.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The file path with the given extension.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
 </dd>
 </dl>
 </dd></dl>
@@ -210,6 +246,12 @@ Both paths must be absolute.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>string</em><em> or </em><em>bytes</em>) – An absolute path.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Whether or not the path is a subdirectory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>boolean</p>
 </dd>
 </dl>
 </dd></dl>
@@ -229,7 +271,7 @@ Both paths must be absolute.</p>
 <dd class="field-even"><p>a list of string pairs (module_name, module_file).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
+<dd class="field-odd"><p>list of strings</p>
 </dd>
 </dl>
 </dd></dl>
@@ -237,7 +279,11 @@ Both paths must be absolute.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.native_pathsep">
 <span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">native_pathsep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.native_pathsep" title="Permalink to this definition"></a></dt>
-<dd><p>Replace the path separator with the systems native <code class="docutils literal notranslate"><span class="pre">os.sep</span></code>.</p>
+<dd><p>Replace the path separator with the systems native <code class="docutils literal notranslate"><span class="pre">os.sep</span></code>.
+:arg path: The path to replace.
+:type path: string
+:return: The path with system native separators.
+:rtype: string</p>
 </dd></dl>
 
 <dl class="py function">
@@ -248,13 +294,13 @@ any directories nested in one of the other paths.
 (Useful for recursive path searching).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dirs</strong> (<em>sequence</em>) – Sequence of directory paths.</p>
+<dd class="field-odd"><p><strong>dirs</strong> (<em>sequence of strings</em>) – Sequence of directory paths.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A unique list of paths.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
+<dd class="field-odd"><p>list of strings</p>
 </dd>
 </dl>
 </dd></dl>
@@ -271,6 +317,12 @@ any directories nested in one of the other paths.
 when not set the current filename is used.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The relative path.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -278,7 +330,11 @@ when not set the current filename is used.</p></li>
 <dt class="sig sig-object py" id="bpy.path.resolve_ncase">
 <span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">resolve_ncase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.resolve_ncase" title="Permalink to this definition"></a></dt>
 <dd><p>Resolve a case insensitive path on a case sensitive system,
-returning a string with the path if found else return the original path.</p>
+returning a string with the path if found else return the original path.
+:arg path: The path name to resolve.
+:type path: string
+:return: The resolved path.
+:rtype: string</p>
 </dd></dl>
 
 </section>
@@ -295,7 +351,7 @@ returning a string with the path if found else return the original path.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 10/22/2021.
+      <span class="lastupdated">Last updated on 10/24/2021.
       </span></p>
   </div>
 
