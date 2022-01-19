@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                ac401562e4f2
+                49504a417112
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -875,27 +875,42 @@ after each change, by manually carrying updated matrices in a recursive walk.</p
     <span class="s2">&quot;Assign pose space matrices of all bones at once, ignoring constraints.&quot;</span>
 
     <span class="k">def</span> <span class="nf">rec</span><span class="p">(</span><span class="n">pbone</span><span class="p">,</span> <span class="n">parent_matrix</span><span class="p">):</span>
-        <span class="n">matrix</span> <span class="o">=</span> <span class="n">matrix_map</span><span class="p">[</span><span class="n">pbone</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pbone</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">matrix_map</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">matrix_map</span><span class="p">[</span><span class="n">pbone</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
 
-        <span class="c1">## Instead of:</span>
-        <span class="c1"># pbone.matrix = matrix</span>
-        <span class="c1"># bpy.context.view_layer.update()</span>
+            <span class="c1">## Instead of:</span>
+            <span class="c1"># pbone.matrix = matrix</span>
+            <span class="c1"># bpy.context.view_layer.update()</span>
 
-        <span class="c1"># Compute and assign local matrix, using the new parent matrix</span>
-        <span class="k">if</span> <span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
-            <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
-                <span class="n">matrix</span><span class="p">,</span>
-                <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
-                <span class="n">parent_matrix</span><span class="o">=</span><span class="n">parent_matrix</span><span class="p">,</span>
-                <span class="n">parent_matrix_local</span><span class="o">=</span><span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
-                <span class="n">invert</span><span class="o">=</span><span class="kc">True</span>
-            <span class="p">)</span>
+            <span class="c1"># Compute and assign local matrix, using the new parent matrix</span>
+            <span class="k">if</span> <span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
+                    <span class="n">matrix</span><span class="p">,</span>
+                    <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                    <span class="n">parent_matrix</span><span class="o">=</span><span class="n">parent_matrix</span><span class="p">,</span>
+                    <span class="n">parent_matrix_local</span><span class="o">=</span><span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                    <span class="n">invert</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
+                    <span class="n">matrix</span><span class="p">,</span>
+                    <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                    <span class="n">invert</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
-                <span class="n">matrix</span><span class="p">,</span>
-                <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
-                <span class="n">invert</span><span class="o">=</span><span class="kc">True</span>
-            <span class="p">)</span>
+            <span class="c1"># Compute the updated pose matrix from local and new parent matrix</span>
+            <span class="k">if</span> <span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="n">matrix</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
+                    <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span><span class="p">,</span>
+                    <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                    <span class="n">parent_matrix</span><span class="o">=</span><span class="n">parent_matrix</span><span class="p">,</span>
+                    <span class="n">parent_matrix_local</span><span class="o">=</span><span class="n">pbone</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">matrix</span> <span class="o">=</span> <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">convert_local_to_pose</span><span class="p">(</span>
+                    <span class="n">pbone</span><span class="o">.</span><span class="n">matrix_basis</span><span class="p">,</span>
+                    <span class="n">pbone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="p">,</span>
+                <span class="p">)</span>
 
         <span class="c1"># Recursively process children, passing the new matrix through</span>
         <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">pbone</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
@@ -1057,7 +1072,7 @@ but saved generating a list.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 01/18/2022.
+      <span class="lastupdated">Last updated on 01/19/2022.
       </span></p>
   </div>
 
