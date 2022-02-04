@@ -4,12 +4,12 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HairPoint(bpy_struct) &mdash; Blender Python API</title>
+  <title>CurveSlice(bpy_struct) &mdash; Blender Python API</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.HairPoint.html" />
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.CurveSlice.html" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -24,8 +24,8 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Header(bpy_struct)" href="bpy.types.Header.html" />
-    <link rel="prev" title="HairCurve(bpy_struct)" href="bpy.types.HairCurve.html" /> 
+    <link rel="next" title="CurveSplines(bpy_struct)" href="bpy.types.CurveSplines.html" />
+    <link rel="prev" title="CurveProfilePoints(bpy_struct)" href="bpy.types.CurveProfilePoints.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +37,7 @@
             <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                4763a974dabe
+                6327c3a07d00
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -111,7 +111,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="bpy.types.html">Types (bpy.types)</a> &raquo;</li>
-      <li>HairPoint(bpy_struct)</li>
+      <li>CurveSlice(bpy_struct)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -120,27 +120,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hairpoint-bpy-struct">
-<h1>HairPoint(bpy_struct)<a class="headerlink" href="#hairpoint-bpy-struct" title="Permalink to this headline"></a></h1>
+  <section id="curveslice-bpy-struct">
+<h1>CurveSlice(bpy_struct)<a class="headerlink" href="#curveslice-bpy-struct" title="Permalink to this headline"></a></h1>
 <p>base class — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a></p>
 <dl class="py class">
-<dt class="sig sig-object py" id="bpy.types.HairPoint">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">HairPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.HairPoint" title="Permalink to this definition"></a></dt>
-<dd><p>Hair curve control point</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.HairPoint.co">
-<span class="sig-name descname"><span class="pre">co</span></span><a class="headerlink" href="#bpy.types.HairPoint.co" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</p>
-</dd>
-</dl>
-</dd></dl>
-
+<dt class="sig sig-object py" id="bpy.types.CurveSlice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">CurveSlice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CurveSlice" title="Permalink to this definition"></a></dt>
+<dd><p>A single curve from a curves data-block</p>
 <dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.HairPoint.index">
-<span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#bpy.types.HairPoint.index" title="Permalink to this definition"></a></dt>
-<dd><p>Index of this points</p>
+<dt class="sig sig-object py" id="bpy.types.CurveSlice.first_point_index">
+<span class="sig-name descname"><span class="pre">first_point_index</span></span><a class="headerlink" href="#bpy.types.CurveSlice.first_point_index" title="Permalink to this definition"></a></dt>
+<dd><p>The index of this curve’s first control point</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>int in [0, inf], default 0, (readonly)</p>
@@ -148,19 +138,42 @@
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.HairPoint.radius">
-<span class="sig-name descname"><span class="pre">radius</span></span><a class="headerlink" href="#bpy.types.HairPoint.radius" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.CurveSlice.index">
+<span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#bpy.types.CurveSlice.index" title="Permalink to this definition"></a></dt>
+<dd><p>Index of this curve</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float in [-inf, inf], default 0.0</p>
+<dd class="field-odd"><p>int in [0, inf], default 0, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.CurveSlice.points">
+<span class="sig-name descname"><span class="pre">points</span></span><a class="headerlink" href="#bpy.types.CurveSlice.points" title="Permalink to this definition"></a></dt>
+<dd><p>Control points of the curve</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.CurvePoint.html#bpy.types.CurvePoint" title="bpy.types.CurvePoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurvePoint</span></code></a>, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.CurveSlice.points_length">
+<span class="sig-name descname"><span class="pre">points_length</span></span><a class="headerlink" href="#bpy.types.CurveSlice.points_length" title="Permalink to this definition"></a></dt>
+<dd><p>Number of control points in the curve</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int in [0, inf], default 0, (readonly)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.HairPoint.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.HairPoint.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.CurveSlice.bl_rna_get_subclass">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CurveSlice.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -175,8 +188,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.HairPoint.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.HairPoint.bl_rna_get_subclass_py" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.CurveSlice.bl_rna_get_subclass_py">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CurveSlice.bl_rna_get_subclass_py" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -229,10 +242,9 @@
 </td></tr></table>
 <p class="rubric">References</p>
 <table class="hlist"><tr><td><ul class="simple">
-<li><p><a class="reference internal" href="bpy.types.Hair.html#bpy.types.Hair.points" title="bpy.types.Hair.points"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hair.points</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Hair.html#bpy.types.Hair.curves" title="bpy.types.Hair.curves"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hair.curves</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
-<li><p><a class="reference internal" href="bpy.types.HairCurve.html#bpy.types.HairCurve.points" title="bpy.types.HairCurve.points"><code class="xref py py-class docutils literal notranslate"><span class="pre">HairCurve.points</span></code></a></p></li>
 </ul>
 </td></tr></table>
 </section>
@@ -241,15 +253,15 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.types.HairCurve.html" class="btn btn-neutral float-left" title="HairCurve(bpy_struct)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.types.Header.html" class="btn btn-neutral float-right" title="Header(bpy_struct)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bpy.types.CurveProfilePoints.html" class="btn btn-neutral float-left" title="CurveProfilePoints(bpy_struct)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bpy.types.CurveSplines.html" class="btn btn-neutral float-right" title="CurveSplines(bpy_struct)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="lastupdated">Last updated on 02/03/2022.
+      <span class="lastupdated">Last updated on 02/04/2022.
       </span></p>
   </div>
 
