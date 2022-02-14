@@ -124,18 +124,18 @@
 that can be troublesome and avoid practices that are known to cause instability.</p>
 <section id="using-operators">
 <span id="id1"></span><h2>Using Operators<a class="headerlink" href="#using-operators" title="Permalink to this headline"></a></h2>
-<p>Blender’s operators are tools for users to access, that can access with Python too which is very useful.
+<p>Blender’s operators are tools for users to access, that can be accessed with Python too which is very useful.
 Still operators have limitations that can make them cumbersome to script.</p>
 <p>The main limits are:</p>
 <ul class="simple">
 <li><p>Can’t pass data such as objects, meshes or materials to operate on (operators use the context instead).</p></li>
 <li><p>The return value from calling an operator is the success (if it finished or was canceled),
 in some cases it would be more logical from an API perspective to return the result of the operation.</p></li>
-<li><p>Operators poll function can fail where an API function would raise an exception giving details on exactly why.</p></li>
+<li><p>Operators’ poll function can fail where an API function would raise an exception giving details on exactly why.</p></li>
 </ul>
 <section id="why-does-an-operator-s-poll-fail">
 <h3>Why does an operator’s poll fail?<a class="headerlink" href="#why-does-an-operator-s-poll-fail" title="Permalink to this headline"></a></h3>
-<p>When calling an operator gives an error like this:</p>
+<p>When calling an operator it gives an error like this:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
 <span class="go">RuntimeError: Operator bpy.ops.action.clean.poll() failed, context is incorrect</span>
 </pre></div>
@@ -155,9 +155,9 @@ you should be able to find the poll function with no knowledge of C.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Blender does have the functionality for poll functions to describe why they fail,
-but its currently not used much, if you’re interested to help improve the API
+but it’s currently not used much, if you’re interested to help improve the API
 feel free to add calls to <a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator.poll_message_set" title="bpy.types.Operator.poll_message_set"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator.poll_message_set</span></code></a> (<code class="docutils literal notranslate"><span class="pre">CTX_wm_operator_poll_msg_set</span></code> in C)
-where its not obvious why poll fails, e.g:</p>
+where it’s not obvious why poll fails, e.g:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">gpencil</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 <span class="go">RuntimeError: Operator bpy.ops.gpencil.draw.poll() Failed to find Grease Pencil data to draw into</span>
 </pre></div>
@@ -206,25 +206,25 @@ In this case you need to call <a class="reference internal" href="bpy.types.View
 </pre></div>
 </div>
 <p>Now all dependent data (child objects, modifiers, drivers, etc.)
-has been recalculated and is available to the script within active view layer.</p>
+have been recalculated and are available to the script within the active view layer.</p>
 </section>
 <section id="can-i-redraw-during-script-execution">
 <h3>Can I redraw during script execution?<a class="headerlink" href="#can-i-redraw-during-script-execution" title="Permalink to this headline"></a></h3>
 <p>The official answer to this is no, or… <em>“You don’t want to do that”</em>.
 To give some background on the topic:</p>
-<p>While a script executes Blender waits for it to finish and is effectively locked until its done,
+<p>While a script executes, Blender waits for it to finish and is effectively locked until it’s done;
 while in this state Blender won’t redraw or respond to user input.
 Normally this is not such a problem because scripts distributed with Blender
 tend not to run for an extended period of time,
 nevertheless scripts <em>can</em> take a long time to complete and it would be nice to see progress in the viewport.</p>
-<p>When tools lock Blender in a loop redraw are highly discouraged
+<p>Tools that lock Blender in a loop redraw are highly discouraged
 since they conflict with Blender’s ability to run multiple operators
 at once and update different parts of the interface as the tool runs.</p>
 <p>So the solution here is to write a <strong>modal</strong> operator, which is an operator that defines a <code class="docutils literal notranslate"><span class="pre">modal()</span></code> function,
 See the modal operator template in the text editor.
 Modal operators execute on user input or setup their own timers to run frequently,
 they can handle the events or pass through to be handled by the keymap or other modal operators.
-Examples of a modal operators are Transform, Painting, Fly Navigation and File Select.</p>
+Examples of modal operators are Transform, Painting, Fly Navigation and File Select.</p>
 <p>Writing modal operators takes more effort than a simple <code class="docutils literal notranslate"><span class="pre">for</span></code> loop
 that contains draw calls but is more flexible and integrates better with Blender’s design.</p>
 <p class="rubric">Ok, Ok! I still want to draw from Python</p>
@@ -327,7 +327,7 @@ While <a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" ti
 <p>Editing is where the three data types vary most.</p>
 <ul class="simple">
 <li><p>Polygons are very limited for editing,
-changing materials and options like smooth works but for anything else
+changing materials and options like smooth works, but for anything else
 they are too inflexible and are only intended for storage.</p></li>
 <li><p>Tessfaces should not be used for editing geometry because doing so will cause existing n-gons to be tessellated.</p></li>
 <li><p>BMesh-faces are by far the best way to manipulate geometry.</p></li>
@@ -342,7 +342,7 @@ the choice mostly depends on whether the target format supports n-gons or not.</
 <li><p>Tessfaces work well for exporting to formats which don’t support n-gons,
 in fact this is the only place where their use is encouraged.</p></li>
 <li><p>BMesh-Faces can work for exporting too but may not be necessary if polygons can be used
-since using BMesh gives some overhead because its not the native storage format in Object-Mode.</p></li>
+since using BMesh gives some overhead because it’s not the native storage format in Object-Mode.</p></li>
 </ul>
 </section>
 </section>
@@ -422,7 +422,7 @@ yet the real bones are accessible from the pose bones via <a class="reference in
 <p>While writing scripts that deal with armatures you may find you have to switch between modes,
 when doing so take care when switching out of Edit-Mode not to keep references
 to the edit bones or their head/tail vectors.
-Further access to these will crash Blender so its important the script
+Further access to these will crash Blender so it’s important that the script
 clearly separates sections of the code which operate in different modes.</p>
 <p>This is mainly an issue with Edit-Mode since pose data can be manipulated without having to be in Pose-Mode,
 yet for operator access you may still need to enter Pose-Mode.</p>
@@ -448,10 +448,10 @@ This can cause bugs when you add data (normally imported) then reference it late
 </pre></div>
 </div>
 <p>Data names may not match the assigned values if they exceed the maximum length, are already used or an empty string.</p>
-<p>Its better practice not to reference objects by names at all,
+<p>It’s better practice not to reference objects by names at all,
 once created you can store the data in a list, dictionary, on a class, etc;
 there is rarely a reason to have to keep searching for the same data by name.</p>
-<p>If you do need to use name references, its best to use a dictionary to maintain
+<p>If you do need to use name references, it’s best to use a dictionary to maintain
 a mapping between the names of the imported assets and the newly created data,
 this way you don’t run this risk of referencing existing data from the blend-file, or worse modifying it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># typically declared in the main body of the function.</span>
@@ -472,10 +472,10 @@ this way you don’t run this risk of referencing existing data from the blend-f
 <p>Blender keeps data names unique (<a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID.name</span></code></a>) so you can’t name two objects,
 meshes, scenes, etc., the same by accident.
 However, when linking in library data from another blend-file naming collisions can occur,
-so its best to avoid referencing data by name at all.</p>
-<p>This can be tricky at times and not even Blender handles this correctly in some case
+so it’s best to avoid referencing data by name at all.</p>
+<p>This can be tricky at times and not even Blender handles this correctly in some cases
 (when selecting the modifier object for e.g. you can’t select between multiple objects with the same name),
-but its still good to try avoiding these problems in this area.
+but it’s still good to try avoiding these problems in this area.
 If you need to select between local and library data, there is a feature in <code class="docutils literal notranslate"><span class="pre">bpy.data</span></code> members to allow for this.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># typical name lookup, could be local or library.</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;my_obj&quot;</span><span class="p">]</span>
@@ -516,10 +516,10 @@ When the data block may be from an external blend-file pass the library argument
 writing a script in <code class="docutils literal notranslate"><span class="pre">latin1</span></code> or <code class="docutils literal notranslate"><span class="pre">iso-8859-15</span></code>.
 See <a class="reference external" href="https://www.python.org/dev/peps/pep-0263/">PEP 263</a>.</p>
 <p>However, this complicates matters for Blender’s Python API because <code class="docutils literal notranslate"><span class="pre">.blend</span></code> files don’t have an explicit encoding.
-To avoid the problem for Python integration and script authors we have decided all strings in blend-files
+To avoid the problem for Python integration and script authors we have decided that all strings in blend-files
 <strong>must</strong> be <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>, <code class="docutils literal notranslate"><span class="pre">ASCII</span></code> compatible.
-This means assigning strings with different encodings to an object names for instance will raise an error.</p>
-<p>Paths are an exception to this rule since the existence of non-UTF-8 paths on user’s file system cannot be ignored.
+This means assigning strings with different encodings to an object name, for instance, will raise an error.</p>
+<p>Paths are an exception to this rule since the existence of non-UTF-8 paths on the user’s file system cannot be ignored.
 This means seemingly harmless expressions can raise errors, e.g:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
 <span class="go">UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 10-21: ordinal not in range(128)</span>
@@ -553,7 +553,7 @@ or <code class="docutils literal notranslate"><span class="pre">&quot;%r&quot;</
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Sometimes it’s preferable to avoid string encoding issues by using bytes instead of Python strings,
-when reading some input its less trouble to read it as binary data
+when reading some input it’s less trouble to read it as binary data
 though you will still need to decide how to treat any strings you want to use with Blender,
 some importers do this.</p>
 </div>
@@ -705,7 +705,7 @@ in any possible way.</p>
 <section id="undo-redo">
 <h3>Undo/Redo<a class="headerlink" href="#undo-redo" title="Permalink to this headline"></a></h3>
 <p>For safety, you should assume that undo and redo always invalidates all <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a>
-instances (Object, Scene, Mesh, Light, etc.), as weel obviously as all of their sub-data.</p>
+instances (Object, Scene, Mesh, Light, etc.), as well obviously as all of their sub-data.</p>
 <p>This example shows how you can tell undo changes the memory locations:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="p">)</span>
 <span class="go">-9223372036849950810</span>
@@ -735,7 +735,7 @@ can skip checking changes in library data since it is assumed to be static.
 Tools in Blender are not allowed to modify library data.
 But Python does not enforce this restriction.</p>
 <p>This can be useful in some cases, using a script to adjust material values for example.
-But its also possible to use a script to make library data point to newly created local data,
+But it’s also possible to use a script to make library data point to newly created local data,
 which is not supported since a call to undo will remove the local data
 but leave the library referencing it and likely crash.</p>
 <p>So it’s best to consider modifying library data an advanced usage of the API
@@ -857,9 +857,9 @@ you could of course replace <code class="docutils literal notranslate"><span cla
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code>4201eeb1ddf8</code>.
+      <span class="commit">Revision <code>83bbbbb7aebb</code>.
       </span>
-      <span class="lastupdated">Last updated on 02/08/2022.
+      <span class="lastupdated">Last updated on 02/14/2022.
       </span></p>
   </div>
 
