@@ -2541,13 +2541,20 @@ Clear Parent Inverse – Reset the transform corrections applied to the parentin
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.paths_calculate">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">paths_calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.paths_calculate" title="Permalink to this definition"></a></dt>
-<dd><p>Calculate motion paths for the selected objects</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">paths_calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RANGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCENE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.paths_calculate" title="Permalink to this definition"></a></dt>
+<dd><p>Generate motion paths for the selected objects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Start, First frame to calculate object paths on</p></li>
-<li><p><strong>end_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – End, Last frame to calculate object paths on</p></li>
+<li><p><strong>display_type</strong> (<em>enum in</em><em> [</em><em>'CURRENT_FRAME'</em><em>, </em><em>'RANGE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Display type</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURRENT_FRAME</span></code>
+Around Frame – Display Paths of poses within a fixed number of frames around the current frame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RANGE</span></code>
+In Range – Display Paths of poses within specified range.</p></li>
+</ul>
+</p></li>
+<li><p><strong>range</strong> (<em>enum in</em><em> [</em><em>'KEYS_ALL'</em><em>, </em><em>'KEYS_SELECTED'</em><em>, </em><em>'SCENE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Computation Range</p></li>
 </ul>
 </dd>
 </dl>
@@ -2562,12 +2569,6 @@ Clear Parent Inverse – Reset the transform corrections applied to the parentin
 <dd class="field-odd"><p><strong>only_selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Selected, Only clear paths from selected objects</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.paths_range_update">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">paths_range_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.paths_range_update" title="Permalink to this definition"></a></dt>
-<dd><p>Update frame range for motion paths from the Scene’s current frame range</p>
 </dd></dl>
 
 <dl class="py function">
@@ -3832,9 +3833,9 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code>9dfad2ee9af7</code>.
+      <span class="commit">Revision <code>ed3059928902</code>.
       </span>
-      <span class="lastupdated">Last updated on 03/04/2022.
+      <span class="lastupdated">Last updated on 03/05/2022.
       </span></p>
   </div>
 
