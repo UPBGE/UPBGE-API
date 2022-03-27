@@ -1111,126 +1111,62 @@ Object Line Art – Quickly set up line art for the active object.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.gpencil_modifier_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">gpencil_modifier_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CURVE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.gpencil_modifier_add" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">gpencil_modifier_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GP_THICK'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.gpencil_modifier_add" title="Permalink to this definition"></a></dt>
 <dd><p>Add a procedural operation/effect to the active grease pencil object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'DATA_TRANSFER'</em><em>, </em><em>'MESH_CACHE'</em><em>, </em><em>'MESH_SEQUENCE_CACHE'</em><em>, </em><em>'NORMAL_EDIT'</em><em>, </em><em>'WEIGHTED_NORMAL'</em><em>, </em><em>'UV_PROJECT'</em><em>, </em><em>'UV_WARP'</em><em>, </em><em>'VERTEX_WEIGHT_EDIT'</em><em>, </em><em>'VERTEX_WEIGHT_MIX'</em><em>, </em><em>'VERTEX_WEIGHT_PROXIMITY'</em><em>, </em><em>'ARRAY'</em><em>, </em><em>'BEVEL'</em><em>, </em><em>'BOOLEAN'</em><em>, </em><em>'BUILD'</em><em>, </em><em>'DECIMATE'</em><em>, </em><em>'EDGE_SPLIT'</em><em>, </em><em>'NODES'</em><em>, </em><em>'MASK'</em><em>, </em><em>'MIRROR'</em><em>, </em><em>'MESH_TO_VOLUME'</em><em>, </em><em>'MULTIRES'</em><em>, </em><em>'REMESH'</em><em>, </em><em>'SCREW'</em><em>, </em><em>'SKIN'</em><em>, </em><em>'SOLIDIFY'</em><em>, </em><em>'SUBSURF'</em><em>, </em><em>'TRIANGULATE'</em><em>, </em><em>'VOLUME_TO_MESH'</em><em>, </em><em>'WELD'</em><em>, </em><em>'WIREFRAME'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'CAST'</em><em>, </em><em>'CURVE'</em><em>, </em><em>'DISPLACE'</em><em>, </em><em>'HOOK'</em><em>, </em><em>'LAPLACIANDEFORM'</em><em>, </em><em>'LATTICE'</em><em>, </em><em>'MESH_DEFORM'</em><em>, </em><em>'SHRINKWRAP'</em><em>, </em><em>'SIMPLE_DEFORM'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'CORRECTIVE_SMOOTH'</em><em>, </em><em>'LAPLACIANSMOOTH'</em><em>, </em><em>'SURFACE_DEFORM'</em><em>, </em><em>'WARP'</em><em>, </em><em>'WAVE'</em><em>, </em><em>'VOLUME_DISPLACE'</em><em>, </em><em>'CLOTH'</em><em>, </em><em>'COLLISION'</em><em>, </em><em>'DYNAMIC_PAINT'</em><em>, </em><em>'EXPLODE'</em><em>, </em><em>'FLUID'</em><em>, </em><em>'OCEAN'</em><em>, </em><em>'PARTICLE_INSTANCE'</em><em>, </em><em>'PARTICLE_SYSTEM'</em><em>, </em><em>'SOFT_BODY'</em><em>, </em><em>'SURFACE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'GP_TEXTURE'</em><em>, </em><em>'GP_TIME'</em><em>, </em><em>'GP_WEIGHT_ANGLE'</em><em>, </em><em>'GP_WEIGHT_PROXIMITY'</em><em>, </em><em>'GP_ARRAY'</em><em>, </em><em>'GP_BUILD'</em><em>, </em><em>'GP_DASH'</em><em>, </em><em>'GP_ENVELOPE'</em><em>, </em><em>'GP_LENGTH'</em><em>, </em><em>'GP_LINEART'</em><em>, </em><em>'GP_MIRROR'</em><em>, </em><em>'GP_MULTIPLY'</em><em>, </em><em>'GP_SIMPLIFY'</em><em>, </em><em>'GP_SUBDIV'</em><em>, </em><em>'GP_ARMATURE'</em><em>, </em><em>'GP_HOOK'</em><em>, </em><em>'GP_LATTICE'</em><em>, </em><em>'GP_NOISE'</em><em>, </em><em>'GP_OFFSET'</em><em>, </em><em>'SHRINKWRAP'</em><em>, </em><em>'GP_SMOOTH'</em><em>, </em><em>'GP_THICK'</em><em>, </em><em>'GP_COLOR'</em><em>, </em><em>'GP_OPACITY'</em><em>, </em><em>'GP_TINT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DATA_TRANSFER</span></code>
-Data Transfer – Transfer several types of data (vertex groups, UV maps, vertex colors, custom normals) from one mesh to another.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_CACHE</span></code>
-Mesh Cache – Deform the mesh using an external frame-by-frame vertex transform cache.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_SEQUENCE_CACHE</span></code>
-Mesh Sequence Cache – Deform the mesh or curve using an external mesh cache in Alembic format.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NORMAL_EDIT</span></code>
-Normal Edit – Modify the direction of the surface normals.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WEIGHTED_NORMAL</span></code>
-Weighted Normal – Modify the direction of the surface normals using a weighting method.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROJECT</span></code>
-UV Project – Project the UV map coordinates from the negative Z axis of another object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UV_WARP</span></code>
-UV Warp – Transform the UV map using the difference between two objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_WEIGHT_EDIT</span></code>
-Vertex Weight Edit – Modify of the weights of a vertex group.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_WEIGHT_MIX</span></code>
-Vertex Weight Mix – Mix the weights of two vertex groups.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_WEIGHT_PROXIMITY</span></code>
-Vertex Weight Proximity – Set the vertex group weights based on the distance to another target object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ARRAY</span></code>
-Array – Create copies of the shape with offsets.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BEVEL</span></code>
-Bevel – Generate sloped corners by adding geometry to the mesh’s edges or vertices.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code>
-Boolean – Use another shape to cut, combine or perform a difference operation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BUILD</span></code>
-Build – Cause the faces of the mesh object to appear or disappear one after the other over time.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DECIMATE</span></code>
-Decimate – Reduce the geometry density.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDGE_SPLIT</span></code>
-Edge Split – Split away joined faces at the edges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NODES</span></code>
-Geometry Nodes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MASK</span></code>
-Mask – Dynamically hide vertices based on a vertex group or armature.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MIRROR</span></code>
-Mirror – Mirror along the local X, Y and/or Z axes, over the object origin.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_TO_VOLUME</span></code>
-Mesh to Volume.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MULTIRES</span></code>
-Multiresolution – Subdivide the mesh in a way that allows editing the higher subdivision levels.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">REMESH</span></code>
-Remesh – Generate new mesh topology based on the current shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCREW</span></code>
-Screw – Lathe around an axis, treating the input mesh as a profile.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SKIN</span></code>
-Skin – Create a solid shape from vertices and edges, using the vertex radius to define the thickness.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SOLIDIFY</span></code>
-Solidify – Make the surface thick.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SUBSURF</span></code>
-Subdivision Surface – Split the faces into smaller parts, giving it a smoother appearance.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRIANGULATE</span></code>
-Triangulate – Convert all polygons to triangles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VOLUME_TO_MESH</span></code>
-Volume to Mesh.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WELD</span></code>
-Weld – Find groups of vertices closer than dist and merge them together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WIREFRAME</span></code>
-Wireframe – Convert faces into thickened edges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ARMATURE</span></code>
-Armature – Deform the shape using an armature object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CAST</span></code>
-Cast – Shift the shape towards a predefined primitive.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CURVE</span></code>
-Curve – Bend the mesh using a curve object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DISPLACE</span></code>
-Displace – Offset vertices based on a texture.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">HOOK</span></code>
-Hook – Deform specific points using another object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LAPLACIANDEFORM</span></code>
-Laplacian Deform – Deform based a series of anchor points.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LATTICE</span></code>
-Lattice – Deform using the shape of a lattice object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_DEFORM</span></code>
-Mesh Deform – Deform using a different mesh, which acts as a deformation cage.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_TEXTURE</span></code>
+Texture Mapping – Change stroke uv texture values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_TIME</span></code>
+Time Offset – Offset keyframes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_WEIGHT_ANGLE</span></code>
+Vertex Weight Angle – Generate Vertex Weights base on stroke angle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_WEIGHT_PROXIMITY</span></code>
+Vertex Weight Proximity – Generate Vertex Weights base on distance to object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_ARRAY</span></code>
+Array – Create array of duplicate instances.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_BUILD</span></code>
+Build – Create duplication of strokes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_DASH</span></code>
+Dot Dash – Generate dot-dash styled strokes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_ENVELOPE</span></code>
+Envelope – Create an envelope shape.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_LENGTH</span></code>
+Length – Extend or shrink strokes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_LINEART</span></code>
+Line Art – Generate line art strokes from selected source.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_MIRROR</span></code>
+Mirror – Duplicate strokes like a mirror.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_MULTIPLY</span></code>
+Multiple Strokes – Produce multiple strokes along one stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_SIMPLIFY</span></code>
+Simplify – Simplify stroke reducing number of points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_SUBDIV</span></code>
+Subdivide – Subdivide stroke adding more control points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_ARMATURE</span></code>
+Armature – Deform stroke points using armature object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_HOOK</span></code>
+Hook – Deform stroke points using objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_LATTICE</span></code>
+Lattice – Deform strokes using lattice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_NOISE</span></code>
+Noise – Add noise to strokes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_OFFSET</span></code>
+Offset – Change stroke location, rotation or scale.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SHRINKWRAP</span></code>
 Shrinkwrap – Project the shape onto another object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SIMPLE_DEFORM</span></code>
-Simple Deform – Deform the shape by twisting, bending, tapering or stretching.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
-Smooth – Smooth the mesh by flattening the angles between adjacent faces.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CORRECTIVE_SMOOTH</span></code>
-Smooth Corrective – Smooth the mesh while still preserving the volume.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LAPLACIANSMOOTH</span></code>
-Smooth Laplacian – Reduce the noise on a mesh surface with minimal changes to its shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE_DEFORM</span></code>
-Surface Deform – Transfer motion from another mesh.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WARP</span></code>
-Warp – Warp parts of a mesh to a new location in a very flexible way thanks to 2 specified objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WAVE</span></code>
-Wave – Adds a ripple-like motion to an object’s geometry.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VOLUME_DISPLACE</span></code>
-Volume Displace – Deform volume based on noise or other vector fields.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CLOTH</span></code>
-Cloth.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COLLISION</span></code>
-Collision.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DYNAMIC_PAINT</span></code>
-Dynamic Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXPLODE</span></code>
-Explode – Break apart the mesh faces and let them follow particles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLUID</span></code>
-Fluid.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OCEAN</span></code>
-Ocean – Generate a moving ocean surface.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PARTICLE_INSTANCE</span></code>
-Particle Instance.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PARTICLE_SYSTEM</span></code>
-Particle System – Spawn particles from the shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SOFT_BODY</span></code>
-Soft Body.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE</span></code>
-Surface.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_SMOOTH</span></code>
+Smooth – Smooth stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_THICK</span></code>
+Thickness – Change stroke thickness.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_COLOR</span></code>
+Hue/Saturation – Apply changes to stroke colors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_OPACITY</span></code>
+Opacity – Opacity of the strokes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_TINT</span></code>
+Tint – Tint strokes with new color.</p></li>
 </ul>
 </p>
 </dd>
@@ -3833,9 +3769,9 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code>f32ed39ac1e9</code>.
+      <span class="commit">Revision <code>0fac3d38e84e</code>.
       </span>
-      <span class="lastupdated">Last updated on 03/26/2022.
+      <span class="lastupdated">Last updated on 03/27/2022.
       </span></p>
   </div>
 
