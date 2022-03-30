@@ -145,6 +145,39 @@ Align End – All strokes end at same time (i.e. short strokes start later).</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.fade_factor">
+<span class="sig-name descname"><span class="pre">fade_factor</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.fade_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Defines how much of the stroke is fading in/out</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [0, 1], default 0.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.fade_opacity_strength">
+<span class="sig-name descname"><span class="pre">fade_opacity_strength</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.fade_opacity_strength" title="Permalink to this definition"></a></dt>
+<dd><p>How much strength fading applies on top of stroke opacity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [0, 1], default 0.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.fade_thickness_strength">
+<span class="sig-name descname"><span class="pre">fade_thickness_strength</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.fade_thickness_strength" title="Permalink to this definition"></a></dt>
+<dd><p>How much strength fading applies on top of stroke thickness</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [0, 1], default 0.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.frame_end">
 <span class="sig-name descname"><span class="pre">frame_end</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.frame_end" title="Permalink to this definition"></a></dt>
 <dd><p>End Frame (when Restrict Frame Range is enabled)</p>
@@ -241,6 +274,17 @@ Additive – Builds only new strokes (assuming ‘additive’ drawing).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.object">
+<span class="sig-name descname"><span class="pre">object</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.object" title="Permalink to this definition"></a></dt>
+<dd><p>Object used as build starting position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.percentage_factor">
 <span class="sig-name descname"><span class="pre">percentage_factor</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.percentage_factor" title="Permalink to this definition"></a></dt>
 <dd><p>Defines how much of the stroke is visible</p>
@@ -263,6 +307,17 @@ Additive – Builds only new strokes (assuming ‘additive’ drawing).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.target_vertex_group">
+<span class="sig-name descname"><span class="pre">target_vertex_group</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.target_vertex_group" title="Permalink to this definition"></a></dt>
+<dd><p>Output Vertex group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, default “”, (never None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.transition">
 <span class="sig-name descname"><span class="pre">transition</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.transition" title="Permalink to this definition"></a></dt>
 <dd><p>How are strokes animated (i.e. are they appearing or disappearing)</p>
@@ -272,11 +327,22 @@ Grow – Show points in the order they occur in each stroke (e.g. for animating 
 <li><p><code class="docutils literal notranslate"><span class="pre">SHRINK</span></code>
 Shrink – Hide points from the end of each stroke to the start (e.g. for animating lines being erased).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FADE</span></code>
-Fade – Hide points in the order they occur in each stroke (e.g. for animating ink fading or vanishing after getting drawn).</p></li>
+Vanish – Hide points in the order they occur in each stroke (e.g. for animating ink fading or vanishing after getting drawn).</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>enum in [‘GROW’, ‘SHRINK’, ‘FADE’], default ‘GROW’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BuildGpencilModifier.use_fading">
+<span class="sig-name descname"><span class="pre">use_fading</span></span><a class="headerlink" href="#bpy.types.BuildGpencilModifier.use_fading" title="Permalink to this definition"></a></dt>
+<dd><p>Fade out strokes instead of directly cutting off</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
 </dd>
 </dl>
 </dd></dl>
@@ -395,9 +461,9 @@ Fade – Hide points in the order they occur in each stroke (e.g. for animating 
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code>4e4a7d57015a</code>.
+      <span class="commit">Revision <code>48cbcd29a67d</code>.
       </span>
-      <span class="lastupdated">Last updated on 03/29/2022.
+      <span class="lastupdated">Last updated on 03/30/2022.
       </span></p>
   </div>
 
