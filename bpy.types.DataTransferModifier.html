@@ -158,7 +158,7 @@ Freestyle – Transfer Freestyle edge mark.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CUSTOM_NORMAL</span></code>
 Custom Normals – Transfer custom normals.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VCOL</span></code>
-Vertex Colors – Vertex (face corners) colors.</p></li>
+Colors – Transfer color attributes.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">UV</span></code>
 UVs – Transfer UV layers.</p></li>
 </ul>
@@ -195,10 +195,12 @@ Freestyle Mark – Transfer Freestyle face mark.</p></li>
 Vertex Groups – Transfer active or all vertex groups.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BEVEL_WEIGHT_VERT</span></code>
 Bevel Weight – Transfer bevel weights.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VCOL</span></code>
+Colors – Transfer color attributes.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum set in {‘VGROUP_WEIGHTS’, ‘BEVEL_WEIGHT_VERT’}, default {‘VGROUP_WEIGHTS’}</p>
+<dd class="field-odd"><p>enum set in {‘VGROUP_WEIGHTS’, ‘BEVEL_WEIGHT_VERT’, ‘VCOL’}, default {‘VGROUP_WEIGHTS’}</p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,8 +291,8 @@ Deform Pose Bones – Transfer all vertex groups used by deform bones.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.DataTransferModifier.layers_vcol_select_dst">
-<span class="sig-name descname"><span class="pre">layers_vcol_select_dst</span></span><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_select_dst" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.DataTransferModifier.layers_vcol_loop_select_dst">
+<span class="sig-name descname"><span class="pre">layers_vcol_loop_select_dst</span></span><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_loop_select_dst" title="Permalink to this definition"></a></dt>
 <dd><p>How to match source and destination layers</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
@@ -308,8 +310,48 @@ By Order – Match target data layers to affect by order (indices).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.DataTransferModifier.layers_vcol_select_src">
-<span class="sig-name descname"><span class="pre">layers_vcol_select_src</span></span><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_select_src" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.DataTransferModifier.layers_vcol_loop_select_src">
+<span class="sig-name descname"><span class="pre">layers_vcol_loop_select_src</span></span><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_loop_select_src" title="Permalink to this definition"></a></dt>
+<dd><p>Which layers to transfer, in case of multi-layers types</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
+Active Layer – Only transfer active data layer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
+All Layers – Transfer all data layers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BONE_SELECT</span></code>
+Selected Pose Bones – Transfer all vertex groups used by selected pose bones.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BONE_DEFORM</span></code>
+Deform Pose Bones – Transfer all vertex groups used by deform bones.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>enum in [‘ACTIVE’, ‘ALL’, ‘BONE_SELECT’, ‘BONE_DEFORM’], default ‘ALL’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.DataTransferModifier.layers_vcol_vert_select_dst">
+<span class="sig-name descname"><span class="pre">layers_vcol_vert_select_dst</span></span><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_vert_select_dst" title="Permalink to this definition"></a></dt>
+<dd><p>How to match source and destination layers</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
+Active Layer – Affect active data layer of all targets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NAME</span></code>
+By Name – Match target data layers to affect by name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INDEX</span></code>
+By Order – Match target data layers to affect by order (indices).</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>enum in [‘ACTIVE’, ‘NAME’, ‘INDEX’], default ‘NAME’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.DataTransferModifier.layers_vcol_vert_select_src">
+<span class="sig-name descname"><span class="pre">layers_vcol_vert_select_src</span></span><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_vert_select_src" title="Permalink to this definition"></a></dt>
 <dd><p>Which layers to transfer, in case of multi-layers types</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
@@ -684,9 +726,9 @@ Projected Face Interpolated – Copy from interpolated values of vertices from p
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code>c37c46f6afd9</code>.
+      <span class="commit">Revision <code>857a22a4c5c5</code>.
       </span>
-      <span class="lastupdated">Last updated on 04/06/2022.
+      <span class="lastupdated">Last updated on 04/07/2022.
       </span></p>
   </div>
 
