@@ -660,6 +660,439 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUShaderCreateInfo</span></span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo" title="Permalink to this definition"></a></dt>
+<dd><p>Stores and describes types and variables that are used in shader sources.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.define">
+<span class="sig-name descname"><span class="pre">define</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.define" title="Permalink to this definition"></a></dt>
+<dd><p>Add a preprocessing define directive. In GLSL it would be something like:</p>
+</dd></dl>
+
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="cp">#define name value</span><span class="w"></span>
+
+<span class="o">:</span><span class="n">param</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="w"></span>
+<span class="o">:</span><span class="n">type</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="w"></span>
+<span class="o">:</span><span class="n">param</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">replaces</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="n">occurrences</span><span class="p">.</span><span class="w"></span>
+<span class="o">:</span><span class="n">type</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.fragment_out">
+<span class="sig-name descname"><span class="pre">fragment_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.fragment_out" title="Permalink to this definition"></a></dt>
+<dd><p>Specify a fragment output corresponding to a framebuffer target slot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slot</strong> (<em>int</em>) – The attribute index.</p></li>
+<li><p><strong>type</strong> – One of these types:</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">type type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param name</dt>
+<dd class="field-even"><p>Name of the attribute.</p>
+</dd>
+<dt class="field-odd">type name</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param blend</dt>
+<dd class="field-even"><p>Dual Source Blending Index. It can be ‘NONE’, ‘SRC_0’ or ‘SRC_1’.</p>
+</dd>
+<dt class="field-odd">type blend</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.fragment_source">
+<span class="sig-name descname"><span class="pre">fragment_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.fragment_source" title="Permalink to this definition"></a></dt>
+<dd><p>Fragment shader source code written in GLSL.</p>
+<p>Example:</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main {fragColor = vec4(0.0, 0.0, 0.0, 1.0);}&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.push_constant">
+<span class="sig-name descname"><span class="pre">push_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.push_constant" title="Permalink to this definition"></a></dt>
+<dd><p>Specify a global access constant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">type type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param name</dt>
+<dd class="field-even"><p>Name of the constant.</p>
+</dd>
+<dt class="field-odd">type name</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param size</dt>
+<dd class="field-even"><p>If not zero, indicates that the constant is an array with the specified size.</p>
+</dd>
+<dt class="field-odd">type size</dt>
+<dd class="field-odd"><p>uint</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.sampler">
+<span class="sig-name descname"><span class="pre">sampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.sampler" title="Permalink to this definition"></a></dt>
+<dd><p>Specify an image texture sampler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slot</strong> (<em>int</em>) – The image texture sampler index.</p></li>
+<li><p><strong>type</strong> – The data type describing the format of each sampler unit. Possible values are:</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_BUFFER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_2D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_2D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_3D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_CUBE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_CUBE_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_BUFFER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_1D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_1D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_2D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_2D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_3D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_CUBE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT_CUBE_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_BUFFER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_1D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_1D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_2D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_2D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_3D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_CUBE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT_CUBE_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_2D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_2D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_CUBE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_CUBE_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE_ARRAY</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">type type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param name</dt>
+<dd class="field-even"><p>The image texture sampler name.</p>
+</dd>
+<dt class="field-odd">type name</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.typedef_source">
+<span class="sig-name descname"><span class="pre">typedef_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.typedef_source" title="Permalink to this definition"></a></dt>
+<dd><p>Source code included before resource declaration. Useful for defining structs used by Uniform Buffers.</p>
+<p>Example:</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;struct MyType {int foo; float bar;};&quot;</span>
+
+<span class="p">:</span><span class="n">param</span> <span class="n">source</span><span class="p">:</span> <span class="n">The</span> <span class="n">source</span> <span class="n">code</span> <span class="n">defining</span> <span class="n">types</span><span class="o">.</span>
+<span class="p">:</span><span class="nb">type</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.uniform_buf">
+<span class="sig-name descname"><span class="pre">uniform_buf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.uniform_buf" title="Permalink to this definition"></a></dt>
+<dd><p>Specify a uniform variable whose type can be one of those declared in <cite>typedef_source</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slot</strong> (<em>int</em>) – The uniform variable index.</p></li>
+<li><p><strong>type_name</strong> (<em>str</em>) – Name of the data type. It can be a struct type defined in the source passed through the <a class="reference internal" href="#gpu.types.GPUShaderCreateInfo.typedef_source" title="gpu.types.GPUShaderCreateInfo.typedef_source"><code class="xref py py-meth docutils literal notranslate"><span class="pre">gpu.types.GPUShaderCreateInfo.typedef_source()</span></code></a>.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The uniform variable name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.vertex_in">
+<span class="sig-name descname"><span class="pre">vertex_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.vertex_in" title="Permalink to this definition"></a></dt>
+<dd><p>Add a vertex shader input attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slot</strong> (<em>int</em>) – The attribute index.</p></li>
+<li><p><strong>type</strong> – One of these types:</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">type type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param name</dt>
+<dd class="field-even"><p>name of the attribute.</p>
+</dd>
+<dt class="field-odd">type name</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.vertex_out">
+<span class="sig-name descname"><span class="pre">vertex_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.vertex_out" title="Permalink to this definition"></a></dt>
+<dd><p>Add a vertex shader output interface block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>interface</strong> (<a class="reference internal" href="#gpu.types.GPUStageInterfaceInfo" title="gpu.types.GPUStageInterfaceInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUStageInterfaceInfo</span></code></a>) – Object describing the block.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.vertex_source">
+<span class="sig-name descname"><span class="pre">vertex_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.vertex_source" title="Permalink to this definition"></a></dt>
+<dd><p>Vertex shader source code written in GLSL.</p>
+<p>Example:</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main {gl_Position = vec4(pos, 1.0);}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUStageInterfaceInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo" title="Permalink to this definition"></a></dt>
+<dd><p>List of varyings between shader stages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the interface block.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo.flat">
+<span class="sig-name descname"><span class="pre">flat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo.flat" title="Permalink to this definition"></a></dt>
+<dd><p>Add an attribute with qualifier of type <cite>flat</cite> to the interface block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">type type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param name</dt>
+<dd class="field-even"><p>name of the attribute.</p>
+</dd>
+<dt class="field-odd">type name</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo.no_perspective">
+<span class="sig-name descname"><span class="pre">no_perspective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo.no_perspective" title="Permalink to this definition"></a></dt>
+<dd><p>Add an attribute with qualifier of type <cite>no_perspective</cite> to the interface block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">type type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param name</dt>
+<dd class="field-even"><p>name of the attribute.</p>
+</dd>
+<dt class="field-odd">type name</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo.smooth">
+<span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo.smooth" title="Permalink to this definition"></a></dt>
+<dd><p>Add an attribute with qualifier of type <cite>smooth</cite> to the interface block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">type type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">param name</dt>
+<dd class="field-even"><p>name of the attribute.</p>
+</dd>
+<dt class="field-odd">type name</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo.name" title="Permalink to this definition"></a></dt>
+<dd><p>Name of the interface block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUTexture">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_cubemap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGBA8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture" title="Permalink to this definition"></a></dt>
 <dd><p>This object gives access to off GPU textures.</p>
@@ -861,7 +1294,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>INT_TO_FLOAT_UNI
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB6995736a0bbd>6995736a0bbd</a> - 11/04/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB6c86e0f79918>6c86e0f79918</a> - 12/04/2022</code>.
       </span></p>
   </div>
 
