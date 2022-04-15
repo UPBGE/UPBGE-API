@@ -685,13 +685,8 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slot</strong> (<em>int</em>) – The attribute index.</p></li>
-<li><p><strong>type</strong> – One of these types:</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
@@ -706,50 +701,44 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
-<dt class="field-odd">type type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param name</dt>
-<dd class="field-even"><p>Name of the attribute.</p>
-</dd>
-<dt class="field-odd">type name</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param blend</dt>
-<dd class="field-even"><p>Dual Source Blending Index. It can be ‘NONE’, ‘SRC_0’ or ‘SRC_1’.</p>
-</dd>
-<dt class="field-odd">type blend</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
 </ul>
+</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name of the attribute.</p></li>
+<li><p><strong>blend</strong> (<em>str</em>) – Dual Source Blending Index. It can be ‘NONE’, ‘SRC_0’ or ‘SRC_1’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.fragment_source">
 <span class="sig-name descname"><span class="pre">fragment_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.fragment_source" title="Permalink to this definition"></a></dt>
 <dd><p>Fragment shader source code written in GLSL.</p>
 <p>Example:</p>
-</dd></dl>
-
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main {fragColor = vec4(0.0, 0.0, 0.0, 1.0);}&quot;</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>str</em>) – The fragment shader source code.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://wiki.blender.org/wiki/EEVEE_%26_Viewport/GPU_Module/GLSL_Cross_Compilation">GLSL Cross Compilation</a></p>
+</div>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.push_constant">
 <span class="sig-name descname"><span class="pre">push_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.push_constant" title="Permalink to this definition"></a></dt>
 <dd><p>Specify a global access constant.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
-</dd>
-</dl>
-</dd></dl>
-
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
@@ -764,28 +753,16 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
-<dt class="field-odd">type type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param name</dt>
-<dd class="field-even"><p>Name of the constant.</p>
-</dd>
-<dt class="field-odd">type name</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param size</dt>
-<dd class="field-even"><p>If not zero, indicates that the constant is an array with the specified size.</p>
-</dd>
-<dt class="field-odd">type size</dt>
-<dd class="field-odd"><p>uint</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
 </ul>
+</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name of the constant.</p></li>
+<li><p><strong>size</strong> (<em>uint</em>) – If not zero, indicates that the constant is an array with the specified size.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.sampler">
 <span class="sig-name descname"><span class="pre">sampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.sampler" title="Permalink to this definition"></a></dt>
@@ -794,13 +771,8 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slot</strong> (<em>int</em>) – The image texture sampler index.</p></li>
-<li><p><strong>type</strong> – The data type describing the format of each sampler unit. Possible values are:</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – <p>The data type describing the format of each sampler unit. Possible values are:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_BUFFER</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D_ARRAY</span></code></p></li>
@@ -832,22 +804,15 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D_ARRAY</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE_ARRAY</span></code></dt><dd><dl class="field-list simple">
-<dt class="field-odd">type type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param name</dt>
-<dd class="field-even"><p>The image texture sampler name.</p>
-</dd>
-<dt class="field-odd">type name</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE_ARRAY</span></code></p></li>
 </ul>
+</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The image texture sampler name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.typedef_source">
 <span class="sig-name descname"><span class="pre">typedef_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.typedef_source" title="Permalink to this definition"></a></dt>
@@ -884,13 +849,8 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slot</strong> (<em>int</em>) – The attribute index.</p></li>
-<li><p><strong>type</strong> – One of these types:</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
@@ -905,22 +865,15 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
-<dt class="field-odd">type type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param name</dt>
-<dd class="field-even"><p>name of the attribute.</p>
-</dd>
-<dt class="field-odd">type name</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
 </ul>
+</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.vertex_out">
 <span class="sig-name descname"><span class="pre">vertex_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.vertex_out" title="Permalink to this definition"></a></dt>
@@ -937,11 +890,20 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <span class="sig-name descname"><span class="pre">vertex_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.vertex_source" title="Permalink to this definition"></a></dt>
 <dd><p>Vertex shader source code written in GLSL.</p>
 <p>Example:</p>
-</dd></dl>
-
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main {gl_Position = vec4(pos, 1.0);}&quot;</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>str</em>) – The vertex shader source code.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://wiki.blender.org/wiki/EEVEE_%26_Viewport/GPU_Module/GLSL_Cross_Compilation">GLSL Cross Compilation</a></p>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -959,12 +921,9 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <dd><p>Add an attribute with qualifier of type <cite>flat</cite> to the interface block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
-</dd>
-</dl>
-</dd></dl>
-
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
@@ -979,34 +938,24 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
-<dt class="field-odd">type type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param name</dt>
-<dd class="field-even"><p>name of the attribute.</p>
-</dd>
-<dt class="field-odd">type name</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
 </ul>
+</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo.no_perspective">
 <span class="sig-name descname"><span class="pre">no_perspective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo.no_perspective" title="Permalink to this definition"></a></dt>
 <dd><p>Add an attribute with qualifier of type <cite>no_perspective</cite> to the interface block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
-</dd>
-</dl>
-</dd></dl>
-
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
@@ -1021,34 +970,24 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
-<dt class="field-odd">type type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param name</dt>
-<dd class="field-even"><p>name of the attribute.</p>
-</dd>
-<dt class="field-odd">type name</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
 </ul>
+</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo.smooth">
 <span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo.smooth" title="Permalink to this definition"></a></dt>
 <dd><p>Add an attribute with qualifier of type <cite>smooth</cite> to the interface block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> – One of these types:</p>
-</dd>
-</dl>
-</dd></dl>
-
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
@@ -1063,22 +1002,15 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></dt><dd><dl class="field-list simple">
-<dt class="field-odd">type type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-<dt class="field-even">param name</dt>
-<dd class="field-even"><p>name of the attribute.</p>
-</dd>
-<dt class="field-odd">type name</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
 </ul>
+</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo.name">
 <span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo.name" title="Permalink to this definition"></a></dt>
@@ -1213,7 +1145,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <ci
 <dd><p>This object gives access to off uniform buffers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Buffer object.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>object exposing buffer interface</em>) – Data to fill the buffer.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -1294,7 +1226,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>INT_TO_FLOAT_UNI
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB6c86e0f79918>6c86e0f79918</a> - 12/04/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7dcd1c2f414f>7dcd1c2f414f</a> - 14/04/2022</code>.
       </span></p>
   </div>
 
