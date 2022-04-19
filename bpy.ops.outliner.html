@@ -430,7 +430,7 @@ Color 08.</p></li>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_MAKE_EDITABLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_SINGLE'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>ID Data Operation</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_MAKE_EDITABLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_SINGLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_HIERARCHY'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>ID Data Operation</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">UNLINK</span></code>
 Unlink.</p></li>
@@ -449,17 +449,17 @@ Make Library Override Hierarchy – Make a local override of this linked data-bl
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_MAKE_EDITABLE</span></code>
 Make Library Override Editable – Make the library override data-block editable.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESET</span></code>
-Reset Library Override – Reset this local override to its linked values.</p></li>
+Reset Library Override Single – Reset this local override to its linked values.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESET_HIERARCHY</span></code>
 Reset Library Override Hierarchy – Reset this local override to its linked values, as well as its hierarchy of dependencies.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESYNC_HIERARCHY</span></code>
 Resync Library Override Hierarchy – Rebuild this local override from its linked reference, as well as its hierarchy of dependencies.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE</span></code>
 Resync Library Override Hierarchy Enforce – Rebuild this local override from its linked reference, as well as its hierarchy of dependencies, enforcing that hierarchy to match the linked data (i.e. ignoring exiting overrides on data-blocks pointer properties).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CLEAR_SINGLE</span></code>
+Clear Library Override Single – Delete this local override and relink its usages to the linked data-blocks if possible, else reset it and mark it as non editable.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CLEAR_HIERARCHY</span></code>
 Clear Library Override Hierarchy – Delete this local override (including its hierarchy of override dependencies) and relink its usages to the linked data-blocks.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CLEAR_SINGLE</span></code>
-Clear Single Library Override – Delete this local override if possible, else reset it and mark it as non editable, and relink its usages to the linked data-blocks.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COPY</span></code>
 Copy.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PASTE</span></code>
@@ -793,7 +793,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9517f8781e15>9517f8781e15</a> - 16/04/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBf240651a0a8b>f240651a0a8b</a> - 18/04/2022</code>.
       </span></p>
   </div>
 
