@@ -142,8 +142,12 @@ positional arguments are used to define how the operator is called.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">override_context</span><span class="p">,</span> <span class="n">execution_context</span><span class="p">,</span> <span class="n">undo</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>override_context - <code class="docutils literal notranslate"><span class="pre">dict</span></code> type.</p></li>
+<ul>
+<li><p>override_context - <code class="docutils literal notranslate"><span class="pre">dict</span></code> type.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.2: </span><a class="reference internal" href="bpy.types.Context.html#bpy.types.Context.temp_override" title="bpy.types.Context.temp_override"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context.temp_override</span></code></a> should be used instead of this argument.</p>
+</div>
+</li>
 <li><p>execution_context - <code class="docutils literal notranslate"><span class="pre">str</span></code> (enum).</p></li>
 <li><p>undo - <code class="docutils literal notranslate"><span class="pre">bool</span></code> type.</p></li>
 </ul>
@@ -169,17 +173,19 @@ operator in the different part of the user interface.</p>
 <p>The context overrides are passed as a dictionary, with keys matching the context
 member names in bpy.context.
 For example to override <code class="docutils literal notranslate"><span class="pre">bpy.context.active_object</span></code>,
-you would pass <code class="docutils literal notranslate"><span class="pre">{'active_object':</span> <span class="pre">object}</span></code>.</p>
+you would pass <code class="docutils literal notranslate"><span class="pre">{'active_object':</span> <span class="pre">object}</span></code> to <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context.temp_override" title="bpy.types.Context.temp_override"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context.temp_override</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You will nearly always want to use a copy of the actual current context as basis
 (otherwise, you’ll have to find and gather all needed data yourself).</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove all objects in scene rather than the selected ones</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove all objects in scene rather than the selected ones.</span>
 <span class="kn">import</span> <span class="nn">bpy</span>
-<span class="n">override</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">override</span><span class="p">[</span><span class="s1">&#39;selected_objects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">)</span>
-<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">override</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="kn">import</span> <span class="n">context</span>
+<span class="n">override</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">override</span><span class="p">[</span><span class="s2">&quot;selected_objects&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">temp_override</span><span class="p">(</span><span class="o">**</span><span class="n">override</span><span class="p">):</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -212,18 +218,17 @@ call invoke() if existing.</p>
 </pre></div>
 </div>
 <p>It is also possible to run an operator in a particular part of the user
-interface. For this we need to pass the window, screen, area and sometimes
-a region.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># maximize 3d view in all windows</span>
+interface. For this we need to pass the window, area and sometimes a region.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Maximize 3d view in all windows.</span>
 <span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="kn">import</span> <span class="n">context</span>
 
-<span class="k">for</span> <span class="n">window</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">window_manager</span><span class="o">.</span><span class="n">windows</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">window</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">window_manager</span><span class="o">.</span><span class="n">windows</span><span class="p">:</span>
     <span class="n">screen</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">screen</span>
-
     <span class="k">for</span> <span class="n">area</span> <span class="ow">in</span> <span class="n">screen</span><span class="o">.</span><span class="n">areas</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">area</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;VIEW_3D&#39;</span><span class="p">:</span>
-            <span class="n">override</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="n">window</span><span class="p">,</span> <span class="s1">&#39;screen&#39;</span><span class="p">:</span> <span class="n">screen</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">area</span><span class="p">}</span>
-            <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">screen_full_area</span><span class="p">(</span><span class="n">override</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">temp_override</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="n">area</span><span class="p">):</span>
+                <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">screen_full_area</span><span class="p">()</span>
             <span class="k">break</span>
 </pre></div>
 </div>
@@ -322,7 +327,7 @@ a region.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB8e2a6875ece0>8e2a6875ece0</a> - 20/04/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBa0701be19ba9>a0701be19ba9</a> - 20/04/2022</code>.
       </span></p>
   </div>
 

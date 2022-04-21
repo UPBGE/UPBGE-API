@@ -383,6 +383,73 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.Context.temp_override">
+<span class="sig-name descname"><span class="pre">temp_override</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">keywords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Context.temp_override" title="Permalink to this definition"></a></dt>
+<dd><p>Context manager to temporarily override members in the context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<a class="reference internal" href="bpy.types.Window.html#bpy.types.Window" title="bpy.types.Window"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window</span></code></a>) – Window override or None.</p></li>
+<li><p><strong>area</strong> (<a class="reference internal" href="bpy.types.Area.html#bpy.types.Area" title="bpy.types.Area"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Area</span></code></a>) – Area override or None.</p></li>
+<li><p><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Region</span></code></a>) – Region override or None.</p></li>
+<li><p><strong>keywords</strong> – Additional keywords override context members.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The context manager .</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>context manager</p>
+</dd>
+</dl>
+<p>Overriding the context can be used to temporarily activate another <code class="docutils literal notranslate"><span class="pre">window</span></code> / <code class="docutils literal notranslate"><span class="pre">area</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">region</span></code>,
+as well as other members such as the <code class="docutils literal notranslate"><span class="pre">active_object</span></code> or <code class="docutils literal notranslate"><span class="pre">bone</span></code>.</p>
+<p>Notes:</p>
+<ul>
+<li><p>When overriding window, area and regions: the arguments must be consistent,
+so any region argument that’s passed in must be contained by the current area or the area passed in.
+The same goes for the area needing to be contained in the current window.</p></li>
+<li><p>Temporary context overrides may be nested, when this is done, members will be added to the existing overrides.</p></li>
+<li><p>Context members are restored outside the scope of the context.
+The only exception to this is when the data is no longer available.</p>
+<p>In the event windowing data was removed (for example), the state of the context is left as-is.
+While this isn’t likely to happen, explicit window operation such as closing windows or loading a new file
+remove the windowing data that was set before the temporary context was created.</p>
+</li>
+</ul>
+<p>Overriding the context can be useful to set the context after loading files
+(which would otherwise by None). For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="kn">import</span> <span class="n">context</span>
+
+<span class="c1"># Reload the current file and select all.</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">wm</span><span class="o">.</span><span class="n">open_mainfile</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">window_manager</span><span class="o">.</span><span class="n">windows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">temp_override</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">):</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">primitive_uv_sphere_add</span><span class="p">()</span>
+    <span class="c1"># The context override is needed so it&#39;s possible to set edit-mode.</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;EDIT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This example shows how it’s possible to add an object to the scene in another window.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="kn">import</span> <span class="n">context</span>
+
+<span class="n">win_active</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">window</span>
+<span class="n">win_other</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">win_iter</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">window_manager</span><span class="o">.</span><span class="n">windows</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">win_iter</span> <span class="o">!=</span> <span class="n">win_active</span><span class="p">:</span>
+        <span class="n">win_other</span> <span class="o">=</span> <span class="n">win_iter</span>
+        <span class="k">break</span>
+
+<span class="c1"># Add cube in the other window.</span>
+<span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">temp_override</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">win_other</span><span class="p">):</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">primitive_cube_add</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 <p class="rubric">Inherited Properties</p>
@@ -508,7 +575,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB8e2a6875ece0>8e2a6875ece0</a> - 20/04/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBa0701be19ba9>a0701be19ba9</a> - 20/04/2022</code>.
       </span></p>
   </div>
 

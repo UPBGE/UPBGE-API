@@ -142,15 +142,17 @@ user input.</p>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
-<span class="c1"># Only needed if you want to add into a dynamic menu</span>
+
+<span class="c1"># Only needed if you want to add into a dynamic menu.</span>
 <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">HelloWorldOperator</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello World Operator&quot;</span><span class="p">)</span>
 
-<span class="c1"># Register and add to the view menu (required to also use F3 search &quot;Hello World Operator&quot; for quick access)</span>
+
+<span class="c1"># Register and add to the view menu (required to also use F3 search &quot;Hello World Operator&quot; for quick access).</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">HelloWorldOperator</span><span class="p">)</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_view</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
 
-<span class="c1"># test call to the newly defined operator</span>
+<span class="c1"># Test call to the newly defined operator.</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">wm</span><span class="o">.</span><span class="n">hello_world</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -194,9 +196,11 @@ automatically added into the user interface.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">mouse_y</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
 
-<span class="c1"># Only needed if you want to add into a dynamic menu</span>
+
+<span class="c1"># Only needed if you want to add into a dynamic menu.</span>
 <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">SimpleMouseOperator</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Simple Mouse Operator&quot;</span><span class="p">)</span>
+
 
 <span class="c1"># Register and add to the view menu (required to also use F3 search &quot;Simple Mouse Operator&quot; for quick access)</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SimpleMouseOperator</span><span class="p">)</span>
@@ -246,7 +250,7 @@ can run.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;RUNNING_MODAL&#39;</span><span class="p">}</span>
 
 
-<span class="c1"># Only needed if you want to add into a dynamic menu</span>
+<span class="c1"># Only needed if you want to add into a dynamic menu.</span>
 <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator_context</span> <span class="o">=</span> <span class="s1">&#39;INVOKE_DEFAULT&#39;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">ExportSomeData</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Text Export Operator&quot;</span><span class="p">)</span>
@@ -288,7 +292,8 @@ can run.</p>
         <span class="n">wm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">window_manager</span>
         <span class="k">return</span> <span class="n">wm</span><span class="o">.</span><span class="n">invoke_props_dialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-<span class="c1"># Only needed if you want to add into a dynamic menu</span>
+
+<span class="c1"># Only needed if you want to add into a dynamic menu.</span>
 <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">DialogOperator</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Dialog Operator&quot;</span><span class="p">)</span>
 
@@ -341,11 +346,13 @@ for dialogs and file selectors.</p>
 
         <span class="n">col</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;my_string&quot;</span><span class="p">)</span>
 
-<span class="c1"># Only needed if you want to add into a dynamic menu</span>
+
+<span class="c1"># Only needed if you want to add into a dynamic menu.</span>
 <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">CustomDrawOperator</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Custom Draw Operator&quot;</span><span class="p">)</span>
 
-<span class="c1"># Register and add to the object menu (required to also use F3 search &quot;Custom Draw Operator&quot; for quick access)</span>
+
+<span class="c1"># Register and add to the object menu (required to also use F3 search &quot;Custom Draw Operator&quot; for quick access).</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">CustomDrawOperator</span><span class="p">)</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
 
@@ -405,11 +412,13 @@ be called before the <a class="reference internal" href="#bpy.types.Operator.inv
         <span class="n">context</span><span class="o">.</span><span class="n">window_manager</span><span class="o">.</span><span class="n">modal_handler_add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;RUNNING_MODAL&#39;</span><span class="p">}</span>
 
-<span class="c1"># Only needed if you want to add into a dynamic menu</span>
+
+<span class="c1"># Only needed if you want to add into a dynamic menu.</span>
 <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">ModalOperator</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Modal Operator&quot;</span><span class="p">)</span>
 
-<span class="c1"># Register and add to the object menu (required to also use F3 search &quot;Modal Operator&quot; for quick access)</span>
+
+<span class="c1"># Register and add to the object menu (required to also use F3 search &quot;Modal Operator&quot; for quick access).</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">ModalOperator</span><span class="p">)</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
 
@@ -448,9 +457,11 @@ from a search field, this can be done using <code class="xref py py-class docuti
         <span class="n">context</span><span class="o">.</span><span class="n">window_manager</span><span class="o">.</span><span class="n">invoke_search_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;RUNNING_MODAL&#39;</span><span class="p">}</span>
 
-<span class="c1"># Only needed if you want to add into a dynamic menu</span>
+
+<span class="c1"># Only needed if you want to add into a dynamic menu.</span>
 <span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">SearchEnumOperator</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Search Enum Operator&quot;</span><span class="p">)</span>
+
 
 <span class="c1"># Register and add to the object menu (required to also use F3 search &quot;Search Enum Operator&quot; for quick access)</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SearchEnumOperator</span><span class="p">)</span>
@@ -915,7 +926,7 @@ Interface – Handled but not executed (popup menus).</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB8e2a6875ece0>8e2a6875ece0</a> - 20/04/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBa0701be19ba9>a0701be19ba9</a> - 20/04/2022</code>.
       </span></p>
   </div>
 
