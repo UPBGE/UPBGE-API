@@ -476,7 +476,7 @@ View – Align the new object to the view.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.convert">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MESH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.22173</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.convert" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MESH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_customdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.22173</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.convert" title="Permalink to this definition"></a></dt>
 <dd><p>Convert selected objects to another type</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -494,6 +494,7 @@ Point Cloud – Point Cloud from Mesh objects.</p></li>
 </ul>
 </p></li>
 <li><p><strong>keep_original</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Original, Keep original objects instead of replacing them</p></li>
+<li><p><strong>merge_customdata</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge UV’s, Merge UV coordinates that share a vertex to account for imprecision in some modifiers</p></li>
 <li><p><strong>angle</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>3.14159</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold Angle, Threshold to determine ends of the strokes</p></li>
 <li><p><strong>thickness</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Thickness</p></li>
 <li><p><strong>seams</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Seam Edges, Convert only seam edges</p></li>
@@ -2168,13 +2169,14 @@ Surface.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.modifier_apply">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">modifier_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.modifier_apply" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">modifier_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_customdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.modifier_apply" title="Permalink to this definition"></a></dt>
 <dd><p>Apply modifier and remove from the stack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p></li>
 <li><p><strong>report</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Report, Create a notification after the operation</p></li>
+<li><p><strong>merge_customdata</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge UV’s, Merge UV coordinates that share a vertex to account for imprecision in some modifiers</p></li>
 <li><p><strong>single_user</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Make Data Single User, Make the object’s data single user if needed</p></li>
 </ul>
 </dd>
@@ -2198,11 +2200,14 @@ Surface.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.modifier_convert">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">modifier_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.modifier_convert" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">modifier_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_customdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.modifier_convert" title="Permalink to this definition"></a></dt>
 <dd><p>Convert particles to a mesh object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p></li>
+<li><p><strong>merge_customdata</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge UV’s, Merge UV coordinates that share a vertex to account for imprecision in some modifiers</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -3852,7 +3857,7 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBfae642e7166e>fae642e7166e</a> - 04/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBe9d7595060ed>e9d7595060ed</a> - 05/05/2022</code>.
       </span></p>
   </div>
 

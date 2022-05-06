@@ -229,7 +229,11 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMesh.normal_update">
 <span class="sig-name descname"><span class="pre">normal_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMesh.normal_update" title="Permalink to this definition"></a></dt>
-<dd><p>Update mesh normals.</p>
+<dd><p>Update normals of mesh faces and verts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The normal of any vertex where <code class="xref py py-attr docutils literal notranslate"><span class="pre">is_wire</span></code> is True will be a zero vector.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -452,7 +456,12 @@ This is different from the <em>hide</em> attribute because it updates the select
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMVert.normal_update">
 <span class="sig-name descname"><span class="pre">normal_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMVert.normal_update" title="Permalink to this definition"></a></dt>
-<dd><p>Update vertex normal.</p>
+<dd><p>Update vertex normal.
+This does not update the normals of adjoining faces.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The vertex normal will be a zero vector if vertex <a class="reference internal" href="#bmesh.types.BMVert.is_wire" title="bmesh.types.BMVert.is_wire"><code class="xref py py-attr docutils literal notranslate"><span class="pre">is_wire</span></code></a> is True.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -712,7 +721,11 @@ This is different from the <em>hide</em> attribute because it updates the select
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMEdge.normal_update">
 <span class="sig-name descname"><span class="pre">normal_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMEdge.normal_update" title="Permalink to this definition"></a></dt>
-<dd><p>Update edges vertex normals.</p>
+<dd><p>Update normals of all connected faces and the edge verts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The normal of edge vertex will be a zero vector if vertex <a class="reference internal" href="#bmesh.types.BMEdge.is_wire" title="bmesh.types.BMEdge.is_wire"><code class="xref py py-attr docutils literal notranslate"><span class="pre">is_wire</span></code></a> is True.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1117,7 +1130,8 @@ This is different from the <em>hide</em> attribute because it updates the select
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMFace.normal_update">
 <span class="sig-name descname"><span class="pre">normal_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMFace.normal_update" title="Permalink to this definition"></a></dt>
-<dd><p>Update face’s normal.</p>
+<dd><p>Update face normal based on the positions of the face verts.
+This does not update the normals of face verts.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2499,7 +2513,7 @@ when not found (matches pythons dictionary function of the same name).</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBfae642e7166e>fae642e7166e</a> - 04/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBe9d7595060ed>e9d7595060ed</a> - 05/05/2022</code>.
       </span></p>
   </div>
 
