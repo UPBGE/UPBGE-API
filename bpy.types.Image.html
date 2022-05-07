@@ -121,6 +121,45 @@
              
   <section id="image-id">
 <h1>Image(ID)<a class="headerlink" href="#image-id" title="Permalink to this headline"></a></h1>
+<section id="image-data">
+<h2>Image Data<a class="headerlink" href="#image-data" title="Permalink to this headline"></a></h2>
+<p>The Image data-block is a shallow wrapper around image or video file(s)
+(on disk, as packed data, or generated).</p>
+<p>All actual data like the pixel buffer, size, resolution etc. is
+cached in an <a class="reference internal" href="imbuf.types.html#imbuf.types.ImBuf" title="imbuf.types.ImBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">imbuf.types.ImBuf</span></code></a> image buffer (or several buffers
+in some cases, like UDIM textures, multi-views, animations…).</p>
+<p>Several properties and functions of the Image data-block are then actually
+using/modifying its image buffer, and not the Image data-block itself.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One key limitation is that image buffers are not shared between different
+Image data-blocks, and they are not duplicated when copying an image.</p>
+<p>So until a modified image buffer is saved on disk, duplicating its Image
+data-block will not propagate the underlying buffer changes to the new Image.</p>
+</div>
+<p>This example script generates an Image data-block with a given size,
+change its first pixel, rescale it, and duplicates the image.</p>
+<p>The duplicated image still has the same size and colors as the original image
+at its creation, all editing in the original image’s buffer is ‘lost’ in its copy.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="n">image_src</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">102</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_src</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_src</span><span class="o">.</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">image_src</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+<span class="n">image_src</span><span class="o">.</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">image_src</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_src</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_src</span><span class="o">.</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">image_dest</span> <span class="o">=</span> <span class="n">image_src</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">image_dest</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_dest</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_dest</span><span class="o">.</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+
+</pre></div>
+</div>
 <p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.Image">
@@ -410,7 +449,7 @@ Color Grid – Generated improved UV grid to test UV mappings.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Image.pixels">
 <span class="sig-name descname"><span class="pre">pixels</span></span><a class="headerlink" href="#bpy.types.Image.pixels" title="Permalink to this definition"></a></dt>
-<dd><p>Image pixels in floating-point values</p>
+<dd><p>Image buffer pixels in floating-point values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>float in [-inf, inf], default 0.0</p>
@@ -432,7 +471,7 @@ Color Grid – Generated improved UV grid to test UV mappings.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Image.resolution">
 <span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#bpy.types.Image.resolution" title="Permalink to this definition"></a></dt>
-<dd><p>X/Y pixels per meter</p>
+<dd><p>X/Y pixels per meter, for the image buffer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>float array of 2 items in [-inf, inf], default (0.0, 0.0)</p>
@@ -443,7 +482,7 @@ Color Grid – Generated improved UV grid to test UV mappings.</p></li>
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Image.size">
 <span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#bpy.types.Image.size" title="Permalink to this definition"></a></dt>
-<dd><p>Width and height in pixels, zero when image data can’t be loaded</p>
+<dd><p>Width and height of the image buffer in pixels, zero when image data can’t be loaded</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>int array of 2 items in [-inf, inf], default (0, 0), (readonly)</p>
@@ -641,7 +680,7 @@ Stereo 3D – Single file with an encoded stereo pair.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Image.scale">
 <span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Image.scale" title="Permalink to this definition"></a></dt>
-<dd><p>Scale the image in pixels</p>
+<dd><p>Scale the buffer of the image, in pixels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -858,6 +897,7 @@ Stereo 3D – Single file with an encoded stereo pair.</p></li>
 </ul>
 </td></tr></table>
 </section>
+</section>
 
 
            </div>
@@ -871,7 +911,7 @@ Stereo 3D – Single file with an encoded stereo pair.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBe9d7595060ed>e9d7595060ed</a> - 05/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBbd16815af939>bd16815af939</a> - 06/05/2022</code>.
       </span></p>
   </div>
 
