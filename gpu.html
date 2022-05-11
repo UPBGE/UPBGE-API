@@ -435,6 +435,39 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 
 <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">SpaceView3D</span><span class="o">.</span><span class="n">draw_handler_add</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="p">(),</span> <span class="s1">&#39;WINDOW&#39;</span><span class="p">,</span> <span class="s1">&#39;POST_PIXEL&#39;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">3D Image</span>
+<span class="sd">--------</span>
+
+<span class="sd">Similar to the 2D Image shader, but works with 3D positions for the image vertices.</span>
+<span class="sd">To use this example you have to provide an image that should be displayed.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">import</span> <span class="nn">gpu</span>
+<span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
+
+<span class="n">IMAGE_NAME</span> <span class="o">=</span> <span class="s2">&quot;Untitled&quot;</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">IMAGE_NAME</span><span class="p">]</span>
+<span class="n">texture</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">from_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;3D_IMAGE&#39;</span><span class="p">)</span>
+<span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
+    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRIS&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+        <span class="s2">&quot;texCoord&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
+    <span class="n">shader</span><span class="o">.</span><span class="n">uniform_sampler</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+    <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
+
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">SpaceView3D</span><span class="o">.</span><span class="n">draw_handler_add</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="p">(),</span> <span class="s1">&#39;WINDOW&#39;</span><span class="p">,</span> <span class="s1">&#39;POST_VIEW&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -697,7 +730,7 @@ Based on the result a decision is made on whether the fragment should be drawn o
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBbd16815af939>bd16815af939</a> - 06/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB4e9f0fe3e234>4e9f0fe3e234</a> - 10/05/2022</code>.
       </span></p>
   </div>
 
