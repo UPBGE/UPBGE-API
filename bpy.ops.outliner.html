@@ -429,7 +429,7 @@ Color 08.</p></li>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_MAKE_EDITABLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_SINGLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_HIERARCHY'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>ID Data Operation</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_MAKE_EDITABLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_SINGLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_HIERARCHY'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>ID Data Operation</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">UNLINK</span></code>
 Unlink.</p></li>
@@ -439,8 +439,6 @@ Make Local.</p></li>
 Make Single User.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>
 Delete.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">REMAP</span></code>
-Remap Users – Make all users of selected data-blocks to use instead current (clicked) one.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CREATE</span></code>
 Make Library Override Single – Make a single, out-of-hierarchy local override of this linked data-block - only applies to active Outliner item.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CREATE_HIERARCHY</span></code>
@@ -481,21 +479,6 @@ Select Linked.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.outliner.id_paste">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">id_paste</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.id_paste" title="Permalink to this definition"></a></dt>
 <dd><p>Data-blocks from the clipboard are pasted</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.outliner.id_remap">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">id_remap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OBJECT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.id_remap" title="Permalink to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>id_type</strong> (<em>enum in</em><em> [</em><em>'ACTION'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'BRUSH'</em><em>, </em><em>'CAMERA'</em><em>, </em><em>'CACHEFILE'</em><em>, </em><em>'CURVE'</em><em>, </em><em>'FONT'</em><em>, </em><em>'GREASEPENCIL'</em><em>, </em><em>'COLLECTION'</em><em>, </em><em>'IMAGE'</em><em>, </em><em>'KEY'</em><em>, </em><em>'LIGHT'</em><em>, </em><em>'LIBRARY'</em><em>, </em><em>'LINESTYLE'</em><em>, </em><em>'LATTICE'</em><em>, </em><em>'MASK'</em><em>, </em><em>'MATERIAL'</em><em>, </em><em>'META'</em><em>, </em><em>'MESH'</em><em>, </em><em>'MOVIECLIP'</em><em>, </em><em>'NODETREE'</em><em>, </em><em>'OBJECT'</em><em>, </em><em>'PAINTCURVE'</em><em>, </em><em>'PALETTE'</em><em>, </em><em>'PARTICLE'</em><em>, </em><em>'LIGHT_PROBE'</em><em>, </em><em>'SCENE'</em><em>, </em><em>'SIMULATION'</em><em>, </em><em>'SOUND'</em><em>, </em><em>'SPEAKER'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'TEXTURE'</em><em>, </em><em>'CURVES'</em><em>, </em><em>'POINTCLOUD'</em><em>, </em><em>'VOLUME'</em><em>, </em><em>'WINDOWMANAGER'</em><em>, </em><em>'WORLD'</em><em>, </em><em>'WORKSPACE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID Type</p></li>
-<li><p><strong>old_id</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Old ID, Old ID to replace</p></li>
-<li><p><strong>new_id</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – New ID, New ID to remap all selected IDs’ users to</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -555,14 +538,12 @@ Select Linked.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.outliner.lib_operation">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">lib_operation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RENAME'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.lib_operation" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">lib_operation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DELETE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.lib_operation" title="Permalink to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'RENAME'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'RELOCATE'</em><em>, </em><em>'RELOAD'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Library Operation</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'DELETE'</em><em>, </em><em>'RELOCATE'</em><em>, </em><em>'RELOAD'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Library Operation</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">RENAME</span></code>
-Rename.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>
 Delete – Delete this library and all its item.
 Warning: No undo.</p></li>
@@ -605,20 +586,7 @@ Reload – Reload all data from this library.</p></li>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'SELECT'</em><em>, </em><em>'DESELECT'</em><em>, </em><em>'SELECT_HIERARCHY'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'RENAME'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Object Operation</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>
-Select.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DESELECT</span></code>
-Deselect.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SELECT_HIERARCHY</span></code>
-Select Hierarchy.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">REMAP</span></code>
-Remap Users – Make all users of selected data-blocks to use instead a new chosen one.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RENAME</span></code>
-Rename.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'SELECT'</em><em>, </em><em>'DESELECT'</em><em>, </em><em>'SELECT_HIERARCHY'</em><em>, </em><em>'RENAME'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Object Operation</p>
 </dd>
 </dl>
 </dd></dl>
@@ -792,7 +760,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB4e9f0fe3e234>4e9f0fe3e234</a> - 10/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBa7146d9e0488>a7146d9e0488</a> - 12/05/2022</code>.
       </span></p>
   </div>
 
