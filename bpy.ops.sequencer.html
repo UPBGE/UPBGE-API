@@ -79,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
@@ -232,6 +233,17 @@ Thumbnails – Display files as thumbnails.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sequencer.change_scene">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">change_scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.change_scene" title="Permalink to this definition"></a></dt>
+<dd><p>Change Scene assigned to Strip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scene</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scene</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sequencer.copy">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.copy" title="Permalink to this definition"></a></dt>
 <dd><p>Copy selected strips to clipboard</p>
@@ -272,8 +284,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sequencer.delete">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.delete" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.delete" title="Permalink to this definition"></a></dt>
 <dd><p>Erase selected strips from the sequencer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>delete_data</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Delete Data, After removing the Strip, delete the associated data also</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -782,6 +799,35 @@ Use Original Size – Keep image at its original size.</p></li>
 <li><p><strong>overlap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Allow Overlap, Don’t correct overlap on new sequence strips</p></li>
 <li><p><strong>overlap_shuffle_override</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Override Overlap Shuffle Behavior, Use the overlap_mode tool settings to determine how to shuffle overlapping strips</p></li>
 <li><p><strong>scene</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scene</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sequencer.scene_strip_add_new">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">scene_strip_add_new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_sel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap_shuffle_override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NEW'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.scene_strip_add_new" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new Strip and add a assign a new Scene as source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame_start</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Start Frame, Start frame of the sequence strip</p></li>
+<li><p><strong>channel</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>128</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Channel, Channel to place this strip into</p></li>
+<li><p><strong>replace_sel</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Replace Selection, Replace the current selection</p></li>
+<li><p><strong>overlap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Allow Overlap, Don’t correct overlap on new sequence strips</p></li>
+<li><p><strong>overlap_shuffle_override</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Override Overlap Shuffle Behavior, Use the overlap_mode tool settings to determine how to shuffle overlapping strips</p></li>
+<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'NEW'</em><em>, </em><em>'EMPTY'</em><em>, </em><em>'LINK_COPY'</em><em>, </em><em>'FULL_COPY'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">NEW</span></code>
+New – Add new Strip with a new empty Scene with default settings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EMPTY</span></code>
+Copy Settings – Add a new Strip, with an empty scene, and copy settings from the current scene.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LINK_COPY</span></code>
+Linked Copy – Add a Strip and link in the collections from the current scene (shallow copy).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FULL_COPY</span></code>
+Full Copy – Add a Strip and make a full copy of the current scene.</p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
 </dl>
@@ -1344,7 +1390,7 @@ Stretch to Fill – Stretch image so it fills preview.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBf3861a550b32>f3861a550b32</a> - 15/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB5e823957df35>5e823957df35</a> - 16/05/2022</code>.
       </span></p>
   </div>
 
