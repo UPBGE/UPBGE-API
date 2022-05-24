@@ -169,6 +169,7 @@ such as tuples, lists.</p>
 <dt class="sig sig-object py" id="mathutils.Color">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mathutils.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color" title="Permalink to this definition"></a></dt>
 <dd><p>This object gives access to Colors in Blender.</p>
+<p>Most colors returned by Blender APIs are in scene linear color space, as defined by    the OpenColorIO configuration. The notable exception is user interface theming colors,    which are in sRGB color space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>rgb</strong> (<em>3d vector</em>) – (r, g, b) color values</p>
@@ -233,6 +234,118 @@ no reference to the original data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>An instance of this object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_aces_to_scene_linear">
+<span class="sig-name descname"><span class="pre">from_aces_to_scene_linear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_aces_to_scene_linear" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from ACES2065-1 linear to scene linear color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in scene linear color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_rec709_linear_to_scene_linear">
+<span class="sig-name descname"><span class="pre">from_rec709_linear_to_scene_linear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_rec709_linear_to_scene_linear" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from Rec.709 linear color space to scene linear color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in scene linear color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_scene_linear_to_aces">
+<span class="sig-name descname"><span class="pre">from_scene_linear_to_aces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_scene_linear_to_aces" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from scene linear to ACES2065-1 linear color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in ACES2065-1 linear color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_scene_linear_to_rec709_linear">
+<span class="sig-name descname"><span class="pre">from_scene_linear_to_rec709_linear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_scene_linear_to_rec709_linear" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from scene linear to Rec.709 linear color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in Rec.709 linear color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_scene_linear_to_srgb">
+<span class="sig-name descname"><span class="pre">from_scene_linear_to_srgb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_scene_linear_to_srgb" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from scene linear to sRGB color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in sRGB color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_scene_linear_to_xyz_d65">
+<span class="sig-name descname"><span class="pre">from_scene_linear_to_xyz_d65</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_scene_linear_to_xyz_d65" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from scene linear to CIE XYZ (Illuminant D65) color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in XYZ color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_srgb_to_scene_linear">
+<span class="sig-name descname"><span class="pre">from_srgb_to_scene_linear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_srgb_to_scene_linear" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from sRGB to scene linear color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in scene linear color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.Color.from_xyz_d65_to_scene_linear">
+<span class="sig-name descname"><span class="pre">from_xyz_d65_to_scene_linear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Color.from_xyz_d65_to_scene_linear" title="Permalink to this definition"></a></dt>
+<dd><p>Convert from CIE XYZ (Illuminant D65) to scene linear color space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A color in scene linear color space.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -4442,7 +4555,7 @@ vector and another.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB8927ec3dface>8927ec3dface</a> - 20/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBfcf1ebc59a73>fcf1ebc59a73</a> - 23/05/2022</code>.
       </span></p>
   </div>
 
