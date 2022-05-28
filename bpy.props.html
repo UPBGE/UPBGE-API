@@ -678,7 +678,7 @@ Instead use <code class="docutils literal notranslate"><span class="pre">del</sp
 </div>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.StringProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">StringProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.StringProperty" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">StringProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'SUGGESTION'}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.StringProperty" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a new string property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -698,6 +698,23 @@ This function must take 2 values (self, context) and return None.
 This function must take 1 value (self) and return the value of the property.</p></li>
 <li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
+<li><p><strong>search</strong> (<em>function</em>) – <p>Function to be called to show candidates for this string (shown in the UI).
+This function must take 3 values (self, context, edit_text)
+and return a sequence, iterator or generator where each item must be:</p>
+<ul>
+<li><p>A single string (representing a candidate to display).</p></li>
+<li><p>A tuple-pair of strings, where the first is a candidate and the second
+is additional information about the candidate.</p></li>
+</ul>
+</p></li>
+<li><p><strong>search_options</strong> (<em>set</em>) – <p>Set of strings in:</p>
+<ul>
+<li><p>’SORT’ sorts the resulting items.</p></li>
+<li><p>’SUGGESTION’ lets the user enter values not found in search candidates.
+<strong>WARNING</strong> disabling this flag causes the search callback to run on redraw,
+so only disable this flag if it’s not likely to cause performance issues.</p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
 </dl>
@@ -718,7 +735,7 @@ This function must take 2 values (self, value) and return None.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBed4b77cdf40d>ed4b77cdf40d</a> - 25/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7be301fe352c>7be301fe352c</a> - 27/05/2022</code>.
       </span></p>
   </div>
 
