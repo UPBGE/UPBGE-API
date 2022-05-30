@@ -18,6 +18,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/js/version_switch.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -121,9 +122,9 @@
            <div itemprop="articleBody">
              
   <section id="operator-bpy-struct">
-<h1>Operator(bpy_struct)<a class="headerlink" href="#operator-bpy-struct" title="Permalink to this headline"></a></h1>
+<h1>Operator(bpy_struct)<a class="headerlink" href="#operator-bpy-struct" title="Permalink to this heading"></a></h1>
 <section id="basic-operator-example">
-<h2>Basic Operator Example<a class="headerlink" href="#basic-operator-example" title="Permalink to this headline"></a></h2>
+<h2>Basic Operator Example<a class="headerlink" href="#basic-operator-example" title="Permalink to this heading"></a></h2>
 <p>This script shows simple operator which prints a message.</p>
 <p>Since the operator only has an <a class="reference internal" href="#bpy.types.Operator.execute" title="bpy.types.Operator.execute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.execute</span></code></a> function it takes no
 user input.</p>
@@ -158,7 +159,7 @@ user input.</p>
 </div>
 </section>
 <section id="invoke-function">
-<h2>Invoke Function<a class="headerlink" href="#invoke-function" title="Permalink to this headline"></a></h2>
+<h2>Invoke Function<a class="headerlink" href="#invoke-function" title="Permalink to this heading"></a></h2>
 <p><a class="reference internal" href="#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> is used to initialize the operator from the context
 at the moment the operator is called.
 invoke() is typically used to assign properties which are then used by
@@ -217,7 +218,7 @@ automatically added into the user interface.</p>
 </div>
 </section>
 <section id="calling-a-file-selector">
-<h2>Calling a File Selector<a class="headerlink" href="#calling-a-file-selector" title="Permalink to this headline"></a></h2>
+<h2>Calling a File Selector<a class="headerlink" href="#calling-a-file-selector" title="Permalink to this heading"></a></h2>
 <p>This example shows how an operator can use the file selector.</p>
 <p>Notice the invoke function calls a window manager method and returns
 <code class="docutils literal notranslate"><span class="pre">{'RUNNING_MODAL'}</span></code>, this means the file selector stays open and the operator does not
@@ -267,7 +268,7 @@ can run.</p>
 </div>
 </section>
 <section id="dialog-box">
-<h2>Dialog Box<a class="headerlink" href="#dialog-box" title="Permalink to this headline"></a></h2>
+<h2>Dialog Box<a class="headerlink" href="#dialog-box" title="Permalink to this heading"></a></h2>
 <p>This operator uses its <a class="reference internal" href="#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> function to call a popup.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
@@ -308,7 +309,7 @@ can run.</p>
 </div>
 </section>
 <section id="custom-drawing">
-<h2>Custom Drawing<a class="headerlink" href="#custom-drawing" title="Permalink to this headline"></a></h2>
+<h2>Custom Drawing<a class="headerlink" href="#custom-drawing" title="Permalink to this heading"></a></h2>
 <p>By default operator properties use an automatic user interface layout.
 If you need more control you can create your own layout with a
 <a class="reference internal" href="#bpy.types.Operator.draw" title="bpy.types.Operator.draw"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.draw</span></code></a> function.</p>
@@ -362,7 +363,7 @@ for dialogs and file selectors.</p>
 </div>
 </section>
 <section id="modal-execution">
-<h2>Modal Execution<a class="headerlink" href="#modal-execution" title="Permalink to this headline"></a></h2>
+<h2>Modal Execution<a class="headerlink" href="#modal-execution" title="Permalink to this heading"></a></h2>
 <p>This operator defines a <a class="reference internal" href="#bpy.types.Operator.modal" title="bpy.types.Operator.modal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.modal</span></code></a> function that will keep being
 run to handle events until it returns <code class="docutils literal notranslate"><span class="pre">{'FINISHED'}</span></code> or <code class="docutils literal notranslate"><span class="pre">{'CANCELLED'}</span></code>.</p>
 <p>Modal operators run every time a new event is detected, such as a mouse click
@@ -428,7 +429,7 @@ be called before the <a class="reference internal" href="#bpy.types.Operator.inv
 </div>
 </section>
 <section id="enum-search-popup">
-<h2>Enum Search Popup<a class="headerlink" href="#enum-search-popup" title="Permalink to this headline"></a></h2>
+<h2>Enum Search Popup<a class="headerlink" href="#enum-search-popup" title="Permalink to this heading"></a></h2>
 <p>You may want to have an operator prompt the user to select an item
 from a search field, this can be done using <code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator.invoke_search_popup</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
@@ -926,7 +927,7 @@ Interface – Handled but not executed (popup menus).</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7be301fe352c>7be301fe352c</a> - 27/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB446620f37dfc>446620f37dfc</a> - 29/05/2022</code>.
       </span></p>
   </div>
 

@@ -18,6 +18,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/js/version_switch.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -120,24 +121,24 @@
            <div itemprop="articleBody">
              
   <section id="reference-api-usage">
-<h1>Reference API Usage<a class="headerlink" href="#reference-api-usage" title="Permalink to this headline"></a></h1>
+<h1>Reference API Usage<a class="headerlink" href="#reference-api-usage" title="Permalink to this heading"></a></h1>
 <p>Blender has many interlinking data types which have an auto-generated reference API which often has the information
 you need to write a script, but can be difficult to use.
 This document is designed to help you understand how to use the reference API.</p>
 <section id="reference-api-scope">
-<h2>Reference API Scope<a class="headerlink" href="#reference-api-scope" title="Permalink to this headline"></a></h2>
+<h2>Reference API Scope<a class="headerlink" href="#reference-api-scope" title="Permalink to this heading"></a></h2>
 <p>The reference API covers <a class="reference internal" href="bpy.types.html#module-bpy.types" title="bpy.types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.types</span></code></a>, which stores types accessed via <a class="reference internal" href="bpy.context.html#module-bpy.context" title="bpy.context"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.context</span></code></a> – <em>the user context</em>
 or <a class="reference internal" href="bpy.data.html#module-bpy.data" title="bpy.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.data</span></code></a> – <em>blend-file data</em>.</p>
 <p>Other modules such as <a class="reference internal" href="bmesh.html#module-bmesh" title="bmesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh</span></code></a> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">aud</span></code> are not using Blender’s data API
 so this document doesn’t apply to those modules.</p>
 </section>
 <section id="data-access">
-<h2>Data Access<a class="headerlink" href="#data-access" title="Permalink to this headline"></a></h2>
+<h2>Data Access<a class="headerlink" href="#data-access" title="Permalink to this heading"></a></h2>
 <p>The most common case for using the reference API is to find out how to access data in the blend-file.
 Before going any further it’s best to be aware of ID data-blocks in Blender since you will often find properties
 relative to them.</p>
 <section id="id-data">
-<h3>ID Data<a class="headerlink" href="#id-data" title="Permalink to this headline"></a></h3>
+<h3>ID Data<a class="headerlink" href="#id-data" title="Permalink to this heading"></a></h3>
 <p>ID data-blocks are used in Blender as top-level data containers.
 From the user interface this isn’t so obvious, but when developing you need to know about ID data-blocks.
 ID data types include Scene, Group, Object, Mesh, Workspace, World, Armature, Image and Texture.
@@ -155,7 +156,7 @@ For a full list see the subclasses of <a class="reference internal" href="bpy.ty
 </ul>
 </section>
 <section id="simple-data-access">
-<h3>Simple Data Access<a class="headerlink" href="#simple-data-access" title="Permalink to this headline"></a></h3>
+<h3>Simple Data Access<a class="headerlink" href="#simple-data-access" title="Permalink to this heading"></a></h3>
 <p>In this simple case a Python script is used to adjust the object’s location.
 Start by collecting the information where the data is located.</p>
 <p>First find this setting in the interface <code class="docutils literal notranslate"><span class="pre">Properties</span> <span class="pre">editor</span> <span class="pre">-&gt;</span> <span class="pre">Object</span> <span class="pre">-&gt;</span> <span class="pre">Transform</span> <span class="pre">-&gt;</span> <span class="pre">Location</span></code>.
@@ -195,7 +196,7 @@ so the documentation points there.</p>
 </div>
 </section>
 <section id="nested-properties">
-<h3>Nested Properties<a class="headerlink" href="#nested-properties" title="Permalink to this headline"></a></h3>
+<h3>Nested Properties<a class="headerlink" href="#nested-properties" title="Permalink to this heading"></a></h3>
 <p>The previous example is quite straightforward because <code class="docutils literal notranslate"><span class="pre">location</span></code> is a property of <code class="docutils literal notranslate"><span class="pre">Object</span></code> which can be accessed
 from the context directly.</p>
 <p>Here are some more complex examples:</p>
@@ -229,7 +230,7 @@ that you can easily see the values of properties and assign them to interactivel
 </ul>
 </section>
 <section id="copy-data-path">
-<span id="info-data-path-copy"></span><h3>Copy Data Path<a class="headerlink" href="#copy-data-path" title="Permalink to this headline"></a></h3>
+<span id="info-data-path-copy"></span><h3>Copy Data Path<a class="headerlink" href="#copy-data-path" title="Permalink to this heading"></a></h3>
 <p>Blender can compute the Python string to a property which is shown in the tooltip,
 on the line below <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">...</span></code>. This saves having to open the API references to find where data is accessed from.
 In the context menu is a copy data-path tool which gives the path from an <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a> data-block,
@@ -254,7 +255,7 @@ Include the trailing dot and don’t execute the code, yet.</p>
 <p>You can see the value update in the Subdivision Surface modifier’s UI as well as the cube.</p>
 </section>
 <section id="indirect-data-access">
-<span id="info-data-path-indirect"></span><h3>Indirect Data Access<a class="headerlink" href="#indirect-data-access" title="Permalink to this headline"></a></h3>
+<span id="info-data-path-indirect"></span><h3>Indirect Data Access<a class="headerlink" href="#indirect-data-access" title="Permalink to this heading"></a></h3>
 <p>This more advanced example shows the steps to access the active sculpt brushes texture.
 For example, if you want to access the texture of a brush via Python to adjust its <code class="docutils literal notranslate"><span class="pre">contrast</span></code>.</p>
 <ol class="arabic simple">
@@ -289,7 +290,7 @@ manipulate it, no matter what the user currently has the view set at.</p>
 </section>
 </section>
 <section id="operators">
-<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline"></a></h2>
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this heading"></a></h2>
 <p>Most hotkeys and buttons in Blender call an operator which is also exposed to Python via <a class="reference internal" href="bpy.ops.html#module-bpy.ops" title="bpy.ops"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops</span></code></a>.</p>
 <p>To see the Python equivalent hover your mouse over the button and see the tooltip,
 e.g <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">bpy.ops.render.render()</span></code>,
@@ -306,7 +307,7 @@ are interested to check on the source code.</p>
 for more on this see <a class="reference internal" href="info_gotcha.html#using-operators"><span class="std std-ref">using operators</span></a>.</p>
 </div>
 <section id="info-editor">
-<h3>Info Editor<a class="headerlink" href="#info-editor" title="Permalink to this headline"></a></h3>
+<h3>Info Editor<a class="headerlink" href="#info-editor" title="Permalink to this heading"></a></h3>
 <p>Blender records operators you run and displays them in the Info editor.
 Select the Scripting workspace that comes default with Blender to see its output.
 You can perform some actions and see them show up – delete a vertex for example.</p>
@@ -333,7 +334,7 @@ zooming the view for example isn’t so useful to repeat so it’s excluded from
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7be301fe352c>7be301fe352c</a> - 27/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB446620f37dfc>446620f37dfc</a> - 29/05/2022</code>.
       </span></p>
   </div>
 

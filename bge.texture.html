@@ -18,6 +18,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/js/version_switch.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -120,9 +121,9 @@
            <div itemprop="articleBody">
              
   <section id="module-bge.texture">
-<span id="video-texture-bge-texture"></span><h1>Video Texture (bge.texture)<a class="headerlink" href="#module-bge.texture" title="Permalink to this headline"></a></h1>
+<span id="video-texture-bge-texture"></span><h1>Video Texture (bge.texture)<a class="headerlink" href="#module-bge.texture" title="Permalink to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> module allows you to manipulate textures during the game.
 Several sources for texture are possible: video files, image files, video capture,
 memory buffer, camera render or a mix of that.
@@ -143,7 +144,7 @@ including but not limited to:</p>
 <li><p>JPG</p></li>
 </ul>
 <section id="how-it-works">
-<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline"></a></h3>
+<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading"></a></h3>
 <p>The principle is simple: first you identify a texture on an existing object using the
 <a class="reference internal" href="#bge.texture.materialID" title="bge.texture.materialID"><code class="xref py py-func docutils literal notranslate"><span class="pre">materialID()</span></code></a> function, then you create a new texture with dynamic content
 and swap the two textures in the GPU.</p>
@@ -152,7 +153,7 @@ except that you are now in control of the texture.</p>
 <p>When the texture object is deleted, the new texture is deleted and the old texture restored.</p>
 </section>
 <section id="game-preparation">
-<h3>Game Preparation<a class="headerlink" href="#game-preparation" title="Permalink to this headline"></a></h3>
+<h3>Game Preparation<a class="headerlink" href="#game-preparation" title="Permalink to this heading"></a></h3>
 <p>Before you can use the <a class="reference internal" href="#module-bge.texture" title="bge.texture"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bge.texture</span></code></a> module,
 you must have objects with textures applied appropriately.</p>
 <p>Imagine you want to have a television showing live broadcast programs in the game.
@@ -171,9 +172,9 @@ the Blender Game Engine’s fancy texturing features: GLSL, multi-texture, custo
 </section>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <section id="basic-video-playback">
-<h3>Basic Video Playback<a class="headerlink" href="#basic-video-playback" title="Permalink to this headline"></a></h3>
+<h3>Basic Video Playback<a class="headerlink" href="#basic-video-playback" title="Permalink to this heading"></a></h3>
 <p>Example of how to replace a texture in game with a video.
 It needs to run everyframe.
 To avoid any confusion with the location of the file,
@@ -220,7 +221,7 @@ assuming the video file is in the same directory as the blend-file.</p>
 </div>
 </section>
 <section id="texture-replacement">
-<h3>Texture Replacement<a class="headerlink" href="#texture-replacement" title="Permalink to this headline"></a></h3>
+<h3>Texture Replacement<a class="headerlink" href="#texture-replacement" title="Permalink to this heading"></a></h3>
 <p>Example of how to replace a texture in game with an external image.
 <code class="docutils literal notranslate"><span class="pre">createTexture()</span></code> and <code class="docutils literal notranslate"><span class="pre">removeTexture()</span></code> are to be called from a
 module Python Controller.</p>
@@ -260,7 +261,7 @@ module Python Controller.</p>
 </div>
 </section>
 <section id="video-capture-with-decklink">
-<h3>Video Capture with DeckLink<a class="headerlink" href="#video-capture-with-decklink" title="Permalink to this headline"></a></h3>
+<h3>Video Capture with DeckLink<a class="headerlink" href="#video-capture-with-decklink" title="Permalink to this heading"></a></h3>
 <p>Video frames captured with DeckLink cards have pixel formats that are generally not directly
 usable by OpenGL, they must be processed by a shader. The three shaders presented here should
 cover all common video capture cases.</p>
@@ -500,7 +501,7 @@ value (look for color.a = ). It’s up to you to add postprocessing to the color
 </section>
 </section>
 <section id="video-classes">
-<h2>Video classes<a class="headerlink" href="#video-classes" title="Permalink to this headline"></a></h2>
+<h2>Video classes<a class="headerlink" href="#video-classes" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="bge.texture.VideoFFmpeg">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">VideoFFmpeg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.texture.VideoFFmpeg" title="Permalink to this definition"></a></dt>
@@ -737,7 +738,7 @@ of the frame to be copied to the buffer.</p></li>
 
 </section>
 <section id="image-classes">
-<h2>Image classes<a class="headerlink" href="#image-classes" title="Permalink to this headline"></a></h2>
+<h2>Image classes<a class="headerlink" href="#image-classes" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="bge.texture.ImageFFmpeg">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">ImageFFmpeg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.texture.ImageFFmpeg" title="Permalink to this definition"></a></dt>
@@ -2180,7 +2181,7 @@ as a single image in top-bottom order, left eye on top.</p>
 
 </section>
 <section id="texture-classes">
-<h2>Texture classes<a class="headerlink" href="#texture-classes" title="Permalink to this headline"></a></h2>
+<h2>Texture classes<a class="headerlink" href="#texture-classes" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="bge.texture.Texture">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">Texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameObj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">materialID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureObj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.texture.Texture" title="Permalink to this definition"></a></dt>
@@ -2424,7 +2425,7 @@ If unspecified, the BGE clock is used.</p></li>
 
 </section>
 <section id="filter-classes">
-<h2>Filter classes<a class="headerlink" href="#filter-classes" title="Permalink to this headline"></a></h2>
+<h2>Filter classes<a class="headerlink" href="#filter-classes" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="bge.texture.FilterBGR24">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">FilterBGR24</span></span><a class="headerlink" href="#bge.texture.FilterBGR24" title="Permalink to this definition"></a></dt>
@@ -2681,7 +2682,7 @@ to the <a class="reference internal" href="#bge.texture.ImageBuff.load" title="b
 
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.texture.getLastError">
 <span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">getLastError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.texture.getLastError" title="Permalink to this definition"></a></dt>
@@ -2797,11 +2798,11 @@ ordinary runtime time errors are not written.</p>
 
 </section>
 <section id="constants">
-<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline"></a></h2>
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 <section id="ffmpeg-video-and-image-status">
-<h1>FFmpeg Video and Image Status<a class="headerlink" href="#ffmpeg-video-and-image-status" title="Permalink to this headline"></a></h1>
+<h1>FFmpeg Video and Image Status<a class="headerlink" href="#ffmpeg-video-and-image-status" title="Permalink to this heading"></a></h1>
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.texture.SOURCE_ERROR">
 <span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">SOURCE_ERROR</span></span><a class="headerlink" href="#bge.texture.SOURCE_ERROR" title="Permalink to this definition"></a></dt>
@@ -2829,7 +2830,7 @@ ordinary runtime time errors are not written.</p>
 
 </section>
 <section id="image-blending-modes">
-<h1>Image Blending Modes<a class="headerlink" href="#image-blending-modes" title="Permalink to this headline"></a></h1>
+<h1>Image Blending Modes<a class="headerlink" href="#image-blending-modes" title="Permalink to this heading"></a></h1>
 <p>See Wikipedia’s <a class="reference external" href="https://en.wikipedia.org/wiki/Blend_modes">Blend Modes</a> for reference.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.texture.IMB_BLEND_MIX">
@@ -2980,7 +2981,7 @@ ordinary runtime time errors are not written.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7be301fe352c>7be301fe352c</a> - 27/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB446620f37dfc>446620f37dfc</a> - 29/05/2022</code>.
       </span></p>
   </div>
 
