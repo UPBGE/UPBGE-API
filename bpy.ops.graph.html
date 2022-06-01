@@ -292,7 +292,7 @@ Error Margin – Use an error margin to specify how much the curve is allowed to
 <dd><p>Make a copy of all selected keyframes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mode</strong> (<em>enum in</em><em> [</em><em>'INIT'</em><em>, </em><em>'DUMMY'</em><em>, </em><em>'TRANSLATION'</em><em>, </em><em>'ROTATION'</em><em>, </em><em>'RESIZE'</em><em>, </em><em>'SKIN_RESIZE'</em><em>, </em><em>'TOSPHERE'</em><em>, </em><em>'SHEAR'</em><em>, </em><em>'BEND'</em><em>, </em><em>'SHRINKFATTEN'</em><em>, </em><em>'TILT'</em><em>, </em><em>'TRACKBALL'</em><em>, </em><em>'PUSHPULL'</em><em>, </em><em>'CREASE'</em><em>, </em><em>'VERTEX_CREASE'</em><em>, </em><em>'MIRROR'</em><em>, </em><em>'BONE_SIZE'</em><em>, </em><em>'BONE_ENVELOPE'</em><em>, </em><em>'BONE_ENVELOPE_DIST'</em><em>, </em><em>'CURVE_SHRINKFATTEN'</em><em>, </em><em>'MASK_SHRINKFATTEN'</em><em>, </em><em>'GPENCIL_SHRINKFATTEN'</em><em>, </em><em>'BONE_ROLL'</em><em>, </em><em>'TIME_TRANSLATE'</em><em>, </em><em>'TIME_SLIDE'</em><em>, </em><em>'TIME_SCALE'</em><em>, </em><em>'TIME_EXTEND'</em><em>, </em><em>'BAKE_TIME'</em><em>, </em><em>'BWEIGHT'</em><em>, </em><em>'ALIGN'</em><em>, </em><em>'EDGESLIDE'</em><em>, </em><em>'SEQSLIDE'</em><em>, </em><em>'GPENCIL_OPACITY'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mode</p>
+<dd class="field-odd"><p><strong>mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_mode_types.html#rna-enum-transform-mode-types"><span class="std std-ref">Transform Mode Types</span></a>, (optional)) – Mode</p>
 </dd>
 </dl>
 </dd></dl>
@@ -317,18 +317,7 @@ Error Margin – Use an error margin to specify how much the curve is allowed to
 <dd><p>Set easing type for the F-Curve segments starting from the selected keyframes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'AUTO'</em><em>, </em><em>'EASE_IN'</em><em>, </em><em>'EASE_OUT'</em><em>, </em><em>'EASE_IN_OUT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
-Automatic Easing – Easing type is chosen automatically based on what the type of interpolation used (e.g. Ease In for transitional types, and Ease Out for dynamic effects).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EASE_IN</span></code>
-Ease In – Only on the end closest to the next keyframe.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EASE_OUT</span></code>
-Ease Out – Only on the end closest to the first keyframe.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT</span></code>
-Ease In and Out – Segment between both keyframes.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/beztriple_interpolation_easing_items.html#rna-enum-beztriple-interpolation-easing-items"><span class="std std-ref">Beztriple Interpolation Easing Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -392,26 +381,7 @@ Clear Cyclic (F-Modifier) – Remove Cycles F-Modifier if not needed anymore.</p
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'NULL'</em><em>, </em><em>'GENERATOR'</em><em>, </em><em>'FNGENERATOR'</em><em>, </em><em>'ENVELOPE'</em><em>, </em><em>'CYCLES'</em><em>, </em><em>'NOISE'</em><em>, </em><em>'LIMITS'</em><em>, </em><em>'STEPPED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">NULL</span></code>
-Invalid.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GENERATOR</span></code>
-Generator – Generate a curve using a factorized or expanded polynomial.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FNGENERATOR</span></code>
-Built-In Function – Generate a curve using standard math functions such as sin and cos.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ENVELOPE</span></code>
-Envelope – Reshape F-Curve values, e.g. change amplitude of movements.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CYCLES</span></code>
-Cycles – Cyclic extend/repeat keyframe sequence.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NOISE</span></code>
-Noise – Add pseudo-random noise on top of F-Curves.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMITS</span></code>
-Limits – Restrict maximum and minimum values of F-Curve.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">STEPPED</span></code>
-Stepped Interpolation – Snap values to nearest grid step, e.g. for a stop-motion look.</p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/fmodifier_type_items.html#rna-enum-fmodifier-type-items"><span class="std std-ref">Fmodifier Type Items</span></a>, (optional)) – Type</p></li>
 <li><p><strong>only_active</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Active, Only add F-Modifier to active F-Curve</p></li>
 </ul>
 </dd>
@@ -462,20 +432,7 @@ Stepped Interpolation – Snap values to nearest grid step, e.g. for a stop-moti
 <dd><p>Set type of handle for selected keyframes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'FREE'</em><em>, </em><em>'ALIGNED'</em><em>, </em><em>'VECTOR'</em><em>, </em><em>'AUTO'</em><em>, </em><em>'AUTO_CLAMPED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
-Free – Completely independent manually set handle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ALIGNED</span></code>
-Aligned – Manually set handle with rotation locked together with its pair.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VECTOR</span></code>
-Vector – Automatic handles that create straight lines.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
-Automatic – Automatic handles that create smooth curves.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO_CLAMPED</span></code>
-Auto Clamped – Automatic handles that create smooth curves which only change direction at keyframes.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/keyframe_handle_type_items.html#rna-enum-keyframe-handle-type-items"><span class="std std-ref">Keyframe Handle Type Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -497,36 +454,7 @@ Auto Clamped – Automatic handles that create smooth curves which only change d
 <dd><p>Set interpolation mode for the F-Curve segments starting from the selected keyframes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'CONSTANT'</em><em>, </em><em>'LINEAR'</em><em>, </em><em>'BEZIER'</em><em>, </em><em>'SINE'</em><em>, </em><em>'QUAD'</em><em>, </em><em>'CUBIC'</em><em>, </em><em>'QUART'</em><em>, </em><em>'QUINT'</em><em>, </em><em>'EXPO'</em><em>, </em><em>'CIRC'</em><em>, </em><em>'BACK'</em><em>, </em><em>'BOUNCE'</em><em>, </em><em>'ELASTIC'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CONSTANT</span></code>
-Constant – No interpolation, value of A gets held until B is encountered.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LINEAR</span></code>
-Linear – Straight-line interpolation between A and B (i.e. no ease in/out).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BEZIER</span></code>
-Bezier – Smooth interpolation between A and B, with some control over curve shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SINE</span></code>
-Sinusoidal – Sinusoidal easing (weakest, almost linear but with a slight curvature).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">QUAD</span></code>
-Quadratic – Quadratic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CUBIC</span></code>
-Cubic – Cubic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">QUART</span></code>
-Quartic – Quartic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">QUINT</span></code>
-Quintic – Quintic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXPO</span></code>
-Exponential – Exponential easing (dramatic).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CIRC</span></code>
-Circular – Circular easing (strongest and most dynamic).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BACK</span></code>
-Back – Cubic easing with overshoot and settle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOUNCE</span></code>
-Bounce – Exponentially decaying parabolic bounce, like when objects collide.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ELASTIC</span></code>
-Elastic – Exponentially decaying sine wave, like an elastic band.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/beztriple_interpolation_mode_items.html#rna-enum-beztriple-interpolation-mode-items"><span class="std std-ref">Beztriple Interpolation Mode Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -584,30 +512,8 @@ By Times Over First Selected Marker – Flip times of selected keyframes using t
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>offset</strong> (<em>enum in</em><em> [</em><em>'START'</em><em>, </em><em>'END'</em><em>, </em><em>'RELATIVE'</em><em>, </em><em>'NONE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Offset, Paste time offset of keys</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">START</span></code>
-Frame Start – Paste keys starting at current frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">END</span></code>
-Frame End – Paste keys ending at current frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RELATIVE</span></code>
-Frame Relative – Paste keys relative to the current frame when copying.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
-No Offset – Paste keys from original time.</p></li>
-</ul>
-</p></li>
-<li><p><strong>merge</strong> (<em>enum in</em><em> [</em><em>'MIX'</em><em>, </em><em>'OVER_ALL'</em><em>, </em><em>'OVER_RANGE'</em><em>, </em><em>'OVER_RANGE_ALL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type, Method of merging pasted keys and existing</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">MIX</span></code>
-Mix – Overlay existing with new keys.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVER_ALL</span></code>
-Overwrite All – Replace all keys.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVER_RANGE</span></code>
-Overwrite Range – Overwrite keys in pasted range.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVER_RANGE_ALL</span></code>
-Overwrite Entire Range – Overwrite keys in pasted range, using the range of all copied keys.</p></li>
-</ul>
-</p></li>
+<li><p><strong>offset</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/keyframe_paste_offset_items.html#rna-enum-keyframe-paste-offset-items"><span class="std std-ref">Keyframe Paste Offset Items</span></a>, (optional)) – Offset, Paste time offset of keys</p></li>
+<li><p><strong>merge</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/keyframe_paste_merge_items.html#rna-enum-keyframe-paste-merge-items"><span class="std std-ref">Keyframe Paste Merge Items</span></a>, (optional)) – Type, Method of merging pasted keys and existing</p></li>
 <li><p><strong>flipped</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flipped, Paste keyframes from mirrored bones if they exist</p></li>
 </ul>
 </dd>
@@ -925,7 +831,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB5a2b89776ed7>5a2b89776ed7</a> - 30/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7fb0db4d10c8>7fb0db4d10c8</a> - 31/05/2022</code>.
       </span></p>
   </div>
 

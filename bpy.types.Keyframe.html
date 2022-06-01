@@ -176,19 +176,9 @@
 <dt class="sig sig-object py" id="bpy.types.Keyframe.easing">
 <span class="sig-name descname"><span class="pre">easing</span></span><a class="headerlink" href="#bpy.types.Keyframe.easing" title="Permalink to this definition"></a></dt>
 <dd><p>Which ends of the segment between this and the next keyframe easing interpolation is applied to</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
-Automatic Easing – Easing type is chosen automatically based on what the type of interpolation used (e.g. Ease In for transitional types, and Ease Out for dynamic effects).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EASE_IN</span></code>
-Ease In – Only on the end closest to the next keyframe.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EASE_OUT</span></code>
-Ease Out – Only on the end closest to the first keyframe.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT</span></code>
-Ease In and Out – Segment between both keyframes.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘AUTO’, ‘EASE_IN’, ‘EASE_OUT’, ‘EASE_IN_OUT’], default ‘AUTO’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/beztriple_interpolation_easing_items.html#rna-enum-beztriple-interpolation-easing-items"><span class="std std-ref">Beztriple Interpolation Easing Items</span></a>, default ‘AUTO’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -208,21 +198,9 @@ Ease In and Out – Segment between both keyframes.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Keyframe.handle_left_type">
 <span class="sig-name descname"><span class="pre">handle_left_type</span></span><a class="headerlink" href="#bpy.types.Keyframe.handle_left_type" title="Permalink to this definition"></a></dt>
 <dd><p>Handle types</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
-Free – Completely independent manually set handle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ALIGNED</span></code>
-Aligned – Manually set handle with rotation locked together with its pair.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VECTOR</span></code>
-Vector – Automatic handles that create straight lines.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
-Automatic – Automatic handles that create smooth curves.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO_CLAMPED</span></code>
-Auto Clamped – Automatic handles that create smooth curves which only change direction at keyframes.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘FREE’, ‘ALIGNED’, ‘VECTOR’, ‘AUTO’, ‘AUTO_CLAMPED’], default ‘FREE’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/keyframe_handle_type_items.html#rna-enum-keyframe-handle-type-items"><span class="std std-ref">Keyframe Handle Type Items</span></a>, default ‘FREE’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -242,21 +220,9 @@ Auto Clamped – Automatic handles that create smooth curves which only change d
 <dt class="sig sig-object py" id="bpy.types.Keyframe.handle_right_type">
 <span class="sig-name descname"><span class="pre">handle_right_type</span></span><a class="headerlink" href="#bpy.types.Keyframe.handle_right_type" title="Permalink to this definition"></a></dt>
 <dd><p>Handle types</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
-Free – Completely independent manually set handle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ALIGNED</span></code>
-Aligned – Manually set handle with rotation locked together with its pair.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VECTOR</span></code>
-Vector – Automatic handles that create straight lines.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
-Automatic – Automatic handles that create smooth curves.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO_CLAMPED</span></code>
-Auto Clamped – Automatic handles that create smooth curves which only change direction at keyframes.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘FREE’, ‘ALIGNED’, ‘VECTOR’, ‘AUTO’, ‘AUTO_CLAMPED’], default ‘FREE’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/keyframe_handle_type_items.html#rna-enum-keyframe-handle-type-items"><span class="std std-ref">Keyframe Handle Type Items</span></a>, default ‘FREE’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -265,37 +231,9 @@ Auto Clamped – Automatic handles that create smooth curves which only change d
 <dt class="sig sig-object py" id="bpy.types.Keyframe.interpolation">
 <span class="sig-name descname"><span class="pre">interpolation</span></span><a class="headerlink" href="#bpy.types.Keyframe.interpolation" title="Permalink to this definition"></a></dt>
 <dd><p>Interpolation method to use for segment of the F-Curve from this Keyframe until the next Keyframe</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CONSTANT</span></code>
-Constant – No interpolation, value of A gets held until B is encountered.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LINEAR</span></code>
-Linear – Straight-line interpolation between A and B (i.e. no ease in/out).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BEZIER</span></code>
-Bezier – Smooth interpolation between A and B, with some control over curve shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SINE</span></code>
-Sinusoidal – Sinusoidal easing (weakest, almost linear but with a slight curvature).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">QUAD</span></code>
-Quadratic – Quadratic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CUBIC</span></code>
-Cubic – Cubic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">QUART</span></code>
-Quartic – Quartic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">QUINT</span></code>
-Quintic – Quintic easing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXPO</span></code>
-Exponential – Exponential easing (dramatic).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CIRC</span></code>
-Circular – Circular easing (strongest and most dynamic).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BACK</span></code>
-Back – Cubic easing with overshoot and settle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOUNCE</span></code>
-Bounce – Exponentially decaying parabolic bounce, like when objects collide.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ELASTIC</span></code>
-Elastic – Exponentially decaying sine wave, like an elastic band.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘CONSTANT’, ‘LINEAR’, ‘BEZIER’, ‘SINE’, ‘QUAD’, ‘CUBIC’, ‘QUART’, ‘QUINT’, ‘EXPO’, ‘CIRC’, ‘BACK’, ‘BOUNCE’, ‘ELASTIC’], default ‘CONSTANT’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/beztriple_interpolation_mode_items.html#rna-enum-beztriple-interpolation-mode-items"><span class="std std-ref">Beztriple Interpolation Mode Items</span></a>, default ‘CONSTANT’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -348,21 +286,9 @@ Elastic – Exponentially decaying sine wave, like an elastic band.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Keyframe.type">
 <span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#bpy.types.Keyframe.type" title="Permalink to this definition"></a></dt>
 <dd><p>Type of keyframe (for visual purposes only)</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">KEYFRAME</span></code>
-Keyframe – Normal keyframe, e.g. for key poses.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BREAKDOWN</span></code>
-Breakdown – A breakdown pose, e.g. for transitions between key poses.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MOVING_HOLD</span></code>
-Moving Hold – A keyframe that is part of a moving hold.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTREME</span></code>
-Extreme – An “extreme” pose, or some other purpose as needed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">JITTER</span></code>
-Jitter – A filler or baked keyframe for keying on ones, or some other purpose as needed.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘KEYFRAME’, ‘BREAKDOWN’, ‘MOVING_HOLD’, ‘EXTREME’, ‘JITTER’], default ‘KEYFRAME’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/beztriple_keyframe_type_items.html#rna-enum-beztriple-keyframe-type-items"><span class="std std-ref">Beztriple Keyframe Type Items</span></a>, default ‘KEYFRAME’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -460,7 +386,7 @@ Jitter – A filler or baked keyframe for keying on ones, or some other purpose 
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB5a2b89776ed7>5a2b89776ed7</a> - 30/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7fb0db4d10c8>7fb0db4d10c8</a> - 31/05/2022</code>.
       </span></p>
   </div>
 

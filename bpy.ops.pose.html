@@ -257,68 +257,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Add a constraint to the active bone</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'CAMERA_SOLVER'</em><em>, </em><em>'FOLLOW_TRACK'</em><em>, </em><em>'OBJECT_SOLVER'</em><em>, </em><em>'COPY_LOCATION'</em><em>, </em><em>'COPY_ROTATION'</em><em>, </em><em>'COPY_SCALE'</em><em>, </em><em>'COPY_TRANSFORMS'</em><em>, </em><em>'LIMIT_DISTANCE'</em><em>, </em><em>'LIMIT_LOCATION'</em><em>, </em><em>'LIMIT_ROTATION'</em><em>, </em><em>'LIMIT_SCALE'</em><em>, </em><em>'MAINTAIN_VOLUME'</em><em>, </em><em>'TRANSFORM'</em><em>, </em><em>'TRANSFORM_CACHE'</em><em>, </em><em>'CLAMP_TO'</em><em>, </em><em>'DAMPED_TRACK'</em><em>, </em><em>'IK'</em><em>, </em><em>'LOCKED_TRACK'</em><em>, </em><em>'SPLINE_IK'</em><em>, </em><em>'STRETCH_TO'</em><em>, </em><em>'TRACK_TO'</em><em>, </em><em>'ACTION'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'CHILD_OF'</em><em>, </em><em>'FLOOR'</em><em>, </em><em>'FOLLOW_PATH'</em><em>, </em><em>'PIVOT'</em><em>, </em><em>'RIGID_BODY_JOINT'</em><em>, </em><em>'SHRINKWRAP'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CAMERA_SOLVER</span></code>
-Camera Solver.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FOLLOW_TRACK</span></code>
-Follow Track.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT_SOLVER</span></code>
-Object Solver.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_LOCATION</span></code>
-Copy Location – Copy the location of a target (with an optional offset), so that they move together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_ROTATION</span></code>
-Copy Rotation – Copy the rotation of a target (with an optional offset), so that they rotate together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_SCALE</span></code>
-Copy Scale – Copy the scale factors of a target (with an optional offset), so that they are scaled by the same amount.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_TRANSFORMS</span></code>
-Copy Transforms – Copy all the transformations of a target, so that they move together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_DISTANCE</span></code>
-Limit Distance – Restrict movements to within a certain distance of a target (at the time of constraint evaluation only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_LOCATION</span></code>
-Limit Location – Restrict movement along each axis within given ranges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_ROTATION</span></code>
-Limit Rotation – Restrict rotation along each axis within given ranges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_SCALE</span></code>
-Limit Scale – Restrict scaling along each axis with given ranges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAINTAIN_VOLUME</span></code>
-Maintain Volume – Compensate for scaling one axis by applying suitable scaling to the other two axes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRANSFORM</span></code>
-Transformation – Use one transform property from target to control another (or same) property on owner.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRANSFORM_CACHE</span></code>
-Transform Cache – Look up the transformation matrix from an external file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CLAMP_TO</span></code>
-Clamp To – Restrict movements to lie along a curve by remapping location along curve’s longest axis.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DAMPED_TRACK</span></code>
-Damped Track – Point towards a target by performing the smallest rotation necessary.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IK</span></code>
-Inverse Kinematics – Control a chain of bones by specifying the endpoint target (Bones only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LOCKED_TRACK</span></code>
-Locked Track – Rotate around the specified (‘locked’) axis to point towards a target.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SPLINE_IK</span></code>
-Spline IK – Align chain of bones along a curve (Bones only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">STRETCH_TO</span></code>
-Stretch To – Stretch along Y-Axis to point towards a target.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRACK_TO</span></code>
-Track To – Legacy tracking constraint prone to twisting artifacts.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ACTION</span></code>
-Action – Use transform property of target to look up pose for owner from an Action.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ARMATURE</span></code>
-Armature – Apply weight-blended transformation from multiple bones like the Armature modifier.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CHILD_OF</span></code>
-Child Of – Make target the ‘detachable’ parent of owner.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOOR</span></code>
-Floor – Use position (and optionally rotation) of target to define a ‘wall’ or ‘floor’ that the owner can not cross.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FOLLOW_PATH</span></code>
-Follow Path – Use to animate an object/bone following a path.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PIVOT</span></code>
-Pivot – Change pivot point for transforms (buggy).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RIGID_BODY_JOINT</span></code>
-Rigid Body Joint – Use to define a Rigid Body Constraint (for Game Engine use only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHRINKWRAP</span></code>
-Shrinkwrap – Restrict movements to surface of target mesh.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/constraint_type_items.html#rna-enum-constraint-type-items"><span class="std std-ref">Constraint Type Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -329,68 +268,7 @@ Shrinkwrap – Restrict movements to surface of target mesh.</p></li>
 <dd><p>Add a constraint to the active bone, with target (where applicable) set to the selected Objects/Bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'CAMERA_SOLVER'</em><em>, </em><em>'FOLLOW_TRACK'</em><em>, </em><em>'OBJECT_SOLVER'</em><em>, </em><em>'COPY_LOCATION'</em><em>, </em><em>'COPY_ROTATION'</em><em>, </em><em>'COPY_SCALE'</em><em>, </em><em>'COPY_TRANSFORMS'</em><em>, </em><em>'LIMIT_DISTANCE'</em><em>, </em><em>'LIMIT_LOCATION'</em><em>, </em><em>'LIMIT_ROTATION'</em><em>, </em><em>'LIMIT_SCALE'</em><em>, </em><em>'MAINTAIN_VOLUME'</em><em>, </em><em>'TRANSFORM'</em><em>, </em><em>'TRANSFORM_CACHE'</em><em>, </em><em>'CLAMP_TO'</em><em>, </em><em>'DAMPED_TRACK'</em><em>, </em><em>'IK'</em><em>, </em><em>'LOCKED_TRACK'</em><em>, </em><em>'SPLINE_IK'</em><em>, </em><em>'STRETCH_TO'</em><em>, </em><em>'TRACK_TO'</em><em>, </em><em>'ACTION'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'CHILD_OF'</em><em>, </em><em>'FLOOR'</em><em>, </em><em>'FOLLOW_PATH'</em><em>, </em><em>'PIVOT'</em><em>, </em><em>'RIGID_BODY_JOINT'</em><em>, </em><em>'SHRINKWRAP'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CAMERA_SOLVER</span></code>
-Camera Solver.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FOLLOW_TRACK</span></code>
-Follow Track.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT_SOLVER</span></code>
-Object Solver.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_LOCATION</span></code>
-Copy Location – Copy the location of a target (with an optional offset), so that they move together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_ROTATION</span></code>
-Copy Rotation – Copy the rotation of a target (with an optional offset), so that they rotate together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_SCALE</span></code>
-Copy Scale – Copy the scale factors of a target (with an optional offset), so that they are scaled by the same amount.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COPY_TRANSFORMS</span></code>
-Copy Transforms – Copy all the transformations of a target, so that they move together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_DISTANCE</span></code>
-Limit Distance – Restrict movements to within a certain distance of a target (at the time of constraint evaluation only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_LOCATION</span></code>
-Limit Location – Restrict movement along each axis within given ranges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_ROTATION</span></code>
-Limit Rotation – Restrict rotation along each axis within given ranges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIMIT_SCALE</span></code>
-Limit Scale – Restrict scaling along each axis with given ranges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAINTAIN_VOLUME</span></code>
-Maintain Volume – Compensate for scaling one axis by applying suitable scaling to the other two axes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRANSFORM</span></code>
-Transformation – Use one transform property from target to control another (or same) property on owner.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRANSFORM_CACHE</span></code>
-Transform Cache – Look up the transformation matrix from an external file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CLAMP_TO</span></code>
-Clamp To – Restrict movements to lie along a curve by remapping location along curve’s longest axis.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DAMPED_TRACK</span></code>
-Damped Track – Point towards a target by performing the smallest rotation necessary.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IK</span></code>
-Inverse Kinematics – Control a chain of bones by specifying the endpoint target (Bones only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LOCKED_TRACK</span></code>
-Locked Track – Rotate around the specified (‘locked’) axis to point towards a target.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SPLINE_IK</span></code>
-Spline IK – Align chain of bones along a curve (Bones only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">STRETCH_TO</span></code>
-Stretch To – Stretch along Y-Axis to point towards a target.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRACK_TO</span></code>
-Track To – Legacy tracking constraint prone to twisting artifacts.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ACTION</span></code>
-Action – Use transform property of target to look up pose for owner from an Action.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ARMATURE</span></code>
-Armature – Apply weight-blended transformation from multiple bones like the Armature modifier.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CHILD_OF</span></code>
-Child Of – Make target the ‘detachable’ parent of owner.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOOR</span></code>
-Floor – Use position (and optionally rotation) of target to define a ‘wall’ or ‘floor’ that the owner can not cross.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FOLLOW_PATH</span></code>
-Follow Path – Use to animate an object/bone following a path.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PIVOT</span></code>
-Pivot – Change pivot point for transforms (buggy).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RIGID_BODY_JOINT</span></code>
-Rigid Body Joint – Use to define a Rigid Body Constraint (for Game Engine use only).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHRINKWRAP</span></code>
-Shrinkwrap – Restrict movements to surface of target mesh.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/constraint_type_items.html#rna-enum-constraint-type-items"><span class="std std-ref">Constraint Type Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -538,32 +416,9 @@ Warning: May result in incoherent naming in some cases</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>display_type</strong> (<em>enum in</em><em> [</em><em>'CURRENT_FRAME'</em><em>, </em><em>'RANGE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Display type</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">CURRENT_FRAME</span></code>
-Around Frame – Display Paths of poses within a fixed number of frames around the current frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RANGE</span></code>
-In Range – Display Paths of poses within specified range.</p></li>
-</ul>
-</p></li>
-<li><p><strong>range</strong> (<em>enum in</em><em> [</em><em>'KEYS_ALL'</em><em>, </em><em>'KEYS_SELECTED'</em><em>, </em><em>'SCENE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Computation Range</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">KEYS_ALL</span></code>
-All Keys – From the first keyframe to the last.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">KEYS_SELECTED</span></code>
-Selected Keys – From the first selected keyframe to the last.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCENE</span></code>
-Scene Frame Range – The entire Scene / Preview range.</p></li>
-</ul>
-</p></li>
-<li><p><strong>bake_location</strong> (<em>enum in</em><em> [</em><em>'HEADS'</em><em>, </em><em>'TAILS'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Bake Location, Which point on the bones is used when calculating paths</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">HEADS</span></code>
-Heads – Calculate bone paths from heads.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TAILS</span></code>
-Tails – Calculate bone paths from tails.</p></li>
-</ul>
-</p></li>
+<li><p><strong>display_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_display_type_items.html#rna-enum-motionpath-display-type-items"><span class="std std-ref">Motionpath Display Type Items</span></a>, (optional)) – Display type</p></li>
+<li><p><strong>range</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_range_items.html#rna-enum-motionpath-range-items"><span class="std std-ref">Motionpath Range Items</span></a>, (optional)) – Computation Range</p></li>
+<li><p><strong>bake_location</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_bake_location_items.html#rna-enum-motionpath-bake-location-items"><span class="std std-ref">Motionpath Bake Location Items</span></a>, (optional)) – Bake Location, Which point on the bones is used when calculating paths</p></li>
 </ul>
 </dd>
 </dl>
@@ -824,26 +679,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Set the rotation representation used by selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'QUATERNION'</em><em>, </em><em>'XYZ'</em><em>, </em><em>'XZY'</em><em>, </em><em>'YXZ'</em><em>, </em><em>'YZX'</em><em>, </em><em>'ZXY'</em><em>, </em><em>'ZYX'</em><em>, </em><em>'AXIS_ANGLE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Rotation Mode</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">QUATERNION</span></code>
-Quaternion (WXYZ) – No Gimbal Lock.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">XYZ</span></code>
-XYZ Euler – XYZ Rotation Order - prone to Gimbal Lock (default).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">XZY</span></code>
-XZY Euler – XZY Rotation Order - prone to Gimbal Lock.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">YXZ</span></code>
-YXZ Euler – YXZ Rotation Order - prone to Gimbal Lock.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">YZX</span></code>
-YZX Euler – YZX Rotation Order - prone to Gimbal Lock.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ZXY</span></code>
-ZXY Euler – ZXY Rotation Order - prone to Gimbal Lock.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ZYX</span></code>
-ZYX Euler – ZYX Rotation Order - prone to Gimbal Lock.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AXIS_ANGLE</span></code>
-Axis Angle – Axis Angle (W+XYZ), defines a rotation around some axis defined by 3D-Vector.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_rotation_mode_items.html#rna-enum-object-rotation-mode-items"><span class="std std-ref">Object Rotation Mode Items</span></a>, (optional)) – Rotation Mode</p>
 </dd>
 </dl>
 </dd></dl>
@@ -993,7 +829,7 @@ Keying Set – All bones affected by active Keying Set.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB5a2b89776ed7>5a2b89776ed7</a> - 30/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7fb0db4d10c8>7fb0db4d10c8</a> - 31/05/2022</code>.
       </span></p>
   </div>
 

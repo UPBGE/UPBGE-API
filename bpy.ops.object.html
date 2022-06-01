@@ -131,7 +131,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius</p></li>
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'MESH'</em><em>, </em><em>'CURVE'</em><em>, </em><em>'SURFACE'</em><em>, </em><em>'META'</em><em>, </em><em>'FONT'</em><em>, </em><em>'CURVES'</em><em>, </em><em>'POINTCLOUD'</em><em>, </em><em>'VOLUME'</em><em>, </em><em>'GPENCIL'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'LATTICE'</em><em>, </em><em>'EMPTY'</em><em>, </em><em>'LIGHT'</em><em>, </em><em>'LIGHT_PROBE'</em><em>, </em><em>'CAMERA'</em><em>, </em><em>'SPEAKER'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_type_items.html#rna-enum-object-type-items"><span class="std std-ref">Object Type Items</span></a>, (optional)) – Type</p></li>
 <li><p><strong>enter_editmode</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Enter Edit Mode, Enter edit mode when adding this object</p></li>
 <li><p><strong>align</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>, </em><em>'CURSOR'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align, The alignment of the new object</p>
 <ul>
@@ -261,51 +261,23 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'COMBINED'</em><em>, </em><em>'AO'</em><em>, </em><em>'SHADOW'</em><em>, </em><em>'POSITION'</em><em>, </em><em>'NORMAL'</em><em>, </em><em>'UV'</em><em>, </em><em>'ROUGHNESS'</em><em>, </em><em>'EMIT'</em><em>, </em><em>'ENVIRONMENT'</em><em>, </em><em>'DIFFUSE'</em><em>, </em><em>'GLOSSY'</em><em>, </em><em>'TRANSMISSION'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type, Type of pass to bake, some of them may not be supported by the current render engine</p></li>
-<li><p><strong>pass_filter</strong> (<em>enum set in {'NONE'</em><em>, </em><em>'EMIT'</em><em>, </em><em>'DIRECT'</em><em>, </em><em>'INDIRECT'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'DIFFUSE'</em><em>, </em><em>'GLOSSY'</em><em>, </em><em>'TRANSMISSION'}</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pass Filter, Filter to combined, diffuse, glossy, transmission and subsurface passes</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/bake_pass_type_items.html#rna-enum-bake-pass-type-items"><span class="std std-ref">Bake Pass Type Items</span></a>, (optional)) – Type, Type of pass to bake, some of them may not be supported by the current render engine</p></li>
+<li><p><strong>pass_filter</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/bake_pass_filter_type_items.html#rna-enum-bake-pass-filter-type-items"><span class="std std-ref">Bake Pass Filter Type Items</span></a>, (optional)) – Pass Filter, Filter to combined, diffuse, glossy, transmission and subsurface passes</p></li>
 <li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Image filepath to use when saving externally</p></li>
 <li><p><strong>width</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Width, Horizontal dimension of the baking map (external only)</p></li>
 <li><p><strong>height</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Height, Vertical dimension of the baking map (external only)</p></li>
 <li><p><strong>margin</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Margin, Extends the baked result as a post process filter</p></li>
-<li><p><strong>margin_type</strong> (<em>enum in</em><em> [</em><em>'ADJACENT_FACES'</em><em>, </em><em>'EXTEND'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Margin Type, Which algorithm to use to generate the margin</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ADJACENT_FACES</span></code>
-Adjacent Faces – Use pixels from adjacent faces across UV seams.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>
-Extend – Extend border pixels outwards.</p></li>
-</ul>
-</p></li>
+<li><p><strong>margin_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/bake_margin_type_items.html#rna-enum-bake-margin-type-items"><span class="std std-ref">Bake Margin Type Items</span></a>, (optional)) – Margin Type, Which algorithm to use to generate the margin</p></li>
 <li><p><strong>use_selected_to_active</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected to Active, Bake shading on the surface of selected objects to the active object</p></li>
 <li><p><strong>max_ray_distance</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Max Ray Distance, The maximum ray distance for matching points between the active and selected objects. If zero, there is no limit</p></li>
 <li><p><strong>cage_extrusion</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cage Extrusion, Inflate the active object by the specified distance for baking. This helps matching to points nearer to the outside of the selected object meshes</p></li>
 <li><p><strong>cage_object</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Cage Object, Object to use as cage, instead of calculating the cage from the active object with cage extrusion</p></li>
-<li><p><strong>normal_space</strong> (<em>enum in</em><em> [</em><em>'OBJECT'</em><em>, </em><em>'TANGENT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Normal Space, Choose normal space for baking</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code>
-Object – Bake the normals in object space.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TANGENT</span></code>
-Tangent – Bake the normals in tangent space.</p></li>
-</ul>
-</p></li>
-<li><p><strong>normal_r</strong> (<em>enum in</em><em> [</em><em>'POS_X'</em><em>, </em><em>'POS_Y'</em><em>, </em><em>'POS_Z'</em><em>, </em><em>'NEG_X'</em><em>, </em><em>'NEG_Y'</em><em>, </em><em>'NEG_Z'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – R, Axis to bake in red channel</p></li>
-<li><p><strong>normal_g</strong> (<em>enum in</em><em> [</em><em>'POS_X'</em><em>, </em><em>'POS_Y'</em><em>, </em><em>'POS_Z'</em><em>, </em><em>'NEG_X'</em><em>, </em><em>'NEG_Y'</em><em>, </em><em>'NEG_Z'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – G, Axis to bake in green channel</p></li>
-<li><p><strong>normal_b</strong> (<em>enum in</em><em> [</em><em>'POS_X'</em><em>, </em><em>'POS_Y'</em><em>, </em><em>'POS_Z'</em><em>, </em><em>'NEG_X'</em><em>, </em><em>'NEG_Y'</em><em>, </em><em>'NEG_Z'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – B, Axis to bake in blue channel</p></li>
-<li><p><strong>target</strong> (<em>enum in</em><em> [</em><em>'IMAGE_TEXTURES'</em><em>, </em><em>'VERTEX_COLORS'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Target, Where to output the baked map</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">IMAGE_TEXTURES</span></code>
-Image Textures – Bake to image data-blocks associated with active image texture nodes in materials.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_COLORS</span></code>
-Color Attributes – Bake to active color attribute layer on meshes.</p></li>
-</ul>
-</p></li>
-<li><p><strong>save_mode</strong> (<em>enum in</em><em> [</em><em>'INTERNAL'</em><em>, </em><em>'EXTERNAL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Save Mode, Where to save baked image textures</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">INTERNAL</span></code>
-Internal – Save the baking map in an internal image data-block.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTERNAL</span></code>
-External – Save the baking map in an external file.</p></li>
-</ul>
-</p></li>
+<li><p><strong>normal_space</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/normal_space_items.html#rna-enum-normal-space-items"><span class="std std-ref">Normal Space Items</span></a>, (optional)) – Normal Space, Choose normal space for baking</p></li>
+<li><p><strong>normal_r</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/normal_swizzle_items.html#rna-enum-normal-swizzle-items"><span class="std std-ref">Normal Swizzle Items</span></a>, (optional)) – R, Axis to bake in red channel</p></li>
+<li><p><strong>normal_g</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/normal_swizzle_items.html#rna-enum-normal-swizzle-items"><span class="std std-ref">Normal Swizzle Items</span></a>, (optional)) – G, Axis to bake in green channel</p></li>
+<li><p><strong>normal_b</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/normal_swizzle_items.html#rna-enum-normal-swizzle-items"><span class="std std-ref">Normal Swizzle Items</span></a>, (optional)) – B, Axis to bake in blue channel</p></li>
+<li><p><strong>target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/bake_target_items.html#rna-enum-bake-target-items"><span class="std std-ref">Bake Target Items</span></a>, (optional)) – Target, Where to output the baked map</p></li>
+<li><p><strong>save_mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/bake_save_mode_items.html#rna-enum-bake-save-mode-items"><span class="std std-ref">Bake Save Mode Items</span></a>, (optional)) – Save Mode, Where to save baked image textures</p></li>
 <li><p><strong>use_clear</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Clear, Clear images before baking (only for internal saving)</p></li>
 <li><p><strong>use_cage</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cage, Cast rays to active object from a cage</p></li>
 <li><p><strong>use_split_materials</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Split Materials, Split baked maps per material, using material name in output file (external only)</p></li>
@@ -580,7 +552,7 @@ View – Align the new object to the view.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Name, Name of the data-block to use by the operator</p></li>
 <li><p><strong>session_uuid</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Session UUID, Session UUID of the data-block to use by the operator</p></li>
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'ACTION'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'BRUSH'</em><em>, </em><em>'CAMERA'</em><em>, </em><em>'CACHEFILE'</em><em>, </em><em>'CURVE'</em><em>, </em><em>'FONT'</em><em>, </em><em>'GREASEPENCIL'</em><em>, </em><em>'COLLECTION'</em><em>, </em><em>'IMAGE'</em><em>, </em><em>'KEY'</em><em>, </em><em>'LIGHT'</em><em>, </em><em>'LIBRARY'</em><em>, </em><em>'LINESTYLE'</em><em>, </em><em>'LATTICE'</em><em>, </em><em>'MASK'</em><em>, </em><em>'MATERIAL'</em><em>, </em><em>'META'</em><em>, </em><em>'MESH'</em><em>, </em><em>'MOVIECLIP'</em><em>, </em><em>'NODETREE'</em><em>, </em><em>'OBJECT'</em><em>, </em><em>'PAINTCURVE'</em><em>, </em><em>'PALETTE'</em><em>, </em><em>'PARTICLE'</em><em>, </em><em>'LIGHT_PROBE'</em><em>, </em><em>'SCENE'</em><em>, </em><em>'SIMULATION'</em><em>, </em><em>'SOUND'</em><em>, </em><em>'SPEAKER'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'TEXTURE'</em><em>, </em><em>'CURVES'</em><em>, </em><em>'POINTCLOUD'</em><em>, </em><em>'VOLUME'</em><em>, </em><em>'WINDOWMANAGER'</em><em>, </em><em>'WORLD'</em><em>, </em><em>'WORKSPACE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/id_type_items.html#rna-enum-id-type-items"><span class="std std-ref">Id Type Items</span></a>, (optional)) – Type</p></li>
 <li><p><strong>align</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>, </em><em>'CURSOR'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align, The alignment of the new object</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">WORLD</span></code>
@@ -639,66 +611,10 @@ Freestyle Mark – Transfer Freestyle face mark.</p></li>
 </ul>
 </p></li>
 <li><p><strong>use_create</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Create Data, Add data layers on destination meshes if needed</p></li>
-<li><p><strong>vert_mapping</strong> (<em>enum in</em><em> [</em><em>'TOPOLOGY'</em><em>, </em><em>'NEAREST'</em><em>, </em><em>'EDGE_NEAREST'</em><em>, </em><em>'EDGEINTERP_NEAREST'</em><em>, </em><em>'POLY_NEAREST'</em><em>, </em><em>'POLYINTERP_NEAREST'</em><em>, </em><em>'POLYINTERP_VNORPROJ'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Vertex Mapping, Method used to map source vertices to destination ones</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">TOPOLOGY</span></code>
-Topology – Copy from identical topology meshes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST</span></code>
-Nearest Vertex – Copy from closest vertex.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDGE_NEAREST</span></code>
-Nearest Edge Vertex – Copy from closest vertex of closest edge.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDGEINTERP_NEAREST</span></code>
-Nearest Edge Interpolated – Copy from interpolated values of vertices from closest point on closest edge.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POLY_NEAREST</span></code>
-Nearest Face Vertex – Copy from closest vertex of closest face.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POLYINTERP_NEAREST</span></code>
-Nearest Face Interpolated – Copy from interpolated values of vertices from closest point on closest face.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POLYINTERP_VNORPROJ</span></code>
-Projected Face Interpolated – Copy from interpolated values of vertices from point on closest face hit by normal-projection.</p></li>
-</ul>
-</p></li>
-<li><p><strong>edge_mapping</strong> (<em>enum in</em><em> [</em><em>'TOPOLOGY'</em><em>, </em><em>'VERT_NEAREST'</em><em>, </em><em>'NEAREST'</em><em>, </em><em>'POLY_NEAREST'</em><em>, </em><em>'EDGEINTERP_VNORPROJ'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Edge Mapping, Method used to map source edges to destination ones</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">TOPOLOGY</span></code>
-Topology – Copy from identical topology meshes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERT_NEAREST</span></code>
-Nearest Vertices – Copy from most similar edge (edge which vertices are the closest of destination edge’s ones).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST</span></code>
-Nearest Edge – Copy from closest edge (using midpoints).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POLY_NEAREST</span></code>
-Nearest Face Edge – Copy from closest edge of closest face (using midpoints).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDGEINTERP_VNORPROJ</span></code>
-Projected Edge Interpolated – Interpolate all source edges hit by the projection of destination one along its own normal (from vertices).</p></li>
-</ul>
-</p></li>
-<li><p><strong>loop_mapping</strong> (<em>enum in</em><em> [</em><em>'TOPOLOGY'</em><em>, </em><em>'NEAREST_NORMAL'</em><em>, </em><em>'NEAREST_POLYNOR'</em><em>, </em><em>'NEAREST_POLY'</em><em>, </em><em>'POLYINTERP_NEAREST'</em><em>, </em><em>'POLYINTERP_LNORPROJ'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Face Corner Mapping, Method used to map source faces’ corners to destination ones</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">TOPOLOGY</span></code>
-Topology – Copy from identical topology meshes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST_NORMAL</span></code>
-Nearest Corner and Best Matching Normal – Copy from nearest corner which has the best matching normal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST_POLYNOR</span></code>
-Nearest Corner and Best Matching Face Normal – Copy from nearest corner which has the face with the best matching normal to destination corner’s face one.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST_POLY</span></code>
-Nearest Corner of Nearest Face – Copy from nearest corner of nearest polygon.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POLYINTERP_NEAREST</span></code>
-Nearest Face Interpolated – Copy from interpolated corners of the nearest source polygon.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POLYINTERP_LNORPROJ</span></code>
-Projected Face Interpolated – Copy from interpolated corners of the source polygon hit by corner normal projection.</p></li>
-</ul>
-</p></li>
-<li><p><strong>poly_mapping</strong> (<em>enum in</em><em> [</em><em>'TOPOLOGY'</em><em>, </em><em>'NEAREST'</em><em>, </em><em>'NORMAL'</em><em>, </em><em>'POLYINTERP_PNORPROJ'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Face Mapping, Method used to map source faces to destination ones</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">TOPOLOGY</span></code>
-Topology – Copy from identical topology meshes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST</span></code>
-Nearest Face – Copy from nearest polygon (using center points).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
-Best Normal-Matching – Copy from source polygon which normal is the closest to destination one.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POLYINTERP_PNORPROJ</span></code>
-Projected Face Interpolated – Interpolate all source polygons intersected by the projection of destination one along its own normal.</p></li>
-</ul>
-</p></li>
+<li><p><strong>vert_mapping</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_method_vertex_items.html#rna-enum-dt-method-vertex-items"><span class="std std-ref">Dt Method Vertex Items</span></a>, (optional)) – Vertex Mapping, Method used to map source vertices to destination ones</p></li>
+<li><p><strong>edge_mapping</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_method_edge_items.html#rna-enum-dt-method-edge-items"><span class="std std-ref">Dt Method Edge Items</span></a>, (optional)) – Edge Mapping, Method used to map source edges to destination ones</p></li>
+<li><p><strong>loop_mapping</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_method_loop_items.html#rna-enum-dt-method-loop-items"><span class="std std-ref">Dt Method Loop Items</span></a>, (optional)) – Face Corner Mapping, Method used to map source faces’ corners to destination ones</p></li>
+<li><p><strong>poly_mapping</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_method_poly_items.html#rna-enum-dt-method-poly-items"><span class="std std-ref">Dt Method Poly Items</span></a>, (optional)) – Face Mapping, Method used to map source faces to destination ones</p></li>
 <li><p><strong>use_auto_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Transform, Automatically compute transformation to get the best possible match between source and destination meshes.
 Warning: Results will never be as good as manual matching of objects</p></li>
 <li><p><strong>use_object_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Object Transform, Evaluate source and destination meshes in global space</p></li>
@@ -706,46 +622,9 @@ Warning: Results will never be as good as manual matching of objects</p></li>
 <li><p><strong>max_distance</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Max Distance, Maximum allowed distance between source and destination element, for non-topology mappings</p></li>
 <li><p><strong>ray_radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Ray Radius, ‘Width’ of rays (especially useful when raycasting against vertices or edges)</p></li>
 <li><p><strong>islands_precision</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Islands Precision, Factor controlling precision of islands handling (the higher, the better the results)</p></li>
-<li><p><strong>layers_select_src</strong> (<em>enum in</em><em> [</em><em>'ACTIVE'</em><em>, </em><em>'ALL'</em><em>, </em><em>'BONE_SELECT'</em><em>, </em><em>'BONE_DEFORM'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Source Layers Selection, Which layers to transfer, in case of multi-layers types</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
-Active Layer – Only transfer active data layer.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
-All Layers – Transfer all data layers.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BONE_SELECT</span></code>
-Selected Pose Bones – Transfer all vertex groups used by selected pose bones.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BONE_DEFORM</span></code>
-Deform Pose Bones – Transfer all vertex groups used by deform bones.</p></li>
-</ul>
-</p></li>
-<li><p><strong>layers_select_dst</strong> (<em>enum in</em><em> [</em><em>'ACTIVE'</em><em>, </em><em>'NAME'</em><em>, </em><em>'INDEX'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Destination Layers Matching, How to match source and destination layers</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
-Active Layer – Affect active data layer of all targets.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NAME</span></code>
-By Name – Match target data layers to affect by name.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INDEX</span></code>
-By Order – Match target data layers to affect by order (indices).</p></li>
-</ul>
-</p></li>
-<li><p><strong>mix_mode</strong> (<em>enum in</em><em> [</em><em>'REPLACE'</em><em>, </em><em>'ABOVE_THRESHOLD'</em><em>, </em><em>'BELOW_THRESHOLD'</em><em>, </em><em>'MIX'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUB'</em><em>, </em><em>'MUL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Mix Mode, How to affect destination elements with source values</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">REPLACE</span></code>
-Replace – Overwrite all elements’ data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ABOVE_THRESHOLD</span></code>
-Above Threshold – Only replace destination elements where data is above given threshold (exact behavior depends on data type).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BELOW_THRESHOLD</span></code>
-Below Threshold – Only replace destination elements where data is below given threshold (exact behavior depends on data type).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MIX</span></code>
-Mix – Mix source value into destination one, using given threshold as factor.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
-Add – Add source value to destination one, using given threshold as factor.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SUB</span></code>
-Subtract – Subtract source value to destination one, using given threshold as factor.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MUL</span></code>
-Multiply – Multiply source value to destination one, using given threshold as factor.</p></li>
-</ul>
-</p></li>
+<li><p><strong>layers_select_src</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_layers_select_src_items.html#rna-enum-dt-layers-select-src-items"><span class="std std-ref">Dt Layers Select Src Items</span></a>, (optional)) – Source Layers Selection, Which layers to transfer, in case of multi-layers types</p></li>
+<li><p><strong>layers_select_dst</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_layers_select_dst_items.html#rna-enum-dt-layers-select-dst-items"><span class="std std-ref">Dt Layers Select Dst Items</span></a>, (optional)) – Destination Layers Matching, How to match source and destination layers</p></li>
+<li><p><strong>mix_mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_mix_mode_items.html#rna-enum-dt-mix-mode-items"><span class="std std-ref">Dt Mix Mode Items</span></a>, (optional)) – Mix Mode, How to affect destination elements with source values</p></li>
 <li><p><strong>mix_factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mix Factor, Factor to use when applying data to destination (exact behavior depends on mix mode)</p></li>
 </ul>
 </dd>
@@ -789,28 +668,8 @@ Freestyle Mark – Transfer Freestyle face mark.</p></li>
 </ul>
 </p></li>
 <li><p><strong>use_delete</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Exact Match, Also delete some data layers from destination if necessary, so that it matches exactly source</p></li>
-<li><p><strong>layers_select_src</strong> (<em>enum in</em><em> [</em><em>'ACTIVE'</em><em>, </em><em>'ALL'</em><em>, </em><em>'BONE_SELECT'</em><em>, </em><em>'BONE_DEFORM'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Source Layers Selection, Which layers to transfer, in case of multi-layers types</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
-Active Layer – Only transfer active data layer.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
-All Layers – Transfer all data layers.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BONE_SELECT</span></code>
-Selected Pose Bones – Transfer all vertex groups used by selected pose bones.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BONE_DEFORM</span></code>
-Deform Pose Bones – Transfer all vertex groups used by deform bones.</p></li>
-</ul>
-</p></li>
-<li><p><strong>layers_select_dst</strong> (<em>enum in</em><em> [</em><em>'ACTIVE'</em><em>, </em><em>'NAME'</em><em>, </em><em>'INDEX'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Destination Layers Matching, How to match source and destination layers</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
-Active Layer – Affect active data layer of all targets.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NAME</span></code>
-By Name – Match target data layers to affect by name.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INDEX</span></code>
-By Order – Match target data layers to affect by order (indices).</p></li>
-</ul>
-</p></li>
+<li><p><strong>layers_select_src</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_layers_select_src_items.html#rna-enum-dt-layers-select-src-items"><span class="std std-ref">Dt Layers Select Src Items</span></a>, (optional)) – Source Layers Selection, Which layers to transfer, in case of multi-layers types</p></li>
+<li><p><strong>layers_select_dst</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/dt_layers_select_dst_items.html#rna-enum-dt-layers-select-dst-items"><span class="std std-ref">Dt Layers Select Dst Items</span></a>, (optional)) – Destination Layers Matching, How to match source and destination layers</p></li>
 </ul>
 </dd>
 </dl>
@@ -881,7 +740,7 @@ View – Align the new object to the view.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>linked</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Linked, Duplicate object but not object data, linking to the original data</p></li>
-<li><p><strong>mode</strong> (<em>enum in</em><em> [</em><em>'INIT'</em><em>, </em><em>'DUMMY'</em><em>, </em><em>'TRANSLATION'</em><em>, </em><em>'ROTATION'</em><em>, </em><em>'RESIZE'</em><em>, </em><em>'SKIN_RESIZE'</em><em>, </em><em>'TOSPHERE'</em><em>, </em><em>'SHEAR'</em><em>, </em><em>'BEND'</em><em>, </em><em>'SHRINKFATTEN'</em><em>, </em><em>'TILT'</em><em>, </em><em>'TRACKBALL'</em><em>, </em><em>'PUSHPULL'</em><em>, </em><em>'CREASE'</em><em>, </em><em>'VERTEX_CREASE'</em><em>, </em><em>'MIRROR'</em><em>, </em><em>'BONE_SIZE'</em><em>, </em><em>'BONE_ENVELOPE'</em><em>, </em><em>'BONE_ENVELOPE_DIST'</em><em>, </em><em>'CURVE_SHRINKFATTEN'</em><em>, </em><em>'MASK_SHRINKFATTEN'</em><em>, </em><em>'GPENCIL_SHRINKFATTEN'</em><em>, </em><em>'BONE_ROLL'</em><em>, </em><em>'TIME_TRANSLATE'</em><em>, </em><em>'TIME_SLIDE'</em><em>, </em><em>'TIME_SCALE'</em><em>, </em><em>'TIME_EXTEND'</em><em>, </em><em>'BAKE_TIME'</em><em>, </em><em>'BWEIGHT'</em><em>, </em><em>'ALIGN'</em><em>, </em><em>'EDGESLIDE'</em><em>, </em><em>'SEQSLIDE'</em><em>, </em><em>'GPENCIL_OPACITY'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mode</p></li>
+<li><p><strong>mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_mode_types.html#rna-enum-transform-mode-types"><span class="std std-ref">Transform Mode Types</span></a>, (optional)) – Mode</p></li>
 </ul>
 </dd>
 </dl>
@@ -970,7 +829,7 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'PLAIN_AXES'</em><em>, </em><em>'ARROWS'</em><em>, </em><em>'SINGLE_ARROW'</em><em>, </em><em>'CIRCLE'</em><em>, </em><em>'CUBE'</em><em>, </em><em>'SPHERE'</em><em>, </em><em>'CONE'</em><em>, </em><em>'IMAGE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_empty_drawtype_items.html#rna-enum-object-empty-drawtype-items"><span class="std std-ref">Object Empty Drawtype Items</span></a>, (optional)) – Type</p></li>
 <li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius</p></li>
 <li><p><strong>align</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>, </em><em>'CURSOR'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align, The alignment of the new object</p>
 <ul>
@@ -1101,20 +960,7 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'BOOL'</em><em>, </em><em>'INT'</em><em>, </em><em>'FLOAT'</em><em>, </em><em>'STRING'</em><em>, </em><em>'TIMER'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type, Type of game property to add</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code>
-Boolean – Boolean Property.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code>
-Integer – Integer Property.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>
-Float – Floating-Point Property.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">STRING</span></code>
-String – String Property.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TIMER</span></code>
-Timer – Timer Property.</p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/gameproperty_type_items.html#rna-enum-gameproperty-type-items"><span class="std std-ref">Gameproperty Type Items</span></a>, (optional)) – Type, Type of game property to add</p></li>
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Name, Name of the game property to add</p></li>
 </ul>
 </dd>
@@ -1173,22 +1019,7 @@ View – Align the new object to the view.</p></li>
 <li><p><strong>location</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Location for the newly added object</p></li>
 <li><p><strong>rotation</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Rotation, Rotation for the newly added object</p></li>
 <li><p><strong>scale</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scale, Scale for the newly added object</p></li>
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'EMPTY'</em><em>, </em><em>'STROKE'</em><em>, </em><em>'MONKEY'</em><em>, </em><em>'LRT_SCENE'</em><em>, </em><em>'LRT_COLLECTION'</em><em>, </em><em>'LRT_OBJECT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">EMPTY</span></code>
-Blank – Create an empty grease pencil object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">STROKE</span></code>
-Stroke – Create a simple stroke with basic colors.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MONKEY</span></code>
-Monkey – Construct a Suzanne grease pencil object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LRT_SCENE</span></code>
-Scene Line Art – Quickly set up line art for the entire scene.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LRT_COLLECTION</span></code>
-Collection Line Art – Quickly set up line art for the active collection.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LRT_OBJECT</span></code>
-Object Line Art – Quickly set up line art for the active object.</p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_gpencil_type_items.html#rna-enum-object-gpencil-type-items"><span class="std std-ref">Object Gpencil Type Items</span></a>, (optional)) – Type</p></li>
 <li><p><strong>use_in_front</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Show In Front, Show line art grease pencil in front of everything</p></li>
 <li><p><strong>stroke_depth_offset</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Stroke Offset, Stroke offset for the line art modifier</p></li>
 <li><p><strong>use_lights</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Lights, Use lights for this grease pencil object</p></li>
@@ -1211,60 +1042,7 @@ Object Line Art – Quickly set up line art for the active object.</p></li>
 <dd><p>Add a procedural operation/effect to the active grease pencil object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'GP_TEXTURE'</em><em>, </em><em>'GP_TIME'</em><em>, </em><em>'GP_WEIGHT_ANGLE'</em><em>, </em><em>'GP_WEIGHT_PROXIMITY'</em><em>, </em><em>'GP_ARRAY'</em><em>, </em><em>'GP_BUILD'</em><em>, </em><em>'GP_DASH'</em><em>, </em><em>'GP_ENVELOPE'</em><em>, </em><em>'GP_LENGTH'</em><em>, </em><em>'GP_LINEART'</em><em>, </em><em>'GP_MIRROR'</em><em>, </em><em>'GP_MULTIPLY'</em><em>, </em><em>'GP_SIMPLIFY'</em><em>, </em><em>'GP_SUBDIV'</em><em>, </em><em>'GP_ARMATURE'</em><em>, </em><em>'GP_HOOK'</em><em>, </em><em>'GP_LATTICE'</em><em>, </em><em>'GP_NOISE'</em><em>, </em><em>'GP_OFFSET'</em><em>, </em><em>'SHRINKWRAP'</em><em>, </em><em>'GP_SMOOTH'</em><em>, </em><em>'GP_THICK'</em><em>, </em><em>'GP_COLOR'</em><em>, </em><em>'GP_OPACITY'</em><em>, </em><em>'GP_TINT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_TEXTURE</span></code>
-Texture Mapping – Change stroke uv texture values.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_TIME</span></code>
-Time Offset – Offset keyframes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_WEIGHT_ANGLE</span></code>
-Vertex Weight Angle – Generate Vertex Weights base on stroke angle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_WEIGHT_PROXIMITY</span></code>
-Vertex Weight Proximity – Generate Vertex Weights base on distance to object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_ARRAY</span></code>
-Array – Create array of duplicate instances.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_BUILD</span></code>
-Build – Create duplication of strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_DASH</span></code>
-Dot Dash – Generate dot-dash styled strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_ENVELOPE</span></code>
-Envelope – Create an envelope shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_LENGTH</span></code>
-Length – Extend or shrink strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_LINEART</span></code>
-Line Art – Generate line art strokes from selected source.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_MIRROR</span></code>
-Mirror – Duplicate strokes like a mirror.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_MULTIPLY</span></code>
-Multiple Strokes – Produce multiple strokes along one stroke.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_SIMPLIFY</span></code>
-Simplify – Simplify stroke reducing number of points.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_SUBDIV</span></code>
-Subdivide – Subdivide stroke adding more control points.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_ARMATURE</span></code>
-Armature – Deform stroke points using armature object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_HOOK</span></code>
-Hook – Deform stroke points using objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_LATTICE</span></code>
-Lattice – Deform strokes using lattice.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_NOISE</span></code>
-Noise – Add noise to strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_OFFSET</span></code>
-Offset – Change stroke location, rotation or scale.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHRINKWRAP</span></code>
-Shrinkwrap – Project the shape onto another object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_SMOOTH</span></code>
-Smooth – Smooth stroke.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_THICK</span></code>
-Thickness – Change stroke thickness.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_COLOR</span></code>
-Hue/Saturation – Apply changes to stroke colors.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_OPACITY</span></code>
-Opacity – Opacity of the strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GP_TINT</span></code>
-Tint – Tint strokes with new color.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_greasepencil_modifier_type_items.html#rna-enum-object-greasepencil-modifier-type-items"><span class="std std-ref">Object Greasepencil Modifier Type Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1546,18 +1324,7 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'POINT'</em><em>, </em><em>'SUN'</em><em>, </em><em>'SPOT'</em><em>, </em><em>'AREA'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">POINT</span></code>
-Point – Omnidirectional point light source.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SUN</span></code>
-Sun – Constant direction parallel ray light source.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SPOT</span></code>
-Spot – Directional cone light source.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AREA</span></code>
-Area – Directional area light source.</p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/light_type_items.html#rna-enum-light-type-items"><span class="std std-ref">Light Type Items</span></a>, (optional)) – Type</p></li>
 <li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius</p></li>
 <li><p><strong>align</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>, </em><em>'CURSOR'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align, The alignment of the new object</p>
 <ul>
@@ -1931,7 +1698,7 @@ Copy Grease Pencil Effects – Replace Grease Pencil Effects.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'BALL'</em><em>, </em><em>'CAPSULE'</em><em>, </em><em>'PLANE'</em><em>, </em><em>'ELLIPSOID'</em><em>, </em><em>'CUBE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Primitive</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/metaelem_type_items.html#rna-enum-metaelem-type-items"><span class="std std-ref">Metaelem Type Items</span></a>, (optional)) – Primitive</p></li>
 <li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius</p></li>
 <li><p><strong>enter_editmode</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Enter Edit Mode, Enter edit mode when adding this object</p></li>
 <li><p><strong>align</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>, </em><em>'CURSOR'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align, The alignment of the new object</p>
@@ -1959,38 +1726,7 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<em>enum in</em><em> [</em><em>'OBJECT'</em><em>, </em><em>'EDIT'</em><em>, </em><em>'POSE'</em><em>, </em><em>'SCULPT'</em><em>, </em><em>'VERTEX_PAINT'</em><em>, </em><em>'WEIGHT_PAINT'</em><em>, </em><em>'TEXTURE_PAINT'</em><em>, </em><em>'PARTICLE_EDIT'</em><em>, </em><em>'EDIT_GPENCIL'</em><em>, </em><em>'SCULPT_GPENCIL'</em><em>, </em><em>'PAINT_GPENCIL'</em><em>, </em><em>'WEIGHT_GPENCIL'</em><em>, </em><em>'VERTEX_GPENCIL'</em><em>, </em><em>'SCULPT_CURVES'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Mode</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code>
-Object Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDIT</span></code>
-Edit Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POSE</span></code>
-Pose Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCULPT</span></code>
-Sculpt Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_PAINT</span></code>
-Vertex Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WEIGHT_PAINT</span></code>
-Weight Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TEXTURE_PAINT</span></code>
-Texture Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PARTICLE_EDIT</span></code>
-Particle Edit.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDIT_GPENCIL</span></code>
-Edit Mode – Edit Grease Pencil Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCULPT_GPENCIL</span></code>
-Sculpt Mode – Sculpt Grease Pencil Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PAINT_GPENCIL</span></code>
-Draw Mode – Paint Grease Pencil Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WEIGHT_GPENCIL</span></code>
-Weight Paint – Grease Pencil Weight Paint Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_GPENCIL</span></code>
-Vertex Paint – Grease Pencil Vertex Paint Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCULPT_CURVES</span></code>
-Sculpt Mode.</p></li>
-</ul>
-</p></li>
+<li><p><strong>mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_mode_items.html#rna-enum-object-mode-items"><span class="std std-ref">Object Mode Items</span></a>, (optional)) – Mode</p></li>
 <li><p><strong>toggle</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Toggle</p></li>
 </ul>
 </dd>
@@ -2004,49 +1740,9 @@ Sculpt Mode.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<em>enum in</em><em> [</em><em>'OBJECT'</em><em>, </em><em>'EDIT'</em><em>, </em><em>'POSE'</em><em>, </em><em>'SCULPT'</em><em>, </em><em>'VERTEX_PAINT'</em><em>, </em><em>'WEIGHT_PAINT'</em><em>, </em><em>'TEXTURE_PAINT'</em><em>, </em><em>'PARTICLE_EDIT'</em><em>, </em><em>'EDIT_GPENCIL'</em><em>, </em><em>'SCULPT_GPENCIL'</em><em>, </em><em>'PAINT_GPENCIL'</em><em>, </em><em>'WEIGHT_GPENCIL'</em><em>, </em><em>'VERTEX_GPENCIL'</em><em>, </em><em>'SCULPT_CURVES'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Mode</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code>
-Object Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDIT</span></code>
-Edit Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POSE</span></code>
-Pose Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCULPT</span></code>
-Sculpt Mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_PAINT</span></code>
-Vertex Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WEIGHT_PAINT</span></code>
-Weight Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TEXTURE_PAINT</span></code>
-Texture Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PARTICLE_EDIT</span></code>
-Particle Edit.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDIT_GPENCIL</span></code>
-Edit Mode – Edit Grease Pencil Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCULPT_GPENCIL</span></code>
-Sculpt Mode – Sculpt Grease Pencil Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PAINT_GPENCIL</span></code>
-Draw Mode – Paint Grease Pencil Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WEIGHT_GPENCIL</span></code>
-Weight Paint – Grease Pencil Weight Paint Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_GPENCIL</span></code>
-Vertex Paint – Grease Pencil Vertex Paint Strokes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCULPT_CURVES</span></code>
-Sculpt Mode.</p></li>
-</ul>
-</p></li>
+<li><p><strong>mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_mode_items.html#rna-enum-object-mode-items"><span class="std std-ref">Object Mode Items</span></a>, (optional)) – Mode</p></li>
 <li><p><strong>toggle</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Toggle</p></li>
-<li><p><strong>mesh_select_mode</strong> (<em>enum set in {'VERT'</em><em>, </em><em>'EDGE'</em><em>, </em><em>'FACE'}</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Mesh Mode</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERT</span></code>
-Vertex – Vertex selection mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDGE</span></code>
-Edge – Edge selection mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FACE</span></code>
-Face – Face selection mode.</p></li>
-</ul>
-</p></li>
+<li><p><strong>mesh_select_mode</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/mesh_select_mode_items.html#rna-enum-mesh-select-mode-items"><span class="std std-ref">Mesh Select Mode Items</span></a>, (optional)) – Mesh Mode</p></li>
 </ul>
 </dd>
 </dl>
@@ -2058,124 +1754,7 @@ Face – Face selection mode.</p></li>
 <dd><p>Add a procedural operation/effect to the active object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'DATA_TRANSFER'</em><em>, </em><em>'MESH_CACHE'</em><em>, </em><em>'MESH_SEQUENCE_CACHE'</em><em>, </em><em>'NORMAL_EDIT'</em><em>, </em><em>'WEIGHTED_NORMAL'</em><em>, </em><em>'UV_PROJECT'</em><em>, </em><em>'UV_WARP'</em><em>, </em><em>'VERTEX_WEIGHT_EDIT'</em><em>, </em><em>'VERTEX_WEIGHT_MIX'</em><em>, </em><em>'VERTEX_WEIGHT_PROXIMITY'</em><em>, </em><em>'ARRAY'</em><em>, </em><em>'BEVEL'</em><em>, </em><em>'BOOLEAN'</em><em>, </em><em>'BUILD'</em><em>, </em><em>'DECIMATE'</em><em>, </em><em>'EDGE_SPLIT'</em><em>, </em><em>'NODES'</em><em>, </em><em>'MASK'</em><em>, </em><em>'MIRROR'</em><em>, </em><em>'MESH_TO_VOLUME'</em><em>, </em><em>'MULTIRES'</em><em>, </em><em>'REMESH'</em><em>, </em><em>'SCREW'</em><em>, </em><em>'SKIN'</em><em>, </em><em>'SOLIDIFY'</em><em>, </em><em>'SUBSURF'</em><em>, </em><em>'TRIANGULATE'</em><em>, </em><em>'VOLUME_TO_MESH'</em><em>, </em><em>'WELD'</em><em>, </em><em>'WIREFRAME'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'CAST'</em><em>, </em><em>'CURVE'</em><em>, </em><em>'DISPLACE'</em><em>, </em><em>'HOOK'</em><em>, </em><em>'LAPLACIANDEFORM'</em><em>, </em><em>'LATTICE'</em><em>, </em><em>'MESH_DEFORM'</em><em>, </em><em>'SHRINKWRAP'</em><em>, </em><em>'SIMPLE_DEFORM'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'CORRECTIVE_SMOOTH'</em><em>, </em><em>'LAPLACIANSMOOTH'</em><em>, </em><em>'SURFACE_DEFORM'</em><em>, </em><em>'WARP'</em><em>, </em><em>'WAVE'</em><em>, </em><em>'VOLUME_DISPLACE'</em><em>, </em><em>'CLOTH'</em><em>, </em><em>'COLLISION'</em><em>, </em><em>'DYNAMIC_PAINT'</em><em>, </em><em>'EXPLODE'</em><em>, </em><em>'FLUID'</em><em>, </em><em>'OCEAN'</em><em>, </em><em>'PARTICLE_INSTANCE'</em><em>, </em><em>'PARTICLE_SYSTEM'</em><em>, </em><em>'SOFT_BODY'</em><em>, </em><em>'SURFACE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DATA_TRANSFER</span></code>
-Data Transfer – Transfer several types of data (vertex groups, UV maps, vertex colors, custom normals) from one mesh to another.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_CACHE</span></code>
-Mesh Cache – Deform the mesh using an external frame-by-frame vertex transform cache.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_SEQUENCE_CACHE</span></code>
-Mesh Sequence Cache – Deform the mesh or curve using an external mesh cache in Alembic format.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NORMAL_EDIT</span></code>
-Normal Edit – Modify the direction of the surface normals.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WEIGHTED_NORMAL</span></code>
-Weighted Normal – Modify the direction of the surface normals using a weighting method.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROJECT</span></code>
-UV Project – Project the UV map coordinates from the negative Z axis of another object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UV_WARP</span></code>
-UV Warp – Transform the UV map using the difference between two objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_WEIGHT_EDIT</span></code>
-Vertex Weight Edit – Modify of the weights of a vertex group.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_WEIGHT_MIX</span></code>
-Vertex Weight Mix – Mix the weights of two vertex groups.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX_WEIGHT_PROXIMITY</span></code>
-Vertex Weight Proximity – Set the vertex group weights based on the distance to another target object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ARRAY</span></code>
-Array – Create copies of the shape with offsets.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BEVEL</span></code>
-Bevel – Generate sloped corners by adding geometry to the mesh’s edges or vertices.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code>
-Boolean – Use another shape to cut, combine or perform a difference operation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BUILD</span></code>
-Build – Cause the faces of the mesh object to appear or disappear one after the other over time.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DECIMATE</span></code>
-Decimate – Reduce the geometry density.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDGE_SPLIT</span></code>
-Edge Split – Split away joined faces at the edges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NODES</span></code>
-Geometry Nodes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MASK</span></code>
-Mask – Dynamically hide vertices based on a vertex group or armature.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MIRROR</span></code>
-Mirror – Mirror along the local X, Y and/or Z axes, over the object origin.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_TO_VOLUME</span></code>
-Mesh to Volume.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MULTIRES</span></code>
-Multiresolution – Subdivide the mesh in a way that allows editing the higher subdivision levels.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">REMESH</span></code>
-Remesh – Generate new mesh topology based on the current shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCREW</span></code>
-Screw – Lathe around an axis, treating the input mesh as a profile.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SKIN</span></code>
-Skin – Create a solid shape from vertices and edges, using the vertex radius to define the thickness.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SOLIDIFY</span></code>
-Solidify – Make the surface thick.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SUBSURF</span></code>
-Subdivision Surface – Split the faces into smaller parts, giving it a smoother appearance.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TRIANGULATE</span></code>
-Triangulate – Convert all polygons to triangles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VOLUME_TO_MESH</span></code>
-Volume to Mesh.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WELD</span></code>
-Weld – Find groups of vertices closer than dist and merge them together.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WIREFRAME</span></code>
-Wireframe – Convert faces into thickened edges.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ARMATURE</span></code>
-Armature – Deform the shape using an armature object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CAST</span></code>
-Cast – Shift the shape towards a predefined primitive.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CURVE</span></code>
-Curve – Bend the mesh using a curve object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DISPLACE</span></code>
-Displace – Offset vertices based on a texture.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">HOOK</span></code>
-Hook – Deform specific points using another object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LAPLACIANDEFORM</span></code>
-Laplacian Deform – Deform based a series of anchor points.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LATTICE</span></code>
-Lattice – Deform using the shape of a lattice object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MESH_DEFORM</span></code>
-Mesh Deform – Deform using a different mesh, which acts as a deformation cage.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHRINKWRAP</span></code>
-Shrinkwrap – Project the shape onto another object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SIMPLE_DEFORM</span></code>
-Simple Deform – Deform the shape by twisting, bending, tapering or stretching.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
-Smooth – Smooth the mesh by flattening the angles between adjacent faces.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CORRECTIVE_SMOOTH</span></code>
-Smooth Corrective – Smooth the mesh while still preserving the volume.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LAPLACIANSMOOTH</span></code>
-Smooth Laplacian – Reduce the noise on a mesh surface with minimal changes to its shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE_DEFORM</span></code>
-Surface Deform – Transfer motion from another mesh.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WARP</span></code>
-Warp – Warp parts of a mesh to a new location in a very flexible way thanks to 2 specified objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WAVE</span></code>
-Wave – Adds a ripple-like motion to an object’s geometry.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VOLUME_DISPLACE</span></code>
-Volume Displace – Deform volume based on noise or other vector fields.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CLOTH</span></code>
-Cloth.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">COLLISION</span></code>
-Collision.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DYNAMIC_PAINT</span></code>
-Dynamic Paint.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXPLODE</span></code>
-Explode – Break apart the mesh faces and let them follow particles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLUID</span></code>
-Fluid.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OCEAN</span></code>
-Ocean – Generate a moving ocean surface.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PARTICLE_INSTANCE</span></code>
-Particle Instance.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PARTICLE_SYSTEM</span></code>
-Particle System – Spawn particles from the shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SOFT_BODY</span></code>
-Soft Body.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE</span></code>
-Surface.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_modifier_type_items.html#rna-enum-object-modifier-type-items"><span class="std std-ref">Object Modifier Type Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2189,7 +1768,7 @@ Surface.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p></li>
 <li><p><strong>report</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Report, Create a notification after the operation</p></li>
-<li><p><strong>merge_customdata</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge UV’s, Merge UV coordinates that share a vertex to account for imprecision in some modifiers</p></li>
+<li><p><strong>merge_customdata</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge UV’s, For mesh objects, merge UV coordinates that share a vertex to account for imprecision in some modifiers</p></li>
 <li><p><strong>single_user</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Make Data Single User, Make the object’s data single user if needed</p></li>
 </ul>
 </dd>
@@ -2213,14 +1792,11 @@ Surface.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.modifier_convert">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">modifier_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_customdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.modifier_convert" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">modifier_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.modifier_convert" title="Permalink to this definition"></a></dt>
 <dd><p>Convert particles to a mesh object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p></li>
-<li><p><strong>merge_customdata</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge UV’s, Merge UV coordinates that share a vertex to account for imprecision in some modifiers</p></li>
-</ul>
+<dd class="field-odd"><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2573,24 +2149,8 @@ Clear Parent Inverse – Reset the transform corrections applied to the parentin
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>display_type</strong> (<em>enum in</em><em> [</em><em>'CURRENT_FRAME'</em><em>, </em><em>'RANGE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Display type</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">CURRENT_FRAME</span></code>
-Around Frame – Display Paths of poses within a fixed number of frames around the current frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RANGE</span></code>
-In Range – Display Paths of poses within specified range.</p></li>
-</ul>
-</p></li>
-<li><p><strong>range</strong> (<em>enum in</em><em> [</em><em>'KEYS_ALL'</em><em>, </em><em>'KEYS_SELECTED'</em><em>, </em><em>'SCENE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Computation Range</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">KEYS_ALL</span></code>
-All Keys – From the first keyframe to the last.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">KEYS_SELECTED</span></code>
-Selected Keys – From the first selected keyframe to the last.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SCENE</span></code>
-Scene Frame Range – The entire Scene / Preview range.</p></li>
-</ul>
-</p></li>
+<li><p><strong>display_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_display_type_items.html#rna-enum-motionpath-display-type-items"><span class="std std-ref">Motionpath Display Type Items</span></a>, (optional)) – Display type</p></li>
+<li><p><strong>range</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_range_items.html#rna-enum-motionpath-range-items"><span class="std std-ref">Motionpath Range Items</span></a>, (optional)) – Computation Range</p></li>
 </ul>
 </dd>
 </dl>
@@ -2829,7 +2389,7 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend selection instead of deselecting everything first</p></li>
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'MESH'</em><em>, </em><em>'CURVE'</em><em>, </em><em>'SURFACE'</em><em>, </em><em>'META'</em><em>, </em><em>'FONT'</em><em>, </em><em>'CURVES'</em><em>, </em><em>'POINTCLOUD'</em><em>, </em><em>'VOLUME'</em><em>, </em><em>'GPENCIL'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'LATTICE'</em><em>, </em><em>'EMPTY'</em><em>, </em><em>'LIGHT'</em><em>, </em><em>'LIGHT_PROBE'</em><em>, </em><em>'CAMERA'</em><em>, </em><em>'SPEAKER'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type</p></li>
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_type_items.html#rna-enum-object-type-items"><span class="std std-ref">Object Type Items</span></a>, (optional)) – Type</p></li>
 </ul>
 </dd>
 </dl>
@@ -3021,28 +2581,7 @@ Deselect – Deselect all elements.</p></li>
 <dd><p>Add a visual effect to the active object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'FX_BLUR'</em><em>, </em><em>'FX_COLORIZE'</em><em>, </em><em>'FX_FLIP'</em><em>, </em><em>'FX_GLOW'</em><em>, </em><em>'FX_PIXEL'</em><em>, </em><em>'FX_RIM'</em><em>, </em><em>'FX_SHADOW'</em><em>, </em><em>'FX_SWIRL'</em><em>, </em><em>'FX_WAVE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_BLUR</span></code>
-Blur – Apply Gaussian Blur to object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_COLORIZE</span></code>
-Colorize – Apply different tint effects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_FLIP</span></code>
-Flip – Flip image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_GLOW</span></code>
-Glow – Create a glow effect.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_PIXEL</span></code>
-Pixelate – Pixelate image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_RIM</span></code>
-Rim – Add a rim to the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_SHADOW</span></code>
-Shadow – Create a shadow effect.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_SWIRL</span></code>
-Swirl – Create a rotation distortion.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FX_WAVE</span></code>
-Wave Distortion – Apply sinusoidal deformation.</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_shaderfx_type_items.html#rna-enum-object-shaderfx-type-items"><span class="std std-ref">Object Shaderfx Type Items</span></a>, (optional)) – Type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3879,7 +3418,7 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB5a2b89776ed7>5a2b89776ed7</a> - 30/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7fb0db4d10c8>7fb0db4d10c8</a> - 31/05/2022</code>.
       </span></p>
   </div>
 

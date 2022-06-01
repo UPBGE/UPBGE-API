@@ -483,7 +483,7 @@ from a search field, this can be done using <code class="xref py py-class docuti
 <dd><p>Cursor to use when waiting for the user to select a location to activate the operator (when <code class="docutils literal notranslate"><span class="pre">bl_options</span></code> has <code class="docutils literal notranslate"><span class="pre">DEPENDS_ON_CURSOR</span></code> set)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘DEFAULT’, ‘NONE’, ‘WAIT’, ‘CROSSHAIR’, ‘MOVE_X’, ‘MOVE_Y’, ‘KNIFE’, ‘TEXT’, ‘PAINT_BRUSH’, ‘PAINT_CROSS’, ‘DOT’, ‘ERASER’, ‘HAND’, ‘SCROLL_X’, ‘SCROLL_Y’, ‘SCROLL_XY’, ‘EYEDROPPER’, ‘PICK_AREA’, ‘STOP’, ‘COPY’, ‘CROSS’, ‘MUTE’, ‘ZOOM_IN’, ‘ZOOM_OUT’], default ‘DEFAULT’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/window_cursor_items.html#rna-enum-window-cursor-items"><span class="std std-ref">Window Cursor Items</span></a>, default ‘DEFAULT’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -522,33 +522,9 @@ from a search field, this can be done using <code class="xref py py-class docuti
 <dt class="sig sig-object py" id="bpy.types.Operator.bl_options">
 <span class="sig-name descname"><span class="pre">bl_options</span></span><a class="headerlink" href="#bpy.types.Operator.bl_options" title="Permalink to this definition"></a></dt>
 <dd><p>Options for this operator type</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">REGISTER</span></code>
-Register – Display in the info window and support the redo toolbar panel.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UNDO</span></code>
-Undo – Push an undo event (needed for operator redo).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UNDO_GROUPED</span></code>
-Grouped Undo – Push a single undo event for repeated instances of this operator.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BLOCKING</span></code>
-Blocking – Block anything else from using the cursor.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MACRO</span></code>
-Macro – Use to check if an operator is a macro.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GRAB_CURSOR</span></code>
-Grab Pointer – Use so the operator grabs the mouse focus, enables wrapping when continuous grab is enabled.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GRAB_CURSOR_X</span></code>
-Grab Pointer X – Grab, only warping the X axis.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GRAB_CURSOR_Y</span></code>
-Grab Pointer Y – Grab, only warping the Y axis.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPENDS_ON_CURSOR</span></code>
-Depends on Cursor – The initial cursor location is used, when running from a menus or buttons the user is prompted to place the cursor before beginning the operation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PRESET</span></code>
-Preset – Display a preset button with the operators settings.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INTERNAL</span></code>
-Internal – Removes the operator from search results.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum set in {‘REGISTER’, ‘UNDO’, ‘UNDO_GROUPED’, ‘BLOCKING’, ‘MACRO’, ‘GRAB_CURSOR’, ‘GRAB_CURSOR_X’, ‘GRAB_CURSOR_Y’, ‘DEPENDS_ON_CURSOR’, ‘PRESET’, ‘INTERNAL’}, default {‘REGISTER’}</p>
+<dd class="field-odd"><p>enum set in <a class="reference internal" href="bpy_types_enum_items/operator_type_flag_items.html#rna-enum-operator-type-flag-items"><span class="std std-ref">Operator Type Flag Items</span></a>, default {‘REGISTER’}</p>
 </dd>
 </dl>
 </dd></dl>
@@ -651,7 +627,7 @@ expanding an operator into a menu.
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum set in {'DEBUG'</em><em>, </em><em>'INFO'</em><em>, </em><em>'OPERATOR'</em><em>, </em><em>'PROPERTY'</em><em>, </em><em>'WARNING'</em><em>, </em><em>'ERROR'</em><em>, </em><em>'ERROR_INVALID_INPUT'</em><em>, </em><em>'ERROR_INVALID_CONTEXT'</em><em>, </em><em>'ERROR_OUT_OF_MEMORY'}</em>) – Type</p></li>
+<li><p><strong>type</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/wm_report_items.html#rna-enum-wm-report-items"><span class="std std-ref">Wm Report Items</span></a>) – Type</p></li>
 <li><p><strong>message</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Report Message</p></li>
 </ul>
 </dd>
@@ -689,23 +665,10 @@ expanding an operator into a menu.
 <dd><p>Execute the operator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p>result</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">RUNNING_MODAL</span></code>
-Running Modal – Keep the operator running with blender.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code>
-Cancelled – The operator exited without doing anything, so no undo entry should be pushed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FINISHED</span></code>
-Finished – The operator exited after completing its action.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PASS_THROUGH</span></code>
-Pass Through – Do nothing and pass the event on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code>
-Interface – Handled but not executed (popup menus).</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p>result</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}</p>
+<dd class="field-even"><p>enum set in <a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -730,23 +693,10 @@ Interface – Handled but not executed (popup menus).</p></li>
 <dd><p>Invoke the operator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p>result</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">RUNNING_MODAL</span></code>
-Running Modal – Keep the operator running with blender.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code>
-Cancelled – The operator exited without doing anything, so no undo entry should be pushed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FINISHED</span></code>
-Finished – The operator exited after completing its action.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PASS_THROUGH</span></code>
-Pass Through – Do nothing and pass the event on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code>
-Interface – Handled but not executed (popup menus).</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p>result</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}</p>
+<dd class="field-even"><p>enum set in <a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -757,23 +707,10 @@ Interface – Handled but not executed (popup menus).</p></li>
 <dd><p>Modal operator function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p>result</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">RUNNING_MODAL</span></code>
-Running Modal – Keep the operator running with blender.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code>
-Cancelled – The operator exited without doing anything, so no undo entry should be pushed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FINISHED</span></code>
-Finished – The operator exited after completing its action.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PASS_THROUGH</span></code>
-Pass Through – Do nothing and pass the event on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code>
-Interface – Handled but not executed (popup menus).</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p>result</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}</p>
+<dd class="field-even"><p>enum set in <a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -927,7 +864,7 @@ Interface – Handled but not executed (popup menus).</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB5a2b89776ed7>5a2b89776ed7</a> - 30/05/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB7fb0db4d10c8>7fb0db4d10c8</a> - 31/05/2022</code>.
       </span></p>
   </div>
 
