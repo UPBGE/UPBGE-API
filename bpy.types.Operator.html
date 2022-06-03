@@ -132,7 +132,7 @@ user input.</p>
 <p class="admonition-title">Note</p>
 <p>Operator subclasses must be registered before accessing them from blender.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">HelloWorldOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -173,7 +173,7 @@ the python api.</p>
 to typical class properties because blender registers them with the
 operator, to use as arguments when called, saved for operator undo/redo and
 automatically added into the user interface.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">SimpleMouseOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -227,7 +227,7 @@ exit immediately after invoke finishes.</p>
 user confirms.</p>
 <p>The <a class="reference internal" href="#bpy.types.Operator.poll" title="bpy.types.Operator.poll"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.poll</span></code></a> function is optional, used to check if the operator
 can run.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">ExportSomeData</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -270,7 +270,7 @@ can run.</p>
 <section id="dialog-box">
 <h2>Dialog Box<a class="headerlink" href="#dialog-box" title="Permalink to this heading"></a></h2>
 <p>This operator uses its <a class="reference internal" href="#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> function to call a popup.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">DialogOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -315,7 +315,7 @@ If you need more control you can create your own layout with a
 <a class="reference internal" href="#bpy.types.Operator.draw" title="bpy.types.Operator.draw"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.draw</span></code></a> function.</p>
 <p>This works like the <a class="reference internal" href="bpy.types.Panel.html#bpy.types.Panel" title="bpy.types.Panel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Panel</span></code></a> and <a class="reference internal" href="bpy.types.Menu.html#bpy.types.Menu" title="bpy.types.Menu"><code class="xref py py-class docutils literal notranslate"><span class="pre">Menu</span></code></a> draw functions, its used
 for dialogs and file selectors.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">CustomDrawOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -376,7 +376,7 @@ by returning <code class="docutils literal notranslate"><span class="pre">{'RUNN
 <p>Notice <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> and <code class="docutils literal notranslate"><span class="pre">__del__()</span></code> are declared.
 For other operator types they are not useful but for modal operators they will
 be called before the <a class="reference internal" href="#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> and after the operator finishes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">ModalOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -432,7 +432,7 @@ be called before the <a class="reference internal" href="#bpy.types.Operator.inv
 <h2>Enum Search Popup<a class="headerlink" href="#enum-search-popup" title="Permalink to this heading"></a></h2>
 <p>You may want to have an operator prompt the user to select an item
 from a search field, this can be done using <code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator.invoke_search_popup</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">from</span> <span class="nn">bpy.props</span> <span class="kn">import</span> <span class="n">EnumProperty</span>
 
 
@@ -864,7 +864,7 @@ expanding an operator into a menu.
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB05696d22fcec>05696d22fcec</a> - 01/06/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB91e85813bb1d>91e85813bb1d</a> - 02/06/2022</code>.
       </span></p>
   </div>
 

@@ -133,7 +133,7 @@
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Bone</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">PoseBone</span></code>.</p>
 <p>These properties can be animated, accessed by the user interface and python
 like Blender’s existing properties.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 <span class="c1"># Assign a custom property to an existing type.</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">custom_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test Property&quot;</span><span class="p">)</span>
@@ -149,7 +149,7 @@ like Blender’s existing properties.</p>
 classes. Test this code by running it in the text editor, or by clicking the
 button in the 3D Viewport’s Tools panel. The latter will show the properties
 in the Redo panel and allow you to change them.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">OBJECT_OT_property_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -209,7 +209,7 @@ in the Redo panel and allow you to change them.</p>
 <h2>PropertyGroup Example<a class="headerlink" href="#propertygroup-example" title="Permalink to this heading"></a></h2>
 <p>PropertyGroups can be used for collecting custom settings into one value
 to avoid many individual settings mixed in together.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">class</span> <span class="nc">MaterialSettings</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
@@ -235,7 +235,7 @@ to avoid many individual settings mixed in together.</p>
 <h2>Collection Example<a class="headerlink" href="#collection-example" title="Permalink to this heading"></a></h2>
 <p>Custom properties can be added to any subclass of an <code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Bone</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">PoseBone</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="c1"># Assign a collection.</span>
@@ -269,7 +269,7 @@ to avoid many individual settings mixed in together.</p>
 <p>It can be useful to perform an action when a property is changed and can be
 used to update other properties or synchronize with external data.</p>
 <p>All properties define update functions except for CollectionProperty.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">def</span> <span class="nf">update_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
@@ -290,7 +290,7 @@ used to update other properties or synchronize with external data.</p>
 If these callbacks are defined the property will not be stored in the ID properties
 automatically. Instead, the <cite>get</cite> and <cite>set</cite> functions will be called when the property
 is respectively read or written from the API.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="c1"># Simple property reading/writing from ID properties.</span>
@@ -736,7 +736,7 @@ so only disable this flag if it’s not likely to cause performance issues.</p><
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB05696d22fcec>05696d22fcec</a> - 01/06/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB91e85813bb1d>91e85813bb1d</a> - 02/06/2022</code>.
       </span></p>
   </div>
 

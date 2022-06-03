@@ -127,7 +127,7 @@
 <section id="basic-handler-example">
 <h2>Basic Handler Example<a class="headerlink" href="#basic-handler-example" title="Permalink to this heading"></a></h2>
 <p>This script shows the most simple example of adding a handler.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 
 
 <span class="k">def</span> <span class="nf">my_handler</span><span class="p">(</span><span class="n">scene</span><span class="p">):</span>
@@ -144,7 +144,7 @@
 want the handler stay running across multiple files (when the handler is
 part of an add-on for example).</p>
 <p>For this the <a class="reference internal" href="#bpy.app.handlers.persistent" title="bpy.app.handlers.persistent"><code class="xref py py-data docutils literal notranslate"><span class="pre">bpy.app.handlers.persistent</span></code></a> decorator needs to be used.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">from</span> <span class="nn">bpy.app.handlers</span> <span class="kn">import</span> <span class="n">persistent</span>
 
 
@@ -166,7 +166,7 @@ data that is accessed by the viewport, this can cause a crash of Blender. In
 such cases, lock the interface (Render → Lock Interface or
 <a class="reference internal" href="bpy.types.RenderSettings.html#bpy.types.RenderSettings.use_lock_interface" title="bpy.types.RenderSettings.use_lock_interface"><code class="xref py py-data docutils literal notranslate"><span class="pre">bpy.types.RenderSettings.use_lock_interface</span></code></a>) before starting a render.</p>
 <p>Below is an example of a mesh that is altered from a handler:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">frame_change_pre</span><span class="p">(</span><span class="n">scene</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">frame_change_pre</span><span class="p">(</span><span class="n">scene</span><span class="p">):</span>
     <span class="c1"># A triangle that shifts in the z direction</span>
     <span class="n">zshift</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">frame_current</span> <span class="o">*</span> <span class="mf">0.1</span>
     <span class="n">vertices</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">zshift</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">zshift</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">zshift</span><span class="p">)]</span>
@@ -247,6 +247,24 @@ such cases, lock the interface (Render → Lock Interface or
 <dt class="sig sig-object py" id="bpy.app.handlers.load_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">load_pre</span></span><a class="headerlink" href="#bpy.app.handlers.load_pre" title="Permalink to this definition"></a></dt>
 <dd><p>on loading a new blend file (before)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.app.handlers.object_bake_cancel">
+<span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">object_bake_cancel</span></span><a class="headerlink" href="#bpy.app.handlers.object_bake_cancel" title="Permalink to this definition"></a></dt>
+<dd><p>on canceling a bake job; will be called in the main thread</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.app.handlers.object_bake_complete">
+<span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">object_bake_complete</span></span><a class="headerlink" href="#bpy.app.handlers.object_bake_complete" title="Permalink to this definition"></a></dt>
+<dd><p>on completing a bake job; will be called in the main thread</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.app.handlers.object_bake_pre">
+<span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">object_bake_pre</span></span><a class="headerlink" href="#bpy.app.handlers.object_bake_pre" title="Permalink to this definition"></a></dt>
+<dd><p>before starting a bake job</p>
 </dd></dl>
 
 <dl class="py data">
@@ -360,7 +378,7 @@ such cases, lock the interface (Render → Lock Interface or
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB05696d22fcec>05696d22fcec</a> - 01/06/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB91e85813bb1d>91e85813bb1d</a> - 02/06/2022</code>.
       </span></p>
   </div>
 
