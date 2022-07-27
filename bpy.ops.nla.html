@@ -125,7 +125,7 @@
 <span id="nla-operators"></span><h1>Nla Operators<a class="headerlink" href="#module-bpy.ops.nla" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.nla.action_pushdown">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.nla.</span></span><span class="sig-name descname"><span class="pre">action_pushdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.action_pushdown" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.nla.</span></span><span class="sig-name descname"><span class="pre">action_pushdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.action_pushdown" title="Permalink to this definition"></a></dt>
 <dd><p>Push action down onto the top of the NLA stack as a new strip</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -247,13 +247,38 @@ Object – Bake object transformations.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.nla.duplicate">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.nla.</span></span><span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TRANSLATION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.duplicate" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.nla.</span></span><span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.duplicate" title="Permalink to this definition"></a></dt>
 <dd><p>Duplicate selected NLA-Strips, adding the new strips in new tracks above the originals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>linked</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Linked, When duplicating strips, assign new copies of the actions they use</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.nla.duplicate_linked_move">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.nla.</span></span><span class="sig-name descname"><span class="pre">duplicate_linked_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NLA_OT_duplicate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.duplicate_linked_move" title="Permalink to this definition"></a></dt>
+<dd><p>Duplicate selected strips and move them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>linked</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Linked, When duplicating strips, assign new copies of the actions they use</p></li>
-<li><p><strong>mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_mode_types.html#rna-enum-transform-mode-types"><span class="std std-ref">Transform Mode Types</span></a>, (optional)) – Mode</p></li>
+<li><p><strong>NLA_OT_duplicate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NLA_OT_duplicate</span></code>, (optional)) – Duplicate Strips, Duplicate selected NLA-Strips, adding the new strips in new tracks above the originals</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) – Move, Move selected items</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.nla.duplicate_move">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.nla.</span></span><span class="sig-name descname"><span class="pre">duplicate_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NLA_OT_duplicate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.duplicate_move" title="Permalink to this definition"></a></dt>
+<dd><p>Duplicate selected strips and their Actions and move them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NLA_OT_duplicate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NLA_OT_duplicate</span></code>, (optional)) – Duplicate Strips, Duplicate selected NLA-Strips, adding the new strips in new tracks above the originals</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) – Move, Move selected items</p></li>
 </ul>
 </dd>
 </dl>
@@ -515,7 +540,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB63c5a916d1ad>63c5a916d1ad</a> - 15/07/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB583d11e4a296>583d11e4a296</a> - 27/07/2022</code>.
       </span></p>
   </div>
 
