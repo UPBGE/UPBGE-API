@@ -264,9 +264,19 @@
 <dt class="sig sig-object py" id="bpy.types.LineartGpencilModifier.shadow_region_filtering">
 <span class="sig-name descname"><span class="pre">shadow_region_filtering</span></span><a class="headerlink" href="#bpy.types.LineartGpencilModifier.shadow_region_filtering" title="Permalink to this definition"></a></dt>
 <dd><p>Select feature lines that comes from lit or shaded regions. Will not affect cast shadow and light contour since they are at the border</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
+None – Not filtering any lines based on illumination region.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ILLUMINATED</span></code>
+Illuminated – Only selecting lines from illuminated regions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHADED</span></code>
+Shaded – Only selecting lines from shaded regions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ILLUMINATED_ENCLOSED</span></code>
+Illuminated (Enclosed Shapes) – Selecting lines from lit regions, and make the combination of contour, light contour and shadow lines into enclosed shapes.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘NONE’, ‘LIT’, ‘SHADED’], default ‘NONE’</p>
+<dd class="field-odd"><p>enum in [‘NONE’, ‘ILLUMINATED’, ‘SHADED’, ‘ILLUMINATED_ENCLOSED’], default ‘NONE’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -822,17 +832,6 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.LineartGpencilModifier.use_shadow_enclosed_shapes">
-<span class="sig-name descname"><span class="pre">use_shadow_enclosed_shapes</span></span><a class="headerlink" href="#bpy.types.LineartGpencilModifier.use_shadow_enclosed_shapes" title="Permalink to this definition"></a></dt>
-<dd><p>Reproject visible lines again to get enclosed shadow shapes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.LineartGpencilModifier.vertex_group">
 <span class="sig-name descname"><span class="pre">vertex_group</span></span><a class="headerlink" href="#bpy.types.LineartGpencilModifier.vertex_group" title="Permalink to this definition"></a></dt>
 <dd><p>Vertex group name for selected strokes</p>
@@ -935,7 +934,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB72105a589635>72105a589635</a> - 31/07/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB283294bfadad>283294bfadad</a> - 09/08/2022</code>.
       </span></p>
   </div>
 
