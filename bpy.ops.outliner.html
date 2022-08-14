@@ -410,7 +410,7 @@ Clear Drivers.</p></li>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CREATE_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_MAKE_EDITABLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_SINGLE'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_HIERARCHY'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>ID Data Operation</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>ID Data Operation</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">UNLINK</span></code>
 Unlink.</p></li>
@@ -422,24 +422,6 @@ Make Single User.</p></li>
 Delete.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">REMAP</span></code>
 Remap Users – Make all users of selected data-blocks to use instead current (clicked) one.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CREATE</span></code>
-Make Library Override Single – Make a single, out-of-hierarchy local override of this linked data-block - only applies to active Outliner item.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CREATE_HIERARCHY</span></code>
-Make Library Override Hierarchy – Make a local override of this linked data-block, and its hierarchy of dependencies - only applies to active Outliner item.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_MAKE_EDITABLE</span></code>
-Make Library Override Editable – Make the library override data-block editable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESET</span></code>
-Reset Library Override Single – Reset this local override to its linked values.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESET_HIERARCHY</span></code>
-Reset Library Override Hierarchy – Reset this local override to its linked values, as well as its hierarchy of dependencies.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESYNC_HIERARCHY</span></code>
-Resync Library Override Hierarchy – Rebuild this local override from its linked reference, as well as its hierarchy of dependencies.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE</span></code>
-Resync Library Override Hierarchy Enforce – Rebuild this local override from its linked reference, as well as its hierarchy of dependencies, enforcing that hierarchy to match the linked data (i.e. ignoring exiting overrides on data-blocks pointer properties).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CLEAR_SINGLE</span></code>
-Clear Library Override Single – Delete this local override and relink its usages to the linked data-blocks if possible, else reset it and mark it as non editable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CLEAR_HIERARCHY</span></code>
-Clear Library Override Hierarchy – Delete this local override (including its hierarchy of override dependencies) and relink its usages to the linked data-blocks.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COPY</span></code>
 Copy.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PASTE</span></code>
@@ -559,6 +541,70 @@ Reload – Reload all data from this library.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.outliner.lib_relocate">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">lib_relocate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.lib_relocate" title="Permalink to this definition"></a></dt>
 <dd><p>Relocate the library under cursor</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.outliner.liboverride_operation">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">liboverride_operation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OVERRIDE_LIBRARY_CREATE_HIERARCHY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SELECTED'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.liboverride_operation" title="Permalink to this definition"></a></dt>
+<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'OVERRIDE_LIBRARY_CREATE_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESET'</em><em>, </em><em>'OVERRIDE_LIBRARY_CLEAR_SINGLE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Library Override Operation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CREATE_HIERARCHY</span></code>
+Create – Make a local override of the selected linked data-blocks, and their hierarchy of dependencies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESET</span></code>
+Reset – Reset the selected local override to their linked references values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_CLEAR_SINGLE</span></code>
+Clear – Delete the selected local overrides and relink their usages to the linked data-blocks if possible, else reset them and mark them as non editable.</p></li>
+</ul>
+</p></li>
+<li><p><strong>selection_set</strong> (<em>enum in</em><em> [</em><em>'SELECTED'</em><em>, </em><em>'CONTENT'</em><em>, </em><em>'SELECTED_AND_CONTENT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Selection Set, Over which part of the tree items to apply the operation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECTED</span></code>
+Selected – Apply the operation over selected data-blocks only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTENT</span></code>
+Content – Apply the operation over content of the selected items only (the data-blocks in their sub-tree).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECTED_AND_CONTENT</span></code>
+Selected &amp; Content – Apply the operation over selected data-blocks and all their dependencies.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.outliner.liboverride_troubleshoot_operation">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">liboverride_troubleshoot_operation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OVERRIDE_LIBRARY_RESYNC_HIERARCHY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SELECTED'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.liboverride_troubleshoot_operation" title="Permalink to this definition"></a></dt>
+<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/T51061">contributing</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY'</em><em>, </em><em>'OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE'</em><em>, </em><em>'OVERRIDE_LIBRARY_DELETE_HIERARCHY'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Library Override Troubleshoot Operation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESYNC_HIERARCHY</span></code>
+Resync – Rebuild the selected local overrides from their linked references, as well as their hierarchies of dependencies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE</span></code>
+Resync Enforce – Rebuild the selected local overrides from their linked references, as well as their hierarchies of dependencies, enforcing these hierarchies to match the linked data (i.e. ignoring existing overrides on data-blocks pointer properties).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERRIDE_LIBRARY_DELETE_HIERARCHY</span></code>
+Delete – Delete the selected local overrides (including their hierarchies of override dependencies) and relink their usages to the linked data-blocks.</p></li>
+</ul>
+</p></li>
+<li><p><strong>selection_set</strong> (<em>enum in</em><em> [</em><em>'SELECTED'</em><em>, </em><em>'CONTENT'</em><em>, </em><em>'SELECTED_AND_CONTENT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Selection Set, Over which part of the tree items to apply the operation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECTED</span></code>
+Selected – Apply the operation over selected data-blocks only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTENT</span></code>
+Content – Apply the operation over content of the selected items only (the data-blocks in their sub-tree).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECTED_AND_CONTENT</span></code>
+Selected &amp; Content – Apply the operation over selected data-blocks and all their dependencies.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -771,7 +817,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB10c410eedd94>10c410eedd94</a> - 12/08/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a33b698197a>9a33b698197a</a> - 13/08/2022</code>.
       </span></p>
   </div>
 
