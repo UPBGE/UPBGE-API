@@ -47,17 +47,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart: New to Blender or scripting and want to get your feet wet?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview: A more complete explanation of Python integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage: examples of how to use the API reference docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice: Conventions to follow for writing good scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks: Hints to help you while writing scripts for Blender</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotcha's: Some of the problems you may encounter when writing scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log: List of changes since last Blender release</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
@@ -297,14 +287,13 @@ however you can use properties defined by your own scripts too.</p>
 <section id="extending-the-button-context-menu">
 <h2>Extending the Button Context Menu<a class="headerlink" href="#extending-the-button-context-menu" title="Permalink to this heading"></a></h2>
 <p>This example enables you to insert your own menu entry into the common
-right click menu that you get while hovering over a value field,
-color, string, etc.</p>
+right click menu that you get while hovering over a UI button (e.g. operator,
+value field, color, string, etc.)</p>
 <p>To make the example work, you have to first select an object
 then right click on an user interface element (maybe a color in the
 material properties) and choose <em>Execute Custom Action</em>.</p>
 <p>Executing the operator will then print all values.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="kn">from</span> <span class="nn">bpy.types</span> <span class="kn">import</span> <span class="n">Menu</span>
 
 
 <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
@@ -337,36 +326,20 @@ material properties) and choose <em>Execute Custom Action</em>.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="c1"># This class has to be exactly named like that to insert an entry in the right click menu</span>
-<span class="k">class</span> <span class="nc">WM_MT_button_context</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
-    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Unused&quot;</span>
-
-    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-
-<span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">draw_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
     <span class="n">layout</span><span class="o">.</span><span class="n">separator</span><span class="p">()</span>
     <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">WM_OT_button_context_test</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
 
 
-<span class="n">classes</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">WM_OT_button_context_test</span><span class="p">,</span>
-    <span class="n">WM_MT_button_context</span><span class="p">,</span>
-<span class="p">)</span>
-
-
 <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
-    <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
-        <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
-    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">WM_MT_button_context</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">WM_OT_button_context_test</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">UI_MT_button_context_menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw_menu</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
-    <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
-        <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
-    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">WM_MT_button_context</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">UI_MT_button_context_menu</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">draw_menu</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">WM_OT_button_context_test</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -576,7 +549,7 @@ material properties) and choose <em>Execute Custom Action</em>.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a33b698197a>9a33b698197a</a> - 13/08/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3d05022f4471>3d05022f4471</a> - 18/09/2022</code>.
       </span></p>
   </div>
 

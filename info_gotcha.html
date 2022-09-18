@@ -27,7 +27,7 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Blender API Change Log" href="change_log.html" />
+    <link rel="next" title="Advanced" href="info_advanced.html" />
     <link rel="prev" title="Tips and Tricks" href="info_tips_and_tricks.html" /> 
 </head>
 
@@ -47,17 +47,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart: New to Blender or scripting and want to get your feet wet?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview: A more complete explanation of Python integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage: examples of how to use the API reference docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice: Conventions to follow for writing good scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks: Hints to help you while writing scripts for Blender</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Gotcha's: Some of the problems you may encounter when writing scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log: List of changes since last Blender release</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
@@ -191,7 +181,8 @@ it should be reported to the bug tracker.</p>
 <p>Sometimes you want to modify values from Python and immediately access the updated values, e.g:
 Once changing the objects <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.location" title="bpy.types.Object.location"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object.location</span></code></a>
 you may want to access its transformation right after from <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.matrix_world" title="bpy.types.Object.matrix_world"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object.matrix_world</span></code></a>,
-but this doesn’t work as you might expect.</p>
+but this doesn’t work as you might expect. There are similar issues with changes to the UI, that
+are covered in the next section.</p>
 <p>Consider the calculations that might contribute to the object’s final transformation, this includes:</p>
 <ul class="simple">
 <li><p>Animation function curves.</p></li>
@@ -209,6 +200,34 @@ In this case you need to call <a class="reference internal" href="bpy.types.View
 </div>
 <p>Now all dependent data (child objects, modifiers, drivers, etc.)
 have been recalculated and are available to the script within the active view layer.</p>
+</section>
+<section id="no-updates-after-changing-ui-context">
+<h3>No updates after changing UI context<a class="headerlink" href="#no-updates-after-changing-ui-context" title="Permalink to this heading"></a></h3>
+<p>Similar to the previous issue, some changes to the UI  may also not have an immediate effect. For example, setting
+<a class="reference internal" href="bpy.types.Window.html#bpy.types.Window.workspace" title="bpy.types.Window.workspace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window.workspace</span></code></a> doesn’t seem to cause an observable effect in the immediately following code
+(<a class="reference internal" href="bpy.types.Window.html#bpy.types.Window.workspace" title="bpy.types.Window.workspace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window.workspace</span></code></a> is still the same), but the UI will in fact reflect the change. Some of the
+properties that behave that way are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.Window.html#bpy.types.Window.workspace" title="bpy.types.Window.workspace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window.workspace</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Window.html#bpy.types.Window.screen" title="bpy.types.Window.screen"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window.screen</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Window.html#bpy.types.Window.scene" title="bpy.types.Window.scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window.scene</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Area.html#bpy.types.Area.type" title="bpy.types.Area.type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Area.type</span></code></a></p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Area.uitype</span></code></p></li>
+</ul>
+<p>Such changes impact the UI, and with that the context (<a class="reference internal" href="bpy.context.html#module-bpy.context" title="bpy.context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.context</span></code></a>) quite drastically. This can break
+Blender’s context management. So Blender delays this change until after operators have run and just before the UI is
+redrawn, making sure that context can be changed safely.</p>
+<p>If you rely on executing code with an updated context this can be worked around by executing the code in a delayed
+fashion as well. Possible options include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.Operator.html#modal-operator"><span class="std std-ref">Modal Operator</span></a>.</p></li>
+<li><p><a class="reference internal" href="bpy.app.handlers.html#module-bpy.app.handlers" title="bpy.app.handlers"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.app.handlers</span></code></a>.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.app.timer</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<p>It’s also possible to depend on drawing callbacks although these should generally be avoided as failure to draw a
+hidden panel, region, cursor, etc. could cause your script to be unreliable</p>
 </section>
 <section id="can-i-redraw-during-script-execution">
 <h3>Can I redraw during script execution?<a class="headerlink" href="#can-i-redraw-during-script-execution" title="Permalink to this heading"></a></h3>
@@ -852,14 +871,14 @@ you could of course replace <code class="docutils literal notranslate"><span cla
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="info_tips_and_tricks.html" class="btn btn-neutral float-left" title="Tips and Tricks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="change_log.html" class="btn btn-neutral float-right" title="Blender API Change Log" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="info_advanced.html" class="btn btn-neutral float-right" title="Advanced" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a33b698197a>9a33b698197a</a> - 13/08/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3d05022f4471>3d05022f4471</a> - 18/09/2022</code>.
       </span></p>
   </div>
 

@@ -47,17 +47,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart: New to Blender or scripting and want to get your feet wet?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview: A more complete explanation of Python integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage: examples of how to use the API reference docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice: Conventions to follow for writing good scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks: Hints to help you while writing scripts for Blender</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotcha's: Some of the problems you may encounter when writing scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log: List of changes since last Blender release</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
@@ -269,33 +259,37 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
 
-<span class="n">vertex_shader</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">    uniform mat4 viewProjectionMatrix;</span>
 
-<span class="s1">    in vec3 position;</span>
-<span class="s1">    out vec3 pos;</span>
+<span class="n">vert_out</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUStageInterfaceInfo</span><span class="p">(</span><span class="s2">&quot;my_interface&quot;</span><span class="p">)</span>
+<span class="n">vert_out</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="s1">&#39;VEC3&#39;</span><span class="p">,</span> <span class="s2">&quot;pos&quot;</span><span class="p">)</span>
 
-<span class="s1">    void main()</span>
-<span class="s1">    {</span>
-<span class="s1">        pos = position;</span>
-<span class="s1">        gl_Position = viewProjectionMatrix * vec4(position, 1.0f);</span>
-<span class="s1">    }</span>
-<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">shader_info</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShaderCreateInfo</span><span class="p">()</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;MAT4&#39;</span><span class="p">,</span> <span class="s2">&quot;viewProjectionMatrix&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;FLOAT&#39;</span><span class="p">,</span> <span class="s2">&quot;brightness&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_in</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC3&#39;</span><span class="p">,</span> <span class="s2">&quot;position&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_out</span><span class="p">(</span><span class="n">vert_out</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_out</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC4&#39;</span><span class="p">,</span> <span class="s2">&quot;FragColor&quot;</span><span class="p">)</span>
 
-<span class="n">fragment_shader</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">    uniform float brightness;</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  pos = position;&quot;</span>
+    <span class="s2">&quot;  gl_Position = viewProjectionMatrix * vec4(position, 1.0f);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
 
-<span class="s1">    in vec3 pos;</span>
-<span class="s1">    out vec4 FragColor;</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  FragColor = vec4(pos * brightness, 1.0);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
 
-<span class="s1">    void main()</span>
-<span class="s1">    {</span>
-<span class="s1">        FragColor = vec4(pos * brightness, 1.0);</span>
-<span class="s1">    }</span>
-<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">create_from_info</span><span class="p">(</span><span class="n">shader_info</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">vert_out</span>
+<span class="k">del</span> <span class="n">shader_info</span>
 
 <span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShader</span><span class="p">(</span><span class="n">vertex_shader</span><span class="p">,</span> <span class="n">fragment_shader</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRIS&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="n">coords</span><span class="p">})</span>
 
 
@@ -509,35 +503,37 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 <span class="c1"># Drawing the generated texture in 3D space</span>
 <span class="c1">#############################################</span>
 
-<span class="n">vertex_shader</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">    uniform mat4 modelMatrix;</span>
-<span class="s1">    uniform mat4 viewProjectionMatrix;</span>
+<span class="n">vert_out</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUStageInterfaceInfo</span><span class="p">(</span><span class="s2">&quot;my_interface&quot;</span><span class="p">)</span>
+<span class="n">vert_out</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="s1">&#39;VEC2&#39;</span><span class="p">,</span> <span class="s2">&quot;uvInterp&quot;</span><span class="p">)</span>
 
-<span class="s1">    in vec2 position;</span>
-<span class="s1">    in vec2 uv;</span>
+<span class="n">shader_info</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShaderCreateInfo</span><span class="p">()</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;MAT4&#39;</span><span class="p">,</span> <span class="s2">&quot;viewProjectionMatrix&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;MAT4&#39;</span><span class="p">,</span> <span class="s2">&quot;modelMatrix&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">sampler</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;FLOAT_2D&#39;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_in</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC2&#39;</span><span class="p">,</span> <span class="s2">&quot;position&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_in</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;VEC2&#39;</span><span class="p">,</span> <span class="s2">&quot;uv&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_out</span><span class="p">(</span><span class="n">vert_out</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_out</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC4&#39;</span><span class="p">,</span> <span class="s2">&quot;FragColor&quot;</span><span class="p">)</span>
 
-<span class="s1">    out vec2 uvInterp;</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  uvInterp = uv;&quot;</span>
+    <span class="s2">&quot;  gl_Position = viewProjectionMatrix * modelMatrix * vec4(position, 0.0, 1.0);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
 
-<span class="s1">    void main()</span>
-<span class="s1">    {</span>
-<span class="s1">        uvInterp = uv;</span>
-<span class="s1">        gl_Position = viewProjectionMatrix * modelMatrix * vec4(position, 0.0, 1.0);</span>
-<span class="s1">    }</span>
-<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  FragColor = texture(image, uvInterp);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
 
-<span class="n">fragment_shader</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">    uniform sampler2D image;</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">create_from_info</span><span class="p">(</span><span class="n">shader_info</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">vert_out</span>
+<span class="k">del</span> <span class="n">shader_info</span>
 
-<span class="s1">    in vec2 uvInterp;</span>
-<span class="s1">    out vec4 FragColor;</span>
-
-<span class="s1">    void main()</span>
-<span class="s1">    {</span>
-<span class="s1">        FragColor = texture(image, uvInterp);</span>
-<span class="s1">    }</span>
-<span class="s1">&#39;&#39;&#39;</span>
-
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShader</span><span class="p">(</span><span class="n">vertex_shader</span><span class="p">,</span> <span class="n">fragment_shader</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
     <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_FAN&#39;</span><span class="p">,</span>
     <span class="p">{</span>
@@ -664,33 +660,36 @@ Based on the result a decision is made on whether the fragment should be drawn o
 <span class="kn">from</span> <span class="nn">mathutils</span> <span class="kn">import</span> <span class="n">Vector</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
 
-<span class="n">vertex_shader</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">    uniform mat4 u_ViewProjectionMatrix;</span>
+<span class="n">vert_out</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUStageInterfaceInfo</span><span class="p">(</span><span class="s2">&quot;my_interface&quot;</span><span class="p">)</span>
+<span class="n">vert_out</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="s1">&#39;FLOAT&#39;</span><span class="p">,</span> <span class="s2">&quot;v_ArcLength&quot;</span><span class="p">)</span>
 
-<span class="s1">    in vec3 position;</span>
-<span class="s1">    in float arcLength;</span>
+<span class="n">shader_info</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShaderCreateInfo</span><span class="p">()</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;MAT4&#39;</span><span class="p">,</span> <span class="s2">&quot;u_ViewProjectionMatrix&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;FLOAT&#39;</span><span class="p">,</span> <span class="s2">&quot;u_Scale&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_in</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC3&#39;</span><span class="p">,</span> <span class="s2">&quot;position&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_in</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;FLOAT&#39;</span><span class="p">,</span> <span class="s2">&quot;arcLength&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_out</span><span class="p">(</span><span class="n">vert_out</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_out</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC4&#39;</span><span class="p">,</span> <span class="s2">&quot;FragColor&quot;</span><span class="p">)</span>
 
-<span class="s1">    out float v_ArcLength;</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  v_ArcLength = arcLength;&quot;</span>
+    <span class="s2">&quot;  gl_Position = u_ViewProjectionMatrix * vec4(position, 1.0f);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
 
-<span class="s1">    void main()</span>
-<span class="s1">    {</span>
-<span class="s1">        v_ArcLength = arcLength;</span>
-<span class="s1">        gl_Position = u_ViewProjectionMatrix * vec4(position, 1.0f);</span>
-<span class="s1">    }</span>
-<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  if (step(sin(v_ArcLength * u_Scale), 0.5) == 1) discard;&quot;</span>
+    <span class="s2">&quot;  FragColor = vec4(1.0);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
 
-<span class="n">fragment_shader</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">    uniform float u_Scale;</span>
-
-<span class="s1">    in float v_ArcLength;</span>
-<span class="s1">    out vec4 FragColor;</span>
-
-<span class="s1">    void main()</span>
-<span class="s1">    {</span>
-<span class="s1">        if (step(sin(v_ArcLength * u_Scale), 0.5) == 1) discard;</span>
-<span class="s1">        FragColor = vec4(1.0);</span>
-<span class="s1">    }</span>
-<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">create_from_info</span><span class="p">(</span><span class="n">shader_info</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">vert_out</span>
+<span class="k">del</span> <span class="n">shader_info</span>
 
 <span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">Vector</span><span class="p">((</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">()))</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 
@@ -698,7 +697,6 @@ Based on the result a decision is made on whether the fragment should be drawn o
 <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coords</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
     <span class="n">arc_lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arc_lengths</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
 
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShader</span><span class="p">(</span><span class="n">vertex_shader</span><span class="p">,</span> <span class="n">fragment_shader</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
     <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;LINE_STRIP&#39;</span><span class="p">,</span>
     <span class="p">{</span><span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="n">coords</span><span class="p">,</span> <span class="s2">&quot;arcLength&quot;</span><span class="p">:</span> <span class="n">arc_lengths</span><span class="p">},</span>
@@ -732,7 +730,7 @@ Based on the result a decision is made on whether the fragment should be drawn o
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a33b698197a>9a33b698197a</a> - 13/08/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3d05022f4471>3d05022f4471</a> - 18/09/2022</code>.
       </span></p>
   </div>
 

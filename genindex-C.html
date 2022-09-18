@@ -45,17 +45,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart: New to Blender or scripting and want to get your feet wet?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview: A more complete explanation of Python integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage: examples of how to use the API reference docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice: Conventions to follow for writing good scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks: Hints to help you while writing scripts for Blender</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotcha's: Some of the problems you may encounter when writing scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log: List of changes since last Blender release</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
@@ -212,8 +202,6 @@
       <li><a href="bmesh.types.html#bmesh.types.BMEdge.calc_face_angle">calc_face_angle() (bmesh.types.BMEdge method)</a>
 </li>
       <li><a href="bmesh.types.html#bmesh.types.BMEdge.calc_face_angle_signed">calc_face_angle_signed() (bmesh.types.BMEdge method)</a>
-</li>
-      <li><a href="gpu.types.html#gpu.types.GPUShader.calc_format">calc_format() (gpu.types.GPUShader method)</a>
 </li>
       <li><a href="bmesh.types.html#bmesh.types.BMEdge.calc_length">calc_length() (bmesh.types.BMEdge method)</a>
 
@@ -673,6 +661,10 @@
       </ul></li>
       <li><a href="bl_math.html#bl_math.clamp">clamp() (in module bl_math)</a>
 </li>
+      <li><a href="bpy.types.ShaderNodeMix.html#bpy.types.ShaderNodeMix.clamp_factor">clamp_factor (bpy.types.ShaderNodeMix attribute)</a>
+</li>
+      <li><a href="bpy.types.ShaderNodeMix.html#bpy.types.ShaderNodeMix.clamp_result">clamp_result (bpy.types.ShaderNodeMix attribute)</a>
+</li>
       <li><a href="bpy.types.ShaderNodeClamp.html#bpy.types.ShaderNodeClamp.clamp_type">clamp_type (bpy.types.ShaderNodeClamp attribute)</a>
 </li>
       <li><a href="bpy.types.ClampToConstraint.html#bpy.types.ClampToConstraint">ClampToConstraint (class in bpy.types)</a>
@@ -794,6 +786,8 @@
       <li><a href="bpy.types.Mesh.html#bpy.types.Mesh.clear_geometry">clear_geometry() (bpy.types.Mesh method)</a>
 </li>
       <li><a href="bpy.ops.console.html#bpy.ops.console.clear_line">clear_line() (in module bpy.ops.console)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.clear_override_library">clear_override_library() (in module bpy.ops.object)</a>
 </li>
       <li><a href="bpy.ops.image.html#bpy.ops.image.clear_render_border">clear_render_border() (in module bpy.ops.image)</a>
 
@@ -1437,6 +1431,12 @@
 </li>
       <li><a href="bpy.types.DynamicPaintSurface.html#bpy.types.DynamicPaintSurface.color_spread_speed">color_spread_speed (bpy.types.DynamicPaintSurface attribute)</a>
 </li>
+      <li><a href="bpy.types.ByteColorAttributeValue.html#bpy.types.ByteColorAttributeValue.color_srgb">color_srgb (bpy.types.ByteColorAttributeValue attribute)</a>
+
+      <ul>
+        <li><a href="bpy.types.FloatColorAttributeValue.html#bpy.types.FloatColorAttributeValue.color_srgb">(bpy.types.FloatColorAttributeValue attribute)</a>
+</li>
+      </ul></li>
       <li><a href="bpy.types.ThemeSequenceEditor.html#bpy.types.ThemeSequenceEditor.color_strip">color_strip (bpy.types.ThemeSequenceEditor attribute)</a>
 </li>
       <li><a href="bpy.types.Collection.html#bpy.types.Collection.color_tag">color_tag (bpy.types.Collection attribute)</a>
@@ -1539,10 +1539,10 @@
       </ul></li>
       <li><a href="bge.types.KX_GameObject.html#bge.types.KX_GameObject.components">components (bge.types.KX_GameObject attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="bpy.app.handlers.html#bpy.app.handlers.composite_cancel">composite_cancel (in module bpy.app.handlers)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="bpy.app.handlers.html#bpy.app.handlers.composite_post">composite_post (in module bpy.app.handlers)</a>
 </li>
       <li><a href="bpy.app.handlers.html#bpy.app.handlers.composite_pre">composite_pre (in module bpy.app.handlers)</a>
@@ -2717,6 +2717,14 @@
 </li>
       <li><a href="bpy.types.PoseBone.html#bpy.types.PoseBone.custom_shape_translation">custom_shape_translation (bpy.types.PoseBone attribute)</a>
 </li>
+      <li><a href="bpy.ops.mesh.html#bpy.ops.mesh.customdata_bevel_weight_edge_add">customdata_bevel_weight_edge_add() (in module bpy.ops.mesh)</a>
+</li>
+      <li><a href="bpy.ops.mesh.html#bpy.ops.mesh.customdata_bevel_weight_edge_clear">customdata_bevel_weight_edge_clear() (in module bpy.ops.mesh)</a>
+</li>
+      <li><a href="bpy.ops.mesh.html#bpy.ops.mesh.customdata_bevel_weight_vertex_add">customdata_bevel_weight_vertex_add() (in module bpy.ops.mesh)</a>
+</li>
+      <li><a href="bpy.ops.mesh.html#bpy.ops.mesh.customdata_bevel_weight_vertex_clear">customdata_bevel_weight_vertex_clear() (in module bpy.ops.mesh)</a>
+</li>
       <li><a href="bpy.ops.mesh.html#bpy.ops.mesh.customdata_custom_splitnormals_add">customdata_custom_splitnormals_add() (in module bpy.ops.mesh)</a>
 </li>
       <li><a href="bpy.ops.mesh.html#bpy.ops.mesh.customdata_custom_splitnormals_clear">customdata_custom_splitnormals_clear() (in module bpy.ops.mesh)</a>
@@ -2757,7 +2765,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a33b698197a>9a33b698197a</a> - 13/08/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3d05022f4471>3d05022f4471</a> - 18/09/2022</code>.
       </span></p>
   </div>
 

@@ -47,17 +47,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart: New to Blender or scripting and want to get your feet wet?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview: A more complete explanation of Python integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage: examples of how to use the API reference docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice: Conventions to follow for writing good scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks: Hints to help you while writing scripts for Blender</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotcha's: Some of the problems you may encounter when writing scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log: List of changes since last Blender release</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
@@ -318,6 +308,12 @@ View – Align the new object to the view.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.clear_override_library">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">clear_override_library</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.clear_override_library" title="Permalink to this definition"></a></dt>
+<dd><p>Delete the selected local overrides and relink their usages to the linked data-blocks if possible, else reset them and mark them as non editable</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1620,7 +1616,7 @@ Copy Grease Pencil Effects – Replace Grease Pencil Effects.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.make_override_library">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">make_override_library</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.make_override_library" title="Permalink to this definition"></a></dt>
-<dd><p>Make a local override of this library linked data-block</p>
+<dd><p>Create a local override of the selected linked objects, and their hierarchy of dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>collection</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Override Collection, Session UUID of the directly linked collection containing the selected object, to make an override from</p>
@@ -2354,6 +2350,12 @@ Faces – Input target number of faces in the new mesh.</p></li>
 <dd class="field-even"><p><a class="reference external" href="https://developer.blender.org/diffusion/B/browse/master/release/scripts/startup/bl_operators/object_randomize_transform.py$157">startup/bl_operators/object_randomize_transform.py:157</a></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.reset_override_library">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">reset_override_library</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.reset_override_library" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the selected local overrides to their linked references values</p>
 </dd></dl>
 
 <dl class="py function">
@@ -3440,7 +3442,7 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a33b698197a>9a33b698197a</a> - 13/08/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3d05022f4471>3d05022f4471</a> - 18/09/2022</code>.
       </span></p>
   </div>
 
