@@ -120,7 +120,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>format</strong> – Format type to interpret the buffer.
+<li><p><strong>format</strong> (<em>str</em>) – Format type to interpret the buffer.
 Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <cite>UBYTE</cite>, <cite>UINT_24_8</cite> and <cite>10_11_11_REV</cite>.</p></li>
 <li><p><strong>dimensions</strong> (<em>int</em>) – Array describing the dimensions.</p></li>
 <li><p><strong>data</strong> (<em>sequence</em>) – Optional data array.</p></li>
@@ -241,7 +241,7 @@ Common values: color=(0.0, 0.0, 0.0, 1.0), depth=1.0, stencil=0.</p>
 <li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – Dimensions of the pixel rectangle.</p></li>
 <li><p><strong>channels</strong> (<em>int</em>) – Number of components to read.</p></li>
 <li><p><strong>slot</strong> (<em>int</em>) – The framebuffer slot to read data from.</p></li>
-<li><p><strong>format</strong> – The format that describes the content of a single channel.
+<li><p><strong>format</strong> (<em>str</em>) – The format that describes the content of a single channel.
 Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <cite>UBYTE</cite>, <cite>UINT_24_8</cite> and <cite>10_11_11_REV</cite>.</p></li>
 <li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Optional Buffer object to fill with the pixels values.</p></li>
 </ul>
@@ -676,9 +676,9 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 
 <div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="cp">#define name value</span><span class="w"></span>
 
-<span class="o">:</span><span class="n">param</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="w"></span>
+<span class="o">:</span><span class="n">arg</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="w"></span>
 <span class="o">:</span><span class="n">type</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="w"></span>
-<span class="o">:</span><span class="n">param</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">replaces</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="n">occurrences</span><span class="p">.</span><span class="w"></span>
+<span class="o">:</span><span class="n">arg</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">replaces</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="n">occurrences</span><span class="p">.</span><span class="w"></span>
 <span class="o">:</span><span class="n">type</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="w"></span>
 </pre></div>
 </div>
@@ -827,7 +827,7 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;struct MyType {int foo; float bar;};&quot;</span>
 
-<span class="p">:</span><span class="n">param</span> <span class="n">source</span><span class="p">:</span> <span class="n">The</span> <span class="n">source</span> <span class="n">code</span> <span class="n">defining</span> <span class="n">types</span><span class="o">.</span>
+<span class="p">:</span><span class="n">arg</span> <span class="n">source</span><span class="p">:</span> <span class="n">The</span> <span class="n">source</span> <span class="n">code</span> <span class="n">defining</span> <span class="n">types</span><span class="o">.</span>
 <span class="p">:</span><span class="nb">type</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span>
 </pre></div>
 </div>
@@ -1095,7 +1095,7 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>format</strong> – The format that describes the content of a single item.
+<li><p><strong>format</strong> (<em>str</em>) – The format that describes the content of a single item.
 Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <cite>UBYTE</cite>, <cite>UINT_24_8</cite> and <cite>10_11_11_REV</cite>.</p></li>
 <li><p><strong>value</strong> (<em>sequence of 1</em><em>, </em><em>2</em><em>, </em><em>3</em><em> or </em><em>4 values</em>) – sequence each representing the value to fill.</p></li>
 </ul>
@@ -1168,8 +1168,8 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <ci
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>format</strong> – Vertex format.</p></li>
-<li><p><strong>len</strong> – Amount of vertices that will fit into this buffer.</p></li>
+<li><p><strong>format</strong> (<a class="reference internal" href="#gpu.types.GPUVertFormat" title="gpu.types.GPUVertFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertFormat</span></code></a>) – Vertex format.</p></li>
+<li><p><strong>len</strong> (<em>int</em>) – Amount of vertices that will fit into this buffer.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1231,7 +1231,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>INT_TO_FLOAT_UNI
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3d05022f4471>3d05022f4471</a> - 18/09/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a8f08a81162>9a8f08a81162</a> - 21/09/2022</code>.
       </span></p>
   </div>
 

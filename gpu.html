@@ -244,7 +244,6 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
 
@@ -294,7 +293,6 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">region_data</span><span class="o">.</span><span class="n">perspective_matrix</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;viewProjectionMatrix&quot;</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;brightness&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -327,7 +325,6 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
 
@@ -394,7 +391,6 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
     <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
 
@@ -458,7 +454,6 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_sampler</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
     <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
 
@@ -544,7 +539,6 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;modelMatrix&quot;</span><span class="p">,</span> <span class="n">Matrix</span><span class="o">.</span><span class="n">Translation</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">@</span> <span class="n">Matrix</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;viewProjectionMatrix&quot;</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">region_data</span><span class="o">.</span><span class="n">perspective_matrix</span><span class="p">)</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_sampler</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">offscreen</span><span class="o">.</span><span class="n">texture_color</span><span class="p">)</span>
@@ -704,7 +698,6 @@ Based on the result a decision is made on whether the fragment should be drawn o
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-    <span class="n">shader</span><span class="o">.</span><span class="n">bind</span><span class="p">()</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">region_data</span><span class="o">.</span><span class="n">perspective_matrix</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;u_ViewProjectionMatrix&quot;</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
     <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;u_Scale&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -730,7 +723,7 @@ Based on the result a decision is made on whether the fragment should be drawn o
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3d05022f4471>3d05022f4471</a> - 18/09/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB9a8f08a81162>9a8f08a81162</a> - 21/09/2022</code>.
       </span></p>
   </div>
 
