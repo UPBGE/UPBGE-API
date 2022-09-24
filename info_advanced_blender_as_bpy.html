@@ -171,9 +171,9 @@ equivalents in Blender’s Python API (<code class="docutils literal notranslate
 <dt>Signal Handlers</dt><dd><p>Blender’s typical signal handlers are not initialized, so there is no special handling for <code class="docutils literal notranslate"><span class="pre">Control-C</span></code>
 to cancel a render and a crash log is not written in the event of a crash.</p>
 </dd>
-<dt>Startup and Preferences</dt><dd><p>When the <code class="docutils literal notranslate"><span class="pre">bpy</span></code> module loads, the file is not empty as you might expect,
-there is a default cube, camera and light. If you wish to start from a blank file use:
-<code class="docutils literal notranslate"><span class="pre">bpy.ops.wm.read_factory_settings(use_empty=True)</span></code>.</p>
+<dt>Startup and Preferences</dt><dd><p>When the <code class="docutils literal notranslate"><span class="pre">bpy</span></code> module loads it contains the default startup scene
+(instead of an “empty” blend-file as you might expect), so there is a default cube, camera and light.</p>
+<p>If you wish to start from an empty file use: <code class="docutils literal notranslate"><span class="pre">bpy.ops.wm.read_factory_settings(use_empty=True)</span></code>.</p>
 <p>The users startup and preferences are ignored to prevent your local configuration from impacting scripts behavior.
 The Python module behaves as if <code class="docutils literal notranslate"><span class="pre">--factory-startup</span></code> was passed as a command line argument.</p>
 <p>The users preferences and startup can be loaded using operators:</p>
@@ -190,8 +190,9 @@ The Python module behaves as if <code class="docutils literal notranslate"><span
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading"></a></h2>
 <p>Most constraints of Blender as an application still apply:</p>
 <dl>
-<dt>Reloading Unsupported</dt><dd><p>Reloading via <code class="docutils literal notranslate"><span class="pre">importlib.reload</span></code> will raise an exception instead of reloading and resetting the module.</p>
-<p>The operator <code class="docutils literal notranslate"><span class="pre">bpy.ops.wm.read_factory_settings()</span></code> can be used to reset the internal state.</p>
+<dt>Reloading Unsupported</dt><dd><p>Reloading the <code class="docutils literal notranslate"><span class="pre">bpy</span></code> module via <code class="docutils literal notranslate"><span class="pre">importlib.reload</span></code> will raise an exception
+instead of reloading and resetting the module.</p>
+<p>Instead, the operator <code class="docutils literal notranslate"><span class="pre">bpy.ops.wm.read_factory_settings()</span></code> can be used to reset the internal state.</p>
 </dd>
 <dt>Single Blend File Restriction</dt><dd><p>Only a single <code class="docutils literal notranslate"><span class="pre">.blend</span></code> file can be edited at a time.</p>
 <div class="admonition hint">
@@ -226,7 +227,7 @@ supports a temporary data-context to avoid manipulating the current <code class=
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB86b969d1e248>86b969d1e248</a> - 22/09/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB69bdef0cc784>69bdef0cc784</a> - 23/09/2022</code>.
       </span></p>
   </div>
 

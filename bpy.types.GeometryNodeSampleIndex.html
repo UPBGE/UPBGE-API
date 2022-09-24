@@ -4,13 +4,13 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GeometryNodeAttributeTransfer(GeometryNode) &mdash; Blender Python API</title>
+  <title>GeometryNodeSampleIndex(GeometryNode) &mdash; Blender Python API</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/version_switch.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.GeometryNodeAttributeTransfer.html" />
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.GeometryNodeSampleIndex.html" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -27,8 +27,8 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GeometryNodeBoundBox(GeometryNode)" href="bpy.types.GeometryNodeBoundBox.html" />
-    <link rel="prev" title="GeometryNodeAttributeStatistic(GeometryNode)" href="bpy.types.GeometryNodeAttributeStatistic.html" /> 
+    <link rel="next" title="GeometryNodeSampleNearest(GeometryNode)" href="bpy.types.GeometryNodeSampleNearest.html" />
+    <link rel="prev" title="GeometryNodeSampleCurve(GeometryNode)" href="bpy.types.GeometryNodeSampleCurve.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -102,7 +102,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="bpy.types.html">Types (bpy.types)</a> &raquo;</li>
-      <li>GeometryNodeAttributeTransfer(GeometryNode)</li>
+      <li>GeometryNodeSampleIndex(GeometryNode)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -111,18 +111,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="geometrynodeattributetransfer-geometrynode">
-<h1>GeometryNodeAttributeTransfer(GeometryNode)<a class="headerlink" href="#geometrynodeattributetransfer-geometrynode" title="Permalink to this heading"></a></h1>
+  <section id="geometrynodesampleindex-geometrynode">
+<h1>GeometryNodeSampleIndex(GeometryNode)<a class="headerlink" href="#geometrynodesampleindex-geometrynode" title="Permalink to this heading"></a></h1>
 <p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Node.html#bpy.types.Node" title="bpy.types.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a>, <a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal" title="bpy.types.NodeInternal"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal</span></code></a>, <a class="reference internal" href="bpy.types.GeometryNode.html#bpy.types.GeometryNode" title="bpy.types.GeometryNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNode</span></code></a></p>
 <dl class="py class">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeAttributeTransfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GeometryNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer" title="Permalink to this definition"></a></dt>
-<dd><p>Retrieve values from a source geometry and provides them as a field by interpolating them with the context geometry</p>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeSampleIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GeometryNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve values from specific geometry elements</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.data_type">
-<span class="sig-name descname"><span class="pre">data_type</span></span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.data_type" title="Permalink to this definition"></a></dt>
-<dd><p>The type for the source and result data</p>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.clamp">
+<span class="sig-name descname"><span class="pre">clamp</span></span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.clamp" title="Permalink to this definition"></a></dt>
+<dd><p>Clamp the indices to the size of the attribute domain instead of outputting a default value for invalid indices</p>
 <dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.data_type">
+<span class="sig-name descname"><span class="pre">data_type</span></span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.data_type" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/attribute_type_items.html#rna-enum-attribute-type-items"><span class="std std-ref">Attribute Type Items</span></a>, default ‘FLOAT’</p>
 </dd>
@@ -130,38 +140,18 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.domain">
-<span class="sig-name descname"><span class="pre">domain</span></span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.domain" title="Permalink to this definition"></a></dt>
-<dd><p>The domain to use on the target geometry</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.domain">
+<span class="sig-name descname"><span class="pre">domain</span></span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.domain" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/attribute_domain_items.html#rna-enum-attribute-domain-items"><span class="std std-ref">Attribute Domain Items</span></a>, default ‘POINT’</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.mapping">
-<span class="sig-name descname"><span class="pre">mapping</span></span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.mapping" title="Permalink to this definition"></a></dt>
-<dd><p>Mapping between geometries</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST_FACE_INTERPOLATED</span></code>
-Nearest Face Interpolated – Transfer the attribute from the nearest face on a surface (loose points and edges are ignored).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST</span></code>
-Nearest – Transfer the element from the nearest element (using face and edge centers for the distance computation).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INDEX</span></code>
-Index – Transfer the data from the element with the corresponding index in the target geometry.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>enum in [‘NEAREST_FACE_INTERPOLATED’, ‘NEAREST’, ‘INDEX’], default ‘NEAREST_FACE_INTERPOLATED’</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.is_registered_node_type">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.is_registered_node_type" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.is_registered_node_type">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.is_registered_node_type" title="Permalink to this definition"></a></dt>
 <dd><p>True if a registered node type</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -174,8 +164,8 @@ Index – Transfer the data from the element with the corresponding index in the
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.input_template">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.input_template" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.input_template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.input_template" title="Permalink to this definition"></a></dt>
 <dd><p>Input socket template</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -191,8 +181,8 @@ Index – Transfer the data from the element with the corresponding index in the
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.output_template">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.output_template" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.output_template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.output_template" title="Permalink to this definition"></a></dt>
 <dd><p>Output socket template</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -208,8 +198,8 @@ Index – Transfer the data from the element with the corresponding index in the
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.bl_rna_get_subclass">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -224,8 +214,8 @@ Index – Transfer the data from the element with the corresponding index in the
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeAttributeTransfer.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeAttributeTransfer.bl_rna_get_subclass_py" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSampleIndex.bl_rna_get_subclass_py">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSampleIndex.bl_rna_get_subclass_py" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -338,15 +328,15 @@ Index – Transfer the data from the element with the corresponding index in the
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.types.GeometryNodeAttributeStatistic.html" class="btn btn-neutral float-left" title="GeometryNodeAttributeStatistic(GeometryNode)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.types.GeometryNodeBoundBox.html" class="btn btn-neutral float-right" title="GeometryNodeBoundBox(GeometryNode)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bpy.types.GeometryNodeSampleCurve.html" class="btn btn-neutral float-left" title="GeometryNodeSampleCurve(GeometryNode)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bpy.types.GeometryNodeSampleNearest.html" class="btn btn-neutral float-right" title="GeometryNodeSampleNearest(GeometryNode)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB86b969d1e248>86b969d1e248</a> - 22/09/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB69bdef0cc784>69bdef0cc784</a> - 23/09/2022</code>.
       </span></p>
   </div>
 
