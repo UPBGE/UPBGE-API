@@ -20,6 +20,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/js/version_switch.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
@@ -1665,7 +1666,7 @@ Bone – The object is parented to a bone.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pose_bone</strong> (<a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">PoseBone</span></code></a>, (optional)) – Bone to use to define spaces (may be None, in which case only the two ‘WORLD’ and ‘LOCAL’ spaces are usable)</p></li>
-<li><p><strong>matrix</strong> (<em>float multi-dimensional array of 4 * 4 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – The matrix to transform</p></li>
+<li><p><strong>matrix</strong> (<em>float multi-dimensional array</em><em> of </em><em>4 * 4 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – The matrix to transform</p></li>
 <li><p><strong>from_space</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'POSE'</em><em>, </em><em>'LOCAL_WITH_PARENT'</em><em>, </em><em>'LOCAL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>The space in which ‘matrix’ is currently</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">WORLD</span></code>
@@ -1732,7 +1733,7 @@ Local Space – The local space of an object/bone.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Depsgraph</span></code></a>) – Depsgraph to get evaluated data from</p></li>
-<li><p><strong>coordinates</strong> (<em>float array of 1 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Coordinates to fit in</p></li>
+<li><p><strong>coordinates</strong> (<em>float array</em><em> of </em><em>1 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Coordinates to fit in</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return (co_return, scale_return)</dt>
@@ -1764,7 +1765,7 @@ Local Space – The local space of an object/bone.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vertex_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – vertex_index</p></li>
-<li><p><strong>displacement</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – displacement</p></li>
+<li><p><strong>displacement</strong> (<em>float array</em><em> of </em><em>3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – displacement</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1784,7 +1785,7 @@ Local Space – The local space of an object/bone.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vertex_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – vertex_index</p></li>
-<li><p><strong>displacement</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – displacement</p></li>
+<li><p><strong>displacement</strong> (<em>float array</em><em> of </em><em>3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – displacement</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1912,8 +1913,8 @@ Local Space – The local space of an object/bone.</p></li>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>origin</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Origin of the ray, in object space</p></li>
-<li><p><strong>direction</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Direction of the ray, in object space</p></li>
+<li><p><strong>origin</strong> (<em>float array</em><em> of </em><em>3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Origin of the ray, in object space</p></li>
+<li><p><strong>direction</strong> (<em>float array</em><em> of </em><em>3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Direction of the ray, in object space</p></li>
 <li><p><strong>distance</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Maximum distance</p></li>
 <li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Depsgraph</span></code></a>, (optional)) – Depsgraph to use to get evaluated data, when called from original object (only needed if current Context’s depsgraph is not suitable)</p></li>
 </ul>
@@ -1934,7 +1935,7 @@ Local Space – The local space of an object/bone.</p></li>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>origin</strong> (<em>float array of 3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Point to find closest geometry from (in object space)</p></li>
+<li><p><strong>origin</strong> (<em>float array</em><em> of </em><em>3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Point to find closest geometry from (in object space)</p></li>
 <li><p><strong>distance</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Maximum distance</p></li>
 <li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Depsgraph</span></code></a>, (optional)) – Depsgraph to use to get evaluated data, when called from original object (only needed if current Context’s depsgraph is not suitable)</p></li>
 </ul>
@@ -2349,7 +2350,7 @@ Render – Apply modifier render settings.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB69bdef0cc784>69bdef0cc784</a> - 23/09/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB8fc6a2f05db9>8fc6a2f05db9</a> - 26/09/2022</code>.
       </span></p>
   </div>
 
