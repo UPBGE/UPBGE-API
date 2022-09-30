@@ -153,6 +153,39 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.automasking_cavity_blur_steps">
+<span class="sig-name descname"><span class="pre">automasking_cavity_blur_steps</span></span><a class="headerlink" href="#bpy.types.Brush.automasking_cavity_blur_steps" title="Permalink to this definition"></a></dt>
+<dd><p>The number of times the cavity mask is blurred</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int in [0, 25], default 0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.Brush.automasking_cavity_curve">
+<span class="sig-name descname"><span class="pre">automasking_cavity_curve</span></span><a class="headerlink" href="#bpy.types.Brush.automasking_cavity_curve" title="Permalink to this definition"></a></dt>
+<dd><p>Curve used for the sensitivity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveMapping</span></code></a>, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.automasking_cavity_factor">
+<span class="sig-name descname"><span class="pre">automasking_cavity_factor</span></span><a class="headerlink" href="#bpy.types.Brush.automasking_cavity_factor" title="Permalink to this definition"></a></dt>
+<dd><p>The contrast of the cavity mask</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float in [0, 5], default 0.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Brush.blend">
 <span class="sig-name descname"><span class="pre">blend</span></span><a class="headerlink" href="#bpy.types.Brush.blend" title="Permalink to this definition"></a></dt>
 <dd><p>Brush blending mode</p>
@@ -1566,6 +1599,39 @@ Curve – Define the stroke curve with a bezier curve (dabs are separated accord
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_cavity">
+<span class="sig-name descname"><span class="pre">use_automasking_cavity</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_cavity" title="Permalink to this definition"></a></dt>
+<dd><p>Do not affect vertices on peaks, based on the surface curvature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_cavity_inverted">
+<span class="sig-name descname"><span class="pre">use_automasking_cavity_inverted</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_cavity_inverted" title="Permalink to this definition"></a></dt>
+<dd><p>Do not affect vertices within crevices, based on the surface curvature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_custom_cavity_curve">
+<span class="sig-name descname"><span class="pre">use_automasking_custom_cavity_curve</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_custom_cavity_curve" title="Permalink to this definition"></a></dt>
+<dd><p>Use custom curve</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_face_sets">
 <span class="sig-name descname"><span class="pre">use_automasking_face_sets</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_face_sets" title="Permalink to this definition"></a></dt>
 <dd><p>Affect only vertices that share Face Sets with the active vertex</p>
@@ -1577,9 +1643,42 @@ Curve – Define the stroke curve with a bezier curve (dabs are separated accord
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_start_normal">
+<span class="sig-name descname"><span class="pre">use_automasking_start_normal</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_start_normal" title="Permalink to this definition"></a></dt>
+<dd><p>Affect only vertices with a similar normal to where the stroke starts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_topology">
 <span class="sig-name descname"><span class="pre">use_automasking_topology</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_topology" title="Permalink to this definition"></a></dt>
 <dd><p>Affect only vertices connected to the active vertex under the brush</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_view_normal">
+<span class="sig-name descname"><span class="pre">use_automasking_view_normal</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_view_normal" title="Permalink to this definition"></a></dt>
+<dd><p>Affect only vertices with a normal that faces the viewer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.use_automasking_view_occlusion">
+<span class="sig-name descname"><span class="pre">use_automasking_view_occlusion</span></span><a class="headerlink" href="#bpy.types.Brush.use_automasking_view_occlusion" title="Permalink to this definition"></a></dt>
+<dd><p>Only affect vertices that are not occluded by other faces. (Slower performance)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -2383,7 +2482,7 @@ Scene – Calculate brush spacing relative to the scene using the stroke locatio
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBb71e4f2527d9>b71e4f2527d9</a> - 28/09/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBfbf1cc4c2a88>fbf1cc4c2a88</a> - 29/09/2022</code>.
       </span></p>
   </div>
 

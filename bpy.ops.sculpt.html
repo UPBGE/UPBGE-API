@@ -140,11 +140,14 @@ Smooth – Switch brush to smooth mode for duration of stroke.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.cloth_filter">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">cloth_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GRAVITY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_damping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_collisions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.cloth_filter" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">cloth_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GRAVITY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_damping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_collisions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.cloth_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Applies a cloth simulation deformation to the entire mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>area_normal_radius</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Radius, Radius used for calculating area normal on initial click,
+in percentage of brush radius</p></li>
+<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
 <li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'GRAVITY'</em><em>, </em><em>'INFLATE'</em><em>, </em><em>'EXPAND'</em><em>, </em><em>'PINCH'</em><em>, </em><em>'SCALE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Filter Type, Operation that is going to be applied to the mesh</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">GRAVITY</span></code>
@@ -159,7 +162,6 @@ Pinch – Pulls the cloth to the cursor’s start position.</p></li>
 Scale – Scales the mesh as a soft body using the origin of the object as scale.</p></li>
 </ul>
 </p></li>
-<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
 <li><p><strong>force_axis</strong> (<em>enum set in {'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'}</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Force Axis, Apply the force in the selected axis</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
@@ -191,11 +193,14 @@ View – Use the view axis to limit the force and set the gravity direction.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.color_filter">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">color_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HUE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.color_filter" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">color_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HUE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.color_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Applies a filter to modify the active color attribute</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>area_normal_radius</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Radius, Radius used for calculating area normal on initial click,
+in percentage of brush radius</p></li>
+<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
 <li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'FILL'</em><em>, </em><em>'HUE'</em><em>, </em><em>'SATURATION'</em><em>, </em><em>'VALUE'</em><em>, </em><em>'BRIGHTNESS'</em><em>, </em><em>'CONTRAST'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'RED'</em><em>, </em><em>'GREEN'</em><em>, </em><em>'BLUE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Filter Type</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FILL</span></code>
@@ -220,7 +225,6 @@ Green – Change green channel.</p></li>
 Blue – Change blue channel.</p></li>
 </ul>
 </p></li>
-<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
 <li><p><strong>fill_color</strong> (<em>float array</em><em> of </em><em>3 items in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Fill Color</p></li>
 </ul>
 </dd>
@@ -231,17 +235,6 @@ Blue – Change blue channel.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.sculpt.detail_flood_fill">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">detail_flood_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.detail_flood_fill" title="Permalink to this definition"></a></dt>
 <dd><p>Flood fill the mesh with the selected detail setting</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.sculpt.dirty_mask">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">dirty_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirty_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.dirty_mask" title="Permalink to this definition"></a></dt>
-<dd><p>Generates a mask based on the geometry cavity and pointiness</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dirty_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Dirty Only, Don’t calculate cleans for convex areas</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -492,6 +485,25 @@ Decrease Contrast – Decrease the contrast of the paint mask.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sculpt.mask_from_cavity">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_from_cavity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mix_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_automask_settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_curve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_from_cavity" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a mask based on the curvature of the surface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mix_mode</strong> (<em>enum in</em><em> [</em><em>'MIX'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'DIVIDE'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mode, Mix mode</p></li>
+<li><p><strong>mix_factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mix Factor</p></li>
+<li><p><strong>use_automask_settings</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Automask Settings, Use default settings from Options panel in sculpt mode</p></li>
+<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cavity Factor, The contrast of the cavity mask</p></li>
+<li><p><strong>blur_steps</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>25</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cavity Blur, The number of times the cavity mask is blurred</p></li>
+<li><p><strong>use_curve</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Curve</p></li>
+<li><p><strong>invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cavity (Inverted)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mask_init">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RANDOM_PER_VERTEX'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_init" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a new mask for the entire mesh</p>
@@ -504,11 +516,14 @@ Decrease Contrast – Decrease the contrast of the paint mask.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mesh_filter">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mesh_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFLATE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deform_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_shape_preservation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_current_vertex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_smooth_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_intensify_detail_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_curvature_smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mesh_filter" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mesh_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFLATE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deform_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_shape_preservation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_current_vertex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_smooth_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_intensify_detail_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_curvature_smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mesh_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Applies a filter to modify the current mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>area_normal_radius</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Radius, Radius used for calculating area normal on initial click,
+in percentage of brush radius</p></li>
+<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
 <li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'SMOOTH'</em><em>, </em><em>'SCALE'</em><em>, </em><em>'INFLATE'</em><em>, </em><em>'SPHERE'</em><em>, </em><em>'RANDOM'</em><em>, </em><em>'RELAX'</em><em>, </em><em>'RELAX_FACE_SETS'</em><em>, </em><em>'SURFACE_SMOOTH'</em><em>, </em><em>'SHARPEN'</em><em>, </em><em>'ENHANCE_DETAILS'</em><em>, </em><em>'ERASE_DISCPLACEMENT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Filter Type, Operation that is going to be applied to the mesh</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
@@ -535,7 +550,6 @@ Enhance Details – Enhance the high frequency surface detail.</p></li>
 Erase Displacement – Deletes the displacement of the Multires Modifier.</p></li>
 </ul>
 </p></li>
-<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
 <li><p><strong>deform_axis</strong> (<em>enum set in {'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'}</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Deform Axis, Apply the deformation in the selected axis</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
@@ -782,7 +796,7 @@ Relax – Switch brush to relax mode for duration of stroke.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBb71e4f2527d9>b71e4f2527d9</a> - 28/09/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBfbf1cc4c2a88>fbf1cc4c2a88</a> - 29/09/2022</code>.
       </span></p>
   </div>
 
