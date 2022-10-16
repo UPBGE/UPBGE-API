@@ -372,7 +372,7 @@ All Faces – Average space UVs edge length of each loop.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.pack_islands">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">pack_islands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">udim_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CLOSEST_UDIM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pack_islands" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">pack_islands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">udim_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CLOSEST_UDIM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCALED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pack_islands" title="Permalink to this definition"></a></dt>
 <dd><p>Transform all islands so that they fill up the UV/UDIM space as much as possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -386,6 +386,16 @@ Active UDIM – Pack islands to active UDIM image tile or UDIM grid tile where 2
 </ul>
 </p></li>
 <li><p><strong>rotate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Rotate, Rotate islands for best fit</p></li>
+<li><p><strong>margin_method</strong> (<em>enum in</em><em> [</em><em>'SCALED'</em><em>, </em><em>'ADD'</em><em>, </em><em>'FRACTION'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Margin Method</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCALED</span></code>
+Scaled – Use scale of existing UVs to multiply margin.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
+Add – Just add the margin, ignoring any UV scale.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FRACTION</span></code>
+Fraction – Specify a precise fraction of final UV output.</p></li>
+</ul>
+</p></li>
 <li><p><strong>margin</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Margin, Space between islands</p></li>
 </ul>
 </dd>
@@ -783,12 +793,22 @@ Subtract – Subtract existing selection.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.smart_project">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">smart_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.15192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">island_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.smart_project" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">smart_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.15192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCALED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">island_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.smart_project" title="Permalink to this definition"></a></dt>
 <dd><p>Projection unwraps the selected faces of mesh objects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>angle_limit</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1.5708</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle Limit, Lower for more projection groups, higher for less distortion</p></li>
+<li><p><strong>margin_method</strong> (<em>enum in</em><em> [</em><em>'SCALED'</em><em>, </em><em>'ADD'</em><em>, </em><em>'FRACTION'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Margin Method</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCALED</span></code>
+Scaled – Use scale of existing UVs to multiply margin.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
+Add – Just add the margin, ignoring any UV scale.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FRACTION</span></code>
+Fraction – Specify a precise fraction of final UV output.</p></li>
+</ul>
+</p></li>
 <li><p><strong>island_margin</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Island Margin, Margin to reduce bleed from adjacent islands</p></li>
 <li><p><strong>area_weight</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Area Weight, Weight projection’s vector by faces with larger areas</p></li>
 <li><p><strong>correct_aspect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Correct Aspect, Map UVs taking image aspect ratio into account</p></li>
@@ -878,7 +898,7 @@ Polar ZY – Polar 0 is Y.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.unwrap">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">unwrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ANGLE_BASED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_holes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_subsurf_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.unwrap" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">unwrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ANGLE_BASED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_holes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_subsurf_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCALED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.unwrap" title="Permalink to this definition"></a></dt>
 <dd><p>Unwrap the mesh of the object being edited</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -887,6 +907,16 @@ Polar ZY – Polar 0 is Y.</p></li>
 <li><p><strong>fill_holes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Fill Holes, Virtual fill holes in mesh before unwrapping, to better avoid overlaps and preserve symmetry</p></li>
 <li><p><strong>correct_aspect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Correct Aspect, Map UVs taking image aspect ratio into account</p></li>
 <li><p><strong>use_subsurf_data</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Subdivision Surface, Map UVs taking vertex position after Subdivision Surface modifier has been applied</p></li>
+<li><p><strong>margin_method</strong> (<em>enum in</em><em> [</em><em>'SCALED'</em><em>, </em><em>'ADD'</em><em>, </em><em>'FRACTION'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Margin Method</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCALED</span></code>
+Scaled – Use scale of existing UVs to multiply margin.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
+Add – Just add the margin, ignoring any UV scale.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FRACTION</span></code>
+Fraction – Specify a precise fraction of final UV output.</p></li>
+</ul>
+</p></li>
 <li><p><strong>margin</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Margin, Space between islands</p></li>
 </ul>
 </dd>
@@ -913,7 +943,7 @@ Polar ZY – Polar 0 is Y.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB610192063ea3>610192063ea3</a> - 07/10/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3e35ef02dca3>3e35ef02dca3</a> - 16/10/2022</code>.
       </span></p>
   </div>
 

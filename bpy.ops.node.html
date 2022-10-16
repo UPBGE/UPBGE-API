@@ -381,11 +381,14 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.duplicate">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keep_inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.duplicate" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keep_inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.duplicate" title="Permalink to this definition"></a></dt>
 <dd><p>Duplicate selected nodes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>keep_inputs</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Inputs, Keep the input links to duplicated nodes</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keep_inputs</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Inputs, Keep the input links to duplicated nodes</p></li>
+<li><p><strong>linked</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Linked, Duplicate node but not node trees, linking to the original data</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -408,6 +411,20 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.node.duplicate_move_keep_inputs">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">duplicate_move_keep_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NODE_OT_duplicate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_translate_attach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.duplicate_move_keep_inputs" title="Permalink to this definition"></a></dt>
 <dd><p>Duplicate selected nodes keeping input links and move them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NODE_OT_duplicate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_duplicate</span></code>, (optional)) – Duplicate Nodes, Duplicate selected nodes</p></li>
+<li><p><strong>NODE_OT_translate_attach</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_translate_attach</span></code>, (optional)) – Move and Attach, Move nodes and attach to frame</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.duplicate_move_linked">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">duplicate_move_linked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NODE_OT_duplicate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_translate_attach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.duplicate_move_linked" title="Permalink to this definition"></a></dt>
+<dd><p>Duplicate selected nodes, but not their node trees, and move them</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1059,7 +1076,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB610192063ea3>610192063ea3</a> - 07/10/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB3e35ef02dca3>3e35ef02dca3</a> - 16/10/2022</code>.
       </span></p>
   </div>
 
