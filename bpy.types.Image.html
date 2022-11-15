@@ -568,13 +568,14 @@ UDIM Tiles – Tiled UDIM image texture.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Image.save_render">
-<span class="sig-name descname"><span class="pre">save_render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Image.save_render" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save_render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Image.save_render" title="Permalink to this definition"></a></dt>
 <dd><p>Save image to a specific path using a scenes render settings</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Save path</p></li>
+<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Output path</p></li>
 <li><p><strong>scene</strong> (<a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>, (optional)) – Scene to take image parameters from</p></li>
+<li><p><strong>quality</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Quality, Quality for image formats that support lossy compression, uses default quality if not specified</p></li>
 </ul>
 </dd>
 </dl>
@@ -582,8 +583,16 @@ UDIM Tiles – Tiled UDIM image texture.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Image.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Image.save" title="Permalink to this definition"></a></dt>
-<dd><p>Save image to its source path</p>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Image.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Output path, uses image data-block filepath if not specified</p></li>
+<li><p><strong>quality</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Quality, Quality for image formats that support lossy compression, uses default quality if not specified</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -857,7 +866,7 @@ UDIM Tiles – Tiled UDIM image texture.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rBa5bc7ac7cf4e>a5bc7ac7cf4e</a> - 12/11/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB47e08d579105>47e08d579105</a> - 14/11/2022</code>.
       </span></p>
   </div>
 
