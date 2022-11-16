@@ -482,14 +482,23 @@ Decrease Contrast – Decrease the contrast of the paint mask.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mask_from_cavity">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_from_cavity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mix_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_automask_settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_curve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_from_cavity" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_from_cavity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mix_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OPERATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_curve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_from_cavity" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a mask based on the curvature of the surface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mix_mode</strong> (<em>enum in</em><em> [</em><em>'MIX'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'DIVIDE'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mode, Mix mode</p></li>
 <li><p><strong>mix_factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mix Factor</p></li>
-<li><p><strong>use_automask_settings</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Automask Settings, Use default settings from Options panel in sculpt mode</p></li>
+<li><p><strong>settings_source</strong> (<em>enum in</em><em> [</em><em>'OPERATOR'</em><em>, </em><em>'BRUSH'</em><em>, </em><em>'SCENE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Settings, Use settings from here</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPERATOR</span></code>
+Operator – Use settings from operator properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BRUSH</span></code>
+Brush – Use settings from brush.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCENE</span></code>
+Scene – Use settings from scene.</p></li>
+</ul>
+</p></li>
 <li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, The contrast of the cavity mask</p></li>
 <li><p><strong>blur_steps</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>25</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blur, The number of times the cavity mask is blurred</p></li>
 <li><p><strong>use_curve</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Custom Curve</p></li>
@@ -797,7 +806,7 @@ Relax – Switch brush to relax mode for duration of stroke.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB47e08d579105>47e08d579105</a> - 14/11/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB587dd99f4100>587dd99f4100</a> - 15/11/2022</code>.
       </span></p>
   </div>
 
