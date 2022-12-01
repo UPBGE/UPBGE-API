@@ -854,6 +854,20 @@ an issue but, due to internal implementation details, currently are:</p>
 Setting any of those Booleans will trigger a rebuild of Collection caches,
 thus breaking any current iteration over <code class="docutils literal notranslate"><span class="pre">Collection.all_objects</span></code>.</p></li>
 </ul>
+<p class="rubric">Do not:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `all_objects` is an iterator. Using it directly while performing operations on its members that will update</span>
+<span class="c1"># the memory accessed by the `all_objects` iterator will lead to invalid memory accesses and crashes.</span>
+<span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="s2">&quot;Collection&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">all_objects</span><span class="p">:</span>
+     <span class="nb">object</span><span class="o">.</span><span class="n">hide_viewport</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p class="rubric">Do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `all_objects[:]` is an independent list generated from the iterator. As long as no objects are deleted,</span>
+<span class="c1"># its content will remain valid even if the data accessed by the `all_objects` iterator is modified.</span>
+<span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="s2">&quot;Collection&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">all_objects</span><span class="p">[:]:</span>
+     <span class="nb">object</span><span class="o">.</span><span class="n">hide_viewport</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="sys-exit">
@@ -879,7 +893,7 @@ you could of course replace <code class="docutils literal notranslate"><span cla
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB2b312e62e3f2>2b312e62e3f2</a> - 29/11/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB151d9c4b14ab>151d9c4b14ab</a> - 30/11/2022</code>.
       </span></p>
   </div>
 
