@@ -121,7 +121,9 @@ C, Python or macros.</p>
 <p>Operators don’t have return values as you might expect,
 instead they return a set() which is made up of:
 <code class="docutils literal notranslate"><span class="pre">{'RUNNING_MODAL',</span> <span class="pre">'CANCELLED',</span> <span class="pre">'FINISHED',</span> <span class="pre">'PASS_THROUGH'}</span></code>.
-Common return values are <code class="docutils literal notranslate"><span class="pre">{'FINISHED'}</span></code> and <code class="docutils literal notranslate"><span class="pre">{'CANCELLED'}</span></code>.</p>
+Common return values are <code class="docutils literal notranslate"><span class="pre">{'FINISHED'}</span></code> and <code class="docutils literal notranslate"><span class="pre">{'CANCELLED'}</span></code>, the latter
+meaning that the operator execution was aborted without making any changes or
+saving an undo history entry.</p>
 <p>Calling an operator in the wrong context will raise a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code>,
 there is a poll() method to avoid this problem.</p>
 <p>Note that the operator ID (bl_idname) in this example is <code class="docutils literal notranslate"><span class="pre">mesh.subdivide</span></code>,
@@ -2629,7 +2631,7 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB618f6769e932>618f6769e932</a> - 26/12/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB0fb2dd9627b9>0fb2dd9627b9</a> - 27/12/2022</code>.
       </span></p>
   </div>
 

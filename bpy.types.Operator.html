@@ -119,6 +119,11 @@
 <p>This script shows simple operator which prints a message.</p>
 <p>Since the operator only has an <a class="reference internal" href="#bpy.types.Operator.execute" title="bpy.types.Operator.execute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.execute</span></code></a> function it takes no
 user input.</p>
+<p>The function should return <code class="docutils literal notranslate"><span class="pre">{'FINISHED'}</span></code> or <code class="docutils literal notranslate"><span class="pre">{'CANCELLED'}</span></code>, the latter
+meaning that operator execution was aborted without making any changes, and
+saving an undo entry isn’t neccesary. If an error is detected after some changes
+have already been made, use the <code class="docutils literal notranslate"><span class="pre">{'FINISHED'}</span></code> return code, or the behavior
+of undo will be confusing for the user.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Operator subclasses must be registered before accessing them from blender.</p>
@@ -391,6 +396,7 @@ be called before the <a class="reference internal" href="#bpy.types.Operator.inv
         <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;LEFTMOUSE&#39;</span><span class="p">:</span>  <span class="c1"># Confirm</span>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
         <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;RIGHTMOUSE&#39;</span><span class="p">,</span> <span class="s1">&#39;ESC&#39;</span><span class="p">}:</span>  <span class="c1"># Cancel</span>
+            <span class="c1"># Revert all changes that have been made</span>
             <span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_loc_x</span>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
 
@@ -855,7 +861,7 @@ expanding an operator into a menu.
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB618f6769e932>618f6769e932</a> - 26/12/2022</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rB0fb2dd9627b9>0fb2dd9627b9</a> - 27/12/2022</code>.
       </span></p>
   </div>
 
