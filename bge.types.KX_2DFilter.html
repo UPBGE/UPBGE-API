@@ -206,16 +206,16 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The vertex shader must not apply modelview and projection transformation. It should be similar to:</p>
-<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">in</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
-<span class="k">in</span><span class="w"> </span><span class="kt">vec2</span><span class="w"> </span><span class="n">texCoord</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">in</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span>
+<span class="k">in</span><span class="w"> </span><span class="kt">vec2</span><span class="w"> </span><span class="n">texCoord</span><span class="p">;</span>
 
-<span class="k">out</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">bgl_TexCoord</span><span class="p">;</span><span class="w"></span>
+<span class="k">out</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">bgl_TexCoord</span><span class="p">;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nb">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">bgl_TexCoord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">vec4</span><span class="p">(</span><span class="n">texCoord</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nb">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span>
+<span class="w">    </span><span class="n">bgl_TexCoord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">vec4</span><span class="p">(</span><span class="n">texCoord</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -223,15 +223,15 @@
 <dt class="sig sig-object py" id="bge.types.KX_2DFilter.mipmap">
 <span class="sig-name descname"><span class="pre">mipmap</span></span><a class="headerlink" href="#bge.types.KX_2DFilter.mipmap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request mipmap generation of the render <cite>bgl_RenderedTexture</cite> texture. Accessing mipmapping level is similar to:</p>
-<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">uniform</span><span class="w"> </span><span class="kt">sampler2D</span><span class="w"> </span><span class="n">bgl_RenderedTexture</span><span class="p">;</span><span class="w"></span>
-<span class="k">in</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">bgl_TexCoord</span><span class="p">;</span><span class="w"></span>
-<span class="k">out</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">fragColor</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">uniform</span><span class="w"> </span><span class="kt">sampler2D</span><span class="w"> </span><span class="n">bgl_RenderedTexture</span><span class="p">;</span>
+<span class="k">in</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">bgl_TexCoord</span><span class="p">;</span>
+<span class="k">out</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">fragColor</span><span class="p">;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// mipmap level</span><span class="w"></span>
-<span class="w">    </span><span class="n">fragColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">textureLod</span><span class="p">(</span><span class="n">bgl_RenderedTexture</span><span class="p">,</span><span class="w"> </span><span class="n">bgl_TexCoord</span><span class="p">.</span><span class="n">xy</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// mipmap level</span>
+<span class="w">    </span><span class="n">fragColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">textureLod</span><span class="p">(</span><span class="n">bgl_RenderedTexture</span><span class="p">,</span><span class="w"> </span><span class="n">bgl_TexCoord</span><span class="p">.</span><span class="n">xy</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
