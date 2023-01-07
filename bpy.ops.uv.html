@@ -308,7 +308,7 @@ Z – Z axis.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.cylinder_project">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">cylinder_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW_ON_EQUATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POLAR_ZX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.cylinder_project" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">cylinder_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW_ON_EQUATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POLAR_ZX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PINCH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.cylinder_project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Project the UV vertices of the mesh over the curved wall of a cylinder</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -329,6 +329,14 @@ Align to Object – Align according to object transform.</p></li>
 Polar ZX – Polar 0 is X.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">POLAR_ZY</span></code>
 Polar ZY – Polar 0 is Y.</p></li>
+</ul>
+</p></li>
+<li><p><strong>pole</strong> (<em>enum in</em><em> [</em><em>'PINCH'</em><em>, </em><em>'FAN'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Pole, How to handle faces at the poles</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">PINCH</span></code>
+Pinch – UVs are pinched at the poles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FAN</span></code>
+Fan – UVs are fanned at the poles.</p></li>
 </ul>
 </p></li>
 <li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius, Radius of the sphere or cylinder</p></li>
@@ -938,7 +946,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.sphere_project">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">sphere_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW_ON_EQUATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POLAR_ZX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.sphere_project" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">sphere_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW_ON_EQUATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POLAR_ZX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PINCH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_to_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.sphere_project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Project the UV vertices of the mesh over the curved surface of a sphere</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -959,6 +967,14 @@ Align to Object – Align according to object transform.</p></li>
 Polar ZX – Polar 0 is X.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">POLAR_ZY</span></code>
 Polar ZY – Polar 0 is Y.</p></li>
+</ul>
+</p></li>
+<li><p><strong>pole</strong> (<em>enum in</em><em> [</em><em>'PINCH'</em><em>, </em><em>'FAN'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Pole, How to handle faces at the poles</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">PINCH</span></code>
+Pinch – UVs are pinched at the poles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FAN</span></code>
+Fan – UVs are fanned at the poles.</p></li>
 </ul>
 </p></li>
 <li><p><strong>correct_aspect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Correct Aspect, Map UVs taking image aspect ratio into account</p></li>
@@ -1044,7 +1060,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
         &#169; Copyright Blender Foundation.
       <span class="commit">
         
-        Revision <code><a href=https://developer.blender.org/rB23a5120eada6>23a5120eada6</a> - 06/01/2023</code>.
+        Revision <code><a href=https://developer.blender.org/rB652481335f6f>652481335f6f</a> - 07/01/2023</code>.
       </span>
 
     </p>
