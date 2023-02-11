@@ -318,6 +318,23 @@ Geometry – Geometry nodes.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.NodeTree.contains_tree">
+<span class="sig-name descname"><span class="pre">contains_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodeTree.contains_tree" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the node tree contains another. Used to avoid creating recursive node groups</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sub_tree</strong> (<a class="reference internal" href="#bpy.types.NodeTree" title="bpy.types.NodeTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree</span></code></a>, (never None)) – Node Tree, Node tree for recursive check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>contained</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.NodeTree.poll">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodeTree.poll" title="Permalink to this definition"></a></dt>
 <dd><p>Check visibility in the editor</p>
@@ -482,9 +499,10 @@ Geometry – Geometry nodes.</p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeGroup.html#bpy.types.NodeGroup.node_tree" title="bpy.types.NodeGroup.node_tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGroup.node_tree</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.poll" title="bpy.types.NodeInternal.poll"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.poll</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.poll_instance" title="bpy.types.NodeInternal.poll_instance"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.poll_instance</span></code></a></p></li>
-<li><p><a class="reference internal" href="#bpy.types.NodeTree.get_from_context" title="bpy.types.NodeTree.get_from_context"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.get_from_context</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bpy.types.NodeTree.contains_tree" title="bpy.types.NodeTree.contains_tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.contains_tree</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
+<li><p><a class="reference internal" href="#bpy.types.NodeTree.get_from_context" title="bpy.types.NodeTree.get_from_context"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.get_from_context</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeTreePath.html#bpy.types.NodeTreePath.node_tree" title="bpy.types.NodeTreePath.node_tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTreePath.node_tree</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodesModifier.html#bpy.types.NodesModifier.node_group" title="bpy.types.NodesModifier.node_group"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodesModifier.node_group</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ProxyNodeTreeProperty.html#bpy.types.ProxyNodeTreeProperty.value" title="bpy.types.ProxyNodeTreeProperty.value"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyNodeTreeProperty.value</span></code></a></p></li>
@@ -518,7 +536,7 @@ Geometry – Geometry nodes.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://developer.blender.org/rB0d90bd220c17>0d90bd220c17</a> - 09/02/2023</code>.
+      <span class="commit">Revision <code><a href=https://developer.blender.org/rBc8eb179ab8e0>c8eb179ab8e0</a> - 11/02/2023</code>.
       </span></p>
   </div>
 
