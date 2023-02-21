@@ -267,6 +267,51 @@ Possible values are <cite>NONE</cite>, <cite>ALWAYS</cite>, <cite>LESS</cite>, <
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="gpu.state.scissor_get">
+<span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">scissor_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.scissor_get" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve the scissors of the active framebuffer.
+Note: Only valid between ‘scissor_set’ and a framebuffer rebind.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The scissor of the active framebuffer as a tuple
+(x, y, xsize, ysize).
+x, y: lower left corner of the scissor rectangle, in pixels.
+xsize, ysize: width and height of the scissor rectangle.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple(int, int, int, int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.state.scissor_set">
+<span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">scissor_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.scissor_set" title="Permalink to this definition"></a></dt>
+<dd><p>Specifies the scissor area of the active framebuffer.
+Note: The scissor state is not saved upon framebuffer rebind.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>x</em><em>,</em>) – lower left corner of the scissor rectangle, in pixels.</p></li>
+<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – width and height of the scissor rectangle.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.state.scissor_test_set">
+<span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">scissor_test_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.scissor_test_set" title="Permalink to this definition"></a></dt>
+<dd><p>Enable/disable scissor testing on the active framebuffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> (<em>bool</em>) – True - enable scissor testing.
+False - disable scissor testing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="gpu.state.viewport_get">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">viewport_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.viewport_get" title="Permalink to this definition"></a></dt>
 <dd><p>Viewport of the active framebuffer.</p>
@@ -301,7 +346,7 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6fefb0e11660>6fefb0e11660</a> - 18/02/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5a4576336115>5a4576336115</a> - 20/02/2023</code>.
       </span></p>
   </div>
 
