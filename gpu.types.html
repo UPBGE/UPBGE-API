@@ -166,6 +166,44 @@ If <code class="docutils literal notranslate"><span class="pre">None</span></cod
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUBatch.draw_instanced">
+<span class="sig-name descname"><span class="pre">draw_instanced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch.draw_instanced" title="Permalink to this definition"></a></dt>
+<dd><p>Draw multiple instances of the drawing program with the parameters assigned
+to the batch. In the vertex shader, <cite>gl_InstanceID</cite> will contain the instance
+number being drawn.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program</strong> (<a class="reference internal" href="#gpu.types.GPUShader" title="gpu.types.GPUShader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUShader</span></code></a>) – Program that performs the drawing operations.</p></li>
+<li><p><strong>instance_start</strong> (<em>int</em>) – Number of the first instance to draw.</p></li>
+<li><p><strong>instance_count</strong> (<em>int</em>) – Number of instances to draw. When not provided or set to 0
+the number of instances will be determined by the number of rows in the first
+vertex buffer.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUBatch.draw_range">
+<span class="sig-name descname"><span class="pre">draw_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch.draw_range" title="Permalink to this definition"></a></dt>
+<dd><p>Run the drawing program with the parameters assigned to the batch. Only draw
+the <cite>elem_count</cite> elements of the index buffer starting at <cite>elem_start</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program</strong> (<a class="reference internal" href="#gpu.types.GPUShader" title="gpu.types.GPUShader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUShader</span></code></a>) – Program that performs the drawing operations.</p></li>
+<li><p><strong>elem_start</strong> (<em>int</em>) – First index to draw. When not provided or set to 0 drawing
+will start from the first element of the index buffer.</p></li>
+<li><p><strong>elem_count</strong> (<em>int</em>) – Number of elements of the index buffer to draw. When not
+provided or set to 0 all elements from <cite>elem_start</cite> to the end of the
+index buffer will be drawn.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUBatch.program_set">
 <span class="sig-name descname"><span class="pre">program_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch.program_set" title="Permalink to this definition"></a></dt>
 <dd><p>Assign a shader to this batch that will be used for drawing when not overwritten later.
@@ -1234,7 +1272,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>INT_TO_FLOAT_UNI
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/4ff9ed57b29f>4ff9ed57b29f</a> - 28/02/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/be03ac8b1923>be03ac8b1923</a> - 02/03/2023</code>.
       </span></p>
   </div>
 
