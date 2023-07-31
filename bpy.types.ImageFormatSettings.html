@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -244,7 +247,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ImageFormatSettings.jpeg2k_codec">
 <span class="sig-name descname"><span class="pre">jpeg2k_codec</span></span><a class="headerlink" href="#bpy.types.ImageFormatSettings.jpeg2k_codec" title="Permalink to this definition"></a></dt>
-<dd><p>Codec settings for Jpeg2000</p>
+<dd><p>Codec settings for JPEG 2000</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum in [‘JP2’, ‘J2K’], default ‘JP2’</p>
@@ -310,7 +313,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ImageFormatSettings.use_jpeg2k_cinema_48">
 <span class="sig-name descname"><span class="pre">use_jpeg2k_cinema_48</span></span><a class="headerlink" href="#bpy.types.ImageFormatSettings.use_jpeg2k_cinema_48" title="Permalink to this definition"></a></dt>
-<dd><p>Use Openjpeg Cinema Preset (48fps)</p>
+<dd><p>Use OpenJPEG Cinema Preset (48fps)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -321,7 +324,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ImageFormatSettings.use_jpeg2k_cinema_preset">
 <span class="sig-name descname"><span class="pre">use_jpeg2k_cinema_preset</span></span><a class="headerlink" href="#bpy.types.ImageFormatSettings.use_jpeg2k_cinema_preset" title="Permalink to this definition"></a></dt>
-<dd><p>Use Openjpeg Cinema Preset</p>
+<dd><p>Use OpenJPEG Cinema Preset</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -351,17 +354,6 @@
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.ImageFormatSettings.use_zbuffer">
-<span class="sig-name descname"><span class="pre">use_zbuffer</span></span><a class="headerlink" href="#bpy.types.ImageFormatSettings.use_zbuffer" title="Permalink to this definition"></a></dt>
-<dd><p>Save the z-depth per pixel (32-bit unsigned integer z-buffer)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.ImageFormatSettings.view_settings">
 <span class="sig-name descname"><span class="pre">view_settings</span></span><a class="headerlink" href="#bpy.types.ImageFormatSettings.view_settings" title="Permalink to this definition"></a></dt>
@@ -379,7 +371,7 @@
 <dd><p>Format of multiview media</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/views_format_items.html#rna-enum-views-format-items"><span class="std std-ref">Views Format Items</span></a>, default ‘INDIVIDUAL’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/views_format_multiview_items.html#rna-enum-views-format-multiview-items"><span class="std std-ref">Views Format Multiview Items</span></a>, default ‘INDIVIDUAL’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -479,7 +471,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -494,7 +486,7 @@
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

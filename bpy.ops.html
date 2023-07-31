@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -133,16 +136,11 @@ there is a poll() method to avoid this problem.</p>
 <h3>Keywords and Positional Arguments<a class="headerlink" href="#keywords-and-positional-arguments" title="Permalink to this heading"></a></h3>
 <p>For calling operators keywords are used for operator properties and
 positional arguments are used to define how the operator is called.</p>
-<p>There are 3 optional positional arguments (documented in detail below).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">override_context</span><span class="p">,</span> <span class="n">execution_context</span><span class="p">,</span> <span class="n">undo</span><span class="p">)</span>
+<p>There are 2 optional positional arguments (documented in detail below).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">execution_context</span><span class="p">,</span> <span class="n">undo</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
-<li><p>override_context - <code class="docutils literal notranslate"><span class="pre">dict</span></code> type.</p>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 3.2: </span><a class="reference internal" href="bpy.types.Context.html#bpy.types.Context.temp_override" title="bpy.types.Context.temp_override"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context.temp_override</span></code></a> should be used instead of this argument.</p>
-</div>
-</li>
+<ul class="simple">
 <li><p>execution_context - <code class="docutils literal notranslate"><span class="pre">str</span></code> (enum).</p></li>
 <li><p>undo - <code class="docutils literal notranslate"><span class="pre">bool</span></code> type.</p></li>
 </ul>
@@ -177,9 +175,9 @@ you would pass <code class="docutils literal notranslate"><span class="pre">{'ac
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove all objects in scene rather than the selected ones.</span>
 <span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">from</span> <span class="nn">bpy</span> <span class="kn">import</span> <span class="n">context</span>
-<span class="n">override</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">override</span><span class="p">[</span><span class="s2">&quot;selected_objects&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">temp_override</span><span class="p">(</span><span class="o">**</span><span class="n">override</span><span class="p">):</span>
+<span class="n">context_override</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">context_override</span><span class="p">[</span><span class="s2">&quot;selected_objects&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">temp_override</span><span class="p">(</span><span class="o">**</span><span class="n">context_override</span><span class="p">):</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -255,6 +253,7 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.gizmogroup.html">Gizmogroup Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.gpencil.html">Gpencil Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.graph.html">Graph Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.grease_pencil.html">Grease Pencil Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.image.html">Image Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.info.html">Info Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.lattice.html">Lattice Operators</a></li>
@@ -288,6 +287,7 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.spreadsheet.html">Spreadsheet Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.surface.html">Surface Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.text.html">Text Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.text_editor.html">Text Editor Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.texture.html">Texture Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.transform.html">Transform Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.ui.html">Ui Operators</a></li>
@@ -315,7 +315,7 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -330,7 +330,7 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

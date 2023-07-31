@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -218,7 +221,7 @@ functions, chaining iterators, and stroke shaders), and operators.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">AdjacencyIterator</span></span><a class="headerlink" href="#freestyle.types.AdjacencyIterator" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Iterator" title="freestyle.types.Iterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.AdjacencyIterator" title="freestyle.types.AdjacencyIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdjacencyIterator</span></code></a></p>
 <p>Class for representing adjacency iterators used in the chaining
-process.  An AdjacencyIterator is created in the increment() and
+process. An AdjacencyIterator is created in the increment() and
 decrement() methods of a <a class="reference internal" href="#freestyle.types.ChainingIterator" title="freestyle.types.ChainingIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainingIterator</span></code></a> and passed to the
 traverse() method of the ChainingIterator.</p>
 <dl class="py method">
@@ -285,10 +288,10 @@ False otherwise.</p>
 <dt class="sig sig-object py" id="freestyle.types.BinaryPredicate0D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">BinaryPredicate0D</span></span><a class="headerlink" href="#freestyle.types.BinaryPredicate0D" title="Permalink to this definition"></a></dt>
 <dd><p>Base class for binary predicates working on <a class="reference internal" href="#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0D</span></code></a>
-objects.  A BinaryPredicate0D is typically an ordering relation
-between two Interface0D objects.  The predicate evaluates a relation
+objects. A BinaryPredicate0D is typically an ordering relation
+between two Interface0D objects. The predicate evaluates a relation
 between the two Interface0D instances and returns a boolean value (true
-or false).  It is used by invoking the __call__() method.</p>
+or false). It is used by invoking the __call__() method.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.BinaryPredicate0D.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.BinaryPredicate0D.__init__" title="Permalink to this definition"></a></dt>
@@ -298,7 +301,7 @@ or false).  It is used by invoking the __call__() method.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.BinaryPredicate0D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inter2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.BinaryPredicate0D.__call__" title="Permalink to this definition"></a></dt>
-<dd><p>Must be overload by inherited classes.  It evaluates a relation
+<dd><p>Must be overload by inherited classes. It evaluates a relation
 between two Interface0D objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -333,10 +336,10 @@ between two Interface0D objects.</p>
 <dt class="sig sig-object py" id="freestyle.types.BinaryPredicate1D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">BinaryPredicate1D</span></span><a class="headerlink" href="#freestyle.types.BinaryPredicate1D" title="Permalink to this definition"></a></dt>
 <dd><p>Base class for binary predicates working on <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a>
-objects.  A BinaryPredicate1D is typically an ordering relation
-between two Interface1D objects.  The predicate evaluates a relation
+objects. A BinaryPredicate1D is typically an ordering relation
+between two Interface1D objects. The predicate evaluates a relation
 between the two Interface1D instances and returns a boolean value (true
-or false).  It is used by invoking the __call__() method.</p>
+or false). It is used by invoking the __call__() method.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.BinaryPredicate1D.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.BinaryPredicate1D.__init__" title="Permalink to this definition"></a></dt>
@@ -381,7 +384,7 @@ between two Interface1D objects.</p>
 <dt class="sig sig-object py" id="freestyle.types.Chain">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">Chain</span></span><a class="headerlink" href="#freestyle.types.Chain" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.Curve" title="freestyle.types.Curve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Curve</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.Chain" title="freestyle.types.Chain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Chain</span></code></a></p>
-<p>Class to represent a 1D elements issued from the chaining process.  A
+<p>Class to represent a 1D elements issued from the chaining process. A
 Chain is the last step before the <a class="reference internal" href="#freestyle.types.Stroke" title="freestyle.types.Stroke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code></a> and is used in the
 Splitting and Creation processes.</p>
 <dl class="py method">
@@ -439,11 +442,11 @@ processed.</p></li>
 <dt class="sig sig-object py" id="freestyle.types.ChainingIterator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">ChainingIterator</span></span><a class="headerlink" href="#freestyle.types.ChainingIterator" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Iterator" title="freestyle.types.Iterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.ViewEdgeIterator" title="freestyle.types.ViewEdgeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdgeIterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.ChainingIterator" title="freestyle.types.ChainingIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainingIterator</span></code></a></p>
-<p>Base class for chaining iterators.  This class is designed to be
-overloaded in order to describe chaining rules.  It makes the
-description of chaining rules easier.  The two main methods that need
-to overloaded are traverse() and init().  traverse() tells which
-<a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a> to follow, among the adjacent ones.  If you specify
+<p>Base class for chaining iterators. This class is designed to be
+overloaded in order to describe chaining rules. It makes the
+description of chaining rules easier. The two main methods that need
+to overloaded are traverse() and init(). traverse() tells which
+<a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a> to follow, among the adjacent ones. If you specify
 restriction rules (such as “Chain only ViewEdges of the selection”),
 they will be included in the adjacency iterator (i.e, the adjacent
 iterator will only stop on “valid” edges).</p>
@@ -462,7 +465,7 @@ to stay within the set of selected ViewEdges or not.</p></li>
 <li><p><strong>restrict_to_unvisited</strong> (<em>bool</em>) – Indicates whether a ViewEdge that has
 already been chained must be ignored ot not.</p></li>
 <li><p><strong>begin</strong> (<a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a> or None) – The ViewEdge from which to start the chain.</p></li>
-<li><p><strong>orientation</strong> (<em>bool</em>) – The direction to follow to explore the graph.  If
+<li><p><strong>orientation</strong> (<em>bool</em>) – The direction to follow to explore the graph. If
 true, the direction indicated by the first ViewEdge is used.</p></li>
 <li><p><strong>brother</strong> (<a class="reference internal" href="#freestyle.types.ChainingIterator" title="freestyle.types.ChainingIterator"><em>ChainingIterator</em></a>) – </p></li>
 </ul>
@@ -473,8 +476,8 @@ true, the direction indicated by the first ViewEdge is used.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.ChainingIterator.init">
 <span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.ChainingIterator.init" title="Permalink to this definition"></a></dt>
-<dd><p>Initializes the iterator context.  This method is called each
-time a new chain is started.  It can be used to reset some
+<dd><p>Initializes the iterator context. This method is called each
+time a new chain is started. It can be used to reset some
 history information that you might want to keep.</p>
 </dd></dl>
 
@@ -482,12 +485,12 @@ history information that you might want to keep.</p>
 <dt class="sig sig-object py" id="freestyle.types.ChainingIterator.traverse">
 <span class="sig-name descname"><span class="pre">traverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.ChainingIterator.traverse" title="Permalink to this definition"></a></dt>
 <dd><p>This method iterates over the potential next ViewEdges and returns
-the one that will be followed next.  Returns the next ViewEdge to
+the one that will be followed next. Returns the next ViewEdge to
 follow or None when the end of the chain is reached.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>it</strong> (<a class="reference internal" href="#freestyle.types.AdjacencyIterator" title="freestyle.types.AdjacencyIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdjacencyIterator</span></code></a>) – The iterator over the ViewEdges adjacent to the end vertex
-of the current ViewEdge.  The adjacency iterator reflects the
+of the current ViewEdge. The adjacency iterator reflects the
 restriction rules by only iterating over the valid ViewEdges.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -538,8 +541,8 @@ restriction rules by only iterating over the valid ViewEdges.</p>
 <dt class="sig sig-object py" id="freestyle.types.Curve">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">Curve</span></span><a class="headerlink" href="#freestyle.types.Curve" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.Curve" title="freestyle.types.Curve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Curve</span></code></a></p>
-<p>Base class for curves made of CurvePoints.  <a class="reference internal" href="#freestyle.types.SVertex" title="freestyle.types.SVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertex</span></code></a> is the
-type of the initial curve vertices.  A <a class="reference internal" href="#freestyle.types.Chain" title="freestyle.types.Chain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Chain</span></code></a> is a
+<p>Base class for curves made of CurvePoints. <a class="reference internal" href="#freestyle.types.SVertex" title="freestyle.types.SVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertex</span></code></a> is the
+type of the initial curve vertices. A <a class="reference internal" href="#freestyle.types.Chain" title="freestyle.types.Chain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Chain</span></code></a> is a
 specialization of a Curve.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Curve.__init__">
@@ -610,12 +613,12 @@ copy constructor or from an <a class="reference internal" href="#freestyle.types
 <dt class="sig sig-object py" id="freestyle.types.CurvePoint">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">CurvePoint</span></span><a class="headerlink" href="#freestyle.types.CurvePoint" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.CurvePoint" title="freestyle.types.CurvePoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurvePoint</span></code></a></p>
-<p>Class to represent a point of a curve.  A CurvePoint can be any point
-of a 1D curve (it doesn’t have to be a vertex of the curve).  Any
+<p>Class to represent a point of a curve. A CurvePoint can be any point
+of a 1D curve (it doesn’t have to be a vertex of the curve). Any
 <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> is built upon ViewEdges, themselves built upon
-FEdges.  Therefore, a curve is basically a polyline made of a list of
-<a class="reference internal" href="#freestyle.types.SVertex" title="freestyle.types.SVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertex</span></code></a> objects.  Thus, a CurvePoint is built by linearly
-interpolating two <a class="reference internal" href="#freestyle.types.SVertex" title="freestyle.types.SVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertex</span></code></a> instances.  CurvePoint can be used
+FEdges. Therefore, a curve is basically a polyline made of a list of
+<a class="reference internal" href="#freestyle.types.SVertex" title="freestyle.types.SVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertex</span></code></a> objects. Thus, a CurvePoint is built by linearly
+interpolating two <a class="reference internal" href="#freestyle.types.SVertex" title="freestyle.types.SVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertex</span></code></a> instances. CurvePoint can be used
 as virtual points while querying 0D information along a curve at a
 given resolution.</p>
 <dl class="py method">
@@ -697,8 +700,8 @@ A shortcut for CurvePoint.first_svertex.get_fedge(CurvePoint.second_svertex).</p
 <dt class="sig sig-object py" id="freestyle.types.CurvePointIterator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">CurvePointIterator</span></span><a class="headerlink" href="#freestyle.types.CurvePointIterator" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Iterator" title="freestyle.types.Iterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.CurvePointIterator" title="freestyle.types.CurvePointIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurvePointIterator</span></code></a></p>
-<p>Class representing an iterator on a curve.  Allows an iterating
-outside initial vertices.  A CurvePoint is instantiated and returned
+<p>Class representing an iterator on a curve. Allows an iterating
+outside initial vertices. A CurvePoint is instantiated and returned
 through the .object attribute.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.CurvePointIterator.__init__">
@@ -760,13 +763,13 @@ initial vertices).</p></li>
 <dt class="sig sig-object py" id="freestyle.types.FEdge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">FEdge</span></span><a class="headerlink" href="#freestyle.types.FEdge" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.FEdge" title="freestyle.types.FEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">FEdge</span></code></a></p>
-<p>Base Class for feature edges.  This FEdge can represent a silhouette,
-a crease, a ridge/valley, a border or a suggestive contour.  For
+<p>Base Class for feature edges. This FEdge can represent a silhouette,
+a crease, a ridge/valley, a border or a suggestive contour. For
 silhouettes, the FEdge is oriented so that the visible face lies on
-the left of the edge.  For borders, the FEdge is oriented so that the
-face lies on the left of the edge.  An FEdge can represent an initial
+the left of the edge. For borders, the FEdge is oriented so that the
+face lies on the left of the edge. An FEdge can represent an initial
 edge of the mesh or runs across a face of the initial mesh depending
-on the smoothness or sharpness of the mesh.  This class is specialized
+on the smoothness or sharpness of the mesh. This class is specialized
 into a smooth and a sharp version since their properties slightly vary
 from one to the other.</p>
 <dl class="py method">
@@ -834,7 +837,7 @@ copy constructor, or between two <a class="reference internal" href="#freestyle.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.FEdge.next_fedge">
 <span class="sig-name descname"><span class="pre">next_fedge</span></span><a class="headerlink" href="#freestyle.types.FEdge.next_fedge" title="Permalink to this definition"></a></dt>
-<dd><p>The FEdge following this one in the ViewEdge.  The value is None if
+<dd><p>The FEdge following this one in the ViewEdge. The value is None if
 this FEdge is the last of the ViewEdge.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -846,7 +849,7 @@ this FEdge is the last of the ViewEdge.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.FEdge.previous_fedge">
 <span class="sig-name descname"><span class="pre">previous_fedge</span></span><a class="headerlink" href="#freestyle.types.FEdge.previous_fedge" title="Permalink to this definition"></a></dt>
-<dd><p>The FEdge preceding this one in the ViewEdge.  The value is None if
+<dd><p>The FEdge preceding this one in the ViewEdge. The value is None if
 this FEdge is the first one of the ViewEdge.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -883,10 +886,10 @@ this FEdge is the first one of the ViewEdge.</p>
 <dt class="sig sig-object py" id="freestyle.types.FEdgeSharp">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">FEdgeSharp</span></span><a class="headerlink" href="#freestyle.types.FEdgeSharp" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.FEdge" title="freestyle.types.FEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">FEdge</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.FEdgeSharp" title="freestyle.types.FEdgeSharp"><code class="xref py py-class docutils literal notranslate"><span class="pre">FEdgeSharp</span></code></a></p>
-<p>Class defining a sharp FEdge.  A Sharp FEdge corresponds to an initial
-edge of the input mesh.  It can be a silhouette, a crease or a border.
+<p>Class defining a sharp FEdge. A Sharp FEdge corresponds to an initial
+edge of the input mesh. It can be a silhouette, a crease or a border.
 If it is a crease edge, then it is bordered by two faces of the mesh.
-Face a lies on its right whereas Face b lies on its left.  If it is a
+Face a lies on its right whereas Face b lies on its left. If it is a
 border edge, then it doesn’t have any face on its right, and thus Face
 a is None.</p>
 <dl class="py method">
@@ -923,7 +926,7 @@ copy constructor, or between two <a class="reference internal" href="#freestyle.
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.FEdgeSharp.face_mark_right">
 <span class="sig-name descname"><span class="pre">face_mark_right</span></span><a class="headerlink" href="#freestyle.types.FEdgeSharp.face_mark_right" title="Permalink to this definition"></a></dt>
-<dd><p>The face mark of the face lying on the right of the FEdge.  If this FEdge
+<dd><p>The face mark of the face lying on the right of the FEdge. If this FEdge
 is a border, it has no face on the right and thus this property is set to
 false.</p>
 <dl class="field-list simple">
@@ -971,7 +974,7 @@ no material.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.FEdgeSharp.material_right">
 <span class="sig-name descname"><span class="pre">material_right</span></span><a class="headerlink" href="#freestyle.types.FEdgeSharp.material_right" title="Permalink to this definition"></a></dt>
-<dd><p>The material of the face lying on the right of the FEdge.  If this FEdge
+<dd><p>The material of the face lying on the right of the FEdge. If this FEdge
 is a border, it has no Face on its right and therefore no material.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -994,7 +997,7 @@ is a border, it has no Face on its right and therefore no material.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.FEdgeSharp.normal_right">
 <span class="sig-name descname"><span class="pre">normal_right</span></span><a class="headerlink" href="#freestyle.types.FEdgeSharp.normal_right" title="Permalink to this definition"></a></dt>
-<dd><p>The normal to the face lying on the right of the FEdge.  If this FEdge
+<dd><p>The normal to the face lying on the right of the FEdge. If this FEdge
 is a border, it has no Face on its right and therefore no normal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1009,8 +1012,8 @@ is a border, it has no Face on its right and therefore no normal.</p>
 <dt class="sig sig-object py" id="freestyle.types.FEdgeSmooth">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">FEdgeSmooth</span></span><a class="headerlink" href="#freestyle.types.FEdgeSmooth" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.FEdge" title="freestyle.types.FEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">FEdge</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.FEdgeSmooth" title="freestyle.types.FEdgeSmooth"><code class="xref py py-class docutils literal notranslate"><span class="pre">FEdgeSmooth</span></code></a></p>
-<p>Class defining a smooth edge.  This kind of edge typically runs across
-a face of the input mesh.  It can be a silhouette, a ridge or valley,
+<p>Class defining a smooth edge. This kind of edge typically runs across
+a face of the input mesh. It can be a silhouette, a ridge or valley,
 a suggestive contour.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.FEdgeSmooth.__init__">
@@ -1265,7 +1268,7 @@ element given as the argument.</p>
 <dt class="sig sig-object py" id="freestyle.types.Interface0DIterator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">Interface0DIterator</span></span><a class="headerlink" href="#freestyle.types.Interface0DIterator" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Iterator" title="freestyle.types.Iterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.Interface0DIterator" title="freestyle.types.Interface0DIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code></a></p>
-<p>Class defining an iterator over Interface0D elements.  An instance of
+<p>Class defining an iterator over Interface0D elements. An instance of
 this iterator is always obtained from a 1D element.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Interface0DIterator.__init__">
@@ -1300,7 +1303,7 @@ For its counterpart (pointing to the first valid element), use it.is_begin.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.Interface0DIterator.object">
 <span class="sig-name descname"><span class="pre">object</span></span><a class="headerlink" href="#freestyle.types.Interface0DIterator.object" title="Permalink to this definition"></a></dt>
-<dd><p>The 0D object currently pointed to by this iterator.  Note that the object
+<dd><p>The 0D object currently pointed to by this iterator. Note that the object
 may be an instance of an Interface0D subclass. For example if the iterator
 has been created from the <cite>vertices_begin()</cite> method of the <a class="reference internal" href="#freestyle.types.Stroke" title="freestyle.types.Stroke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code></a>
 class, the .object property refers to a <a class="reference internal" href="#freestyle.types.StrokeVertex" title="freestyle.types.StrokeVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertex</span></code></a> object.</p>
@@ -1371,7 +1374,7 @@ this 1D element.</p>
 <span class="sig-name descname"><span class="pre">points_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Interface1D.points_end" title="Permalink to this definition"></a></dt>
 <dd><p>Returns an iterator over the Interface1D points, pointing after the
 last point. The difference with vertices_end() is that here we can
-iterate over points of the 1D element at a given sampling.  Indeed,
+iterate over points of the 1D element at a given sampling. Indeed,
 for each iteration, a virtual point is created.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1688,7 +1691,7 @@ elements of the ViewMap).</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Noise.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Noise.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Builds a Noise object.  Seed is an optional argument.  The seed value is used
+<dd><p>Builds a Noise object. Seed is an optional argument. The seed value is used
 as a seed for random number generation if it is equal to or greater than zero;
 otherwise, time is used as a seed.</p>
 <dl class="field-list simple">
@@ -1854,30 +1857,30 @@ Can be associated to 2 or more view edges.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="freestyle.types.Operators">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">Operators</span></span><a class="headerlink" href="#freestyle.types.Operators" title="Permalink to this definition"></a></dt>
-<dd><p>Class defining the operators used in a style module.  There are five
+<dd><p>Class defining the operators used in a style module. There are five
 types of operators: Selection, chaining, splitting, sorting and
-creation.  All these operators are user controlled through functors,
+creation. All these operators are user controlled through functors,
 predicates and shaders that are taken as arguments.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Operators.bidirectional_chain">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bidirectional_chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Operators.bidirectional_chain" title="Permalink to this definition"></a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bidirectional_chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Builds a set of chains from the current set of ViewEdges.  Each
-ViewEdge of the current list potentially starts a new chain.  The
+<dd><p>Builds a set of chains from the current set of ViewEdges. Each
+ViewEdge of the current list potentially starts a new chain. The
 chaining operator then iterates over the ViewEdges of the ViewMap
-using the user specified iterator.  This operator iterates both using
+using the user specified iterator. This operator iterates both using
 the increment and decrement operators and is therefore bidirectional.
 This operator works with a ChainingIterator which contains the
-chaining rules.  It is this last one which can be told to chain only
+chaining rules. It is this last one which can be told to chain only
 edges that belong to the selection or not to process twice a ViewEdge
-during the chaining.  Each time a ViewEdge is added to a chain, its
-chaining time stamp is incremented.  This allows you to keep track of
+during the chaining. Each time a ViewEdge is added to a chain, its
+chaining time stamp is incremented. This allows you to keep track of
 the number of chains to which a ViewEdge belongs to.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>it</strong> (<a class="reference internal" href="#freestyle.types.ChainingIterator" title="freestyle.types.ChainingIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainingIterator</span></code></a>) – The ChainingIterator on the ViewEdges of the ViewMap.  It
+<li><p><strong>it</strong> (<a class="reference internal" href="#freestyle.types.ChainingIterator" title="freestyle.types.ChainingIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainingIterator</span></code></a>) – The ChainingIterator on the ViewEdges of the ViewMap. It
 contains the chaining rule.</p></li>
 <li><p><strong>pred</strong> (<a class="reference internal" href="#freestyle.types.UnaryPredicate1D" title="freestyle.types.UnaryPredicate1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryPredicate1D</span></code></a>) – The predicate on the ViewEdge that expresses the stopping condition.
 This parameter is optional, you make not want to pass a stopping criterion
@@ -1892,10 +1895,10 @@ when the stopping criterion is already contained in the iterator definition.</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Operators.chain" title="Permalink to this definition"></a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Builds a set of chains from the current set of ViewEdges.  Each
-ViewEdge of the current list starts a new chain.  The chaining
+<dd><p>Builds a set of chains from the current set of ViewEdges. Each
+ViewEdge of the current list starts a new chain. The chaining
 operator then iterates over the ViewEdges of the ViewMap using the
-user specified iterator.  This operator only iterates using the
+user specified iterator. This operator only iterates using the
 increment operator and is therefore unidirectional.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1916,7 +1919,7 @@ If this argument is not given, the time stamp is automatically managed.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Operators.create">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shaders</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Operators.create" title="Permalink to this definition"></a></dt>
-<dd><p>Creates and shades the strokes from the current set of chains.  A
+<dd><p>Creates and shades the strokes from the current set of chains. A
 predicate can be specified to make a selection pass on the chains.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2027,7 +2030,7 @@ transform as a stroke.</p></li>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recursive_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred_1d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Operators.recursive_split" title="Permalink to this definition"></a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recursive_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred_0d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred_1d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Splits the current set of chains in a recursive way.  We process the
+<dd><p>Splits the current set of chains in a recursive way. We process the
 points of each chain (with a specified sampling) to find the point
 minimizing a specified function. The chain is split in two at this
 point and the two new chains are processed in the same way. The
@@ -2042,13 +2045,13 @@ predicate won’t be candidate in realizing the min.</p>
 <li><p><strong>func</strong> (<a class="reference internal" href="#freestyle.types.UnaryFunction0DDouble" title="freestyle.types.UnaryFunction0DDouble"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryFunction0DDouble</span></code></a>) – The Unary Function evaluated at each point of the chain.
 The splitting point is the point minimizing this function.</p></li>
 <li><p><strong>pred_0d</strong> (<a class="reference internal" href="#freestyle.types.UnaryPredicate0D" title="freestyle.types.UnaryPredicate0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryPredicate0D</span></code></a>) – The Unary Predicate 0D used to select the candidate
-points where the split can occur.  For example, it is very likely
+points where the split can occur. For example, it is very likely
 that would rather have your chain splitting around its middle
-point than around one of its extremities.  A 0D predicate working
+point than around one of its extremities. A 0D predicate working
 on the curvilinear abscissa allows to add this kind of constraints.</p></li>
 <li><p><strong>pred_1d</strong> (<a class="reference internal" href="#freestyle.types.UnaryPredicate1D" title="freestyle.types.UnaryPredicate1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryPredicate1D</span></code></a>) – The Unary Predicate expressing the recursivity stopping
-condition.  This predicate is evaluated for each curve before it
-actually gets split.  If pred_1d(chain) is true, the curve won’t be
+condition. This predicate is evaluated for each curve before it
+actually gets split. If pred_1d(chain) is true, the curve won’t be
 split anymore.</p></li>
 <li><p><strong>sampling</strong> (<em>float</em>) – The resolution used to sample the chain for the
 predicates evaluation. (The chain is not actually resampled; a
@@ -2062,7 +2065,7 @@ resolution.)</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Operators.reset">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete_strokes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Operators.reset" title="Permalink to this definition"></a></dt>
-<dd><p>Resets the line stylization process to the initial state.  The results of
+<dd><p>Resets the line stylization process to the initial state. The results of
 stroke creation are accumulated if <strong>delete_strokes</strong> is set to False.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2134,7 +2137,7 @@ comparison predicate given as argument.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="freestyle.types.SShape">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">SShape</span></span><a class="headerlink" href="#freestyle.types.SShape" title="Permalink to this definition"></a></dt>
-<dd><p>Class to define a feature shape.  It is the gathering of feature
+<dd><p>Class to define a feature shape. It is the gathering of feature
 elements from an identified input shape.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.SShape.__init__">
@@ -2163,7 +2166,7 @@ elements from an identified input shape.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.SShape.add_vertex">
 <span class="sig-name descname"><span class="pre">add_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.SShape.add_vertex" title="Permalink to this definition"></a></dt>
-<dd><p>Adds an SVertex to the list of SVertex of this Shape.  The SShape
+<dd><p>Adds an SVertex to the list of SVertex of this Shape. The SShape
 attribute of the SVertex is also set to this SShape.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2274,7 +2277,7 @@ copy constructor or the overloaded constructor which builds   a <a class="refere
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.SVertex.add_normal">
 <span class="sig-name descname"><span class="pre">add_normal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.SVertex.add_normal" title="Permalink to this definition"></a></dt>
-<dd><p>Adds a normal to the SVertex’s set of normals.  If the same normal
+<dd><p>Adds a normal to the SVertex’s set of normals. If the same normal
 is already in the set, nothing changes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2316,8 +2319,8 @@ derivative of the radial curvature at this SVertex, respectively.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.SVertex.normals">
 <span class="sig-name descname"><span class="pre">normals</span></span><a class="headerlink" href="#freestyle.types.SVertex.normals" title="Permalink to this definition"></a></dt>
-<dd><p>The normals for this Vertex as a list.  In a sharp surface, an SVertex
-has exactly one normal.  In a smooth surface, an SVertex can have any
+<dd><p>The normals for this Vertex as a list. In a sharp surface, an SVertex
+has exactly one normal. In a smooth surface, an SVertex can have any
 number of normals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -2378,7 +2381,7 @@ ViewVertex, and None otherwise.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">SVertexIterator</span></span><a class="headerlink" href="#freestyle.types.SVertexIterator" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Iterator" title="freestyle.types.Iterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.SVertexIterator" title="freestyle.types.SVertexIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertexIterator</span></code></a></p>
 <p>Class representing an iterator over <a class="reference internal" href="#freestyle.types.SVertex" title="freestyle.types.SVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">SVertex</span></code></a> of a
-<a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a>.  An instance of an SVertexIterator can be obtained
+<a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a>. An instance of an SVertexIterator can be obtained
 from a ViewEdge by calling verticesBegin() or verticesEnd().</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.SVertexIterator.__init__">
@@ -2444,9 +2447,9 @@ from a ViewEdge by calling verticesBegin() or verticesEnd().</p>
 <dt class="sig sig-object py" id="freestyle.types.Stroke">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">Stroke</span></span><a class="headerlink" href="#freestyle.types.Stroke" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.Stroke" title="freestyle.types.Stroke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code></a></p>
-<p>Class to define a stroke.  A stroke is made of a set of 2D vertices
-(<a class="reference internal" href="#freestyle.types.StrokeVertex" title="freestyle.types.StrokeVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertex</span></code></a>), regularly spaced out.  This set of vertices
-defines the stroke’s backbone geometry.  Each of these stroke vertices
+<p>Class to define a stroke. A stroke is made of a set of 2D vertices
+(<a class="reference internal" href="#freestyle.types.StrokeVertex" title="freestyle.types.StrokeVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertex</span></code></a>), regularly spaced out. This set of vertices
+defines the stroke’s backbone geometry. Each of these stroke vertices
 defines the stroke’s shape and appearance at this vertex position.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Stroke.Stroke">
@@ -2459,7 +2462,7 @@ defines the stroke’s shape and appearance at this vertex position.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.Stroke.compute_sampling">
 <span class="sig-name descname"><span class="pre">compute_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Stroke.compute_sampling" title="Permalink to this definition"></a></dt>
-<dd><p>Compute the sampling needed to get N vertices.  If the
+<dd><p>Compute the sampling needed to get N vertices. If the
 specified number of vertices is less than the actual number of
 vertices, the actual sampling value is returned. (To remove Vertices,
 use the RemoveVertex() method of this class.)</p>
@@ -2482,7 +2485,7 @@ method.</p>
 <dt class="sig sig-object py" id="freestyle.types.Stroke.insert_vertex">
 <span class="sig-name descname"><span class="pre">insert_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.Stroke.insert_vertex" title="Permalink to this definition"></a></dt>
 <dd><p>Inserts the StrokeVertex given as argument into the Stroke before the
-point specified by next.  The length and curvilinear abscissa are
+point specified by next. The length and curvilinear abscissa are
 updated consequently.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2525,7 +2528,7 @@ of creating a stroke with fewer points and the same shape.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> (<em>int</em>) – Resamples the stroke so that it eventually has N points. That means
 it is going to add N-vertices_size, where vertices_size is the
-number of points we already have.  If vertices_size &gt;= N, no
+number of points we already have. If vertices_size &gt;= N, no
 resampling is done.</p></li>
 <li><p><strong>sampling</strong> (<em>float</em>) – Resamples the stroke with a given sampling value. If the
 sampling is smaller than the actual sampling value, no resampling is done.</p></li>
@@ -2543,7 +2546,7 @@ on the fly if needed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – The resampling value with which we want our Stroke to be
-resampled.  If 0 is specified, no resampling is done.</p>
+resampled. If 0 is specified, no resampling is done.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A StrokeVertexIterator pointing on the first StrokeVertex.</p>
@@ -2789,8 +2792,8 @@ type is available.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.StrokeAttribute.set_attribute_real">
 <span class="sig-name descname"><span class="pre">set_attribute_real</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.StrokeAttribute.set_attribute_real" title="Permalink to this definition"></a></dt>
-<dd><p>Adds a user-defined attribute of float type.  If there is no
-attribute of the given name, it is added.  Otherwise, the new value
+<dd><p>Adds a user-defined attribute of float type. If there is no
+attribute of the given name, it is added. Otherwise, the new value
 replaces the old one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2805,8 +2808,8 @@ replaces the old one.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.StrokeAttribute.set_attribute_vec2">
 <span class="sig-name descname"><span class="pre">set_attribute_vec2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.StrokeAttribute.set_attribute_vec2" title="Permalink to this definition"></a></dt>
-<dd><p>Adds a user-defined attribute of two-dimensional vector type.  If
-there is no attribute of the given name, it is added.  Otherwise,
+<dd><p>Adds a user-defined attribute of two-dimensional vector type. If
+there is no attribute of the given name, it is added. Otherwise,
 the new value replaces the old one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2872,7 +2875,7 @@ when following the stroke.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="freestyle.types.StrokeAttribute.visible">
 <span class="sig-name descname"><span class="pre">visible</span></span><a class="headerlink" href="#freestyle.types.StrokeAttribute.visible" title="Permalink to this definition"></a></dt>
-<dd><p>The visibility flag.  True if the StrokeVertex is visible.</p>
+<dd><p>The visibility flag. True if the StrokeVertex is visible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2885,12 +2888,12 @@ when following the stroke.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="freestyle.types.StrokeShader">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">StrokeShader</span></span><a class="headerlink" href="#freestyle.types.StrokeShader" title="Permalink to this definition"></a></dt>
-<dd><p>Base class for stroke shaders.  Any stroke shader must inherit from
-this class and overload the shade() method.  A StrokeShader is
+<dd><p>Base class for stroke shaders. Any stroke shader must inherit from
+this class and overload the shade() method. A StrokeShader is
 designed to modify stroke attributes such as thickness, color,
-geometry, texture, blending mode, and so on.  The basic way for this
+geometry, texture, blending mode, and so on. The basic way for this
 operation is to iterate over the stroke vertices of the <a class="reference internal" href="#freestyle.types.Stroke" title="freestyle.types.Stroke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code></a>
-and to modify the <a class="reference internal" href="#freestyle.types.StrokeAttribute" title="freestyle.types.StrokeAttribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeAttribute</span></code></a> of each vertex.  Here is a
+and to modify the <a class="reference internal" href="#freestyle.types.StrokeAttribute" title="freestyle.types.StrokeAttribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeAttribute</span></code></a> of each vertex. Here is a
 code example of such an iteration:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="n">ioStroke</span><span class="o">.</span><span class="n">strokeVerticesBegin</span><span class="p">()</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="n">it</span><span class="o">.</span><span class="n">is_end</span><span class="p">:</span>
@@ -2908,7 +2911,7 @@ code example of such an iteration:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.StrokeShader.shade">
 <span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.StrokeShader.shade" title="Permalink to this definition"></a></dt>
-<dd><p>The shading method.  Must be overloaded by inherited classes.</p>
+<dd><p>The shading method. Must be overloaded by inherited classes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>stroke</strong> (<a class="reference internal" href="#freestyle.types.Stroke" title="freestyle.types.Stroke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code></a>) – A Stroke object.</p>
@@ -3029,14 +3032,14 @@ and it won’t change the real stroke length).</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">StrokeVertexIterator</span></span><a class="headerlink" href="#freestyle.types.StrokeVertexIterator" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Iterator" title="freestyle.types.Iterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.StrokeVertexIterator" title="freestyle.types.StrokeVertexIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertexIterator</span></code></a></p>
 <p>Class defining an iterator designed to iterate over the
-<a class="reference internal" href="#freestyle.types.StrokeVertex" title="freestyle.types.StrokeVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertex</span></code></a> of a <a class="reference internal" href="#freestyle.types.Stroke" title="freestyle.types.Stroke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code></a>.  An instance of a
+<a class="reference internal" href="#freestyle.types.StrokeVertex" title="freestyle.types.StrokeVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertex</span></code></a> of a <a class="reference internal" href="#freestyle.types.Stroke" title="freestyle.types.Stroke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code></a>. An instance of a
 StrokeVertexIterator can be obtained from a Stroke by calling
-iter(), stroke_vertices_begin() or stroke_vertices_begin().  It is iterating
-over the same vertices as an <a class="reference internal" href="#freestyle.types.Interface0DIterator" title="freestyle.types.Interface0DIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code></a>.  The difference
+iter(), stroke_vertices_begin() or stroke_vertices_begin(). It is iterating
+over the same vertices as an <a class="reference internal" href="#freestyle.types.Interface0DIterator" title="freestyle.types.Interface0DIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code></a>. The difference
 resides in the object access: an Interface0DIterator only allows
 access to an Interface0D while one might need to access the
-specialized StrokeVertex type.  In this case, one should use a
-StrokeVertexIterator.  To call functions of the UnaryFuntion0D type,
+specialized StrokeVertex type. In this case, one should use a
+StrokeVertexIterator. To call functions of the UnaryFuntion0D type,
 a StrokeVertexIterator can be converted to an Interface0DIterator by
 by calling Interface0DIterator(it).</p>
 <dl class="py method">
@@ -3148,9 +3151,9 @@ For its counterpart (pointing to the first valid element), use it.is_begin.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">TVertex</span></span><a class="headerlink" href="#freestyle.types.TVertex" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.ViewVertex" title="freestyle.types.ViewVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewVertex</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">TVertex</span></code></a></p>
 <p>Class to define a T vertex, i.e. an intersection between two edges.
-It points towards two SVertex and four ViewEdges.  Among the
-ViewEdges, two are front and the other two are back.  Basically a
-front edge hides part of a back edge.  So, among the back edges, one
+It points towards two SVertex and four ViewEdges. Among the
+ViewEdges, two are front and the other two are back. Basically a
+front edge hides part of a back edge. So, among the back edges, one
 is of invisibility N and the other of invisibility N+1.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.TVertex.__init__">
@@ -3161,9 +3164,9 @@ is of invisibility N and the other of invisibility N+1.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.TVertex.get_mate">
 <span class="sig-name descname"><span class="pre">get_mate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viewedge</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.types.TVertex.get_mate" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the mate edge of the ViewEdge given as argument.  If the
-ViewEdge is frontEdgeA, frontEdgeB is returned.  If the ViewEdge is
-frontEdgeB, frontEdgeA is returned.  Same for back edges.</p>
+<dd><p>Returns the mate edge of the ViewEdge given as argument. If the
+ViewEdge is frontEdgeA, frontEdgeB is returned. If the ViewEdge is
+frontEdgeB, frontEdgeA is returned. Same for back edges.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>viewedge</strong> (<a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a>) – A ViewEdge object.</p>
@@ -3233,12 +3236,12 @@ frontEdgeB, frontEdgeA is returned.  Same for back edges.</p>
 <dt class="sig sig-object py" id="freestyle.types.UnaryFunction0D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">UnaryFunction0D</span></span><a class="headerlink" href="#freestyle.types.UnaryFunction0D" title="Permalink to this definition"></a></dt>
 <dd><p>Base class for Unary Functions (functors) working on
-<a class="reference internal" href="#freestyle.types.Interface0DIterator" title="freestyle.types.Interface0DIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code></a>.  A unary function will be used by
-invoking __call__() on an Interface0DIterator.  In Python, several
+<a class="reference internal" href="#freestyle.types.Interface0DIterator" title="freestyle.types.Interface0DIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code></a>. A unary function will be used by
+invoking __call__() on an Interface0DIterator. In Python, several
 different subclasses of UnaryFunction0D are used depending on the
-types of functors’ return values.  For example, you would inherit from
+types of functors’ return values. For example, you would inherit from
 a <a class="reference internal" href="#freestyle.types.UnaryFunction0DDouble" title="freestyle.types.UnaryFunction0DDouble"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryFunction0DDouble</span></code></a> if you wish to define a function that
-returns a double value.  Available UnaryFunction0D subclasses are:</p>
+returns a double value. Available UnaryFunction0D subclasses are:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#freestyle.types.UnaryFunction0DDouble" title="freestyle.types.UnaryFunction0DDouble"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryFunction0DDouble</span></code></a></p></li>
 <li><p><a class="reference internal" href="#freestyle.types.UnaryFunction0DEdgeNature" title="freestyle.types.UnaryFunction0DEdgeNature"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryFunction0DEdgeNature</span></code></a></p></li>
@@ -3409,12 +3412,12 @@ objects.</p>
 <dt class="sig sig-object py" id="freestyle.types.UnaryFunction1D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">UnaryFunction1D</span></span><a class="headerlink" href="#freestyle.types.UnaryFunction1D" title="Permalink to this definition"></a></dt>
 <dd><p>Base class for Unary Functions (functors) working on
-<a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a>.  A unary function will be used by invoking
-__call__() on an Interface1D.  In Python, several different subclasses
+<a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a>. A unary function will be used by invoking
+__call__() on an Interface1D. In Python, several different subclasses
 of UnaryFunction1D are used depending on the types of functors’ return
-values.  For example, you would inherit from a
+values. For example, you would inherit from a
 <a class="reference internal" href="#freestyle.types.UnaryFunction1DDouble" title="freestyle.types.UnaryFunction1DDouble"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryFunction1DDouble</span></code></a> if you wish to define a function that
-returns a double value.  Available UnaryFunction1D subclasses are:</p>
+returns a double value. Available UnaryFunction1D subclasses are:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#freestyle.types.UnaryFunction1DDouble" title="freestyle.types.UnaryFunction1DDouble"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryFunction1DDouble</span></code></a></p></li>
 <li><p><a class="reference internal" href="#freestyle.types.UnaryFunction1DEdgeNature" title="freestyle.types.UnaryFunction1DEdgeNature"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryFunction1DEdgeNature</span></code></a></p></li>
@@ -3707,10 +3710,10 @@ or the integration method given as an argument.</p>
 <dt class="sig sig-object py" id="freestyle.types.UnaryPredicate0D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">UnaryPredicate0D</span></span><a class="headerlink" href="#freestyle.types.UnaryPredicate0D" title="Permalink to this definition"></a></dt>
 <dd><p>Base class for unary predicates that work on
-<a class="reference internal" href="#freestyle.types.Interface0DIterator" title="freestyle.types.Interface0DIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code></a>.  A UnaryPredicate0D is a functor that
+<a class="reference internal" href="#freestyle.types.Interface0DIterator" title="freestyle.types.Interface0DIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code></a>. A UnaryPredicate0D is a functor that
 evaluates a condition on an Interface0DIterator and returns true or
-false depending on whether this condition is satisfied or not.  The
-UnaryPredicate0D is used by invoking its __call__() method.  Any
+false depending on whether this condition is satisfied or not. The
+UnaryPredicate0D is used by invoking its __call__() method. Any
 inherited class must overload the __call__() method.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.UnaryPredicate0D.__init__">
@@ -3752,11 +3755,11 @@ which we wish to evaluate the predicate.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="freestyle.types.UnaryPredicate1D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">UnaryPredicate1D</span></span><a class="headerlink" href="#freestyle.types.UnaryPredicate1D" title="Permalink to this definition"></a></dt>
-<dd><p>Base class for unary predicates that work on <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a>.  A
+<dd><p>Base class for unary predicates that work on <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a>. A
 UnaryPredicate1D is a functor that evaluates a condition on a
 Interface1D and returns true or false depending on whether this
-condition is satisfied or not.  The UnaryPredicate1D is used by
-invoking its __call__() method.  Any inherited class must overload the
+condition is satisfied or not. The UnaryPredicate1D is used by
+invoking its __call__() method. Any inherited class must overload the
 __call__() method.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.UnaryPredicate1D.__init__">
@@ -3798,8 +3801,8 @@ __call__() method.</p>
 <dt class="sig sig-object py" id="freestyle.types.ViewEdge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">ViewEdge</span></span><a class="headerlink" href="#freestyle.types.ViewEdge" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface1D" title="freestyle.types.Interface1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface1D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a></p>
-<p>Class defining a ViewEdge.  A ViewEdge in an edge of the image graph.
-it connects two <a class="reference internal" href="#freestyle.types.ViewVertex" title="freestyle.types.ViewVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewVertex</span></code></a> objects.  It is made by connecting
+<p>Class defining a ViewEdge. A ViewEdge in an edge of the image graph.
+it connects two <a class="reference internal" href="#freestyle.types.ViewVertex" title="freestyle.types.ViewVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewVertex</span></code></a> objects. It is made by connecting
 a set of FEdges.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.ViewEdge.__init__">
@@ -3912,7 +3915,7 @@ a set of FEdges.</p>
 <dt class="sig sig-object py" id="freestyle.types.ViewEdge.occludee">
 <span class="sig-name descname"><span class="pre">occludee</span></span><a class="headerlink" href="#freestyle.types.ViewEdge.occludee" title="Permalink to this definition"></a></dt>
 <dd><p>The shape that is occluded by the ViewShape to which this ViewEdge
-belongs to.  If no object is occluded, this property is set to None.</p>
+belongs to. If no object is occluded, this property is set to None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#freestyle.types.ViewShape" title="freestyle.types.ViewShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewShape</span></code></a></p>
@@ -3964,7 +3967,7 @@ orientation or the copy constructor.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>begin</strong> (<a class="reference internal" href="#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code></a> or None) – The ViewEdge from where to start the iteration.</p></li>
 <li><p><strong>orientation</strong> (<em>bool</em>) – If true, we’ll look for the next ViewEdge among
-the ViewEdges that surround the ending ViewVertex of begin.  If
+the ViewEdges that surround the ending ViewVertex of begin. If
 false, we’ll search over the ViewEdges surrounding the ending
 ViewVertex of begin.</p></li>
 <li><p><strong>brother</strong> (<a class="reference internal" href="#freestyle.types.ViewEdgeIterator" title="freestyle.types.ViewEdgeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdgeIterator</span></code></a>) – A ViewEdgeIterator object.</p></li>
@@ -4017,7 +4020,7 @@ ViewVertex of begin.</p></li>
 <span class="sig-name descname"><span class="pre">orientation</span></span><a class="headerlink" href="#freestyle.types.ViewEdgeIterator.orientation" title="Permalink to this definition"></a></dt>
 <dd><p>The orientation of the pointed ViewEdge in the iteration.
 If true, the iterator looks for the next ViewEdge among those ViewEdges
-that surround the ending ViewVertex of the “begin” ViewEdge.  If false,
+that surround the ending ViewVertex of the “begin” ViewEdge. If false,
 the iterator searches over the ViewEdges surrounding the ending ViewVertex
 of the “begin” ViewEdge.</p>
 <dl class="field-list simple">
@@ -4210,9 +4213,9 @@ copy constructor, or from a <a class="reference internal" href="#freestyle.types
 <dt class="sig sig-object py" id="freestyle.types.ViewVertex">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">ViewVertex</span></span><a class="headerlink" href="#freestyle.types.ViewVertex" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0D</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.ViewVertex" title="freestyle.types.ViewVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewVertex</span></code></a></p>
-<p>Class to define a view vertex.  A view vertex is a feature vertex
+<p>Class to define a view vertex. A view vertex is a feature vertex
 corresponding to a point of the image graph, where the characteristics
-of an edge (e.g., nature and visibility) might change.  A
+of an edge (e.g., nature and visibility) might change. A
 <a class="reference internal" href="#freestyle.types.ViewVertex" title="freestyle.types.ViewVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewVertex</span></code></a> can be of two kinds: A <a class="reference internal" href="#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">TVertex</span></code></a> when it
 corresponds to the intersection between two ViewEdges or a
 <a class="reference internal" href="#freestyle.types.NonTVertex" title="freestyle.types.NonTVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">NonTVertex</span></code></a> when it corresponds to a vertex of the initial
@@ -4288,8 +4291,8 @@ as argument.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">freestyle.types.</span></span><span class="sig-name descname"><span class="pre">orientedViewEdgeIterator</span></span><a class="headerlink" href="#freestyle.types.orientedViewEdgeIterator" title="Permalink to this definition"></a></dt>
 <dd><p>Class hierarchy: <a class="reference internal" href="#freestyle.types.Iterator" title="freestyle.types.Iterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a> &gt; <a class="reference internal" href="#freestyle.types.orientedViewEdgeIterator" title="freestyle.types.orientedViewEdgeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">orientedViewEdgeIterator</span></code></a></p>
 <p>Class representing an iterator over oriented ViewEdges around a
-<a class="reference internal" href="#freestyle.types.ViewVertex" title="freestyle.types.ViewVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewVertex</span></code></a>.  This iterator allows a CCW iteration (in the image
-plane).  An instance of an orientedViewEdgeIterator can only be
+<a class="reference internal" href="#freestyle.types.ViewVertex" title="freestyle.types.ViewVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewVertex</span></code></a>. This iterator allows a CCW iteration (in the image
+plane). An instance of an orientedViewEdgeIterator can only be
 obtained from a ViewVertex by calling edges_begin() or edges_end().</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.types.orientedViewEdgeIterator.__init__">
@@ -4334,7 +4337,7 @@ the ViewEdge is incoming.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -4349,7 +4352,7 @@ the ViewEdge is incoming.</p>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

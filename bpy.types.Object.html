@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -248,7 +251,7 @@ object, placing it into a view layer, selecting it and making it active.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Object.color">
 <span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#bpy.types.Object.color" title="Permalink to this definition"></a></dt>
-<dd><p>Object color and alpha, used when faces have the ObColor mode enabled</p>
+<dd><p>Object color and alpha, used when the Object Color mode is enabled</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float array of 4 items in [0, inf], default (1.0, 1.0, 1.0, 1.0)</p>
@@ -445,17 +448,6 @@ Textured – Display the object with textures (if textures are enabled in the vi
 </dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.Object.face_maps">
-<span class="sig-name descname"><span class="pre">face_maps</span></span><a class="headerlink" href="#bpy.types.Object.face_maps" title="Permalink to this definition"></a></dt>
-<dd><p>Maps of faces of the object</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.FaceMaps.html#bpy.types.FaceMaps" title="bpy.types.FaceMaps"><code class="xref py py-class docutils literal notranslate"><span class="pre">FaceMaps</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.FaceMap.html#bpy.types.FaceMap" title="bpy.types.FaceMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">FaceMap</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Object.field">
 <span class="sig-name descname"><span class="pre">field</span></span><a class="headerlink" href="#bpy.types.Object.field" title="Permalink to this definition"></a></dt>
 <dd><p>Settings for using the object as a field in physics simulation</p>
@@ -625,6 +617,17 @@ Collection – Enable collection instancing.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.Object.light_linking">
+<span class="sig-name descname"><span class="pre">light_linking</span></span><a class="headerlink" href="#bpy.types.Object.light_linking" title="Permalink to this definition"></a></dt>
+<dd><p>Light linking settings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ObjectLightLinking.html#bpy.types.ObjectLightLinking" title="bpy.types.ObjectLightLinking"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectLightLinking</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1130,7 +1133,7 @@ Bone – The object is parented to a bone.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Object.show_only_shape_key">
 <span class="sig-name descname"><span class="pre">show_only_shape_key</span></span><a class="headerlink" href="#bpy.types.Object.show_only_shape_key" title="Permalink to this definition"></a></dt>
-<dd><p>Always show the current shape for this object</p>
+<dd><p>Only show the active shape key at full value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -1338,10 +1341,21 @@ Bone – The object is parented to a bone.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Object.use_shape_key_edit_mode">
 <span class="sig-name descname"><span class="pre">use_shape_key_edit_mode</span></span><a class="headerlink" href="#bpy.types.Object.use_shape_key_edit_mode" title="Permalink to this definition"></a></dt>
-<dd><p>Apply shape keys in edit mode (for meshes only)</p>
+<dd><p>Display shape keys in edit mode (for meshes only)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Object.use_simulation_cache">
+<span class="sig-name descname"><span class="pre">use_simulation_cache</span></span><a class="headerlink" href="#bpy.types.Object.use_simulation_cache" title="Permalink to this definition"></a></dt>
+<dd><p>Cache frames during simulation nodes playback</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default True</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1438,12 +1452,15 @@ Bone – The object is parented to a bone.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Object.children">
 <span class="sig-name descname"><span class="pre">children</span></span><a class="headerlink" href="#bpy.types.Object.children" title="Permalink to this definition"></a></dt>
 <dd><p>All the children of this object.</p>
-<blockquote>
-<div><div class="admonition note">
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of <a class="reference internal" href="#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a></p>
+</dd>
+</dl>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Takes <code class="docutils literal notranslate"><span class="pre">O(len(bpy.data.objects))</span></code> time.</p>
 </div>
-</div></blockquote>
 <p>(readonly)</p>
 </dd></dl>
 
@@ -1451,12 +1468,15 @@ Bone – The object is parented to a bone.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Object.children_recursive">
 <span class="sig-name descname"><span class="pre">children_recursive</span></span><a class="headerlink" href="#bpy.types.Object.children_recursive" title="Permalink to this definition"></a></dt>
 <dd><p>A list of all children from this object.</p>
-<blockquote>
-<div><div class="admonition note">
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of <a class="reference internal" href="#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a></p>
+</dd>
+</dl>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Takes <code class="docutils literal notranslate"><span class="pre">O(len(bpy.data.objects))</span></code> time.</p>
 </div>
-</div></blockquote>
 <p>(readonly)</p>
 </dd></dl>
 
@@ -1464,6 +1484,11 @@ Bone – The object is parented to a bone.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Object.users_collection">
 <span class="sig-name descname"><span class="pre">users_collection</span></span><a class="headerlink" href="#bpy.types.Object.users_collection" title="Permalink to this definition"></a></dt>
 <dd><p>The collections this object is in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of <a class="reference internal" href="bpy.types.Collection.html#bpy.types.Collection" title="bpy.types.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Collection</span></code></a></p>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Takes <code class="docutils literal notranslate"><span class="pre">O(len(bpy.data.collections)</span> <span class="pre">+</span> <span class="pre">len(bpy.data.scenes))</span></code> time.</p>
@@ -1475,12 +1500,15 @@ Bone – The object is parented to a bone.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Object.users_scene">
 <span class="sig-name descname"><span class="pre">users_scene</span></span><a class="headerlink" href="#bpy.types.Object.users_scene" title="Permalink to this definition"></a></dt>
 <dd><p>The scenes this object is in.</p>
-<blockquote>
-<div><div class="admonition note">
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of <a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p>
+</dd>
+</dl>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Takes <code class="docutils literal notranslate"><span class="pre">O(len(bpy.data.scenes)</span> <span class="pre">*</span> <span class="pre">len(bpy.data.objects))</span></code> time.</p>
 </div>
-</div></blockquote>
 <p>(readonly)</p>
 </dd></dl>
 
@@ -1851,7 +1879,7 @@ Local Space – The local space of an object/bone.</p></li>
 <dd><p>Find armature influencing this object as a parent or via a modifier</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Armature object influencing this object or NULL</p>
+<dd class="field-odd"><p>Armature object influencing this object or nullptr</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a></p>
@@ -2082,6 +2110,7 @@ Render – Apply modifier render settings.</p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_embedded_data" title="bpy.types.ID.is_embedded_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_embedded_data</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_missing" title="bpy.types.ID.is_missing"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_missing</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_runtime_data" title="bpy.types.ID.is_runtime_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_runtime_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.tag</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_library_indirect</span></code></a></p></li>
@@ -2215,7 +2244,6 @@ Render – Apply modifier render settings.</p></li>
 <li><p><a class="reference internal" href="bpy.types.FollowTrackConstraint.html#bpy.types.FollowTrackConstraint.depth_object" title="bpy.types.FollowTrackConstraint.depth_object"><code class="xref py py-class docutils literal notranslate"><span class="pre">FollowTrackConstraint.depth_object</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GPencilLayer.html#bpy.types.GPencilLayer.parent" title="bpy.types.GPencilLayer.parent"><code class="xref py py-class docutils literal notranslate"><span class="pre">GPencilLayer.parent</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GPencilSculptGuide.html#bpy.types.GPencilSculptGuide.reference_object" title="bpy.types.GPencilSculptGuide.reference_object"><code class="xref py py-class docutils literal notranslate"><span class="pre">GPencilSculptGuide.reference_object</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.Gizmo.html#bpy.types.Gizmo.draw_preset_facemap" title="bpy.types.Gizmo.draw_preset_facemap"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gizmo.draw_preset_facemap</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.HookGpencilModifier.html#bpy.types.HookGpencilModifier.object" title="bpy.types.HookGpencilModifier.object"><code class="xref py py-class docutils literal notranslate"><span class="pre">HookGpencilModifier.object</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.HookModifier.html#bpy.types.HookModifier.object" title="bpy.types.HookModifier.object"><code class="xref py py-class docutils literal notranslate"><span class="pre">HookModifier.object</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.KinematicConstraint.html#bpy.types.KinematicConstraint.pole_target" title="bpy.types.KinematicConstraint.pole_target"><code class="xref py py-class docutils literal notranslate"><span class="pre">KinematicConstraint.pole_target</span></code></a></p></li>
@@ -2231,9 +2259,9 @@ Render – Apply modifier render settings.</p></li>
 <li><p><a class="reference internal" href="bpy.types.LineartGpencilModifier.html#bpy.types.LineartGpencilModifier.light_contour_object" title="bpy.types.LineartGpencilModifier.light_contour_object"><code class="xref py py-class docutils literal notranslate"><span class="pre">LineartGpencilModifier.light_contour_object</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.LineartGpencilModifier.html#bpy.types.LineartGpencilModifier.source_camera" title="bpy.types.LineartGpencilModifier.source_camera"><code class="xref py py-class docutils literal notranslate"><span class="pre">LineartGpencilModifier.source_camera</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.LineartGpencilModifier.html#bpy.types.LineartGpencilModifier.source_object" title="bpy.types.LineartGpencilModifier.source_object"><code class="xref py py-class docutils literal notranslate"><span class="pre">LineartGpencilModifier.source_object</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.LockedTrackConstraint.html#bpy.types.LockedTrackConstraint.target" title="bpy.types.LockedTrackConstraint.target"><code class="xref py py-class docutils literal notranslate"><span class="pre">LockedTrackConstraint.target</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
-<li><p><a class="reference internal" href="bpy.types.LockedTrackConstraint.html#bpy.types.LockedTrackConstraint.target" title="bpy.types.LockedTrackConstraint.target"><code class="xref py py-class docutils literal notranslate"><span class="pre">LockedTrackConstraint.target</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.LodLevel.html#bpy.types.LodLevel.object" title="bpy.types.LodLevel.object"><code class="xref py py-class docutils literal notranslate"><span class="pre">LodLevel.object</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.MaskModifier.html#bpy.types.MaskModifier.armature" title="bpy.types.MaskModifier.armature"><code class="xref py py-class docutils literal notranslate"><span class="pre">MaskModifier.armature</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.MeshDeformModifier.html#bpy.types.MeshDeformModifier.object" title="bpy.types.MeshDeformModifier.object"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshDeformModifier.object</span></code></a></p></li>
@@ -2341,7 +2369,7 @@ Render – Apply modifier render settings.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -2356,7 +2384,7 @@ Render – Apply modifier render settings.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

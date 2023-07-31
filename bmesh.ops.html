@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -355,7 +358,7 @@ otherwise it spits out faces.</p>
 <dt class="sig sig-object py" id="bmesh.ops.rotate_edges">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">rotate_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ccw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.rotate_edges" title="Permalink to this definition"></a></dt>
 <dd><p>Edge Rotate.</p>
-<p>Rotates edges topologically.  Also known as “spin edge” to some people.
+<p>Rotates edges topologically. Also known as “spin edge” to some people.
 Simple example: <cite>[/] becomes [|] then []</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -444,8 +447,8 @@ This creates a 2-valence vert.</p>
 <dt class="sig sig-object py" id="bmesh.ops.mirror">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">mathutils.Matrix.Identity(4)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_udim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shapekey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.mirror" title="Permalink to this definition"></a></dt>
 <dd><p>Mirror.</p>
-<p>Mirrors geometry along an axis.  The resulting geometry is welded on using
-merge_dist.  Pairs of original/mirrored vertices are welded using the merge_dist
+<p>Mirrors geometry along an axis. The resulting geometry is welded on using
+merge_dist. Pairs of original/mirrored vertices are welded using the merge_dist
 parameter (which defines the minimum distance for welding to happen).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -453,7 +456,7 @@ parameter (which defines the minimum distance for welding to happen).</p>
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>geom</strong> (list of (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>, <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>, <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>)) – input geometry</p></li>
 <li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – matrix defining the mirror transformation</p></li>
-<li><p><strong>merge_dist</strong> (<em>float</em>) – maximum distance for merging.  does no merging if 0.</p></li>
+<li><p><strong>merge_dist</strong> (<em>float</em>) – maximum distance for merging. does no merging if 0.</p></li>
 <li><p><strong>axis</strong> (<em>enum in</em><em> [</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em><em>, </em><em>default 'X'</em>) – the axis to use.</p></li>
 <li><p><strong>mirror_u</strong> (<em>bool</em>) – mirror UVs across the u axis</p></li>
 <li><p><strong>mirror_v</strong> (<em>bool</em>) – mirror UVs across the v axis</p></li>
@@ -558,7 +561,7 @@ using the weld verts bmop.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bmesh.ops.average_vert_facedata">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">average_vert_facedata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.average_vert_facedata" title="Permalink to this definition"></a></dt>
-<dd><p>Average Vertices Facevert Data.</p>
+<dd><p>Average Vertices Face-vert Data.</p>
 <p>Merge uv/vcols associated with the input vertices at
 the bounding box center. (I know, it’s not averaging but
 the vert_snap_to_bb_center is just too long).</p>
@@ -608,7 +611,7 @@ the vert_snap_to_bb_center is just too long).</p>
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">weld_verts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.weld_verts" title="Permalink to this definition"></a></dt>
 <dd><p>Weld Verts.</p>
 <p>Welds verts together (kind-of like remove doubles, merge, etc, all of which
-use or will use this bmop).  You pass in mappings from vertices to the vertices
+use or will use this bmop). You pass in mappings from vertices to the vertices
 they weld with.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -687,8 +690,8 @@ to angle threshold and delimiters.</p>
 <dd><p>Contextual Create.</p>
 <p>This is basically F-key, it creates
 new faces from vertices, makes stuff from edge nets,
-makes wire edges, etc.  It also dissolves faces.</p>
-<p>Three verts become a triangle, four become a quad.  Two
+makes wire edges, etc. It also dissolves faces.</p>
+<p>Three verts become a triangle, four become a quad. Two
 become a wire edge.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -895,7 +898,7 @@ become a wire edge.</p>
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">edgenet_prepare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.edgenet_prepare" title="Permalink to this definition"></a></dt>
 <dd><p>Edge-net Prepare.</p>
 <p>Identifies several useful edge loop cases and modifies them so
-they’ll become a face when edgenet_fill is called.  The cases covered are:</p>
+they’ll become a face when edgenet_fill is called. The cases covered are:</p>
 <ul class="simple">
 <li><p>One single loop; an edge is added to connect the ends</p></li>
 <li><p>Two loops; two edges are added to connect the endpoints (based on the
@@ -981,7 +984,7 @@ shortest distance between each endpoint).</p></li>
 <dt class="sig sig-object py" id="bmesh.ops.transform">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">mathutils.Matrix.Identity(4)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">mathutils.Matrix.Identity(4)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shapekey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.transform" title="Permalink to this definition"></a></dt>
 <dd><p>Transform.</p>
-<p>Transforms a set of vertices by a matrix.  Multiplies
+<p>Transforms a set of vertices by a matrix. Multiplies
 the vertex coordinates with the matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1000,7 +1003,7 @@ the vertex coordinates with the matrix.</p>
 <dt class="sig sig-object py" id="bmesh.ops.object_load_bmesh">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">object_load_bmesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.object_load_bmesh" title="Permalink to this definition"></a></dt>
 <dd><p>Object Load BMesh.</p>
-<p>Loads a bmesh into an object/mesh.  This is a “private”
+<p>Loads a bmesh into an object/mesh. This is a “private”
 bmop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1017,7 +1020,7 @@ bmop.</p>
 <dt class="sig sig-object py" id="bmesh.ops.bmesh_to_mesh">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">bmesh_to_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.bmesh_to_mesh" title="Permalink to this definition"></a></dt>
 <dd><p>BMesh to Mesh.</p>
-<p>Converts a bmesh to a Mesh.  This is reserved for exiting editmode.</p>
+<p>Converts a bmesh to a Mesh. This is reserved for exiting editmode.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1033,7 +1036,7 @@ bmop.</p>
 <dt class="sig sig-object py" id="bmesh.ops.mesh_to_bmesh">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">mesh_to_bmesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shapekey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.mesh_to_bmesh" title="Permalink to this definition"></a></dt>
 <dd><p>Mesh to BMesh.</p>
-<p>Load the contents of a mesh into the bmesh.  this bmop is private, it’s
+<p>Load the contents of a mesh into the bmesh. this bmop is private, it’s
 reserved exclusively for entering editmode.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2383,7 +2386,7 @@ symmetry are split as needed to enforce symmetry.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -2398,7 +2401,7 @@ symmetry are split as needed to enforce symmetry.</p>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

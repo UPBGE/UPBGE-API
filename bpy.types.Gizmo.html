@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -518,7 +521,7 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 4 * 4 items in [-inf, inf]) – The matrix to transform</p></li>
-<li><p><strong>select_id</strong> (<em>int in</em><em> [</em><em>-1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID to use when gizmo is selectable.  Use -1 when not selecting</p></li>
+<li><p><strong>select_id</strong> (<em>int in</em><em> [</em><em>-1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID to use when gizmo is selectable. Use -1 when not selecting</p></li>
 </ul>
 </dd>
 </dl>
@@ -533,7 +536,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 4 * 4 items in [-inf, inf]) – The matrix to transform</p></li>
 <li><p><strong>axis</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_axis_items.html#rna-enum-object-axis-items"><span class="std std-ref">Object Axis Items</span></a>, (optional)) – Arrow Orientation</p></li>
-<li><p><strong>select_id</strong> (<em>int in</em><em> [</em><em>-1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID to use when gizmo is selectable.  Use -1 when not selecting</p></li>
+<li><p><strong>select_id</strong> (<em>int in</em><em> [</em><em>-1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID to use when gizmo is selectable. Use -1 when not selecting</p></li>
 </ul>
 </dd>
 </dl>
@@ -548,22 +551,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 4 * 4 items in [-inf, inf]) – The matrix to transform</p></li>
 <li><p><strong>axis</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_axis_items.html#rna-enum-object-axis-items"><span class="std std-ref">Object Axis Items</span></a>, (optional)) – Arrow Orientation</p></li>
-<li><p><strong>select_id</strong> (<em>int in</em><em> [</em><em>-1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID to use when gizmo is selectable.  Use -1 when not selecting</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.Gizmo.draw_preset_facemap">
-<span class="sig-name descname"><span class="pre">draw_preset_facemap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Gizmo.draw_preset_facemap" title="Permalink to this definition"></a></dt>
-<dd><p>Draw the face-map of a mesh object</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>object</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a>, (never None)) – Object</p></li>
-<li><p><strong>face_map</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Face map index</p></li>
-<li><p><strong>select_id</strong> (<em>int in</em><em> [</em><em>-1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID to use when gizmo is selectable.  Use -1 when not selecting</p></li>
+<li><p><strong>select_id</strong> (<em>int in</em><em> [</em><em>-1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – ID to use when gizmo is selectable. Use -1 when not selecting</p></li>
 </ul>
 </dd>
 </dl>
@@ -619,15 +607,14 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Gizmo.draw_custom_shape">
 <span class="sig-name descname"><span class="pre">draw_custom_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Gizmo.draw_custom_shape" title="Permalink to this definition"></a></dt>
-<dd><p>Draw a shape created form <a class="reference internal" href="#bpy.types.Gizmo.draw_custom_shape" title="bpy.types.Gizmo.draw_custom_shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Gizmo.draw_custom_shape</span></code></a>.</p>
+<dd><p>Draw a shape created form <a class="reference internal" href="#bpy.types.Gizmo.draw_custom_shape" title="bpy.types.Gizmo.draw_custom_shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gizmo.draw_custom_shape</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>Undefined.</em>) – The cached shape to draw.</p></li>
-<li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – 4x4 matrix, when not given
-<a class="reference internal" href="#bpy.types.Gizmo.matrix_world" title="bpy.types.Gizmo.matrix_world"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Gizmo.matrix_world</span></code></a> is used.</p></li>
+<li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – 4x4 matrix, when not given <a class="reference internal" href="#bpy.types.Gizmo.matrix_world" title="bpy.types.Gizmo.matrix_world"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gizmo.matrix_world</span></code></a> is used.</p></li>
 <li><p><strong>select_id</strong> – The selection id.
-Only use when drawing within <a class="reference internal" href="#bpy.types.Gizmo.draw_select" title="bpy.types.Gizmo.draw_select"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Gizmo.draw_select</span></code></a>.</p></li>
+Only use when drawing within <a class="reference internal" href="#bpy.types.Gizmo.draw_select" title="bpy.types.Gizmo.draw_select"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gizmo.draw_select</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -636,7 +623,7 @@ Only use when drawing within <a class="reference internal" href="#bpy.types.Gizm
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Gizmo.new_custom_shape">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">new_custom_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Gizmo.new_custom_shape" title="Permalink to this definition"></a></dt>
-<dd><p>Create a new shape that can be passed to <a class="reference internal" href="#bpy.types.Gizmo.draw_custom_shape" title="bpy.types.Gizmo.draw_custom_shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Gizmo.draw_custom_shape</span></code></a>.</p>
+<dd><p>Create a new shape that can be passed to <a class="reference internal" href="#bpy.types.Gizmo.draw_custom_shape" title="bpy.types.Gizmo.draw_custom_shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gizmo.draw_custom_shape</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -808,7 +795,7 @@ Only use when drawing within <a class="reference internal" href="#bpy.types.Gizm
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -823,7 +810,7 @@ Only use when drawing within <a class="reference internal" href="#bpy.types.Gizm
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

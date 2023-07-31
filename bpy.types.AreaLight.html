@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -120,17 +123,6 @@
 <dt class="sig sig-object py" id="bpy.types.AreaLight">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">AreaLight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Light</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.AreaLight" title="Permalink to this definition"></a></dt>
 <dd><p>Directional area Light</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.constant_coefficient">
-<span class="sig-name descname"><span class="pre">constant_coefficient</span></span><a class="headerlink" href="#bpy.types.AreaLight.constant_coefficient" title="Permalink to this definition"></a></dt>
-<dd><p>Constant distance attenuation coefficient</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, inf], default 1.0</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.AreaLight.contact_shadow_bias">
 <span class="sig-name descname"><span class="pre">contact_shadow_bias</span></span><a class="headerlink" href="#bpy.types.AreaLight.contact_shadow_bias" title="Permalink to this definition"></a></dt>
@@ -175,72 +167,6 @@
 </dl>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.falloff_curve">
-<span class="sig-name descname"><span class="pre">falloff_curve</span></span><a class="headerlink" href="#bpy.types.AreaLight.falloff_curve" title="Permalink to this definition"></a></dt>
-<dd><p>Custom light falloff curve</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveMapping</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.falloff_type">
-<span class="sig-name descname"><span class="pre">falloff_type</span></span><a class="headerlink" href="#bpy.types.AreaLight.falloff_type" title="Permalink to this definition"></a></dt>
-<dd><p>Intensity Decay with distance</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [‘CONSTANT’, ‘INVERSE_LINEAR’, ‘INVERSE_SQUARE’, ‘INVERSE_COEFFICIENTS’, ‘CUSTOM_CURVE’, ‘LINEAR_QUADRATIC_WEIGHTED’], default ‘INVERSE_SQUARE’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.linear_attenuation">
-<span class="sig-name descname"><span class="pre">linear_attenuation</span></span><a class="headerlink" href="#bpy.types.AreaLight.linear_attenuation" title="Permalink to this definition"></a></dt>
-<dd><p>Linear distance attenuation</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, 1], default 0.0</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.linear_coefficient">
-<span class="sig-name descname"><span class="pre">linear_coefficient</span></span><a class="headerlink" href="#bpy.types.AreaLight.linear_coefficient" title="Permalink to this definition"></a></dt>
-<dd><p>Linear distance attenuation coefficient</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, inf], default 0.0</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.quadratic_attenuation">
-<span class="sig-name descname"><span class="pre">quadratic_attenuation</span></span><a class="headerlink" href="#bpy.types.AreaLight.quadratic_attenuation" title="Permalink to this definition"></a></dt>
-<dd><p>Quadratic distance attenuation</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, 1], default 1.0</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.quadratic_coefficient">
-<span class="sig-name descname"><span class="pre">quadratic_coefficient</span></span><a class="headerlink" href="#bpy.types.AreaLight.quadratic_coefficient" title="Permalink to this definition"></a></dt>
-<dd><p>Quadratic distance attenuation coefficient</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, inf], default 0.0</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.AreaLight.shadow_buffer_bias">
 <span class="sig-name descname"><span class="pre">shadow_buffer_bias</span></span><a class="headerlink" href="#bpy.types.AreaLight.shadow_buffer_bias" title="Permalink to this definition"></a></dt>
@@ -259,28 +185,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float in [1e-06, inf], default 0.05</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.shadow_buffer_samples">
-<span class="sig-name descname"><span class="pre">shadow_buffer_samples</span></span><a class="headerlink" href="#bpy.types.AreaLight.shadow_buffer_samples" title="Permalink to this definition"></a></dt>
-<dd><p>Number of shadow buffer samples</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [1, 16], default 3</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.AreaLight.shadow_buffer_size">
-<span class="sig-name descname"><span class="pre">shadow_buffer_size</span></span><a class="headerlink" href="#bpy.types.AreaLight.shadow_buffer_size" title="Permalink to this definition"></a></dt>
-<dd><p>Resolution of the shadow buffer, higher values give crisper shadows but use more memory</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [128, 10240], default 512</p>
 </dd>
 </dl>
 </dd></dl>
@@ -428,18 +332,18 @@
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.use_fake_user</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_extra_user" title="bpy.types.ID.use_extra_user"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.use_extra_user</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_embedded_data" title="bpy.types.ID.is_embedded_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_embedded_data</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_missing" title="bpy.types.ID.is_missing"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_missing</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_runtime_data" title="bpy.types.ID.is_runtime_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_runtime_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.tag</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_library_indirect</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.library</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library_weak_reference" title="bpy.types.ID.library_weak_reference"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.library_weak_reference</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library_weak_reference" title="bpy.types.ID.library_weak_reference"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.library_weak_reference</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.asset_data" title="bpy.types.ID.asset_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.asset_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.override_library" title="bpy.types.ID.override_library"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.override_library</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.preview</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Light.html#bpy.types.Light.type" title="bpy.types.Light.type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light.type</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.Light.html#bpy.types.Light.distance" title="bpy.types.Light.distance"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light.distance</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Light.html#bpy.types.Light.color" title="bpy.types.Light.color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light.color</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Light.html#bpy.types.Light.specular_factor" title="bpy.types.Light.specular_factor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light.specular_factor</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Light.html#bpy.types.Light.diffuse_factor" title="bpy.types.Light.diffuse_factor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light.diffuse_factor</span></code></a></p></li>
@@ -513,7 +417,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -528,7 +432,7 @@
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

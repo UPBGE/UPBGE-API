@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -866,6 +869,23 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.progress">
+<span class="sig-name descname"><span class="pre">progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_ctxt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BAR'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.progress" title="Permalink to this definition"></a></dt>
+<dd><p>Progress indicator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Override automatic text of the item</p></li>
+<li><p><strong>text_ctxt</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Override automatic translation context of the given text</p></li>
+<li><p><strong>translate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Translate the given text, when UI translation is enabled</p></li>
+<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Amount of progress from 0.0f to 1.0f</p></li>
+<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'BAR'</em><em>, </em><em>'RING'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type, The type of progress indicator</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UILayout.context_pointer_set">
 <span class="sig-name descname"><span class="pre">context_pointer_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.context_pointer_set" title="Permalink to this definition"></a></dt>
 <dd><p>context_pointer_set</p>
@@ -1441,6 +1461,12 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.template_status_info">
+<span class="sig-name descname"><span class="pre">template_status_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_status_info" title="Permalink to this definition"></a></dt>
+<dd><p>template_status_info</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UILayout.template_node_link">
 <span class="sig-name descname"><span class="pre">template_node_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ntree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_node_link" title="Permalink to this definition"></a></dt>
 <dd><p>template_node_link</p>
@@ -1462,6 +1488,20 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 <dd><p>template_node_asset_menu_items</p>
 <dl class="field-list simple">
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.template_node_operator_asset_menu_items">
+<span class="sig-name descname"><span class="pre">template_node_operator_asset_menu_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catalog_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_node_operator_asset_menu_items" title="Permalink to this definition"></a></dt>
+<dd><p>template_node_operator_asset_menu_items</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.template_node_operator_asset_root_items">
+<span class="sig-name descname"><span class="pre">template_node_operator_asset_root_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_node_operator_asset_root_items" title="Permalink to this definition"></a></dt>
+<dd><p>template_node_operator_asset_root_items</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1679,6 +1719,26 @@ Do not display buttons to choose or refresh an asset library.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.template_light_linking_collection">
+<span class="sig-name descname"><span class="pre">template_light_linking_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_light_linking_collection" title="Permalink to this definition"></a></dt>
+<dd><p>Visualization of a content of a light linking collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a>, (never None)) – Data from which to take property</p></li>
+<li><p><strong>property</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Identifier of property in data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.template_grease_pencil_layer_tree">
+<span class="sig-name descname"><span class="pre">template_grease_pencil_layer_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_grease_pencil_layer_tree" title="Permalink to this definition"></a></dt>
+<dd><p>View of the active grease pencil layer tree</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UILayout.bl_rna_get_subclass">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
@@ -1797,7 +1857,7 @@ Do not display buttons to choose or refresh an asset library.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -1812,7 +1872,7 @@ Do not display buttons to choose or refresh an asset library.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

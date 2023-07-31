@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -25,7 +27,7 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Image Operators" href="bpy.ops.image.html" />
+    <link rel="next" title="Grease Pencil Operators" href="bpy.ops.grease_pencil.html" />
     <link rel="prev" title="Gpencil Operators" href="bpy.ops.gpencil.html" /> 
 </head>
 
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -117,13 +120,18 @@
 <span id="graph-operators"></span><h1>Graph Operators<a class="headerlink" href="#module-bpy.ops.graph" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.bake">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">bake</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.bake" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">bake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.bake" title="Permalink to this definition"></a></dt>
 <dd><p>Bake selected F-Curves to a set of sampled points defining a similar curve</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.blend_to_default">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">blend_to_default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.333333</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.blend_to_default" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">blend_to_default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.blend_to_default" title="Permalink to this definition"></a></dt>
 <dd><p>Blend selected keys to their default value from their current position</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -134,22 +142,39 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.blend_to_neighbor">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">blend_to_neighbor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.333333</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.blend_to_neighbor" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">blend_to_neighbor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.blend_to_neighbor" title="Permalink to this definition"></a></dt>
 <dd><p>Blend selected keyframes to their left or right neighbor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>factor</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blend, The blend factor with 0.5 being the current frame</p>
+<dd class="field-odd"><p><strong>factor</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blend, The blend factor with 0 being the current frame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.breakdown">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">breakdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.333333</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.breakdown" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">breakdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.breakdown" title="Permalink to this definition"></a></dt>
 <dd><p>Move selected keyframes to an inbetween position relative to adjacent keys</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>factor</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Favor either the left or the right key</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.graph.butterworth_smooth">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">butterworth_smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cutoff_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_per_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blend_in_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.butterworth_smooth" title="Permalink to this definition"></a></dt>
+<dd><p>Smooth an F-Curve while maintaining the general shape of the curve</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cutoff_frequency</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Frequency Cutoff (Hz), Lower values give a smoother curve</p></li>
+<li><p><strong>filter_order</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>32</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Order, Higher values produce a harder frequency cutoff</p></li>
+<li><p><strong>samples_per_frame</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>64</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Samples per Frame, How many samples to calculate per frame, helps with subframe data</p></li>
+<li><p><strong>blend</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blend, How much to blend to the smoothed curve</p></li>
+<li><p><strong>blend_in_out</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blend In/Out, Linearly blend the smooth data to the border frames of the selection</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -205,7 +230,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.copy">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.copy" title="Permalink to this definition"></a></dt>
-<dd><p>Copy selected keyframes to the copy/paste buffer</p>
+<dd><p>Copy selected keyframes to the internal clipboard</p>
 </dd></dl>
 
 <dl class="py function">
@@ -291,13 +316,13 @@ Error Margin – Use an error margin to specify how much the curve is allowed to
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.duplicate_move">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">duplicate_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GRAPH_OT_duplicate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.duplicate_move" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">duplicate_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GRAPH_OT_duplicate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.duplicate_move" title="Permalink to this definition"></a></dt>
 <dd><p>Make a copy of all selected keyframes and move them</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>GRAPH_OT_duplicate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">GRAPH_OT_duplicate</span></code>, (optional)) – Duplicate Keyframes, Make a copy of all selected keyframes</p></li>
-<li><p><strong>TRANSFORM_OT_transform</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TRANSFORM_OT_transform</span></code>, (optional)) – Transform, Transform selected items by mode type</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) – Move, Move selected items</p></li>
 </ul>
 </dd>
 </dl>
@@ -305,7 +330,7 @@ Error Margin – Use an error margin to specify how much the curve is allowed to
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.ease">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">ease</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.ease" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">ease</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.ease" title="Permalink to this definition"></a></dt>
 <dd><p>Align keyframes on a ease-in or ease-out curve</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -379,7 +404,7 @@ Clear Cyclic (F-Modifier) – Remove Cycles F-Modifier if not needed anymore.</p
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.fmodifier_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">fmodifier_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NULL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.fmodifier_add" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">fmodifier_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nullptr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.fmodifier_add" title="Permalink to this definition"></a></dt>
 <dd><p>Add F-Modifier to the active/selected F-Curves</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -502,6 +527,17 @@ Selected Channels at Cursor – Insert a keyframe for selected F-Curves at the c
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.graph.keyframe_jump">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">keyframe_jump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.keyframe_jump" title="Permalink to this definition"></a></dt>
+<dd><p>Jump to previous/next keyframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>next</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.mirror">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CFRA'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.mirror" title="Permalink to this definition"></a></dt>
 <dd><p>Flip selected keyframes over the selected mirror line</p>
@@ -528,7 +564,7 @@ By Times Over First Selected Marker – Flip times of selected keyframes using t
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.paste">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'START'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flipped</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.paste" title="Permalink to this definition"></a></dt>
-<dd><p>Paste keyframes from copy/paste buffer for the selected channels, starting on the current frame</p>
+<dd><p>Paste keyframes from the internal clipboard for the selected channels, starting on the current frame</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -596,7 +632,7 @@ Invert – Invert selection of all elements.</p></li>
 <li><p><strong>axis_range</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Axis Range</p></li>
 <li><p><strong>include_handles</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Include Handles, Are handles tested individually against the selection criteria</p></li>
 <li><p><strong>tweak</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Tweak, Operator has been activated using a click-drag event</p></li>
-<li><p><strong>use_curve_selection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select Curves, Allow selecting all the keyframes of a curve by selecting the calculated fcurve</p></li>
+<li><p><strong>use_curve_selection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select Curves, Allow selecting all the keyframes of a curve by selecting the calculated F-curve</p></li>
 <li><p><strong>xmin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Min</p></li>
 <li><p><strong>xmax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Max</p></li>
 <li><p><strong>ymin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Min</p></li>
@@ -762,7 +798,7 @@ Flatten Handles – Flatten handles for a smoother transition.</p></li>
 <li><p><strong>filter_backup</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter .blend files</p></li>
 <li><p><strong>filter_image</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter image files</p></li>
 <li><p><strong>filter_movie</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter movie files</p></li>
-<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter python files</p></li>
+<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Python files</p></li>
 <li><p><strong>filter_font</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter font files</p></li>
 <li><p><strong>filter_sound</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter sound files</p></li>
 <li><p><strong>filter_text</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter text files</p></li>
@@ -793,11 +829,11 @@ Thumbnails – Display files as thumbnails.</p></li>
 <li><p><strong>sort_method</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – File sorting mode</p></li>
 <li><p><strong>low</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>100000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Lowest Frequency, Cutoff frequency of a high-pass filter that is applied to the audio data</p></li>
 <li><p><strong>high</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>100000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Highest Frequency, Cutoff frequency of a low-pass filter that is applied to the audio data</p></li>
-<li><p><strong>attack</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>2</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Attack Time, Value for the hull curve calculation that tells how fast the hull curve can rise (the lower the value the steeper it can rise)</p></li>
-<li><p><strong>release</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Release Time, Value for the hull curve calculation that tells how fast the hull curve can fall (the lower the value the steeper it can fall)</p></li>
-<li><p><strong>threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, Minimum amplitude value needed to influence the hull curve</p></li>
-<li><p><strong>use_accumulate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accumulate, Only the positive differences of the hull curve amplitudes are summarized to produce the output</p></li>
-<li><p><strong>use_additive</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Additive, The amplitudes of the hull curve are summarized (or, when Accumulate is enabled, both positive and negative differences are accumulated)</p></li>
+<li><p><strong>attack</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>2</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Attack Time, Value for the envelope calculation that tells how fast the envelope can rise (the lower the value the steeper it can rise)</p></li>
+<li><p><strong>release</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Release Time, Value for the envelope calculation that tells how fast the envelope can fall (the lower the value the steeper it can fall)</p></li>
+<li><p><strong>threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, Minimum amplitude value needed to influence the envelope</p></li>
+<li><p><strong>use_accumulate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accumulate, Only the positive differences of the envelope amplitudes are summarized to produce the output</p></li>
+<li><p><strong>use_additive</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Additive, The amplitudes of the envelope are summarized (or, when Accumulate is enabled, both positive and negative differences are accumulated)</p></li>
 <li><p><strong>use_square</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Square, The output is a square curve (negative values always result in -1, and positive ones in 1)</p></li>
 <li><p><strong>sthreshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Square Threshold, Square only: all values with an absolute amplitude lower than that result in 0</p></li>
 </ul>
@@ -846,14 +882,14 @@ Thumbnails – Display files as thumbnails.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="bpy.ops.gpencil.html" class="btn btn-neutral float-left" title="Gpencil Operators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.ops.image.html" class="btn btn-neutral float-right" title="Image Operators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bpy.ops.grease_pencil.html" class="btn btn-neutral float-right" title="Grease Pencil Operators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -868,7 +904,7 @@ Thumbnails – Display files as thumbnails.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

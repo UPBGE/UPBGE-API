@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -143,7 +146,7 @@ Align Y – Align UVs on Y axis.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.align_rotation">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">align_rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'AUTO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.align_rotation" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">align_rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'AUTO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.align_rotation" title="Permalink to this definition"></a></dt>
 <dd><p>Align the UV island’s rotation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -168,10 +171,11 @@ Y – Y axis.</p></li>
 Z – Z axis.</p></li>
 </ul>
 </p></li>
+<li><p><strong>correct_aspect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Correct Aspect, Take image aspect ratio into account</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_transform.py#L275">startup/bl_operators/uvcalc_transform.py:275</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_transform.py#L307">startup/bl_operators/uvcalc_transform.py:307</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -284,7 +288,7 @@ Length Average – Average space UVs edge length of each loop.</p></li>
 </p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_follow_active.py#L257">startup/bl_operators/uvcalc_follow_active.py:257</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_follow_active.py#L270">startup/bl_operators/uvcalc_follow_active.py:270</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,7 +306,7 @@ Length Average – Average space UVs edge length of each loop.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.lightmap_pack">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">lightmap_pack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PREF_CONTEXT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SEL_FACES'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_PACK_IN_ONE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_NEW_UVLAYER</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_APPLY_IMAGE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_IMG_PX_SIZE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_BOX_DIV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_MARGIN_DIV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.lightmap_pack" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">lightmap_pack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PREF_CONTEXT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SEL_FACES'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_PACK_IN_ONE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_NEW_UVLAYER</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_BOX_DIV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PREF_MARGIN_DIV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.lightmap_pack" title="Permalink to this definition"></a></dt>
 <dd><p>Pack each face’s UVs into the UV bounds</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -317,14 +321,12 @@ All Faces – Average space UVs edge length of each loop.</p></li>
 </p></li>
 <li><p><strong>PREF_PACK_IN_ONE</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Share Texture Space, Objects share texture space, map all objects into a single UV map</p></li>
 <li><p><strong>PREF_NEW_UVLAYER</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – New UV Map, Create a new UV map for every mesh packed</p></li>
-<li><p><strong>PREF_APPLY_IMAGE</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – New Image, Assign new images for every mesh (only one if Share Texture Space is enabled)</p></li>
-<li><p><strong>PREF_IMG_PX_SIZE</strong> (<em>int in</em><em> [</em><em>64</em><em>, </em><em>5000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Image Size, Width and height for the new image</p></li>
 <li><p><strong>PREF_BOX_DIV</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>48</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pack Quality, Quality of the packing. Higher values will be slower but waste less space</p></li>
 <li><p><strong>PREF_MARGIN_DIV</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Margin, Size of the margin as a division of the UV</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_lightmap.py#L661">startup/bl_operators/uvcalc_lightmap.py:661</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_lightmap.py#L632">startup/bl_operators/uvcalc_lightmap.py:632</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -357,7 +359,7 @@ All Faces – Average space UVs edge length of each loop.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.pack_islands">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">pack_islands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">udim_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CLOSEST_UDIM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCALED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CONCAVE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pack_islands" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">pack_islands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">udim_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CLOSEST_UDIM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ANY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCALED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCKED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CONCAVE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pack_islands" title="Permalink to this definition"></a></dt>
 <dd><p>Transform all islands so that they fill up the UV/UDIM space as much as possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -372,7 +374,19 @@ Active UDIM – Pack islands to active UDIM image tile or UDIM grid tile where 2
 Original bounding box – Pack to starting bounding box of islands.</p></li>
 </ul>
 </p></li>
-<li><p><strong>rotate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Rotate, Rotate islands for best fit</p></li>
+<li><p><strong>rotate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Rotate, Rotate islands to improve layout</p></li>
+<li><p><strong>rotate_method</strong> (<em>enum in</em><em> [</em><em>'AXIS_ALIGNED'</em><em>, </em><em>'CARDINAL'</em><em>, </em><em>'ANY'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Rotation Method</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">AXIS_ALIGNED</span></code>
+Axis-aligned – Rotated to a minimal rectangle, either vertical or horizontal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CARDINAL</span></code>
+Cardinal – Only 90 degree rotations are allowed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ANY</span></code>
+Any – Any angle is allowed for rotation.</p></li>
+</ul>
+</p></li>
+<li><p><strong>scale</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scale, Scale islands to fill unit square</p></li>
+<li><p><strong>merge_overlap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge Overlapping, Overlapping islands stick together</p></li>
 <li><p><strong>margin_method</strong> (<em>enum in</em><em> [</em><em>'SCALED'</em><em>, </em><em>'ADD'</em><em>, </em><em>'FRACTION'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Margin Method</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SCALED</span></code>
@@ -384,14 +398,27 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 </ul>
 </p></li>
 <li><p><strong>margin</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Margin, Space between islands</p></li>
+<li><p><strong>pin</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Lock Pinned Islands, Constrain islands containing any pinned UV’s</p></li>
+<li><p><strong>pin_method</strong> (<em>enum in</em><em> [</em><em>'SCALE'</em><em>, </em><em>'ROTATION'</em><em>, </em><em>'ROTATION_SCALE'</em><em>, </em><em>'LOCKED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Pin Method</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCALE</span></code>
+Scale – Pinned islands won’t rescale.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROTATION</span></code>
+Rotation – Pinned islands won’t rotate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROTATION_SCALE</span></code>
+Rotation and Scale – Pinned islands will translate only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOCKED</span></code>
+All – Pinned islands are locked in place.</p></li>
+</ul>
+</p></li>
 <li><p><strong>shape_method</strong> (<em>enum in</em><em> [</em><em>'CONCAVE'</em><em>, </em><em>'CONVEX'</em><em>, </em><em>'AABB'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Shape Method</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONCAVE</span></code>
-Exact shape (Concave) – Uses exact geometry.</p></li>
+Exact Shape (Concave) – Uses exact geometry.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONVEX</span></code>
-Boundary shape (Convex) – Uses convex hull.</p></li>
+Boundary Shape (Convex) – Uses convex hull.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AABB</span></code>
-Bounding box – Uses bounding boxes.</p></li>
+Bounding Box – Uses bounding boxes.</p></li>
 </ul>
 </p></li>
 </ul>
@@ -407,11 +434,14 @@ Bounding box – Uses bounding boxes.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.pin">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">pin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pin" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">pin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pin" title="Permalink to this definition"></a></dt>
 <dd><p>Set/clear selected UV vertices as anchored between multiple unwrap operations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>clear</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Clear, Clear pinning for the selection instead of setting it</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clear</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Clear, Clear pinning for the selection instead of setting it</p></li>
+<li><p><strong>invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Invert, Invert pinning for the selection instead of setting it</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -451,7 +481,7 @@ Bounding box – Uses bounding boxes.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_transform.py#L449">startup/bl_operators/uvcalc_transform.py:449</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/uvcalc_transform.py#L482">startup/bl_operators/uvcalc_transform.py:482</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -744,7 +774,7 @@ Subtract – Subtract existing selection.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'PIN'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type</p></li>
+<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'PIN'</em><em>, </em><em>'LENGTH'</em><em>, </em><em>'LENGTH_3D'</em><em>, </em><em>'AREA'</em><em>, </em><em>'AREA_3D'</em><em>, </em><em>'MATERIAL'</em><em>, </em><em>'OBJECT'</em><em>, </em><em>'SIDES'</em><em>, </em><em>'WINDING'</em><em>, </em><em>'FACE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type</p></li>
 <li><p><strong>compare</strong> (<em>enum in</em><em> [</em><em>'EQUAL'</em><em>, </em><em>'GREATER'</em><em>, </em><em>'LESS'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Compare</p></li>
 <li><p><strong>threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold</p></li>
 </ul>
@@ -955,7 +985,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -970,7 +1000,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

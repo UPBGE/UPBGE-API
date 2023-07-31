@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -143,7 +146,7 @@
 <li><p><strong>filter_backup</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter .blend files</p></li>
 <li><p><strong>filter_image</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter image files</p></li>
 <li><p><strong>filter_movie</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter movie files</p></li>
-<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter python files</p></li>
+<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Python files</p></li>
 <li><p><strong>filter_font</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter font files</p></li>
 <li><p><strong>filter_sound</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter sound files</p></li>
 <li><p><strong>filter_text</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter text files</p></li>
@@ -216,18 +219,18 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.add_node">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_node" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_node" title="Permalink to this definition"></a></dt>
 <dd><p>Add a node to the active tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Node Type, Node type</p></li>
 <li><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start transform operator after inserting the node</p></li>
 <li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional)) – Settings, Settings to be applied on the newly created node</p></li>
+<li><p><strong>type</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Node Type, Node type</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L115">startup/bl_operators/node.py:115</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L139">startup/bl_operators/node.py:139</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -242,6 +245,24 @@ Thumbnails – Display files as thumbnails.</p></li>
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Name, Name of the data-block to use by the operator</p></li>
 <li><p><strong>session_uuid</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Session UUID, Session UUID of the data-block to use by the operator</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.add_repeat_zone">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">add_repeat_zone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(150.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_repeat_zone" title="Permalink to this definition"></a></dt>
+<dd><p>Add a repeat zone that allows executing nodes a dynamic number of times</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start transform operator after inserting the node</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional)) – Settings, Settings to be applied on the newly created node</p></li>
+<li><p><strong>offset</strong> (<em>float array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset, Offset of nodes from the cursor when added</p></li>
+</ul>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L165">startup/bl_operators/node.py:165</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -267,6 +288,24 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start moving the node after adding it</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.add_simulation_zone">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">add_simulation_zone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(150.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_simulation_zone" title="Permalink to this definition"></a></dt>
+<dd><p>Add simulation zone input and output nodes to the active tree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start transform operator after inserting the node</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional)) – Settings, Settings to be applied on the newly created node</p></li>
+<li><p><strong>offset</strong> (<em>float array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset, Offset of nodes from the cursor when added</p></li>
+</ul>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L165">startup/bl_operators/node.py:165</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -315,13 +354,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.clipboard_copy">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">clipboard_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.clipboard_copy" title="Permalink to this definition"></a></dt>
-<dd><p>Copies selected nodes to the clipboard</p>
+<dd><p>Copy the selected nodes to the internal clipboard</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.clipboard_paste">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">clipboard_paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.clipboard_paste" title="Permalink to this definition"></a></dt>
-<dd><p>Pastes nodes from the clipboard to the active node tree</p>
+<dd><p>Paste nodes from the internal clipboard to the active node tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>offset</strong> (<em>float array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, The 2D view location for the center of the new nodes, or unchanged if not set</p>
@@ -335,7 +374,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dd><p>Toggle collapsed nodes and hide unused sockets</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L165">startup/bl_operators/node.py:165</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L225">startup/bl_operators/node.py:225</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -597,14 +636,13 @@ Move – Move to parent node tree, remove from group.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.move_detach_links">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">move_detach_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NODE_OT_links_detach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_insert_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.move_detach_links" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">move_detach_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NODE_OT_links_detach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.move_detach_links" title="Permalink to this definition"></a></dt>
 <dd><p>Move a node to detach links</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>NODE_OT_links_detach</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_links_detach</span></code>, (optional)) – Detach Links, Remove all links to selected nodes, and try to connect neighbor nodes together</p></li>
 <li><p><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) – Move, Move selected items</p></li>
-<li><p><strong>NODE_OT_insert_offset</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_insert_offset</span></code>, (optional)) – Insert Offset, Automatically offset nodes on insertion</p></li>
 </ul>
 </dd>
 </dl>
@@ -636,7 +674,7 @@ Move – Move to parent node tree, remove from group.</p></li>
 <dd><p>Create a new geometry node group and assign it to the active modifier</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L229">startup/bl_operators/geometry_nodes.py:229</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L239">startup/bl_operators/geometry_nodes.py:239</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -647,7 +685,7 @@ Move – Move to parent node tree, remove from group.</p></li>
 <dd><p>Create a new modifier with a new geometry node group</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L207">startup/bl_operators/geometry_nodes.py:207</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L216">startup/bl_operators/geometry_nodes.py:216</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -679,7 +717,7 @@ Move – Move to parent node tree, remove from group.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/presets.py#L73">startup/bl_operators/presets.py:73</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/presets.py#L75">startup/bl_operators/presets.py:75</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -725,6 +763,42 @@ Move – Move to parent node tree, remove from group.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.panel_add">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">panel_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.panel_add" title="Permalink to this definition"></a></dt>
+<dd><p>Add a new panel to the tree</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L280">startup/bl_operators/node.py:280</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.panel_move">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">panel_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.panel_move" title="Permalink to this definition"></a></dt>
+<dd><p>Move a panel to another position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>direction</strong> (<em>enum in</em><em> [</em><em>'UP'</em><em>, </em><em>'DOWN'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Direction</p>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L324">startup/bl_operators/node.py:324</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.panel_remove">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">panel_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.panel_remove" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a panel from the tree</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L300">startup/bl_operators/node.py:300</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.parent_set">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">parent_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.parent_set" title="Permalink to this definition"></a></dt>
 <dd><p>Attach selected nodes</p>
@@ -746,6 +820,42 @@ Move – Move to parent node tree, remove from group.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.node.render_changed">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">render_changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.render_changed" title="Permalink to this definition"></a></dt>
 <dd><p>Render current scene, when input node’s layer has been changed</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.repeat_zone_item_add">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">repeat_zone_item_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.repeat_zone_item_add" title="Permalink to this definition"></a></dt>
+<dd><p>Add a repeat item to the repeat zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L388">startup/bl_operators/geometry_nodes.py:388</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.repeat_zone_item_move">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">repeat_zone_item_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.repeat_zone_item_move" title="Permalink to this definition"></a></dt>
+<dd><p>Move a repeat item up or down in the list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>direction</strong> (<em>enum in</em><em> [</em><em>'UP'</em><em>, </em><em>'DOWN'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Direction</p>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L438">startup/bl_operators/geometry_nodes.py:438</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.repeat_zone_item_remove">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">repeat_zone_item_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.repeat_zone_item_remove" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a repeat item from the repeat zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L415">startup/bl_operators/geometry_nodes.py:415</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -932,6 +1042,42 @@ Subtract – Subtract existing selection.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.simulation_zone_item_add">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">simulation_zone_item_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.simulation_zone_item_add" title="Permalink to this definition"></a></dt>
+<dd><p>Add a state item to the simulation zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L289">startup/bl_operators/geometry_nodes.py:289</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.simulation_zone_item_move">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">simulation_zone_item_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.simulation_zone_item_move" title="Permalink to this definition"></a></dt>
+<dd><p>Move a simulation state item up or down in the list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>direction</strong> (<em>enum in</em><em> [</em><em>'UP'</em><em>, </em><em>'DOWN'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Direction</p>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L339">startup/bl_operators/geometry_nodes.py:339</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.simulation_zone_item_remove">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">simulation_zone_item_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.simulation_zone_item_remove" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a state item from the simulation zone</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L316">startup/bl_operators/geometry_nodes.py:316</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.switch_view_update">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">switch_view_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.switch_view_update" title="Permalink to this definition"></a></dt>
 <dd><p>Update views of selected node</p>
@@ -939,14 +1085,13 @@ Subtract – Subtract existing selection.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.translate_attach">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">translate_attach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_attach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_insert_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.translate_attach" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">translate_attach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_attach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.translate_attach" title="Permalink to this definition"></a></dt>
 <dd><p>Move nodes and attach to frame</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) – Move, Move selected items</p></li>
 <li><p><strong>NODE_OT_attach</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_attach</span></code>, (optional)) – Attach Nodes, Attach active node to a frame</p></li>
-<li><p><strong>NODE_OT_insert_offset</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_insert_offset</span></code>, (optional)) – Insert Offset, Automatically offset nodes on insertion</p></li>
 </ul>
 </dd>
 </dl>
@@ -954,14 +1099,13 @@ Subtract – Subtract existing selection.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.translate_attach_remove_on_cancel">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">translate_attach_remove_on_cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_attach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_insert_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.translate_attach_remove_on_cancel" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">translate_attach_remove_on_cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TRANSFORM_OT_translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NODE_OT_attach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.translate_attach_remove_on_cancel" title="Permalink to this definition"></a></dt>
 <dd><p>Move nodes and attach to frame</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) – Move, Move selected items</p></li>
 <li><p><strong>NODE_OT_attach</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_attach</span></code>, (optional)) – Attach Nodes, Attach active node to a frame</p></li>
-<li><p><strong>NODE_OT_insert_offset</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NODE_OT_insert_offset</span></code>, (optional)) – Insert Offset, Automatically offset nodes on insertion</p></li>
 </ul>
 </dd>
 </dl>
@@ -973,7 +1117,7 @@ Subtract – Subtract existing selection.</p></li>
 <dd><p>Go to parent node tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L195">startup/bl_operators/node.py:195</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L255">startup/bl_operators/node.py:255</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1082,7 +1226,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -1097,7 +1241,7 @@ Subtract – Subtract existing selection.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

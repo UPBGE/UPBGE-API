@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -117,7 +120,7 @@
 <h1>ViewerPathElem(bpy_struct)<a class="headerlink" href="#viewerpathelem-bpy-struct" title="Permalink to this heading"></a></h1>
 <p>base class — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a></p>
 <p>subclasses —
-<a class="reference internal" href="bpy.types.IDViewerPathElem.html#bpy.types.IDViewerPathElem" title="bpy.types.IDViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">IDViewerPathElem</span></code></a>, <a class="reference internal" href="bpy.types.ModifierViewerPathElem.html#bpy.types.ModifierViewerPathElem" title="bpy.types.ModifierViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModifierViewerPathElem</span></code></a>, <a class="reference internal" href="bpy.types.NodeViewerPathElem.html#bpy.types.NodeViewerPathElem" title="bpy.types.NodeViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeViewerPathElem</span></code></a></p>
+<a class="reference internal" href="bpy.types.GroupNodeViewerPathElem.html#bpy.types.GroupNodeViewerPathElem" title="bpy.types.GroupNodeViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupNodeViewerPathElem</span></code></a>, <a class="reference internal" href="bpy.types.IDViewerPathElem.html#bpy.types.IDViewerPathElem" title="bpy.types.IDViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">IDViewerPathElem</span></code></a>, <a class="reference internal" href="bpy.types.ModifierViewerPathElem.html#bpy.types.ModifierViewerPathElem" title="bpy.types.ModifierViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModifierViewerPathElem</span></code></a>, <a class="reference internal" href="bpy.types.RepeatZoneViewerPathElem.html#bpy.types.RepeatZoneViewerPathElem" title="bpy.types.RepeatZoneViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepeatZoneViewerPathElem</span></code></a>, <a class="reference internal" href="bpy.types.SimulationZoneViewerPathElem.html#bpy.types.SimulationZoneViewerPathElem" title="bpy.types.SimulationZoneViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationZoneViewerPathElem</span></code></a>, <a class="reference internal" href="bpy.types.ViewerNodeViewerPathElem.html#bpy.types.ViewerNodeViewerPathElem" title="bpy.types.ViewerNodeViewerPathElem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewerNodeViewerPathElem</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.ViewerPathElem">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">ViewerPathElem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ViewerPathElem" title="Permalink to this definition"></a></dt>
@@ -128,7 +131,18 @@
 <dd><p>Type of the path element</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [‘ID’, ‘MODIFIER’, ‘NODE’], default ‘ID’, (readonly)</p>
+<dd class="field-odd"><p>enum in [‘ID’, ‘MODIFIER’, ‘GROUP_NODE’, ‘SIMULATION_ZONE’, ‘VIEWER_NODE’, ‘REPEAT_ZONE’], default ‘ID’, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.ViewerPathElem.ui_name">
+<span class="sig-name descname"><span class="pre">ui_name</span></span><a class="headerlink" href="#bpy.types.ViewerPathElem.ui_name" title="Permalink to this definition"></a></dt>
+<dd><p>Name that can be displayed in the UI for this element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, default “”, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -223,7 +237,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -238,7 +252,7 @@
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

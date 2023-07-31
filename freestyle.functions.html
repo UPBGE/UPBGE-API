@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -179,7 +182,7 @@ value type:</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.Curvature2DAngleF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a real value giving the 2D curvature (as an angle) of the 1D
 element to which the <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a> pointed by
-the Interface0DIterator belongs.  The 2D curvature is evaluated at the
+the Interface0DIterator belongs. The 2D curvature is evaluated at the
 Interface0D.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -296,10 +299,10 @@ from a set of values.</p>
 <dt class="sig sig-object py" id="freestyle.functions.CurveNatureF1D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.CurveNatureF1D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the nature of the Interface1D (silhouette, ridge, crease, and
-so on).  Except if the Interface1D is a
+so on). Except if the Interface1D is a
 <a class="reference internal" href="freestyle.types.html#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewEdge</span></code></a>, this result might be ambiguous.
 Indeed, the Interface1D might result from the gathering of several 1D
-elements, each one being of a different nature.  An integration
+elements, each one being of a different nature. An integration
 method, such as the MEAN, might give, in this case, irrelevant
 results.</p>
 <dl class="field-list simple">
@@ -328,7 +331,7 @@ results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sigma</strong> (<em>float</em>) – The gaussian sigma value indicating the X value for
-which the gaussian function is 0.5.  It leads to the window size
+which the gaussian function is 0.5. It leads to the window size
 value (the larger, the smoother).</p>
 </dd>
 </dl>
@@ -433,7 +436,7 @@ single one, following the method specified by integration_type.</p></li>
 <dt class="sig sig-object py" id="freestyle.functions.GetCompleteViewMapDensityF1D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.GetCompleteViewMapDensityF1D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the density evaluated for an Interface1D in the complete
-viewmap image.  The density is evaluated for a set of points along the
+viewmap image. The density is evaluated for a set of points along the
 Interface1D (using the
 <a class="reference internal" href="#freestyle.functions.ReadCompleteViewMapPixelF0D" title="freestyle.functions.ReadCompleteViewMapPixelF0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.functions.ReadCompleteViewMapPixelF0D</span></code></a> functor) and
 then integrated into a single value using a user-defined integration
@@ -515,8 +518,8 @@ single one, following the method specified by integration_type.</p></li>
 <dt class="sig sig-object py" id="freestyle.functions.GetDirectionalViewMapDensityF1D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.GetDirectionalViewMapDensityF1D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the density evaluated for an Interface1D in of the steerable
-viewmaps image.  The direction telling which Directional map to choose
-is explicitly specified by the user.  The density is evaluated for a
+viewmaps image. The direction telling which Directional map to choose
+is explicitly specified by the user. The density is evaluated for a
 set of points along the Interface1D (using the
 <a class="reference internal" href="#freestyle.functions.ReadSteerableViewMapPixelF0D" title="freestyle.functions.ReadSteerableViewMapPixelF0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.functions.ReadSteerableViewMapPixelF0D</span></code></a> functor) and
 then integrated into a single value using a user-defined integration
@@ -967,7 +970,7 @@ single one, following the method specified by integration_type.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.functions.GetSteerableViewMapDensityF1D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.GetSteerableViewMapDensityF1D.__call__" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the density of the ViewMap for a given Interface1D.  The
+<dd><p>Returns the density of the ViewMap for a given Interface1D. The
 density of each <a class="reference internal" href="freestyle.types.html#freestyle.types.FEdge" title="freestyle.types.FEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.FEdge</span></code></a> is evaluated in the
 proper steerable <a class="reference internal" href="freestyle.types.html#freestyle.types.ViewMap" title="freestyle.types.ViewMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewMap</span></code></a> depending on its
 orientation.</p>
@@ -1050,7 +1053,7 @@ single one, following the method specified by integration_type.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.functions.GetViewMapGradientNormF1D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.GetViewMapGradientNormF1D.__call__" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the density of the ViewMap for a given Interface1D.  The
+<dd><p>Returns the density of the ViewMap for a given Interface1D. The
 density of each <a class="reference internal" href="freestyle.types.html#freestyle.types.FEdge" title="freestyle.types.FEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.FEdge</span></code></a> is evaluated in the
 proper steerable <a class="reference internal" href="freestyle.types.html#freestyle.types.ViewMap" title="freestyle.types.ViewMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewMap</span></code></a> depending on its
 orientation.</p>
@@ -1307,7 +1310,7 @@ from a set of values.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.LocalAverageDepthF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the average depth around the
 <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a> pointed by the
-Interface0DIterator.  The result is obtained by querying the depth
+Interface0DIterator. The result is obtained by querying the depth
 buffer on a window around that point.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1347,7 +1350,7 @@ from a set of values.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.functions.LocalAverageDepthF1D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.LocalAverageDepthF1D.__call__" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the average depth evaluated for an Interface1D.  The average
+<dd><p>Returns the average depth evaluated for an Interface1D. The average
 depth is evaluated for a set of points along the Interface1D (using
 the <a class="reference internal" href="#freestyle.functions.LocalAverageDepthF0D" title="freestyle.functions.LocalAverageDepthF0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.functions.LocalAverageDepthF0D</span></code></a> functor) with a
 user-defined sampling and then integrated into a single value using a
@@ -1382,13 +1385,13 @@ user-defined integration method.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.MaterialF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the material of the object evaluated at the
 <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a> pointed by the
-Interface0DIterator.  This evaluation can be ambiguous (in the case of
-a <a class="reference internal" href="freestyle.types.html#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.TVertex</span></code></a> for example.  This functor tries to
+Interface0DIterator. This evaluation can be ambiguous (in the case of
+a <a class="reference internal" href="freestyle.types.html#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.TVertex</span></code></a> for example. This functor tries to
 remove this ambiguity using the context offered by the 1D element to
 which the Interface0DIterator belongs to and by arbitrary choosing the
 material of the face that lies on its left when following the 1D
 element if there are two different materials on each side of the
-point.  However, there still can be problematic cases, and the user
+point. However, there still can be problematic cases, and the user
 willing to deal with this cases in a specific way should implement its
 own getMaterial functor.</p>
 <dl class="field-list simple">
@@ -1422,7 +1425,7 @@ Interface0D.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.Normal2DF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a two-dimensional vector giving the normalized 2D normal to
 the 1D element to which the <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a>
-pointed by the Interface0DIterator belongs.  The normal is evaluated
+pointed by the Interface0DIterator belongs. The normal is evaluated
 at the pointed Interface0D.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1560,10 +1563,10 @@ from a set of values.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.QuantitativeInvisibilityF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the quantitative invisibility of the
 <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a> pointed by the
-Interface0DIterator.  This evaluation can be ambiguous (in the case of
-a <a class="reference internal" href="freestyle.types.html#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.TVertex</span></code></a> for example).  This functor tries
+Interface0DIterator. This evaluation can be ambiguous (in the case of
+a <a class="reference internal" href="freestyle.types.html#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.TVertex</span></code></a> for example). This functor tries
 to remove this ambiguity using the context offered by the 1D element
-to which the Interface0D belongs to.  However, there still can be
+to which the Interface0D belongs to. However, there still can be
 problematic cases, and the user willing to deal with this cases in a
 specific way should implement its own getQIF0D functor.</p>
 <dl class="field-list simple">
@@ -1602,7 +1605,7 @@ from a set of values.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.QuantitativeInvisibilityF1D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the Quantitative Invisibility of an Interface1D element. If
 the Interface1D is a <a class="reference internal" href="freestyle.types.html#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewEdge</span></code></a>, then there is
-no ambiguity concerning the result.  But, if the Interface1D results
+no ambiguity concerning the result. But, if the Interface1D results
 of a chaining (chain, stroke), then it might be made of several 1D
 elements of different Quantitative Invisibilities.</p>
 <dl class="field-list simple">
@@ -1748,7 +1751,7 @@ read.</p></li>
 <dd><p>Returns the <a class="reference internal" href="freestyle.types.html#freestyle.types.Id" title="freestyle.types.Id"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Id</span></code></a> of the Shape the
 <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a> pointed by the
 Interface0DIterator belongs to. This evaluation can be ambiguous (in
-the case of a <a class="reference internal" href="freestyle.types.html#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.TVertex</span></code></a> for example).  This
+the case of a <a class="reference internal" href="freestyle.types.html#freestyle.types.TVertex" title="freestyle.types.TVertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.TVertex</span></code></a> for example). This
 functor tries to remove this ambiguity using the context offered by
 the 1D element to which the Interface0DIterator belongs to. However,
 there still can be problematic cases, and the user willing to deal
@@ -1807,7 +1810,7 @@ getShapeIdF0D functor.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.VertexOrientation2DF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a two-dimensional vector giving the 2D oriented tangent to the
 1D element to which the <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a> pointed
-by the Interface0DIterator belongs.  The 2D oriented tangent is
+by the Interface0DIterator belongs. The 2D oriented tangent is
 evaluated at the pointed Interface0D.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1840,7 +1843,7 @@ pointed Interface0D.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.VertexOrientation3DF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a three-dimensional vector giving the 3D oriented tangent to
 the 1D element to which the <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a>
-pointed by the Interface0DIterator belongs.  The 3D oriented tangent
+pointed by the Interface0DIterator belongs. The 3D oriented tangent
 is evaluated at the pointed Interface0D.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1873,9 +1876,9 @@ pointed Interface0D.</p>
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.ZDiscontinuityF0D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a real value giving the distance between the
 <a class="reference internal" href="freestyle.types.html#freestyle.types.Interface0D" title="freestyle.types.Interface0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.Interface0D</span></code></a> pointed by the
-Interface0DIterator and the shape that lies behind (occludee).  This
+Interface0DIterator and the shape that lies behind (occludee). This
 distance is evaluated in the camera space and normalized between 0 and
-1.  Therefore, if no object is occluded by the shape to which the
+1. Therefore, if no object is occluded by the shape to which the
 Interface0D belongs to, 1 is returned.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1913,7 +1916,7 @@ from a set of values.</p>
 <dt class="sig sig-object py" id="freestyle.functions.ZDiscontinuityF1D.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.functions.ZDiscontinuityF1D.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a real value giving the distance between an Interface1D
-and the shape that lies behind (occludee).  This distance is
+and the shape that lies behind (occludee). This distance is
 evaluated in the camera space and normalized between 0 and 1.
 Therefore, if no object is occluded by the shape to which the
 Interface1D belongs to, 1 is returned.</p>
@@ -2004,7 +2007,7 @@ Interface1D belongs to, 1 is returned.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -2019,7 +2022,7 @@ Interface1D belongs to, 1 is returned.</p>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

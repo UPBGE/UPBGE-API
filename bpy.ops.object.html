@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -186,7 +189,7 @@ Active – Use the active object as the position for the selected objects to ali
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_align.py#L391">startup/bl_operators/object_align.py:391</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_align.py#L393">startup/bl_operators/object_align.py:393</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -197,7 +200,7 @@ Active – Use the active object as the position for the selected objects to ali
 <dd><p>Convert object animation for normal transforms to delta transforms</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L773">startup/bl_operators/object.py:773</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L779">startup/bl_operators/object.py:779</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -241,7 +244,7 @@ View – Align the new object to the view.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1153">startup/bl_operators/object.py:1153</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1159">startup/bl_operators/object.py:1159</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -438,7 +441,7 @@ View – Align the new object to the view.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.constraints_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">constraints_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.constraints_clear" title="Permalink to this definition"></a></dt>
-<dd><p>Clear all the constraints for the active object only</p>
+<dd><p>Clear all constraints from the selected objects</p>
 </dd></dl>
 
 <dl class="py function">
@@ -454,18 +457,20 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>target</strong> (<em>enum in</em><em> [</em><em>'CURVE'</em><em>, </em><em>'MESH'</em><em>, </em><em>'GPENCIL'</em><em>, </em><em>'POINTCLOUD'</em><em>, </em><em>'CURVES'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Target, Type of object to convert to</p>
+<li><p><strong>target</strong> (<em>enum in</em><em> [</em><em>'CURVE'</em><em>, </em><em>'MESH'</em><em>, </em><em>'GPENCIL'</em><em>, </em><em>'POINTCLOUD'</em><em>, </em><em>'CURVES'</em><em>, </em><em>'GREASEPENCIL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Target, Type of object to convert to</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CURVE</span></code>
 Curve – Curve from Mesh or Text objects.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MESH</span></code>
 Mesh – Mesh from Curve, Surface, Metaball, Text, or Point Cloud objects.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">GPENCIL</span></code>
-Grease Pencil – Grease Pencil from Curve or Mesh objects.</p></li>
+Grease Pencil (legacy) – Grease Pencil (legacy) from Curve or Mesh objects.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">POINTCLOUD</span></code>
 Point Cloud – Point Cloud from Mesh objects.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CURVES</span></code>
 Curves – Curves from evaluated curve data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GREASEPENCIL</span></code>
+Grease Pencil – Grease Pencil from Grease Pencil (legacy).</p></li>
 </ul>
 </p></li>
 <li><p><strong>keep_original</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Original, Keep original objects instead of replacing them</p></li>
@@ -873,53 +878,6 @@ View – Align the new object to the view.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.face_map_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">face_map_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.face_map_add" title="Permalink to this definition"></a></dt>
-<dd><p>Add a new face map to the active object</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.face_map_assign">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">face_map_assign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.face_map_assign" title="Permalink to this definition"></a></dt>
-<dd><p>Assign faces to a face map</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.face_map_deselect">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">face_map_deselect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.face_map_deselect" title="Permalink to this definition"></a></dt>
-<dd><p>Deselect faces belonging to a face map</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.face_map_move">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">face_map_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.face_map_move" title="Permalink to this definition"></a></dt>
-<dd><p>Move the active face map up/down in the list</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>direction</strong> (<em>enum in</em><em> [</em><em>'UP'</em><em>, </em><em>'DOWN'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Direction, Direction to move, up or down</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.face_map_remove">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">face_map_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.face_map_remove" title="Permalink to this definition"></a></dt>
-<dd><p>Remove a face map from the active object</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.face_map_remove_from">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">face_map_remove_from</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.face_map_remove_from" title="Permalink to this definition"></a></dt>
-<dd><p>Remove faces from a face map</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.object.face_map_select">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">face_map_select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.face_map_select" title="Permalink to this definition"></a></dt>
-<dd><p>Select faces belonging to a face map</p>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.forcefield_toggle">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">forcefield_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.forcefield_toggle" title="Permalink to this definition"></a></dt>
 <dd><p>Toggle object’s force field</p>
@@ -1016,7 +974,7 @@ View – Align the new object to the view.</p></li>
 <dd><p>Move inputs and outputs from in the modifier to a new node group</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L110">startup/bl_operators/geometry_nodes.py:110</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L119">startup/bl_operators/geometry_nodes.py:119</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1024,7 +982,7 @@ View – Align the new object to the view.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.gpencil_add">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">gpencil_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WORLD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EMPTY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_in_front</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke_depth_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_lights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke_depth_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'3D'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.gpencil_add" title="Permalink to this definition"></a></dt>
-<dd><p>Add a Grease Pencil object to the scene</p>
+<dd><p>Add a Grease Pencil (legacy) object to the scene</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1165,6 +1123,33 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.grease_pencil_add">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">grease_pencil_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EMPTY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WORLD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.grease_pencil_add" title="Permalink to this definition"></a></dt>
+<dd><p>Add a Grease Pencil object to the scene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_gpencil_type_items.html#rna-enum-object-gpencil-type-items"><span class="std std-ref">Object Gpencil Type Items</span></a>, (optional)) – Type</p></li>
+<li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius</p></li>
+<li><p><strong>align</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>, </em><em>'CURSOR'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align, The alignment of the new object</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">WORLD</span></code>
+World – Align the new object to the world.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
+View – Align the new object to the view.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR</span></code>
+3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
+</ul>
+</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Location, Location for the newly added object</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> rotation of 3 items in [-inf, inf], (optional)) – Rotation, Rotation for the newly added object</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Scale, Scale for the newly added object</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.hide_collection">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">hide_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.hide_collection" title="Permalink to this definition"></a></dt>
 <dd><p>Show only objects in collection (Shift to extend)</p>
@@ -1185,7 +1170,7 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 <dd><p>Reveal all render objects by setting the hide render flag</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L680">startup/bl_operators/object.py:680</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L686">startup/bl_operators/object.py:686</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1290,7 +1275,7 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 <dd><p>Set offset used for collection instances based on cursor position</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L858">startup/bl_operators/object.py:858</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L864">startup/bl_operators/object.py:864</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1301,7 +1286,7 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 <dd><p>Set offset used for collection instances based on the active object position</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1046">startup/bl_operators/object.py:1046</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1052">startup/bl_operators/object.py:1052</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1312,7 +1297,7 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 <dd><p>Set cursor position to the offset used for collection instances</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1029">startup/bl_operators/object.py:1029</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1035">startup/bl_operators/object.py:1035</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1323,7 +1308,7 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 <dd><p>Hide unselected render objects of same type as active by setting the hide render flag</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L660">startup/bl_operators/object.py:660</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L666">startup/bl_operators/object.py:666</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1346,7 +1331,7 @@ New Shape – Apply deform-only modifier to a new shape on this object.</p></li>
 <dd><p>Transfer UV Maps from active to selected objects (needs matching geometry)</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L567">startup/bl_operators/object.py:567</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L569">startup/bl_operators/object.py:569</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1390,6 +1375,72 @@ View – Align the new object to the view.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.light_linking_blocker_collection_new">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">light_linking_blocker_collection_new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.light_linking_blocker_collection_new" title="Permalink to this definition"></a></dt>
+<dd><p>Create new light linking collection used by the active emitter</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.light_linking_blockers_link">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">light_linking_blockers_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">link_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INCLUDE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.light_linking_blockers_link" title="Permalink to this definition"></a></dt>
+<dd><p>Light link selected blockers to the active emitter object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>link_state</strong> (<em>enum in</em><em> [</em><em>'INCLUDE'</em><em>, </em><em>'EXCLUDE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Link State, State of the shadow linking</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INCLUDE</span></code>
+Include – Include selected blockers to cast shadows from the active emitter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXCLUDE</span></code>
+Exclude – Exclude selected blockers from casting shadows from the active emitter.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.light_linking_blockers_select">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">light_linking_blockers_select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.light_linking_blockers_select" title="Permalink to this definition"></a></dt>
+<dd><p>Select all objects which block light from this emitter</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.light_linking_receiver_collection_new">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">light_linking_receiver_collection_new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.light_linking_receiver_collection_new" title="Permalink to this definition"></a></dt>
+<dd><p>Create new light linking collection used by the active emitter</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.light_linking_receivers_link">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">light_linking_receivers_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">link_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INCLUDE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.light_linking_receivers_link" title="Permalink to this definition"></a></dt>
+<dd><p>Light link selected receivers to the active emitter object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>link_state</strong> (<em>enum in</em><em> [</em><em>'INCLUDE'</em><em>, </em><em>'EXCLUDE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Link State, State of the light linking</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INCLUDE</span></code>
+Include – Include selected receivers to receive light from the active emitter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXCLUDE</span></code>
+Exclude – Exclude selected receivers from receiving light from the active emitter.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.light_linking_receivers_select">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">light_linking_receivers_select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.light_linking_receivers_select" title="Permalink to this definition"></a></dt>
+<dd><p>Select all objects which receive light from this emitter</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.light_linking_unlink_from_collection">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">light_linking_unlink_from_collection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.light_linking_unlink_from_collection" title="Permalink to this definition"></a></dt>
+<dd><p>Remove this object or collection from the light linking collection</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.lightprobe_add">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">lightprobe_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CUBEMAP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enter_editmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WORLD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.lightprobe_add" title="Permalink to this definition"></a></dt>
 <dd><p>Add a light probe object</p>
@@ -1422,6 +1473,51 @@ View – Align the new object to the view.</p></li>
 <li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> rotation of 3 items in [-inf, inf], (optional)) – Rotation, Rotation for the newly added object</p></li>
 <li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Scale, Scale for the newly added object</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.lightprobe_cache_bake">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">lightprobe_cache_bake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.lightprobe_cache_bake" title="Permalink to this definition"></a></dt>
+<dd><p>Bake irradiance volume light cache</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>delay</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>2000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Delay, Delay in millisecond before baking starts</p></li>
+<li><p><strong>subset</strong> (<em>enum in</em><em> [</em><em>'ALL'</em><em>, </em><em>'DIRTY'</em><em>, </em><em>'SELECTED'</em><em>, </em><em>'ACTIVE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Subset, Subset of probes to update</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
+All Light Probes – Bake all light probes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DIRTY</span></code>
+Dirty Only – Only bake light probes that are marked as dirty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECTED</span></code>
+Selected Only – Only bake selected light probes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
+Active Only – Only bake the active light probe.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.lightprobe_cache_free">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">lightprobe_cache_free</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SELECTED'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.lightprobe_cache_free" title="Permalink to this definition"></a></dt>
+<dd><p>Delete cached indirect lighting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subset</strong> (<em>enum in</em><em> [</em><em>'ALL'</em><em>, </em><em>'SELECTED'</em><em>, </em><em>'ACTIVE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Subset, Subset of probes to update</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
+All Light Probes – Delete all light probes’ baked lighting data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECTED</span></code>
+Selected Only – Only delete selected light probes’ baked lighting data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>
+Active Only – Only delete the active light probe’s baked lighting data.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1479,7 +1575,7 @@ View – Align the new object to the view.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1077">startup/bl_operators/object.py:1077</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1083">startup/bl_operators/object.py:1083</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1498,7 +1594,7 @@ View – Align the new object to the view.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1077">startup/bl_operators/object.py:1077</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1083">startup/bl_operators/object.py:1083</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1526,7 +1622,7 @@ View – Align the new object to the view.</p></li>
 <dd><p>Add levels of detail to this object based on object names</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1181">startup/bl_operators/object.py:1181</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1187">startup/bl_operators/object.py:1187</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1537,7 +1633,7 @@ View – Align the new object to the view.</p></li>
 <dd><p>Remove all levels of detail from this object</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1231">startup/bl_operators/object.py:1231</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L1237">startup/bl_operators/object.py:1237</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1555,7 +1651,7 @@ View – Align the new object to the view.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L960">startup/bl_operators/object.py:960</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L966">startup/bl_operators/object.py:966</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1583,7 +1679,7 @@ View – Align the new object to the view.</p></li>
 <dd><p>Convert objects into instanced faces</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L648">startup/bl_operators/object.py:648</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L649">startup/bl_operators/object.py:649</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1972,7 +2068,7 @@ View – Align the new object to the view.</p></li>
 <li><p><strong>filter_backup</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter .blend files</p></li>
 <li><p><strong>filter_image</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter image files</p></li>
 <li><p><strong>filter_movie</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter movie files</p></li>
-<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter python files</p></li>
+<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Python files</p></li>
 <li><p><strong>filter_font</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter font files</p></li>
 <li><p><strong>filter_sound</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter sound files</p></li>
 <li><p><strong>filter_text</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter text files</p></li>
@@ -2148,11 +2244,14 @@ Clear Parent Inverse – Reset the transform corrections applied to the parentin
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.parent_no_inverse_set">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">parent_no_inverse_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keep_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.parent_no_inverse_set" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">parent_no_inverse_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.parent_no_inverse_set" title="Permalink to this definition"></a></dt>
 <dd><p>Set the object’s parenting without setting the inverse parent correction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>keep_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Transform, Preserve the world transform throughout parenting</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p></li>
+<li><p><strong>keep_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Transform, Preserve the world transform throughout parenting</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -2301,7 +2400,7 @@ Faces – Input target number of faces in the new mesh.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L255">startup/bl_operators/object_quick_effects.py:255</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L260">startup/bl_operators/object_quick_effects.py:260</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2323,7 +2422,7 @@ Faces – Input target number of faces in the new mesh.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L86">startup/bl_operators/object_quick_effects.py:86</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L91">startup/bl_operators/object_quick_effects.py:91</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2337,7 +2436,7 @@ Faces – Input target number of faces in the new mesh.</p></li>
 <dd class="field-odd"><p><strong>show_flows</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Render Liquid Objects, Keep the liquid objects visible during rendering</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L536">startup/bl_operators/object_quick_effects.py:536</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L544">startup/bl_operators/object_quick_effects.py:544</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2354,7 +2453,7 @@ Faces – Input target number of faces in the new mesh.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L431">startup/bl_operators/object_quick_effects.py:431</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_quick_effects.py#L438">startup/bl_operators/object_quick_effects.py:438</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2378,7 +2477,7 @@ Faces – Input target number of faces in the new mesh.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_randomize_transform.py#L157">startup/bl_operators/object_randomize_transform.py:157</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object_randomize_transform.py#L164">startup/bl_operators/object_randomize_transform.py:164</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2456,7 +2555,7 @@ Invert – Invert selection of all elements.</p></li>
 <dd class="field-odd"><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend the selection</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L116">startup/bl_operators/object.py:116</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L118">startup/bl_operators/object.py:118</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2514,7 +2613,7 @@ Light Type – Matching light types.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L166">startup/bl_operators/object.py:166</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L168">startup/bl_operators/object.py:168</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2569,7 +2668,7 @@ Light Type – Matching light types.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L39">startup/bl_operators/object.py:39</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L41">startup/bl_operators/object.py:41</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2790,7 +2889,40 @@ Relative Edge – Calculate relative position (using edges).</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L464">startup/bl_operators/object.py:464</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L466">startup/bl_operators/object.py:466</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.simulation_nodes_cache_bake">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">simulation_nodes_cache_bake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.simulation_nodes_cache_bake" title="Permalink to this definition"></a></dt>
+<dd><p>Bake simulations in geometry nodes modifiers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected, Bake cache on all selected objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.simulation_nodes_cache_calculate_to_frame">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">simulation_nodes_cache_calculate_to_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.simulation_nodes_cache_calculate_to_frame" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate simulations in geometry nodes modifiers from the start to current frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected, Calculate all selected objects instead of just the active object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.simulation_nodes_cache_delete">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">simulation_nodes_cache_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.simulation_nodes_cache_delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete cached/baked simulations in geometry nodes modifiers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected, Delete cache on all selected objects</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2874,7 +3006,7 @@ View – Align the new object to the view.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L234">startup/bl_operators/object.py:234</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L236">startup/bl_operators/object.py:236</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3013,7 +3145,7 @@ Scale – Transfer scale transforms only.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L715">startup/bl_operators/object.py:715</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/object.py#L721">startup/bl_operators/object.py:721</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3290,8 +3422,13 @@ Invert Unselected – Apply the opposite of Lock/Unlock to unselected vertex gro
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.vertex_parent_set">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">vertex_parent_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.vertex_parent_set" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">vertex_parent_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.vertex_parent_set" title="Permalink to this definition"></a></dt>
 <dd><p>Parent selected objects to the selected vertices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -3386,7 +3523,7 @@ View – Align the new object to the view.</p></li>
 <li><p><strong>filter_backup</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter .blend files</p></li>
 <li><p><strong>filter_image</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter image files</p></li>
 <li><p><strong>filter_movie</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter movie files</p></li>
-<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter python files</p></li>
+<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Python files</p></li>
 <li><p><strong>filter_font</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter font files</p></li>
 <li><p><strong>filter_sound</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter sound files</p></li>
 <li><p><strong>filter_text</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter text files</p></li>
@@ -3459,7 +3596,7 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -3474,7 +3611,7 @@ View – Align the new object to the view.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

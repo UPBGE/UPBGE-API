@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -36,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -74,6 +76,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -93,7 +96,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -262,6 +265,8 @@
       <ul>
         <li><a href="bpy.ops.gpencil.html#bpy.ops.gpencil.layer_add">(in module bpy.ops.gpencil)</a>
 </li>
+        <li><a href="bpy.ops.grease_pencil.html#bpy.ops.grease_pencil.layer_add">(in module bpy.ops.grease_pencil)</a>
+</li>
       </ul></li>
       <li><a href="bpy.ops.gpencil.html#bpy.ops.gpencil.layer_annotation_add">layer_annotation_add() (in module bpy.ops.gpencil)</a>
 </li>
@@ -276,6 +281,8 @@
       <li><a href="bpy.ops.gpencil.html#bpy.ops.gpencil.layer_duplicate">layer_duplicate() (in module bpy.ops.gpencil)</a>
 </li>
       <li><a href="bpy.ops.gpencil.html#bpy.ops.gpencil.layer_duplicate_object">layer_duplicate_object() (in module bpy.ops.gpencil)</a>
+</li>
+      <li><a href="bpy.ops.grease_pencil.html#bpy.ops.grease_pencil.layer_group_add">layer_group_add() (in module bpy.ops.grease_pencil)</a>
 </li>
       <li><a href="bpy.ops.gpencil.html#bpy.ops.gpencil.layer_isolate">layer_isolate() (in module bpy.ops.gpencil)</a>
 </li>
@@ -364,9 +371,13 @@
       <ul>
         <li><a href="bpy.ops.gpencil.html#bpy.ops.gpencil.layer_remove">(in module bpy.ops.gpencil)</a>
 </li>
+        <li><a href="bpy.ops.grease_pencil.html#bpy.ops.grease_pencil.layer_remove">(in module bpy.ops.grease_pencil)</a>
+</li>
         <li><a href="bpy.ops.mask.html#bpy.ops.mask.layer_remove">(in module bpy.ops.mask)</a>
 </li>
       </ul></li>
+      <li><a href="bpy.ops.grease_pencil.html#bpy.ops.grease_pencil.layer_reorder">layer_reorder() (in module bpy.ops.grease_pencil)</a>
+</li>
       <li><a href="bpy.types.ActionActuator.html#bpy.types.ActionActuator.layer_weight">layer_weight (bpy.types.ActionActuator attribute)</a>
 </li>
       <li><a href="bpy.types.LayerCollection.html#bpy.types.LayerCollection">LayerCollection (class in bpy.types)</a>
@@ -435,11 +446,11 @@
 </li>
       <li><a href="bge.events.html#bge.events.LEFTSHIFTKEY">LEFTSHIFTKEY (in module bge.events)</a>
 </li>
-      <li><a href="bpy.types.GeometryNodeRealizeInstances.html#bpy.types.GeometryNodeRealizeInstances.legacy_behavior">legacy_behavior (bpy.types.GeometryNodeRealizeInstances attribute)</a>
-</li>
-      <li><a href="bge.types.BL_ArmatureBone.html#bge.types.BL_ArmatureBone.length">length (bge.types.BL_ArmatureBone attribute)</a>
+      <li><a href="aud.html#aud.Sound.length">length (aud.Sound attribute)</a>
 
       <ul>
+        <li><a href="bge.types.BL_ArmatureBone.html#bge.types.BL_ArmatureBone.length">(bge.types.BL_ArmatureBone attribute)</a>
+</li>
         <li><a href="bpy.types.BuildGpencilModifier.html#bpy.types.BuildGpencilModifier.length">(bpy.types.BuildGpencilModifier attribute)</a>
 </li>
         <li><a href="bpy.types.EditBone.html#bpy.types.EditBone.length">(bpy.types.EditBone attribute)</a>
@@ -623,6 +634,20 @@
 </li>
       <li><a href="bpy.types.SceneDisplay.html#bpy.types.SceneDisplay.light_direction">light_direction (bpy.types.SceneDisplay attribute)</a>
 </li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.light_linking_blocker_collection_new">light_linking_blocker_collection_new() (in module bpy.ops.object)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.light_linking_blockers_link">light_linking_blockers_link() (in module bpy.ops.object)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.light_linking_blockers_select">light_linking_blockers_select() (in module bpy.ops.object)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.light_linking_receiver_collection_new">light_linking_receiver_collection_new() (in module bpy.ops.object)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.light_linking_receivers_link">light_linking_receivers_link() (in module bpy.ops.object)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.light_linking_receivers_select">light_linking_receivers_select() (in module bpy.ops.object)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.light_linking_unlink_from_collection">light_linking_unlink_from_collection() (in module bpy.ops.object)</a>
+</li>
       <li><a href="bpy.types.SceneEEVEE.html#bpy.types.SceneEEVEE.light_threshold">light_threshold (bpy.types.SceneEEVEE attribute)</a>
 </li>
       <li><a href="bpy.types.Object.html#bpy.types.Object.lightgroup">lightgroup (bpy.types.Object attribute)</a>
@@ -647,6 +672,10 @@
 </li>
       <li><a href="bpy.ops.object.html#bpy.ops.object.lightprobe_add">lightprobe_add() (in module bpy.ops.object)</a>
 </li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.lightprobe_cache_bake">lightprobe_cache_bake() (in module bpy.ops.object)</a>
+</li>
+      <li><a href="bpy.ops.object.html#bpy.ops.object.lightprobe_cache_free">lightprobe_cache_free() (in module bpy.ops.object)</a>
+</li>
       <li><a href="bge.types.KX_Scene.html#bge.types.KX_Scene.lights">lights (bge.types.KX_Scene attribute)</a>
 </li>
       <li><a href="bge.types.SCA_ConstraintActuator.html#bge.types.SCA_ConstraintActuator.limit">limit (bge.types.SCA_ConstraintActuator attribute)</a>
@@ -655,6 +684,8 @@
         <li><a href="bpy.types.ConstraintActuator.html#bpy.types.ConstraintActuator.limit">(bpy.types.ConstraintActuator attribute)</a>
 </li>
       </ul></li>
+      <li><a href="aud.html#aud.Sound.limit">limit() (aud.Sound method)</a>
+</li>
       <li><a href="bpy.types.RigidBodyConstraint.html#bpy.types.RigidBodyConstraint.limit_ang_x_lower">limit_ang_x_lower (bpy.types.RigidBodyConstraint attribute)</a>
 </li>
       <li><a href="bpy.types.RigidBodyConstraint.html#bpy.types.RigidBodyConstraint.limit_ang_x_upper">limit_ang_x_upper (bpy.types.RigidBodyConstraint attribute)</a>
@@ -813,22 +844,6 @@
 </li>
       <li><a href="gpu.state.html#gpu.state.line_width_set">line_width_set() (in module gpu.state)</a>
 </li>
-      <li><a href="bpy.types.AreaLight.html#bpy.types.AreaLight.linear_attenuation">linear_attenuation (bpy.types.AreaLight attribute)</a>
-
-      <ul>
-        <li><a href="bpy.types.PointLight.html#bpy.types.PointLight.linear_attenuation">(bpy.types.PointLight attribute)</a>
-</li>
-        <li><a href="bpy.types.SpotLight.html#bpy.types.SpotLight.linear_attenuation">(bpy.types.SpotLight attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="bpy.types.AreaLight.html#bpy.types.AreaLight.linear_coefficient">linear_coefficient (bpy.types.AreaLight attribute)</a>
-
-      <ul>
-        <li><a href="bpy.types.PointLight.html#bpy.types.PointLight.linear_coefficient">(bpy.types.PointLight attribute)</a>
-</li>
-        <li><a href="bpy.types.SpotLight.html#bpy.types.SpotLight.linear_coefficient">(bpy.types.SpotLight attribute)</a>
-</li>
-      </ul></li>
       <li><a href="bpy.types.RigidBodyObject.html#bpy.types.RigidBodyObject.linear_damping">linear_damping (bpy.types.RigidBodyObject attribute)</a>
 </li>
       <li><a href="bpy.types.FieldSettings.html#bpy.types.FieldSettings.linear_drag">linear_drag (bpy.types.FieldSettings attribute)</a>
@@ -897,10 +912,10 @@
 </li>
       <li><a href="bpy.types.LineStyleAlphaModifier_Curvature_3D.html#bpy.types.LineStyleAlphaModifier_Curvature_3D">LineStyleAlphaModifier_Curvature_3D (class in bpy.types)</a>
 </li>
-      <li><a href="bpy.types.LineStyleAlphaModifier_Curvature_3D.html#bpy.types.LineStyleAlphaModifier_Curvature_3D.curve">LineStyleAlphaModifier_Curvature_3D.curve (in module bpy.types)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bpy.types.LineStyleAlphaModifier_Curvature_3D.html#bpy.types.LineStyleAlphaModifier_Curvature_3D.curve">LineStyleAlphaModifier_Curvature_3D.curve (in module bpy.types)</a>
+</li>
       <li><a href="bpy.types.LineStyleAlphaModifier_Curvature_3D.html#bpy.types.LineStyleAlphaModifier_Curvature_3D.type">LineStyleAlphaModifier_Curvature_3D.type (in module bpy.types)</a>
 </li>
       <li><a href="bpy.types.LineStyleAlphaModifier_DistanceFromCamera.html#bpy.types.LineStyleAlphaModifier_DistanceFromCamera">LineStyleAlphaModifier_DistanceFromCamera (class in bpy.types)</a>
@@ -1153,6 +1168,8 @@
       </ul></li>
       <li><a href="bpy.ops.node.html#bpy.ops.node.link_make">link_make() (in module bpy.ops.node)</a>
 </li>
+      <li><a href="bpy.types.CollectionLightLinking.html#bpy.types.CollectionLightLinking.link_state">link_state (bpy.types.CollectionLightLinking attribute)</a>
+</li>
       <li><a href="bpy.ops.object.html#bpy.ops.object.link_to_collection">link_to_collection() (in module bpy.ops.object)</a>
 </li>
       <li><a href="bpy.ops.node.html#bpy.ops.node.link_viewer">link_viewer() (in module bpy.ops.node)</a>
@@ -1177,6 +1194,8 @@
 </li>
       <li><a href="bpy.types.ThemeSpaceListGeneric.html#bpy.types.ThemeSpaceListGeneric.list">list (bpy.types.ThemeSpaceListGeneric attribute)</a>
 </li>
+      <li><a href="aud.html#aud.Sound.list">list() (aud.Sound class method)</a>
+</li>
       <li><a href="bpy.ops.ui.html#bpy.ops.ui.list_start_filter">list_start_filter() (in module bpy.ops.ui)</a>
 </li>
       <li><a href="bpy.types.ThemeSpaceListGeneric.html#bpy.types.ThemeSpaceListGeneric.list_text">list_text (bpy.types.ThemeSpaceListGeneric attribute)</a>
@@ -1184,6 +1203,12 @@
       <li><a href="bpy.types.ThemeSpaceListGeneric.html#bpy.types.ThemeSpaceListGeneric.list_text_hi">list_text_hi (bpy.types.ThemeSpaceListGeneric attribute)</a>
 </li>
       <li><a href="bpy.types.ThemeSpaceListGeneric.html#bpy.types.ThemeSpaceListGeneric.list_title">list_title (bpy.types.ThemeSpaceListGeneric attribute)</a>
+</li>
+      <li><a href="aud.html#aud.Device.listener_location">listener_location (aud.Device attribute)</a>
+</li>
+      <li><a href="aud.html#aud.Device.listener_orientation">listener_orientation (aud.Device attribute)</a>
+</li>
+      <li><a href="aud.html#aud.Device.listener_velocity">listener_velocity (aud.Device attribute)</a>
 </li>
       <li><a href="bge.events.html#bge.events.LKEY">LKEY (in module bge.events)</a>
 </li>
@@ -1305,9 +1330,11 @@
 </li>
       <li><a href="bpy.ops.view3d.html#bpy.ops.view3d.localview_remove_from">localview_remove_from() (in module bpy.ops.view3d)</a>
 </li>
-      <li><a href="bge.types.BL_ArmatureChannel.html#bge.types.BL_ArmatureChannel.location">location (bge.types.BL_ArmatureChannel attribute)</a>
+      <li><a href="aud.html#aud.Handle.location">location (aud.Handle attribute)</a>
 
       <ul>
+        <li><a href="bge.types.BL_ArmatureChannel.html#bge.types.BL_ArmatureChannel.location">(bge.types.BL_ArmatureChannel attribute)</a>
+</li>
         <li><a href="bpy.types.CurveMapPoint.html#bpy.types.CurveMapPoint.location">(bpy.types.CurveMapPoint attribute)</a>
 </li>
         <li><a href="bpy.types.CurveProfilePoint.html#bpy.types.CurveProfilePoint.location">(bpy.types.CurveProfilePoint attribute)</a>
@@ -1350,6 +1377,10 @@
 </li>
         <li><a href="bpy.types.GPencilLayer.html#bpy.types.GPencilLayer.lock">(bpy.types.GPencilLayer attribute)</a>
 </li>
+        <li><a href="bpy.types.GreasePencilLayer.html#bpy.types.GreasePencilLayer.lock">(bpy.types.GreasePencilLayer attribute)</a>
+</li>
+        <li><a href="bpy.types.GreasePencilLayerGroup.html#bpy.types.GreasePencilLayerGroup.lock">(bpy.types.GreasePencilLayerGroup attribute)</a>
+</li>
         <li><a href="bpy.types.MaterialGPencilStyle.html#bpy.types.MaterialGPencilStyle.lock">(bpy.types.MaterialGPencilStyle attribute)</a>
 </li>
         <li><a href="bpy.types.MovieTrackingTrack.html#bpy.types.MovieTrackingTrack.lock">(bpy.types.MovieTrackingTrack attribute)</a>
@@ -1361,8 +1392,12 @@
         <li><a href="bpy.types.SequenceTimelineChannel.html#bpy.types.SequenceTimelineChannel.lock">(bpy.types.SequenceTimelineChannel attribute)</a>
 </li>
       </ul></li>
-      <li><a href="bpy.ops.sequencer.html#bpy.ops.sequencer.lock">lock() (in module bpy.ops.sequencer)</a>
+      <li><a href="aud.html#aud.Device.lock">lock() (aud.Device method)</a>
+
+      <ul>
+        <li><a href="bpy.ops.sequencer.html#bpy.ops.sequencer.lock">(in module bpy.ops.sequencer)</a>
 </li>
+      </ul></li>
       <li><a href="bpy.ops.gpencil.html#bpy.ops.gpencil.lock_all">lock_all() (in module bpy.ops.gpencil)</a>
 </li>
       <li><a href="bpy.types.GPencilSculptSettings.html#bpy.types.GPencilSculptSettings.lock_axis">lock_axis (bpy.types.GPencilSculptSettings attribute)</a>
@@ -1567,6 +1602,10 @@
 </li>
       <li><a href="bpy.types.PreferencesView.html#bpy.types.PreferencesView.lookdev_sphere_size">lookdev_sphere_size (bpy.types.PreferencesView attribute)</a>
 </li>
+      <li><a href="aud.html#aud.Sound.loop">loop() (aud.Sound method)</a>
+</li>
+      <li><a href="aud.html#aud.Handle.loop_count">loop_count (aud.Handle attribute)</a>
+</li>
       <li><a href="bpy.types.DataTransferModifier.html#bpy.types.DataTransferModifier.loop_mapping">loop_mapping (bpy.types.DataTransferModifier attribute)</a>
 </li>
       <li><a href="bpy.ops.mesh.html#bpy.ops.mesh.loop_multi_select">loop_multi_select() (in module bpy.ops.mesh)</a>
@@ -1597,6 +1636,8 @@
 </li>
       <li><a href="bpy.types.ShaderFxColorize.html#bpy.types.ShaderFxColorize.low_color">low_color (bpy.types.ShaderFxColorize attribute)</a>
 </li>
+      <li><a href="aud.html#aud.Sound.lowpass">lowpass() (aud.Sound method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1609,7 +1650,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -1624,7 +1665,7 @@
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

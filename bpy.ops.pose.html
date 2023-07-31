@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -132,7 +135,7 @@
 <dd><p>Automatically renames the selected bones according to which side of the target axis they fall on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>axis</strong> (<em>enum in</em><em> [</em><em>'XAXIS'</em><em>, </em><em>'YAXIS'</em><em>, </em><em>'ZAXIS'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Axis, Axis tag names with</p>
+<dd class="field-odd"><p><strong>axis</strong> (<em>enum in</em><em> [</em><em>'XAXIS'</em><em>, </em><em>'YAXIS'</em><em>, </em><em>'ZAXIS'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Axis, Axis to tag names with</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">XAXIS</span></code>
 X-Axis – Left/Right.</p></li>
@@ -150,6 +153,49 @@ Z-Axis – Top/Bottom.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.blend_to_neighbor">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">blend_to_neighbor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.blend_to_neighbor" title="Permalink to this definition"></a></dt>
 <dd><p>Blend from current position to previous or next keyframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
+<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
+<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
+<li><p><strong>channels</strong> (<em>enum in</em><em> [</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Channels, Set of properties that are affected</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
+All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOC</span></code>
+Location – Location only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROT</span></code>
+Rotation – Rotation only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SIZE</span></code>
+Scale – Scale only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BBONE</span></code>
+Bendy Bone – Bendy Bone shape properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CUSTOM</span></code>
+Custom Properties – Custom properties.</p></li>
+</ul>
+</p></li>
+<li><p><strong>axis_lock</strong> (<em>enum in</em><em> [</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Axis Lock, Transform axis to restrict effects to</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
+Free – All axes are affected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
+X – Only X-axis transforms are affected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>
+Y – Only Y-axis transforms are affected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code>
+Z – Only Z-axis transforms are affected.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.pose.blend_with_rest">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">blend_with_rest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.blend_with_rest" title="Permalink to this definition"></a></dt>
+<dd><p>Make the current pose more similar to, or further away from, the rest pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -268,7 +314,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.constraints_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraints_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraints_clear" title="Permalink to this definition"></a></dt>
-<dd><p>Clear all the constraints for the selected bones</p>
+<dd><p>Clear all constraints from the selected bones</p>
 </dd></dl>
 
 <dl class="py function">
@@ -280,7 +326,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.copy">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.copy" title="Permalink to this definition"></a></dt>
-<dd><p>Copies the current pose of the selected bones to copy/paste buffer</p>
+<dd><p>Copy the current pose of the selected bones to the internal clipboard</p>
 </dd></dl>
 
 <dl class="py function">
@@ -511,49 +557,6 @@ Z – Only Z-axis transforms are affected.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.pose.push_rest">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">push_rest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.push_rest" title="Permalink to this definition"></a></dt>
-<dd><p>Push the current pose further away from the rest pose</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
-<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
-<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
-<li><p><strong>channels</strong> (<em>enum in</em><em> [</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Channels, Set of properties that are affected</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
-All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LOC</span></code>
-Location – Location only.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ROT</span></code>
-Rotation – Rotation only.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SIZE</span></code>
-Scale – Scale only.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BBONE</span></code>
-Bendy Bone – Bendy Bone shape properties.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CUSTOM</span></code>
-Custom Properties – Custom properties.</p></li>
-</ul>
-</p></li>
-<li><p><strong>axis_lock</strong> (<em>enum in</em><em> [</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Axis Lock, Transform axis to restrict effects to</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
-Free – All axes are affected.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
-X – Only X-axis transforms are affected.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>
-Y – Only Y-axis transforms are affected.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code>
-Z – Only Z-axis transforms are affected.</p></li>
-</ul>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.quaternions_flip">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">quaternions_flip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.quaternions_flip" title="Permalink to this definition"></a></dt>
 <dd><p>Flip quaternion values to achieve desired rotations, while maintaining the same orientations</p>
@@ -563,49 +566,6 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.relax">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.relax" title="Permalink to this definition"></a></dt>
 <dd><p>Make the current pose more similar to its breakdown pose</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
-<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
-<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
-<li><p><strong>channels</strong> (<em>enum in</em><em> [</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Channels, Set of properties that are affected</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
-All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LOC</span></code>
-Location – Location only.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ROT</span></code>
-Rotation – Rotation only.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SIZE</span></code>
-Scale – Scale only.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BBONE</span></code>
-Bendy Bone – Bendy Bone shape properties.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CUSTOM</span></code>
-Custom Properties – Custom properties.</p></li>
-</ul>
-</p></li>
-<li><p><strong>axis_lock</strong> (<em>enum in</em><em> [</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Axis Lock, Transform axis to restrict effects to</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
-Free – All axes are affected.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
-X – Only X-axis transforms are affected.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>
-Y – Only Y-axis transforms are affected.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code>
-Z – Only Z-axis transforms are affected.</p></li>
-</ul>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.pose.relax_rest">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">relax_rest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.relax_rest" title="Permalink to this definition"></a></dt>
-<dd><p>Make the current pose more similar to the rest pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -818,7 +778,7 @@ Keying Set – All bones affected by active Keying Set.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -833,7 +793,7 @@ Keying Set – All bones affected by active Keying Set.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

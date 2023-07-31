@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -161,7 +164,7 @@ respective directions: v(1)v(0) and v(n-1)v(n).</p>
 <dd><p>Builds a BezierCurveShader object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>error</strong> (<em>float</em>) – The error we’re allowing for the approximation.  This
+<dd class="field-odd"><p><strong>error</strong> (<em>float</em>) – The error we’re allowing for the approximation. This
 error is the max distance allowed between the new curve and the
 original geometry.</p>
 </dd>
@@ -232,7 +235,7 @@ perpendicular to the main direction.</p></li>
 <li><p><strong>orientation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The 2D vector giving the main direction.</p></li>
 <li><p><strong>clamp</strong> (<em>bool</em>) – If true, the strokes are drawn in black when the stroke
 direction is between -90 and 90 degrees with respect to the main
-direction and drawn in white otherwise.  If false, the strokes
+direction and drawn in white otherwise. If false, the strokes
 are always drawn in black.</p></li>
 </ul>
 </dd>
@@ -397,7 +400,7 @@ fat short lines.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>offset</strong> (<em>float</em>) – The line that replaces the stroke is initially in the
-middle of the initial stroke bounding box.  offset is the value
+middle of the initial stroke bounding box. offset is the value
 of the displacement which is applied to this line along its
 normal.</p>
 </dd>
@@ -408,10 +411,10 @@ normal.</p>
 <dt class="sig sig-object py" id="freestyle.shaders.GuidingLinesShader.shade">
 <span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.shaders.GuidingLinesShader.shade" title="Permalink to this definition"></a></dt>
 <dd><p>Shader to modify the Stroke geometry so that it corresponds to its
-main direction line.  This shader must be used together with the
+main direction line. This shader must be used together with the
 splitting operator using the curvature criterion. Indeed, the
 precision of the approximation will depend on the size of the
-stroke’s pieces.  The bigger the pieces are, the rougher the
+stroke’s pieces. The bigger the pieces are, the rougher the
 approximation is.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -450,8 +453,8 @@ approximation is.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.shaders.IncreasingColorShader.shade">
 <span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.shaders.IncreasingColorShader.shade" title="Permalink to this definition"></a></dt>
-<dd><p>Assigns a varying color to the stroke.  The user specifies two
-colors A and B.  The stroke color will change linearly from A to B
+<dd><p>Assigns a varying color to the stroke. The user specifies two
+colors A and B. The stroke color will change linearly from A to B
 between the first and the last vertex.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -487,7 +490,7 @@ between the first and the last vertex.</p>
 <dd><p>Assigns thicknesses values such as the thickness increases from a
 thickness value A to a thickness value B between the first vertex
 to the midpoint vertex and then decreases from B to a A between
-this midpoint vertex and the last vertex.  The thickness is
+this midpoint vertex and the last vertex. The thickness is
 linearly interpolated from A to B.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -510,8 +513,8 @@ linearly interpolated from A to B.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>error</strong> (<em>float</em>) – The error we want our polygonal approximation to have
-with respect to the original geometry.  The smaller, the closer
-the new stroke is to the original one.  This error corresponds to
+with respect to the original geometry. The smaller, the closer
+the new stroke is to the original one. This error corresponds to
 the maximum distance between the new stroke and the old one.</p>
 </dd>
 </dl>
@@ -607,8 +610,8 @@ error is reached.</p>
 <dt class="sig sig-object py" id="freestyle.shaders.SmoothingShader.shade">
 <span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.shaders.SmoothingShader.shade" title="Permalink to this definition"></a></dt>
 <dd><p>Smooths the stroke by moving the vertices to make the stroke
-smoother.  Uses curvature flow to converge towards a curve of
-constant curvature.  The diffusion method we use is anisotropic to
+smoother. Uses curvature flow to converge towards a curve of
+constant curvature. The diffusion method we use is anisotropic to
 prevent the diffusion across corners.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -644,7 +647,7 @@ prevent the diffusion across corners.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.shaders.SpatialNoiseShader.shade">
 <span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.shaders.SpatialNoiseShader.shade" title="Permalink to this definition"></a></dt>
-<dd><p>Spatial Noise stroke shader.  Moves the vertices to make the stroke
+<dd><p>Spatial Noise stroke shader. Moves the vertices to make the stroke
 more noisy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1183,7 +1186,7 @@ closest to camera is 1, point furthest from camera is zero).</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -1198,7 +1201,7 @@ closest to camera is 1, point furthest from camera is zero).</p>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -36,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -74,6 +76,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -93,7 +96,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -128,6 +131,8 @@
 </li>
       </ul></li>
       <li><a href="bge.events.html#bge.events.ACCENTGRAVEKEY">ACCENTGRAVEKEY (in module bge.events)</a>
+</li>
+      <li><a href="aud.html#aud.Sound.accumulate">accumulate() (aud.Sound method)</a>
 </li>
       <li><a href="bpy.types.BoidSettings.html#bpy.types.BoidSettings.accuracy">accuracy (bpy.types.BoidSettings attribute)</a>
 
@@ -188,6 +193,8 @@
       <li><a href="bpy.types.XrSessionState.html#bpy.types.XrSessionState.action_state_get">action_state_get() (bpy.types.XrSessionState class method)</a>
 </li>
       <li><a href="bpy.ops.nla.html#bpy.ops.nla.action_sync_length">action_sync_length() (in module bpy.ops.nla)</a>
+</li>
+      <li><a href="bpy.types.AnimData.html#bpy.types.AnimData.action_tweak_storage">action_tweak_storage (bpy.types.AnimData attribute)</a>
 </li>
       <li><a href="bpy.ops.nla.html#bpy.ops.nla.action_unlink">action_unlink() (in module bpy.ops.nla)</a>
 </li>
@@ -264,6 +271,8 @@
 </li>
         <li><a href="bpy.types.GreasePencilLayers.html#bpy.types.GreasePencilLayers.active">(bpy.types.GreasePencilLayers attribute)</a>
 </li>
+        <li><a href="bpy.types.GreasePencilv3Layers.html#bpy.types.GreasePencilv3Layers.active">(bpy.types.GreasePencilv3Layers attribute)</a>
+</li>
         <li><a href="bpy.types.KeyConfigurations.html#bpy.types.KeyConfigurations.active">(bpy.types.KeyConfigurations attribute)</a>
 </li>
         <li><a href="bpy.types.KeyingSetPaths.html#bpy.types.KeyingSetPaths.active">(bpy.types.KeyingSetPaths attribute)</a>
@@ -288,8 +297,6 @@
 </li>
         <li><a href="bpy.types.MeshUVLoopLayer.html#bpy.types.MeshUVLoopLayer.active">(bpy.types.MeshUVLoopLayer attribute)</a>
 </li>
-        <li><a href="bpy.types.MeshVertColorLayer.html#bpy.types.MeshVertColorLayer.active">(bpy.types.MeshVertColorLayer attribute)</a>
-</li>
         <li><a href="bpy.types.MovieTrackingObjectPlaneTracks.html#bpy.types.MovieTrackingObjectPlaneTracks.active">(bpy.types.MovieTrackingObjectPlaneTracks attribute)</a>
 </li>
         <li><a href="bpy.types.MovieTrackingObjects.html#bpy.types.MovieTrackingObjects.active">(bpy.types.MovieTrackingObjects attribute)</a>
@@ -301,6 +308,8 @@
         <li><a href="bpy.types.MovieTrackingTracks.html#bpy.types.MovieTrackingTracks.active">(bpy.types.MovieTrackingTracks attribute)</a>
 </li>
         <li><a href="bpy.types.NlaTracks.html#bpy.types.NlaTracks.active">(bpy.types.NlaTracks attribute)</a>
+</li>
+        <li><a href="bpy.types.NodePanels.html#bpy.types.NodePanels.active">(bpy.types.NodePanels attribute)</a>
 </li>
         <li><a href="bpy.types.Nodes.html#bpy.types.Nodes.active">(bpy.types.Nodes attribute)</a>
 </li>
@@ -327,8 +336,6 @@
         <li><a href="bpy.types.UILayout.html#bpy.types.UILayout.active">(bpy.types.UILayout attribute)</a>
 </li>
         <li><a href="bpy.types.UVLoopLayers.html#bpy.types.UVLoopLayers.active">(bpy.types.UVLoopLayers attribute)</a>
-</li>
-        <li><a href="bpy.types.VertColors.html#bpy.types.VertColors.active">(bpy.types.VertColors attribute)</a>
 </li>
         <li><a href="bpy.types.VertexGroups.html#bpy.types.VertexGroups.active">(bpy.types.VertexGroups attribute)</a>
 </li>
@@ -408,7 +415,9 @@
 </li>
         <li><a href="bpy.types.DynamicPaintSurfaces.html#bpy.types.DynamicPaintSurfaces.active_index">(bpy.types.DynamicPaintSurfaces attribute)</a>
 </li>
-        <li><a href="bpy.types.FaceMaps.html#bpy.types.FaceMaps.active_index">(bpy.types.FaceMaps attribute)</a>
+        <li><a href="bpy.types.GeometryNodeRepeatOutput.html#bpy.types.GeometryNodeRepeatOutput.active_index">(bpy.types.GeometryNodeRepeatOutput attribute)</a>
+</li>
+        <li><a href="bpy.types.GeometryNodeSimulationOutput.html#bpy.types.GeometryNodeSimulationOutput.active_index">(bpy.types.GeometryNodeSimulationOutput attribute)</a>
 </li>
         <li><a href="bpy.types.GreasePencilLayers.html#bpy.types.GreasePencilLayers.active_index">(bpy.types.GreasePencilLayers attribute)</a>
 </li>
@@ -422,6 +431,8 @@
 </li>
         <li><a href="bpy.types.LoopColors.html#bpy.types.LoopColors.active_index">(bpy.types.LoopColors attribute)</a>
 </li>
+        <li><a href="bpy.types.NodePanels.html#bpy.types.NodePanels.active_index">(bpy.types.NodePanels attribute)</a>
+</li>
         <li><a href="bpy.types.ParticleSystems.html#bpy.types.ParticleSystems.active_index">(bpy.types.ParticleSystems attribute)</a>
 </li>
         <li><a href="bpy.types.PointCaches.html#bpy.types.PointCaches.active_index">(bpy.types.PointCaches attribute)</a>
@@ -434,8 +445,6 @@
 </li>
         <li><a href="bpy.types.UVLoopLayers.html#bpy.types.UVLoopLayers.active_index">(bpy.types.UVLoopLayers attribute)</a>
 </li>
-        <li><a href="bpy.types.VertColors.html#bpy.types.VertColors.active_index">(bpy.types.VertColors attribute)</a>
-</li>
         <li><a href="bpy.types.VertexGroups.html#bpy.types.VertexGroups.active_index">(bpy.types.VertexGroups attribute)</a>
 </li>
         <li><a href="bpy.types.VolumeGrids.html#bpy.types.VolumeGrids.active_index">(bpy.types.VolumeGrids attribute)</a>
@@ -447,6 +456,12 @@
 </li>
       <li><a href="bpy.types.ParticleSettings.html#bpy.types.ParticleSettings.active_instanceweight_index">active_instanceweight_index (bpy.types.ParticleSettings attribute)</a>
 </li>
+      <li><a href="bpy.types.GeometryNodeRepeatOutput.html#bpy.types.GeometryNodeRepeatOutput.active_item">active_item (bpy.types.GeometryNodeRepeatOutput attribute)</a>
+
+      <ul>
+        <li><a href="bpy.types.GeometryNodeSimulationOutput.html#bpy.types.GeometryNodeSimulationOutput.active_item">(bpy.types.GeometryNodeSimulationOutput attribute)</a>
+</li>
+      </ul></li>
       <li><a href="bpy.types.PreferencesKeymap.html#bpy.types.PreferencesKeymap.active_keyconfig">active_keyconfig (bpy.types.PreferencesKeymap attribute)</a>
 </li>
       <li><a href="bpy.types.ViewLayer.html#bpy.types.ViewLayer.active_layer_collection">active_layer_collection (bpy.types.ViewLayer attribute)</a>
@@ -495,8 +510,6 @@
 
       <ul>
         <li><a href="bpy.types.MeshUVLoopLayer.html#bpy.types.MeshUVLoopLayer.active_render">(bpy.types.MeshUVLoopLayer attribute)</a>
-</li>
-        <li><a href="bpy.types.MeshVertColorLayer.html#bpy.types.MeshVertColorLayer.active_render">(bpy.types.MeshVertColorLayer attribute)</a>
 </li>
       </ul></li>
       <li><a href="bpy.types.MovieTrackingStabilization.html#bpy.types.MovieTrackingStabilization.active_rotation_track_index">active_rotation_track_index (bpy.types.MovieTrackingStabilization attribute)</a>
@@ -599,14 +612,14 @@
         <li><a href="bpy.types.CompositorNodeCryptomatteV2.html#bpy.types.CompositorNodeCryptomatteV2.add">(bpy.types.CompositorNodeCryptomatteV2 attribute)</a>
 </li>
       </ul></li>
-      <li><a href="bmesh.types.html#bmesh.types.BMEditSelSeq.add">add() (bmesh.types.BMEditSelSeq method)</a>
+      <li><a href="aud.html#aud.Sequence.add">add() (aud.Sequence method)</a>
 
       <ul>
+        <li><a href="bmesh.types.html#bmesh.types.BMEditSelSeq.add">(bmesh.types.BMEditSelSeq method)</a>
+</li>
         <li><a href="bpy.types.AOVs.html#bpy.types.AOVs.add">(bpy.types.AOVs method)</a>
 </li>
         <li><a href="bpy.types.CurveProfilePoints.html#bpy.types.CurveProfilePoints.add">(bpy.types.CurveProfilePoints method)</a>
-</li>
-        <li><a href="bpy.types.FaceMap.html#bpy.types.FaceMap.add">(bpy.types.FaceMap method)</a>
 </li>
         <li><a href="bpy.types.FCurveKeyframePoints.html#bpy.types.FCurveKeyframePoints.add">(bpy.types.FCurveKeyframePoints method)</a>
 </li>
@@ -713,6 +726,8 @@
 </li>
       <li><a href="bpy.ops.image.html#bpy.ops.image.add_render_slot">add_render_slot() (in module bpy.ops.image)</a>
 </li>
+      <li><a href="bpy.ops.node.html#bpy.ops.node.add_repeat_zone">add_repeat_zone() (in module bpy.ops.node)</a>
+</li>
       <li><a href="bpy.ops.node.html#bpy.ops.node.add_reroute">add_reroute() (in module bpy.ops.node)</a>
 </li>
       <li><a href="bpy.types.Object.html#bpy.types.Object.add_rest_position_attribute">add_rest_position_attribute (bpy.types.Object attribute)</a>
@@ -722,6 +737,8 @@
       <li><a href="bpy.ops.node.html#bpy.ops.node.add_search">add_search() (in module bpy.ops.node)</a>
 </li>
       <li><a href="bpy.ops.paint.html#bpy.ops.paint.add_simple_uvs">add_simple_uvs() (in module bpy.ops.paint)</a>
+</li>
+      <li><a href="bpy.ops.node.html#bpy.ops.node.add_simulation_zone">add_simulation_zone() (in module bpy.ops.node)</a>
 </li>
       <li><a href="bpy.ops.constraint.html#bpy.ops.constraint.add_target">add_target() (in module bpy.ops.constraint)</a>
 </li>
@@ -738,6 +755,8 @@
 </li>
       </ul></li>
       <li><a href="bpy.ops.mask.html#bpy.ops.mask.add_vertex_slide">add_vertex_slide() (in module bpy.ops.mask)</a>
+</li>
+      <li><a href="aud.html#aud.PlaybackManager.addCategory">addCategory() (aud.PlaybackManager method)</a>
 </li>
       <li><a href="bge.types.KX_GameObject.html#bge.types.KX_GameObject.addDebugProperty">addDebugProperty() (bge.types.KX_GameObject method)</a>
 </li>
@@ -785,11 +804,19 @@
 </li>
       <li><a href="bge.types.KX_Scene.html#bge.types.KX_Scene.addOverlayCollection">addOverlayCollection() (bge.types.KX_Scene method)</a>
 </li>
-      <li><a href="bge.logic.html#bge.logic.addScene">addScene() (in module bge.logic)</a>
+      <li><a href="aud.html#aud.DynamicMusic.addScene">addScene() (aud.DynamicMusic method)</a>
+
+      <ul>
+        <li><a href="bge.logic.html#bge.logic.addScene">(in module bge.logic)</a>
 </li>
+      </ul></li>
       <li><a href="bpy.types.AddSequence.html#bpy.types.AddSequence">AddSequence (class in bpy.types)</a>
 </li>
       <li><a href="bpy.types.AddSequence.html#bpy.types.AddSequence.input_count">AddSequence.input_count (in module bpy.types)</a>
+</li>
+      <li><a href="aud.html#aud.Sound.addSound">addSound() (aud.Sound method)</a>
+</li>
+      <li><a href="aud.html#aud.DynamicMusic.addTransition">addTransition() (aud.DynamicMusic method)</a>
 </li>
       <li><a href="bge.types.KX_VehicleWrapper.html#bge.types.KX_VehicleWrapper.addWheel">addWheel() (bge.types.KX_VehicleWrapper method)</a>
 </li>
@@ -802,6 +829,8 @@
       <li><a href="bpy.types.AdjustmentSequence.html#bpy.types.AdjustmentSequence">AdjustmentSequence (class in bpy.types)</a>
 </li>
       <li><a href="bpy.types.AdjustmentSequence.html#bpy.types.AdjustmentSequence.input_count">AdjustmentSequence.input_count (in module bpy.types)</a>
+</li>
+      <li><a href="aud.html#aud.Sound.ADSR">ADSR() (aud.Sound method)</a>
 </li>
       <li><a href="bpy.types.SoftBodySettings.html#bpy.types.SoftBodySettings.aero">aero (bpy.types.SoftBodySettings attribute)</a>
 </li>
@@ -1159,6 +1188,10 @@
       </ul></li>
       <li><a href="bpy.ops.screen.html#bpy.ops.screen.animation_play">animation_play() (in module bpy.ops.screen)</a>
 </li>
+      <li><a href="bpy.app.handlers.html#bpy.app.handlers.animation_playback_post">animation_playback_post (in module bpy.app.handlers)</a>
+</li>
+      <li><a href="bpy.app.handlers.html#bpy.app.handlers.animation_playback_pre">animation_playback_pre (in module bpy.app.handlers)</a>
+</li>
       <li><a href="bpy.types.PreferencesFilePaths.html#bpy.types.PreferencesFilePaths.animation_player">animation_player (bpy.types.PreferencesFilePaths attribute)</a>
 </li>
       <li><a href="bpy.types.PreferencesFilePaths.html#bpy.types.PreferencesFilePaths.animation_player_preset">animation_player_preset (bpy.types.PreferencesFilePaths attribute)</a>
@@ -1232,6 +1265,16 @@
       <li><a href="bpy.types.View3DShading.html#bpy.types.View3DShading.aov_name">aov_name (bpy.types.View3DShading attribute)</a>
 </li>
       <li><a href="bpy.types.AOVs.html#bpy.types.AOVs">AOVs (class in bpy.types)</a>
+</li>
+      <li><a href="aud.html#aud.AP_LOCATION">AP_LOCATION (in module aud)</a>
+</li>
+      <li><a href="aud.html#aud.AP_ORIENTATION">AP_ORIENTATION (in module aud)</a>
+</li>
+      <li><a href="aud.html#aud.AP_PANNING">AP_PANNING (in module aud)</a>
+</li>
+      <li><a href="aud.html#aud.AP_PITCH">AP_PITCH (in module aud)</a>
+</li>
+      <li><a href="aud.html#aud.AP_VOLUME">AP_VOLUME (in module aud)</a>
 </li>
       <li><a href="bpy.types.CameraDOFSettings.html#bpy.types.CameraDOFSettings.aperture_blades">aperture_blades (bpy.types.CameraDOFSettings attribute)</a>
 </li>
@@ -1339,8 +1382,6 @@
 </li>
       <li><a href="bpy.types.AreaLight.html#bpy.types.AreaLight">AreaLight (class in bpy.types)</a>
 </li>
-      <li><a href="bpy.types.AreaLight.html#bpy.types.AreaLight.falloff_curve">AreaLight.falloff_curve (in module bpy.types)</a>
-</li>
       <li><a href="bpy.types.AreaSpaces.html#bpy.types.AreaSpaces">AreaSpaces (class in bpy.types)</a>
 </li>
       <li><a href="bpy.types.AreaSpaces.html#bpy.types.AreaSpaces.active">AreaSpaces.active (in module bpy.types)</a>
@@ -1427,6 +1468,8 @@
 </li>
       <li><a href="bpy.types.ID.html#bpy.types.ID.asset_clear">asset_clear() (bpy.types.ID method)</a>
 </li>
+      <li><a href="bpy.types.ID.html#bpy.types.ID.asset_data">asset_data (bpy.types.ID attribute)</a>
+</li>
       <li><a href="bpy.context.html#bpy.context.asset_file_handle">asset_file_handle (in module bpy.context)</a>
 </li>
       <li><a href="bpy.types.ID.html#bpy.types.ID.asset_generate_preview">asset_generate_preview() (bpy.types.ID method)</a>
@@ -1481,9 +1524,13 @@
       </ul></li>
       <li><a href="bpy.ops.node.html#bpy.ops.node.attach">attach() (in module bpy.ops.node)</a>
 </li>
-      <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.attenuation">attenuation (bge.types.SCA_SoundActuator attribute)</a>
+      <li><a href="aud.html#aud.Handle.attenuation">attenuation (aud.Handle attribute)</a>
 
       <ul>
+        <li><a href="aud.html#aud.SequenceEntry.attenuation">(aud.SequenceEntry attribute)</a>
+</li>
+        <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.attenuation">(bge.types.SCA_SoundActuator attribute)</a>
+</li>
         <li><a href="bpy.types.Speaker.html#bpy.types.Speaker.attenuation">(bpy.types.Speaker attribute)</a>
 </li>
       </ul></li>
@@ -1512,6 +1559,8 @@
       <li><a href="bpy.types.NodeSocketInterface.html#bpy.types.NodeSocketInterface.attribute_domain">attribute_domain (bpy.types.NodeSocketInterface attribute)</a>
 
       <ul>
+        <li><a href="bpy.types.SimulationStateItem.html#bpy.types.SimulationStateItem.attribute_domain">(bpy.types.SimulationStateItem attribute)</a>
+</li>
         <li><a href="bpy.types.SpaceSpreadsheet.html#bpy.types.SpaceSpreadsheet.attribute_domain">(bpy.types.SpaceSpreadsheet attribute)</a>
 </li>
       </ul></li>
@@ -1529,6 +1578,13 @@
 </li>
       <li><a href="gpu.types.html#gpu.types.GPUShader.attrs_info_get">attrs_info_get() (gpu.types.GPUShader method)</a>
 </li>
+      <li>
+    aud
+
+      <ul>
+        <li><a href="aud.html#module-aud">module</a>
+</li>
+      </ul></li>
       <li><a href="bpy.types.FFmpegSettings.html#bpy.types.FFmpegSettings.audio_bitrate">audio_bitrate (bpy.types.FFmpegSettings attribute)</a>
 </li>
       <li><a href="bpy.types.FFmpegSettings.html#bpy.types.FFmpegSettings.audio_channels">audio_channels (bpy.types.FFmpegSettings attribute)</a>
@@ -1735,6 +1791,8 @@
         <li><a href="bge.types.SCA_PythonJoystick.html#bge.types.SCA_PythonJoystick.axisValues">(bge.types.SCA_PythonJoystick attribute)</a>
 </li>
       </ul></li>
+      <li><a href="aud.html#aud.Source.azimuth">azimuth (aud.Source attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1747,7 +1805,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -1762,7 +1820,7 @@
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

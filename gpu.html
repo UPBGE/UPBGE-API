@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -197,7 +200,7 @@ Typically multiple shaders are linked together into a <em>Program</em>.
 However, in the Blender Python API the term <em>Shader</em> refers to an OpenGL Program.
 Every <a class="reference internal" href="gpu.types.html#gpu.types.GPUShader" title="gpu.types.GPUShader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUShader</span></code></a> consists of a vertex shader, a fragment shader and an optional geometry shader.
 For common drawing tasks there are some built-in shaders accessible from <a class="reference internal" href="gpu.shader.html#gpu.shader.from_builtin" title="gpu.shader.from_builtin"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.shader.from_builtin</span></code></a>
-with an identifier such as <cite>2D_UNIFORM_COLOR</cite> or <cite>3D_FLAT_COLOR</cite>.</p>
+with an identifier such as <cite>UNIFORM_COLOR</cite> or <cite>FLAT_COLOR</cite>.</p>
 <p>Every shader defines a set of attributes and uniforms that have to be set in order to use the shader.
 Attributes are properties that are set using a vertex buffer and can be different for individual vertices.
 Uniforms are properties that are constant per draw call.
@@ -241,7 +244,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
 
 <span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;3D_UNIFORM_COLOR&#39;</span><span class="p">)</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;UNIFORM_COLOR&#39;</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;LINES&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="n">coords</span><span class="p">})</span>
 
 
@@ -322,7 +325,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;3D_UNIFORM_COLOR&#39;</span><span class="p">)</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;UNIFORM_COLOR&#39;</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;LINES&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="n">coords</span><span class="p">},</span> <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">)</span>
 
 
@@ -356,7 +359,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 <span class="n">vertex_colors</span> <span class="o">=</span> <span class="p">[(</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">))]</span>
 
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;3D_SMOOTH_COLOR&#39;</span><span class="p">)</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;SMOOTH_COLOR&#39;</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
     <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRIS&#39;</span><span class="p">,</span>
     <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="n">vertices</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">vertex_colors</span><span class="p">},</span>
@@ -388,7 +391,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 <span class="n">indices</span> <span class="o">=</span> <span class="p">(</span>
     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;2D_UNIFORM_COLOR&#39;</span><span class="p">)</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;UNIFORM_COLOR&#39;</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRIS&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="n">vertices</span><span class="p">},</span> <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">)</span>
 
 
@@ -412,7 +415,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 <span class="n">image</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">IMAGE_NAME</span><span class="p">]</span>
 <span class="n">texture</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">from_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;2D_IMAGE&#39;</span><span class="p">)</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;IMAGE&#39;</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
     <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_FAN&#39;</span><span class="p">,</span>
     <span class="p">{</span>
@@ -445,7 +448,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 <span class="n">image</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">IMAGE_NAME</span><span class="p">]</span>
 <span class="n">texture</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">from_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
-<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;3D_IMAGE&#39;</span><span class="p">)</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;IMAGE&#39;</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
     <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRIS&#39;</span><span class="p">,</span>
     <span class="p">{</span>
@@ -725,7 +728,7 @@ Based on the result a decision is made on whether the fragment should be drawn o
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -740,7 +743,7 @@ Based on the result a decision is made on whether the fragment should be drawn o
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

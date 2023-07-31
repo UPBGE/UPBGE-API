@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -131,7 +134,7 @@
 <li><p><strong>filter_backup</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter .blend files</p></li>
 <li><p><strong>filter_image</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter image files</p></li>
 <li><p><strong>filter_movie</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter movie files</p></li>
-<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter python files</p></li>
+<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Python files</p></li>
 <li><p><strong>filter_font</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter font files</p></li>
 <li><p><strong>filter_sound</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter sound files</p></li>
 <li><p><strong>filter_text</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter text files</p></li>
@@ -231,7 +234,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.view3d.copybuffer">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">copybuffer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.copybuffer" title="Permalink to this definition"></a></dt>
-<dd><p>Selected objects are copied to the clipboard</p>
+<dd><p>Copy the selected objects to the internal clipboard</p>
 </dd></dl>
 
 <dl class="py function">
@@ -291,47 +294,59 @@ Geometry – Match the surface normal.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.view3d.edit_mesh_extrude_individual_move">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_individual_move</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_individual_move" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_individual_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alt_navigation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_individual_move" title="Permalink to this definition"></a></dt>
 <dd><p>Extrude each individual face separately along local normals</p>
 <dl class="field-list simple">
-<dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L21">startup/bl_operators/view3d.py:21</a></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alt_navigation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – alt_navigation, Transform Navigation with Alt</p>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L29">startup/bl_operators/view3d.py:29</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.view3d.edit_mesh_extrude_manifold_normal">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_manifold_normal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_manifold_normal" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_manifold_normal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alt_navigation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_manifold_normal" title="Permalink to this definition"></a></dt>
 <dd><p>Extrude manifold region along normals</p>
 <dl class="field-list simple">
-<dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L154">startup/bl_operators/view3d.py:154</a></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alt_navigation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – alt_navigation, Transform Navigation with Alt</p>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L215">startup/bl_operators/view3d.py:215</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.view3d.edit_mesh_extrude_move_normal">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_move_normal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dissolve_and_intersect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_move_normal" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_move_normal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dissolve_and_intersect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alt_navigation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_move_normal" title="Permalink to this definition"></a></dt>
 <dd><p>Extrude region together along the average normal</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dissolve_and_intersect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – dissolve_and_intersect, Dissolves adjacent faces and intersects new geometry</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dissolve_and_intersect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – dissolve_and_intersect, Dissolves adjacent faces and intersects new geometry</p></li>
+<li><p><strong>alt_navigation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – alt_navigation, Transform Navigation with Alt</p></li>
+</ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L120">startup/bl_operators/view3d.py:120</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L168">startup/bl_operators/view3d.py:168</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.view3d.edit_mesh_extrude_move_shrink_fatten">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_move_shrink_fatten</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_move_shrink_fatten" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">edit_mesh_extrude_move_shrink_fatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alt_navigation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.edit_mesh_extrude_move_shrink_fatten" title="Permalink to this definition"></a></dt>
 <dd><p>Extrude region together along local normals</p>
 <dl class="field-list simple">
-<dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L137">startup/bl_operators/view3d.py:137</a></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alt_navigation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – alt_navigation, Transform Navigation with Alt</p>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L192">startup/bl_operators/view3d.py:192</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -350,40 +365,12 @@ Geometry – Match the surface normal.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.view3d.interactive_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">interactive_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CUBE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_axis_auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SURFACE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SURFACE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GEOMETRY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_origin_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EDGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_origin_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EDGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_aspect_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_aspect_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.interactive_add" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">interactive_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CUBE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_origin_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EDGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_origin_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EDGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_aspect_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_aspect_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.interactive_add" title="Permalink to this definition"></a></dt>
 <dd><p>Interactively add an object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>primitive_type</strong> (<em>enum in</em><em> [</em><em>'CUBE'</em><em>, </em><em>'CYLINDER'</em><em>, </em><em>'CONE'</em><em>, </em><em>'SPHERE_UV'</em><em>, </em><em>'SPHERE_ICO'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Primitive</p></li>
-<li><p><strong>plane_axis</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>, (optional)) – Plane Axis, The axis used for placing the base region</p></li>
-<li><p><strong>plane_axis_auto</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Axis, Select the closest axis when placing objects (surface overrides)</p></li>
-<li><p><strong>plane_depth</strong> (<em>enum in</em><em> [</em><em>'SURFACE'</em><em>, </em><em>'CURSOR_PLANE'</em><em>, </em><em>'CURSOR_VIEW'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Position, The initial depth used when placing the cursor</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE</span></code>
-Surface – Start placing on the surface, using the 3D cursor position as a fallback.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR_PLANE</span></code>
-Cursor Plane – Start placement using a point projected onto the orientation axis at the 3D cursor position.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR_VIEW</span></code>
-Cursor View – Start placement using a point projected onto the view plane at the 3D cursor position.</p></li>
-</ul>
-</p></li>
-<li><p><strong>plane_orientation</strong> (<em>enum in</em><em> [</em><em>'SURFACE'</em><em>, </em><em>'DEFAULT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Orientation, The initial depth used when placing the cursor</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE</span></code>
-Surface – Use the surface normal (using the transform orientation as a fallback).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
-Default – Use the current transform orientation.</p></li>
-</ul>
-</p></li>
-<li><p><strong>snap_target</strong> (<em>enum in</em><em> [</em><em>'GEOMETRY'</em><em>, </em><em>'DEFAULT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Snap to, The target to use while snapping</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code>
-Geometry – Snap to all geometry.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
-Default – Use the current snap settings.</p></li>
-</ul>
-</p></li>
 <li><p><strong>plane_origin_base</strong> (<em>enum in</em><em> [</em><em>'EDGE'</em><em>, </em><em>'CENTER'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Origin, The initial position for placement</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">EDGE</span></code>
@@ -471,7 +458,7 @@ Fixed – Use a fixed 1:1 aspect.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.view3d.pastebuffer">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.view3d.</span></span><span class="sig-name descname"><span class="pre">pastebuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">autoselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_collection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.view3d.pastebuffer" title="Permalink to this definition"></a></dt>
-<dd><p>Objects from the clipboard are pasted</p>
+<dd><p>Paste objects from the internal clipboard</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -743,7 +730,7 @@ Rendered – Toggle rendered shading.</p></li>
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L196">startup/bl_operators/view3d.py:196</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/view3d.py#L259">startup/bl_operators/view3d.py:259</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -981,7 +968,7 @@ Roll Right – Roll the view around to the right.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -996,7 +983,7 @@ Roll Right – Roll the view around to the right.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

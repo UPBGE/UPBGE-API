@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -25,7 +27,7 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MeshPolygonFloatProperty(bpy_struct)" href="bpy.types.MeshPolygonFloatProperty.html" />
+    <link rel="next" title="MeshPolygons(bpy_struct)" href="bpy.types.MeshPolygons.html" />
     <link rel="prev" title="MeshPaintMaskProperty(bpy_struct)" href="bpy.types.MeshPaintMaskProperty.html" /> 
 </head>
 
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -123,7 +126,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.area">
 <span class="sig-name descname"><span class="pre">area</span></span><a class="headerlink" href="#bpy.types.MeshPolygon.area" title="Permalink to this definition"></a></dt>
-<dd><p>Read only area of this polygon</p>
+<dd><p>Read only area of this face</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float in [0, inf], default 0.0, (readonly)</p>
@@ -134,7 +137,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.center">
 <span class="sig-name descname"><span class="pre">center</span></span><a class="headerlink" href="#bpy.types.MeshPolygon.center" title="Permalink to this definition"></a></dt>
-<dd><p>Center of this polygon</p>
+<dd><p>Center of this face</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], default (0.0, 0.0, 0.0), (readonly)</p>
@@ -155,7 +158,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.index">
 <span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#bpy.types.MeshPolygon.index" title="Permalink to this definition"></a></dt>
-<dd><p>Index of this polygon</p>
+<dd><p>Index of this face</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int in [0, inf], default 0, (readonly)</p>
@@ -166,7 +169,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.loop_start">
 <span class="sig-name descname"><span class="pre">loop_start</span></span><a class="headerlink" href="#bpy.types.MeshPolygon.loop_start" title="Permalink to this definition"></a></dt>
-<dd><p>Index of the first loop of this polygon</p>
+<dd><p>Index of the first loop of this face</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int in [0, inf], default 0</p>
@@ -177,7 +180,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.loop_total">
 <span class="sig-name descname"><span class="pre">loop_total</span></span><a class="headerlink" href="#bpy.types.MeshPolygon.loop_total" title="Permalink to this definition"></a></dt>
-<dd><p>Number of loops used by this polygon</p>
+<dd><p>Number of loops used by this face</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int in [0, inf], default 0, (readonly)</p>
@@ -188,7 +191,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.material_index">
 <span class="sig-name descname"><span class="pre">material_index</span></span><a class="headerlink" href="#bpy.types.MeshPolygon.material_index" title="Permalink to this definition"></a></dt>
-<dd><p>Material slot index of this polygon</p>
+<dd><p>Material slot index of this face</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int in [0, inf], default 0</p>
@@ -199,7 +202,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.normal">
 <span class="sig-name descname"><span class="pre">normal</span></span><a class="headerlink" href="#bpy.types.MeshPolygon.normal" title="Permalink to this definition"></a></dt>
-<dd><p>Local space unit length normal vector for this polygon</p>
+<dd><p>Local space unit length normal vector for this face</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-1, 1], default (0.0, 0.0, 0.0), (readonly)</p>
@@ -264,7 +267,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.MeshPolygon.flip">
 <span class="sig-name descname"><span class="pre">flip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.MeshPolygon.flip" title="Permalink to this definition"></a></dt>
-<dd><p>Invert winding of this polygon (flip its normal)</p>
+<dd><p>Invert winding of this face (flip its normal)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -350,14 +353,14 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="bpy.types.MeshPaintMaskProperty.html" class="btn btn-neutral float-left" title="MeshPaintMaskProperty(bpy_struct)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.types.MeshPolygonFloatProperty.html" class="btn btn-neutral float-right" title="MeshPolygonFloatProperty(bpy_struct)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bpy.types.MeshPolygons.html" class="btn btn-neutral float-right" title="MeshPolygons(bpy_struct)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -372,7 +375,7 @@
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

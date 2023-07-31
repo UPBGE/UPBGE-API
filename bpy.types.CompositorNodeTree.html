@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -126,17 +129,17 @@
 <dd><p>Max size of a tile (smaller values gives better distribution of multiple threads, but more overhead)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">32</span></code>
-32x32 – Chunksize of 32x32.</p></li>
+32×32 – Chunksize of 32×32.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">64</span></code>
-64x64 – Chunksize of 64x64.</p></li>
+64×64 – Chunksize of 64×64.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">128</span></code>
-128x128 – Chunksize of 128x128.</p></li>
+128×128 – Chunksize of 128×128.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">256</span></code>
-256x256 – Chunksize of 256x256.</p></li>
+256×256 – Chunksize of 256×256.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">512</span></code>
-512x512 – Chunksize of 512x512.</p></li>
+512×512 – Chunksize of 512×512.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">1024</span></code>
-1024x1024 – Chunksize of 1024x1024.</p></li>
+1024×1024 – Chunksize of 1024×1024.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -173,10 +176,12 @@ Low – Low quality.</p></li>
 Tiled – Compositing is tiled, having as priority to display first tiles as fast as possible.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FULL_FRAME</span></code>
 Full Frame – Composites full image result as fast as possible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REALTIME</span></code>
+Realtime GPU – Use GPU accelerated compositing with more limited functionality.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [‘TILED’, ‘FULL_FRAME’], default ‘TILED’</p>
+<dd class="field-odd"><p>enum in [‘TILED’, ‘FULL_FRAME’, ‘REALTIME’], default ‘TILED’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,6 +294,7 @@ Low – Low quality.</p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.use_fake_user</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_extra_user" title="bpy.types.ID.use_extra_user"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.use_extra_user</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_embedded_data" title="bpy.types.ID.is_embedded_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_embedded_data</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_missing" title="bpy.types.ID.is_missing"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_missing</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_runtime_data" title="bpy.types.ID.is_runtime_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_runtime_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.tag</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_library_indirect</span></code></a></p></li>
@@ -309,6 +315,7 @@ Low – Low quality.</p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.active_input" title="bpy.types.NodeTree.active_input"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.active_input</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.outputs" title="bpy.types.NodeTree.outputs"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.outputs</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.active_output" title="bpy.types.NodeTree.active_output"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.active_output</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.panels" title="bpy.types.NodeTree.panels"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.panels</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.bl_idname" title="bpy.types.NodeTree.bl_idname"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.bl_idname</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.bl_label" title="bpy.types.NodeTree.bl_label"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.bl_label</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.bl_description" title="bpy.types.NodeTree.bl_description"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTree.bl_description</span></code></a></p></li>
@@ -383,7 +390,7 @@ Low – Low quality.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -398,7 +405,7 @@ Low – Low quality.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

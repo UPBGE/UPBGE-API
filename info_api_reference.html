@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -121,7 +124,7 @@ This document is designed to help you understand how to use the reference API.</
 <h2>Reference API Scope<a class="headerlink" href="#reference-api-scope" title="Permalink to this heading"></a></h2>
 <p>The reference API covers <a class="reference internal" href="bpy.types.html#module-bpy.types" title="bpy.types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.types</span></code></a>, which stores types accessed via <a class="reference internal" href="bpy.context.html#module-bpy.context" title="bpy.context"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.context</span></code></a> – <em>the user context</em>
 or <a class="reference internal" href="bpy.data.html#module-bpy.data" title="bpy.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.data</span></code></a> – <em>blend-file data</em>.</p>
-<p>Other modules such as <a class="reference internal" href="bmesh.html#module-bmesh" title="bmesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh</span></code></a> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">aud</span></code> are not using Blender’s data API
+<p>Other modules such as <a class="reference internal" href="bmesh.html#module-bmesh" title="bmesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh</span></code></a> and <a class="reference internal" href="aud.html#module-aud" title="aud"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aud</span></code></a> are not using Blender’s data API
 so this document doesn’t apply to those modules.</p>
 </section>
 <section id="data-access">
@@ -255,7 +258,7 @@ For example, if you want to access the texture of a brush via Python to adjust i
 <li><p>From the Sidebar expand the Brush Settings panel’s <em>Texture</em> subpanel and add a new texture.
 <em>Notice the texture data-block menu itself doesn’t have very useful links (you can check the tooltips).</em></p></li>
 <li><p>The contrast setting isn’t exposed in the Sidebar, so view the texture in the
-<a class="reference external" href="https://docs.blender.org/manual/en/dev/render/materials/legacy_textures/colors.html#bpy-types-texture-contrast" title="(in Blender 3.6 Manual v3.6)"><span class="xref std std-ref">Properties Editor</span></a>.</p></li>
+<a class="reference external" href="https://docs.blender.org/manual/en/dev/render/materials/legacy_textures/colors.html#bpy-types-texture-contrast" title="(in Blender 4.0 Manual v4.0)"><span class="xref std std-ref">Properties Editor</span></a>.</p></li>
 <li><p>Open the context menu of the contrast field and select <em>Online Python Reference</em>.
 This takes you to <code class="docutils literal notranslate"><span class="pre">bpy.types.Texture.contrast</span></code>. Now you can see that <code class="docutils literal notranslate"><span class="pre">contrast</span></code> is a property of texture.</p></li>
 <li><p>To find out how to access the texture from the brush check on the references at the bottom of the page.
@@ -326,7 +329,7 @@ zooming the view for example isn’t so useful to repeat so it’s excluded from
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -341,7 +344,7 @@ zooming the view for example isn’t so useful to repeat so it’s excluded from
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

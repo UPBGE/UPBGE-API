@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -169,7 +172,7 @@
 <dd><p>Extend the angular range with a falloff gradient</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0.0001, 1], default 0.0</p>
+<dd class="field-odd"><p>float in [0.0001, 1], default 0.25</p>
 </dd>
 </dl>
 </dd></dl>
@@ -180,7 +183,7 @@
 <dd><p>The range of angles that will be affected</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0.0001, 3.14159], default 0.0</p>
+<dd class="field-odd"><p>float in [0.0001, 3.14159], default 0.349066</p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,7 +194,7 @@
 <dd><p>Extend the angular range with a falloff gradient</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0.0001, 1], default 0.0</p>
+<dd class="field-odd"><p>float in [0.0001, 1], default 0.25</p>
 </dd>
 </dl>
 </dd></dl>
@@ -202,7 +205,7 @@
 <dd><p>The range of angles that will be affected</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0.0001, 3.14159], default 0.0</p>
+<dd class="field-odd"><p>float in [0.0001, 3.14159], default 1.5708</p>
 </dd>
 </dl>
 </dd></dl>
@@ -213,7 +216,7 @@
 <dd><p>Maximum edge length for dynamic topology sculpting (as divisor of Blender unit - higher value means smaller edge length)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0.0001, inf], default 0.0</p>
+<dd class="field-odd"><p>float in [0.0001, inf], default 3.0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -224,7 +227,7 @@
 <dd><p>Maximum edge length for dynamic topology sculpting (in brush percenage)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [-inf, inf], default 0.0</p>
+<dd class="field-odd"><p>float in [-inf, inf], default 25.0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -254,7 +257,7 @@ Subdivide Collapse – Both subdivide long edges and collapse short edges to ref
 <dd><p>Maximum edge length for dynamic topology sculpting (in pixels)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [-inf, inf], default 0.0</p>
+<dd class="field-odd"><p>float in [-inf, inf], default 12.0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -341,7 +344,7 @@ Manual Detail – Mesh detail does not change on each stroke, only when using Fl
 <dd><p>Number of times to copy strokes across the surface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int array of 3 items in [1, 64], default (1, 1, 1)</p>
+<dd class="field-odd"><p>int array of 3 items in [1, 64], default (0, 0, 0)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -495,17 +498,6 @@ Elastic – Applies the transformation simulating elasticity using the radius of
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.Sculpt.use_smooth_shading">
-<span class="sig-name descname"><span class="pre">use_smooth_shading</span></span><a class="headerlink" href="#bpy.types.Sculpt.use_smooth_shading" title="Permalink to this definition"></a></dt>
-<dd><p>Show faces in dynamic-topology mode with smooth shading rather than flat shaded</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Sculpt.bl_rna_get_subclass">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Sculpt.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
@@ -616,7 +608,7 @@ Elastic – Applies the transformation simulating elasticity using the radius of
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -631,7 +623,7 @@ Elastic – Applies the transformation simulating elasticity using the radius of
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

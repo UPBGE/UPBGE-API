@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -126,14 +129,14 @@ be a collection of examples for defining chaining iterators in Python.</p>
 <a class="reference internal" href="freestyle.types.html#freestyle.types.ViewEdgeIterator" title="freestyle.types.ViewEdgeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewEdgeIterator</span></code></a> &gt;
 <a class="reference internal" href="freestyle.types.html#freestyle.types.ChainingIterator" title="freestyle.types.ChainingIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ChainingIterator</span></code></a> &gt;
 <a class="reference internal" href="#freestyle.chainingiterators.ChainPredicateIterator" title="freestyle.chainingiterators.ChainPredicateIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainPredicateIterator</span></code></a></p>
-<p>A “generic” user-controlled ViewEdge iterator.  This iterator is in
+<p>A “generic” user-controlled ViewEdge iterator. This iterator is in
 particular built from a unary predicate and a binary predicate.
 First, the unary predicate is evaluated for all potential next
 ViewEdges in order to only keep the ones respecting a certain
-constraint.  Then, the binary predicate is evaluated on the current
-ViewEdge together with each ViewEdge of the previous selection.  The
+constraint. Then, the binary predicate is evaluated on the current
+ViewEdge together with each ViewEdge of the previous selection. The
 first ViewEdge respecting both the unary predicate and the binary
-predicate is kept as the next one.  If none of the potential next
+predicate is kept as the next one. If none of the potential next
 ViewEdge respects these two predicates, None is returned.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.chainingiterators.ChainPredicateIterator.__init__">
@@ -154,7 +157,7 @@ to stay within the set of selected ViewEdges or not.</p></li>
 already been chained must be ignored ot not.</p></li>
 <li><p><strong>begin</strong> (<a class="reference internal" href="freestyle.types.html#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewEdge</span></code></a> or None) – The ViewEdge from where to start the iteration.</p></li>
 <li><p><strong>orientation</strong> (<em>bool</em>) – If true, we’ll look for the next ViewEdge among
-the ViewEdges that surround the ending ViewVertex of begin.  If
+the ViewEdges that surround the ending ViewVertex of begin. If
 false, we’ll search over the ViewEdges surrounding the ending
 ViewVertex of begin.</p></li>
 <li><p><strong>brother</strong> (<a class="reference internal" href="#freestyle.chainingiterators.ChainPredicateIterator" title="freestyle.chainingiterators.ChainPredicateIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainPredicateIterator</span></code></a>) – A ChainPredicateIterator object.</p></li>
@@ -172,10 +175,10 @@ ViewVertex of begin.</p></li>
 <a class="reference internal" href="freestyle.types.html#freestyle.types.ViewEdgeIterator" title="freestyle.types.ViewEdgeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewEdgeIterator</span></code></a> &gt;
 <a class="reference internal" href="freestyle.types.html#freestyle.types.ChainingIterator" title="freestyle.types.ChainingIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ChainingIterator</span></code></a> &gt;
 <a class="reference internal" href="#freestyle.chainingiterators.ChainSilhouetteIterator" title="freestyle.chainingiterators.ChainSilhouetteIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainSilhouetteIterator</span></code></a></p>
-<p>A ViewEdge Iterator used to follow ViewEdges the most naturally.  For
-example, it will follow visible ViewEdges of same nature.  As soon, as
+<p>A ViewEdge Iterator used to follow ViewEdges the most naturally. For
+example, it will follow visible ViewEdges of same nature. As soon, as
 the nature or the visibility changes, the iteration stops (by setting
-the pointed ViewEdge to 0).  In the case of an iteration over a set of
+the pointed ViewEdge to 0). In the case of an iteration over a set of
 ViewEdge that are both Silhouette and Crease, there will be a
 precedence of the silhouette over the crease criterion.</p>
 <dl class="py method">
@@ -192,7 +195,7 @@ iteration and its orientation or the copy constructor.</p>
 to stay within the set of selected ViewEdges or not.</p></li>
 <li><p><strong>begin</strong> (<a class="reference internal" href="freestyle.types.html#freestyle.types.ViewEdge" title="freestyle.types.ViewEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">freestyle.types.ViewEdge</span></code></a> or None) – The ViewEdge from where to start the iteration.</p></li>
 <li><p><strong>orientation</strong> (<em>bool</em>) – If true, we’ll look for the next ViewEdge among
-the ViewEdges that surround the ending ViewVertex of begin.  If
+the ViewEdges that surround the ending ViewVertex of begin. If
 false, we’ll search over the ViewEdges surrounding the ending
 ViewVertex of begin.</p></li>
 <li><p><strong>brother</strong> (<a class="reference internal" href="#freestyle.chainingiterators.ChainSilhouetteIterator" title="freestyle.chainingiterators.ChainSilhouetteIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainSilhouetteIterator</span></code></a>) – A ChainSilhouetteIterator object.</p></li>
@@ -495,7 +498,7 @@ types.  It won’t chain the same ViewEdge twice.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -510,7 +513,7 @@ types.  It won’t chain the same ViewEdge twice.</p>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

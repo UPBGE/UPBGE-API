@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -180,6 +183,17 @@ Hold Forward – Only hold last frame.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float in [0, 1], default 1.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.AnimData.action_tweak_storage">
+<span class="sig-name descname"><span class="pre">action_tweak_storage</span></span><a class="headerlink" href="#bpy.types.AnimData.action_tweak_storage" title="Permalink to this definition"></a></dt>
+<dd><p>Slot to temporarily hold the main action while in tweak mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -336,15 +350,16 @@ Hold Forward – Only hold last frame.</p></li>
 <li><p><a class="reference internal" href="bpy.types.Curves.html#bpy.types.Curves.animation_data" title="bpy.types.Curves.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Curves.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.FreestyleLineStyle.html#bpy.types.FreestyleLineStyle.animation_data" title="bpy.types.FreestyleLineStyle.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">FreestyleLineStyle.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GreasePencil.html#bpy.types.GreasePencil.animation_data" title="bpy.types.GreasePencil.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreasePencil.animation_data</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.GreasePencilv3.html#bpy.types.GreasePencilv3.animation_data" title="bpy.types.GreasePencilv3.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreasePencilv3.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.animation_data_create</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Key.html#bpy.types.Key.animation_data" title="bpy.types.Key.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Key.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Lattice.html#bpy.types.Lattice.animation_data" title="bpy.types.Lattice.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lattice.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Light.html#bpy.types.Light.animation_data" title="bpy.types.Light.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.LightProbe.html#bpy.types.LightProbe.animation_data" title="bpy.types.LightProbe.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightProbe.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Mask.html#bpy.types.Mask.animation_data" title="bpy.types.Mask.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mask.animation_data</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.animation_data" title="bpy.types.Material.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Material.animation_data</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.animation_data" title="bpy.types.Material.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Material.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh.animation_data" title="bpy.types.Mesh.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mesh.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.MetaBall.html#bpy.types.MetaBall.animation_data" title="bpy.types.MetaBall.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetaBall.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.MovieClip.html#bpy.types.MovieClip.animation_data" title="bpy.types.MovieClip.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">MovieClip.animation_data</span></code></a></p></li>
@@ -353,7 +368,6 @@ Hold Forward – Only hold last frame.</p></li>
 <li><p><a class="reference internal" href="bpy.types.ParticleSettings.html#bpy.types.ParticleSettings.animation_data" title="bpy.types.ParticleSettings.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParticleSettings.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.PointCloud.html#bpy.types.PointCloud.animation_data" title="bpy.types.PointCloud.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointCloud.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene.animation_data" title="bpy.types.Scene.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene.animation_data</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.Simulation.html#bpy.types.Simulation.animation_data" title="bpy.types.Simulation.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulation.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Speaker.html#bpy.types.Speaker.animation_data" title="bpy.types.Speaker.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Speaker.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Texture.html#bpy.types.Texture.animation_data" title="bpy.types.Texture.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Texture.animation_data</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Volume.html#bpy.types.Volume.animation_data" title="bpy.types.Volume.animation_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Volume.animation_data</span></code></a></p></li>
@@ -374,7 +388,7 @@ Hold Forward – Only hold last frame.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -389,7 +403,7 @@ Hold Forward – Only hold last frame.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>

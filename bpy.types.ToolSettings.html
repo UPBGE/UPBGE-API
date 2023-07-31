@@ -15,6 +15,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 3.6.0 Alpha Python API
+            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -76,6 +78,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -95,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 3.6.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -263,17 +266,9 @@ Surface – Stick stroke to surfaces.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ToolSettings.gpencil_selectmode_edit">
 <span class="sig-name descname"><span class="pre">gpencil_selectmode_edit</span></span><a class="headerlink" href="#bpy.types.ToolSettings.gpencil_selectmode_edit" title="Permalink to this definition"></a></dt>
-<dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">POINT</span></code>
-Point – Select only points.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">STROKE</span></code>
-Stroke – Select all stroke points.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SEGMENT</span></code>
-Segment – Select all stroke points between other strokes.</p></li>
-</ul>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [‘POINT’, ‘STROKE’, ‘SEGMENT’], default ‘POINT’</p>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/grease_pencil_selectmode_items.html#rna-enum-grease-pencil-selectmode-items"><span class="std std-ref">Grease Pencil Selectmode Items</span></a>, default ‘POINT’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -422,6 +417,75 @@ First Point – Snap to first point.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.plane_axis">
+<span class="sig-name descname"><span class="pre">plane_axis</span></span><a class="headerlink" href="#bpy.types.ToolSettings.plane_axis" title="Permalink to this definition"></a></dt>
+<dd><p>The axis used for placing the base region</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>, default ‘Z’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.plane_axis_auto">
+<span class="sig-name descname"><span class="pre">plane_axis_auto</span></span><a class="headerlink" href="#bpy.types.ToolSettings.plane_axis_auto" title="Permalink to this definition"></a></dt>
+<dd><p>Select the closest axis when placing objects (surface overrides)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.plane_depth">
+<span class="sig-name descname"><span class="pre">plane_depth</span></span><a class="headerlink" href="#bpy.types.ToolSettings.plane_depth" title="Permalink to this definition"></a></dt>
+<dd><p>The initial depth used when placing the cursor</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE</span></code>
+Surface – Start placing on the surface, using the 3D cursor position as a fallback.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR_PLANE</span></code>
+Cursor Plane – Start placement using a point projected onto the orientation axis at the 3D cursor position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR_VIEW</span></code>
+Cursor View – Start placement using a point projected onto the view plane at the 3D cursor position.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in [‘SURFACE’, ‘CURSOR_PLANE’, ‘CURSOR_VIEW’], default ‘SURFACE’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.plane_orientation">
+<span class="sig-name descname"><span class="pre">plane_orientation</span></span><a class="headerlink" href="#bpy.types.ToolSettings.plane_orientation" title="Permalink to this definition"></a></dt>
+<dd><p>The initial depth used when placing the cursor</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SURFACE</span></code>
+Surface – Use the surface normal (using the transform orientation as a fallback).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
+Default – Use the current transform orientation.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in [‘SURFACE’, ‘DEFAULT’], default ‘SURFACE’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.proportional_distance">
+<span class="sig-name descname"><span class="pre">proportional_distance</span></span><a class="headerlink" href="#bpy.types.ToolSettings.proportional_distance" title="Permalink to this definition"></a></dt>
+<dd><p>Display size for proportional editing circle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [1e-05, 5000], default 1.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ToolSettings.proportional_edit_falloff">
 <span class="sig-name descname"><span class="pre">proportional_edit_falloff</span></span><a class="headerlink" href="#bpy.types.ToolSettings.proportional_edit_falloff" title="Permalink to this definition"></a></dt>
 <dd><p>Falloff type for proportional editing mode</p>
@@ -481,6 +545,67 @@ First Point – Snap to first point.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, default {‘INCREMENT’}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.snap_elements_base">
+<span class="sig-name descname"><span class="pre">snap_elements_base</span></span><a class="headerlink" href="#bpy.types.ToolSettings.snap_elements_base" title="Permalink to this definition"></a></dt>
+<dd><p>Type of element for the ‘Snap With’ to snap to</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INCREMENT</span></code>
+Increment – Snap to increments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VERTEX</span></code>
+Vertex – Snap to vertices.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDGE</span></code>
+Edge – Snap to edges.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FACE</span></code>
+Face – Snap by projecting onto faces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VOLUME</span></code>
+Volume – Snap to volume.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDGE_MIDPOINT</span></code>
+Edge Center – Snap to the middle of edges.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDGE_PERPENDICULAR</span></code>
+Edge Perpendicular – Snap to the nearest point on an edge.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum set in {‘INCREMENT’, ‘VERTEX’, ‘EDGE’, ‘FACE’, ‘VOLUME’, ‘EDGE_MIDPOINT’, ‘EDGE_PERPENDICULAR’}, default {‘INCREMENT’}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.snap_elements_individual">
+<span class="sig-name descname"><span class="pre">snap_elements_individual</span></span><a class="headerlink" href="#bpy.types.ToolSettings.snap_elements_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Type of element for individual transformed elements to snap to</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FACE_PROJECT</span></code>
+Face Project – Snap by projecting onto faces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FACE_NEAREST</span></code>
+Face Nearest – Snap to nearest point on faces.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum set in {‘FACE_PROJECT’, ‘FACE_NEAREST’}, default {‘FACE_PROJECT’}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ToolSettings.snap_elements_tool">
+<span class="sig-name descname"><span class="pre">snap_elements_tool</span></span><a class="headerlink" href="#bpy.types.ToolSettings.snap_elements_tool" title="Permalink to this definition"></a></dt>
+<dd><p>The target to use while snapping</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code>
+Geometry – Snap to all geometry.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
+Default – Use the current snap settings.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in [‘GEOMETRY’, ‘DEFAULT’], default ‘GEOMETRY’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -867,7 +992,7 @@ Active Element – Pivot around active object.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ToolSettings.use_proportional_fcurve">
 <span class="sig-name descname"><span class="pre">use_proportional_fcurve</span></span><a class="headerlink" href="#bpy.types.ToolSettings.use_proportional_fcurve" title="Permalink to this definition"></a></dt>
-<dd><p>Proportional editing in FCurve editor</p>
+<dd><p>Proportional editing in F-Curve editor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -978,17 +1103,6 @@ Active Element – Pivot around active object.</p></li>
 <dt class="sig sig-object py" id="bpy.types.ToolSettings.use_snap_peel_object">
 <span class="sig-name descname"><span class="pre">use_snap_peel_object</span></span><a class="headerlink" href="#bpy.types.ToolSettings.use_snap_peel_object" title="Permalink to this definition"></a></dt>
 <dd><p>Consider objects as whole when finding volume center</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.ToolSettings.use_snap_project">
-<span class="sig-name descname"><span class="pre">use_snap_project</span></span><a class="headerlink" href="#bpy.types.ToolSettings.use_snap_project" title="Permalink to this definition"></a></dt>
-<dd><p>Project individual elements on the surface of other objects (Always enabled with Face Nearest)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -1413,7 +1527,7 @@ All – Show vertices with no weights in any group.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6e84273ab289>6e84273ab289</a> - 11/04/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fa1d7205aec8>fa1d7205aec8</a> - 31/07/2023</code>.
       </span></p>
   </div>
 
@@ -1428,7 +1542,7 @@ All – Show vertices with no weights in any group.</p></li>
     <ul id="versionwrap" role="presentation">
        <li role="presentation">
             <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            3.6 
+            4.0 
             </span>
             <div class="version-dialog" aria-hidden="true">
                 <div class="version-arrow" aria-hidden="true"></div>
