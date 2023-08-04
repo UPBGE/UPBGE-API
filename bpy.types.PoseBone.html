@@ -924,6 +924,21 @@ Utility function for (tail - head)</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.PoseBone.bbone_segment_index">
+<span class="sig-name descname"><span class="pre">bbone_segment_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.PoseBone.bbone_segment_index" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve the index and blend factor of the B-Bone segments based on vertex position</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]) – Point, Vertex position in armature pose space</p>
+</dd>
+<dt class="field-even">Return (index, blend_next)<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>index</cite>, The index of the first segment joint affecting the point, int in [-inf, inf]</p>
+<p><cite>blend_next</cite>, The blend factor between the given and the following joint, float in [-inf, inf]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.PoseBone.bbone_segment_matrix">
 <span class="sig-name descname"><span class="pre">bbone_segment_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.PoseBone.bbone_segment_matrix" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieve the matrix of the joint between B-Bone segments if available</p>
@@ -941,6 +956,40 @@ Utility function for (tail - head)</p>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 4 * 4 items in [-inf, inf]</p>
 </dd>
 </dl>
+<p>This example shows how to use B-Bone segment matrices to emulate deformation
+produced by the Armature modifier or constraint when assigned to the given bone
+(without Preserve Volume). The coordinates are processed in armature Pose space:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bbone_deform_matrix</span><span class="p">(</span><span class="n">pose_bone</span><span class="p">,</span> <span class="n">point</span><span class="p">):</span>
+    <span class="n">index</span><span class="p">,</span> <span class="n">blend_next</span> <span class="o">=</span> <span class="n">pose_bone</span><span class="o">.</span><span class="n">bbone_segment_index</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+
+    <span class="n">rest1</span> <span class="o">=</span> <span class="n">pose_bone</span><span class="o">.</span><span class="n">bbone_segment_matrix</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pose1</span> <span class="o">=</span> <span class="n">pose_bone</span><span class="o">.</span><span class="n">bbone_segment_matrix</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">deform1</span> <span class="o">=</span> <span class="n">pose1</span> <span class="o">@</span> <span class="n">rest1</span><span class="o">.</span><span class="n">inverted</span><span class="p">()</span>
+
+    <span class="c1"># bbone_segment_index ensures that index + 1 is always valid</span>
+    <span class="n">rest2</span> <span class="o">=</span> <span class="n">pose_bone</span><span class="o">.</span><span class="n">bbone_segment_matrix</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pose2</span> <span class="o">=</span> <span class="n">pose_bone</span><span class="o">.</span><span class="n">bbone_segment_matrix</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">deform2</span> <span class="o">=</span> <span class="n">pose2</span> <span class="o">@</span> <span class="n">rest2</span><span class="o">.</span><span class="n">inverted</span><span class="p">()</span>
+
+    <span class="n">deform</span> <span class="o">=</span> <span class="n">deform1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">blend_next</span><span class="p">)</span> <span class="o">+</span> <span class="n">deform2</span> <span class="o">*</span> <span class="n">blend_next</span>
+
+    <span class="k">return</span> <span class="n">pose_bone</span><span class="o">.</span><span class="n">matrix</span> <span class="o">@</span> <span class="n">deform</span> <span class="o">@</span> <span class="n">pose_bone</span><span class="o">.</span><span class="n">bone</span><span class="o">.</span><span class="n">matrix_local</span><span class="o">.</span><span class="n">inverted</span><span class="p">()</span>
+
+
+<span class="c1"># Armature modifier deforming vertices:</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Mesh&quot;</span><span class="p">]</span>
+<span class="n">pose_bone</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Armature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">bones</span><span class="p">[</span><span class="s2">&quot;Bone&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">co</span> <span class="o">=</span> <span class="n">bbone_deform_matrix</span><span class="p">(</span><span class="n">pose_bone</span><span class="p">,</span> <span class="n">vertex</span><span class="o">.</span><span class="n">co</span><span class="p">)</span> <span class="o">@</span> <span class="n">vertex</span><span class="o">.</span><span class="n">co</span>
+
+<span class="c1"># Armature constraint modifying an object transform:</span>
+<span class="n">empty</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Empty&quot;</span><span class="p">]</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">empty</span><span class="o">.</span><span class="n">matrix_world</span>
+
+<span class="n">empty</span><span class="o">.</span><span class="n">matrix_world</span> <span class="o">=</span> <span class="n">bbone_deform_matrix</span><span class="p">(</span><span class="n">pose_bone</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">translation</span><span class="p">)</span> <span class="o">@</span> <span class="n">matrix</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1078,7 +1127,7 @@ but saved generating a list.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/0dd255a3d8c6>0dd255a3d8c6</a> - 03/08/2023</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3467d8043f53>3467d8043f53</a> - 03/08/2023</code>.
       </span></p>
   </div>
 
