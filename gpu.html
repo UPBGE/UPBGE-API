@@ -15,12 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/js/version_switch.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=715c20a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/js/version_switch.js?v=fa006b38"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
@@ -116,7 +116,7 @@
            <div itemprop="articleBody">
              
   <section id="module-gpu">
-<span id="gpu-module-gpu"></span><h1>GPU Module (gpu)<a class="headerlink" href="#module-gpu" title="Permalink to this heading"></a></h1>
+<span id="gpu-module-gpu"></span><h1>GPU Module (gpu)<a class="headerlink" href="#module-gpu" title="Link to this heading"></a></h1>
 <p>This module provides Python wrappers for the GPU implementation in Blender.
 Some higher level functions can be found in the <cite>gpu_extras</cite> module.</p>
 <div class="toctree-wrapper compound">
@@ -133,7 +133,7 @@ Some higher level functions can be found in the <cite>gpu_extras</cite> module.<
 </ul>
 </div>
 <section id="geometry-batches">
-<h2>Geometry Batches<a class="headerlink" href="#geometry-batches" title="Permalink to this heading"></a></h2>
+<h2>Geometry Batches<a class="headerlink" href="#geometry-batches" title="Link to this heading"></a></h2>
 <p>Geometry is drawn in batches.
 A batch contains the necessary data to perform the drawing.
 That includes an obligatory <em>Vertex Buffer</em> and an optional <em>Index Buffer</em>,
@@ -143,7 +143,7 @@ Typical draw types are <cite>POINTS</cite>, <cite>LINES</cite> and <cite>TRIS</c
 The draw type determines how the data will be interpreted and drawn.</p>
 </section>
 <section id="vertex-buffers">
-<h2>Vertex Buffers<a class="headerlink" href="#vertex-buffers" title="Permalink to this heading"></a></h2>
+<h2>Vertex Buffers<a class="headerlink" href="#vertex-buffers" title="Link to this heading"></a></h2>
 <p>A <em>Vertex Buffer Object</em> (VBO) (<a class="reference internal" href="gpu.types.html#gpu.types.GPUVertBuf" title="gpu.types.GPUVertBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertBuf</span></code></a>)
 is an array that contains the vertex attributes needed for drawing using a specific shader.
 Typical vertex attributes are <em>location</em>, <em>normal</em>, <em>color</em>, and <em>uv</em>.
@@ -170,7 +170,7 @@ E.g. in the case of lines, each two consecutive vertices define a line.
 The type that will actually be drawn is determined when the batch is created later.</p>
 </section>
 <section id="index-buffers">
-<h2>Index Buffers<a class="headerlink" href="#index-buffers" title="Permalink to this heading"></a></h2>
+<h2>Index Buffers<a class="headerlink" href="#index-buffers" title="Link to this heading"></a></h2>
 <p>Often triangles and lines share one or more vertices.
 With only a vertex buffer one would have to store all attributes for the these vertices multiple times.
 This is very inefficient because in a connected triangle mesh every vertex is used 6 times on average.
@@ -192,7 +192,7 @@ An <em>Index Buffer</em> is an array that references vertices based on their ind
 Note how the diagonal vertices 1 and 2 are shared between both triangles.</p>
 </section>
 <section id="shaders">
-<h2>Shaders<a class="headerlink" href="#shaders" title="Permalink to this heading"></a></h2>
+<h2>Shaders<a class="headerlink" href="#shaders" title="Link to this heading"></a></h2>
 <p>A shader is a program that runs on the GPU (written in GLSL in our case).
 There are multiple types of shaders.
 The most important ones are <em>Vertex Shaders</em> and <em>Fragment Shaders</em>.
@@ -207,7 +207,7 @@ Uniforms are properties that are constant per draw call.
 They can be set using the <cite>shader.uniform_*</cite> functions after the shader has been bound.</p>
 </section>
 <section id="batch-creation">
-<h2>Batch Creation<a class="headerlink" href="#batch-creation" title="Permalink to this heading"></a></h2>
+<h2>Batch Creation<a class="headerlink" href="#batch-creation" title="Link to this heading"></a></h2>
 <p>Batches can be creates by first manually creating VBOs and IBOs.
 However, it is recommended to use the <a class="reference internal" href="gpu_extras.batch.html#gpu_extras.batch.batch_for_shader" title="gpu_extras.batch.batch_for_shader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu_extras.batch.batch_for_shader</span></code></a> function.
 It makes sure that all the vertex attributes necessary for a specific shader are provided.
@@ -217,7 +217,7 @@ This is still something one should know when drawing stuff though.</p>
 <p>Since batches can be drawn multiple times, they should be cached and reused whenever possible.</p>
 </section>
 <section id="offscreen-rendering">
-<h2>Offscreen Rendering<a class="headerlink" href="#offscreen-rendering" title="Permalink to this heading"></a></h2>
+<h2>Offscreen Rendering<a class="headerlink" href="#offscreen-rendering" title="Link to this heading"></a></h2>
 <p>What one can see on the screen after rendering is called the <em>Front Buffer</em>.
 When draw calls are issued, batches are drawn on a <em>Back Buffer</em> that will only be displayed
 when all drawing is done and the current back buffer will become the new front buffer.
@@ -233,12 +233,12 @@ the offscreen instance will be freed.</p>
 </div>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <p>To try these examples, just copy them into Blenders text editor and execute them.
 To keep the examples relatively small, they just register a draw function that can’t easily be removed anymore.
 Blender has to be restarted in order to delete the draw handlers.</p>
 <section id="d-lines-with-single-color">
-<h3>3D Lines with Single Color<a class="headerlink" href="#d-lines-with-single-color" title="Permalink to this heading"></a></h3>
+<h3>3D Lines with Single Color<a class="headerlink" href="#d-lines-with-single-color" title="Link to this heading"></a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -258,7 +258,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="triangle-with-custom-shader">
-<h3>Triangle with Custom Shader<a class="headerlink" href="#triangle-with-custom-shader" title="Permalink to this heading"></a></h3>
+<h3>Triangle with Custom Shader<a class="headerlink" href="#triangle-with-custom-shader" title="Link to this heading"></a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -309,7 +309,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="wireframe-cube-using-index-buffer">
-<h3>Wireframe Cube using Index Buffer<a class="headerlink" href="#wireframe-cube-using-index-buffer" title="Permalink to this heading"></a></h3>
+<h3>Wireframe Cube using Index Buffer<a class="headerlink" href="#wireframe-cube-using-index-buffer" title="Link to this heading"></a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -339,7 +339,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="mesh-with-random-vertex-colors">
-<h3>Mesh with Random Vertex Colors<a class="headerlink" href="#mesh-with-random-vertex-colors" title="Permalink to this heading"></a></h3>
+<h3>Mesh with Random Vertex Colors<a class="headerlink" href="#mesh-with-random-vertex-colors" title="Link to this heading"></a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -379,7 +379,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="d-rectangle">
-<h3>2D Rectangle<a class="headerlink" href="#d-rectangle" title="Permalink to this heading"></a></h3>
+<h3>2D Rectangle<a class="headerlink" href="#d-rectangle" title="Link to this heading"></a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -405,7 +405,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="d-image">
-<h3>2D Image<a class="headerlink" href="#d-image" title="Permalink to this heading"></a></h3>
+<h3>2D Image<a class="headerlink" href="#d-image" title="Link to this heading"></a></h3>
 <p>To use this example you have to provide an image that should be displayed.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
@@ -468,7 +468,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="generate-a-texture-using-offscreen-rendering">
-<h3>Generate a texture using Offscreen Rendering<a class="headerlink" href="#generate-a-texture-using-offscreen-rendering" title="Permalink to this heading"></a></h3>
+<h3>Generate a texture using Offscreen Rendering<a class="headerlink" href="#generate-a-texture-using-offscreen-rendering" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Create an <a class="reference internal" href="gpu.types.html#gpu.types.GPUOffScreen" title="gpu.types.GPUOffScreen"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUOffScreen</span></code></a> object.</p></li>
 <li><p>Draw some circles into it.</p></li>
@@ -555,7 +555,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="copy-offscreen-rendering-result-back-to-ram">
-<h3>Copy Offscreen Rendering result back to RAM<a class="headerlink" href="#copy-offscreen-rendering-result-back-to-ram" title="Permalink to this heading"></a></h3>
+<h3>Copy Offscreen Rendering result back to RAM<a class="headerlink" href="#copy-offscreen-rendering-result-back-to-ram" title="Link to this heading"></a></h3>
 <p>This will create a new image with the given name.
 If it already exists, it will override the existing one.</p>
 <p>Currently almost all of the execution time is spent in the last line.
@@ -606,7 +606,7 @@ for <a class="reference internal" href="gpu.types.html#gpu.types.Buffer" title="
 </div>
 </section>
 <section id="rendering-the-3d-view-into-a-texture">
-<h3>Rendering the 3D View into a Texture<a class="headerlink" href="#rendering-the-3d-view-into-a-texture" title="Permalink to this heading"></a></h3>
+<h3>Rendering the 3D View into a Texture<a class="headerlink" href="#rendering-the-3d-view-into-a-texture" title="Link to this heading"></a></h3>
 <p>The scene has to have a camera for this example to work.
 You could also make this independent of a specific camera,
 but Blender does not expose good functions to create view and projection matrices yet.</p>
@@ -647,7 +647,7 @@ but Blender does not expose good functions to create view and projection matrice
 </div>
 </section>
 <section id="custom-shader-for-dotted-3d-line">
-<h3>Custom Shader for dotted 3D Line<a class="headerlink" href="#custom-shader-for-dotted-3d-line" title="Permalink to this heading"></a></h3>
+<h3>Custom Shader for dotted 3D Line<a class="headerlink" href="#custom-shader-for-dotted-3d-line" title="Link to this heading"></a></h3>
 <p>In this example the arc length (distance to the first point on the line) is calculated in every vertex.
 Between the vertex and fragment shader that value is automatically interpolated
 for all points that will be visible on the screen.
@@ -727,8 +727,8 @@ Based on the result a decision is made on whether the fragment should be drawn o
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3467d8043f53>3467d8043f53</a> - 03/08/2023</code>.
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/a808f263db42>a808f263db42</a> - 08/09/2023</code>.
       </span></p>
   </div>
 

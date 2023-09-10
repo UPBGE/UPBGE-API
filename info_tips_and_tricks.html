@@ -15,12 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/js/version_switch.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=715c20a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/js/version_switch.js?v=fa006b38"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
@@ -116,12 +116,12 @@
            <div itemprop="articleBody">
              
   <section id="tips-and-tricks">
-<h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this heading"></a></h1>
+<h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Link to this heading"></a></h1>
 <p>Here are various suggestions that you might find useful when writing scripts.
 Some of these are just Python features that you may not have thought to use with Blender,
 others are Blender-specific.</p>
 <section id="use-the-terminal">
-<span id="id1"></span><h2>Use the Terminal<a class="headerlink" href="#use-the-terminal" title="Permalink to this heading"></a></h2>
+<span id="id1"></span><h2>Use the Terminal<a class="headerlink" href="#use-the-terminal" title="Link to this heading"></a></h2>
 <p>When writing Python scripts, it’s useful to have a terminal open,
 this is not the built-in Python console but a terminal application which is used to start Blender.</p>
 <p>The three main use cases for the terminal are:</p>
@@ -138,15 +138,15 @@ Blender’s user interface (depending on how the script is executed).</p></li>
 </div>
 </section>
 <section id="interface-tricks">
-<h2>Interface Tricks<a class="headerlink" href="#interface-tricks" title="Permalink to this heading"></a></h2>
+<h2>Interface Tricks<a class="headerlink" href="#interface-tricks" title="Link to this heading"></a></h2>
 <section id="access-operator-commands">
-<h3>Access Operator Commands<a class="headerlink" href="#access-operator-commands" title="Permalink to this heading"></a></h3>
+<h3>Access Operator Commands<a class="headerlink" href="#access-operator-commands" title="Link to this heading"></a></h3>
 <p>You may have noticed that the tooltip for menu items and buttons includes the <code class="docutils literal notranslate"><span class="pre">bpy.ops.[...]</span></code> command
 to run that button, a handy (hidden) feature is that you can press <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>-<kbd class="kbd docutils literal notranslate">C</kbd></kbd> over
 any menu item or button to copy this command into the clipboard.</p>
 </section>
 <section id="access-data-path">
-<h3>Access Data Path<a class="headerlink" href="#access-data-path" title="Permalink to this heading"></a></h3>
+<h3>Access Data Path<a class="headerlink" href="#access-data-path" title="Link to this heading"></a></h3>
 <p>To find the path from an <code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code> data-block to its setting isn’t always so simple since it may be nested away.
 To get this quickly open the context menu of the setting and select <em>Copy Data Path</em>,
 if this can’t be generated, only the property name is copied.</p>
@@ -159,7 +159,7 @@ if this can’t be generated, only the property name is copied.</p>
 </section>
 </section>
 <section id="show-all-operators">
-<span id="info-show-all-operators"></span><h2>Show All Operators<a class="headerlink" href="#show-all-operators" title="Permalink to this heading"></a></h2>
+<span id="info-show-all-operators"></span><h2>Show All Operators<a class="headerlink" href="#show-all-operators" title="Link to this heading"></a></h2>
 <p>While Blender logs operators in the Info editor,
 this only reports operators with the <code class="docutils literal notranslate"><span class="pre">REGISTER</span></code> option enabled so as not to flood the <em>Info</em> view
 with calls to <code class="docutils literal notranslate"><span class="pre">bpy.ops.view3d.smoothview</span></code> and <code class="docutils literal notranslate"><span class="pre">bpy.ops.view3d.zoom</span></code>.
@@ -168,7 +168,7 @@ do this by enabling the debug option either by passing the <code class="docutils
 or by setting <a class="reference internal" href="bpy.app.html#bpy.app.debug_wm" title="bpy.app.debug_wm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.app.debug_wm</span></code></a> to <code class="docutils literal notranslate"><span class="pre">True</span></code> while Blender is running.</p>
 </section>
 <section id="use-an-external-editor">
-<h2>Use an External Editor<a class="headerlink" href="#use-an-external-editor" title="Permalink to this heading"></a></h2>
+<h2>Use an External Editor<a class="headerlink" href="#use-an-external-editor" title="Link to this heading"></a></h2>
 <p>Blender’s text editor is fine for small changes and writing tests but its not full featured,
 for larger projects you’ll probably want to use a standalone editor or Python IDE.
 Editing a text file externally and having the same text open in Blender does work
@@ -176,7 +176,7 @@ but isn’t that optimal so here are two ways you can use an external file from 
 Using the following examples you’ll still need text data-block in Blender to execute,
 but reference an external file rather than including it directly.</p>
 <section id="executing-external-scripts">
-<h3>Executing External Scripts<a class="headerlink" href="#executing-external-scripts" title="Permalink to this heading"></a></h3>
+<h3>Executing External Scripts<a class="headerlink" href="#executing-external-scripts" title="Link to this heading"></a></h3>
 <p>This is the equivalent to running the script directly, referencing a script’s path from a two line code block.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;/full/path/to/myscript.py&quot;</span>
 <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">))</span>
@@ -192,7 +192,7 @@ but reference an external file rather than including it directly.</p>
 </div>
 </section>
 <section id="executing-modules">
-<h3>Executing Modules<a class="headerlink" href="#executing-modules" title="Permalink to this heading"></a></h3>
+<h3>Executing Modules<a class="headerlink" href="#executing-modules" title="Link to this heading"></a></h3>
 <p>This example shows loading a script in as a module and executing a module function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">myscript</span>
 <span class="kn">import</span> <span class="nn">importlib</span>
@@ -228,7 +228,7 @@ and then loads the script as a module.</p>
 </section>
 </section>
 <section id="use-blender-without-it-s-user-interface">
-<h2>Use Blender without it’s User Interface<a class="headerlink" href="#use-blender-without-it-s-user-interface" title="Permalink to this heading"></a></h2>
+<h2>Use Blender without it’s User Interface<a class="headerlink" href="#use-blender-without-it-s-user-interface" title="Link to this heading"></a></h2>
 <p>While developing your own scripts Blender’s interface can get in the way,
 manually reloading, running the scripts, opening file import, etc. adds overhead.
 For scripts that are not interactive it can end up being more efficient not to use
@@ -257,7 +257,7 @@ Blender running the script every few seconds with a viewer updating the results,
 so no need to leave your text editor to see changes.</p>
 </section>
 <section id="use-external-tools">
-<h2>Use External Tools<a class="headerlink" href="#use-external-tools" title="Permalink to this heading"></a></h2>
+<h2>Use External Tools<a class="headerlink" href="#use-external-tools" title="Link to this heading"></a></h2>
 <p>When there are no readily available Python modules to perform specific tasks it’s
 worth keeping in mind you may be able to have Python execute an external command
 on your data and read the result back in.</p>
@@ -271,7 +271,7 @@ but to quickly setup your own custom pipeline or writing one-off scripts this ca
 </ul>
 </section>
 <section id="bundled-python-extensions">
-<h2>Bundled Python &amp; Extensions<a class="headerlink" href="#bundled-python-extensions" title="Permalink to this heading"></a></h2>
+<h2>Bundled Python &amp; Extensions<a class="headerlink" href="#bundled-python-extensions" title="Link to this heading"></a></h2>
 <p>The Blender releases distributed from blender.org include a complete Python installation on all platforms,
 this has the disadvantage that any extensions you have installed on your system’s Python environment
 will not be found by Blender.</p>
@@ -299,7 +299,7 @@ including any extensions you rely on.</p></li>
 </ul>
 </section>
 <section id="insert-a-python-interpreter-into-your-script">
-<h2>Insert a Python Interpreter into your Script<a class="headerlink" href="#insert-a-python-interpreter-into-your-script" title="Permalink to this heading"></a></h2>
+<h2>Insert a Python Interpreter into your Script<a class="headerlink" href="#insert-a-python-interpreter-into-your-script" title="Link to this heading"></a></h2>
 <p>In the middle of a script you may want to inspect variables,
 run functions and inspect the flow.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">code</span>
@@ -334,9 +334,9 @@ but its still a handy thing to know.</p>
 </div>
 </section>
 <section id="advanced">
-<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this heading"></a></h2>
+<h2>Advanced<a class="headerlink" href="#advanced" title="Link to this heading"></a></h2>
 <section id="blender-as-a-module">
-<h3>Blender as a Module<a class="headerlink" href="#blender-as-a-module" title="Permalink to this heading"></a></h3>
+<h3>Blender as a Module<a class="headerlink" href="#blender-as-a-module" title="Link to this heading"></a></h3>
 <p>From a Python perspective it’s nicer to have everything as an extension
 which lets the Python script combine many components.</p>
 <p>Advantages include:</p>
@@ -351,7 +351,7 @@ For instructions on building see
 <a class="reference external" href="https://wiki.blender.org/wiki/Building_Blender/Other/BlenderAsPyModule">Building Blender as a Python module</a>.</p>
 </section>
 <section id="python-safety-build-option">
-<h3>Python Safety (Build Option)<a class="headerlink" href="#python-safety-build-option" title="Permalink to this heading"></a></h3>
+<h3>Python Safety (Build Option)<a class="headerlink" href="#python-safety-build-option" title="Link to this heading"></a></h3>
 <p>Since it’s possible to access data which has been removed (see <a class="reference internal" href="info_gotcha.html"><span class="doc">Gotchas</span></a>),
 it can be hard to track down the cause of crashes.
 To raise Python exceptions on accessing freed data (rather than crashing),
@@ -373,8 +373,8 @@ which is why the option isn’t enabled in release builds.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3467d8043f53>3467d8043f53</a> - 03/08/2023</code>.
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/a808f263db42>a808f263db42</a> - 08/09/2023</code>.
       </span></p>
   </div>
 

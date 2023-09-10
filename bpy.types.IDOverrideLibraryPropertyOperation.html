@@ -15,12 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/js/version_switch.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=715c20a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/js/version_switch.js?v=fa006b38"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
@@ -117,15 +117,15 @@
            <div itemprop="articleBody">
              
   <section id="idoverridelibrarypropertyoperation-bpy-struct">
-<h1>IDOverrideLibraryPropertyOperation(bpy_struct)<a class="headerlink" href="#idoverridelibrarypropertyoperation-bpy-struct" title="Permalink to this heading"></a></h1>
+<h1>IDOverrideLibraryPropertyOperation(bpy_struct)<a class="headerlink" href="#idoverridelibrarypropertyoperation-bpy-struct" title="Link to this heading"></a></h1>
 <p>base class — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">IDOverrideLibraryPropertyOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">IDOverrideLibraryPropertyOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation" title="Link to this definition"></a></dt>
 <dd><p>Description of an override operation over an overridden property</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.flag">
-<span class="sig-name descname"><span class="pre">flag</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.flag" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">flag</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.flag" title="Link to this definition"></a></dt>
 <dd><p>Status flags</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MANDATORY</span></code>
@@ -134,17 +134,19 @@ Mandatory – For templates, prevents the user from removing predefined operatio
 Locked – Prevents the user from modifying that override operation (NOT USED).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IDPOINTER_MATCH_REFERENCE</span></code>
 Match Reference – The ID pointer overridden by this operation is expected to match the reference hierarchy.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IDPOINTER_ITEM_USE_ID</span></code>
+ID Item Use ID Pointer – RNA collections of IDs only, the reference to the item also uses the ID pointer itself, not only its name.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum set in {‘MANDATORY’, ‘LOCKED’, ‘IDPOINTER_MATCH_REFERENCE’}, default {‘MANDATORY’}, (readonly)</p>
+<dd class="field-odd"><p>enum set in {‘MANDATORY’, ‘LOCKED’, ‘IDPOINTER_MATCH_REFERENCE’, ‘IDPOINTER_ITEM_USE_ID’}, default {‘MANDATORY’}, (readonly)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.operation">
-<span class="sig-name descname"><span class="pre">operation</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.operation" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">operation</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.operation" title="Link to this definition"></a></dt>
 <dd><p>What override operation is performed</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">NOOP</span></code>
@@ -158,9 +160,9 @@ Differential – Stores and apply difference between reference and local value (
 <li><p><code class="docutils literal notranslate"><span class="pre">FACT_MULTIPLY</span></code>
 Factor – Stores and apply multiplication factor between reference and local value (NOT USED).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">INSERT_AFTER</span></code>
-Insert After – Insert a new item into collection after the one referenced in subitem_reference_name or _index.</p></li>
+Insert After – Insert a new item into collection after the one referenced in subitem_reference_name/_id or _index.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">INSERT_BEFORE</span></code>
-Insert Before – Insert a new item into collection before the one referenced in subitem_reference_name or _index (NOT USED).</p></li>
+Insert Before – Insert a new item into collection before the one referenced in subitem_reference_name/_id or _index (NOT USED).</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -170,9 +172,20 @@ Insert Before – Insert a new item into collection before the one referenced in
 </dd></dl>
 
 <dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_id">
+<span class="sig-name descname"><span class="pre">subitem_local_id</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_id" title="Link to this definition"></a></dt>
+<dd><p>Collection of IDs only, used to disambiguate between potential IDs with same name from different libraries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a>, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_index">
-<span class="sig-name descname"><span class="pre">subitem_local_index</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_index" title="Permalink to this definition"></a></dt>
-<dd><p>Used to handle insertions into collection</p>
+<span class="sig-name descname"><span class="pre">subitem_local_index</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_index" title="Link to this definition"></a></dt>
+<dd><p>Used to handle changes into collection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int in [-1, inf], default -1, (readonly)</p>
@@ -182,8 +195,8 @@ Insert Before – Insert a new item into collection before the one referenced in
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_name">
-<span class="sig-name descname"><span class="pre">subitem_local_name</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_name" title="Permalink to this definition"></a></dt>
-<dd><p>Used to handle insertions into collection</p>
+<span class="sig-name descname"><span class="pre">subitem_local_name</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_local_name" title="Link to this definition"></a></dt>
+<dd><p>Used to handle changes into collection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, default “”, (readonly, never None)</p>
@@ -192,9 +205,20 @@ Insert Before – Insert a new item into collection before the one referenced in
 </dd></dl>
 
 <dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_id">
+<span class="sig-name descname"><span class="pre">subitem_reference_id</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_id" title="Link to this definition"></a></dt>
+<dd><p>Collection of IDs only, used to disambiguate between potential IDs with same name from different libraries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a>, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_index">
-<span class="sig-name descname"><span class="pre">subitem_reference_index</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_index" title="Permalink to this definition"></a></dt>
-<dd><p>Used to handle insertions into collection</p>
+<span class="sig-name descname"><span class="pre">subitem_reference_index</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_index" title="Link to this definition"></a></dt>
+<dd><p>Used to handle changes into collection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int in [-1, inf], default -1, (readonly)</p>
@@ -204,8 +228,8 @@ Insert Before – Insert a new item into collection before the one referenced in
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_name">
-<span class="sig-name descname"><span class="pre">subitem_reference_name</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_name" title="Permalink to this definition"></a></dt>
-<dd><p>Used to handle insertions into collection</p>
+<span class="sig-name descname"><span class="pre">subitem_reference_name</span></span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.subitem_reference_name" title="Link to this definition"></a></dt>
+<dd><p>Used to handle changes into collection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, default “”, (readonly, never None)</p>
@@ -215,7 +239,7 @@ Insert Before – Insert a new item into collection before the one referenced in
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.bl_rna_get_subclass" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.bl_rna_get_subclass" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -231,7 +255,7 @@ Insert Before – Insert a new item into collection before the one referenced in
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.IDOverrideLibraryPropertyOperation.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.bl_rna_get_subclass_py" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IDOverrideLibraryPropertyOperation.bl_rna_get_subclass_py" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
@@ -304,8 +328,8 @@ Insert Before – Insert a new item into collection before the one referenced in
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Blender Foundation.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3467d8043f53>3467d8043f53</a> - 03/08/2023</code>.
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/a808f263db42>a808f263db42</a> - 08/09/2023</code>.
       </span></p>
   </div>
 
