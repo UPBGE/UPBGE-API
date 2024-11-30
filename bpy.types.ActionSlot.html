@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ActionSlot(bpy_struct) &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.ActionSlot.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Blender Python API"
+          href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ActionSlots(bpy_struct)" href="bpy.types.ActionSlots.html" />
+    <link rel="prev" title="ActionPoseMarkers(bpy_struct)" href="bpy.types.ActionPoseMarkers.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ActionSlots.html" title="ActionSlots(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ActionPoseMarkers.html" title="ActionPoseMarkers(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ActionSlot(bpy_struct)</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="actionslot-bpy-struct">
+<h1>ActionSlot(bpy_struct)<a class="headerlink" href="#actionslot-bpy-struct" title="Link to this heading">¶</a></h1>
+<p>base class — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">ActionSlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot" title="Link to this definition">¶</a></dt>
+<dd><p>Identifier for a set of channels in this Action, that can be used by a data-block to specify what it gets animated by</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.active">
+<span class="sig-name descname"><span class="pre">active</span></span><a class="headerlink" href="#bpy.types.ActionSlot.active" title="Link to this definition">¶</a></dt>
+<dd><p>Whether this is the active slot, can be set by assigning to action.slots.active</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><a class="headerlink" href="#bpy.types.ActionSlot.handle" title="Link to this definition">¶</a></dt>
+<dd><p>Number specific to this Slot, unique within the Action.
+This is used, for example, on a ActionKeyframeStrip to look up the ActionChannelBag for this Slot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int in [-inf, inf], default 0, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.id_root">
+<span class="sig-name descname"><span class="pre">id_root</span></span><a class="headerlink" href="#bpy.types.ActionSlot.id_root" title="Link to this definition">¶</a></dt>
+<dd><p>Type of data-block that can be animated by this slot</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTION</span></code>
+Action.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ARMATURE</span></code>
+Armature.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BRUSH</span></code>
+Brush.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CACHEFILE</span></code>
+Cache File.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAMERA</span></code>
+Camera.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COLLECTION</span></code>
+Collection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURVE</span></code>
+Curve.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURVES</span></code>
+Curves.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FONT</span></code>
+Font.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GREASEPENCIL</span></code>
+Grease Pencil.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GREASEPENCIL_V3</span></code>
+Grease Pencil v3.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMAGE</span></code>
+Image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KEY</span></code>
+Key.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LATTICE</span></code>
+Lattice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIBRARY</span></code>
+Library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIGHT</span></code>
+Light.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIGHT_PROBE</span></code>
+Light Probe.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LINESTYLE</span></code>
+Line Style.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MASK</span></code>
+Mask.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MATERIAL</span></code>
+Material.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MESH</span></code>
+Mesh.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">META</span></code>
+Metaball.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOVIECLIP</span></code>
+Movie Clip.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NODETREE</span></code>
+Node Tree.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code>
+Object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAINTCURVE</span></code>
+Paint Curve.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PALETTE</span></code>
+Palette.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PARTICLE</span></code>
+Particle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POINTCLOUD</span></code>
+Point Cloud.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCENE</span></code>
+Scene.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCREEN</span></code>
+Screen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SOUND</span></code>
+Sound.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SPEAKER</span></code>
+Speaker.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEXT</span></code>
+Text.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEXTURE</span></code>
+Texture.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VOLUME</span></code>
+Volume.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WINDOWMANAGER</span></code>
+Window Manager.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WORKSPACE</span></code>
+Workspace.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WORLD</span></code>
+World.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UNSPECIFIED</span></code>
+Unspecified – Not yet specified. When this slot is first assigned to a data-block, this will be set to the type of that data-block.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in [‘ACTION’, ‘ARMATURE’, ‘BRUSH’, ‘CACHEFILE’, ‘CAMERA’, ‘COLLECTION’, ‘CURVE’, ‘CURVES’, ‘FONT’, ‘GREASEPENCIL’, ‘GREASEPENCIL_V3’, ‘IMAGE’, ‘KEY’, ‘LATTICE’, ‘LIBRARY’, ‘LIGHT’, ‘LIGHT_PROBE’, ‘LINESTYLE’, ‘MASK’, ‘MATERIAL’, ‘MESH’, ‘META’, ‘MOVIECLIP’, ‘NODETREE’, ‘OBJECT’, ‘PAINTCURVE’, ‘PALETTE’, ‘PARTICLE’, ‘POINTCLOUD’, ‘SCENE’, ‘SCREEN’, ‘SOUND’, ‘SPEAKER’, ‘TEXT’, ‘TEXTURE’, ‘VOLUME’, ‘WINDOWMANAGER’, ‘WORKSPACE’, ‘WORLD’, ‘UNSPECIFIED’], default ‘UNSPECIFIED’, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.id_root_icon">
+<span class="sig-name descname"><span class="pre">id_root_icon</span></span><a class="headerlink" href="#bpy.types.ActionSlot.id_root_icon" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int in [-inf, inf], default 0, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.identifier">
+<span class="sig-name descname"><span class="pre">identifier</span></span><a class="headerlink" href="#bpy.types.ActionSlot.identifier" title="Link to this definition">¶</a></dt>
+<dd><p>Used when connecting an Action to a data-block, to find the correct slot handle. This is the display name, prefixed by two characters determined by the slot’s ID type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, default “”, (never None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.name_display">
+<span class="sig-name descname"><span class="pre">name_display</span></span><a class="headerlink" href="#bpy.types.ActionSlot.name_display" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the slot, for display in the user interface. This name combined with the slot’s data-block type is unique within its Action</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, default “”, (never None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.select">
+<span class="sig-name descname"><span class="pre">select</span></span><a class="headerlink" href="#bpy.types.ActionSlot.select" title="Link to this definition">¶</a></dt>
+<dd><p>Selection state of the slot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.show_expanded">
+<span class="sig-name descname"><span class="pre">show_expanded</span></span><a class="headerlink" href="#bpy.types.ActionSlot.show_expanded" title="Link to this definition">¶</a></dt>
+<dd><p>Expanded state of the slot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.bl_rna_get_subclass">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The RNA type or default when not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.Struct.html#bpy.types.Struct" title="bpy.types.Struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Struct</span></code></a> subclass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.ActionSlot.bl_rna_get_subclass_py">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The class or default when not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="inherited-properties">
+<h2>Inherited Properties<a class="headerlink" href="#inherited-properties" title="Link to this heading">¶</a></h2>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.id_data</span></code></a></p></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</section>
+<section id="inherited-functions">
+<h2>Inherited Functions<a class="headerlink" href="#inherited-functions" title="Link to this heading">¶</a></h2>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.as_pointer</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.driver_add</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.driver_remove</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.get</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_properties_clear" title="bpy.types.bpy_struct.id_properties_clear"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.id_properties_clear</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_properties_ensure" title="bpy.types.bpy_struct.id_properties_ensure"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.id_properties_ensure</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_properties_ui" title="bpy.types.bpy_struct.id_properties_ui"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.id_properties_ui</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.is_property_hidden</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_overridable_library" title="bpy.types.bpy_struct.is_property_overridable_library"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.is_property_overridable_library</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.is_property_readonly</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.is_property_set</span></code></a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.items</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.keyframe_delete</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.keyframe_insert</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.keys</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.path_from_id</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.path_resolve</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.pop" title="bpy.types.bpy_struct.pop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.pop</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_overridable_library_set" title="bpy.types.bpy_struct.property_overridable_library_set"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.property_overridable_library_set</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.property_unset</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.type_recast</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.values</span></code></a></p></li>
+</ul>
+</td></tr></table>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action.slots" title="bpy.types.Action.slots"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action.slots</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ActionChannelBags.html#bpy.types.ActionChannelBags.new" title="bpy.types.ActionChannelBags.new"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionChannelBags.new</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ActionConstraint.html#bpy.types.ActionConstraint.action_slot" title="bpy.types.ActionConstraint.action_slot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionConstraint.action_slot</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ActionConstraint.html#bpy.types.ActionConstraint.action_suitable_slots" title="bpy.types.ActionConstraint.action_suitable_slots"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionConstraint.action_suitable_slots</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ActionKeyframeStrip.html#bpy.types.ActionKeyframeStrip.key_insert" title="bpy.types.ActionKeyframeStrip.key_insert"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionKeyframeStrip.key_insert</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ActionSlots.html#bpy.types.ActionSlots.active" title="bpy.types.ActionSlots.active"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionSlots.active</span></code></a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.ActionSlots.html#bpy.types.ActionSlots.new" title="bpy.types.ActionSlots.new"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionSlots.new</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ActionSlots.html#bpy.types.ActionSlots.remove" title="bpy.types.ActionSlots.remove"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionSlots.remove</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData.action_slot" title="bpy.types.AnimData.action_slot"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnimData.action_slot</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData.action_suitable_slots" title="bpy.types.AnimData.action_suitable_slots"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnimData.action_suitable_slots</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NlaStrip.html#bpy.types.NlaStrip.action_slot" title="bpy.types.NlaStrip.action_slot"><code class="xref py py-class docutils literal notranslate"><span class="pre">NlaStrip.action_slot</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NlaStrip.html#bpy.types.NlaStrip.action_suitable_slots" title="bpy.types.NlaStrip.action_suitable_slots"><code class="xref py py-class docutils literal notranslate"><span class="pre">NlaStrip.action_suitable_slots</span></code></a></p></li>
+</ul>
+</td></tr></table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">ActionSlot(bpy_struct)</a><ul>
+<li><a class="reference internal" href="#bpy.types.ActionSlot"><code class="docutils literal notranslate"><span class="pre">ActionSlot</span></code></a><ul>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.active"><code class="docutils literal notranslate"><span class="pre">ActionSlot.active</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.handle"><code class="docutils literal notranslate"><span class="pre">ActionSlot.handle</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.id_root"><code class="docutils literal notranslate"><span class="pre">ActionSlot.id_root</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.id_root_icon"><code class="docutils literal notranslate"><span class="pre">ActionSlot.id_root_icon</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.identifier"><code class="docutils literal notranslate"><span class="pre">ActionSlot.identifier</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.name_display"><code class="docutils literal notranslate"><span class="pre">ActionSlot.name_display</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.select"><code class="docutils literal notranslate"><span class="pre">ActionSlot.select</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.show_expanded"><code class="docutils literal notranslate"><span class="pre">ActionSlot.show_expanded</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">ActionSlot.bl_rna_get_subclass()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ActionSlot.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">ActionSlot.bl_rna_get_subclass_py()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inherited-properties">Inherited Properties</a></li>
+<li><a class="reference internal" href="#inherited-functions">Inherited Functions</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bpy.types.ActionPoseMarkers.html"
+                          title="previous chapter">ActionPoseMarkers(bpy_struct)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bpy.types.ActionSlots.html"
+                          title="next chapter">ActionSlots(bpy_struct)</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ActionSlots.html" title="ActionSlots(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ActionPoseMarkers.html" title="ActionPoseMarkers(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ActionSlot(bpy_struct)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.ActionSlot.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.types.ActionSlot.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
+</html>

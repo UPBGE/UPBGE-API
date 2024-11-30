@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modes and Mesh Access &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/info_gotchas_meshes.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Blender Python API"
+          href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bones &amp; Armatures" href="info_gotchas_armatures_and_bones.html" />
+    <link rel="prev" title="Using Operators" href="info_gotchas_operators.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_armatures_and_bones.html" title="Bones &amp; Armatures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_operators.html" title="Using Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" accesskey="U">Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modes and Mesh Access</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="modes-and-mesh-access">
+<h1>Modes and Mesh Access<a class="headerlink" href="#modes-and-mesh-access" title="Link to this heading">¶</a></h1>
+<p>When working with mesh data you may run into the problem where a script fails to run as expected in Edit-Mode.
+This is caused by Edit-Mode having its own data which is only written back to the mesh when exiting Edit-Mode.</p>
+<p>A common example is that exporters may access a mesh through <code class="docutils literal notranslate"><span class="pre">obj.data</span></code> (a <a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh</span></code></a>)
+when the user is in Edit-Mode, where the mesh data is available but out of sync with the edit mesh.</p>
+<p>In this situation you can…</p>
+<ul class="simple">
+<li><p>Exit Edit-Mode before running the tool.</p></li>
+<li><p>Explicitly update the mesh by calling <a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh.to_mesh" title="bmesh.types.BMesh.to_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.to_mesh</span></code></a>.</p></li>
+<li><p>Modify the script to support working on the edit-mode data directly, see: <a class="reference internal" href="bmesh.html#bmesh.from_edit_mesh" title="bmesh.from_edit_mesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh.from_edit_mesh</span></code></a>.</p></li>
+<li><p>Report the context as incorrect and only allow the script to run outside Edit-Mode.</p></li>
+</ul>
+<section id="n-gons-and-tessellation">
+<span id="info-gotcha-mesh-faces"></span><h2>N-Gons and Tessellation<a class="headerlink" href="#n-gons-and-tessellation" title="Link to this heading">¶</a></h2>
+<p>Since 2.63 n-gons are supported, this adds some complexity
+since in some cases you need to access triangles still (some exporters for example).</p>
+<p>There are now three ways to access faces:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.MeshPolygon.html#bpy.types.MeshPolygon" title="bpy.types.MeshPolygon"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.MeshPolygon</span></code></a> –
+this is the data structure which now stores faces in Object-Mode
+(access as <code class="docutils literal notranslate"><span class="pre">mesh.polygons</span></code> rather than <code class="docutils literal notranslate"><span class="pre">mesh.faces</span></code>).</p></li>
+<li><p><a class="reference internal" href="bpy.types.MeshLoopTriangle.html#bpy.types.MeshLoopTriangle" title="bpy.types.MeshLoopTriangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.MeshLoopTriangle</span></code></a> –
+the result of tessellating polygons into triangles
+(access as <code class="docutils literal notranslate"><span class="pre">mesh.loop_triangles</span></code>).</p></li>
+<li><p><a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> –
+the polygons as used in Edit-Mode.</p></li>
+</ul>
+<p>For the purpose of the following documentation,
+these will be referred to as polygons, loop triangles and BMesh-faces respectively.</p>
+<p>Faces with five or more sides will be referred to as <code class="docutils literal notranslate"><span class="pre">ngons</span></code>.</p>
+<section id="support-overview">
+<h3>Support Overview<a class="headerlink" href="#support-overview" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head stub"><p>Usage</p></th>
+<th class="head"><p><a class="reference internal" href="bpy.types.MeshPolygon.html#bpy.types.MeshPolygon" title="bpy.types.MeshPolygon"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.MeshPolygon</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="bpy.types.MeshLoopTriangle.html#bpy.types.MeshLoopTriangle" title="bpy.types.MeshLoopTriangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.MeshLoopTriangle</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>Import/Create</p></th>
+<td><p>Poor <em>(inflexible)</em></p></td>
+<td><p>Unusable <em>(read-only)</em>.</p></td>
+<td><p>Best</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Manipulate</p></th>
+<td><p>Poor <em>(inflexible)</em></p></td>
+<td><p>Unusable <em>(read-only)</em>.</p></td>
+<td><p>Best</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Export/Output</p></th>
+<td><p>Good <em>(n-gon support)</em></p></td>
+<td><p>Good <em>(When n-gons cannot be used)</em></p></td>
+<td><p>Good <em>(n-gons, extra memory overhead)</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the <a class="reference internal" href="bmesh.html#module-bmesh" title="bmesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh</span></code></a> API is completely separate API from <code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy</span></code>,
+typically you would use one or the other based on the level of editing needed,
+not simply for a different way to access faces.</p>
+</div>
+</section>
+<section id="creating">
+<h3>Creating<a class="headerlink" href="#creating" title="Link to this heading">¶</a></h3>
+<p>All three data types can be used for face creation:</p>
+<ul class="simple">
+<li><p>Polygons are the most efficient way to create faces but the data structure is <em>very</em> rigid and inflexible,
+you must have all your vertices and faces ready and create them all at once.
+This is further complicated by the fact that each polygon does not store its own vertices,
+rather they reference an index and size in <a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh.loops" title="bpy.types.Mesh.loops"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh.loops</span></code></a> which are a fixed array too.</p></li>
+<li><p>BMesh-faces are most likely the easiest way to create faces in new scripts,
+since faces can be added one by one and the API has features intended for mesh manipulation.
+While <a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a> uses more memory it can be managed by only operating on one mesh at a time.</p></li>
+</ul>
+</section>
+<section id="editing">
+<h3>Editing<a class="headerlink" href="#editing" title="Link to this heading">¶</a></h3>
+<p>Editing is where the three data types vary most.</p>
+<ul class="simple">
+<li><p>Polygons are very limited for editing,
+changing materials and options like smooth works, but for anything else
+they are too inflexible and are only intended for storage.</p></li>
+<li><p>Loop-triangles should not be used for editing geometry because doing so will cause existing n-gons to be tessellated.</p></li>
+<li><p>BMesh-faces are by far the best way to manipulate geometry.</p></li>
+</ul>
+</section>
+<section id="exporting">
+<h3>Exporting<a class="headerlink" href="#exporting" title="Link to this heading">¶</a></h3>
+<p>All three data types can be used for exporting,
+the choice mostly depends on whether the target format supports n-gons or not.</p>
+<ul class="simple">
+<li><p>Polygons are the most direct and efficient way to export providing they convert into the output format easily enough.</p></li>
+<li><p>Loop-triangles work well for exporting to formats which don’t support n-gons,
+in fact this is the only place where their use is encouraged.</p></li>
+<li><p>BMesh-Faces can work for exporting too but may not be necessary if polygons can be used
+since using BMesh gives some overhead because it’s not the native storage format in Object-Mode.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Modes and Mesh Access</a><ul>
+<li><a class="reference internal" href="#n-gons-and-tessellation">N-Gons and Tessellation</a><ul>
+<li><a class="reference internal" href="#support-overview">Support Overview</a></li>
+<li><a class="reference internal" href="#creating">Creating</a></li>
+<li><a class="reference internal" href="#editing">Editing</a></li>
+<li><a class="reference internal" href="#exporting">Exporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="info_gotchas_operators.html"
+                          title="previous chapter">Using Operators</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="info_gotchas_armatures_and_bones.html"
+                          title="next chapter">Bones &amp; Armatures</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_armatures_and_bones.html" title="Bones &amp; Armatures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_operators.html" title="Using Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" >Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modes and Mesh Access</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60info_gotchas_meshes.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Finfo_gotchas_meshes.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
+</html>

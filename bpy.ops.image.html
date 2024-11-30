@@ -1,132 +1,65 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Operators &mdash; Blender Python API</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/version_switch.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.ops.image.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=715c20a1"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/version_switch.js?v=fa006b38"></script>
-    <script src="_static/js/theme.js"></script>
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Image Operators &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.ops.image.html" />
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
           href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Info Operators" href="bpy.ops.info.html" />
+    <link rel="next" title="Import Anim Operators" href="bpy.ops.import_anim.html" />
     <link rel="prev" title="Grease Pencil Operators" href="bpy.ops.grease_pencil.html" /> 
-</head>
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.import_anim.html" title="Import Anim Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.grease_pencil.html" title="Grease Pencil Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Image Operators</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
-              <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="bpy.ops.html">Operators (bpy.ops)</a></li>
-      <li class="breadcrumb-item active">Image Operators</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="module-bpy.ops.image">
-<span id="image-operators"></span><h1>Image Operators<a class="headerlink" href="#module-bpy.ops.image" title="Link to this heading"></a></h1>
+<span id="image-operators"></span><h1>Image Operators<a class="headerlink" href="#module-bpy.ops.image" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.add_render_slot">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">add_render_slot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.add_render_slot" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">add_render_slot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.add_render_slot" title="Link to this definition">¶</a></dt>
 <dd><p>Add a new render slot</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.change_frame">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">change_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.change_frame" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">change_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.change_frame" title="Link to this definition">¶</a></dt>
 <dd><p>Interactively change the current frame number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -137,31 +70,114 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.clear_render_border">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clear_render_border</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clear_render_border" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clear_render_border</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clear_render_border" title="Link to this definition">¶</a></dt>
 <dd><p>Clear the boundaries of the render region and disable render region</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.clear_render_slot">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clear_render_slot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clear_render_slot" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clear_render_slot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clear_render_slot" title="Link to this definition">¶</a></dt>
 <dd><p>Clear the currently selected render slot</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.clipboard_copy">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clipboard_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clipboard_copy" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clipboard_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clipboard_copy" title="Link to this definition">¶</a></dt>
 <dd><p>Copy the image to the clipboard</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.clipboard_paste">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clipboard_paste</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clipboard_paste" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">clipboard_paste</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.clipboard_paste" title="Link to this definition">¶</a></dt>
 <dd><p>Paste new image from the clipboard</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.image.convert_to_mesh_plane">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">convert_to_mesh_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CLIP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'STRAIGHT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_auto_refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PRINCIPLED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emit_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_transparency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">render_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DITHERED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_backface_culling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_transparent_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite_material</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OBJECT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.convert_to_mesh_plane" title="Link to this definition">¶</a></dt>
+<dd><p>Convert selected reference images to textured mesh plane</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>interpolation</strong> (<em>enum in</em><em> [</em><em>'Linear'</em><em>, </em><em>'Closest'</em><em>, </em><em>'Cubic'</em><em>, </em><em>'Smart'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Interpolation, Texture interpolation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Linear</span></code>
+Linear – Linear interpolation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Closest</span></code>
+Closest – No interpolation (sample closest texel).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cubic</span></code>
+Cubic – Cubic interpolation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Smart</span></code>
+Smart – Bicubic when magnifying, else bilinear (OSL only).</p></li>
+</ul>
+</p></li>
+<li><p><strong>extension</strong> (<em>enum in</em><em> [</em><em>'CLIP'</em><em>, </em><em>'EXTEND'</em><em>, </em><em>'REPEAT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Extension, How the image is extrapolated past its original bounds</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CLIP</span></code>
+Clip – Clip to image size and set exterior pixels as transparent.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>
+Extend – Extend by repeating edge pixels of the image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REPEAT</span></code>
+Repeat – Cause the image to repeat horizontally and vertically.</p></li>
+</ul>
+</p></li>
+<li><p><strong>alpha_mode</strong> (<em>enum in</em><em> [</em><em>'STRAIGHT'</em><em>, </em><em>'PREMUL'</em><em>, </em><em>'CHANNEL_PACKED'</em><em>, </em><em>'NONE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Alpha Mode, Representation of alpha in the image file, to convert to and from when saving and loading the image</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">STRAIGHT</span></code>
+Straight – Store RGB and alpha channels separately with alpha acting as a mask, also known as unassociated alpha. Commonly used by image editing applications and file formats like PNG..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREMUL</span></code>
+Premultiplied – Store RGB channels with alpha multiplied in, also known as associated alpha. The natural format for renders and used by file formats like OpenEXR..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CHANNEL_PACKED</span></code>
+Channel Packed – Different images are packed in the RGB and alpha channels, and they should not affect each other. Channel packing is commonly used by game engines to save memory..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
+None – Ignore alpha channel from the file and make image fully opaque.</p></li>
+</ul>
+</p></li>
+<li><p><strong>use_auto_refresh</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Refresh, Always refresh image on frame changes</p></li>
+<li><p><strong>relative</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Relative Paths, Use relative file paths</p></li>
+<li><p><strong>shader</strong> (<em>enum in</em><em> [</em><em>'PRINCIPLED'</em><em>, </em><em>'SHADELESS'</em><em>, </em><em>'EMISSION'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Shader, Node shader to use</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRINCIPLED</span></code>
+Principled – Principled shader.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHADELESS</span></code>
+Shadeless – Only visible to camera and reflections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EMISSION</span></code>
+Emission – Emission shader.</p></li>
+</ul>
+</p></li>
+<li><p><strong>emit_strength</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Emission Strength, Strength of emission</p></li>
+<li><p><strong>use_transparency</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Alpha, Use alpha channel for transparency</p></li>
+<li><p><strong>render_method</strong> (<em>enum in</em><em> [</em><em>'DITHERED'</em><em>, </em><em>'BLENDED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Render Method</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DITHERED</span></code>
+Dithered – Allows for grayscale hashed transparency, and compatible with render passes and ray-tracing. Also known as deferred rendering..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BLENDED</span></code>
+Blended – Allows for colored transparency, but incompatible with render passes and ray-tracing. Also known as forward rendering..</p></li>
+</ul>
+</p></li>
+<li><p><strong>use_backface_culling</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Backface Culling, Use backface culling to hide the back side of faces</p></li>
+<li><p><strong>show_transparent_back</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Show Backface, Render multiple transparent layers (may introduce transparency sorting problems)</p></li>
+<li><p><strong>overwrite_material</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Overwrite Material, Overwrite existing material with the same name</p></li>
+<li><p><strong>name_from</strong> (<em>enum in</em><em> [</em><em>'OBJECT'</em><em>, </em><em>'IMAGE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Name After, Name for new mesh object and material</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code>
+Source Object – Name after object source with a suffix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMAGE</span></code>
+Source Image – Name from loaded image.</p></li>
+</ul>
+</p></li>
+<li><p><strong>delete_ref</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Delete Reference Object, Delete empty image object once mesh plane is created</p></li>
+</ul>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image_as_planes.py#L1142">startup/bl_operators/image_as_planes.py:1142</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.curves_point_set">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">curves_point_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLACK_POINT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.curves_point_set" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">curves_point_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLACK_POINT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.curves_point_set" title="Link to this definition">¶</a></dt>
 <dd><p>Set black point or white point for curves</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -175,7 +191,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.cycle_render_slot">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">cycle_render_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.cycle_render_slot" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">cycle_render_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.cycle_render_slot" title="Link to this definition">¶</a></dt>
 <dd><p>Cycle through all non-void render slots</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -186,21 +202,21 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.external_edit">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">external_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.external_edit" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">external_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.external_edit" title="Link to this definition">¶</a></dt>
 <dd><p>Edit image in an external application</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filepath</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image.py#L46">startup/bl_operators/image.py:46</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image.py#L54">startup/bl_operators/image.py:54</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.file_browse">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">file_browse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_props_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.file_browse" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">file_browse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_props_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.file_browse" title="Link to this definition">¶</a></dt>
 <dd><p>Open an image file browser, hold Shift to open the file, Alt to browse containing directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -249,7 +265,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.flip">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">flip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_flip_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_flip_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.flip" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">flip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_flip_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_flip_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.flip" title="Link to this definition">¶</a></dt>
 <dd><p>Flip the image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -262,8 +278,185 @@ Thumbnails – Display files as thumbnails.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.image.import_as_mesh_planes">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">import_as_mesh_planes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CLIP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'STRAIGHT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_auto_refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PRINCIPLED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emit_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_transparency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">render_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DITHERED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_backface_culling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_transparent_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite_material</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WORLD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_reload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_sequence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'+X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CAM_AX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_align_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align_track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ABSOLUTE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FILL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.import_as_mesh_planes" title="Link to this definition">¶</a></dt>
+<dd><p>Create mesh plane(s) from image files with the appropriate aspect ratio</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>interpolation</strong> (<em>enum in</em><em> [</em><em>'Linear'</em><em>, </em><em>'Closest'</em><em>, </em><em>'Cubic'</em><em>, </em><em>'Smart'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Interpolation, Texture interpolation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Linear</span></code>
+Linear – Linear interpolation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Closest</span></code>
+Closest – No interpolation (sample closest texel).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cubic</span></code>
+Cubic – Cubic interpolation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Smart</span></code>
+Smart – Bicubic when magnifying, else bilinear (OSL only).</p></li>
+</ul>
+</p></li>
+<li><p><strong>extension</strong> (<em>enum in</em><em> [</em><em>'CLIP'</em><em>, </em><em>'EXTEND'</em><em>, </em><em>'REPEAT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Extension, How the image is extrapolated past its original bounds</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CLIP</span></code>
+Clip – Clip to image size and set exterior pixels as transparent.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>
+Extend – Extend by repeating edge pixels of the image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REPEAT</span></code>
+Repeat – Cause the image to repeat horizontally and vertically.</p></li>
+</ul>
+</p></li>
+<li><p><strong>alpha_mode</strong> (<em>enum in</em><em> [</em><em>'STRAIGHT'</em><em>, </em><em>'PREMUL'</em><em>, </em><em>'CHANNEL_PACKED'</em><em>, </em><em>'NONE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Alpha Mode, Representation of alpha in the image file, to convert to and from when saving and loading the image</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">STRAIGHT</span></code>
+Straight – Store RGB and alpha channels separately with alpha acting as a mask, also known as unassociated alpha. Commonly used by image editing applications and file formats like PNG..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREMUL</span></code>
+Premultiplied – Store RGB channels with alpha multiplied in, also known as associated alpha. The natural format for renders and used by file formats like OpenEXR..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CHANNEL_PACKED</span></code>
+Channel Packed – Different images are packed in the RGB and alpha channels, and they should not affect each other. Channel packing is commonly used by game engines to save memory..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
+None – Ignore alpha channel from the file and make image fully opaque.</p></li>
+</ul>
+</p></li>
+<li><p><strong>use_auto_refresh</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Refresh, Always refresh image on frame changes</p></li>
+<li><p><strong>relative</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Relative Paths, Use relative file paths</p></li>
+<li><p><strong>shader</strong> (<em>enum in</em><em> [</em><em>'PRINCIPLED'</em><em>, </em><em>'SHADELESS'</em><em>, </em><em>'EMISSION'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Shader, Node shader to use</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRINCIPLED</span></code>
+Principled – Principled shader.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHADELESS</span></code>
+Shadeless – Only visible to camera and reflections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EMISSION</span></code>
+Emission – Emission shader.</p></li>
+</ul>
+</p></li>
+<li><p><strong>emit_strength</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Emission Strength, Strength of emission</p></li>
+<li><p><strong>use_transparency</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Alpha, Use alpha channel for transparency</p></li>
+<li><p><strong>render_method</strong> (<em>enum in</em><em> [</em><em>'DITHERED'</em><em>, </em><em>'BLENDED'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Render Method</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DITHERED</span></code>
+Dithered – Allows for grayscale hashed transparency, and compatible with render passes and ray-tracing. Also known as deferred rendering..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BLENDED</span></code>
+Blended – Allows for colored transparency, but incompatible with render passes and ray-tracing. Also known as forward rendering..</p></li>
+</ul>
+</p></li>
+<li><p><strong>use_backface_culling</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Backface Culling, Use backface culling to hide the back side of faces</p></li>
+<li><p><strong>show_transparent_back</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Show Backface, Render multiple transparent layers (may introduce transparency sorting problems)</p></li>
+<li><p><strong>overwrite_material</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Overwrite Material, Overwrite existing material with the same name</p></li>
+<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Filepath used for importing the file</p></li>
+<li><p><strong>align</strong> (<em>enum in</em><em> [</em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>, </em><em>'CURSOR'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">WORLD</span></code>
+World – Align the new object to the world.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
+View – Align the new object to the view.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR</span></code>
+3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
+</ul>
+</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Location</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> rotation of 3 items in [-inf, inf], (optional)) – Rotation</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>, (optional)) – files</p></li>
+<li><p><strong>directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – directory</p></li>
+<li><p><strong>filter_image</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – filter_image</p></li>
+<li><p><strong>filter_movie</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – filter_movie</p></li>
+<li><p><strong>filter_folder</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – filter_folder</p></li>
+<li><p><strong>force_reload</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Force Reload, Force reload the image if it is already opened elsewhere in Blender</p></li>
+<li><p><strong>image_sequence</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Detect Image Sequences, Import sequentially numbered images as an animated image sequence instead of separate planes</p></li>
+<li><p><strong>offset</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset Planes, Offset planes from each other. If disabled, multiple planes will be created at the same location</p></li>
+<li><p><strong>offset_axis</strong> (<em>enum in</em><em> [</em><em>'+X'</em><em>, </em><em>'+Y'</em><em>, </em><em>'+Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Offset Direction, How planes are oriented relative to each others’ local axis</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">+X</span></code>
++X – Side by Side to the Left.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+Y</span></code>
++Y – Side by Side, Downward.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+Z</span></code>
++Z – Stacked Above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-X</span></code>
+-X – Side by Side to the Right.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Y</span></code>
+-Y – Side by Side, Upward.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Z</span></code>
+-Z – Stacked Below.</p></li>
+</ul>
+</p></li>
+<li><p><strong>offset_amount</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset Distance, Set distance between each plane</p></li>
+<li><p><strong>align_axis</strong> (<em>enum in</em><em> [</em><em>'+X'</em><em>, </em><em>'+Y'</em><em>, </em><em>'+Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>, </em><em>'CAM'</em><em>, </em><em>'CAM_AX'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Align, How to align the planes</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">+X</span></code>
++X – Facing positive X.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+Y</span></code>
++Y – Facing positive Y.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+Z</span></code>
++Z – Facing positive Z.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-X</span></code>
+-X – Facing negative X.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Y</span></code>
+-Y – Facing negative Y.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Z</span></code>
+-Z – Facing negative Z.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAM</span></code>
+Face Camera – Facing camera.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAM_AX</span></code>
+Camera’s Main Axis – Facing the camera’s dominant axis.</p></li>
+</ul>
+</p></li>
+<li><p><strong>prev_align_axis</strong> (<em>enum in</em><em> [</em><em>'+X'</em><em>, </em><em>'+Y'</em><em>, </em><em>'+Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>, </em><em>'CAM'</em><em>, </em><em>'CAM_AX'</em><em>, </em><em>'NONE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>prev_align_axis</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">+X</span></code>
++X – Facing positive X.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+Y</span></code>
++Y – Facing positive Y.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+Z</span></code>
++Z – Facing positive Z.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-X</span></code>
+-X – Facing negative X.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Y</span></code>
+-Y – Facing negative Y.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Z</span></code>
+-Z – Facing negative Z.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAM</span></code>
+Face Camera – Facing camera.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAM_AX</span></code>
+Camera’s Main Axis – Facing the camera’s dominant axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
+Undocumented.</p></li>
+</ul>
+</p></li>
+<li><p><strong>align_track</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Track Camera, Add a constraint to make the planes track the camera</p></li>
+<li><p><strong>size_mode</strong> (<em>enum in</em><em> [</em><em>'ABSOLUTE'</em><em>, </em><em>'CAMERA'</em><em>, </em><em>'DPI'</em><em>, </em><em>'DPBU'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Size Mode, Method for computing the plane size</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ABSOLUTE</span></code>
+Absolute – Use absolute size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAMERA</span></code>
+Scale to Camera Frame – Scale to fit or fill the camera frame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DPI</span></code>
+Pixels per Inch – Scale based on pixels per inch.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DPBU</span></code>
+Pixels per Blender Unit – Scale based on pixels per Blender Unit.</p></li>
+</ul>
+</p></li>
+<li><p><strong>fill_mode</strong> (<em>enum in</em><em> [</em><em>'FILL'</em><em>, </em><em>'FIT'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Scale, Method to scale the plane with the camera frame</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">FILL</span></code>
+Fill – Fill camera frame, spilling outside the frame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FIT</span></code>
+Fit – Fit entire image within the camera frame.</p></li>
+</ul>
+</p></li>
+<li><p><strong>height</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Height, Height of the created plane</p></li>
+<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Definition, Number of pixels per inch or Blender Unit</p></li>
+</ul>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image_as_planes.py#L864">startup/bl_operators/image_as_planes.py:864</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.invert">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invert_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.invert" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.invert" title="Link to this definition">¶</a></dt>
 <dd><p>Invert image’s channels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -279,13 +472,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.match_movie_length">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">match_movie_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.match_movie_length" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">match_movie_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.match_movie_length" title="Link to this definition">¶</a></dt>
 <dd><p>Set image’s user’s length to the one of this video</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.new">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Untitled'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generated_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLANK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_stereo_3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tiled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.new" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Untitled'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generated_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLANK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_stereo_3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tiled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.new" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -306,7 +499,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.open">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allow_path_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_props_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sequence_detection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_udim_detecting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.open" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_path_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_props_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sequence_detection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_udim_detecting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.open" title="Link to this definition">¶</a></dt>
 <dd><p>Open image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -359,54 +552,74 @@ Thumbnails – Display files as thumbnails.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.image.open_images">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">open_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sequence_detection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_udim_detection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.open_images" title="Link to this definition">¶</a></dt>
+<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – directory</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>, (optional)) – files</p></li>
+<li><p><strong>relative_path</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use relative path</p></li>
+<li><p><strong>use_sequence_detection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use sequence detection</p></li>
+<li><p><strong>use_udim_detection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use UDIM detection</p></li>
+</ul>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image.py#L238">startup/bl_operators/image.py:238</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.pack">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">pack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.pack" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">pack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.pack" title="Link to this definition">¶</a></dt>
 <dd><p>Pack an image as embedded data into the .blend file</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.project_apply">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">project_apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.project_apply" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">project_apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.project_apply" title="Link to this definition">¶</a></dt>
 <dd><p>Project edited image back onto the object</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image.py#L181">startup/bl_operators/image.py:181</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image.py#L192">startup/bl_operators/image.py:192</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.project_edit">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">project_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.project_edit" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">project_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.project_edit" title="Link to this definition">¶</a></dt>
 <dd><p>Edit a snapshot of the 3D Viewport in an external image editor</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image.py#L111">startup/bl_operators/image.py:111</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/image.py#L122">startup/bl_operators/image.py:122</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.read_viewlayers">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">read_viewlayers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.read_viewlayers" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">read_viewlayers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.read_viewlayers" title="Link to this definition">¶</a></dt>
 <dd><p>Read all the current scene’s view layers from cache, as needed</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.reload">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">reload</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.reload" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">reload</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.reload" title="Link to this definition">¶</a></dt>
 <dd><p>Reload current image from disk</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.remove_render_slot">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">remove_render_slot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.remove_render_slot" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">remove_render_slot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.remove_render_slot" title="Link to this definition">¶</a></dt>
 <dd><p>Remove the current render slot</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.render_border">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">render_border</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.render_border" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">render_border</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.render_border" title="Link to this definition">¶</a></dt>
 <dd><p>Set the boundaries of the render region and enable render region</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -423,7 +636,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.replace">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_props_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.replace" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_props_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.replace" title="Link to this definition">¶</a></dt>
 <dd><p>Replace current image by another one from disk</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -472,7 +685,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.resize">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.resize" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.resize" title="Link to this definition">¶</a></dt>
 <dd><p>Resize the image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -482,8 +695,28 @@ Thumbnails – Display files as thumbnails.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.image.rotate_orthogonal">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">rotate_orthogonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'90'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.rotate_orthogonal" title="Link to this definition">¶</a></dt>
+<dd><p>Rotate the image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>degrees</strong> (<em>enum in</em><em> [</em><em>'90'</em><em>, </em><em>'180'</em><em>, </em><em>'270'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Degrees, Amount of rotation in degrees (90, 180, 270)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">90</span></code>
+90 Degrees – Rotate 90 degrees clockwise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">180</span></code>
+180 Degrees – Rotate 180 degrees clockwise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">270</span></code>
+270 Degrees – Rotate 270 degrees clockwise.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.sample">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.sample" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.sample" title="Link to this definition">¶</a></dt>
 <dd><p>Use mouse to sample a color in current image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -494,7 +727,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.sample_line">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">sample_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.sample_line" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">sample_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.sample_line" title="Link to this definition">¶</a></dt>
 <dd><p>Sample a line and show it in Scope panels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -512,19 +745,19 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.save">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save" title="Link to this definition">¶</a></dt>
 <dd><p>Save the image with current name and settings</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.save_all_modified">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save_all_modified</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save_all_modified" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save_all_modified</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save_all_modified" title="Link to this definition">¶</a></dt>
 <dd><p>Save all modified images</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.save_as">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save_as_render</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_path_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save_as" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as_render</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_path_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_movie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_python</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_sound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_btx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_collada</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_alembic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_usd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_blenlib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEFAULT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save_as" title="Link to this definition">¶</a></dt>
 <dd><p>Save the image with another name and/or settings</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -575,13 +808,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.save_sequence">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save_sequence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save_sequence" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">save_sequence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.save_sequence" title="Link to this definition">¶</a></dt>
 <dd><p>Save a sequence of images</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.tile_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">tile_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generated_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLANK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.tile_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">tile_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generated_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLANK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.tile_add" title="Link to this definition">¶</a></dt>
 <dd><p>Adds a tile to the image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -603,7 +836,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.tile_fill">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">tile_fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generated_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLANK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.tile_fill" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">tile_fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generated_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLANK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.tile_fill" title="Link to this definition">¶</a></dt>
 <dd><p>Fill the current tile with a generated image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -621,13 +854,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.tile_remove">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">tile_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.tile_remove" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">tile_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.tile_remove" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a tile from the image</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.unpack">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">unpack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'USE_LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.unpack" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">unpack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'USE_LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.unpack" title="Link to this definition">¶</a></dt>
 <dd><p>Save an image packed in the .blend file to disk</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -641,7 +874,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_all">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_all" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_all" title="Link to this definition">¶</a></dt>
 <dd><p>View the entire image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -652,13 +885,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_center_cursor">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_center_cursor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_center_cursor" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_center_cursor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_center_cursor" title="Link to this definition">¶</a></dt>
 <dd><p>Center the view so that the cursor is in the middle of the view</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_cursor_center">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_cursor_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_cursor_center" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_cursor_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_cursor_center" title="Link to this definition">¶</a></dt>
 <dd><p>Set 2D Cursor To Center View location</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -668,8 +901,14 @@ Thumbnails – Display files as thumbnails.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.image.view_ndof">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_ndof</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_ndof" title="Link to this definition">¶</a></dt>
+<dd><p>Use a 3D mouse device to pan/zoom the view</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_pan">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_pan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_pan" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_pan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_pan" title="Link to this definition">¶</a></dt>
 <dd><p>Pan the view</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -680,13 +919,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_selected">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_selected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_selected" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_selected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_selected" title="Link to this definition">¶</a></dt>
 <dd><p>View all selected UVs</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_zoom">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom" title="Link to this definition">¶</a></dt>
 <dd><p>Zoom in/out the image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -700,7 +939,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_zoom_border">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_border</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_border" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_border</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_border" title="Link to this definition">¶</a></dt>
 <dd><p>Zoom in the view to the nearest item contained in the border</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -718,7 +957,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_zoom_in">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_in" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_in" title="Link to this definition">¶</a></dt>
 <dd><p>Zoom in the image (centered around 2D cursor)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -729,7 +968,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_zoom_out">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_out" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_out" title="Link to this definition">¶</a></dt>
 <dd><p>Zoom out the image (centered around 2D cursor)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -740,7 +979,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.image.view_zoom_ratio">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_ratio" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.image.</span></span><span class="sig-name descname"><span class="pre">view_zoom_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.image.view_zoom_ratio" title="Link to this definition">¶</a></dt>
 <dd><p>Set zoom ratio of the view</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -752,49 +991,124 @@ Thumbnails – Display files as thumbnails.</p></li>
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.ops.grease_pencil.html" class="btn btn-neutral float-left" title="Grease Pencil Operators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.ops.info.html" class="btn btn-neutral float-right" title="Info Operators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/1dff62ca3acd>1dff62ca3acd</a> - 10/09/2023</code>.
-      </span></p>
-  </div>
-
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
-    <ul id="versionwrap" role="presentation">
-       <li role="presentation">
-            <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            4.0 
-            </span>
-            <div class="version-dialog" aria-hidden="true">
-                <div class="version-arrow" aria-hidden="true"></div>
-                <div class="version-title">Versions</div>
-                <ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover" aria-hidden="true">
-                    <li role="presentation">Loading...</li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
-    <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(false);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Image Operators</a><ul>
+<li><a class="reference internal" href="#bpy.ops.image.add_render_slot"><code class="docutils literal notranslate"><span class="pre">add_render_slot()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.change_frame"><code class="docutils literal notranslate"><span class="pre">change_frame()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.clear_render_border"><code class="docutils literal notranslate"><span class="pre">clear_render_border()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.clear_render_slot"><code class="docutils literal notranslate"><span class="pre">clear_render_slot()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.clipboard_copy"><code class="docutils literal notranslate"><span class="pre">clipboard_copy()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.clipboard_paste"><code class="docutils literal notranslate"><span class="pre">clipboard_paste()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.convert_to_mesh_plane"><code class="docutils literal notranslate"><span class="pre">convert_to_mesh_plane()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.curves_point_set"><code class="docutils literal notranslate"><span class="pre">curves_point_set()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.cycle_render_slot"><code class="docutils literal notranslate"><span class="pre">cycle_render_slot()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.external_edit"><code class="docutils literal notranslate"><span class="pre">external_edit()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.file_browse"><code class="docutils literal notranslate"><span class="pre">file_browse()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.flip"><code class="docutils literal notranslate"><span class="pre">flip()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.import_as_mesh_planes"><code class="docutils literal notranslate"><span class="pre">import_as_mesh_planes()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.invert"><code class="docutils literal notranslate"><span class="pre">invert()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.match_movie_length"><code class="docutils literal notranslate"><span class="pre">match_movie_length()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.new"><code class="docutils literal notranslate"><span class="pre">new()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.open"><code class="docutils literal notranslate"><span class="pre">open()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.open_images"><code class="docutils literal notranslate"><span class="pre">open_images()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.pack"><code class="docutils literal notranslate"><span class="pre">pack()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.project_apply"><code class="docutils literal notranslate"><span class="pre">project_apply()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.project_edit"><code class="docutils literal notranslate"><span class="pre">project_edit()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.read_viewlayers"><code class="docutils literal notranslate"><span class="pre">read_viewlayers()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.reload"><code class="docutils literal notranslate"><span class="pre">reload()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.remove_render_slot"><code class="docutils literal notranslate"><span class="pre">remove_render_slot()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.render_border"><code class="docutils literal notranslate"><span class="pre">render_border()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.replace"><code class="docutils literal notranslate"><span class="pre">replace()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.resize"><code class="docutils literal notranslate"><span class="pre">resize()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.rotate_orthogonal"><code class="docutils literal notranslate"><span class="pre">rotate_orthogonal()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.sample"><code class="docutils literal notranslate"><span class="pre">sample()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.sample_line"><code class="docutils literal notranslate"><span class="pre">sample_line()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.save_all_modified"><code class="docutils literal notranslate"><span class="pre">save_all_modified()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.save_as"><code class="docutils literal notranslate"><span class="pre">save_as()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.save_sequence"><code class="docutils literal notranslate"><span class="pre">save_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.tile_add"><code class="docutils literal notranslate"><span class="pre">tile_add()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.tile_fill"><code class="docutils literal notranslate"><span class="pre">tile_fill()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.tile_remove"><code class="docutils literal notranslate"><span class="pre">tile_remove()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.unpack"><code class="docutils literal notranslate"><span class="pre">unpack()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_all"><code class="docutils literal notranslate"><span class="pre">view_all()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_center_cursor"><code class="docutils literal notranslate"><span class="pre">view_center_cursor()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_cursor_center"><code class="docutils literal notranslate"><span class="pre">view_cursor_center()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_ndof"><code class="docutils literal notranslate"><span class="pre">view_ndof()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_pan"><code class="docutils literal notranslate"><span class="pre">view_pan()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_selected"><code class="docutils literal notranslate"><span class="pre">view_selected()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_zoom"><code class="docutils literal notranslate"><span class="pre">view_zoom()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_zoom_border"><code class="docutils literal notranslate"><span class="pre">view_zoom_border()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_zoom_in"><code class="docutils literal notranslate"><span class="pre">view_zoom_in()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_zoom_out"><code class="docutils literal notranslate"><span class="pre">view_zoom_out()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.image.view_zoom_ratio"><code class="docutils literal notranslate"><span class="pre">view_zoom_ratio()</span></code></a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bpy.ops.grease_pencil.html"
+                          title="previous chapter">Grease Pencil Operators</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bpy.ops.import_anim.html"
+                          title="next chapter">Import Anim Operators</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.import_anim.html" title="Import Anim Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.grease_pencil.html" title="Grease Pencil Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Image Operators</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.image.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.ops.image.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
 </html>

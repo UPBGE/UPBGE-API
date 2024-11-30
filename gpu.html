@@ -1,124 +1,57 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GPU Module (gpu) &mdash; Blender Python API</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/version_switch.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/gpu.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=715c20a1"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/version_switch.js?v=fa006b38"></script>
-    <script src="_static/js/theme.js"></script>
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GPU Module (gpu) &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/gpu.html" />
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
           href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="GPU Types (gpu.types)" href="gpu.types.html" />
     <link rel="prev" title="freestyle.utils submodule (freestyle.utils.ContextFunctions)" href="freestyle.utils.ContextFunctions.html" /> 
-</head>
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gpu.types.html" title="GPU Types (gpu.types)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="freestyle.utils.ContextFunctions.html" title="freestyle.utils submodule (freestyle.utils.ContextFunctions)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GPU Module (gpu)</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
-              <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">GPU Module (gpu)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">GPU Module (gpu)</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="module-gpu">
-<span id="gpu-module-gpu"></span><h1>GPU Module (gpu)<a class="headerlink" href="#module-gpu" title="Link to this heading"></a></h1>
+<span id="gpu-module-gpu"></span><h1>GPU Module (gpu)<a class="headerlink" href="#module-gpu" title="Link to this heading">¶</a></h1>
 <p>This module provides Python wrappers for the GPU implementation in Blender.
-Some higher level functions can be found in the <cite>gpu_extras</cite> module.</p>
+Some higher level functions can be found in the <a class="reference internal" href="gpu_extras.html#module-gpu_extras" title="gpu_extras"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpu_extras</span></code></a> module.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Submodules</span></p>
 <ul>
@@ -133,17 +66,17 @@ Some higher level functions can be found in the <cite>gpu_extras</cite> module.<
 </ul>
 </div>
 <section id="geometry-batches">
-<h2>Geometry Batches<a class="headerlink" href="#geometry-batches" title="Link to this heading"></a></h2>
+<h2>Geometry Batches<a class="headerlink" href="#geometry-batches" title="Link to this heading">¶</a></h2>
 <p>Geometry is drawn in batches.
 A batch contains the necessary data to perform the drawing.
 That includes an obligatory <em>Vertex Buffer</em> and an optional <em>Index Buffer</em>,
 each of which is described in more detail in the following sections.
 A batch also defines a draw type.
-Typical draw types are <cite>POINTS</cite>, <cite>LINES</cite> and <cite>TRIS</cite>.
+Typical draw types are <code class="docutils literal notranslate"><span class="pre">POINTS</span></code>, <code class="docutils literal notranslate"><span class="pre">LINES</span></code> and <code class="docutils literal notranslate"><span class="pre">TRIS</span></code>.
 The draw type determines how the data will be interpreted and drawn.</p>
 </section>
 <section id="vertex-buffers">
-<h2>Vertex Buffers<a class="headerlink" href="#vertex-buffers" title="Link to this heading"></a></h2>
+<h2>Vertex Buffers<a class="headerlink" href="#vertex-buffers" title="Link to this heading">¶</a></h2>
 <p>A <em>Vertex Buffer Object</em> (VBO) (<a class="reference internal" href="gpu.types.html#gpu.types.GPUVertBuf" title="gpu.types.GPUVertBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertBuf</span></code></a>)
 is an array that contains the vertex attributes needed for drawing using a specific shader.
 Typical vertex attributes are <em>location</em>, <em>normal</em>, <em>color</em>, and <em>uv</em>.
@@ -170,7 +103,7 @@ E.g. in the case of lines, each two consecutive vertices define a line.
 The type that will actually be drawn is determined when the batch is created later.</p>
 </section>
 <section id="index-buffers">
-<h2>Index Buffers<a class="headerlink" href="#index-buffers" title="Link to this heading"></a></h2>
+<h2>Index Buffers<a class="headerlink" href="#index-buffers" title="Link to this heading">¶</a></h2>
 <p>Often triangles and lines share one or more vertices.
 With only a vertex buffer one would have to store all attributes for the these vertices multiple times.
 This is very inefficient because in a connected triangle mesh every vertex is used 6 times on average.
@@ -187,12 +120,12 @@ An <em>Index Buffer</em> is an array that references vertices based on their ind
 <span class="n">ibo</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUIndexBuf</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;TRIS&#39;</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="n">indices</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here the first tuple in <cite>indices</cite> describes which vertices should be used for the first triangle
+<p>Here the first tuple in <code class="docutils literal notranslate"><span class="pre">indices</span></code> describes which vertices should be used for the first triangle
 (same for the second tuple).
 Note how the diagonal vertices 1 and 2 are shared between both triangles.</p>
 </section>
 <section id="shaders">
-<h2>Shaders<a class="headerlink" href="#shaders" title="Link to this heading"></a></h2>
+<h2>Shaders<a class="headerlink" href="#shaders" title="Link to this heading">¶</a></h2>
 <p>A shader is a program that runs on the GPU (written in GLSL in our case).
 There are multiple types of shaders.
 The most important ones are <em>Vertex Shaders</em> and <em>Fragment Shaders</em>.
@@ -200,14 +133,14 @@ Typically multiple shaders are linked together into a <em>Program</em>.
 However, in the Blender Python API the term <em>Shader</em> refers to an OpenGL Program.
 Every <a class="reference internal" href="gpu.types.html#gpu.types.GPUShader" title="gpu.types.GPUShader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUShader</span></code></a> consists of a vertex shader, a fragment shader and an optional geometry shader.
 For common drawing tasks there are some built-in shaders accessible from <a class="reference internal" href="gpu.shader.html#gpu.shader.from_builtin" title="gpu.shader.from_builtin"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.shader.from_builtin</span></code></a>
-with an identifier such as <cite>UNIFORM_COLOR</cite> or <cite>FLAT_COLOR</cite>.</p>
+with an identifier such as <code class="docutils literal notranslate"><span class="pre">UNIFORM_COLOR</span></code> or <code class="docutils literal notranslate"><span class="pre">FLAT_COLOR</span></code>.</p>
 <p>Every shader defines a set of attributes and uniforms that have to be set in order to use the shader.
 Attributes are properties that are set using a vertex buffer and can be different for individual vertices.
 Uniforms are properties that are constant per draw call.
-They can be set using the <cite>shader.uniform_*</cite> functions after the shader has been bound.</p>
+They can be set using the <code class="docutils literal notranslate"><span class="pre">shader.uniform_*</span></code> functions after the shader has been bound.</p>
 </section>
 <section id="batch-creation">
-<h2>Batch Creation<a class="headerlink" href="#batch-creation" title="Link to this heading"></a></h2>
+<h2>Batch Creation<a class="headerlink" href="#batch-creation" title="Link to this heading">¶</a></h2>
 <p>Batches can be creates by first manually creating VBOs and IBOs.
 However, it is recommended to use the <a class="reference internal" href="gpu_extras.batch.html#gpu_extras.batch.batch_for_shader" title="gpu_extras.batch.batch_for_shader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu_extras.batch.batch_for_shader</span></code></a> function.
 It makes sure that all the vertex attributes necessary for a specific shader are provided.
@@ -217,7 +150,7 @@ This is still something one should know when drawing stuff though.</p>
 <p>Since batches can be drawn multiple times, they should be cached and reused whenever possible.</p>
 </section>
 <section id="offscreen-rendering">
-<h2>Offscreen Rendering<a class="headerlink" href="#offscreen-rendering" title="Link to this heading"></a></h2>
+<h2>Offscreen Rendering<a class="headerlink" href="#offscreen-rendering" title="Link to this heading">¶</a></h2>
 <p>What one can see on the screen after rendering is called the <em>Front Buffer</em>.
 When draw calls are issued, batches are drawn on a <em>Back Buffer</em> that will only be displayed
 when all drawing is done and the current back buffer will become the new front buffer.
@@ -227,18 +160,18 @@ This is called Offscreen Rendering.
 In Blender Offscreen Rendering is done using the <a class="reference internal" href="gpu.types.html#gpu.types.GPUOffScreen" title="gpu.types.GPUOffScreen"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUOffScreen</span></code></a> type.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><cite>GPUOffScreen</cite> objects are bound to the OpenGL context they have been created in.
+<p><a class="reference internal" href="gpu.types.html#gpu.types.GPUOffScreen" title="gpu.types.GPUOffScreen"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUOffScreen</span></code></a> objects are bound to the OpenGL context they have been created in.
 This means that once Blender discards this context (i.e. the window is closed),
 the offscreen instance will be freed.</p>
 </div>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <p>To try these examples, just copy them into Blenders text editor and execute them.
 To keep the examples relatively small, they just register a draw function that can’t easily be removed anymore.
 Blender has to be restarted in order to delete the draw handlers.</p>
 <section id="d-lines-with-single-color">
-<h3>3D Lines with Single Color<a class="headerlink" href="#d-lines-with-single-color" title="Link to this heading"></a></h3>
+<h3>3D Lines with Single Color<a class="headerlink" href="#d-lines-with-single-color" title="Link to this heading">¶</a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -258,7 +191,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="triangle-with-custom-shader">
-<h3>Triangle with Custom Shader<a class="headerlink" href="#triangle-with-custom-shader" title="Link to this heading"></a></h3>
+<h3>Triangle with Custom Shader<a class="headerlink" href="#triangle-with-custom-shader" title="Link to this heading">¶</a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -309,7 +242,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="wireframe-cube-using-index-buffer">
-<h3>Wireframe Cube using Index Buffer<a class="headerlink" href="#wireframe-cube-using-index-buffer" title="Link to this heading"></a></h3>
+<h3>Wireframe Cube using Index Buffer<a class="headerlink" href="#wireframe-cube-using-index-buffer" title="Link to this heading">¶</a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -339,7 +272,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="mesh-with-random-vertex-colors">
-<h3>Mesh with Random Vertex Colors<a class="headerlink" href="#mesh-with-random-vertex-colors" title="Link to this heading"></a></h3>
+<h3>Mesh with Random Vertex Colors<a class="headerlink" href="#mesh-with-random-vertex-colors" title="Link to this heading">¶</a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -379,7 +312,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="d-rectangle">
-<h3>2D Rectangle<a class="headerlink" href="#d-rectangle" title="Link to this heading"></a></h3>
+<h3>2D Rectangle<a class="headerlink" href="#d-rectangle" title="Link to this heading">¶</a></h3>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
 <span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
@@ -405,7 +338,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="d-image">
-<h3>2D Image<a class="headerlink" href="#d-image" title="Link to this heading"></a></h3>
+<h3>2D Image<a class="headerlink" href="#d-image" title="Link to this heading">¶</a></h3>
 <p>To use this example you have to provide an image that should be displayed.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">gpu</span>
@@ -468,7 +401,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="generate-a-texture-using-offscreen-rendering">
-<h3>Generate a texture using Offscreen Rendering<a class="headerlink" href="#generate-a-texture-using-offscreen-rendering" title="Link to this heading"></a></h3>
+<h3>Generate a texture using Offscreen Rendering<a class="headerlink" href="#generate-a-texture-using-offscreen-rendering" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Create an <a class="reference internal" href="gpu.types.html#gpu.types.GPUOffScreen" title="gpu.types.GPUOffScreen"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUOffScreen</span></code></a> object.</p></li>
 <li><p>Draw some circles into it.</p></li>
@@ -555,7 +488,7 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 </div>
 </section>
 <section id="copy-offscreen-rendering-result-back-to-ram">
-<h3>Copy Offscreen Rendering result back to RAM<a class="headerlink" href="#copy-offscreen-rendering-result-back-to-ram" title="Link to this heading"></a></h3>
+<h3>Copy Offscreen Rendering result back to RAM<a class="headerlink" href="#copy-offscreen-rendering-result-back-to-ram" title="Link to this heading">¶</a></h3>
 <p>This will create a new image with the given name.
 If it already exists, it will override the existing one.</p>
 <p>Currently almost all of the execution time is spent in the last line.
@@ -606,7 +539,7 @@ for <a class="reference internal" href="gpu.types.html#gpu.types.Buffer" title="
 </div>
 </section>
 <section id="rendering-the-3d-view-into-a-texture">
-<h3>Rendering the 3D View into a Texture<a class="headerlink" href="#rendering-the-3d-view-into-a-texture" title="Link to this heading"></a></h3>
+<h3>Rendering the 3D View into a Texture<a class="headerlink" href="#rendering-the-3d-view-into-a-texture" title="Link to this heading">¶</a></h3>
 <p>The scene has to have a camera for this example to work.
 You could also make this independent of a specific camera,
 but Blender does not expose good functions to create view and projection matrices yet.</p>
@@ -647,7 +580,7 @@ but Blender does not expose good functions to create view and projection matrice
 </div>
 </section>
 <section id="custom-shader-for-dotted-3d-line">
-<h3>Custom Shader for dotted 3D Line<a class="headerlink" href="#custom-shader-for-dotted-3d-line" title="Link to this heading"></a></h3>
+<h3>Custom Shader for dotted 3D Line<a class="headerlink" href="#custom-shader-for-dotted-3d-line" title="Link to this heading">¶</a></h3>
 <p>In this example the arc length (distance to the first point on the line) is calculated in every vertex.
 Between the vertex and fragment shader that value is automatically interpolated
 for all points that will be visible on the screen.
@@ -713,53 +646,192 @@ Based on the result a decision is made on whether the fragment should be drawn o
 </pre></div>
 </div>
 </section>
+<section id="custom-compute-shader-using-image-store-and-vertex-fragment-shader">
+<h3>Custom compute shader (using image store) and vertex/fragment shader<a class="headerlink" href="#custom-compute-shader-using-image-store-and-vertex-fragment-shader" title="Link to this heading">¶</a></h3>
+<p>This is an example of how to use a custom compute shader to write to a texture and then use that texture in a vertex/fragment shader.
+The expected result is a 2x2 plane (size of the default cube), which changes color from a green-black gradient to a green-red gradient,
+based on current time.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">import</span> <span class="nn">gpu</span>
+<span class="kn">from</span> <span class="nn">mathutils</span> <span class="kn">import</span> <span class="n">Matrix</span>
+<span class="kn">from</span> <span class="nn">gpu_extras.batch</span> <span class="kn">import</span> <span class="n">batch_for_shader</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">texture</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUTexture</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;RGBA32F&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create the compute shader to write to the texture</span>
+<span class="n">compute_shader_info</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShaderCreateInfo</span><span class="p">()</span>
+<span class="n">compute_shader_info</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;RGBA32F&#39;</span><span class="p">,</span> <span class="s2">&quot;FLOAT_2D&quot;</span><span class="p">,</span> <span class="s2">&quot;img_output&quot;</span><span class="p">,</span> <span class="n">qualifiers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WRITE&quot;</span><span class="p">})</span>
+<span class="n">compute_shader_info</span><span class="o">.</span><span class="n">compute_source</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">void main()</span>
+<span class="s1">{</span>
+<span class="s1">  vec4 pixel = vec4(</span>
+<span class="s1">    sin(time / 1.0),</span>
+<span class="s1">    gl_GlobalInvocationID.y/128.0,</span>
+<span class="s1">    0.0,</span>
+<span class="s1">    1.0</span>
+<span class="s1">  );</span>
+<span class="s1">  imageStore(img_output, ivec2(gl_GlobalInvocationID.xy), pixel);</span>
+<span class="s1">}&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">compute_shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;FLOAT&#39;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">compute_shader_info</span><span class="o">.</span><span class="n">local_group_size</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">compute_shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">create_from_info</span><span class="p">(</span><span class="n">compute_shader_info</span><span class="p">)</span>
+
+<span class="c1"># Create the shader to draw the texture</span>
+<span class="n">vert_out</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUStageInterfaceInfo</span><span class="p">(</span><span class="s2">&quot;my_interface&quot;</span><span class="p">)</span>
+<span class="n">vert_out</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="s1">&#39;VEC2&#39;</span><span class="p">,</span> <span class="s2">&quot;uvInterp&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">GPUShaderCreateInfo</span><span class="p">()</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;MAT4&#39;</span><span class="p">,</span> <span class="s2">&quot;viewProjectionMatrix&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">push_constant</span><span class="p">(</span><span class="s1">&#39;MAT4&#39;</span><span class="p">,</span> <span class="s2">&quot;modelMatrix&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">sampler</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;FLOAT_2D&#39;</span><span class="p">,</span> <span class="s2">&quot;img_input&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_in</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC2&#39;</span><span class="p">,</span> <span class="s2">&quot;position&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_in</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;VEC2&#39;</span><span class="p">,</span> <span class="s2">&quot;uv&quot;</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_out</span><span class="p">(</span><span class="n">vert_out</span><span class="p">)</span>
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_out</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;VEC4&#39;</span><span class="p">,</span> <span class="s2">&quot;FragColor&quot;</span><span class="p">)</span>
+
+<span class="n">shader_info</span><span class="o">.</span><span class="n">vertex_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  uvInterp = uv;&quot;</span>
+    <span class="s2">&quot;  gl_Position = viewProjectionMatrix * modelMatrix * vec4(position, 0.0, 1.0);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
+
+<span class="n">shader_info</span><span class="o">.</span><span class="n">fragment_source</span><span class="p">(</span>
+    <span class="s2">&quot;void main()&quot;</span>
+    <span class="s2">&quot;{&quot;</span>
+    <span class="s2">&quot;  FragColor = texture(img_input, uvInterp);&quot;</span>
+    <span class="s2">&quot;}&quot;</span>
+<span class="p">)</span>
+
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">create_from_info</span><span class="p">(</span><span class="n">shader_info</span><span class="p">)</span>
+
+<span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
+    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_FAN&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="s2">&quot;uv&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+    <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;modelMatrix&quot;</span><span class="p">,</span> <span class="n">Matrix</span><span class="o">.</span><span class="n">Translation</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">@</span> <span class="n">Matrix</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;viewProjectionMatrix&quot;</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">region_data</span><span class="o">.</span><span class="n">perspective_matrix</span><span class="p">)</span>
+    <span class="n">shader</span><span class="o">.</span><span class="n">uniform_sampler</span><span class="p">(</span><span class="s2">&quot;img_input&quot;</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+    <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
+    <span class="n">compute_shader</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="s1">&#39;img_output&#39;</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+    <span class="n">compute_shader</span><span class="o">.</span><span class="n">uniform_float</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+    <span class="n">gpu</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">compute_shader</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">drawTimer</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">area</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">areas</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">area</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;VIEW_3D&#39;</span><span class="p">:</span>
+            <span class="n">area</span><span class="o">.</span><span class="n">tag_redraw</span><span class="p">()</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">60.0</span>
+
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">timers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">drawTimer</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">SpaceView3D</span><span class="o">.</span><span class="n">draw_handler_add</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="p">(),</span> <span class="s1">&#39;WINDOW&#39;</span><span class="p">,</span> <span class="s1">&#39;POST_VIEW&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="freestyle.utils.ContextFunctions.html" class="btn btn-neutral float-left" title="freestyle.utils submodule (freestyle.utils.ContextFunctions)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gpu.types.html" class="btn btn-neutral float-right" title="GPU Types (gpu.types)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/1dff62ca3acd>1dff62ca3acd</a> - 10/09/2023</code>.
-      </span></p>
-  </div>
-
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
-    <ul id="versionwrap" role="presentation">
-       <li role="presentation">
-            <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            4.0 
-            </span>
-            <div class="version-dialog" aria-hidden="true">
-                <div class="version-arrow" aria-hidden="true"></div>
-                <div class="version-title">Versions</div>
-                <ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover" aria-hidden="true">
-                    <li role="presentation">Loading...</li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
-    <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(false);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">GPU Module (gpu)</a><ul>
+<li><a class="reference internal" href="#geometry-batches">Geometry Batches</a></li>
+<li><a class="reference internal" href="#vertex-buffers">Vertex Buffers</a></li>
+<li><a class="reference internal" href="#index-buffers">Index Buffers</a></li>
+<li><a class="reference internal" href="#shaders">Shaders</a></li>
+<li><a class="reference internal" href="#batch-creation">Batch Creation</a></li>
+<li><a class="reference internal" href="#offscreen-rendering">Offscreen Rendering</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#d-lines-with-single-color">3D Lines with Single Color</a></li>
+<li><a class="reference internal" href="#triangle-with-custom-shader">Triangle with Custom Shader</a></li>
+<li><a class="reference internal" href="#wireframe-cube-using-index-buffer">Wireframe Cube using Index Buffer</a></li>
+<li><a class="reference internal" href="#mesh-with-random-vertex-colors">Mesh with Random Vertex Colors</a></li>
+<li><a class="reference internal" href="#d-rectangle">2D Rectangle</a></li>
+<li><a class="reference internal" href="#d-image">2D Image</a></li>
+<li><a class="reference internal" href="#generate-a-texture-using-offscreen-rendering">Generate a texture using Offscreen Rendering</a></li>
+<li><a class="reference internal" href="#copy-offscreen-rendering-result-back-to-ram">Copy Offscreen Rendering result back to RAM</a></li>
+<li><a class="reference internal" href="#rendering-the-3d-view-into-a-texture">Rendering the 3D View into a Texture</a></li>
+<li><a class="reference internal" href="#custom-shader-for-dotted-3d-line">Custom Shader for dotted 3D Line</a></li>
+<li><a class="reference internal" href="#custom-compute-shader-using-image-store-and-vertex-fragment-shader">Custom compute shader (using image store) and vertex/fragment shader</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="freestyle.utils.ContextFunctions.html"
+                          title="previous chapter">freestyle.utils submodule (freestyle.utils.ContextFunctions)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="gpu.types.html"
+                          title="next chapter">GPU Types (gpu.types)</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gpu.types.html" title="GPU Types (gpu.types)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="freestyle.utils.ContextFunctions.html" title="freestyle.utils submodule (freestyle.utils.ContextFunctions)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GPU Module (gpu)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60gpu.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fgpu.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
 </html>

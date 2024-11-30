@@ -1,124 +1,57 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Operators (bpy.ops) &mdash; Blender Python API</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/version_switch.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.ops.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=715c20a1"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/version_switch.js?v=fa006b38"></script>
-    <script src="_static/js/theme.js"></script>
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Operators (bpy.ops) &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.ops.html" />
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
           href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Action Operators" href="bpy.ops.action.html" />
     <link rel="prev" title="Message Bus (bpy.msgbus)" href="bpy.msgbus.html" /> 
-</head>
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.action.html" title="Action Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.msgbus.html" title="Message Bus (bpy.msgbus)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Operators (bpy.ops)</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
-              <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Operators (bpy.ops)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Operators (bpy.ops)</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="module-bpy.ops">
-<span id="operators-bpy-ops"></span><h1>Operators (bpy.ops)<a class="headerlink" href="#module-bpy.ops" title="Link to this heading"></a></h1>
+<span id="operators-bpy-ops"></span><h1>Operators (bpy.ops)<a class="headerlink" href="#module-bpy.ops" title="Link to this heading">¶</a></h1>
 <section id="calling-operators">
-<h2>Calling Operators<a class="headerlink" href="#calling-operators" title="Link to this heading"></a></h2>
+<h2>Calling Operators<a class="headerlink" href="#calling-operators" title="Link to this heading">¶</a></h2>
 <p>Provides python access to calling operators, this includes operators written in
 C, Python or macros.</p>
 <p>Only keyword arguments can be used to pass operator properties.</p>
@@ -133,7 +66,7 @@ there is a poll() method to avoid this problem.</p>
 <p>Note that the operator ID (bl_idname) in this example is <code class="docutils literal notranslate"><span class="pre">mesh.subdivide</span></code>,
 <code class="docutils literal notranslate"><span class="pre">bpy.ops</span></code> is just the access path for python.</p>
 <section id="keywords-and-positional-arguments">
-<h3>Keywords and Positional Arguments<a class="headerlink" href="#keywords-and-positional-arguments" title="Link to this heading"></a></h3>
+<h3>Keywords and Positional Arguments<a class="headerlink" href="#keywords-and-positional-arguments" title="Link to this heading">¶</a></h3>
 <p>For calling operators keywords are used for operator properties and
 positional arguments are used to define how the operator is called.</p>
 <p>There are 2 optional positional arguments (documented in detail below).</p>
@@ -159,7 +92,7 @@ positional arguments are used to define how the operator is called.</p>
 </section>
 </section>
 <section id="overriding-context">
-<h2>Overriding Context<a class="headerlink" href="#overriding-context" title="Link to this heading"></a></h2>
+<h2>Overriding Context<a class="headerlink" href="#overriding-context" title="Link to this heading">¶</a></h2>
 <p>It is possible to override context members that the operator sees, so that they
 act on specified rather than the selected or active data, or to execute an
 operator in the different part of the user interface.</p>
@@ -183,7 +116,7 @@ you would pass <code class="docutils literal notranslate"><span class="pre">{'ac
 </div>
 </section>
 <section id="execution-context">
-<span id="operator-execution-context"></span><h2>Execution Context<a class="headerlink" href="#execution-context" title="Link to this heading"></a></h2>
+<span id="operator-execution-context"></span><h2>Execution Context<a class="headerlink" href="#execution-context" title="Link to this heading">¶</a></h2>
 <p>When calling an operator you may want to pass the execution context.</p>
 <p>This determines the context that is given for the operator to run in, and whether
 invoke() is called or only execute().</p>
@@ -246,6 +179,9 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.curves.html">Curves Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.dpaint.html">Dpaint Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.ed.html">Ed Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.export_anim.html">Export Anim Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.export_scene.html">Export Scene Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.extensions.html">Extensions Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.file.html">File Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.fluid.html">Fluid Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.font.html">Font Operators</a></li>
@@ -255,6 +191,9 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.graph.html">Graph Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.grease_pencil.html">Grease Pencil Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.image.html">Image Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.import_anim.html">Import Anim Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.import_curve.html">Import Curve Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.import_scene.html">Import Scene Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.info.html">Info Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.lattice.html">Lattice Operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bpy.ops.logic.html">Logic Operators</a></li>
@@ -304,49 +243,80 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.msgbus.html" class="btn btn-neutral float-left" title="Message Bus (bpy.msgbus)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.ops.action.html" class="btn btn-neutral float-right" title="Action Operators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/1dff62ca3acd>1dff62ca3acd</a> - 10/09/2023</code>.
-      </span></p>
-  </div>
-
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
-    <ul id="versionwrap" role="presentation">
-       <li role="presentation">
-            <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            4.0 
-            </span>
-            <div class="version-dialog" aria-hidden="true">
-                <div class="version-arrow" aria-hidden="true"></div>
-                <div class="version-title">Versions</div>
-                <ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover" aria-hidden="true">
-                    <li role="presentation">Loading...</li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
-    <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(false);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Operators (bpy.ops)</a><ul>
+<li><a class="reference internal" href="#calling-operators">Calling Operators</a><ul>
+<li><a class="reference internal" href="#keywords-and-positional-arguments">Keywords and Positional Arguments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overriding-context">Overriding Context</a></li>
+<li><a class="reference internal" href="#execution-context">Execution Context</a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bpy.msgbus.html"
+                          title="previous chapter">Message Bus (bpy.msgbus)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bpy.ops.action.html"
+                          title="next chapter">Action Operators</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.action.html" title="Action Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.msgbus.html" title="Message Bus (bpy.msgbus)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Operators (bpy.ops)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.ops.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
 </html>

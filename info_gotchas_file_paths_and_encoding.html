@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>File Paths &amp; String Encoding &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/info_gotchas_file_paths_and_encoding.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Blender Python API"
+          href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced" href="info_advanced.html" />
+    <link rel="prev" title="Bones &amp; Armatures" href="info_gotchas_armatures_and_bones.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_advanced.html" title="Advanced"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_armatures_and_bones.html" title="Bones &amp; Armatures"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" accesskey="U">Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">File Paths &amp; String Encoding</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="file-paths-string-encoding">
+<h1>File Paths &amp; String Encoding<a class="headerlink" href="#file-paths-string-encoding" title="Link to this heading">¶</a></h1>
+<section id="relative-file-paths">
+<h2>Relative File Paths<a class="headerlink" href="#relative-file-paths" title="Link to this heading">¶</a></h2>
+<p>Blender’s relative file paths are not compatible with standard Python modules such as <code class="docutils literal notranslate"><span class="pre">sys</span></code> and <code class="docutils literal notranslate"><span class="pre">os</span></code>.
+Built-in Python functions don’t understand Blender’s <code class="docutils literal notranslate"><span class="pre">//</span></code> prefix which denotes the blend-file path.</p>
+<p>A common case where you would run into this problem is when exporting a material with associated image paths:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When using Blender data from linked libraries there is an unfortunate complication
+since the path will be relative to the library rather than the open blend-file.
+When the data block may be from an external blend-file pass the library argument from the <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="n">library</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">library</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These returns the absolute path which can be used with native Python modules.</p>
+</section>
+<section id="unicode-problems">
+<h2>Unicode Problems<a class="headerlink" href="#unicode-problems" title="Link to this heading">¶</a></h2>
+<p>Python supports many different encodings so there is nothing stopping you from
+writing a script in <code class="docutils literal notranslate"><span class="pre">latin1</span></code> or <code class="docutils literal notranslate"><span class="pre">iso-8859-15</span></code>.
+See <a class="reference external" href="https://www.python.org/dev/peps/pep-0263/">PEP 263</a>.</p>
+<p>However, this complicates matters for Blender’s Python API because <code class="docutils literal notranslate"><span class="pre">.blend</span></code> files don’t have an explicit encoding.
+To avoid the problem for Python integration and script authors we have decided that all strings in blend-files
+<strong>must</strong> be <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>, <code class="docutils literal notranslate"><span class="pre">ASCII</span></code> compatible.
+This means assigning strings with different encodings to an object name, for instance, will raise an error.</p>
+<p>Paths are an exception to this rule since the existence of non-UTF-8 paths on the user’s file system cannot be ignored.
+This means seemingly harmless expressions can raise errors, e.g:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
+<span class="go">UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 10-21: ordinal not in range(128)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;blender_console&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">bpy_struct: item.attr= val: Object.name expected a string type, not str</span>
+</pre></div>
+</div>
+<p>Here are two ways around file-system encoding issues:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filepath_bytes</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsencode</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filepath_utf8</span> <span class="o">=</span> <span class="n">filepath_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">filepath_utf8</span>
+</pre></div>
+</div>
+<p>Unicode encoding/decoding is a big topic with comprehensive Python documentation,
+to keep it short about encoding problems – here are some suggestions:</p>
+<ul class="simple">
+<li><p>Always use UTF-8 encoding or convert to UTF-8 where the input is unknown.</p></li>
+<li><p>Avoid manipulating file paths as strings directly, use <code class="docutils literal notranslate"><span class="pre">os.path</span></code> functions instead.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">os.fsencode()</span></code> or <code class="docutils literal notranslate"><span class="pre">os.fsdecode()</span></code> instead of built-in string decoding functions when operating on paths.</p></li>
+<li><p>To print paths or to include them in the user interface use <code class="docutils literal notranslate"><span class="pre">repr(path)</span></code> first
+or <code class="docutils literal notranslate"><span class="pre">&quot;%r&quot;</span> <span class="pre">%</span> <span class="pre">path</span></code> with string formatting.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sometimes it’s preferable to avoid string encoding issues by using bytes instead of Python strings,
+when reading some input it’s less trouble to read it as binary data
+though you will still need to decide how to treat any strings you want to use with Blender,
+some importers do this.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">File Paths &amp; String Encoding</a><ul>
+<li><a class="reference internal" href="#relative-file-paths">Relative File Paths</a></li>
+<li><a class="reference internal" href="#unicode-problems">Unicode Problems</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="info_gotchas_armatures_and_bones.html"
+                          title="previous chapter">Bones &amp; Armatures</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="info_advanced.html"
+                          title="next chapter">Advanced</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_advanced.html" title="Advanced"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_armatures_and_bones.html" title="Bones &amp; Armatures"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" >Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">File Paths &amp; String Encoding</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60info_gotchas_file_paths_and_encoding.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Finfo_gotchas_file_paths_and_encoding.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
+</html>

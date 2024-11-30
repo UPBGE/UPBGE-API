@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Troubleshooting Errors &amp; Crashes &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/info_gotchas_crashes.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Blender Python API"
+          href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Internal Data &amp; Their Python Objects" href="info_gotchas_internal_data_and_python_objects.html" />
+    <link rel="prev" title="Gotchas" href="info_gotcha.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_internal_data_and_python_objects.html" title="Internal Data &amp; Their Python Objects"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="info_gotcha.html" title="Gotchas"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" accesskey="U">Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Troubleshooting Errors &amp; Crashes</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="troubleshooting-errors-crashes">
+<h1>Troubleshooting Errors &amp; Crashes<a class="headerlink" href="#troubleshooting-errors-crashes" title="Link to this heading">¶</a></h1>
+<section id="strange-errors-when-using-the-threading-module">
+<h2>Strange Errors when Using the ‘Threading’ Module<a class="headerlink" href="#strange-errors-when-using-the-threading-module" title="Link to this heading">¶</a></h2>
+<p>Python threading with Blender only works properly when the threads finish up before the script does,
+for example by using <code class="docutils literal notranslate"><span class="pre">threading.join()</span></code>.</p>
+<p>Here is an example of threading supported by Blender:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">prod</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;Starting&quot;</span><span class="p">)</span>
+
+    <span class="c1"># do something vaguely useful</span>
+    <span class="kn">import</span> <span class="nn">bpy</span>
+    <span class="kn">from</span> <span class="nn">mathutils</span> <span class="kn">import</span> <span class="n">Vector</span>
+    <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+
+    <span class="n">prod_vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">((</span><span class="n">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prodding&quot;</span><span class="p">,</span> <span class="n">prod_vec</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span> <span class="o">+=</span> <span class="n">prod_vec</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="c1"># finish</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;Exiting&quot;</span><span class="p">)</span>
+
+<span class="n">threads</span> <span class="o">=</span> <span class="p">[</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Prod </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">prod</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting threads...&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Waiting for threads to finish...&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This an example of a timer which runs many times a second
+and moves the default cube continuously while Blender runs <strong>(Unsupported)</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running...&quot;</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">bpy</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">0.05</span>
+
+<span class="k">def</span> <span class="nf">my_timer</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Timer</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">my_timer</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">func</span><span class="p">()</span>
+
+<span class="n">my_timer</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Use cases like the one above which leave the thread running once the script finishes
+may seem to work for a while but end up causing random crashes or errors in Blender’s own drawing code.</p>
+<p>So far, no work has been done to make Blender’s Python integration thread safe,
+so until it’s properly supported, it’s best not make use of this.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python threads only allow concurrency and won’t speed up your scripts on multiprocessor systems,
+the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> and <code class="docutils literal notranslate"><span class="pre">multiprocess</span></code> modules can be used with Blender to make use of multiple CPUs too.</p>
+</div>
+</section>
+<section id="help-my-script-crashes-blender">
+<span id="troubleshooting-crashes"></span><h2>Help! My script crashes Blender<a class="headerlink" href="#help-my-script-crashes-blender" title="Link to this heading">¶</a></h2>
+<p><abbr title="Too long; didn't read.">TL;DR</abbr> Do not keep direct references to Blender data (of any kind)
+when modifying the container of that data, and/or when some undo/redo may happen
+(e.g. during modal operators execution…).
+Instead, use indices (or other data always stored by value in Python, like string keys…),
+that allow you to get access to the desired data.</p>
+<p>Ideally it would be impossible to crash Blender from Python,
+however, there are some problems with the API where it can be made to crash.
+Strictly speaking this is a bug in the API but fixing it would mean adding memory verification
+on every access since most crashes are caused by the Python objects referencing Blender’s memory directly,
+whenever the memory is freed or re-allocated, further Python access to it can crash the script.
+But fixing this would make the scripts run very slow,
+or writing a very different kind of API which doesn’t reference the memory directly.</p>
+<p>Here are some general hints to avoid running into these problems:</p>
+<ul class="simple">
+<li><p>Be aware of memory limits,
+especially when working with large lists since Blender can crash simply by running out of memory.</p></li>
+<li><p>Many hard to fix crashes end up being because of referencing freed data,
+when removing data be sure not to hold any references to it.</p></li>
+<li><p>Re-allocation can lead to the same issues
+(e.g. if you add a lot of items to some Collection,
+this can lead to re-allocating the underlying container’s memory,
+invalidating all previous references to existing items).</p></li>
+<li><p>Modules or classes that remain active while Blender is used,
+should not hold references to data the user may remove, instead,
+fetch data from the context each time the script is activated.</p></li>
+<li><p>Crashes may not happen every time, they may happen more on some configurations or operating systems.</p></li>
+<li><p>Be careful with recursive patterns, those are very efficient at hiding the issues described here.</p></li>
+<li><p>See last subsection about <a class="reference internal" href="#unfortunate-corner-cases">Unfortunate Corner Cases</a> for some known breaking exceptions.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To find the line of your script that crashes you can use the <code class="docutils literal notranslate"><span class="pre">faulthandler</span></code> module.
+See the <a class="reference external" href="https://docs.python.org/dev/library/faulthandler.html">Faulthandler docs</a>.</p>
+<p>While the crash may be in Blender’s C/C++ code,
+this can help a lot to track down the area of the script that causes the crash.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some container modifications are actually safe, because they will never re-allocate existing data
+(e.g. linked lists containers will never re-allocate existing items when adding or removing others).</p>
+<p>But knowing which cases are safe and which aren’t implies a deep understanding of Blender’s internals.
+That’s why, unless you are willing to dive into the RNA C implementation, it’s simpler to
+always assume that data references will become invalid when modifying their containers,
+in any possible way.</p>
+</div>
+<p class="rubric">Do not:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestItems</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">()</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">TestItems</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">test_items</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">CollectionProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">TestItems</span><span class="p">)</span>
+
+<span class="n">first_item</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">test_items</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">test_items</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+
+<span class="c1"># This is likely to crash, as internal code may re-allocate</span>
+<span class="c1"># the whole container (the collection) memory at some point.</span>
+<span class="n">first_item</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;foobar&quot;</span>
+</pre></div>
+</div>
+<p class="rubric">Do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestItems</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">()</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">TestItems</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">test_items</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">CollectionProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">TestItems</span><span class="p">)</span>
+
+<span class="n">first_item</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">test_items</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">test_items</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+
+<span class="c1"># This is safe, we are getting again desired data *after*</span>
+<span class="c1"># all modifications to its container are done.</span>
+<span class="n">first_item</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">test_items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">first_item</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;foobar&quot;</span>
+</pre></div>
+</div>
+<section id="undo-redo">
+<h3>Undo/Redo<a class="headerlink" href="#undo-redo" title="Link to this heading">¶</a></h3>
+<p>For safety, you should assume that undo and redo always invalidates all <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a>
+instances (Object, Scene, Mesh, Light, etc.), as well obviously as all of their sub-data.</p>
+<p>This example shows how you can tell undo changes the memory locations:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="p">)</span>
+<span class="go">-9223372036849950810</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="p">)</span>
+<span class="go">-9223372036849950810</span>
+</pre></div>
+</div>
+<p>Delete the active object, then undo:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="p">)</span>
+<span class="go">-9223372036849951740</span>
+</pre></div>
+</div>
+<p>As suggested above, simply not holding references to data when Blender is used
+interactively by the user is the only way to make sure that the script doesn’t become unstable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Modern undo/redo system does not systematically invalidate all pointers anymore.
+Some data (in fact, most data, in typical cases), which were detected as unchanged for a
+particular history step, may remain unchanged and hence their pointers may remain valid.</p>
+<p>Be aware that if you want to take advantage of this behavior for some reason, there is no
+guarantee of any kind that it will be safe and consistent. Use it at your own risk.</p>
+</div>
+<section id="modifying-blender-data-undo">
+<h4>Modifying Blender Data &amp; Undo<a class="headerlink" href="#modifying-blender-data-undo" title="Link to this heading">¶</a></h4>
+<p>In general, when Blender data is modified, there should always be an undo step created for it.
+Otherwise, there will be issues, ranging from invalid/broken undo stack, to crashes on undo/redo.</p>
+<p>This is especially true when modifying Blender data <a class="reference internal" href="bpy.types.Operator.html#operator-modifying-blender-data-undo"><span class="std std-ref">in operators</span></a>.</p>
+</section>
+<section id="undo-library-data">
+<h4>Undo &amp; Library Data<a class="headerlink" href="#undo-library-data" title="Link to this heading">¶</a></h4>
+<p>One of the advantages with Blender’s library linking system that undo
+can skip checking changes in library data since it is assumed to be static.
+Tools in Blender are not allowed to modify library data.
+But Python does not enforce this restriction.</p>
+<p>This can be useful in some cases, using a script to adjust material values for example.
+But it’s also possible to use a script to make library data point to newly created local data,
+which is not supported since a call to undo will remove the local data
+but leave the library referencing it and likely crash.</p>
+<p>So it’s best to consider modifying library data an advanced usage of the API
+and only to use it when you know what you’re doing.</p>
+</section>
+</section>
+<section id="abusing-rna-property-callbacks">
+<h3>Abusing RNA property callbacks<a class="headerlink" href="#abusing-rna-property-callbacks" title="Link to this heading">¶</a></h3>
+<p>Python-defined RNA properties can have custom callbacks. Trying to perform complex operations
+from there, like calling an operator, may work, but is not officially recommended nor supported.</p>
+<p>Main reason is that those callback should be very fast, but additionally, it may for example
+create issues with undo/redo system (most operators store an history step, and editing an RNA
+property does so as well), trigger infinite update loops, and so on.</p>
+</section>
+<section id="edit-mode-memory-access">
+<h3>Edit-Mode / Memory Access<a class="headerlink" href="#edit-mode-memory-access" title="Link to this heading">¶</a></h3>
+<p>Switching mode <code class="docutils literal notranslate"><span class="pre">bpy.ops.object.mode_set(mode='EDIT')</span></code> or <code class="docutils literal notranslate"><span class="pre">bpy.ops.object.mode_set(mode='OBJECT')</span></code>
+will re-allocate objects data,
+any references to a meshes vertices/polygons/UVs, armatures bones,
+curves points, etc. cannot be accessed after switching mode.</p>
+<p>Only the reference to the data itself can be re-accessed, the following example will crash.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span><span class="o">.</span><span class="n">data</span>
+<span class="n">polygons</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">polygons</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;EDIT&#39;</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;OBJECT&#39;</span><span class="p">)</span>
+
+<span class="c1"># this will crash</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So after switching mode you need to re-access any object data variables,
+the following example shows how to avoid the crash above.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span><span class="o">.</span><span class="n">data</span>
+<span class="n">polygons</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">polygons</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;EDIT&#39;</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;OBJECT&#39;</span><span class="p">)</span>
+
+<span class="c1"># polygons have been re-allocated</span>
+<span class="n">polygons</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">polygons</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These kinds of problems can happen for any functions which re-allocate
+the object data but are most common when switching mode.</p>
+</section>
+<section id="array-re-allocation">
+<h3>Array Re-Allocation<a class="headerlink" href="#array-re-allocation" title="Link to this heading">¶</a></h3>
+<p>When adding new points to a curve or vertices/edges/polygons to a mesh,
+internally the array which stores this data is re-allocated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">primitive_bezier_curve_add</span><span class="p">()</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">splines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bezier_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">splines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bezier_points</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+
+<span class="c1"># this will crash!</span>
+<span class="n">point</span><span class="o">.</span><span class="n">co</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span>
+</pre></div>
+</div>
+<p>This can be avoided by re-assigning the point variables after adding the new one or by storing
+indices to the points rather than the points themselves.</p>
+<p>The best way is to sidestep the problem altogether by adding all the points to the curve at once.
+This means you don’t have to worry about array re-allocation and it’s faster too
+since re-allocating the entire array for every added point is inefficient.</p>
+</section>
+<section id="removing-data">
+<h3>Removing Data<a class="headerlink" href="#removing-data" title="Link to this heading">¶</a></h3>
+<p><strong>Any</strong> data that you remove shouldn’t be modified or accessed afterwards,
+this includes: F-Curves, drivers, render layers, timeline markers, modifiers, constraints
+along with objects, scenes, collections, bones, etc.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">remove()</span></code> API calls will invalidate the data they free to prevent common mistakes.
+The following example shows how this precaution works:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">meshes</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MyMesh&quot;</span><span class="p">)</span>
+<span class="c1"># normally the script would use the mesh here...</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">meshes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># &lt;- give an exception rather than crashing:</span>
+
+<span class="c1"># ReferenceError: StructRNA of type Mesh has been removed</span>
+</pre></div>
+</div>
+<p>But take care because this is limited to scripts accessing the variable which is removed,
+the next example will still crash:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">meshes</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MyMesh&quot;</span><span class="p">)</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">meshes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>  <span class="c1"># &lt;- this may crash</span>
+</pre></div>
+</div>
+</section>
+<section id="unfortunate-corner-cases">
+<h3>Unfortunate Corner Cases<a class="headerlink" href="#unfortunate-corner-cases" title="Link to this heading">¶</a></h3>
+<p>Besides all expected cases listed above, there are a few others that should not be
+an issue but, due to internal implementation details, currently are:</p>
+<section id="collection-objects">
+<h4>Collection Objects<a class="headerlink" href="#collection-objects" title="Link to this heading">¶</a></h4>
+<p>Changing: <code class="docutils literal notranslate"><span class="pre">Object.hide_viewport</span></code>, <code class="docutils literal notranslate"><span class="pre">Object.hide_select</span></code> or <code class="docutils literal notranslate"><span class="pre">Object.hide_render</span></code>
+will trigger a rebuild of Collection caches, thus breaking any current iteration over <code class="docutils literal notranslate"><span class="pre">Collection.all_objects</span></code>.</p>
+<blockquote>
+<div><p class="rubric">Do not:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `all_objects` is an iterator. Using it directly while performing operations on its members that will update</span>
+<span class="c1"># the memory accessed by the `all_objects` iterator will lead to invalid memory accesses and crashes.</span>
+<span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="s2">&quot;Collection&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">all_objects</span><span class="p">:</span>
+     <span class="nb">object</span><span class="o">.</span><span class="n">hide_viewport</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p class="rubric">Do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `all_objects[:]` is an independent list generated from the iterator. As long as no objects are deleted,</span>
+<span class="c1"># its content will remain valid even if the data accessed by the `all_objects` iterator is modified.</span>
+<span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="s2">&quot;Collection&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">all_objects</span><span class="p">[:]:</span>
+     <span class="nb">object</span><span class="o">.</span><span class="n">hide_viewport</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="data-blocks-renaming-during-iteration">
+<h4>Data-Blocks Renaming During Iteration<a class="headerlink" href="#data-blocks-renaming-during-iteration" title="Link to this heading">¶</a></h4>
+<p>Data-blocks accessed from <code class="docutils literal notranslate"><span class="pre">bpy.data</span></code> are sorted when their name is set.
+Any loop that iterates of a data such as <code class="docutils literal notranslate"><span class="pre">bpy.data.objects</span></code> for example,
+and sets the objects <code class="docutils literal notranslate"><span class="pre">name</span></code> must get all items from the iterator first (typically by converting to a list or tuple)
+to avoid missing some objects and iterating over others multiple times.</p>
+</section>
+</section>
+</section>
+<section id="sys-exit">
+<h2>sys.exit<a class="headerlink" href="#sys-exit" title="Link to this heading">¶</a></h2>
+<p>Some Python modules will call <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code> themselves when an error occurs,
+while not common behavior this is something to watch out for because it may seem
+as if Blender is crashing since <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code> will close Blender immediately.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">argparse</span></code> module will print an error and exit if the arguments are invalid.</p>
+<p>An dirty way of troubleshooting this is to set <code class="docutils literal notranslate"><span class="pre">sys.exit</span> <span class="pre">=</span> <span class="pre">None</span></code> and see what line of Python code is quitting,
+you could of course replace <code class="docutils literal notranslate"><span class="pre">sys.exit</span></code> with your own function but manipulating Python in this way is bad practice.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Troubleshooting Errors &amp; Crashes</a><ul>
+<li><a class="reference internal" href="#strange-errors-when-using-the-threading-module">Strange Errors when Using the ‘Threading’ Module</a></li>
+<li><a class="reference internal" href="#help-my-script-crashes-blender">Help! My script crashes Blender</a><ul>
+<li><a class="reference internal" href="#undo-redo">Undo/Redo</a><ul>
+<li><a class="reference internal" href="#modifying-blender-data-undo">Modifying Blender Data &amp; Undo</a></li>
+<li><a class="reference internal" href="#undo-library-data">Undo &amp; Library Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#abusing-rna-property-callbacks">Abusing RNA property callbacks</a></li>
+<li><a class="reference internal" href="#edit-mode-memory-access">Edit-Mode / Memory Access</a></li>
+<li><a class="reference internal" href="#array-re-allocation">Array Re-Allocation</a></li>
+<li><a class="reference internal" href="#removing-data">Removing Data</a></li>
+<li><a class="reference internal" href="#unfortunate-corner-cases">Unfortunate Corner Cases</a><ul>
+<li><a class="reference internal" href="#collection-objects">Collection Objects</a></li>
+<li><a class="reference internal" href="#data-blocks-renaming-during-iteration">Data-Blocks Renaming During Iteration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sys-exit">sys.exit</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="info_gotcha.html"
+                          title="previous chapter">Gotchas</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="info_gotchas_internal_data_and_python_objects.html"
+                          title="next chapter">Internal Data &amp; Their Python Objects</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_internal_data_and_python_objects.html" title="Internal Data &amp; Their Python Objects"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="info_gotcha.html" title="Gotchas"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" >Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Troubleshooting Errors &amp; Crashes</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60info_gotchas_crashes.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Finfo_gotchas_crashes.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
+</html>

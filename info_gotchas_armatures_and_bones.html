@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bones &amp; Armatures &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/info_gotchas_armatures_and_bones.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Blender Python API"
+          href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="File Paths &amp; String Encoding" href="info_gotchas_file_paths_and_encoding.html" />
+    <link rel="prev" title="Modes and Mesh Access" href="info_gotchas_meshes.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_file_paths_and_encoding.html" title="File Paths &amp; String Encoding"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_meshes.html" title="Modes and Mesh Access"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" accesskey="U">Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Bones &amp; Armatures</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="bones-armatures">
+<h1>Bones &amp; Armatures<a class="headerlink" href="#bones-armatures" title="Link to this heading">¶</a></h1>
+<section id="edit-bones-pose-bones-bone-bones">
+<h2>Edit Bones, Pose Bones, Bone… Bones<a class="headerlink" href="#edit-bones-pose-bones-bone-bones" title="Link to this heading">¶</a></h2>
+<p>Armature Bones in Blender have three distinct data structures that contain them.
+If you are accessing the bones through one of them, you may not have access to the properties you really need.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the following examples <code class="docutils literal notranslate"><span class="pre">bpy.context.object</span></code> is assumed to be an armature object.</p>
+</div>
+<section id="edit-bones">
+<h3>Edit Bones<a class="headerlink" href="#edit-bones" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bpy.context.object.data.edit_bones</span></code> contains an edit bones;
+to access them you must set the armature mode to Edit-Mode first (edit bones do not exist in Object or Pose-Mode).
+Use these to create new bones, set their head/tail or roll, change their parenting relationships to other bones, etc.</p>
+<p>Example using <a class="reference internal" href="bpy.types.EditBone.html#bpy.types.EditBone" title="bpy.types.EditBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.EditBone</span></code></a> in armature Edit-Mode
+which is only possible in Edit-Mode:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">edit_bones</span><span class="p">[</span><span class="s2">&quot;Bone&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This will be empty outside of Edit-Mode:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mybones</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_editable_bones</span>
+</pre></div>
+</div>
+<p>Returns an edit bone only in Edit-Mode:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_bone</span>
+</pre></div>
+</div>
+</section>
+<section id="bones-object-mode">
+<h3>Bones (Object-Mode)<a class="headerlink" href="#bones-object-mode" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bpy.context.object.data.bones</span></code> contains bones.
+These <em>live</em> in Object-Mode, and have various properties you can change,
+note that the head and tail properties are read-only.</p>
+<p>Example using <a class="reference internal" href="bpy.types.Bone.html#bpy.types.Bone" title="bpy.types.Bone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Bone</span></code></a> in Object or Pose-Mode
+returning a bone (not an edit bone) outside of Edit-Mode:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_bone</span>
+</pre></div>
+</div>
+<p>This works, as with Blender the setting can be edited in any mode:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">bones</span><span class="p">[</span><span class="s2">&quot;Bone&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">use_deform</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Accessible but read-only:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tail</span> <span class="o">=</span> <span class="n">myobj</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">bones</span><span class="p">[</span><span class="s2">&quot;Bone&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span>
+</pre></div>
+</div>
+</section>
+<section id="pose-bones">
+<h3>Pose Bones<a class="headerlink" href="#pose-bones" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bpy.context.object.pose.bones</span></code> contains pose bones.
+This is where animation data resides, i.e. animatable transformations
+are applied to pose bones, as are constraints and IK-settings.</p>
+<p>Examples using <a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PoseBone</span></code></a> in Object or Pose-Mode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gets the name of the first constraint (if it exists)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">bones</span><span class="p">[</span><span class="s2">&quot;Bone&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">constraints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+
+<span class="c1"># Gets the last selected pose bone (Pose-Mode only)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_pose_bone</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice the pose is accessed from the object rather than the object data,
+this is why Blender can have two or more objects sharing the same armature in different poses.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Strictly speaking pose bones are not bones, they are just the state of the armature,
+stored in the <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a> rather than the <a class="reference internal" href="bpy.types.Armature.html#bpy.types.Armature" title="bpy.types.Armature"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Armature</span></code></a>,
+yet the real bones are accessible from the pose bones via <a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone.bone" title="bpy.types.PoseBone.bone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PoseBone.bone</span></code></a>.</p>
+</div>
+</section>
+</section>
+<section id="armature-mode-switching">
+<h2>Armature Mode Switching<a class="headerlink" href="#armature-mode-switching" title="Link to this heading">¶</a></h2>
+<p>While writing scripts that deal with armatures you may find you have to switch between modes,
+when doing so take care when switching out of Edit-Mode not to keep references
+to the edit bones or their head/tail vectors.
+Further access to these will crash Blender so it’s important that the script
+clearly separates sections of the code which operate in different modes.</p>
+<p>This is mainly an issue with Edit-Mode since pose data can be manipulated without having to be in Pose-Mode,
+yet for operator access you may still need to enter Pose-Mode.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Bones &amp; Armatures</a><ul>
+<li><a class="reference internal" href="#edit-bones-pose-bones-bone-bones">Edit Bones, Pose Bones, Bone… Bones</a><ul>
+<li><a class="reference internal" href="#edit-bones">Edit Bones</a></li>
+<li><a class="reference internal" href="#bones-object-mode">Bones (Object-Mode)</a></li>
+<li><a class="reference internal" href="#pose-bones">Pose Bones</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#armature-mode-switching">Armature Mode Switching</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="info_gotchas_meshes.html"
+                          title="previous chapter">Modes and Mesh Access</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="info_gotchas_file_paths_and_encoding.html"
+                          title="next chapter">File Paths &amp; String Encoding</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_file_paths_and_encoding.html" title="File Paths &amp; String Encoding"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="info_gotchas_meshes.html" title="Modes and Mesh Access"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="info_gotcha.html" >Gotchas</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Bones &amp; Armatures</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60info_gotchas_armatures_and_bones.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Finfo_gotchas_armatures_and_bones.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
+</html>

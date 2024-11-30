@@ -1,129 +1,62 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property Definitions (bpy.props) &mdash; Blender Python API</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/version_switch.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.props.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=715c20a1"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/version_switch.js?v=fa006b38"></script>
-    <script src="_static/js/theme.js"></script>
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Property Definitions (bpy.props) &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.props.html" />
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
           href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Game Types (bge.types)" href="bge.types.html" />
     <link rel="prev" title="Application Timers (bpy.app.timers)" href="bpy.app.timers.html" /> 
-</head>
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.html" title="Game Types (bge.types)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.app.timers.html" title="Application Timers (bpy.app.timers)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Property Definitions (bpy.props)</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
-              <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Property Definitions (bpy.props)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Property Definitions (bpy.props)</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="module-bpy.props">
-<span id="property-definitions-bpy-props"></span><h1>Property Definitions (bpy.props)<a class="headerlink" href="#module-bpy.props" title="Link to this heading"></a></h1>
+<span id="property-definitions-bpy-props"></span><h1>Property Definitions (bpy.props)<a class="headerlink" href="#module-bpy.props" title="Link to this heading">¶</a></h1>
 <p>This module defines properties to extend Blender’s internal data. The result of these functions is used to assign properties to classes registered with Blender and can’t be used directly.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All parameters to these functions must be passed as keywords.</p>
 </div>
 <section id="assigning-to-existing-classes">
-<h2>Assigning to Existing Classes<a class="headerlink" href="#assigning-to-existing-classes" title="Link to this heading"></a></h2>
+<h2>Assigning to Existing Classes<a class="headerlink" href="#assigning-to-existing-classes" title="Link to this heading">¶</a></h2>
 <p>Custom properties can be added to any subclass of an <code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Bone</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">PoseBone</span></code>.</p>
 <p>These properties can be animated, accessed by the user interface and python
@@ -146,7 +79,7 @@ When accessing external non-Blender data, thread safety mechanisms should be con
 </div>
 </section>
 <section id="operator-example">
-<h2>Operator Example<a class="headerlink" href="#operator-example" title="Link to this heading"></a></h2>
+<h2>Operator Example<a class="headerlink" href="#operator-example" title="Link to this heading">¶</a></h2>
 <p>A common use of custom properties is for python based <code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code>
 classes. Test this code by running it in the text editor, or by clicking the
 button in the 3D Viewport’s Tools panel. The latter will show the properties
@@ -165,8 +98,9 @@ in the Redo panel and allow you to change them.</p>
 
     <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">(</span>
-            <span class="p">{</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s1">&#39;F: </span><span class="si">%.2f</span><span class="s1">  B: </span><span class="si">%s</span><span class="s1">  S: </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span>
-            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">my_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_bool</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_string</span><span class="p">)</span>
+            <span class="p">{</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;F: </span><span class="si">{:.2f}</span><span class="s2">  B: </span><span class="si">{:s}</span><span class="s2">  S: </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">my_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_bool</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_string</span><span class="p">,</span>
+            <span class="p">)</span>
         <span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My float:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_float</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My bool:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_bool</span><span class="p">)</span>
@@ -208,7 +142,7 @@ in the Redo panel and allow you to change them.</p>
 </div>
 </section>
 <section id="propertygroup-example">
-<h2>PropertyGroup Example<a class="headerlink" href="#propertygroup-example" title="Link to this heading"></a></h2>
+<h2>PropertyGroup Example<a class="headerlink" href="#propertygroup-example" title="Link to this heading">¶</a></h2>
 <p>PropertyGroups can be used for collecting custom settings into one value
 to avoid many individual settings mixed in together.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
@@ -234,7 +168,7 @@ to avoid many individual settings mixed in together.</p>
 </div>
 </section>
 <section id="collection-example">
-<h2>Collection Example<a class="headerlink" href="#collection-example" title="Link to this heading"></a></h2>
+<h2>Collection Example<a class="headerlink" href="#collection-example" title="Link to this heading">¶</a></h2>
 <p>Custom properties can be added to any subclass of an <code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Bone</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">PoseBone</span></code>.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
@@ -267,7 +201,7 @@ to avoid many individual settings mixed in together.</p>
 </div>
 </section>
 <section id="update-example">
-<h2>Update Example<a class="headerlink" href="#update-example" title="Link to this heading"></a></h2>
+<h2>Update Example<a class="headerlink" href="#update-example" title="Link to this heading">¶</a></h2>
 <p>It can be useful to perform an action when a property is changed and can be
 used to update other properties or synchronize with external data.</p>
 <p>All properties define update functions except for CollectionProperty.</p>
@@ -298,10 +232,10 @@ of the operator, only its other properties.</p>
 </div>
 </section>
 <section id="getter-setter-example">
-<h2>Getter/Setter Example<a class="headerlink" href="#getter-setter-example" title="Link to this heading"></a></h2>
+<h2>Getter/Setter Example<a class="headerlink" href="#getter-setter-example" title="Link to this heading">¶</a></h2>
 <p>Getter/setter functions can be used for boolean, int, float, string and enum properties.
 If these callbacks are defined the property will not be stored in the ID properties
-automatically. Instead, the <cite>get</cite> and <cite>set</cite> functions will be called when the property
+automatically. Instead, the <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span></code> functions will be called when the property
 is respectively read or written from the API.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -393,24 +327,24 @@ is respectively read or written from the API.</p>
 </div>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.BoolProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">BoolProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.BoolProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">BoolProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.BoolProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new boolean property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>subtype</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_items.html#rna-enum-property-subtype-number-items"><span class="std std-ref">Property Subtype Number Items</span></a>.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>subtype</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_items.html#rna-enum-property-subtype-number-items"><span class="std std-ref">Property Subtype Number Items</span></a>.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], bool]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, bool], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -419,26 +353,26 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.BoolVectorProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">BoolVectorProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(False,</span> <span class="pre">False,</span> <span class="pre">False)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.BoolVectorProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">BoolVectorProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(False,</span> <span class="pre">False,</span> <span class="pre">False)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.BoolVectorProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new vector boolean property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>default</strong> (<em>sequence</em>) – sequence of booleans the length of <em>size</em>.</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>subtype</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_array_items.html#rna-enum-property-subtype-number-array-items"><span class="std std-ref">Property Subtype Number Array Items</span></a>.</p></li>
-<li><p><strong>size</strong> (<em>int</em><em> or </em><em>int sequence</em>) – Vector dimensions in [1, 32]. An int sequence can be used to define multi-dimension arrays.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>default</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – sequence of booleans the length of <em>size</em>.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>subtype</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_array_items.html#rna-enum-property-subtype-number-array-items"><span class="std std-ref">Property Subtype Number Array Items</span></a>.</p></li>
+<li><p><strong>size</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Vector dimensions in [1, 32]. An int sequence can be used to define multi-dimension arrays.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], Sequence[bool]]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[bool]], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -447,18 +381,18 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.CollectionProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">CollectionProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.CollectionProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">CollectionProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.CollectionProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new collection property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>class</em>) – A subclass of <a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PropertyGroup</span></code></a>.</p></li>
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_collection_items.html#rna-enum-property-override-flag-collection-items"><span class="std std-ref">Property Override Flag Collection Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>type</strong> (<a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PropertyGroup</span></code></a>) – A subclass of a property group.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_collection_items.html#rna-enum-property-override-flag-collection-items"><span class="std std-ref">Property Override Flag Collection Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
 </ul>
 </dd>
 </dl>
@@ -466,17 +400,18 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.EnumProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">EnumProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.EnumProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">EnumProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.EnumProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new enumerator property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>items</strong> (<em>sequence</em><em> of </em><em>string tuples</em><em> or </em><em>a function</em>) – <p>sequence of enum items formatted:
+<li><p><strong>items</strong> (Sequence[tuple[str, str, str] | tuple[str, str, str, int] | tuple[str, str, str, int, int] | None] | Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a> | None], Sequence[tuple[str, str, str] | tuple[str, str, str, int] | tuple[str, str, str, int, int] | None]]) – <p>sequence of enum items formatted:
 <code class="docutils literal notranslate"><span class="pre">[(identifier,</span> <span class="pre">name,</span> <span class="pre">description,</span> <span class="pre">icon,</span> <span class="pre">number),</span> <span class="pre">...]</span></code>.</p>
 <p>The first three elements of the tuples are mandatory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">identifier<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The identifier is used for Python access.</p>
+<dd class="field-odd"><p>The identifier is used for Python access.
+An empty identifier means that the item is a separator</p>
 </dd>
 <dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>Name for the interface.</p>
@@ -495,7 +430,9 @@ the values are bit-masks and should be powers of two.</p>
 </dd>
 </dl>
 <p>When an item only contains 4 items they define <code class="docutils literal notranslate"><span class="pre">(identifier,</span> <span class="pre">name,</span> <span class="pre">description,</span> <span class="pre">number)</span></code>.</p>
-<p>Separators may be added using None instead of a tuple.
+<p>Separators may be added using either None (nameless separator),
+or a regular item tuple with an empty identifier string, in which case the name,
+if non-empty, will be displayed in the UI above the separator line.
 For dynamic values a callback can be passed which returns a list in
 the same format as the static list.
 This function must take 2 arguments <code class="docutils literal notranslate"><span class="pre">(self,</span> <span class="pre">context)</span></code>, <strong>context may be None</strong>.</p>
@@ -506,22 +443,22 @@ Python must keep a reference to the strings returned by the callback or Blender
 will misbehave or even crash.</p>
 </div>
 </p></li>
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>default</strong> (<em>string</em><em>, </em><em>integer</em><em> or </em><em>set</em>) – The default value for this enum, a string from the identifiers used in <em>items</em>, or integer matching an item number.
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>default</strong> (<em>str</em><em> | </em><em>int</em><em> | </em><em>set</em><em>[</em><em>str</em><em>]</em>) – The default value for this enum, a string from the identifiers used in <em>items</em>, or integer matching an item number.
 If the <em>ENUM_FLAG</em> option is used this must be a set of such string identifiers instead.
-WARNING: Strings can not be specified for dynamic enums
+WARNING: Strings cannot be specified for dynamic enums
 (i.e. if a callback function is given as <em>items</em> parameter).</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_enum_items.html#rna-enum-property-flag-enum-items"><span class="std std-ref">Property Flag Enum Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_enum_items.html#rna-enum-property-flag-enum-items"><span class="std std-ref">Property Flag Enum Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], int]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, int], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -530,31 +467,31 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.FloatProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">FloatProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.FloatProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">FloatProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.402823e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.FloatProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new float (single precision) property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
 <li><p><strong>min</strong> (<em>float</em>) – Hard minimum, trying to assign a value below will silently assign this minimum instead.</p></li>
 <li><p><strong>max</strong> (<em>float</em>) – Hard maximum, trying to assign a value above will silently assign this maximum instead.</p></li>
 <li><p><strong>soft_min</strong> (<em>float</em>) – Soft minimum (&gt;= <em>min</em>), user won’t be able to drag the widget below this value in the UI.</p></li>
 <li><p><strong>soft_max</strong> (<em>float</em>) – Soft maximum (&lt;= <em>max</em>), user won’t be able to drag the widget above this value in the UI.</p></li>
 <li><p><strong>step</strong> (<em>int</em>) – Step of increment/decrement in UI, in [1, 100], defaults to 3 (WARNING: actual value is /100).</p></li>
 <li><p><strong>precision</strong> (<em>int</em>) – Maximum number of decimal digits to display, in [0, 6]. Fraction is automatically hidden for exact integer values of fields with unit ‘NONE’ or ‘TIME’ (frame count) and step divisible by 100.</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>subtype</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_items.html#rna-enum-property-subtype-number-items"><span class="std std-ref">Property Subtype Number Items</span></a>.</p></li>
-<li><p><strong>unit</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_unit_items.html#rna-enum-property-unit-items"><span class="std std-ref">Property Unit Items</span></a>.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>subtype</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_items.html#rna-enum-property-subtype-number-items"><span class="std std-ref">Property Subtype Number Items</span></a>.</p></li>
+<li><p><strong>unit</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_unit_items.html#rna-enum-property-unit-items"><span class="std std-ref">Property Unit Items</span></a>.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], float]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, float], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -563,33 +500,33 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.FloatVectorProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">FloatVectorProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.FloatVectorProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">FloatVectorProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.FloatVectorProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new vector float property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>default</strong> (<em>sequence</em>) – sequence of floats the length of <em>size</em>.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>default</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Sequence of floats the length of <em>size</em>.</p></li>
 <li><p><strong>min</strong> (<em>float</em>) – Hard minimum, trying to assign a value below will silently assign this minimum instead.</p></li>
 <li><p><strong>max</strong> (<em>float</em>) – Hard maximum, trying to assign a value above will silently assign this maximum instead.</p></li>
 <li><p><strong>soft_min</strong> (<em>float</em>) – Soft minimum (&gt;= <em>min</em>), user won’t be able to drag the widget below this value in the UI.</p></li>
 <li><p><strong>soft_max</strong> (<em>float</em>) – Soft maximum (&lt;= <em>max</em>), user won’t be able to drag the widget above this value in the UI.</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
 <li><p><strong>step</strong> (<em>int</em>) – Step of increment/decrement in UI, in [1, 100], defaults to 3 (WARNING: actual value is /100).</p></li>
 <li><p><strong>precision</strong> (<em>int</em>) – Maximum number of decimal digits to display, in [0, 6]. Fraction is automatically hidden for exact integer values of fields with unit ‘NONE’ or ‘TIME’ (frame count) and step divisible by 100.</p></li>
-<li><p><strong>subtype</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_array_items.html#rna-enum-property-subtype-number-array-items"><span class="std std-ref">Property Subtype Number Array Items</span></a>.</p></li>
-<li><p><strong>unit</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_unit_items.html#rna-enum-property-unit-items"><span class="std std-ref">Property Unit Items</span></a>.</p></li>
-<li><p><strong>size</strong> (<em>int</em><em> or </em><em>int sequence</em>) – Vector dimensions in [1, 32]. An int sequence can be used to define multi-dimension arrays.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>subtype</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_array_items.html#rna-enum-property-subtype-number-array-items"><span class="std std-ref">Property Subtype Number Array Items</span></a>.</p></li>
+<li><p><strong>unit</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_unit_items.html#rna-enum-property-unit-items"><span class="std std-ref">Property Unit Items</span></a>.</p></li>
+<li><p><strong>size</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Vector dimensions in [1, 32]. An int sequence can be used to define multi-dimension arrays.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], Sequence[float]]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[float]], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -598,29 +535,29 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.IntProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">IntProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.IntProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">IntProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.IntProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new int property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
 <li><p><strong>min</strong> (<em>int</em>) – Hard minimum, trying to assign a value below will silently assign this minimum instead.</p></li>
 <li><p><strong>max</strong> (<em>int</em>) – Hard maximum, trying to assign a value above will silently assign this maximum instead.</p></li>
-<li><p><strong>soft_max</strong> (<em>int</em>) – Soft maximum (&lt;= <em>max</em>), user won’t be able to drag the widget above this value in the UI.</p></li>
 <li><p><strong>soft_min</strong> (<em>int</em>) – Soft minimum (&gt;= <em>min</em>), user won’t be able to drag the widget below this value in the UI.</p></li>
+<li><p><strong>soft_max</strong> (<em>int</em>) – Soft maximum (&lt;= <em>max</em>), user won’t be able to drag the widget above this value in the UI.</p></li>
 <li><p><strong>step</strong> (<em>int</em>) – Step of increment/decrement in UI, in [1, 100], defaults to 1 (WARNING: unused currently!).</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>subtype</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_items.html#rna-enum-property-subtype-number-items"><span class="std std-ref">Property Subtype Number Items</span></a>.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>subtype</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_items.html#rna-enum-property-subtype-number-items"><span class="std std-ref">Property Subtype Number Items</span></a>.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], int]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, int], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -629,31 +566,31 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.IntVectorProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">IntVectorProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.IntVectorProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">IntVectorProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2**31</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.IntVectorProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new vector int property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>default</strong> (<em>sequence</em>) – sequence of ints the length of <em>size</em>.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>default</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – sequence of ints the length of <em>size</em>.</p></li>
 <li><p><strong>min</strong> (<em>int</em>) – Hard minimum, trying to assign a value below will silently assign this minimum instead.</p></li>
 <li><p><strong>max</strong> (<em>int</em>) – Hard maximum, trying to assign a value above will silently assign this maximum instead.</p></li>
 <li><p><strong>soft_min</strong> (<em>int</em>) – Soft minimum (&gt;= <em>min</em>), user won’t be able to drag the widget below this value in the UI.</p></li>
 <li><p><strong>soft_max</strong> (<em>int</em>) – Soft maximum (&lt;= <em>max</em>), user won’t be able to drag the widget above this value in the UI.</p></li>
 <li><p><strong>step</strong> (<em>int</em>) – Step of increment/decrement in UI, in [1, 100], defaults to 1 (WARNING: unused currently!).</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>subtype</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_array_items.html#rna-enum-property-subtype-number-array-items"><span class="std std-ref">Property Subtype Number Array Items</span></a>.</p></li>
-<li><p><strong>size</strong> (<em>int</em><em> or </em><em>int sequence</em>) – Vector dimensions in [1, 32]. An int sequence can be used to define multi-dimension arrays.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>subtype</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_number_array_items.html#rna-enum-property-subtype-number-array-items"><span class="std std-ref">Property Subtype Number Array Items</span></a>.</p></li>
+<li><p><strong>size</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Vector dimensions in [1, 32]. An int sequence can be used to define multi-dimension arrays.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], Sequence[int]]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[int]], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -662,21 +599,21 @@ This function must take 2 values (self, value) and return None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.PointerProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">PointerProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.PointerProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">PointerProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.PointerProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new pointer property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>class</em>) – A subclass of <a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PropertyGroup</span></code></a> or <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a>.</p></li>
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>poll</strong> (<em>function</em>) – function to be called to determine whether an item is valid for this property.
+<li><p><strong>type</strong> (<a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PropertyGroup</span></code></a> | <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a>) – A subclass of a property group or ID types.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>poll</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], bool]) – function to be called to determine whether an item is valid for this property.
 The function must take 2 values (self, object) and return Bool.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
 </ul>
@@ -686,13 +623,13 @@ This function must take 2 values (self, context) and return None.
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.RemoveProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">RemoveProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.RemoveProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">RemoveProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.RemoveProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a dynamically defined property.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cls</strong> (<em>type</em>) – The class containing the property (must be a positional argument).</p></li>
-<li><p><strong>attr</strong> (<em>string</em>) – Property name (must be passed as a keyword).</p></li>
+<li><p><strong>attr</strong> (<em>str</em>) – Property name (must be passed as a keyword).</p></li>
 </ul>
 </dd>
 </dl>
@@ -705,28 +642,28 @@ Instead use <code class="docutils literal notranslate"><span class="pre">del</sp
 </div>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.props.StringProperty">
-<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">StringProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'SUGGESTION'}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.StringProperty" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.props.</span></span><span class="sig-name descname"><span class="pre">StringProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'ANIMATABLE'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'SUGGESTION'}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.StringProperty" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a new string property definition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – Name used in the user interface.</p></li>
-<li><p><strong>description</strong> (<em>string</em>) – Text used for the tooltip and api documentation.</p></li>
-<li><p><strong>translation_context</strong> (<em>string</em>) – Text used as context to disambiguate translations.</p></li>
-<li><p><strong>default</strong> (<em>string</em>) – initializer string.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name used in the user interface.</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Text used for the tooltip and api documentation.</p></li>
+<li><p><strong>translation_context</strong> (<em>str</em>) – Text used as context to disambiguate translations.</p></li>
+<li><p><strong>default</strong> (<em>str</em>) – initializer string.</p></li>
 <li><p><strong>maxlen</strong> (<em>int</em>) – maximum length of the string.</p></li>
-<li><p><strong>options</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
-<li><p><strong>override</strong> (<em>set</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
-<li><p><strong>tags</strong> (<em>set</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>subtype</strong> (<em>string</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_string_items.html#rna-enum-property-subtype-string-items"><span class="std std-ref">Property Subtype String Items</span></a>.</p></li>
-<li><p><strong>update</strong> (<em>function</em>) – Function to be called when this value is modified,
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
+<li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
+<li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
+<li><p><strong>subtype</strong> (<em>str</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_subtype_string_items.html#rna-enum-property-subtype-string-items"><span class="std std-ref">Property Subtype String Items</span></a>.</p></li>
+<li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
-<li><p><strong>get</strong> (<em>function</em>) – Function to be called when this value is ‘read’,
+<li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], str]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (<em>function</em>) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, str], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
-<li><p><strong>search</strong> (<em>function</em>) – <p>Function to be called to show candidates for this string (shown in the UI).
+<li><p><strong>search</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>, str], Iterable[str | tuple[str, str]]]) – <p>Function to be called to show candidates for this string (shown in the UI).
 This function must take 3 values (self, context, edit_text)
 and return a sequence, iterator or generator where each item must be:</p>
 <ul>
@@ -735,7 +672,7 @@ and return a sequence, iterator or generator where each item must be:</p>
 is additional information about the candidate.</p></li>
 </ul>
 </p></li>
-<li><p><strong>search_options</strong> (<em>set</em>) – <p>Set of strings in:</p>
+<li><p><strong>search_options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – <p>Set of strings in:</p>
 <ul>
 <li><p>’SORT’ sorts the resulting items.</p></li>
 <li><p>’SUGGESTION’ lets the user enter values not found in search candidates.
@@ -752,49 +689,93 @@ so only disable this flag if it’s not likely to cause performance issues.</p><
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.app.timers.html" class="btn btn-neutral float-left" title="Application Timers (bpy.app.timers)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bge.types.html" class="btn btn-neutral float-right" title="Game Types (bge.types)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/1dff62ca3acd>1dff62ca3acd</a> - 10/09/2023</code>.
-      </span></p>
-  </div>
-
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
-    <ul id="versionwrap" role="presentation">
-       <li role="presentation">
-            <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            4.0 
-            </span>
-            <div class="version-dialog" aria-hidden="true">
-                <div class="version-arrow" aria-hidden="true"></div>
-                <div class="version-title">Versions</div>
-                <ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover" aria-hidden="true">
-                    <li role="presentation">Loading...</li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
-    <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(false);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Property Definitions (bpy.props)</a><ul>
+<li><a class="reference internal" href="#assigning-to-existing-classes">Assigning to Existing Classes</a></li>
+<li><a class="reference internal" href="#operator-example">Operator Example</a></li>
+<li><a class="reference internal" href="#propertygroup-example">PropertyGroup Example</a></li>
+<li><a class="reference internal" href="#collection-example">Collection Example</a></li>
+<li><a class="reference internal" href="#update-example">Update Example</a></li>
+<li><a class="reference internal" href="#getter-setter-example">Getter/Setter Example</a><ul>
+<li><a class="reference internal" href="#bpy.props.BoolProperty"><code class="docutils literal notranslate"><span class="pre">BoolProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.BoolVectorProperty"><code class="docutils literal notranslate"><span class="pre">BoolVectorProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.CollectionProperty"><code class="docutils literal notranslate"><span class="pre">CollectionProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.EnumProperty"><code class="docutils literal notranslate"><span class="pre">EnumProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.FloatProperty"><code class="docutils literal notranslate"><span class="pre">FloatProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.FloatVectorProperty"><code class="docutils literal notranslate"><span class="pre">FloatVectorProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.IntProperty"><code class="docutils literal notranslate"><span class="pre">IntProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.IntVectorProperty"><code class="docutils literal notranslate"><span class="pre">IntVectorProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.PointerProperty"><code class="docutils literal notranslate"><span class="pre">PointerProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.RemoveProperty"><code class="docutils literal notranslate"><span class="pre">RemoveProperty()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.props.StringProperty"><code class="docutils literal notranslate"><span class="pre">StringProperty()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bpy.app.timers.html"
+                          title="previous chapter">Application Timers (bpy.app.timers)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bge.types.html"
+                          title="next chapter">Game Types (bge.types)</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.html" title="Game Types (bge.types)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.app.timers.html" title="Application Timers (bpy.app.timers)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Property Definitions (bpy.props)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.props.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.props.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
 </html>

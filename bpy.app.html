@@ -1,122 +1,55 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Application Data (bpy.app) &mdash; Blender Python API</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/version_switch.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.app.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=715c20a1"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/version_switch.js?v=fa006b38"></script>
-    <script src="_static/js/theme.js"></script>
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Application Data (bpy.app) &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.app.html" />
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
           href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Application Handlers (bpy.app.handlers)" href="bpy.app.handlers.html" />
     <link rel="prev" title="Path Utilities (bpy.path)" href="bpy.path.html" /> 
-</head>
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.app.handlers.html" title="Application Handlers (bpy.app.handlers)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.path.html" title="Path Utilities (bpy.path)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Application Data (bpy.app)</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
-              <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Application Data (bpy.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Application Data (bpy.app)</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="module-bpy.app">
-<span id="application-data-bpy-app"></span><h1>Application Data (bpy.app)<a class="headerlink" href="#module-bpy.app" title="Link to this heading"></a></h1>
+<span id="application-data-bpy-app"></span><h1>Application Data (bpy.app)<a class="headerlink" href="#module-bpy.app" title="Link to this heading">¶</a></h1>
 <p>This module contains application values that remain unchanged during runtime.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Submodules</span></p>
@@ -129,331 +62,380 @@
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.autoexec_fail">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">autoexec_fail</span></span><a class="headerlink" href="#bpy.app.autoexec_fail" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">autoexec_fail</span></span><a class="headerlink" href="#bpy.app.autoexec_fail" title="Link to this definition">¶</a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.autoexec_fail_message">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">autoexec_fail_message</span></span><a class="headerlink" href="#bpy.app.autoexec_fail_message" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">autoexec_fail_message</span></span><a class="headerlink" href="#bpy.app.autoexec_fail_message" title="Link to this definition">¶</a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.autoexec_fail_quiet">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">autoexec_fail_quiet</span></span><a class="headerlink" href="#bpy.app.autoexec_fail_quiet" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">autoexec_fail_quiet</span></span><a class="headerlink" href="#bpy.app.autoexec_fail_quiet" title="Link to this definition">¶</a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.binary_path">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">binary_path</span></span><a class="headerlink" href="#bpy.app.binary_path" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">binary_path</span></span><a class="headerlink" href="#bpy.app.binary_path" title="Link to this definition">¶</a></dt>
 <dd><p>The location of Blender’s executable, useful for utilities that open new instances. Read-only unless Blender is built as a Python module - in this case the value is an empty string which script authors may point to a Blender binary.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><a class="headerlink" href="#bpy.app.debug" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><a class="headerlink" href="#bpy.app.debug" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_depsgraph">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_depsgraph_build">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_build</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_build" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_build</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_build" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_depsgraph_eval">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_eval</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_eval" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_eval</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_eval" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_depsgraph_pretty">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_pretty</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_pretty" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_pretty</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_pretty" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_depsgraph_tag">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_tag</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_tag" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_tag</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_tag" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_depsgraph_time">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_time</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_time" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_depsgraph_time</span></span><a class="headerlink" href="#bpy.app.debug_depsgraph_time" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_events">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_events</span></span><a class="headerlink" href="#bpy.app.debug_events" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_events</span></span><a class="headerlink" href="#bpy.app.debug_events" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_ffmpeg">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_ffmpeg</span></span><a class="headerlink" href="#bpy.app.debug_ffmpeg" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_ffmpeg</span></span><a class="headerlink" href="#bpy.app.debug_ffmpeg" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_freestyle">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_freestyle</span></span><a class="headerlink" href="#bpy.app.debug_freestyle" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_freestyle</span></span><a class="headerlink" href="#bpy.app.debug_freestyle" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_handlers">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_handlers</span></span><a class="headerlink" href="#bpy.app.debug_handlers" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_handlers</span></span><a class="headerlink" href="#bpy.app.debug_handlers" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_io">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_io</span></span><a class="headerlink" href="#bpy.app.debug_io" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_io</span></span><a class="headerlink" href="#bpy.app.debug_io" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_python">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_python</span></span><a class="headerlink" href="#bpy.app.debug_python" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_python</span></span><a class="headerlink" href="#bpy.app.debug_python" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_simdata">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_simdata</span></span><a class="headerlink" href="#bpy.app.debug_simdata" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_simdata</span></span><a class="headerlink" href="#bpy.app.debug_simdata" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_value">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_value</span></span><a class="headerlink" href="#bpy.app.debug_value" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_value</span></span><a class="headerlink" href="#bpy.app.debug_value" title="Link to this definition">¶</a></dt>
 <dd><p>Short, number which can be set to non-zero values for testing purposes</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.debug_wm">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_wm</span></span><a class="headerlink" href="#bpy.app.debug_wm" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for debug info (started with –debug / –debug_* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">debug_wm</span></span><a class="headerlink" href="#bpy.app.debug_wm" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for debug info (started with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> / <code class="docutils literal notranslate"><span class="pre">--debug-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.driver_namespace">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">driver_namespace</span></span><a class="headerlink" href="#bpy.app.driver_namespace" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">driver_namespace</span></span><a class="headerlink" href="#bpy.app.driver_namespace" title="Link to this definition">¶</a></dt>
 <dd><p>Dictionary for drivers namespace, editable in-place, reset on file load (read-only)</p>
+<dl>
+<dt>File Loading &amp; Order of Initialization</dt><dd><p>Since drivers may be evaluated immediately after loading a blend-file it is necessary
+to ensure the driver name-space is initialized beforehand.</p>
+<p>This can be done by registering text data-blocks to execute on startup,
+which executes the scripts before drivers are evaluated.
+See <em>Text -&gt; Register</em> from Blender’s text editor.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You may prefer to use external files instead of Blender’s text-blocks.
+This can be done using a text-block which executes an external file.</p>
+<p>This example runs <code class="docutils literal notranslate"><span class="pre">driver_namespace.py</span></code> located in the same directory as the text-blocks blend-file:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="n">blend_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">))</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">execfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">blend_dir</span><span class="p">,</span> <span class="s2">&quot;driver_namespace.py&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">__file__</span></code> ensures the text resolves to the expected path even when library-linked from another file.</p>
+</div>
+<p>Other methods of populating the drivers name-space can be made to work but tend to be error prone:</p>
+<p>Using The <code class="docutils literal notranslate"><span class="pre">--python</span></code> command line argument to populate name-space often fails to achieve the desired goal
+because the initial evaluation will lookup a function that doesn’t exist yet,
+marking the driver as invalid - preventing further evaluation.</p>
+<p>Populating the driver name-space before the blend-file loads also doesn’t work
+since opening a file clears the name-space.</p>
+<p>It is possible to run a script via the <code class="docutils literal notranslate"><span class="pre">--python</span></code> command line argument, before the blend file.
+This can register a load-post handler (<a class="reference internal" href="bpy.app.handlers.html#bpy.app.handlers.load_post" title="bpy.app.handlers.load_post"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.app.handlers.load_post</span></code></a>) that initialized the name-space.
+While this works for background tasks it has the downside that opening the file from the file selector
+won’t setup the name-space.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.app.online_access">
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">online_access</span></span><a class="headerlink" href="#bpy.app.online_access" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, true when internet access is allowed by Blender &amp; 3rd party scripts (read-only)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.app.online_access_override">
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">online_access_override</span></span><a class="headerlink" href="#bpy.app.online_access_override" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, true when internet access preference is overridden by the command line (read-only)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.app.python_args">
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">python_args</span></span><a class="headerlink" href="#bpy.app.python_args" title="Link to this definition">¶</a></dt>
+<dd><p>Leading arguments to use when calling Python directly (via <code class="docutils literal notranslate"><span class="pre">sys.executable</span></code>). These arguments match settings Blender uses to ensure Python runs with a compatible environment (read-only).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.render_icon_size">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">render_icon_size</span></span><a class="headerlink" href="#bpy.app.render_icon_size" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">render_icon_size</span></span><a class="headerlink" href="#bpy.app.render_icon_size" title="Link to this definition">¶</a></dt>
 <dd><p>Reference size for icon/preview renders (read-only)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.render_preview_size">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">render_preview_size</span></span><a class="headerlink" href="#bpy.app.render_preview_size" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">render_preview_size</span></span><a class="headerlink" href="#bpy.app.render_preview_size" title="Link to this definition">¶</a></dt>
 <dd><p>Reference size for icon/preview renders (read-only)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.tempdir">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">tempdir</span></span><a class="headerlink" href="#bpy.app.tempdir" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">tempdir</span></span><a class="headerlink" href="#bpy.app.tempdir" title="Link to this definition">¶</a></dt>
 <dd><p>String, the temp directory used by blender (read-only)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.use_event_simulate">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">use_event_simulate</span></span><a class="headerlink" href="#bpy.app.use_event_simulate" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for application behavior (started with –enable-* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">use_event_simulate</span></span><a class="headerlink" href="#bpy.app.use_event_simulate" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for application behavior (started with <code class="docutils literal notranslate"><span class="pre">--enable-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.app.use_userpref_skip_save_on_exit">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">use_userpref_skip_save_on_exit</span></span><a class="headerlink" href="#bpy.app.use_userpref_skip_save_on_exit" title="Link to this definition"></a></dt>
-<dd><p>Boolean, for application behavior (started with –enable-* matching this attribute name)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">use_userpref_skip_save_on_exit</span></span><a class="headerlink" href="#bpy.app.use_userpref_skip_save_on_exit" title="Link to this definition">¶</a></dt>
+<dd><p>Boolean, for application behavior (started with <code class="docutils literal notranslate"><span class="pre">--enable-*</span></code> matching this attribute name)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.background">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">background</span></span><a class="headerlink" href="#bpy.app.background" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">background</span></span><a class="headerlink" href="#bpy.app.background" title="Link to this definition">¶</a></dt>
 <dd><p>Boolean, True when blender is running without a user interface (started with -b)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.factory_startup">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">factory_startup</span></span><a class="headerlink" href="#bpy.app.factory_startup" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">factory_startup</span></span><a class="headerlink" href="#bpy.app.factory_startup" title="Link to this definition">¶</a></dt>
 <dd><p>Boolean, True when blender is running with –factory-startup)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_branch">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_branch</span></span><a class="headerlink" href="#bpy.app.build_branch" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_branch</span></span><a class="headerlink" href="#bpy.app.build_branch" title="Link to this definition">¶</a></dt>
 <dd><p>The branch this blender instance was built from</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_cflags">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_cflags</span></span><a class="headerlink" href="#bpy.app.build_cflags" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_cflags</span></span><a class="headerlink" href="#bpy.app.build_cflags" title="Link to this definition">¶</a></dt>
 <dd><p>C compiler flags</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_commit_date">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_commit_date</span></span><a class="headerlink" href="#bpy.app.build_commit_date" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_commit_date</span></span><a class="headerlink" href="#bpy.app.build_commit_date" title="Link to this definition">¶</a></dt>
 <dd><p>The date of commit this blender instance was built</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_commit_time">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_commit_time</span></span><a class="headerlink" href="#bpy.app.build_commit_time" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_commit_time</span></span><a class="headerlink" href="#bpy.app.build_commit_time" title="Link to this definition">¶</a></dt>
 <dd><p>The time of commit this blender instance was built</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_cxxflags">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_cxxflags</span></span><a class="headerlink" href="#bpy.app.build_cxxflags" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_cxxflags</span></span><a class="headerlink" href="#bpy.app.build_cxxflags" title="Link to this definition">¶</a></dt>
 <dd><p>C++ compiler flags</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_date">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_date</span></span><a class="headerlink" href="#bpy.app.build_date" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_date</span></span><a class="headerlink" href="#bpy.app.build_date" title="Link to this definition">¶</a></dt>
 <dd><p>The date this blender instance was built</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_hash">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_hash</span></span><a class="headerlink" href="#bpy.app.build_hash" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_hash</span></span><a class="headerlink" href="#bpy.app.build_hash" title="Link to this definition">¶</a></dt>
 <dd><p>The commit hash this blender instance was built with</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_linkflags">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_linkflags</span></span><a class="headerlink" href="#bpy.app.build_linkflags" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_linkflags</span></span><a class="headerlink" href="#bpy.app.build_linkflags" title="Link to this definition">¶</a></dt>
 <dd><p>Binary linking flags</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_platform">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_platform</span></span><a class="headerlink" href="#bpy.app.build_platform" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_platform</span></span><a class="headerlink" href="#bpy.app.build_platform" title="Link to this definition">¶</a></dt>
 <dd><p>The platform this blender instance was built for</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_system">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_system</span></span><a class="headerlink" href="#bpy.app.build_system" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_system</span></span><a class="headerlink" href="#bpy.app.build_system" title="Link to this definition">¶</a></dt>
 <dd><p>Build system used</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_time">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_time</span></span><a class="headerlink" href="#bpy.app.build_time" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_time</span></span><a class="headerlink" href="#bpy.app.build_time" title="Link to this definition">¶</a></dt>
 <dd><p>The time this blender instance was built</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_type">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_type</span></span><a class="headerlink" href="#bpy.app.build_type" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_type</span></span><a class="headerlink" href="#bpy.app.build_type" title="Link to this definition">¶</a></dt>
 <dd><p>The type of build (Release, Debug)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_commit_timestamp">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_commit_timestamp</span></span><a class="headerlink" href="#bpy.app.build_commit_timestamp" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_commit_timestamp</span></span><a class="headerlink" href="#bpy.app.build_commit_timestamp" title="Link to this definition">¶</a></dt>
 <dd><p>The unix timestamp of commit this blender instance was built</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.version_cycle">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version_cycle</span></span><a class="headerlink" href="#bpy.app.version_cycle" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version_cycle</span></span><a class="headerlink" href="#bpy.app.version_cycle" title="Link to this definition">¶</a></dt>
 <dd><p>The release status of this build alpha/beta/rc/release</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.version_string">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version_string</span></span><a class="headerlink" href="#bpy.app.version_string" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version_string</span></span><a class="headerlink" href="#bpy.app.version_string" title="Link to this definition">¶</a></dt>
 <dd><p>The Blender version formatted as a string</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.version">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#bpy.app.version" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#bpy.app.version" title="Link to this definition">¶</a></dt>
 <dd><p>The Blender version as a tuple of 3 numbers. eg. (2, 83, 1)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.version_file">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version_file</span></span><a class="headerlink" href="#bpy.app.version_file" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">version_file</span></span><a class="headerlink" href="#bpy.app.version_file" title="Link to this definition">¶</a></dt>
 <dd><p>The Blender version, as a tuple, last used to save a .blend file, compatible with <code class="docutils literal notranslate"><span class="pre">bpy.data.version</span></code>. This value should be used for handling compatibility changes between Blender versions</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.alembic">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">alembic</span></span><a class="headerlink" href="#bpy.app.alembic" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.alembic(supported=False, version=(0, 0, 0), version_string=’Unknown’)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">alembic</span></span><a class="headerlink" href="#bpy.app.alembic" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.alembic(supported=True, version=(1, 8, 3), version_string=’ 1,  8,  3’)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.build_options">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_options</span></span><a class="headerlink" href="#bpy.app.build_options" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.build_options(bullet=True, codec_avi=True, codec_ffmpeg=True, codec_sndfile=False, compositor_cpu=True, cycles=False, cycles_osl=False, freestyle=True, gameengine=True, image_cineon=True, image_dds=True, image_hdr=True, image_openexr=True, image_openjpeg=True, image_tiff=True, input_ndof=False, audaspace=True, international=True, openal=False, opensubdiv=False, sdl=False, sdl_dynload=False, coreaudio=False, jack=False, pulseaudio=False, wasapi=False, libmv=True, mod_oceansim=False, mod_remesh=True, player=False, collada=True, io_wavefront_obj=True, io_ply=True, io_stl=True, io_gpencil=False, opencolorio=False, openmp=True, openvdb=False, alembic=False, usd=False, fluid=True, xr_openxr=False, potrace=False, pugixml=False, haru=False)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">build_options</span></span><a class="headerlink" href="#bpy.app.build_options" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.build_options(bullet=True, codec_avi=False, codec_ffmpeg=True, codec_sndfile=True, compositor_cpu=True, cycles=False, cycles_osl=False, freestyle=True, gameengine=True, image_cineon=True, image_dds=True, image_hdr=True, image_openexr=True, image_openjpeg=True, image_tiff=True, input_ndof=True, audaspace=True, international=True, openal=True, opensubdiv=True, sdl=True, coreaudio=False, jack=False, pulseaudio=False, wasapi=False, libmv=False, mod_oceansim=False, mod_remesh=True, player=True, collada=True, io_wavefront_obj=True, io_ply=True, io_stl=True, io_gpencil=True, opencolorio=False, openmp=True, openvdb=True, alembic=True, usd=True, fluid=True, xr_openxr=True, potrace=True, pugixml=True, haru=True)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.ffmpeg">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">ffmpeg</span></span><a class="headerlink" href="#bpy.app.ffmpeg" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.ffmpeg(supported=True, avcodec_version=(59, 37, 100), avcodec_version_string=’59, 37, 100’, avdevice_version=(59, 7, 100), avdevice_version_string=’59,  7, 100’, avformat_version=(59, 27, 100), avformat_version_string=’59, 27, 100’, avutil_version=(57, 28, 100), avutil_version_string=’57, 28, 100’, swscale_version=(6, 7, 100), swscale_version_string=’ 6,  7, 100’)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">ffmpeg</span></span><a class="headerlink" href="#bpy.app.ffmpeg" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.ffmpeg(supported=True, avcodec_version=(60, 31, 102), avcodec_version_string=’60, 31, 102’, avdevice_version=(60, 3, 100), avdevice_version_string=’60,  3, 100’, avformat_version=(60, 16, 100), avformat_version_string=’60, 16, 100’, avutil_version=(58, 29, 100), avutil_version_string=’58, 29, 100’, swscale_version=(7, 5, 100), swscale_version_string=’ 7,  5, 100’)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.ocio">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">ocio</span></span><a class="headerlink" href="#bpy.app.ocio" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.ocio(supported=False, version=(0, 0, 0), version_string=’Unknown’)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">ocio</span></span><a class="headerlink" href="#bpy.app.ocio" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.ocio(supported=True, version=(2, 3, 2), version_string=’ 2,  3,  2’)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.oiio">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">oiio</span></span><a class="headerlink" href="#bpy.app.oiio" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.oiio(supported=True, version=(2, 4, 7), version_string=’ 2,  4,  7’)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">oiio</span></span><a class="headerlink" href="#bpy.app.oiio" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.oiio(supported=True, version=(2, 5, 11), version_string=’ 2,  5, 11’)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.opensubdiv">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">opensubdiv</span></span><a class="headerlink" href="#bpy.app.opensubdiv" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.opensubdiv(supported=False, version=(0, 0, 0), version_string=’Unknown’)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">opensubdiv</span></span><a class="headerlink" href="#bpy.app.opensubdiv" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.opensubdiv(supported=True, version=(3, 6, 0), version_string=’ 3,  6,  0’)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.openvdb">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">openvdb</span></span><a class="headerlink" href="#bpy.app.openvdb" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.openvdb(supported=False, version=(0, 0, 0), version_string=’Unknown’)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">openvdb</span></span><a class="headerlink" href="#bpy.app.openvdb" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.openvdb(supported=True, version=(11, 0, 0), version_string=’11,  0,  0’)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.sdl">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">sdl</span></span><a class="headerlink" href="#bpy.app.sdl" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.sdl(supported=False, version=(0, 0, 0), version_string=’Unknown’, available=False)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">sdl</span></span><a class="headerlink" href="#bpy.app.sdl" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.sdl(supported=True, version=(2, 28, 2), version_string=’2.28.2’)</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.usd">
-<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">usd</span></span><a class="headerlink" href="#bpy.app.usd" title="Link to this definition"></a></dt>
-<dd><p>Constant value bpy.app.usd(supported=False, version=(0, 0, 0), version_string=’Unknown’)</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">usd</span></span><a class="headerlink" href="#bpy.app.usd" title="Link to this definition">¶</a></dt>
+<dd><p>Constant value bpy.app.usd(supported=True, version=(0, 24, 5), version_string=’ 0, 24,  5’)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.app.help_text">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">help_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.app.help_text" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">help_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.app.help_text" title="Link to this definition">¶</a></dt>
 <dd><p>Return the help text as a string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -464,7 +446,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.app.is_job_running">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">is_job_running</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.app.is_job_running" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.app.</span></span><span class="sig-name descname"><span class="pre">is_job_running</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.app.is_job_running" title="Link to this definition">¶</a></dt>
 <dd><p>Check whether a job of the given type is running.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -482,49 +464,133 @@
 </section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.path.html" class="btn btn-neutral float-left" title="Path Utilities (bpy.path)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.app.handlers.html" class="btn btn-neutral float-right" title="Application Handlers (bpy.app.handlers)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/1dff62ca3acd>1dff62ca3acd</a> - 10/09/2023</code>.
-      </span></p>
-  </div>
-
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
-    <ul id="versionwrap" role="presentation">
-       <li role="presentation">
-            <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            4.0 
-            </span>
-            <div class="version-dialog" aria-hidden="true">
-                <div class="version-arrow" aria-hidden="true"></div>
-                <div class="version-title">Versions</div>
-                <ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover" aria-hidden="true">
-                    <li role="presentation">Loading...</li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
-    <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(false);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Application Data (bpy.app)</a><ul>
+<li><a class="reference internal" href="#bpy.app.autoexec_fail"><code class="docutils literal notranslate"><span class="pre">autoexec_fail</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.autoexec_fail_message"><code class="docutils literal notranslate"><span class="pre">autoexec_fail_message</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.autoexec_fail_quiet"><code class="docutils literal notranslate"><span class="pre">autoexec_fail_quiet</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.binary_path"><code class="docutils literal notranslate"><span class="pre">binary_path</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug"><code class="docutils literal notranslate"><span class="pre">debug</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_depsgraph"><code class="docutils literal notranslate"><span class="pre">debug_depsgraph</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_depsgraph_build"><code class="docutils literal notranslate"><span class="pre">debug_depsgraph_build</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_depsgraph_eval"><code class="docutils literal notranslate"><span class="pre">debug_depsgraph_eval</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_depsgraph_pretty"><code class="docutils literal notranslate"><span class="pre">debug_depsgraph_pretty</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_depsgraph_tag"><code class="docutils literal notranslate"><span class="pre">debug_depsgraph_tag</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_depsgraph_time"><code class="docutils literal notranslate"><span class="pre">debug_depsgraph_time</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_events"><code class="docutils literal notranslate"><span class="pre">debug_events</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_ffmpeg"><code class="docutils literal notranslate"><span class="pre">debug_ffmpeg</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_freestyle"><code class="docutils literal notranslate"><span class="pre">debug_freestyle</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_handlers"><code class="docutils literal notranslate"><span class="pre">debug_handlers</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_io"><code class="docutils literal notranslate"><span class="pre">debug_io</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_python"><code class="docutils literal notranslate"><span class="pre">debug_python</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_simdata"><code class="docutils literal notranslate"><span class="pre">debug_simdata</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_value"><code class="docutils literal notranslate"><span class="pre">debug_value</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.debug_wm"><code class="docutils literal notranslate"><span class="pre">debug_wm</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.driver_namespace"><code class="docutils literal notranslate"><span class="pre">driver_namespace</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.online_access"><code class="docutils literal notranslate"><span class="pre">online_access</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.online_access_override"><code class="docutils literal notranslate"><span class="pre">online_access_override</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.python_args"><code class="docutils literal notranslate"><span class="pre">python_args</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.render_icon_size"><code class="docutils literal notranslate"><span class="pre">render_icon_size</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.render_preview_size"><code class="docutils literal notranslate"><span class="pre">render_preview_size</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.tempdir"><code class="docutils literal notranslate"><span class="pre">tempdir</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.use_event_simulate"><code class="docutils literal notranslate"><span class="pre">use_event_simulate</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.use_userpref_skip_save_on_exit"><code class="docutils literal notranslate"><span class="pre">use_userpref_skip_save_on_exit</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.background"><code class="docutils literal notranslate"><span class="pre">background</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.factory_startup"><code class="docutils literal notranslate"><span class="pre">factory_startup</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_branch"><code class="docutils literal notranslate"><span class="pre">build_branch</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_cflags"><code class="docutils literal notranslate"><span class="pre">build_cflags</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_commit_date"><code class="docutils literal notranslate"><span class="pre">build_commit_date</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_commit_time"><code class="docutils literal notranslate"><span class="pre">build_commit_time</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_cxxflags"><code class="docutils literal notranslate"><span class="pre">build_cxxflags</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_date"><code class="docutils literal notranslate"><span class="pre">build_date</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_hash"><code class="docutils literal notranslate"><span class="pre">build_hash</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_linkflags"><code class="docutils literal notranslate"><span class="pre">build_linkflags</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_platform"><code class="docutils literal notranslate"><span class="pre">build_platform</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_system"><code class="docutils literal notranslate"><span class="pre">build_system</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_time"><code class="docutils literal notranslate"><span class="pre">build_time</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_type"><code class="docutils literal notranslate"><span class="pre">build_type</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_commit_timestamp"><code class="docutils literal notranslate"><span class="pre">build_commit_timestamp</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.version_cycle"><code class="docutils literal notranslate"><span class="pre">version_cycle</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.version_string"><code class="docutils literal notranslate"><span class="pre">version_string</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.version_file"><code class="docutils literal notranslate"><span class="pre">version_file</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.alembic"><code class="docutils literal notranslate"><span class="pre">alembic</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.build_options"><code class="docutils literal notranslate"><span class="pre">build_options</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.ffmpeg"><code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.ocio"><code class="docutils literal notranslate"><span class="pre">ocio</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.oiio"><code class="docutils literal notranslate"><span class="pre">oiio</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.opensubdiv"><code class="docutils literal notranslate"><span class="pre">opensubdiv</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.openvdb"><code class="docutils literal notranslate"><span class="pre">openvdb</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.sdl"><code class="docutils literal notranslate"><span class="pre">sdl</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.usd"><code class="docutils literal notranslate"><span class="pre">usd</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.help_text"><code class="docutils literal notranslate"><span class="pre">help_text()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.app.is_job_running"><code class="docutils literal notranslate"><span class="pre">is_job_running()</span></code></a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bpy.path.html"
+                          title="previous chapter">Path Utilities (bpy.path)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bpy.app.handlers.html"
+                          title="next chapter">Application Handlers (bpy.app.handlers)</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.app.handlers.html" title="Application Handlers (bpy.app.handlers)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.path.html" title="Path Utilities (bpy.path)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Application Data (bpy.app)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.app.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.app.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
 </html>

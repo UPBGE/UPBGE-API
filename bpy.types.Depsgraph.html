@@ -1,125 +1,58 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Depsgraph(bpy_struct) &mdash; Blender Python API</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/version_switch.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.Depsgraph.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=715c20a1"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/version_switch.js?v=fa006b38"></script>
-    <script src="_static/js/theme.js"></script>
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Depsgraph(bpy_struct) &#8212; Blender Python API</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=391267f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.Depsgraph.html" />
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within Blender Python API"
           href="_static/opensearch.xml"/>
+    <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="DepsgraphObjectInstance(bpy_struct)" href="bpy.types.DepsgraphObjectInstance.html" />
     <link rel="prev" title="DelaySensor(Sensor)" href="bpy.types.DelaySensor.html" /> 
-</head>
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DepsgraphObjectInstance.html" title="DepsgraphObjectInstance(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DelaySensor.html" title="DelaySensor(Sensor)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Depsgraph(bpy_struct)</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            UPBGE 0.3+ + Blender 4.0.0 Alpha Python API
-              <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.3+ + Blender 4.0.0 Alpha Python API</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="bpy.types.html">Types (bpy.types)</a></li>
-      <li class="breadcrumb-item active">Depsgraph(bpy_struct)</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section id="depsgraph-bpy-struct">
-<h1>Depsgraph(bpy_struct)<a class="headerlink" href="#depsgraph-bpy-struct" title="Link to this heading"></a></h1>
+<h1>Depsgraph(bpy_struct)<a class="headerlink" href="#depsgraph-bpy-struct" title="Link to this heading">¶</a></h1>
 <section id="dependency-graph-evaluated-id-example">
-<h2>Dependency graph: Evaluated ID example<a class="headerlink" href="#dependency-graph-evaluated-id-example" title="Link to this heading"></a></h2>
+<h2>Dependency graph: Evaluated ID example<a class="headerlink" href="#dependency-graph-evaluated-id-example" title="Link to this heading">¶</a></h2>
 <p>This example demonstrates access to the evaluated ID (such as object, material, etc.) state from
 an original ID.
 This is needed every time one needs to access state with animation, constraints, and modifiers
@@ -179,7 +112,7 @@ taken into account.</p>
 </div>
 </section>
 <section id="dependency-graph-original-object-example">
-<h2>Dependency graph: Original object example<a class="headerlink" href="#dependency-graph-original-object-example" title="Link to this heading"></a></h2>
+<h2>Dependency graph: Original object example<a class="headerlink" href="#dependency-graph-original-object-example" title="Link to this heading">¶</a></h2>
 <p>This example demonstrates access to the original ID.
 Such access is needed to check whether object is selected, or to compare pointers.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
@@ -224,7 +157,7 @@ Such access is needed to check whether object is selected, or to compare pointer
 </div>
 </section>
 <section id="dependency-graph-iterate-over-all-object-instances">
-<h2>Dependency graph: Iterate over all object instances<a class="headerlink" href="#dependency-graph-iterate-over-all-object-instances" title="Link to this heading"></a></h2>
+<h2>Dependency graph: Iterate over all object instances<a class="headerlink" href="#dependency-graph-iterate-over-all-object-instances" title="Link to this heading">¶</a></h2>
 <p>Sometimes it is needed to know all the instances with their matrices (for example, when writing an
 exporter or a custom render engine).
 This example shows how to access all objects and instances in the scene.</p>
@@ -266,7 +199,7 @@ This example shows how to access all objects and instances in the scene.</p>
 </div>
 </section>
 <section id="dependency-graph-object-to-mesh">
-<h2>Dependency graph: Object.to_mesh()<a class="headerlink" href="#dependency-graph-object-to-mesh" title="Link to this heading"></a></h2>
+<h2>Dependency graph: Object.to_mesh()<a class="headerlink" href="#dependency-graph-object-to-mesh" title="Link to this heading">¶</a></h2>
 <p>Function to get a mesh from any object with geometry. It is typically used by exporters, render
 engines and tools that need to access the evaluated mesh as displayed in the viewport.</p>
 <p>Object.to_mesh() is closely interacting with dependency graph: its behavior depends on whether it
@@ -281,12 +214,12 @@ animation or modifiers into account:</p>
 <p>When is used on evaluated object all modifiers are taken into account.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result mesh is owned by the object. It can be freed by calling <cite>object.to_mesh_clear()</cite>.</p>
+<p>The result mesh is owned by the object. It can be freed by calling <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.to_mesh_clear" title="bpy.types.Object.to_mesh_clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_mesh_clear()</span></code></a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result mesh must be treated as temporary, and can not be referenced from objects in the main
-database. If the mesh intended to be used in a persistent manner use bpy.data.meshes.new_from_object()
+<p>The result mesh must be treated as temporary, and cannot be referenced from objects in the main
+database. If the mesh intended to be used in a persistent manner use <a class="reference internal" href="bpy.types.BlendDataMeshes.html#bpy.types.BlendDataMeshes.new_from_object" title="bpy.types.BlendDataMeshes.new_from_object"><code class="xref py py-meth docutils literal notranslate"><span class="pre">new_from_object()</span></code></a>
 instead.</p>
 </div>
 <div class="admonition note">
@@ -309,7 +242,7 @@ instead.</p>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
         <span class="c1"># Avoid annoying None checks later on.</span>
         <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;MESH&#39;</span><span class="p">,</span> <span class="s1">&#39;CURVE&#39;</span><span class="p">,</span> <span class="s1">&#39;SURFACE&#39;</span><span class="p">,</span> <span class="s1">&#39;FONT&#39;</span><span class="p">,</span> <span class="s1">&#39;META&#39;</span><span class="p">}:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;Object can not be converted to mesh&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;Object cannot be converted to mesh&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
         <span class="n">depsgraph</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">evaluated_depsgraph_get</span><span class="p">()</span>
         <span class="c1"># Invoke to_mesh() for original object.</span>
@@ -340,7 +273,7 @@ instead.</p>
 </div>
 </section>
 <section id="dependency-graph-bpy-data-meshes-new-from-object">
-<h2>Dependency graph: bpy.data.meshes.new_from_object()<a class="headerlink" href="#dependency-graph-bpy-data-meshes-new-from-object" title="Link to this heading"></a></h2>
+<h2>Dependency graph: bpy.data.meshes.new_from_object()<a class="headerlink" href="#dependency-graph-bpy-data-meshes-new-from-object" title="Link to this heading">¶</a></h2>
 <p>Function to copy a new mesh from any object with geometry. The mesh is added to the main
 database and can be referenced by objects. Typically used by tools that create new objects
 or apply modifiers.</p>
@@ -374,7 +307,7 @@ consistency of the main database.</p>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
         <span class="c1"># Avoid annoying None checks later on.</span>
         <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;MESH&#39;</span><span class="p">,</span> <span class="s1">&#39;CURVE&#39;</span><span class="p">,</span> <span class="s1">&#39;SURFACE&#39;</span><span class="p">,</span> <span class="s1">&#39;FONT&#39;</span><span class="p">,</span> <span class="s1">&#39;META&#39;</span><span class="p">}:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;Object can not be converted to mesh&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;Object cannot be converted to mesh&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
         <span class="n">depsgraph</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">evaluated_depsgraph_get</span><span class="p">()</span>
         <span class="n">object_eval</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">evaluated_get</span><span class="p">(</span><span class="n">depsgraph</span><span class="p">)</span>
@@ -397,7 +330,7 @@ consistency of the main database.</p>
 </div>
 </section>
 <section id="dependency-graph-simple-exporter">
-<h2>Dependency graph: Simple exporter<a class="headerlink" href="#dependency-graph-simple-exporter" title="Link to this heading"></a></h2>
+<h2>Dependency graph: Simple exporter<a class="headerlink" href="#dependency-graph-simple-exporter" title="Link to this heading">¶</a></h2>
 <p>This example is a combination of all previous ones, and shows how to write a simple exporter
 script.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
@@ -425,7 +358,8 @@ script.</p>
                 <span class="k">continue</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting mesh with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span><span class="si">}</span><span class="s2"> vertices &quot;</span>
                   <span class="sa">f</span><span class="s2">&quot;at </span><span class="si">{</span><span class="n">object_instance</span><span class="o">.</span><span class="n">matrix_world</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="n">object_instace</span><span class="o">.</span><span class="n">to_mesh_clear</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">clear_mesh_for_object_instance</span><span class="p">(</span><span class="n">object_instance</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
@@ -443,6 +377,12 @@ script.</p>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">()</span>
 
+    <span class="k">def</span> <span class="nf">clear_mesh_for_object_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_instance</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_modifiers</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">to_mesh_clear</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">to_mesh_clear</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_simple_exporter</span><span class="p">)</span>
@@ -458,7 +398,7 @@ script.</p>
 </div>
 </section>
 <section id="dependency-graph-object-to-curve">
-<h2>Dependency graph: Object.to_curve()<a class="headerlink" href="#dependency-graph-object-to-curve" title="Link to this heading"></a></h2>
+<h2>Dependency graph: Object.to_curve()<a class="headerlink" href="#dependency-graph-object-to-curve" title="Link to this heading">¶</a></h2>
 <p>Function to get a curve from text and curve objects. It is typically used by exporters, render
 engines, and tools that need to access the curve representing the object.</p>
 <p>The function takes the evaluated dependency graph as a required parameter and optionally a boolean
@@ -471,11 +411,11 @@ never applied on text objects and apply_modifiers will be ignored. If the object
 a text object, an error will be reported.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The resulting curve is owned by the object. It can be freed by calling <cite>object.to_curve_clear()</cite>.</p>
+<p>The resulting curve is owned by the object. It can be freed by calling <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.to_curve_clear" title="bpy.types.Object.to_curve_clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_curve_clear()</span></code></a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The resulting curve must be treated as temporary, and can not be referenced from objects in the main
+<p>The resulting curve must be treated as temporary, and cannot be referenced from objects in the main
 database.</p>
 </div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
@@ -493,7 +433,7 @@ database.</p>
             <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;No active object to convert to curve&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;CURVE&#39;</span><span class="p">,</span> <span class="s1">&#39;FONT&#39;</span><span class="p">}:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;Object can not be converted to curve&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;Object cannot be converted to curve&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
         <span class="n">depsgraph</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">evaluated_depsgraph_get</span><span class="p">()</span>
         <span class="c1"># Invoke to_curve() without applying modifiers.</span>
@@ -524,10 +464,10 @@ database.</p>
 <p>base class — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Depsgraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Depsgraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph" title="Link to this definition">¶</a></dt>
 <dd><dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.ids">
-<span class="sig-name descname"><span class="pre">ids</span></span><a class="headerlink" href="#bpy.types.Depsgraph.ids" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ids</span></span><a class="headerlink" href="#bpy.types.Depsgraph.ids" title="Link to this definition">¶</a></dt>
 <dd><p>All evaluated data-blocks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -538,7 +478,7 @@ database.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.mode">
-<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#bpy.types.Depsgraph.mode" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#bpy.types.Depsgraph.mode" title="Link to this definition">¶</a></dt>
 <dd><p>Evaluation mode</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">VIEWPORT</span></code>
@@ -555,7 +495,7 @@ Render – Render.</p></li>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.object_instances">
-<span class="sig-name descname"><span class="pre">object_instances</span></span><a class="headerlink" href="#bpy.types.Depsgraph.object_instances" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">object_instances</span></span><a class="headerlink" href="#bpy.types.Depsgraph.object_instances" title="Link to this definition">¶</a></dt>
 <dd><p>All object instances to display or render (Warning: Only use this as an iterator, never as a sequence, and do not keep any references to its items)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -566,7 +506,7 @@ Render – Render.</p></li>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.objects">
-<span class="sig-name descname"><span class="pre">objects</span></span><a class="headerlink" href="#bpy.types.Depsgraph.objects" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">objects</span></span><a class="headerlink" href="#bpy.types.Depsgraph.objects" title="Link to this definition">¶</a></dt>
 <dd><p>Evaluated objects in the dependency graph</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -577,7 +517,7 @@ Render – Render.</p></li>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.scene">
-<span class="sig-name descname"><span class="pre">scene</span></span><a class="headerlink" href="#bpy.types.Depsgraph.scene" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">scene</span></span><a class="headerlink" href="#bpy.types.Depsgraph.scene" title="Link to this definition">¶</a></dt>
 <dd><p>Original scene dependency graph is built for</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -588,7 +528,7 @@ Render – Render.</p></li>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.scene_eval">
-<span class="sig-name descname"><span class="pre">scene_eval</span></span><a class="headerlink" href="#bpy.types.Depsgraph.scene_eval" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">scene_eval</span></span><a class="headerlink" href="#bpy.types.Depsgraph.scene_eval" title="Link to this definition">¶</a></dt>
 <dd><p>Scene at its evaluated state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -599,7 +539,7 @@ Render – Render.</p></li>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.updates">
-<span class="sig-name descname"><span class="pre">updates</span></span><a class="headerlink" href="#bpy.types.Depsgraph.updates" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">updates</span></span><a class="headerlink" href="#bpy.types.Depsgraph.updates" title="Link to this definition">¶</a></dt>
 <dd><p>Updates to data-blocks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -610,7 +550,7 @@ Render – Render.</p></li>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.view_layer">
-<span class="sig-name descname"><span class="pre">view_layer</span></span><a class="headerlink" href="#bpy.types.Depsgraph.view_layer" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">view_layer</span></span><a class="headerlink" href="#bpy.types.Depsgraph.view_layer" title="Link to this definition">¶</a></dt>
 <dd><p>Original view layer dependency graph is built for</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -621,7 +561,7 @@ Render – Render.</p></li>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.view_layer_eval">
-<span class="sig-name descname"><span class="pre">view_layer_eval</span></span><a class="headerlink" href="#bpy.types.Depsgraph.view_layer_eval" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">view_layer_eval</span></span><a class="headerlink" href="#bpy.types.Depsgraph.view_layer_eval" title="Link to this definition">¶</a></dt>
 <dd><p>View layer at its evaluated state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -632,18 +572,24 @@ Render – Render.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.debug_relations_graphviz">
-<span class="sig-name descname"><span class="pre">debug_relations_graphviz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_relations_graphviz" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">debug_relations_graphviz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_relations_graphviz" title="Link to this definition">¶</a></dt>
 <dd><p>debug_relations_graphviz</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – File Name, Output path for the graphviz debug file</p>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Name, Optional output path for the graphviz debug file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dot Graph, Graph in dot format</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.debug_stats_gnuplot">
-<span class="sig-name descname"><span class="pre">debug_stats_gnuplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_stats_gnuplot" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">debug_stats_gnuplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_stats_gnuplot" title="Link to this definition">¶</a></dt>
 <dd><p>debug_stats_gnuplot</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -657,13 +603,13 @@ Render – Render.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.debug_tag_update">
-<span class="sig-name descname"><span class="pre">debug_tag_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_tag_update" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">debug_tag_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_tag_update" title="Link to this definition">¶</a></dt>
 <dd><p>debug_tag_update</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.debug_stats">
-<span class="sig-name descname"><span class="pre">debug_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_stats" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">debug_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.debug_stats" title="Link to this definition">¶</a></dt>
 <dd><p>Report the number of elements in the Dependency Graph</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -677,13 +623,13 @@ Render – Render.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.update" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.update" title="Link to this definition">¶</a></dt>
 <dd><p>Re-evaluate any modified data-blocks, for example for animation or modifiers. This invalidates all references to evaluated data-blocks from this dependency graph.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.id_eval_get">
-<span class="sig-name descname"><span class="pre">id_eval_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.id_eval_get" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">id_eval_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.id_eval_get" title="Link to this definition">¶</a></dt>
 <dd><p>id_eval_get</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -700,7 +646,7 @@ Render – Render.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.id_type_updated">
-<span class="sig-name descname"><span class="pre">id_type_updated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.id_type_updated" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">id_type_updated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.id_type_updated" title="Link to this definition">¶</a></dt>
 <dd><p>id_type_updated</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -717,10 +663,10 @@ Render – Render.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.bl_rna_get_subclass" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The RNA type or default when not found.</p>
@@ -733,10 +679,10 @@ Render – Render.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Depsgraph.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.bl_rna_get_subclass_py" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Depsgraph.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>string</em>) – The RNA type identifier.</p>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The class or default when not found.</p>
@@ -749,14 +695,17 @@ Render – Render.</p></li>
 
 </dd></dl>
 
-<p class="rubric">Inherited Properties</p>
+<section id="inherited-properties">
+<h3>Inherited Properties<a class="headerlink" href="#inherited-properties" title="Link to this heading">¶</a></h3>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.id_data</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
 </ul>
 </td></tr></table>
-<p class="rubric">Inherited Functions</p>
+</section>
+<section id="inherited-functions">
+<h3>Inherited Functions<a class="headerlink" href="#inherited-functions" title="Link to this heading">¶</a></h3>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.as_pointer</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.driver_add</span></code></a></p></li>
@@ -784,7 +733,9 @@ Render – Render.</p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.values</span></code></a></p></li>
 </ul>
 </td></tr></table>
-<p class="rubric">References</p>
+</section>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.BlendDataMeshes.html#bpy.types.BlendDataMeshes.new_from_object" title="bpy.types.BlendDataMeshes.new_from_object"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlendDataMeshes.new_from_object</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Context.html#bpy.types.Context.evaluated_depsgraph_get" title="bpy.types.Context.evaluated_depsgraph_get"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context.evaluated_depsgraph_get</span></code></a></p></li>
@@ -813,51 +764,111 @@ Render – Render.</p></li>
 </td></tr></table>
 </section>
 </section>
+</section>
 
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.types.DelaySensor.html" class="btn btn-neutral float-left" title="DelaySensor(Sensor)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.types.DepsgraphObjectInstance.html" class="btn btn-neutral float-right" title="DepsgraphObjectInstance(bpy_struct)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/1dff62ca3acd>1dff62ca3acd</a> - 10/09/2023</code>.
-      </span></p>
-  </div>
-
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
-    <ul id="versionwrap" role="presentation">
-       <li role="presentation">
-            <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-            4.0 
-            </span>
-            <div class="version-dialog" aria-hidden="true">
-                <div class="version-arrow" aria-hidden="true"></div>
-                <div class="version-title">Versions</div>
-                <ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover" aria-hidden="true">
-                    <li role="presentation">Loading...</li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
-    <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(false);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Depsgraph(bpy_struct)</a><ul>
+<li><a class="reference internal" href="#dependency-graph-evaluated-id-example">Dependency graph: Evaluated ID example</a></li>
+<li><a class="reference internal" href="#dependency-graph-original-object-example">Dependency graph: Original object example</a></li>
+<li><a class="reference internal" href="#dependency-graph-iterate-over-all-object-instances">Dependency graph: Iterate over all object instances</a></li>
+<li><a class="reference internal" href="#dependency-graph-object-to-mesh">Dependency graph: Object.to_mesh()</a></li>
+<li><a class="reference internal" href="#dependency-graph-bpy-data-meshes-new-from-object">Dependency graph: bpy.data.meshes.new_from_object()</a></li>
+<li><a class="reference internal" href="#dependency-graph-simple-exporter">Dependency graph: Simple exporter</a></li>
+<li><a class="reference internal" href="#dependency-graph-object-to-curve">Dependency graph: Object.to_curve()</a><ul>
+<li><a class="reference internal" href="#bpy.types.Depsgraph"><code class="docutils literal notranslate"><span class="pre">Depsgraph</span></code></a><ul>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.ids"><code class="docutils literal notranslate"><span class="pre">Depsgraph.ids</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.mode"><code class="docutils literal notranslate"><span class="pre">Depsgraph.mode</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.object_instances"><code class="docutils literal notranslate"><span class="pre">Depsgraph.object_instances</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.objects"><code class="docutils literal notranslate"><span class="pre">Depsgraph.objects</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.scene"><code class="docutils literal notranslate"><span class="pre">Depsgraph.scene</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.scene_eval"><code class="docutils literal notranslate"><span class="pre">Depsgraph.scene_eval</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.updates"><code class="docutils literal notranslate"><span class="pre">Depsgraph.updates</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.view_layer"><code class="docutils literal notranslate"><span class="pre">Depsgraph.view_layer</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.view_layer_eval"><code class="docutils literal notranslate"><span class="pre">Depsgraph.view_layer_eval</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.debug_relations_graphviz"><code class="docutils literal notranslate"><span class="pre">Depsgraph.debug_relations_graphviz()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.debug_stats_gnuplot"><code class="docutils literal notranslate"><span class="pre">Depsgraph.debug_stats_gnuplot()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.debug_tag_update"><code class="docutils literal notranslate"><span class="pre">Depsgraph.debug_tag_update()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.debug_stats"><code class="docutils literal notranslate"><span class="pre">Depsgraph.debug_stats()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.update"><code class="docutils literal notranslate"><span class="pre">Depsgraph.update()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.id_eval_get"><code class="docutils literal notranslate"><span class="pre">Depsgraph.id_eval_get()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.id_type_updated"><code class="docutils literal notranslate"><span class="pre">Depsgraph.id_type_updated()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">Depsgraph.bl_rna_get_subclass()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Depsgraph.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">Depsgraph.bl_rna_get_subclass_py()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inherited-properties">Inherited Properties</a></li>
+<li><a class="reference internal" href="#inherited-functions">Inherited Functions</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bpy.types.DelaySensor.html"
+                          title="previous chapter">DelaySensor(Sensor)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bpy.types.DepsgraphObjectInstance.html"
+                          title="next chapter">DepsgraphObjectInstance(bpy_struct)</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DepsgraphObjectInstance.html" title="DepsgraphObjectInstance(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DelaySensor.html" title="DelaySensor(Sensor)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Depsgraph(bpy_struct)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright Blender Authors.
+    </div>
+<div class="footer-contribute">
+  <ul>
+    <li>
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.Depsgraph.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.types.Depsgraph.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+        on this page</a>
+    </li>
+  </ul>
+</div>
+  </body>
 </html>
