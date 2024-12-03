@@ -69,11 +69,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.ActionSlots.new">
-<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">for_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlots.new" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlots.new" title="Link to this definition">¶</a></dt>
 <dd><p>Add a slot to the Action</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>for_id</strong> (<a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a>, (optional)) – Data-Block, If given, the new slot will be named after this data-block, and limited to animating data-blocks of its type. If ommitted, limiting the ID type will happen as soon as the slot is assigned.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/id_type_items.html#rna-enum-id-type-items"><span class="std std-ref">Id Type Items</span></a>) – Data-block Type, The data-block type that the slot is intended for. This is combined with the slot name to create the slot’s unique identifier, and is also used to limit (on a best-effort basis) which data-blocks the slot can be assigned to.</p></li>
+<li><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Name, Name of the slot. This will be made unique within the Action among slots of the same type</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Newly created action slot</p>
