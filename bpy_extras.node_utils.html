@@ -52,6 +52,24 @@
   <section id="module-bpy_extras.node_utils">
 <span id="bpy-extras-submodule-bpy-extras-node-utils"></span><h1>bpy_extras submodule (bpy_extras.node_utils)<a class="headerlink" href="#module-bpy_extras.node_utils" title="Link to this heading">¶</a></h1>
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy_extras.node_utils.connect_sockets">
+<span class="sig-prename descclassname"><span class="pre">bpy_extras.node_utils.</span></span><span class="sig-name descname"><span class="pre">connect_sockets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.node_utils.connect_sockets" title="Link to this definition">¶</a></dt>
+<dd><p>Connect sockets in a node tree.</p>
+<p>This is useful because the links created through the normal Python API are
+invalid when one of the sockets is a virtual socket (grayed out sockets in
+Group Input and Group Output nodes).</p>
+<p>It replaces node_tree.links.new(input, output)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy_extras.node_utils.find_base_socket_type">
+<span class="sig-prename descclassname"><span class="pre">bpy_extras.node_utils.</span></span><span class="sig-name descname"><span class="pre">find_base_socket_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.node_utils.find_base_socket_type" title="Link to this definition">¶</a></dt>
+<dd><p>Find the base class of the socket.</p>
+<p>Sockets can have a subtype such as NodeSocketFloatFactor,
+but only the base type is allowed, e. g. NodeSocketFloat</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.node_utils.find_node_input">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.node_utils.</span></span><span class="sig-name descname"><span class="pre">find_node_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.node_utils.find_node_input" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -69,6 +87,8 @@
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">bpy_extras submodule (bpy_extras.node_utils)</a><ul>
+<li><a class="reference internal" href="#bpy_extras.node_utils.connect_sockets"><code class="docutils literal notranslate"><span class="pre">connect_sockets()</span></code></a></li>
+<li><a class="reference internal" href="#bpy_extras.node_utils.find_base_socket_type"><code class="docutils literal notranslate"><span class="pre">find_base_socket_type()</span></code></a></li>
 <li><a class="reference internal" href="#bpy_extras.node_utils.find_node_input"><code class="docutils literal notranslate"><span class="pre">find_node_input()</span></code></a></li>
 </ul>
 </li>
