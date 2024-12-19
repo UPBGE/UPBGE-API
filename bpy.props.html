@@ -2764,7 +2764,7 @@ This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
 <li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], Sequence[bool]]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[bool]], None]) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[bool, …]], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -2918,7 +2918,7 @@ This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
 <li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], Sequence[float]]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[float]], None]) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[float, …]], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -2982,7 +2982,7 @@ This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
 <li><p><strong>get</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], Sequence[int]]) – Function to be called when this value is ‘read’,
 This function must take 1 value (self) and return the value of the property.</p></li>
-<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[int]], None]) – Function to be called when this value is ‘written’,
+<li><p><strong>set</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, tuple[int, …]], None]) – Function to be called when this value is ‘written’,
 This function must take 2 values (self, value) and return None.</p></li>
 </ul>
 </dd>
@@ -3003,8 +3003,9 @@ This function must take 2 values (self, value) and return None.</p></li>
 <li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_flag_items.html#rna-enum-property-flag-items"><span class="std std-ref">Property Flag Items</span></a>.</p></li>
 <li><p><strong>override</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator in <a class="reference internal" href="bpy_types_enum_items/property_override_flag_items.html#rna-enum-property-override-flag-items"><span class="std std-ref">Property Override Flag Items</span></a>.</p></li>
 <li><p><strong>tags</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Enumerator of tags that are defined by parent class.</p></li>
-<li><p><strong>poll</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>], bool]) – function to be called to determine whether an item is valid for this property.
-The function must take 2 values (self, object) and return Bool.</p></li>
+<li><p><strong>poll</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a>], bool]) – function to be called to determine whether an item is valid for this property.
+The function must take 2 values (self, object) and return Bool.
+Note that the poll return value will be checked only when assigning an item from the UI, but it is still possible to assign an “invalid” item to the property directly.</p></li>
 <li><p><strong>update</strong> (Callable[[<a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>], None]) – Function to be called when this value is modified,
 This function must take 2 values (self, context) and return None.
 <em>Warning</em> there are no safety checks to avoid infinite recursion.</p></li>
