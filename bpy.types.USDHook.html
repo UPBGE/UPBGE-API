@@ -2446,49 +2446,160 @@
 <section id="usd-hook-example">
 <h2>USD Hook Example<a class="headerlink" href="#usd-hook-example" title="Link to this heading">¶</a></h2>
 <p>This example shows an implementation of <code class="docutils literal notranslate"><span class="pre">USDHook</span></code> to extend USD
-export and import functionalty.</p>
+export and import functionality.</p>
+<section id="callback-function-api">
+<h3>Callback Function API<a class="headerlink" href="#callback-function-api" title="Link to this heading">¶</a></h3>
 <p>One may optionally define any or all of the following callback functions
 in the <code class="docutils literal notranslate"><span class="pre">USDHook</span></code> subclass.</p>
-<p>Hook function <code class="docutils literal notranslate"><span class="pre">on_export()</span></code> is called before the USD export finalizes,
-allowing modifications to the USD stage immediately before it is
-saved.  This function takes as an argument an instance of an
-internally defined class <code class="docutils literal notranslate"><span class="pre">USDSceneExportContext</span></code> which provides the
-following accessors to the scene data:</p>
+<section id="on-export">
+<h4>on_export<a class="headerlink" href="#on-export" title="Link to this heading">¶</a></h4>
+<p>Called before the USD export finalizes, allowing modifications to the USD
+stage immediately before it is saved.</p>
+<p>Args:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">get_stage()</span></code> returns the USD stage to be saved.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">get_depsgraph()</span></code> returns the Blender scene dependency graph.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export_context</span></code> (<a class="reference internal" href="#usdsceneexportcontext">USDSceneExportContext</a>): Provides access to the stage and dependency graph</p></li>
 </ul>
-<p>Hook function <code class="docutils literal notranslate"><span class="pre">on_material_export()</span></code> is called for each material that is exported,
-allowing modifications to the USD material, such as shader generation.
-It is called with three arguments:</p>
-<p>-<code class="docutils literal notranslate"><span class="pre">export_context</span></code>: An instance of the internally defined type <code class="docutils literal notranslate"><span class="pre">USDMaterialExportContext</span></code>.
--<code class="docutils literal notranslate"><span class="pre">bl_material</span></code>: The source Blender material.
--<code class="docutils literal notranslate"><span class="pre">usd_material</span></code>: The target USD material to be exported.</p>
-<p><code class="docutils literal notranslate"><span class="pre">USDMaterialExportContext</span></code> implements a <code class="docutils literal notranslate"><span class="pre">get_stage()</span></code> function which returns the
-USD stage to be saved.</p>
+<p>Returns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> on success or <code class="docutils literal notranslate"><span class="pre">False</span></code> if the operation was bypassed or otherwise failed to complete</p></li>
+</ul>
+</section>
+<section id="on-material-export">
+<h4>on_material_export<a class="headerlink" href="#on-material-export" title="Link to this heading">¶</a></h4>
+<p>Called for each material that is exported, allowing modifications to the USD material,
+such as shader generation.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">export_context</span></code> (<a class="reference internal" href="#usdmaterialexportcontext">USDMaterialExportContext</a>): Provides access to the stage and a texture export utility function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bl_material</span></code> (<code class="docutils literal notranslate"><span class="pre">bpy.types.Material</span></code>): The source Blender material</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usd_material</span></code> (<code class="docutils literal notranslate"><span class="pre">pxr.UsdShade.Material</span></code>): The target USD material to be exported</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> on success or <code class="docutils literal notranslate"><span class="pre">False</span></code> if the operation was bypassed or otherwise failed to complete</p></li>
+</ul>
 <p>Note that the target USD material might already have connected shaders created by the USD exporter or
 by other material export hooks.</p>
-<p>Hook function <code class="docutils literal notranslate"><span class="pre">on_import()</span></code> is called after the USD import finalizes. This function takes
-as an argument an instance of an internally defined class <code class="docutils literal notranslate"><span class="pre">USDSceneImportContext</span></code> which provides the
-following accessors to the scene data:</p>
+</section>
+<section id="on-import">
+<h4>on_import<a class="headerlink" href="#on-import" title="Link to this heading">¶</a></h4>
+<p>Called after the USD import finalizes.</p>
+<p>Args:</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">get_prim_map()</span></code> returns a dict where the key is an imported USD Prim path and the value a list of</dt><dd><p>the IDs created by the imported prim.</p>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import_context</span></code> (<a class="reference internal" href="#usdsceneimportcontext">USDSceneImportContext</a>):
+Provides access to the stage and a map associating USD prim paths and Blender IDs</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> on success or <code class="docutils literal notranslate"><span class="pre">False</span></code> if the operation was bypassed or otherwise failed to complete</p></li>
+</ul>
+</section>
+<section id="material-import-poll">
+<h4>material_import_poll<a class="headerlink" href="#material-import-poll" title="Link to this heading">¶</a></h4>
+<p>Called to determine if the <code class="docutils literal notranslate"><span class="pre">USDHook</span></code> implementation can convert a given USD material.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">import_context</span></code> (<a class="reference internal" href="#usdmaterialimportcontext">USDMaterialImportContext</a>): Provides access to the stage and a texture import utility function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usd_material</span></code> (<code class="docutils literal notranslate"><span class="pre">pxr.UsdShade.Material</span></code>): The source USD material to be exported</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the hook can convert the material or <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise</p></li>
+</ul>
+<p>If any hook returns <code class="docutils literal notranslate"><span class="pre">True</span></code> from <code class="docutils literal notranslate"><span class="pre">material_import_poll</span></code>, the USD importer will skip standard <code class="docutils literal notranslate"><span class="pre">USD</span> <span class="pre">Preview</span> <span class="pre">Surface</span></code>
+or <code class="docutils literal notranslate"><span class="pre">MaterialX</span></code> import and invoke the hook’s <a class="reference internal" href="#on-material-import">on_material_import</a> method to convert the material instead.</p>
+</section>
+<section id="on-material-import">
+<h4>on_material_import<a class="headerlink" href="#on-material-import" title="Link to this heading">¶</a></h4>
+<p>Called for each material that is imported, to allow converting the USD material to nodes on the Blender material.
+To ensure that this function gets called, the hook must also implement the <code class="docutils literal notranslate"><span class="pre">material_import_poll()</span></code>
+callback to return <code class="docutils literal notranslate"><span class="pre">True</span></code> for the given USD material.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">import_context</span></code> (<a class="reference internal" href="#usdmaterialimportcontext">USDMaterialImportContext</a>): Provides access to the stage and a texture import utility function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bl_material</span></code> (<code class="docutils literal notranslate"><span class="pre">bpy.types.Material</span></code>): The target Blender material with an empty node tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usd_material</span></code> (<code class="docutils literal notranslate"><span class="pre">pxr.UsdShade.Material</span></code>): The source USD material to be imported</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> on success or <code class="docutils literal notranslate"><span class="pre">False</span></code> if the conversion failed or otherwise did not complete</p></li>
+</ul>
+</section>
+</section>
+<section id="context-classes">
+<h3>Context Classes<a class="headerlink" href="#context-classes" title="Link to this heading">¶</a></h3>
+<p>Instances of the following built-in classes are provided as arguments to the callbacks.</p>
+<section id="usdsceneexportcontext">
+<h4>USDSceneExportContext<a class="headerlink" href="#usdsceneexportcontext" title="Link to this heading">¶</a></h4>
+<p>Argument for <a class="reference internal" href="#on-export">on_export</a>.</p>
+<p>Methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_stage()</span></code>: returns the USD stage to be saved</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_depsgraph()</span></code>: returns the Blender scene dependency graph</p></li>
+</ul>
+</section>
+<section id="usdmaterialexportcontext">
+<h4>USDMaterialExportContext<a class="headerlink" href="#usdmaterialexportcontext" title="Link to this heading">¶</a></h4>
+<p>Argument for <a class="reference internal" href="#on-material-export">on_material_export</a>.</p>
+<p>Methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_stage()</span></code>: returns the USD stage to be saved</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export_texture(image:</span> <span class="pre">bpy.types.Image)</span></code>: Returns the USD asset path for the given texture image</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">export_texture</span></code> function will save in-memory images and may copy texture assets,
+depending on the current USD export options.
+For example, by default calling <code class="docutils literal notranslate"><span class="pre">export_texture(/foo/bar.png)</span></code> will copy the file to a <code class="docutils literal notranslate"><span class="pre">textures</span></code>
+directory next to the exported USD and will return the relative path <code class="docutils literal notranslate"><span class="pre">./textures/bar.png</span></code>.</p>
+</section>
+<section id="usdsceneimportcontext">
+<h4>USDSceneImportContext<a class="headerlink" href="#usdsceneimportcontext" title="Link to this heading">¶</a></h4>
+<p>Argument for <a class="reference internal" href="#on-import">on_import</a>.</p>
+<p>Methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_prim_map()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">dict</span></code> where the key is an imported USD Prim path and the value a <code class="docutils literal notranslate"><span class="pre">list</span></code>
+of the IDs created by the imported prim.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">get_stage()</span></code> returns the USD stage which was imported.</p></li>
 </ul>
-<p>The hook functions should return <code class="docutils literal notranslate"><span class="pre">True</span></code> on success or <code class="docutils literal notranslate"><span class="pre">False</span></code> if the operation was bypassed or
-otherwise failed to complete.  Exceptions raised by these functions will be reported in Blender, with
-the exception details printed to the console.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">USDHookExample</span></code> class in this example impements the fllowing functions:</p>
+</section>
+<section id="usdmaterialimportcontext">
+<h4>USDMaterialImportContext<a class="headerlink" href="#usdmaterialimportcontext" title="Link to this heading">¶</a></h4>
+<p>Argument for <a class="reference internal" href="#material-import-poll">material_import_poll</a> and <a class="reference internal" href="#on-material-import">on_material_import</a>.</p>
+<p>Methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_stage()</span></code>:
+returns the USD stage to be saved.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import_texture(asset_path:</span> <span class="pre">str)</span></code>:
+for the given USD texture asset path, returns a <code class="docutils literal notranslate"><span class="pre">tuple[str,</span> <span class="pre">bool]</span></code>,
+containing the asset’s local path and a bool indicating whether the path references a temporary file.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">import_texture</span></code> function may copy the texture to the local file system if the given asset path is a
+package-relative path for a USDZ archive, depending on the current USD <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Textures</span></code> options.
+When the <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Textures</span></code> mode is <code class="docutils literal notranslate"><span class="pre">Packed</span></code>, the texture is saved to a temporary location and the
+second element of the returned tuple is <code class="docutils literal notranslate"><span class="pre">True</span></code>, indicating that the file is temporary, in which
+case it may be necessary to pack the image. The original asset path will be returned unchanged if it’s
+already a local file or if it could not be copied to a local destination.</p>
+</section>
+</section>
+<section id="errors">
+<h3>Errors<a class="headerlink" href="#errors" title="Link to this heading">¶</a></h3>
+<p>Exceptions raised by these functions will be reported in Blender with the exception details printed to the console.</p>
+</section>
+<section id="example-code">
+<h3>Example Code<a class="headerlink" href="#example-code" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">USDHookExample</span></code> class in the example below implements the following functions:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">on_export()</span></code> function to add custom data to the stage’s root layer.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">on_material_export()</span></code> function to create a simple <code class="docutils literal notranslate"><span class="pre">MaterialX</span></code> shader on the givne USD material.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_material_export()</span></code> function to create a simple <code class="docutils literal notranslate"><span class="pre">MaterialX</span></code> shader on the given USD material.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">on_import()</span></code> function to create a text object to display the stage’s custom layer data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">material_import_poll()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the given USD material has an <code class="docutils literal notranslate"><span class="pre">mtlx</span></code> context.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_material_import()</span></code> function to convert a simple <code class="docutils literal notranslate"><span class="pre">MaterialX</span></code> shader with a <code class="docutils literal notranslate"><span class="pre">base_color</span></code> input.</p></li>
 </ul>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;USD Hook Example&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blender&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">bpy</span>
 <span class="kn">import</span> <span class="nn">bpy.types</span>
 <span class="kn">import</span> <span class="nn">pxr.Gf</span> <span class="k">as</span> <span class="nn">Gf</span>
 <span class="kn">import</span> <span class="nn">pxr.Sdf</span> <span class="k">as</span> <span class="nn">Sdf</span>
@@ -2583,6 +2694,62 @@ the exception details printed to the console.</p>
 
         <span class="k">return</span> <span class="kc">True</span>
 
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">material_import_poll</span><span class="p">(</span><span class="n">import_context</span><span class="p">,</span> <span class="n">usd_material</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return True if the given USD material can be converted.</span>
+<span class="sd">        Return False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># We can convert MaterialX.</span>
+        <span class="n">surf_output</span> <span class="o">=</span> <span class="n">usd_material</span><span class="o">.</span><span class="n">GetSurfaceOutput</span><span class="p">(</span><span class="s2">&quot;mtlx&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">surf_output</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">on_material_import</span><span class="p">(</span><span class="n">import_context</span><span class="p">,</span> <span class="n">bl_material</span><span class="p">,</span> <span class="n">usd_material</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Import a simple mtlx material.  Just handle the base_color input</span>
+<span class="sd">        of a ND_standard_surface_surfaceshader.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># We must confirm that we can handle this material.</span>
+        <span class="n">surf_output</span> <span class="o">=</span> <span class="n">usd_material</span><span class="o">.</span><span class="n">GetSurfaceOutput</span><span class="p">(</span><span class="s2">&quot;mtlx&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">surf_output</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">surf_output</span><span class="o">.</span><span class="n">HasConnectedSource</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># Get the connected surface output source.</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="n">surf_output</span><span class="o">.</span><span class="n">GetConnectedSource</span><span class="p">()</span>
+        <span class="c1"># Get the shader prim from the source</span>
+        <span class="n">shader</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Shader</span><span class="p">(</span><span class="n">source</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">shader_id</span> <span class="o">=</span> <span class="n">shader</span><span class="o">.</span><span class="n">GetShaderId</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">shader_id</span> <span class="o">!=</span> <span class="s2">&quot;ND_standard_surface_surfaceshader&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">color_attr</span> <span class="o">=</span> <span class="n">shader</span><span class="o">.</span><span class="n">GetInput</span><span class="p">(</span><span class="s2">&quot;base_color&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">color_attr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># Create the node tree</span>
+        <span class="n">bl_material</span><span class="o">.</span><span class="n">use_nodes</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">node_tree</span> <span class="o">=</span> <span class="n">bl_material</span><span class="o">.</span><span class="n">node_tree</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="n">node_tree</span><span class="o">.</span><span class="n">nodes</span>
+        <span class="n">bsdf</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Principled BSDF&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">bsdf</span>
+        <span class="n">bsdf_base_color_input</span> <span class="o">=</span> <span class="n">bsdf</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;Base Color&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Try to set the default color value.</span>
+        <span class="c1"># Get the authored default value</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">color_attr</span><span class="o">.</span><span class="n">Get</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">bsdf_base_color_input</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
 
 <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">USDHookExample</span><span class="p">)</span>
@@ -2666,6 +2833,7 @@ the exception details printed to the console.</p>
 
 </dd></dl>
 
+</section>
 <section id="inherited-properties">
 <h3>Inherited Properties<a class="headerlink" href="#inherited-properties" title="Link to this heading">¶</a></h3>
 <table class="hlist"><tr><td><ul class="simple">
@@ -2772,12 +2940,31 @@ the exception details printed to the console.</p>
             <ul>
 <li><a class="reference internal" href="#">USDHook(bpy_struct)</a><ul>
 <li><a class="reference internal" href="#usd-hook-example">USD Hook Example</a><ul>
+<li><a class="reference internal" href="#callback-function-api">Callback Function API</a><ul>
+<li><a class="reference internal" href="#on-export">on_export</a></li>
+<li><a class="reference internal" href="#on-material-export">on_material_export</a></li>
+<li><a class="reference internal" href="#on-import">on_import</a></li>
+<li><a class="reference internal" href="#material-import-poll">material_import_poll</a></li>
+<li><a class="reference internal" href="#on-material-import">on_material_import</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#context-classes">Context Classes</a><ul>
+<li><a class="reference internal" href="#usdsceneexportcontext">USDSceneExportContext</a></li>
+<li><a class="reference internal" href="#usdmaterialexportcontext">USDMaterialExportContext</a></li>
+<li><a class="reference internal" href="#usdsceneimportcontext">USDSceneImportContext</a></li>
+<li><a class="reference internal" href="#usdmaterialimportcontext">USDMaterialImportContext</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#errors">Errors</a></li>
+<li><a class="reference internal" href="#example-code">Example Code</a><ul>
 <li><a class="reference internal" href="#bpy.types.USDHook"><code class="docutils literal notranslate"><span class="pre">USDHook</span></code></a><ul>
 <li><a class="reference internal" href="#bpy.types.USDHook.bl_description"><code class="docutils literal notranslate"><span class="pre">USDHook.bl_description</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.USDHook.bl_idname"><code class="docutils literal notranslate"><span class="pre">USDHook.bl_idname</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.USDHook.bl_label"><code class="docutils literal notranslate"><span class="pre">USDHook.bl_label</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.USDHook.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">USDHook.bl_rna_get_subclass()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.USDHook.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">USDHook.bl_rna_get_subclass_py()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#inherited-properties">Inherited Properties</a></li>
