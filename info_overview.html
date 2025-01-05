@@ -2592,18 +2592,14 @@ In general, defining custom constructors or destructors should not be needed, an
 have a new instance for every redraw.
 Some other types, like <a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a>, have an even more complex internal handling,
 which can lead to several instantiations for a single operator execution.</p>
-<p>There are a few cases where defining <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> and <code class="docutils literal notranslate"><span class="pre">__del__()</span></code> does make sense,
-e.g. when sub-classing a <a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine" title="bpy.types.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.RenderEngine</span></code></a>. When doing so, the parent matching function
-must always be called, otherwise Blender’s internal initialization won’t happen properly:</p>
+<p>There are a few cases where defining <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> does make sense, e.g. when sub-classing a
+<a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine" title="bpy.types.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.RenderEngine</span></code></a>. When doing so, the parent matching function must always be called,
+otherwise Blender’s internal initialization won’t happen properly:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
 <span class="k">class</span> <span class="nc">AwesomeRaytracer</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
       <span class="o">...</span>
-
-   <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="o">...</span>
-      <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__del__</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -2620,6 +2616,21 @@ as supported currently.
 Doing so presents a very high risk of crashes or otherwise corruption of Blender internal data.
 But if defined, it must take the same two generic positional and keyword arguments,
 and call the parent’s <code class="docutils literal notranslate"><span class="pre">__new__()</span></code> with them if actually creating a new object.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to internal
+<a class="reference external" href="https://discuss.python.org/t/cpython-usage-of-tp-finalize/64100">CPython implementation details</a>,
+C++-defined Blender types do not define or use a <code class="docutils literal notranslate"><span class="pre">__del__()</span></code> (aka <code class="docutils literal notranslate"><span class="pre">tp_finalize()</span></code>) destructor
+currently.
+As this function
+<a class="reference external" href="https://stackoverflow.com/questions/36722390/python-3-super-del">does not exist if not explicitely defined</a>,
+that means that calling <code class="docutils literal notranslate"><span class="pre">super().__del__()</span></code> in the <code class="docutils literal notranslate"><span class="pre">__del__()</span></code> function of a sub-class will
+fail with the following error:
+<code class="docutils literal notranslate"><span class="pre">AttributeError:</span> <span class="pre">'super'</span> <span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span> <span class="pre">'__del__'</span></code>.
+If a call to the MRO ‘parent’ destructor is needed for some reason, the caller code must ensure
+that the destructor does exist, e.g. using something like that:
+<code class="docutils literal notranslate"><span class="pre">getattr(super(),</span> <span class="pre">&quot;__del__&quot;,</span> <span class="pre">lambda</span> <span class="pre">self:</span> <span class="pre">None)(self)</span></code></p>
 </div>
 </section>
 </section>
