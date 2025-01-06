@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>bpy_struct - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2733,7 +2733,7 @@ Defaults to -1 which will key all indices or a single channel if the property is
 </dd>
 </dl>
 <p>This is the most simple example of inserting a keyframe from python.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 <span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span>
 
@@ -2745,15 +2745,15 @@ Defaults to -1 which will key all indices or a single channel if the property is
 <p>Note that when keying data paths which contain nested properties this must be
 done from the <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a> subclass, in this case the <a class="reference internal" href="bpy.types.Armature.html#bpy.types.Armature" title="bpy.types.Armature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Armature</span></code></a> rather
 than the bone.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="kn">from</span> <span class="nn">bpy.props</span> <span class="kn">import</span> <span class="p">(</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bpy.props</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">FloatProperty</span><span class="p">,</span>
     <span class="n">PointerProperty</span><span class="p">,</span>
 <span class="p">)</span>
 
 
 <span class="c1"># Define a nested property.</span>
-<span class="k">class</span> <span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="n">nested</span><span class="p">:</span> <span class="n">FloatProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Nested&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 
 

@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>KX_GameObject(SCA_IObject) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2455,12 +2455,12 @@
 if an object may have been removed since last accessing it use the <a class="reference internal" href="bge.types.EXP_PyObjectPlus.html#bge.types.EXP_PyObjectPlus.invalid" title="bge.types.EXP_PyObjectPlus.invalid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">invalid</span></code></a> attribute to check.</p>
 </div>
 <p>KX_GameObject can be subclassed to extend functionality. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bge</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bge</span>
 
-<span class="k">class</span> <span class="nc">CustomGameObject</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_GameObject</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomGameObject</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_GameObject</span><span class="p">):</span>
     <span class="n">RATE</span> <span class="o">=</span> <span class="mf">0.05</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_owner</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_owner</span><span class="p">):</span>
         <span class="c1"># &quot;old_owner&quot; can just be ignored. At this point, &quot;self&quot; is</span>
         <span class="c1"># already the object in the scene, and &quot;old_owner&quot; has been</span>
         <span class="c1"># destroyed.</span>
@@ -2469,7 +2469,7 @@ if an object may have been removed since last accessing it use the <a class="ref
         <span class="c1"># property, like &quot;self[&#39;rate&#39;]&quot;.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">CustomGameObject</span><span class="o">.</span><span class="n">RATE</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">worldPosition</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
 
         <span class="c1"># switch direction</span>
@@ -2479,7 +2479,7 @@ if an object may have been removed since last accessing it use the <a class="ref
             <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">CustomGameObject</span><span class="o">.</span><span class="n">RATE</span>
 
 <span class="c1"># Called first</span>
-<span class="k">def</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">cont</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mutate</span><span class="p">(</span><span class="n">cont</span><span class="p">):</span>
     <span class="n">old_object</span> <span class="o">=</span> <span class="n">cont</span><span class="o">.</span><span class="n">owner</span>
     <span class="n">mutated_object</span> <span class="o">=</span> <span class="n">CustomGameObject</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span>
 
@@ -2490,7 +2490,7 @@ if an object may have been removed since last accessing it use the <a class="ref
     <span class="k">assert</span><span class="p">(</span><span class="n">mutated_object</span> <span class="ow">is</span> <span class="n">cont</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span>
 
 <span class="c1"># Called later - note we are now working with the mutated object.</span>
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">cont</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">cont</span><span class="p">):</span>
     <span class="n">cont</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2737,35 +2737,35 @@ arguments <cite>(object, point, normal, points)</cite>. For simplicity, per
 colliding object the first collision point is reported in second
 and third argument.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function form</span>
-<span class="k">def</span> <span class="nf">callback_four</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback_four</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1"> with </span><span class="si">%i</span><span class="s1"> contacts points&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)))</span>
 
-<span class="k">def</span> <span class="nf">callback_three</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback_three</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1"> at </span><span class="si">%s</span><span class="s1"> with normal </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">))</span>
 
-<span class="k">def</span> <span class="nf">callback_one</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback_one</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">register_callback</span><span class="p">(</span><span class="n">controller</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register_callback</span><span class="p">(</span><span class="n">controller</span><span class="p">):</span>
     <span class="n">controller</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback_four</span><span class="p">)</span>
     <span class="n">controller</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback_three</span><span class="p">)</span>
     <span class="n">controller</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback_one</span><span class="p">)</span>
 
 
 <span class="c1"># Method form</span>
-<span class="k">class</span> <span class="nc">YourGameEntity</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_GameObject</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_owner</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">YourGameEntity</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_GameObject</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_owner</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_collision_four</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_collision_three</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_collision_one</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">on_collision_four</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_collision_four</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1"> with </span><span class="si">%i</span><span class="s1"> contacts points&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)))</span>
 
-    <span class="k">def</span> <span class="nf">on_collision_three</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_collision_three</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1"> at </span><span class="si">%s</span><span class="s1"> with normal </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">on_collision_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_collision_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3332,7 +3332,7 @@ If the lod manager is set to <cite>None</cite> the object’s mesh backs to the 
 <span class="sig-name descname"><span class="pre">onRemove</span></span><a class="headerlink" href="#bge.types.KX_GameObject.onRemove" title="Link to this definition">¶</a></dt>
 <dd><p>A list of callables to run when the KX_GameObject is destroyed.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@gameobj</span><span class="o">.</span><span class="n">onRemove</span><span class="o">.</span><span class="n">append</span>
-<span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">gameobj</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">gameobj</span><span class="p">):</span>
    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exiting </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">gameobj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3340,7 +3340,7 @@ If the lod manager is set to <cite>None</cite> the object’s mesh backs to the 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cont</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">getCurrentController</span><span class="p">()</span>
 <span class="n">gameobj</span> <span class="o">=</span> <span class="n">cont</span><span class="o">.</span><span class="n">owner</span>
 
-<span class="k">def</span> <span class="nf">callback</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">():</span>
    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span> <span class="o">%</span><span class="n">s</span><span class="o">...</span><span class="s1">&#39; </span><span class="si">% g</span><span class="s1">ameobj.name)</span>
 
 <span class="n">gameobj</span><span class="o">.</span><span class="n">onRemove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
@@ -3370,7 +3370,7 @@ If the lod manager is set to <cite>None</cite> the object’s mesh backs to the 
 <dd><p>A name used to create the logger instance. By default, it takes the form <em>Type[Name]</em>
 and can be optionally overridden as below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@property</span>
-<span class="k">def</span> <span class="nf">loggerName</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">loggerName</span><span class="p">():</span>
    <span class="k">return</span> <span class="s2">&quot;MyObject&quot;</span>
 </pre></div>
 </div>

@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>NodeTree(ID) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2451,16 +2451,16 @@ and <a class="reference internal" href="bpy.types.Menu.html#bpy.types.Menu.poll"
 the node tree type will not be selectable in the node editor.</p>
 <p>A typical condition for shader nodes would be to check the active render engine
 of the scene and only show nodes of the renderer they are designed for.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">CyclesNodeTree</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">NodeTree</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CyclesNodeTree</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">NodeTree</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; This operator is only visible when Cycles is the selected render engine&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Cycles Node Tree&quot;</span>
     <span class="n">bl_icon</span> <span class="o">=</span> <span class="s1">&#39;NONE&#39;</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">poll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">engine</span> <span class="o">==</span> <span class="s1">&#39;CYCLES&#39;</span>
 
 

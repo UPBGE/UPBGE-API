@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>KX_PythonComponent(EXP_Value) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2456,10 +2456,10 @@ When the game start the function <a class="reference internal" href="#bge.types.
 The <a class="reference internal" href="#bge.types.KX_PythonComponent.update" title="bge.types.KX_PythonComponent.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> function is called every frames during the logic stage before running logics bricks,
 the goal of this function is to handle and process everything.</p>
 <p>The following component example moves and rotates the object when pressing the keys W, A, S and D.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bge</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bge</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
 
-<span class="k">class</span> <span class="nc">ThirdPerson</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_PythonComponent</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ThirdPerson</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_PythonComponent</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Basic third person controls</span>
 
 <span class="sd">    W: move forward</span>
@@ -2476,11 +2476,11 @@ the goal of this function is to handle and process everything.</p>
         <span class="p">(</span><span class="s2">&quot;Turn Speed&quot;</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
     <span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">move_speed</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;Move Speed&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">turn_speed</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;Turn Speed&#39;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">keyboard</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">keyboard</span><span class="o">.</span><span class="n">events</span>
 
         <span class="n">move</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2508,29 +2508,29 @@ module contains the attribute <code class="xref py py-attr docutils literal notr
 <p>The following component example add a “Cube” object at initialization and move it along x for each update. It shows that the user can
 use functions from scene and load the component outside the bge by setting global attributes in a condition at the beginning of the
 script.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bge</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bge</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">bge</span><span class="p">,</span> <span class="s2">&quot;__component__&quot;</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">scene</span>
     <span class="n">scene</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">getCurrentScene</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="nc">Component</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_PythonComponent</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Component</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_PythonComponent</span><span class="p">):</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
         <span class="n">scene</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;Cube&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">worldPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">0.1</span>
 </pre></div>
 </div>
 <p>The property types supported are float, integer, boolean, string, set (for enumeration) and Vector 2D, 3D and 4D. The following example
 show all of these property types.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bge</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">mathutils</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bge</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mathutils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
 
-<span class="k">class</span> <span class="nc">Component</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">KX_PythonComponent</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Component</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">KX_PythonComponent</span><span class="p">):</span>
      <span class="n">args</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([</span>
          <span class="p">(</span><span class="s2">&quot;Float&quot;</span><span class="p">,</span> <span class="mf">58.6</span><span class="p">),</span>
          <span class="p">(</span><span class="s2">&quot;Integer&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
@@ -2542,10 +2542,10 @@ show all of these property types.</p>
          <span class="p">(</span><span class="s2">&quot;Vector 4D&quot;</span><span class="p">,</span> <span class="n">Vector</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)))</span>
      <span class="p">])</span>
 
-     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+     <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
          <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
-     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
          <span class="k">pass</span>
 </pre></div>
 </div>
@@ -2588,7 +2588,7 @@ show all of these property types.</p>
 <dd><p>A name used to create the logger instance. By default, it takes the form <em>Type[Name]</em>
 and can be optionally overridden as below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@property</span>
-<span class="k">def</span> <span class="nf">loggerName</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">loggerName</span><span class="p">():</span>
    <span class="k">return</span> <span class="s2">&quot;MyObject&quot;</span>
 </pre></div>
 </div>

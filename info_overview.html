@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>API Overview - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2457,7 +2457,7 @@ Python modules, such as <code class="xref py py-mod docutils literal notranslate
 be imported into a script and give access to Blender’s data, classes, and functions.
 Scripts that deal with Blender data will need to import the modules to work.</p>
 <p>Here is a simple example which moves a vertex attached to an object named “Cube”:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
@@ -2534,12 +2534,12 @@ object types, or shader nodes, C/C++ must be used.</p>
 This works by creating a Python subclass of a Blender class which contains variables and functions
 specified by the parent class which are predefined to interface with Blender.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="k">class</span> <span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.simple_operator&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Tool Name&quot;</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
@@ -2557,13 +2557,13 @@ Lastly the register function is called, this takes the class and loads it into B
 <p>Regarding inheritance, Blender doesn’t impose restrictions on the kinds of class inheritance used,
 the registration checks will use attributes and functions defined in parent classes.</p>
 <p>Class mix-in example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="k">class</span> <span class="nc">BaseOperator</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BaseOperator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World BaseClass&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
-<span class="k">class</span> <span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="n">BaseOperator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="n">BaseOperator</span><span class="p">):</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.simple_operator&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Tool Name&quot;</span>
 
@@ -2577,7 +2577,7 @@ the registration checks will use attributes and functions defined in parent clas
 <p>So once the class is registered with Blender, instancing the class and calling the functions is left up to Blender.
 In fact you cannot instance these classes from the script as you would expect with most Python API’s.
 To run operators you can call them through the operator API, e.g:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">simple_operator</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2595,9 +2595,9 @@ which can lead to several instantiations for a single operator execution.</p>
 <p>There are a few cases where defining <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> does make sense, e.g. when sub-classing a
 <a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine" title="bpy.types.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.RenderEngine</span></code></a>. When doing so, the parent matching function must always be called,
 otherwise Blender’s internal initialization won’t happen properly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="k">class</span> <span class="nc">AwesomeRaytracer</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
-   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeRaytracer</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
       <span class="o">...</span>
 </pre></div>
@@ -2641,15 +2641,15 @@ that the destructor does exist, e.g. using something like that:
 <p>Blender modules loaded at startup require <code class="docutils literal notranslate"><span class="pre">register()</span></code> and <code class="docutils literal notranslate"><span class="pre">unregister()</span></code> functions.
 These are the <em>only</em> functions that Blender calls from your code, which is otherwise a regular Python module.</p>
 <p>A simple Blender Python module can look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
-<span class="k">class</span> <span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; See example above &quot;&quot;&quot;</span>
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SimpleOperator</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">SimpleOperator</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -2703,16 +2703,16 @@ you can’t avoid having to deal with the order of registration/unregistration.<
 <p>For example, if you want to store material settings for a custom engine:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new property</span>
 <span class="c1"># bpy.data.materials[0].my_custom_props.my_float</span>
-<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
-<span class="k">class</span> <span class="nc">MyMaterialProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyMaterialProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="n">my_float</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">MyMaterialProps</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">PointerProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">MyMaterialProps</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="k">del</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">MyMaterialProps</span><span class="p">)</span>
 
@@ -2727,20 +2727,20 @@ you can’t avoid having to deal with the order of registration/unregistration.<
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new property group with a sub property</span>
 <span class="c1"># bpy.data.materials[0].my_custom_props.sub_group.my_float</span>
-<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
-<span class="k">class</span> <span class="nc">MyMaterialSubProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyMaterialSubProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="n">my_float</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="nc">MyMaterialGroupProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyMaterialGroupProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="n">sub_group</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">PointerProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">MyMaterialSubProps</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">MyMaterialSubProps</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">MyMaterialGroupProps</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">PointerProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">MyMaterialGroupProps</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="k">del</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">MyMaterialGroupProps</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">MyMaterialSubProps</span><span class="p">)</span>
@@ -2767,13 +2767,13 @@ it may be useful to modify types as the script runs.</p>
 </pre></div>
 </div>
 <p>This works just as well for <code class="docutils literal notranslate"><span class="pre">PropertyGroup</span></code> subclasses you define yourself.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="k">pass</span>
 <span class="n">MyPropGroup</span><span class="o">.</span><span class="n">my_float</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>This is equivalent to:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="n">my_float</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2785,7 +2785,7 @@ and it may be useful to define them as types and remove them on the fly.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">idname</span> <span class="o">=</span> <span class="s2">&quot;object.operator_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span>
 
-    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 

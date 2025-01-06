@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Application Handlers (bpy.app.handlers) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2447,10 +2447,10 @@
 <section id="basic-handler-example">
 <h2>Basic Handler Example<a class="headerlink" href="#basic-handler-example" title="Link to this heading">¶</a></h2>
 <p>This script shows the most simple example of adding a handler.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">def</span> <span class="nf">my_handler</span><span class="p">(</span><span class="n">scene</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_handler</span><span class="p">(</span><span class="n">scene</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frame Change&quot;</span><span class="p">,</span> <span class="n">scene</span><span class="o">.</span><span class="n">frame_current</span><span class="p">)</span>
 
 
@@ -2464,12 +2464,12 @@
 want the handler stay running across multiple files (when the handler is
 part of an add-on for example).</p>
 <p>For this the <a class="reference internal" href="#bpy.app.handlers.persistent" title="bpy.app.handlers.persistent"><code class="xref py py-data docutils literal notranslate"><span class="pre">bpy.app.handlers.persistent</span></code></a> decorator needs to be used.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="kn">from</span> <span class="nn">bpy.app.handlers</span> <span class="kn">import</span> <span class="n">persistent</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bpy.app.handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">persistent</span>
 
 
 <span class="nd">@persistent</span>
-<span class="k">def</span> <span class="nf">load_handler</span><span class="p">(</span><span class="n">dummy</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_handler</span><span class="p">(</span><span class="n">dummy</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Load Handler:&quot;</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
 
 
@@ -2486,7 +2486,7 @@ data that is accessed by the viewport, this can cause a crash of Blender. In
 such cases, lock the interface (Render → Lock Interface or
 <a class="reference internal" href="bpy.types.RenderSettings.html#bpy.types.RenderSettings.use_lock_interface" title="bpy.types.RenderSettings.use_lock_interface"><code class="xref py py-data docutils literal notranslate"><span class="pre">bpy.types.RenderSettings.use_lock_interface</span></code></a>) before starting a render.</p>
 <p>Below is an example of a mesh that is altered from a handler:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">frame_change_pre</span><span class="p">(</span><span class="n">scene</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">frame_change_pre</span><span class="p">(</span><span class="n">scene</span><span class="p">):</span>
     <span class="c1"># A triangle that shifts in the z direction</span>
     <span class="n">zshift</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">frame_current</span> <span class="o">*</span> <span class="mf">0.1</span>
     <span class="n">vertices</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">zshift</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">zshift</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">zshift</span><span class="p">)]</span>

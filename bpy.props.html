@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Property Definitions (bpy.props) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2461,7 +2461,7 @@ This has to be carefully considered when using accessors or update callbacks.</p
 <p>Typically, these callbacks should not affect any other data that the one owned by their data-block.
 When accessing external non-Blender data, thread safety mechanisms should be considered.</p>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 <span class="c1"># Assign a custom property to an existing type.</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">custom_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test Property&quot;</span><span class="p">)</span>
@@ -2477,10 +2477,10 @@ When accessing external non-Blender data, thread safety mechanisms should be con
 classes. Test this code by running it in the text editor, or by clicking the
 button in the 3D Viewport’s Tools panel. The latter will show the properties
 in the Redo panel and allow you to change them.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_property_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_property_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.property_example&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Property Example&quot;</span>
     <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;REGISTER&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDO&#39;</span><span class="p">}</span>
@@ -2489,7 +2489,7 @@ in the Redo panel and allow you to change them.</p>
     <span class="n">my_bool</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">BoolProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Toggle Option&quot;</span><span class="p">)</span>
     <span class="n">my_string</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;String Value&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">(</span>
             <span class="p">{</span><span class="s1">&#39;INFO&#39;</span><span class="p">},</span> <span class="s2">&quot;F: </span><span class="si">{:.2f}</span><span class="s2">  B: </span><span class="si">{:s}</span><span class="s2">  S: </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">my_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_bool</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">my_string</span><span class="p">,</span>
@@ -2501,14 +2501,14 @@ in the Redo panel and allow you to change them.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_PT_property_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_PT_property_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object_PT_property_example&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Property Example&quot;</span>
     <span class="n">bl_space_type</span> <span class="o">=</span> <span class="s1">&#39;VIEW_3D&#39;</span>
     <span class="n">bl_region_type</span> <span class="o">=</span> <span class="s1">&#39;UI&#39;</span>
     <span class="n">bl_category</span> <span class="o">=</span> <span class="s2">&quot;Tool&quot;</span>
 
-    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="c1"># You can set the property values that should be used when the user</span>
         <span class="c1"># presses the button in the UI.</span>
         <span class="n">props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s1">&#39;object.property_example&#39;</span><span class="p">)</span>
@@ -2538,10 +2538,10 @@ in the Redo panel and allow you to change them.</p>
 <h2>PropertyGroup Example<a class="headerlink" href="#propertygroup-example" title="Link to this heading">¶</a></h2>
 <p>PropertyGroups can be used for collecting custom settings into one value
 to avoid many individual settings mixed in together.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">MaterialSettings</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MaterialSettings</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="n">my_int</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">()</span>
     <span class="n">my_float</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
     <span class="n">my_string</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">()</span>
@@ -2564,11 +2564,11 @@ to avoid many individual settings mixed in together.</p>
 <h2>Collection Example<a class="headerlink" href="#collection-example" title="Link to this heading">¶</a></h2>
 <p>Custom properties can be added to any subclass of an <code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Bone</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">PoseBone</span></code>.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
 <span class="c1"># Assign a collection.</span>
-<span class="k">class</span> <span class="nc">SceneSettingItem</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SceneSettingItem</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test Property&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;Unknown&quot;</span><span class="p">)</span>
     <span class="n">value</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test Property&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
 
@@ -2609,10 +2609,10 @@ parameter will be an OperatorProperties instance, rather than an instance
 of the operator itself. This means you can’t access other internal functions
 of the operator, only its other properties.</p>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">def</span> <span class="nf">update_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;my test function&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
 
@@ -2634,16 +2634,16 @@ is respectively read or written from the API.</p>
 <p class="admonition-title">Warning</p>
 <p>Remember that these callbacks may be executed in threaded context.</p>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
 <span class="c1"># Simple property reading/writing from ID properties.</span>
 <span class="c1"># This is what the RNA would do internally.</span>
-<span class="k">def</span> <span class="nf">get_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;testprop&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">set_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;testprop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
 
@@ -2651,8 +2651,8 @@ is respectively read or written from the API.</p>
 
 
 <span class="c1"># Read-only string property, returns the current date</span>
-<span class="k">def</span> <span class="nf">get_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
 
 
@@ -2662,11 +2662,11 @@ is respectively read or written from the API.</p>
 <span class="c1"># Boolean array. Set function stores a single boolean value, returned as the second component.</span>
 <span class="c1"># Array getters must return a list or tuple</span>
 <span class="c1"># Array size must match the property vector size exactly</span>
-<span class="k">def</span> <span class="nf">get_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;somebool&quot;</span><span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">set_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
     <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;somebool&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
 
@@ -2683,12 +2683,12 @@ is respectively read or written from the API.</p>
 <span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">get_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">set_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;setting value&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 

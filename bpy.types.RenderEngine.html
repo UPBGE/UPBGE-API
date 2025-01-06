@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>RenderEngine(bpy_struct) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2445,11 +2445,11 @@
 <h1>RenderEngine(bpy_struct)<a class="headerlink" href="#renderengine-bpy-struct" title="Link to this heading">¶</a></h1>
 <section id="simple-render-engine">
 <h2>Simple Render Engine<a class="headerlink" href="#simple-render-engine" title="Link to this heading">¶</a></h2>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="kn">import</span> <span class="nn">array</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">array</span>
 
 
-<span class="k">class</span> <span class="nc">CustomRenderEngine</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomRenderEngine</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
     <span class="c1"># These three members are used by blender to set up the</span>
     <span class="c1"># RenderEngine; define its internal name, visible name and capabilities.</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;CUSTOM&quot;</span>
@@ -2462,20 +2462,20 @@
     <span class="c1"># Note the generic arguments signature, and the call to the parent class</span>
     <span class="c1"># `__init__` methods, which are required for Blender to create the underlying</span>
     <span class="c1"># `RenderEngine` data.</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scene_data</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">draw_data</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># When the render engine instance is destroy, this is called. Clean up any</span>
     <span class="c1"># render engine data here, for example stopping running render threads.</span>
-    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Own delete code...</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__del__</span><span class="p">()</span>
 
     <span class="c1"># This is the method called by Blender for both final renders (F12) and</span>
     <span class="c1"># small preview for materials, world and lights.</span>
-    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
         <span class="n">scene</span> <span class="o">=</span> <span class="n">depsgraph</span><span class="o">.</span><span class="n">scene</span>
         <span class="n">scale</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">resolution_percentage</span> <span class="o">/</span> <span class="mf">100.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size_x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">resolution_x</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
@@ -2502,7 +2502,7 @@
     <span class="c1"># whenever the scene or 3D viewport changes. This method is where data</span>
     <span class="c1"># should be read from Blender in the same thread. Typically a render</span>
     <span class="c1"># thread will be started to do the work while keeping Blender responsive.</span>
-    <span class="k">def</span> <span class="nf">view_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">view_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
         <span class="n">region</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">region</span>
         <span class="n">view3d</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">space_data</span>
         <span class="n">scene</span> <span class="o">=</span> <span class="n">depsgraph</span><span class="o">.</span><span class="n">scene</span>
@@ -2539,10 +2539,10 @@
     <span class="c1"># with OpenGL, and not perform other expensive work.</span>
     <span class="c1"># Blender will draw overlays for selection and editing on top of the</span>
     <span class="c1"># rendered image automatically.</span>
-    <span class="k">def</span> <span class="nf">view_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">view_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
         <span class="c1"># Lazily import GPU module, so that the render engine works in</span>
         <span class="c1"># background mode where the GPU module can&#39;t be imported by default.</span>
-        <span class="kn">import</span> <span class="nn">gpu</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">gpu</span>
 
         <span class="n">region</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">region</span>
         <span class="n">scene</span> <span class="o">=</span> <span class="n">depsgraph</span><span class="o">.</span><span class="n">scene</span>
@@ -2563,9 +2563,9 @@
         <span class="n">gpu</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">blend_set</span><span class="p">(</span><span class="s1">&#39;NONE&#39;</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">CustomDrawData</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">):</span>
-        <span class="kn">import</span> <span class="nn">gpu</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomDrawData</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">):</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">gpu</span>
 
         <span class="c1"># Generate dummy float image buffer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">=</span> <span class="n">dimensions</span>
@@ -2581,11 +2581,11 @@
         <span class="c1"># In this case it would be more convenient to fill the texture with:</span>
         <span class="c1"># self.texture.clear(&#39;FLOAT&#39;, value=[0.1, 0.2, 0.1, 1.0])</span>
 
-    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">texture</span>
 
-    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">gpu_extras.presets</span> <span class="kn">import</span> <span class="n">draw_texture_2d</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">gpu_extras.presets</span><span class="w"> </span><span class="kn">import</span> <span class="n">draw_texture_2d</span>
         <span class="n">draw_texture_2d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">texture</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
 
 
@@ -2593,7 +2593,7 @@
 <span class="c1"># We recommend to enable all panels marked as BLENDER_RENDER, and then</span>
 <span class="c1"># exclude any panels that are replaced by custom panels registered by the</span>
 <span class="c1"># render engine, or that are not supported.</span>
-<span class="k">def</span> <span class="nf">get_panels</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_panels</span><span class="p">():</span>
     <span class="n">exclude_panels</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;VIEWLAYER_PT_filter&#39;</span><span class="p">,</span>
         <span class="s1">&#39;VIEWLAYER_PT_layer_passes&#39;</span><span class="p">,</span>
@@ -2608,7 +2608,7 @@
     <span class="k">return</span> <span class="n">panels</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="c1"># Register the RenderEngine</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">CustomRenderEngine</span><span class="p">)</span>
 
@@ -2616,7 +2616,7 @@
         <span class="n">panel</span><span class="o">.</span><span class="n">COMPAT_ENGINES</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;CUSTOM&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">CustomRenderEngine</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">panel</span> <span class="ow">in</span> <span class="n">get_panels</span><span class="p">():</span>
@@ -2631,10 +2631,10 @@
 </section>
 <section id="gpu-render-engine">
 <h2>GPU Render Engine<a class="headerlink" href="#gpu-render-engine" title="Link to this heading">¶</a></h2>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">CustomGPURenderEngine</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomGPURenderEngine</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;CUSTOM_GPU&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Custom GPU&quot;</span>
 
@@ -2643,20 +2643,20 @@
     <span class="c1"># and fill a texture for more efficient drawing.</span>
     <span class="n">bl_use_gpu_context</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depsgraph</span><span class="p">):</span>
         <span class="c1"># Lazily import GPU module, since GPU context is only created on demand</span>
         <span class="c1"># for rendering and does not exist on register.</span>
-        <span class="kn">import</span> <span class="nn">gpu</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">gpu</span>
 
         <span class="c1"># Perform rendering task.</span>
         <span class="k">pass</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">CustomGPURenderEngine</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">CustomGPURenderEngine</span><span class="p">)</span>
 
 

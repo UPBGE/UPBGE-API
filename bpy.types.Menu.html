@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Menu(bpy_struct) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2460,14 +2460,14 @@ convention for menus.</p>
 If the operator context needs to initialize inputs from the
 <a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> function, then this needs to be explicitly set.</p>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">BasicMenu</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BasicMenu</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;OBJECT_MT_select_test&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Select&quot;</span>
 
-    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
 
         <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_all&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select/Deselect All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;TOGGLE&#39;</span>
@@ -2485,14 +2485,14 @@ If the operator context needs to initialize inputs from the
 <section id="submenus">
 <h2>Submenus<a class="headerlink" href="#submenus" title="Link to this heading">¶</a></h2>
 <p>This menu demonstrates some different functions.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">SubMenu</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubMenu</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;OBJECT_MT_select_submenu&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Select&quot;</span>
 
-    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
 
         <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_all&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select/Deselect All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;TOGGLE&#39;</span>
@@ -2526,10 +2526,10 @@ If the operator context needs to initialize inputs from the
 in Blender’s default scripts.
 Instead, the add-on can add menu items to existing menus.</p>
 <p>The function menu_draw acts like <a class="reference internal" href="#bpy.types.Menu.draw" title="bpy.types.Menu.draw"><code class="xref py py-class docutils literal notranslate"><span class="pre">Menu.draw</span></code></a>.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">def</span> <span class="nf">menu_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">menu_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;wm.save_homefile&quot;</span><span class="p">)</span>
 
 
@@ -2544,19 +2544,19 @@ to perform the common task of managing presets.</p>
 <p>This example shows how you can add a preset menu.</p>
 <p>This example uses the object display options,
 however you can use properties defined by your own scripts too.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
-<span class="kn">from</span> <span class="nn">bpy.types</span> <span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Menu</span>
-<span class="kn">from</span> <span class="nn">bl_operators.presets</span> <span class="kn">import</span> <span class="n">AddPresetBase</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bpy.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Menu</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bl_operators.presets</span><span class="w"> </span><span class="kn">import</span> <span class="n">AddPresetBase</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_MT_display_presets</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_MT_display_presets</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Object Display Presets&quot;</span>
     <span class="n">preset_subdir</span> <span class="o">=</span> <span class="s2">&quot;object/display&quot;</span>
     <span class="n">preset_operator</span> <span class="o">=</span> <span class="s2">&quot;script.execute_preset&quot;</span>
     <span class="n">draw</span> <span class="o">=</span> <span class="n">Menu</span><span class="o">.</span><span class="n">draw_preset</span>
 
 
-<span class="k">class</span> <span class="nc">AddPresetObjectDisplay</span><span class="p">(</span><span class="n">AddPresetBase</span><span class="p">,</span> <span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AddPresetObjectDisplay</span><span class="p">(</span><span class="n">AddPresetBase</span><span class="p">,</span> <span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;Add a Object Display Preset&#39;&#39;&#39;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;camera.object_display_preset_add&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Add Object Display Preset&quot;</span>
@@ -2582,7 +2582,7 @@ however you can use properties defined by your own scripts too.</p>
 
 
 <span class="c1"># Display into an existing panel</span>
-<span class="k">def</span> <span class="nf">panel_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">panel_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
 
     <span class="n">row</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2597,13 +2597,13 @@ however you can use properties defined by your own scripts too.</p>
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
         <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">OBJECT_PT_display</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">panel_func</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
         <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">OBJECT_PT_display</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">panel_func</span><span class="p">)</span>
@@ -2623,24 +2623,24 @@ value field, color, string, etc.)</p>
 then right click on an user interface element (maybe a color in the
 material properties) and choose <em>Execute Custom Action</em>.</p>
 <p>Executing the operator will then print all values.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">.</span><span class="si">{:s}</span><span class="s2"> = </span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">)))</span>
 
 
-<span class="k">class</span> <span class="nc">WM_OT_button_context_test</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WM_OT_button_context_test</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Right click entry test&quot;&quot;&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;wm.button_context_test&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Run Context Test&quot;</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">poll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">active_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;button_pointer&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">dump</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;button_pointer&quot;</span><span class="p">)</span>
@@ -2656,18 +2656,18 @@ material properties) and choose <em>Execute Custom Action</em>.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">draw_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
     <span class="n">layout</span><span class="o">.</span><span class="n">separator</span><span class="p">()</span>
     <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">WM_OT_button_context_test</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">WM_OT_button_context_test</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">UI_MT_button_context_menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw_menu</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">UI_MT_button_context_menu</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">draw_menu</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">WM_OT_button_context_test</span><span class="p">)</span>
 

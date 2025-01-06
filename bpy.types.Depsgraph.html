@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Depsgraph(bpy_struct) - Blender Python API</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides.css?v=eed082db" />
@@ -2449,15 +2449,15 @@
 an original ID.
 This is needed every time one needs to access state with animation, constraints, and modifiers
 taken into account.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_evaluated_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_evaluated_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Access evaluated object state and do something with it&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;DEG Access Evaluated Object&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.evaluated_example&quot;</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="c1"># This is an original object. Its data does not have any modifiers applied.</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">object</span>
         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;MESH&#39;</span><span class="p">:</span>
@@ -2490,11 +2490,11 @@ taken into account.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_evaluated_example</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">OBJECT_OT_evaluated_example</span><span class="p">)</span>
 
 
@@ -2507,15 +2507,15 @@ taken into account.</p>
 <h2>Dependency graph: Original object example<a class="headerlink" href="#dependency-graph-original-object-example" title="Link to this heading">¶</a></h2>
 <p>This example demonstrates access to the original ID.
 Such access is needed to check whether object is selected, or to compare pointers.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_original_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_original_example</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Access original object and do something with it&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;DEG Access Original Object&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.original_example&quot;</span>
 
-    <span class="k">def</span> <span class="nf">check_object_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_eval</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_object_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_eval</span><span class="p">):</span>
         <span class="c1"># Selection depends on a context and is only valid for original objects. This means we need</span>
         <span class="c1"># to request the original object from the known evaluated one.</span>
         <span class="c1">#</span>
@@ -2523,7 +2523,7 @@ Such access is needed to check whether object is selected, or to compare pointer
         <span class="n">obj</span> <span class="o">=</span> <span class="n">object_eval</span><span class="o">.</span><span class="n">original</span>
         <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">select_get</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="c1"># NOTE: It seems redundant to iterate over original objects to request evaluated ones</span>
         <span class="c1"># just to get original back. But we want to keep example as short as possible, but in real</span>
         <span class="c1"># world there are cases when evaluated object is coming from a more meaningful source.</span>
@@ -2535,11 +2535,11 @@ Such access is needed to check whether object is selected, or to compare pointer
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_original_example</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">OBJECT_OT_original_example</span><span class="p">)</span>
 
 
@@ -2553,15 +2553,15 @@ Such access is needed to check whether object is selected, or to compare pointer
 <p>Sometimes it is needed to know all the instances with their matrices (for example, when writing an
 exporter or a custom render engine).
 This example shows how to access all objects and instances in the scene.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_object_instances</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_object_instances</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Access original object and do something with it&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;DEG Iterate Object Instances&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.object_instances&quot;</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="n">depsgraph</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">evaluated_depsgraph_get</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">object_instance</span> <span class="ow">in</span> <span class="n">depsgraph</span><span class="o">.</span><span class="n">object_instances</span><span class="p">:</span>
             <span class="c1"># This is an object which is being instanced.</span>
@@ -2577,11 +2577,11 @@ This example shows how to access all objects and instances in the scene.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_object_instances</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">OBJECT_OT_object_instances</span><span class="p">)</span>
 
 
@@ -2618,15 +2618,15 @@ instead.</p>
 <p class="admonition-title">Note</p>
 <p>If object does not have geometry (i.e. camera) the functions returns None.</p>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_object_to_mesh</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_object_to_mesh</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert selected object to mesh and show number of vertices&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;DEG Object to Mesh&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.object_to_mesh&quot;</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="c1"># Access input original object.</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">object</span>
         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2651,11 +2651,11 @@ instead.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_object_to_mesh</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">OBJECT_OT_object_to_mesh</span><span class="p">)</span>
 
 
@@ -2683,15 +2683,15 @@ consistency of the main database.</p>
 <p class="admonition-title">Note</p>
 <p>If object does not have geometry (i.e. camera) the functions returns None.</p>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_mesh_from_object</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_mesh_from_object</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert selected object to mesh and show number of vertices&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;DEG Mesh From Object&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.mesh_from_object&quot;</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="c1"># Access input original object.</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">object</span>
         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2708,11 +2708,11 @@ consistency of the main database.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_mesh_from_object</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">OBJECT_OT_mesh_from_object</span><span class="p">)</span>
 
 
@@ -2725,17 +2725,17 @@ consistency of the main database.</p>
 <h2>Dependency graph: Simple exporter<a class="headerlink" href="#dependency-graph-simple-exporter" title="Link to this heading">¶</a></h2>
 <p>This example is a combination of all previous ones, and shows how to write a simple exporter
 script.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_simple_exporter</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_simple_exporter</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Simple (fake) exporter of selected objects&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;DEG Export Selected&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.simple_exporter&quot;</span>
 
     <span class="n">apply_modifiers</span><span class="p">:</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">BoolProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Apply Modifiers&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="n">depsgraph</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">evaluated_depsgraph_get</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">object_instance</span> <span class="ow">in</span> <span class="n">depsgraph</span><span class="o">.</span><span class="n">object_instances</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_object_instance_from_selected</span><span class="p">(</span><span class="n">object_instance</span><span class="p">):</span>
@@ -2755,7 +2755,7 @@ script.</p>
 
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">is_object_instance_from_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_instance</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_object_instance_from_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_instance</span><span class="p">):</span>
         <span class="c1"># For instanced objects we check selection of their instancer (more accurately: check</span>
         <span class="c1"># selection status of the original object corresponding to the instancer).</span>
         <span class="k">if</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
@@ -2763,24 +2763,24 @@ script.</p>
         <span class="c1"># For non-instanced objects we check selection state of the original object.</span>
         <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">select_get</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">create_mesh_for_object_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_instance</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_mesh_for_object_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_instance</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_modifiers</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">clear_mesh_for_object_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_instance</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear_mesh_for_object_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_instance</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_modifiers</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">to_mesh_clear</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">object_instance</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">original</span><span class="o">.</span><span class="n">to_mesh_clear</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_simple_exporter</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">OBJECT_OT_simple_exporter</span><span class="p">)</span>
 
 
@@ -2810,15 +2810,15 @@ a text object, an error will be reported.</p>
 <p>The resulting curve must be treated as temporary, and cannot be referenced from objects in the main
 database.</p>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 
-<span class="k">class</span> <span class="nc">OBJECT_OT_object_to_curve</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OBJECT_OT_object_to_curve</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert selected object to curve and show number of splines&quot;&quot;&quot;</span>
     <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;DEG Object to Curve&quot;</span>
     <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.object_to_curve&quot;</span>
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="c1"># Access input original object.</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">object</span>
         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2841,11 +2841,11 @@ database.</p>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">OBJECT_OT_object_to_curve</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unregister</span><span class="p">():</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">OBJECT_OT_object_to_curve</span><span class="p">)</span>
 
 
