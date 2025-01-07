@@ -1974,6 +1974,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPath.html">XrUserPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPaths.html">XrUserPaths(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection.html">bpy_prop_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection_idprop.html">bpy_prop_collection_idprop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_struct.html">bpy_struct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerID.html">wmOwnerID(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerIDs.html">wmOwnerIDs(bpy_struct)</a></li>
@@ -4116,16 +4117,20 @@ Local Space – The local space of an object/bone.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Object.camera_fit_coords">
 <span class="sig-name descname"><span class="pre">camera_fit_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.camera_fit_coords" title="Link to this definition">¶</a></dt>
 <dd><p>Compute the coordinate (and scale for ortho cameras) given object should be to ‘see’ all given coordinates</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Depsgraph</span></code></a>) – Depsgraph to get evaluated data from</p></li>
 <li><p><strong>coordinates</strong> (<em>float array</em><em> of </em><em>1 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Coordinates to fit in</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (co_return, scale_return)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>co_return</cite>, The location to aim to be able to see all given points, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>co_return</cite>, The location to aim to be able to see all given points, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
 <p><cite>scale_return</cite>, The ortho scale to aim to be able to see all given points (if relevant), float in [-inf, inf]</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], float in [-inf, inf])</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4297,7 +4302,7 @@ Local Space – The local space of an object/bone.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Object.ray_cast">
 <span class="sig-name descname"><span class="pre">ray_cast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.70141e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.ray_cast" title="Link to this definition">¶</a></dt>
 <dd><p>Cast a ray onto evaluated geometry, in object space (using context’s or provided depsgraph to get evaluated mesh if needed)</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>origin</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]) – Origin of the ray, in object space</p></li>
@@ -4306,11 +4311,15 @@ Local Space – The local space of an object/bone.</p></li>
 <li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Depsgraph</span></code></a>, (optional)) – Depsgraph to use to get evaluated data, when called from original object (only needed if current Context’s depsgraph is not suitable)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (result, location, normal, index)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>result</cite>, Whether the ray successfully hit the geometry, boolean</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>result</cite>, Whether the ray successfully hit the geometry, boolean</p>
 <p><cite>location</cite>, The hit location of this ray cast, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
 <p><cite>normal</cite>, The face normal at the ray cast hit location, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
 <p><cite>index</cite>, The face index, -1 when original data isn’t available, int in [-inf, inf]</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(boolean, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], int in [-inf, inf])</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4319,7 +4328,7 @@ Local Space – The local space of an object/bone.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Object.closest_point_on_mesh">
 <span class="sig-name descname"><span class="pre">closest_point_on_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.84467e+19</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.closest_point_on_mesh" title="Link to this definition">¶</a></dt>
 <dd><p>Find the nearest point on evaluated geometry, in object space (using context’s or provided depsgraph to get evaluated mesh if needed)</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>origin</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]) – Point to find closest geometry from (in object space)</p></li>
@@ -4327,11 +4336,15 @@ Local Space – The local space of an object/bone.</p></li>
 <li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Depsgraph</span></code></a>, (optional)) – Depsgraph to use to get evaluated data, when called from original object (only needed if current Context’s depsgraph is not suitable)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (result, location, normal, index)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>result</cite>, Whether closest point on geometry was found, boolean</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>result</cite>, Whether closest point on geometry was found, boolean</p>
 <p><cite>location</cite>, The location on the object closest to the point, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
 <p><cite>normal</cite>, The face normal at the closest point, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
 <p><cite>index</cite>, The face index, -1 when original data isn’t available, int in [-inf, inf]</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(boolean, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], int in [-inf, inf])</p>
 </dd>
 </dl>
 </dd></dl>

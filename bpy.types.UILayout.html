@@ -1974,6 +1974,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPath.html">XrUserPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPaths.html">XrUserPaths(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection.html">bpy_prop_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection_idprop.html">bpy_prop_collection_idprop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_struct.html">bpy_struct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerID.html">wmOwnerID(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerIDs.html">wmOwnerIDs(bpy_struct)</a></li>
@@ -2665,16 +2666,20 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 <dt class="sig sig-object py" id="bpy.types.UILayout.panel">
 <span class="sig-name descname"><span class="pre">panel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idname</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_closed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.panel" title="Link to this definition">¶</a></dt>
 <dd><p>Creates a collapsable panel. Whether it is open or closed is stored in the region using the given idname. This can only be used when the panel has the full width of the panel region available to it. So it can’t be used in e.g. in a box or columns.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>idname</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Identifier of the panel</p></li>
 <li><p><strong>default_closed</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Open by Default, When true, the panel will be open the first time it is shown</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (layout_header, layout_body)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>layout_header</cite>, Sub-layout to put items in, <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>layout_header</cite>, Sub-layout to put items in, <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a></p>
 <p><cite>layout_body</cite>, Sub-layout to put items in. Will be none if the panel is collapsed., <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a></p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>, <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2683,16 +2688,20 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 <dt class="sig sig-object py" id="bpy.types.UILayout.panel_prop">
 <span class="sig-name descname"><span class="pre">panel_prop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.panel_prop" title="Link to this definition">¶</a></dt>
 <dd><p>Similar to <cite>.panel(…)</cite> but instead of storing whether it is open or closed in the region, it is stored in the provided boolean property. This should be used when multiple instances of the same panel can exist. For example one for every item in a collection property or list. This can only be used when the panel has the full width of the panel region available to it. So it can’t be used in e.g. in a box or columns.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a>, (never None)) – Data from which to take the open-state property</p></li>
 <li><p><strong>property</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Identifier of the boolean property that determines whether the panel is open or closed</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (layout_header, layout_body)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>layout_header</cite>, Sub-layout to put items in, <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>layout_header</cite>, Sub-layout to put items in, <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a></p>
 <p><cite>layout_body</cite>, Sub-layout to put items in. Will be none if the panel is collapsed., <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a></p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>, <a class="reference internal" href="#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4107,7 +4116,7 @@ Line – Horizontal or Vertical line, depending on layout direction..</p></li>
 <dt class="sig sig-object py" id="bpy.types.UILayout.template_asset_view">
 <span class="sig-name descname"><span class="pre">template_asset_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset_library_dataptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset_library_propname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assets_dataptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assets_propname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_dataptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_propname</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_id_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activate_operator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drag_operator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_asset_view" title="Link to this definition">¶</a></dt>
 <dd><p>Item. A scrollable list of assets in a grid view</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>list_id</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Identifier of this asset view. Necessary to tell apart different asset views and to identify an asset view read from a .blend</p></li>
@@ -4132,9 +4141,13 @@ Do not display buttons to choose or refresh an asset library.</p></li>
 <li><p><strong>drag_operator</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Name of a custom operator to invoke when starting to drag an item. Never invoked together with the <code class="docutils literal notranslate"><span class="pre">active_operator</span></code> (if set), it’s either the drag or the activate one</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (activate_operator_properties, drag_operator_properties)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>activate_operator_properties</cite>, Operator properties to fill in for the custom activate operator passed to the template, <a class="reference internal" href="bpy.types.OperatorProperties.html#bpy.types.OperatorProperties" title="bpy.types.OperatorProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorProperties</span></code></a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>activate_operator_properties</cite>, Operator properties to fill in for the custom activate operator passed to the template, <a class="reference internal" href="bpy.types.OperatorProperties.html#bpy.types.OperatorProperties" title="bpy.types.OperatorProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorProperties</span></code></a></p>
 <p><cite>drag_operator_properties</cite>, Operator properties to fill in for the custom drag operator passed to the template, <a class="reference internal" href="bpy.types.OperatorProperties.html#bpy.types.OperatorProperties" title="bpy.types.OperatorProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorProperties</span></code></a></p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="bpy.types.OperatorProperties.html#bpy.types.OperatorProperties" title="bpy.types.OperatorProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorProperties</span></code></a>, <a class="reference internal" href="bpy.types.OperatorProperties.html#bpy.types.OperatorProperties" title="bpy.types.OperatorProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorProperties</span></code></a>)</p>
 </dd>
 </dl>
 </dd></dl>

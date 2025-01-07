@@ -1974,6 +1974,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPath.html">XrUserPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPaths.html">XrUserPaths(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection.html">bpy_prop_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection_idprop.html">bpy_prop_collection_idprop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_struct.html">bpy_struct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerID.html">wmOwnerID(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerIDs.html">wmOwnerIDs(bpy_struct)</a></li>
@@ -2890,16 +2891,20 @@ example of how to create/use filtering/reordering callbacks.</p>
 <dt class="sig sig-object py" id="bpy.types.UIList.filter_items">
 <span class="sig-name descname"><span class="pre">filter_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UIList.filter_items" title="Link to this definition">¶</a></dt>
 <dd><p>Filter and/or re-order items of the collection (output filter results in filter_flags, and reorder results in filter_neworder arrays)</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a>) – Data from which to take Collection property</p></li>
 <li><p><strong>property</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Identifier of property in data, for the collection</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (filter_flags, filter_neworder)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>filter_flags</cite>, An array of filter flags, one for each item in the collection (NOTE: The upper 16 bits, including FILTER_ITEM, are reserved, only use the lower 16 bits for custom usages), int array of 1 items in [0, inf]</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>filter_flags</cite>, An array of filter flags, one for each item in the collection (NOTE: The upper 16 bits, including FILTER_ITEM, are reserved, only use the lower 16 bits for custom usages), int array of 1 items in [0, inf]</p>
 <p><cite>filter_neworder</cite>, An array of indices, one for each item in the collection, mapping the org index to the new one, int array of 1 items in [0, inf]</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(int array of 1 items in [0, inf], int array of 1 items in [0, inf])</p>
 </dd>
 </dl>
 </dd></dl>

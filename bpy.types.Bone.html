@@ -1974,6 +1974,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPath.html">XrUserPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPaths.html">XrUserPaths(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection.html">bpy_prop_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection_idprop.html">bpy_prop_collection_idprop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_struct.html">bpy_struct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerID.html">wmOwnerID(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.wmOwnerIDs.html">wmOwnerIDs(bpy_struct)</a></li>
@@ -3272,16 +3273,20 @@ after each change, by manually carrying updated matrices in a recursive walk.</p
 <dt class="sig sig-object py" id="bpy.types.Bone.AxisRollFromMatrix">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AxisRollFromMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Bone.AxisRollFromMatrix" title="Link to this definition">¶</a></dt>
 <dd><p>Convert a rotational matrix to the axis + roll representation. Note that the resulting value of the roll may not be as expected if the matrix has shear or negative determinant.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (never None)) – The orientation matrix of the bone</p></li>
 <li><p><strong>axis</strong> (<em>float array</em><em> of </em><em>3 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – The optional override for the axis (finds closest approximation for the matrix)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return (result_axis, result_roll)<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>result_axis</cite>, The main axis of the bone, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><cite>result_axis</cite>, The main axis of the bone, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf]</p>
 <p><cite>result_roll</cite>, The roll of the bone, float in [-inf, inf]</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], float in [-inf, inf])</p>
 </dd>
 </dl>
 </dd></dl>
