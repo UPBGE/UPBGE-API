@@ -2980,6 +2980,28 @@ ID collections), but less safe/versatile (it can break Blender, e.g. by removing
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.BlendData.file_path_map">
+<span class="sig-name descname"><span class="pre">file_path_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_libraries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.BlendData.file_path_map" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a mapping of all ID data-blocks in current <code class="docutils literal notranslate"><span class="pre">bpy.data</span></code> to a set of all file paths used by them.</p>
+<p>For list of valid set members for key_types, see: <a class="reference internal" href="bpy.types.KeyingSetPath.html#bpy.types.KeyingSetPath.id_type" title="bpy.types.KeyingSetPath.id_type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.KeyingSetPath.id_type</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subset</strong> (<em>sequence</em>) – When given, only these data-blocks and their used file paths will be included as keys/values in the map.</p></li>
+<li><p><strong>key_types</strong> (<em>set</em><em> of </em><em>strings</em>) – When given, filter the keys mapped by ID types. Ignored if <code class="docutils literal notranslate"><span class="pre">subset</span></code> is also given.</p></li>
+<li><p><strong>include_libraries</strong> (<em>bool</em>) – Include library file paths of linked data. False by default.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary of <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a> instances, with sets of file path strings as their values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.BlendData.orphans_purge">
 <span class="sig-name descname"><span class="pre">orphans_purge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.BlendData.orphans_purge" title="Link to this definition">¶</a></dt>
 <dd><p>Remove (delete) all IDs with no user.</p>
@@ -3200,6 +3222,7 @@ ID collections), but less safe/versatile (it can break Blender, e.g. by removing
 <li><a class="reference internal" href="#bpy.types.BlendData.batch_remove"><code class="docutils literal notranslate"><span class="pre">BlendData.batch_remove()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.BlendData.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">BlendData.bl_rna_get_subclass()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.BlendData.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">BlendData.bl_rna_get_subclass_py()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.BlendData.file_path_map"><code class="docutils literal notranslate"><span class="pre">BlendData.file_path_map()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.BlendData.orphans_purge"><code class="docutils literal notranslate"><span class="pre">BlendData.orphans_purge()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.BlendData.temp_data"><code class="docutils literal notranslate"><span class="pre">BlendData.temp_data()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.BlendData.user_map"><code class="docutils literal notranslate"><span class="pre">BlendData.user_map()</span></code></a></li>

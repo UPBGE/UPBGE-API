@@ -2612,6 +2612,18 @@ internal data, and may change depending on the implementation.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>In case you are using complex/multi-inheritance, <cite>super()</cite> may not work. It is best then to
+explicitly invoke the Blender-defined parent class constructor. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FancyRaytracer</span><span class="p">(</span><span class="n">AwesomeRaytracer</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+      <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+      <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Defining a custom <code class="docutils literal notranslate"><span class="pre">__new__()</span></code> function is strongly discouraged, not tested, and not considered
 as supported currently.
 Doing so presents a very high risk of crashes or otherwise corruption of Blender internal data.
