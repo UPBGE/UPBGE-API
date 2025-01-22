@@ -2603,16 +2603,26 @@ otherwise Blender’s internal initialization won’t happen properly:</p>
       <span class="o">...</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Calling the parent’s <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> function is a hard requirement since Blender 4.4.
 The ‘generic’ signature is the recommended one here, as Blender internal BPY code is typically
 the only caller of these functions. The actual arguments passed to the constructor are fully
 internal data, and may change depending on the implementation.</p>
+<p>Unfortunately, the error message, generated in case the expected constructor is not called, can
+be fairly cryptic and unhelping. Generally they should be about failure to create a (python)
+object:</p>
+<blockquote>
+<div><p>MemoryError: couldn’t create bpy_struct object_</p>
+</div></blockquote>
+<p>With Operators, it might be something like that:</p>
+<blockquote>
+<div><p>RuntimeError: could not create instance of &lt;OPERATOR_OT_identifier&gt; to call callback function execute</p>
+</div></blockquote>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In case you are using complex/multi-inheritance, <cite>super()</cite> may not work. It is best then to
+<p>In case you are using complex/multi-inheritance, <code class="docutils literal notranslate"><span class="pre">super()</span></code> may not work. It is best then to
 explicitly invoke the Blender-defined parent class constructor. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FancyRaytracer</span><span class="p">(</span><span class="n">AwesomeRaytracer</span><span class="p">,</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">RenderEngine</span><span class="p">):</span>
@@ -2637,7 +2647,7 @@ and call the parent’s <code class="docutils literal notranslate"><span class="
 C++-defined Blender types do not define or use a <code class="docutils literal notranslate"><span class="pre">__del__()</span></code> (aka <code class="docutils literal notranslate"><span class="pre">tp_finalize()</span></code>) destructor
 currently.
 As this function
-<a class="reference external" href="https://stackoverflow.com/questions/36722390/python-3-super-del">does not exist if not explicitely defined</a>,
+<a class="reference external" href="https://stackoverflow.com/questions/36722390/python-3-super-del">does not exist if not explicitly defined</a>,
 that means that calling <code class="docutils literal notranslate"><span class="pre">super().__del__()</span></code> in the <code class="docutils literal notranslate"><span class="pre">__del__()</span></code> function of a sub-class will
 fail with the following error:
 <code class="docutils literal notranslate"><span class="pre">AttributeError:</span> <span class="pre">'super'</span> <span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span> <span class="pre">'__del__'</span></code>.
@@ -2796,17 +2806,18 @@ it may be useful to modify types as the script runs.</p>
 <p>In some cases the specifier for data may not be in Blender, for example a external render engines shader definitions,
 and it may be useful to define them as types and remove them on the fly.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">idname</span> <span class="o">=</span> <span class="s2">&quot;object.operator_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span>
+    <span class="n">idname</span> <span class="o">=</span> <span class="s2">&quot;object.operator_</span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 
-    <span class="n">opclass</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s2">&quot;DynOp</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span>
-                   <span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="p">),</span>
-                   <span class="p">{</span><span class="s2">&quot;bl_idname&quot;</span><span class="p">:</span> <span class="n">idname</span><span class="p">,</span> <span class="s2">&quot;bl_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="s2">&quot;execute&quot;</span><span class="p">:</span> <span class="n">func</span><span class="p">},</span>
-                   <span class="p">)</span>
-    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">opclass</span><span class="p">)</span>
+    <span class="n">op_class</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span>
+        <span class="s2">&quot;DynOp</span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="p">),</span>
+        <span class="p">{</span><span class="s2">&quot;bl_idname&quot;</span><span class="p">:</span> <span class="n">idname</span><span class="p">,</span> <span class="s2">&quot;bl_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="s2">&quot;execute&quot;</span><span class="p">:</span> <span class="n">func</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">op_class</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
