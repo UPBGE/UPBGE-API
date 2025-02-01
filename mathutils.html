@@ -3041,34 +3041,34 @@ matrices from 2x2 up to 4x4.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mathutils</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="c1"># create a location matrix</span>
+<span class="c1"># Create a location matrix.</span>
 <span class="n">mat_loc</span> <span class="o">=</span> <span class="n">mathutils</span><span class="o">.</span><span class="n">Matrix</span><span class="o">.</span><span class="n">Translation</span><span class="p">((</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>
 
-<span class="c1"># create an identity matrix</span>
+<span class="c1"># Create an identity matrix.</span>
 <span class="n">mat_sca</span> <span class="o">=</span> <span class="n">mathutils</span><span class="o">.</span><span class="n">Matrix</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
 
-<span class="c1"># create a rotation matrix</span>
+<span class="c1"># Create a rotation matrix.</span>
 <span class="n">mat_rot</span> <span class="o">=</span> <span class="n">mathutils</span><span class="o">.</span><span class="n">Matrix</span><span class="o">.</span><span class="n">Rotation</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">45.0</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
 
-<span class="c1"># combine transformations</span>
+<span class="c1"># Combine transformations.</span>
 <span class="n">mat_out</span> <span class="o">=</span> <span class="n">mat_loc</span> <span class="o">@</span> <span class="n">mat_rot</span> <span class="o">@</span> <span class="n">mat_sca</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mat_out</span><span class="p">)</span>
 
-<span class="c1"># extract components back out of the matrix as two vectors and a quaternion</span>
+<span class="c1"># Extract components back out of the matrix as two vectors and a quaternion.</span>
 <span class="n">loc</span><span class="p">,</span> <span class="n">rot</span><span class="p">,</span> <span class="n">sca</span> <span class="o">=</span> <span class="n">mat_out</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">rot</span><span class="p">,</span> <span class="n">sca</span><span class="p">)</span>
 
-<span class="c1"># recombine extracted components</span>
+<span class="c1"># Recombine extracted components.</span>
 <span class="n">mat_out2</span> <span class="o">=</span> <span class="n">mathutils</span><span class="o">.</span><span class="n">Matrix</span><span class="o">.</span><span class="n">LocRotScale</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">rot</span><span class="p">,</span> <span class="n">sca</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mat_out2</span><span class="p">)</span>
 
-<span class="c1"># it can also be useful to access components of a matrix directly</span>
+<span class="c1"># It can also be useful to access components of a matrix directly.</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="n">mathutils</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
 <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span>
 
 <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span>
 
-<span class="c1"># each item in a matrix is a vector so vector utility functions can be used</span>
+<span class="c1"># Each item in a matrix is a vector so vector utility functions can be used.</span>
 <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xyz</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span>
 </pre></div>
 </div>
