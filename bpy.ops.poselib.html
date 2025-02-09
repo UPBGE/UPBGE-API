@@ -2316,6 +2316,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -2387,7 +2388,7 @@
     <li role="presentation">
       <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector"
         aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-        4.4
+        4.5
       </span>
       <div class="version-dialog" aria-hidden="true">
         <div class="version-title">Versions</div>
@@ -2459,6 +2460,34 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.poselib.asset_delete">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">asset_delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.asset_delete" title="Link to this definition">¶</a></dt>
+<dd><p>Delete the selected Pose Asset</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.poselib.asset_modify">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">asset_modify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ADJUST'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.asset_modify" title="Link to this definition">¶</a></dt>
+<dd><p>Update the selected pose asset in the asset library from the currently selected bones. The mode defines how the asset is updated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>enum in</em><em> [</em><em>'ADJUST'</em><em>, </em><em>'REPLACE'</em><em>, </em><em>'ADD'</em><em>, </em><em>'REMOVE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Overwrite Mode, Specify which parts of the pose asset are overwritten</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ADJUST</span></code>
+Adjust – Update existing channels in the pose asset but don’t remove or add any channels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REPLACE</span></code>
+Replace with Selection – Completely replace all channels in the pose asset with the current selection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
+Add Selected Bones – Add channels of the selection to the pose asset. Existing channels will be updated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REMOVE</span></code>
+Remove Selected Bones – Remove channels of the selection from the pose asset.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.poselib.blend_pose_asset">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">blend_pose_asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blend_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flipped</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release_confirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.blend_pose_asset" title="Link to this definition">¶</a></dt>
 <dd><p>Blend the given Pose Action to the rig</p>
@@ -2479,7 +2508,7 @@
 <dd><p>Create a pose asset for each pose marker in this legacy pose library data-block</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L445">addons_core/pose_library/operators.py:445</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L342">addons_core/pose_library/operators.py:342</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2490,7 +2519,7 @@
 <dd><p>Create a pose asset for each pose marker in the current action</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L411">addons_core/pose_library/operators.py:411</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L308">addons_core/pose_library/operators.py:308</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2501,24 +2530,23 @@
 <dd><p>Create a new pose asset on the clipboard, to be pasted into an Asset Browser</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L219">addons_core/pose_library/operators.py:219</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L116">addons_core/pose_library/operators.py:116</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.poselib.create_pose_asset">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">create_pose_asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pose_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activate_new_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.create_pose_asset" title="Link to this definition">¶</a></dt>
-<dd><p>Create a new Action that contains the pose of the selected bones, and mark it as Asset. The asset will be stored in the current blend file</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">create_pose_asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pose_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset_library_reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catalog_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activate_new_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.create_pose_asset" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new asset from the selected bones in the scene</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pose_name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Pose Name</p></li>
-<li><p><strong>activate_new_action</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Activate New Action</p></li>
+<li><p><strong>pose_name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Pose Name, Name for the new pose asset</p></li>
+<li><p><strong>asset_library_reference</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Library, Asset library used to store the new pose</p></li>
+<li><p><strong>catalog_path</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Catalog, Catalog to use for the new asset</p></li>
+<li><p><strong>activate_new_action</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Activate New Action, This property is deprecated and will be removed in the future</p></li>
 </ul>
-</dd>
-<dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L82">addons_core/pose_library/operators.py:82</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2529,7 +2557,7 @@
 <dd><p>Paste the Asset that was previously copied using Copy As Asset</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L293">addons_core/pose_library/operators.py:293</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L190">addons_core/pose_library/operators.py:190</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2546,7 +2574,7 @@
 </ul>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L331">addons_core/pose_library/operators.py:331</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L228">addons_core/pose_library/operators.py:228</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2557,7 +2585,7 @@
 <dd><p>Switch back to the previous Action, after creating a pose asset</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L168">addons_core/pose_library/operators.py:168</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender-addons/addons_core/pose_library/operators.py#L65">addons_core/pose_library/operators.py:65</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2607,7 +2635,7 @@
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.poselib.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.ops.poselib.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.poselib.rst%60%0D%0ABlender+Version%3A+%604.5%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.5%2Fbpy.ops.poselib.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>
@@ -2628,6 +2656,8 @@
             <ul>
 <li><a class="reference internal" href="#">Poselib Operators</a><ul>
 <li><a class="reference internal" href="#bpy.ops.poselib.apply_pose_asset"><code class="docutils literal notranslate"><span class="pre">apply_pose_asset()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.poselib.asset_delete"><code class="docutils literal notranslate"><span class="pre">asset_delete()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.poselib.asset_modify"><code class="docutils literal notranslate"><span class="pre">asset_modify()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.poselib.blend_pose_asset"><code class="docutils literal notranslate"><span class="pre">blend_pose_asset()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.poselib.convert_old_object_poselib"><code class="docutils literal notranslate"><span class="pre">convert_old_object_poselib()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.poselib.convert_old_poselib"><code class="docutils literal notranslate"><span class="pre">convert_old_poselib()</span></code></a></li>
@@ -2647,7 +2677,7 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=391267f0"></script>
+</div><script src="_static/documentation_options.js?v=5dddb7b4"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>

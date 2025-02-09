@@ -2316,6 +2316,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -2387,7 +2388,7 @@
     <li role="presentation">
       <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector"
         aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-        4.4
+        4.5
       </span>
       <div class="version-dialog" aria-hidden="true">
         <div class="version-title">Versions</div>
@@ -3461,6 +3462,45 @@ Brush – Jittering happens relative to the brush size.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.plane_depth">
+<span class="sig-name descname"><span class="pre">plane_depth</span></span><a class="headerlink" href="#bpy.types.Brush.plane_depth" title="Link to this definition">¶</a></dt>
+<dd><p>The maximum distance below the plane for affected vertices. Increasing the depth affects vertices farther below the plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [0, 1], default 0.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.plane_height">
+<span class="sig-name descname"><span class="pre">plane_height</span></span><a class="headerlink" href="#bpy.types.Brush.plane_height" title="Link to this definition">¶</a></dt>
+<dd><p>The maximum distance above the plane for affected vertices. Increasing the height affects vertices farther above the plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [0, 1], default 1.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.plane_inversion_mode">
+<span class="sig-name descname"><span class="pre">plane_inversion_mode</span></span><a class="headerlink" href="#bpy.types.Brush.plane_inversion_mode" title="Link to this definition">¶</a></dt>
+<dd><p>Inversion Mode</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INVERT_DISPLACEMENT</span></code>
+Invert Displacement – Displace the vertices away from the plane..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SWAP_DEPTH_AND_HEIGHT</span></code>
+Swap Height and Depth – Swap the roles of Height and Depth..</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in [‘INVERT_DISPLACEMENT’, ‘SWAP_DEPTH_AND_HEIGHT’], default ‘INVERT_DISPLACEMENT’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Brush.plane_offset">
 <span class="sig-name descname"><span class="pre">plane_offset</span></span><a class="headerlink" href="#bpy.types.Brush.plane_offset" title="Link to this definition">¶</a></dt>
 <dd><p>Adjust plane on which the brush acts towards or away from the object surface</p>
@@ -3725,6 +3765,28 @@ Elastic – Modifies the entire mesh using elastic deform.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int in [1, 1000], default 10</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.stabilize_normal">
+<span class="sig-name descname"><span class="pre">stabilize_normal</span></span><a class="headerlink" href="#bpy.types.Brush.stabilize_normal" title="Link to this definition">¶</a></dt>
+<dd><p>Stabilize the orientation of the brush plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [0, 1], default 0.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Brush.stabilize_plane">
+<span class="sig-name descname"><span class="pre">stabilize_plane</span></span><a class="headerlink" href="#bpy.types.Brush.stabilize_plane" title="Link to this definition">¶</a></dt>
+<dd><p>Stabilize the center of the brush plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [0, 1], default 0.0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4847,6 +4909,7 @@ Scene – Calculate brush spacing relative to the scene using the stroke locatio
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.pop" title="bpy.types.bpy_struct.pop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.pop</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_overridable_library_set" title="bpy.types.bpy_struct.property_overridable_library_set"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.property_overridable_library_set</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.property_unset</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.rna_ancestors" title="bpy.types.bpy_struct.rna_ancestors"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.rna_ancestors</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.type_recast</span></code></a></p></li>
@@ -4932,7 +4995,7 @@ Scene – Calculate brush spacing relative to the scene using the stroke locatio
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.Brush.rst%60%0D%0ABlender+Version%3A+%604.4%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.4%2Fbpy.types.Brush.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.Brush.rst%60%0D%0ABlender+Version%3A+%604.5%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F4.5%2Fbpy.types.Brush.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>
@@ -5038,6 +5101,9 @@ Scene – Calculate brush spacing relative to the scene using the stroke locatio
 <li><a class="reference internal" href="#bpy.types.Brush.normal_radius_factor"><code class="docutils literal notranslate"><span class="pre">Brush.normal_radius_factor</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.normal_weight"><code class="docutils literal notranslate"><span class="pre">Brush.normal_weight</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.paint_curve"><code class="docutils literal notranslate"><span class="pre">Brush.paint_curve</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Brush.plane_depth"><code class="docutils literal notranslate"><span class="pre">Brush.plane_depth</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Brush.plane_height"><code class="docutils literal notranslate"><span class="pre">Brush.plane_height</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Brush.plane_inversion_mode"><code class="docutils literal notranslate"><span class="pre">Brush.plane_inversion_mode</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.plane_offset"><code class="docutils literal notranslate"><span class="pre">Brush.plane_offset</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.plane_trim"><code class="docutils literal notranslate"><span class="pre">Brush.plane_trim</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.pose_deform_type"><code class="docutils literal notranslate"><span class="pre">Brush.pose_deform_type</span></code></a></li>
@@ -5061,6 +5127,8 @@ Scene – Calculate brush spacing relative to the scene using the stroke locatio
 <li><a class="reference internal" href="#bpy.types.Brush.smooth_stroke_radius"><code class="docutils literal notranslate"><span class="pre">Brush.smooth_stroke_radius</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.snake_hook_deform_type"><code class="docutils literal notranslate"><span class="pre">Brush.snake_hook_deform_type</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.spacing"><code class="docutils literal notranslate"><span class="pre">Brush.spacing</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Brush.stabilize_normal"><code class="docutils literal notranslate"><span class="pre">Brush.stabilize_normal</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Brush.stabilize_plane"><code class="docutils literal notranslate"><span class="pre">Brush.stabilize_plane</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.stencil_dimension"><code class="docutils literal notranslate"><span class="pre">Brush.stencil_dimension</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.stencil_pos"><code class="docutils literal notranslate"><span class="pre">Brush.stencil_pos</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Brush.strength"><code class="docutils literal notranslate"><span class="pre">Brush.strength</span></code></a></li>
@@ -5171,7 +5239,7 @@ Scene – Calculate brush spacing relative to the scene using the stroke locatio
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=391267f0"></script>
+</div><script src="_static/documentation_options.js?v=5dddb7b4"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>

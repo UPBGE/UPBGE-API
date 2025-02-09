@@ -2316,6 +2316,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
@@ -2387,7 +2388,7 @@
     <li role="presentation">
       <span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector"
         aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-        4.4
+        4.5
       </span>
       <div class="version-dialog" aria-hidden="true">
         <div class="version-title">Versions</div>
@@ -2452,6 +2453,8 @@
 <section id="C" class="genindex-section">
   <table style="width: 100%" class="indextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="aud.html#aud.Sound.cache">cache() (aud.Sound method)</a>
+</li>
         <li><a href="bpy.types.SpaceDopeSheetEditor.html#bpy.types.SpaceDopeSheetEditor.cache_cloth">cache_cloth (bpy.types.SpaceDopeSheetEditor attribute)</a>
 </li>
         <li><a href="bpy.types.FluidDomainSettings.html#bpy.types.FluidDomainSettings.cache_data_format">cache_data_format (bpy.types.FluidDomainSettings attribute)</a>
@@ -2892,18 +2895,22 @@
 </li>
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channel_view_pick">channel_view_pick() (in module bpy.ops.anim)</a>
 </li>
+        <li><a href="bpy.types.ActionKeyframeStrip.html#bpy.types.ActionKeyframeStrip.channelbag">channelbag() (bpy.types.ActionKeyframeStrip method)</a>
+</li>
         <li><a href="bpy.types.ChannelDriverVariables.html#bpy.types.ChannelDriverVariables">ChannelDriverVariables (class in bpy.types)</a>
 </li>
-        <li><a href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject.channels">channels (bge.types.BL_ArmatureObject attribute)</a>
+        <li><a href="aud.html#aud.Device.channels">channels (aud.Device attribute)</a>
 
         <ul>
+          <li><a href="aud.html#aud.Sequence.channels">(aud.Sequence attribute)</a>
+</li>
+          <li><a href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject.channels">(bge.types.BL_ArmatureObject attribute)</a>
+</li>
           <li><a href="bpy.types.ThemeDopeSheet.html#bpy.types.ThemeDopeSheet.channels">(bpy.types.ThemeDopeSheet attribute)</a>
 </li>
           <li><a href="imbuf.types.html#imbuf.types.ImBuf.channels">(imbuf.types.ImBuf attribute)</a>
 </li>
         </ul></li>
-        <li><a href="bpy.types.ActionKeyframeStrip.html#bpy.types.ActionKeyframeStrip.channels">channels() (bpy.types.ActionKeyframeStrip method)</a>
-</li>
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channels_bake">channels_bake() (in module bpy.ops.anim)</a>
 </li>
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channels_clean_empty">channels_clean_empty() (in module bpy.ops.anim)</a>
@@ -2926,6 +2933,10 @@
 </li>
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channels_group">channels_group() (in module bpy.ops.anim)</a>
 </li>
+        <li><a href="aud.html#aud.CHANNELS_INVALID">CHANNELS_INVALID (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_MONO">CHANNELS_MONO (in module aud)</a>
+</li>
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channels_move">channels_move() (in module bpy.ops.anim)</a>
 </li>
         <li><a href="bpy.types.ThemeGraphEditor.html#bpy.types.ThemeGraphEditor.channels_region">channels_region (bpy.types.ThemeGraphEditor attribute)</a>
@@ -2945,6 +2956,20 @@
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channels_setting_enable">channels_setting_enable() (in module bpy.ops.anim)</a>
 </li>
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channels_setting_toggle">channels_setting_toggle() (in module bpy.ops.anim)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_STEREO">CHANNELS_STEREO (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_STEREO_LFE">CHANNELS_STEREO_LFE (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_SURROUND4">CHANNELS_SURROUND4 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_SURROUND5">CHANNELS_SURROUND5 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_SURROUND51">CHANNELS_SURROUND51 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_SURROUND61">CHANNELS_SURROUND61 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CHANNELS_SURROUND71">CHANNELS_SURROUND71 (in module aud)</a>
 </li>
         <li><a href="bpy.ops.anim.html#bpy.ops.anim.channels_ungroup">channels_ungroup() (in module bpy.ops.anim)</a>
 </li>
@@ -3060,9 +3085,11 @@
 </li>
         <li><a href="bpy.types.ClampToConstraint.html#bpy.types.ClampToConstraint">ClampToConstraint (class in bpy.types)</a>
 </li>
-        <li><a href="bpy.ops.action.html#bpy.ops.action.clean">clean() (in module bpy.ops.action)</a>
+        <li><a href="aud.html#aud.PlaybackManager.clean">clean() (aud.PlaybackManager method)</a>
 
         <ul>
+          <li><a href="bpy.ops.action.html#bpy.ops.action.clean">(in module bpy.ops.action)</a>
+</li>
           <li><a href="bpy.ops.graph.html#bpy.ops.graph.clean">(in module bpy.ops.graph)</a>
 </li>
         </ul></li>
@@ -3483,6 +3510,24 @@
         <li><a href="bpy.types.Keyframe.html#bpy.types.Keyframe.co_ui">co_ui (bpy.types.Keyframe attribute)</a>
 </li>
         <li><a href="bpy.types.FFmpegSettings.html#bpy.types.FFmpegSettings.codec">codec (bpy.types.FFmpegSettings attribute)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_AAC">CODEC_AAC (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_AC3">CODEC_AC3 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_FLAC">CODEC_FLAC (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_INVALID">CODEC_INVALID (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_MP2">CODEC_MP2 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_MP3">CODEC_MP3 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_OPUS">CODEC_OPUS (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_PCM">CODEC_PCM (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CODEC_VORBIS">CODEC_VORBIS (in module aud)</a>
 </li>
         <li><a href="bpy.types.FModifierGenerator.html#bpy.types.FModifierGenerator.coefficients">coefficients (bpy.types.FModifierGenerator attribute)</a>
 </li>
@@ -3968,6 +4013,8 @@
 </li>
         <li><a href="bpy.types.ColorManagedSequencerColorspaceSettings.html#bpy.types.ColorManagedSequencerColorspaceSettings">ColorManagedSequencerColorspaceSettings (class in bpy.types)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="bpy.types.ColorManagedViewSettings.html#bpy.types.ColorManagedViewSettings">ColorManagedViewSettings (class in bpy.types)</a>
 </li>
         <li><a href="bpy.types.ColorManagedViewSettings.html#bpy.types.ColorManagedViewSettings.curve_mapping">ColorManagedViewSettings.curve_mapping (in module bpy.types)</a>
@@ -3978,8 +4025,6 @@
 </li>
         <li><a href="bpy.types.ColorMixStrip.html#bpy.types.ColorMixStrip">ColorMixStrip (class in bpy.types)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="bpy.types.ColorMixStrip.html#bpy.types.ColorMixStrip.input_count">ColorMixStrip.input_count (in module bpy.types)</a>
 </li>
         <li><a href="freestyle.shaders.html#freestyle.shaders.ColorNoiseShader">ColorNoiseShader (class in freestyle.shaders)</a>
@@ -4308,15 +4353,23 @@
 </li>
         <li><a href="bpy.types.GreasePencilBuildModifier.html#bpy.types.GreasePencilBuildModifier.concurrent_time_alignment">concurrent_time_alignment (bpy.types.GreasePencilBuildModifier attribute)</a>
 </li>
-        <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.cone_angle_inner">cone_angle_inner (bge.types.SCA_SoundActuator attribute)</a>
+        <li><a href="aud.html#aud.Handle.cone_angle_inner">cone_angle_inner (aud.Handle attribute)</a>
 
         <ul>
+          <li><a href="aud.html#aud.SequenceEntry.cone_angle_inner">(aud.SequenceEntry attribute)</a>
+</li>
+          <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.cone_angle_inner">(bge.types.SCA_SoundActuator attribute)</a>
+</li>
           <li><a href="bpy.types.Speaker.html#bpy.types.Speaker.cone_angle_inner">(bpy.types.Speaker attribute)</a>
 </li>
         </ul></li>
-        <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.cone_angle_outer">cone_angle_outer (bge.types.SCA_SoundActuator attribute)</a>
+        <li><a href="aud.html#aud.Handle.cone_angle_outer">cone_angle_outer (aud.Handle attribute)</a>
 
         <ul>
+          <li><a href="aud.html#aud.SequenceEntry.cone_angle_outer">(aud.SequenceEntry attribute)</a>
+</li>
+          <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.cone_angle_outer">(bge.types.SCA_SoundActuator attribute)</a>
+</li>
           <li><a href="bpy.types.Speaker.html#bpy.types.Speaker.cone_angle_outer">(bpy.types.Speaker attribute)</a>
 </li>
         </ul></li>
@@ -4326,9 +4379,13 @@
 </li>
         <li><a href="bpy.types.SoundActuator.html#bpy.types.SoundActuator.cone_outer_gain_3d">cone_outer_gain_3d (bpy.types.SoundActuator attribute)</a>
 </li>
-        <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.cone_volume_outer">cone_volume_outer (bge.types.SCA_SoundActuator attribute)</a>
+        <li><a href="aud.html#aud.Handle.cone_volume_outer">cone_volume_outer (aud.Handle attribute)</a>
 
         <ul>
+          <li><a href="aud.html#aud.SequenceEntry.cone_volume_outer">(aud.SequenceEntry attribute)</a>
+</li>
+          <li><a href="bge.types.SCA_SoundActuator.html#bge.types.SCA_SoundActuator.cone_volume_outer">(bge.types.SCA_SoundActuator attribute)</a>
+</li>
           <li><a href="bpy.types.Speaker.html#bpy.types.Speaker.cone_volume_outer">(bpy.types.Speaker attribute)</a>
 </li>
         </ul></li>
@@ -4493,6 +4550,24 @@
         <li><a href="bpy.types.ConstraintTarget.html#bpy.types.ConstraintTarget">ConstraintTarget (class in bpy.types)</a>
 </li>
         <li><a href="bpy.types.ConstraintTargetBone.html#bpy.types.ConstraintTargetBone">ConstraintTargetBone (class in bpy.types)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_AAC">CONTAINER_AAC (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_AC3">CONTAINER_AC3 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_FLAC">CONTAINER_FLAC (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_INVALID">CONTAINER_INVALID (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_MATROSKA">CONTAINER_MATROSKA (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_MP2">CONTAINER_MP2 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_MP3">CONTAINER_MP3 (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_OGG">CONTAINER_OGG (in module aud)</a>
+</li>
+        <li><a href="aud.html#aud.CONTAINER_WAV">CONTAINER_WAV (in module aud)</a>
 </li>
         <li><a href="bpy.types.NodeTree.html#bpy.types.NodeTree.contains_tree">contains_tree() (bpy.types.NodeTree method)</a>
 </li>
@@ -4683,6 +4758,8 @@
         <li><a href="mathutils.geometry.html#mathutils.geometry.convex_hull_2d">convex_hull_2d() (in module mathutils.geometry)</a>
 </li>
         <li><a href="bpy.types.RigidBodyWorld.html#bpy.types.RigidBodyWorld.convex_sweep_test">convex_sweep_test() (bpy.types.RigidBodyWorld method)</a>
+</li>
+        <li><a href="aud.html#aud.Sound.convolver">convolver() (aud.Sound method)</a>
 </li>
         <li><a href="bmesh.types.html#bmesh.types.BMesh.copy">copy() (bmesh.types.BMesh method)</a>
 
@@ -5279,7 +5356,7 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=391267f0"></script>
+</div><script src="_static/documentation_options.js?v=5dddb7b4"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
