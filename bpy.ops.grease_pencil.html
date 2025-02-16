@@ -856,6 +856,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGroup.html">GeometryNodeGroup(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageInfo.html">GeometryNodeImageInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageTexture.html">GeometryNodeImageTexture(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportCSV.html">GeometryNodeImportCSV(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
@@ -1022,8 +1023,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilFrames.html">GreasePencilFrames(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilHookModifier.html">GreasePencilHookModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLatticeModifier.html">GreasePencilLatticeModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(GreasePencilTreeNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(GreasePencilTreeNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMask.html">GreasePencilLayerMask(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMasks.html">GreasePencilLayerMasks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayers.html">GreasePencilLayers(bpy_struct)</a></li>
@@ -1044,6 +1045,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifier.html">GreasePencilTimeModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifierSegment.html">GreasePencilTimeModifierSegment(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTintModifier.html">GreasePencilTintModifier(Modifier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTreeNode.html">GreasePencilTreeNode(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightAngleModifier.html">GreasePencilWeightAngleModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightProximityModifier.html">GreasePencilWeightProximityModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilv3.html">GreasePencilv3(ID)</a></li>
@@ -1423,7 +1425,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorProperties.html">OperatorProperties(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorStrokeElement.html">OperatorStrokeElement(PropertyGroup)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OrController.html">OrController(Controller)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.OverDropStrip.html">OverDropStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PARTICLE_UL_particle_systems.html">PARTICLE_UL_particle_systems(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PHYSICS_UL_dynapaint_surfaces.html">PHYSICS_UL_dynapaint_surfaces(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.POINTCLOUD_UL_attributes.html">POINTCLOUD_UL_attributes(UIList)</a></li>
@@ -2575,6 +2576,12 @@ Toggle End.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.grease_pencil.delete_breakdown">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">delete_breakdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.delete_breakdown" title="Link to this definition">¶</a></dt>
+<dd><p>Remove breakdown frames generated by interpolating between two Grease Pencil frames</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.grease_pencil.delete_frame">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">delete_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ACTIVE_FRAME'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.delete_frame" title="Link to this definition">¶</a></dt>
 <dd><p>Delete Grease Pencil Frame(s)</p>
@@ -3108,11 +3115,12 @@ All – Combine all layers into a single layer.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.grease_pencil.paste">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paste_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_world_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.paste" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ACTIVE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paste_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_world_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.paste" title="Link to this definition">¶</a></dt>
 <dd><p>Paste Grease Pencil points or strokes from the internal clipboard to the active layer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'ACTIVE'</em><em>, </em><em>'LAYER'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type</p></li>
 <li><p><strong>paste_back</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Paste on Back, Add pasted strokes behind all strokes</p></li>
 <li><p><strong>keep_world_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep World Transform, Keep the world transform of strokes from the clipboard unchanged</p></li>
 </ul>
@@ -3200,6 +3208,20 @@ All – Combine all layers into a single layer.</p></li>
 <li><p><strong>subdivision</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Subdivisions, Number of subdivisions per segment</p></li>
 <li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'BOX'</em><em>, </em><em>'LINE'</em><em>, </em><em>'POLYLINE'</em><em>, </em><em>'CIRCLE'</em><em>, </em><em>'ARC'</em><em>, </em><em>'CURVE'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Type, Type of shape</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.grease_pencil.relative_layer_mask_add">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">relative_layer_mask_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ABOVE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.relative_layer_mask_add" title="Link to this definition">¶</a></dt>
+<dd><p>Mask active layer with layer above or below</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>enum in</em><em> [</em><em>'ABOVE'</em><em>, </em><em>'BELOW'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mode, Which relative layer (above or below) to use as a mask</p>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/grease_pencil.py#L34">startup/bl_operators/grease_pencil.py:34</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3985,6 +4007,7 @@ Erase – Switch brush to erase mode for duration of stroke.</p></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.copy"><code class="docutils literal notranslate"><span class="pre">copy()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.cyclical_set"><code class="docutils literal notranslate"><span class="pre">cyclical_set()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.delete"><code class="docutils literal notranslate"><span class="pre">delete()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.grease_pencil.delete_breakdown"><code class="docutils literal notranslate"><span class="pre">delete_breakdown()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.delete_frame"><code class="docutils literal notranslate"><span class="pre">delete_frame()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.dissolve"><code class="docutils literal notranslate"><span class="pre">dissolve()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
@@ -4035,6 +4058,7 @@ Erase – Switch brush to erase mode for duration of stroke.</p></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.primitive_curve"><code class="docutils literal notranslate"><span class="pre">primitive_curve()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.primitive_line"><code class="docutils literal notranslate"><span class="pre">primitive_line()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.primitive_polyline"><code class="docutils literal notranslate"><span class="pre">primitive_polyline()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.grease_pencil.relative_layer_mask_add"><code class="docutils literal notranslate"><span class="pre">relative_layer_mask_add()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.reorder"><code class="docutils literal notranslate"><span class="pre">reorder()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.reproject"><code class="docutils literal notranslate"><span class="pre">reproject()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.grease_pencil.reset_uvs"><code class="docutils literal notranslate"><span class="pre">reset_uvs()</span></code></a></li>

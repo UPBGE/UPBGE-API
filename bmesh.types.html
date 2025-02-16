@@ -856,6 +856,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGroup.html">GeometryNodeGroup(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageInfo.html">GeometryNodeImageInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageTexture.html">GeometryNodeImageTexture(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportCSV.html">GeometryNodeImportCSV(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
@@ -1022,8 +1023,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilFrames.html">GreasePencilFrames(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilHookModifier.html">GreasePencilHookModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLatticeModifier.html">GreasePencilLatticeModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(GreasePencilTreeNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(GreasePencilTreeNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMask.html">GreasePencilLayerMask(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMasks.html">GreasePencilLayerMasks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayers.html">GreasePencilLayers(bpy_struct)</a></li>
@@ -1044,6 +1045,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifier.html">GreasePencilTimeModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifierSegment.html">GreasePencilTimeModifierSegment(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTintModifier.html">GreasePencilTintModifier(Modifier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTreeNode.html">GreasePencilTreeNode(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightAngleModifier.html">GreasePencilWeightAngleModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightProximityModifier.html">GreasePencilWeightProximityModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilv3.html">GreasePencilv3(ID)</a></li>
@@ -1423,7 +1425,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorProperties.html">OperatorProperties(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorStrokeElement.html">OperatorStrokeElement(PropertyGroup)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OrController.html">OrController(Controller)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.OverDropStrip.html">OverDropStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PARTICLE_UL_particle_systems.html">PARTICLE_UL_particle_systems(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PHYSICS_UL_dynapaint_surfaces.html">PHYSICS_UL_dynapaint_surfaces(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.POINTCLOUD_UL_attributes.html">POINTCLOUD_UL_attributes(UIList)</a></li>
@@ -4251,6 +4252,17 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bmesh.types.</span></span><span class="sig-name descname"><span class="pre">BMLayerAccessVert</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessVert" title="Link to this definition">¶</a></dt>
 <dd><p>Exposes custom-data layer attributes.</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.BMLayerAccessVert.bool">
+<span class="sig-name descname"><span class="pre">bool</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessVert.bool" title="Link to this definition">¶</a></dt>
+<dd><p>Generic boolean custom-data layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMLayerCollection</span></code></a> of boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMLayerAccessVert.color">
 <span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessVert.color" title="Link to this definition">¶</a></dt>
 <dd><p>Generic RGBA color with 8-bit precision custom-data layer.</p>
@@ -4356,6 +4368,17 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bmesh.types.</span></span><span class="sig-name descname"><span class="pre">BMLayerAccessEdge</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessEdge" title="Link to this definition">¶</a></dt>
 <dd><p>Exposes custom-data layer attributes.</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.BMLayerAccessEdge.bool">
+<span class="sig-name descname"><span class="pre">bool</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessEdge.bool" title="Link to this definition">¶</a></dt>
+<dd><p>Generic boolean custom-data layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMLayerCollection</span></code></a> of boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMLayerAccessEdge.color">
 <span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessEdge.color" title="Link to this definition">¶</a></dt>
 <dd><p>Generic RGBA color with 8-bit precision custom-data layer.</p>
@@ -4439,6 +4462,17 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bmesh.types.</span></span><span class="sig-name descname"><span class="pre">BMLayerAccessFace</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessFace" title="Link to this definition">¶</a></dt>
 <dd><p>Exposes custom-data layer attributes.</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.BMLayerAccessFace.bool">
+<span class="sig-name descname"><span class="pre">bool</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessFace.bool" title="Link to this definition">¶</a></dt>
+<dd><p>Generic boolean custom-data layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMLayerCollection</span></code></a> of boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMLayerAccessFace.color">
 <span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessFace.color" title="Link to this definition">¶</a></dt>
 <dd><p>Generic RGBA color with 8-bit precision custom-data layer.</p>
@@ -4521,6 +4555,17 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dt class="sig sig-object py" id="bmesh.types.BMLayerAccessLoop">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bmesh.types.</span></span><span class="sig-name descname"><span class="pre">BMLayerAccessLoop</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessLoop" title="Link to this definition">¶</a></dt>
 <dd><p>Exposes custom-data layer attributes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.BMLayerAccessLoop.bool">
+<span class="sig-name descname"><span class="pre">bool</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessLoop.bool" title="Link to this definition">¶</a></dt>
+<dd><p>Generic boolean custom-data layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMLayerCollection</span></code></a> of boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMLayerAccessLoop.color">
 <span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#bmesh.types.BMLayerAccessLoop.color" title="Link to this definition">¶</a></dt>
@@ -5136,6 +5181,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 </li>
 <li><a class="reference internal" href="#custom-data-layer-access">Custom-Data Layer Access</a><ul>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessVert"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessVert</span></code></a><ul>
+<li><a class="reference internal" href="#bmesh.types.BMLayerAccessVert.bool"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessVert.bool</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessVert.color"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessVert.color</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessVert.deform"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessVert.deform</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessVert.float"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessVert.float</span></code></a></li>
@@ -5148,6 +5194,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessEdge"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessEdge</span></code></a><ul>
+<li><a class="reference internal" href="#bmesh.types.BMLayerAccessEdge.bool"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessEdge.bool</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessEdge.color"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessEdge.color</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessEdge.float"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessEdge.float</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessEdge.float_color"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessEdge.float_color</span></code></a></li>
@@ -5158,6 +5205,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessFace"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessFace</span></code></a><ul>
+<li><a class="reference internal" href="#bmesh.types.BMLayerAccessFace.bool"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessFace.bool</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessFace.color"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessFace.color</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessFace.float"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessFace.float</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessFace.float_color"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessFace.float_color</span></code></a></li>
@@ -5168,6 +5216,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessLoop"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessLoop</span></code></a><ul>
+<li><a class="reference internal" href="#bmesh.types.BMLayerAccessLoop.bool"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessLoop.bool</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessLoop.color"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessLoop.color</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessLoop.float"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessLoop.float</span></code></a></li>
 <li><a class="reference internal" href="#bmesh.types.BMLayerAccessLoop.float_color"><code class="docutils literal notranslate"><span class="pre">BMLayerAccessLoop.float_color</span></code></a></li>

@@ -856,6 +856,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGroup.html">GeometryNodeGroup(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageInfo.html">GeometryNodeImageInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageTexture.html">GeometryNodeImageTexture(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportCSV.html">GeometryNodeImportCSV(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
@@ -1022,8 +1023,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilFrames.html">GreasePencilFrames(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilHookModifier.html">GreasePencilHookModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLatticeModifier.html">GreasePencilLatticeModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(GreasePencilTreeNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(GreasePencilTreeNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMask.html">GreasePencilLayerMask(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMasks.html">GreasePencilLayerMasks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayers.html">GreasePencilLayers(bpy_struct)</a></li>
@@ -1044,6 +1045,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifier.html">GreasePencilTimeModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifierSegment.html">GreasePencilTimeModifierSegment(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTintModifier.html">GreasePencilTintModifier(Modifier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTreeNode.html">GreasePencilTreeNode(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightAngleModifier.html">GreasePencilWeightAngleModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightProximityModifier.html">GreasePencilWeightProximityModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilv3.html">GreasePencilv3(ID)</a></li>
@@ -1423,7 +1425,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorProperties.html">OperatorProperties(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorStrokeElement.html">OperatorStrokeElement(PropertyGroup)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OrController.html">OrController(Controller)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.OverDropStrip.html">OverDropStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PARTICLE_UL_particle_systems.html">PARTICLE_UL_particle_systems(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PHYSICS_UL_dynapaint_surfaces.html">PHYSICS_UL_dynapaint_surfaces(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.POINTCLOUD_UL_attributes.html">POINTCLOUD_UL_attributes(UIList)</a></li>
@@ -2925,13 +2926,14 @@ UDIM Tiles – Tiled UDIM image texture.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Image.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Image.save" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Image.save" title="Link to this definition">¶</a></dt>
 <dd><p>Save image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Output path, uses image data-block filepath if not specified</p></li>
 <li><p><strong>quality</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Quality, Quality for image formats that support lossy compression, uses default quality if not specified</p></li>
+<li><p><strong>save_copy</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Save Copy, Save the image as a copy, without updating current image’s filepath</p></li>
 </ul>
 </dd>
 </dl>

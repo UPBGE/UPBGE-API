@@ -856,6 +856,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGroup.html">GeometryNodeGroup(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageInfo.html">GeometryNodeImageInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageTexture.html">GeometryNodeImageTexture(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportCSV.html">GeometryNodeImportCSV(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
@@ -1022,8 +1023,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilFrames.html">GreasePencilFrames(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilHookModifier.html">GreasePencilHookModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLatticeModifier.html">GreasePencilLatticeModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(GreasePencilTreeNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(GreasePencilTreeNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMask.html">GreasePencilLayerMask(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMasks.html">GreasePencilLayerMasks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayers.html">GreasePencilLayers(bpy_struct)</a></li>
@@ -1044,6 +1045,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifier.html">GreasePencilTimeModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifierSegment.html">GreasePencilTimeModifierSegment(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTintModifier.html">GreasePencilTintModifier(Modifier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTreeNode.html">GreasePencilTreeNode(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightAngleModifier.html">GreasePencilWeightAngleModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightProximityModifier.html">GreasePencilWeightProximityModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilv3.html">GreasePencilv3(ID)</a></li>
@@ -1423,7 +1425,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorProperties.html">OperatorProperties(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorStrokeElement.html">OperatorStrokeElement(PropertyGroup)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OrController.html">OrController(Controller)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.OverDropStrip.html">OverDropStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PARTICLE_UL_particle_systems.html">PARTICLE_UL_particle_systems(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PHYSICS_UL_dynapaint_surfaces.html">PHYSICS_UL_dynapaint_surfaces(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.POINTCLOUD_UL_attributes.html">POINTCLOUD_UL_attributes(UIList)</a></li>
@@ -2738,7 +2739,7 @@ Linear – Use slope of curve leading in/out of endpoint keyframes.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>start</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em>) – Start Frame, Frame at which to start baking</p></li>
 <li><p><strong>end</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em>) – End Frame, Frame at which to end baking (inclusive)</p></li>
-<li><p><strong>step</strong> (<em>float in</em><em> [</em><em>0.01</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>optional argument</em><em>)</em>) – Step, At which interval to add keys</p></li>
+<li><p><strong>step</strong> (<em>float in</em><em> [</em><em>0.01</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Step, At which interval to add keys</p></li>
 <li><p><strong>remove</strong> (<em>enum in</em><em> [</em><em>'NONE'</em><em>, </em><em>'IN_RANGE'</em><em>, </em><em>'OUT_RANGE'</em><em>, </em><em>'ALL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Remove Options, Choose which keys should be automatically removed by the bake</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>

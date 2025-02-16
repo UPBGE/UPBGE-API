@@ -856,6 +856,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGroup.html">GeometryNodeGroup(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageInfo.html">GeometryNodeImageInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageTexture.html">GeometryNodeImageTexture(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportCSV.html">GeometryNodeImportCSV(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
@@ -1022,8 +1023,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilFrames.html">GreasePencilFrames(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilHookModifier.html">GreasePencilHookModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLatticeModifier.html">GreasePencilLatticeModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayer.html">GreasePencilLayer(GreasePencilTreeNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html">GreasePencilLayerGroup(GreasePencilTreeNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMask.html">GreasePencilLayerMask(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayerMasks.html">GreasePencilLayerMasks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilLayers.html">GreasePencilLayers(bpy_struct)</a></li>
@@ -1044,6 +1045,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifier.html">GreasePencilTimeModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTimeModifierSegment.html">GreasePencilTimeModifierSegment(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTintModifier.html">GreasePencilTintModifier(Modifier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTreeNode.html">GreasePencilTreeNode(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightAngleModifier.html">GreasePencilWeightAngleModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightProximityModifier.html">GreasePencilWeightProximityModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilv3.html">GreasePencilv3(ID)</a></li>
@@ -1423,7 +1425,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorProperties.html">OperatorProperties(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OperatorStrokeElement.html">OperatorStrokeElement(PropertyGroup)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.OrController.html">OrController(Controller)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.OverDropStrip.html">OverDropStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PARTICLE_UL_particle_systems.html">PARTICLE_UL_particle_systems(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PHYSICS_UL_dynapaint_surfaces.html">PHYSICS_UL_dynapaint_surfaces(UIList)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.POINTCLOUD_UL_attributes.html">POINTCLOUD_UL_attributes(UIList)</a></li>
@@ -2527,7 +2528,7 @@
 <li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Filepath to image</p></li>
 <li><p><strong>channel</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>128</em><em>]</em>) – Channel, The channel for the new strip</p></li>
 <li><p><strong>frame_start</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em>) – The start frame for the new strip</p></li>
-<li><p><strong>fit_method</strong> (<em>enum in</em><em> [</em><em>'FIT'</em><em>, </em><em>'FILL'</em><em>, </em><em>'STRETCH'</em><em>, </em><em>'ORIGINAL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>optional argument</em><em>)</em>) – <p>Image Fit Method</p>
+<li><p><strong>fit_method</strong> (<em>enum in</em><em> [</em><em>'FIT'</em><em>, </em><em>'FILL'</em><em>, </em><em>'STRETCH'</em><em>, </em><em>'ORIGINAL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Image Fit Method</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FIT</span></code>
 Scale to Fit – Scale image so fits in preview.</p></li>
@@ -2561,7 +2562,7 @@ Use Original Size – Don’t scale the image.</p></li>
 <li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Filepath to movie</p></li>
 <li><p><strong>channel</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>128</em><em>]</em>) – Channel, The channel for the new strip</p></li>
 <li><p><strong>frame_start</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em>) – The start frame for the new strip</p></li>
-<li><p><strong>fit_method</strong> (<em>enum in</em><em> [</em><em>'FIT'</em><em>, </em><em>'FILL'</em><em>, </em><em>'STRETCH'</em><em>, </em><em>'ORIGINAL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>optional argument</em><em>)</em>) – <p>Image Fit Method</p>
+<li><p><strong>fit_method</strong> (<em>enum in</em><em> [</em><em>'FIT'</em><em>, </em><em>'FILL'</em><em>, </em><em>'STRETCH'</em><em>, </em><em>'ORIGINAL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Image Fit Method</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FIT</span></code>
 Scale to Fit – Scale image so fits in preview.</p></li>
@@ -2635,7 +2636,7 @@ Use Original Size – Don’t scale the image.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Name for the new strip</p></li>
-<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'OVER_DROP'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'TRANSFORM'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>]</em>) – Type, type for the new strip</p></li>
+<li><p><strong>type</strong> (<em>enum in</em><em> [</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'TRANSFORM'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>]</em>) – Type, type for the new strip</p></li>
 <li><p><strong>channel</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>128</em><em>]</em>) – Channel, The channel for the new strip</p></li>
 <li><p><strong>frame_start</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – The start frame for the new strip</p></li>
 <li><p><strong>frame_end</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – The end frame for the new strip</p></li>
