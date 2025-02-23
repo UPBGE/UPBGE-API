@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Application Data (bpy.app)" href="bpy.app.html" /><link rel="prev" title="bpy.utils submodule (bpy.utils.units)" href="bpy.utils.units.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.path.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
         <title>Path Utilities (bpy.path) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -280,6 +280,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
@@ -2450,7 +2451,7 @@
 functions for dealing with paths in Blender.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.abspath">
-<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">abspath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">library</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.abspath" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">abspath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">library</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.abspath" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the absolute path relative to the current blend file
 using the “//” prefix.</p>
 <dl class="field-list simple">
@@ -2488,7 +2489,7 @@ convenience, when the library is not None its path replaces <em>start</em>.</p><
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.clean_name">
-<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">clean_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.clean_name" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">clean_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.clean_name" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a name with characters replaced that
 may cause problems under various circumstances,
 such as writing to a file.</p>
@@ -2512,7 +2513,7 @@ or the <em>replace</em> argument if defined.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.display_name">
-<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">display_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.display_name" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">display_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_case</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.display_name" title="Link to this definition">¶</a></dt>
 <dd><p>Creates a display string from name to be used menus and the user interface.
 Intended for use with filenames and module names.</p>
 <dl class="field-list simple">
@@ -2570,7 +2571,7 @@ ensured to be utf8 compatible.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.ensure_ext">
-<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">ensure_ext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.ensure_ext" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">ensure_ext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.ensure_ext" title="Link to this definition">¶</a></dt>
 <dd><p>Return the path with the extension added if it is not already set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2610,7 +2611,7 @@ Both paths must be absolute.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.module_names">
-<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">module_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.module_names" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">module_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.module_names" title="Link to this definition">¶</a></dt>
 <dd><p>Return a list of modules which can be imported from <em>path</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2667,7 +2668,7 @@ any directories nested in one of the other paths.
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.path.relpath">
-<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">relpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.relpath" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.path.</span></span><span class="sig-name descname"><span class="pre">relpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.path.relpath" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the path relative to the current blend file using the “//” prefix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

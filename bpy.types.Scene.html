@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="SceneActuator(Actuator)" href="bpy.types.SceneActuator.html" /><link rel="prev" title="SPHFluidSettings(bpy_struct)" href="bpy.types.SPHFluidSettings.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.Scene.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
         <title>Scene(ID) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -280,6 +280,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
@@ -2449,7 +2450,7 @@
 <p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.Scene">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene" title="Link to this definition">¶</a></dt>
 <dd><p>Scene data-block, consisting in objects and defining time and render related settings</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Scene.active_clip">
@@ -2582,7 +2583,7 @@ Exponential Clamped – Exponential distance model with clamping.</p></li>
 <dd><p>Scene display settings for 3D viewport</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneDisplay.html#bpy.types.SceneDisplay" title="bpy.types.SceneDisplay"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneDisplay</span></code></a>, (readonly)</p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneDisplay.html#bpy.types.SceneDisplay" title="bpy.types.SceneDisplay"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneDisplay</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2593,7 +2594,7 @@ Exponential Clamped – Exponential distance model with clamping.</p></li>
 <dd><p>Settings of device saved image would be displayed on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ColorManagedDisplaySettings.html#bpy.types.ColorManagedDisplaySettings" title="bpy.types.ColorManagedDisplaySettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorManagedDisplaySettings</span></code></a>, (readonly)</p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ColorManagedDisplaySettings.html#bpy.types.ColorManagedDisplaySettings" title="bpy.types.ColorManagedDisplaySettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorManagedDisplaySettings</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2604,7 +2605,7 @@ Exponential Clamped – Exponential distance model with clamping.</p></li>
 <dd><p>EEVEE settings for the scene</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneEEVEE.html#bpy.types.SceneEEVEE" title="bpy.types.SceneEEVEE"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneEEVEE</span></code></a>, (readonly)</p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneEEVEE.html#bpy.types.SceneEEVEE" title="bpy.types.SceneEEVEE"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneEEVEE</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2744,7 +2745,7 @@ Exponential Clamped – Exponential distance model with clamping.</p></li>
 <dd><p>Grease Pencil settings for the scene</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneGpencil.html#bpy.types.SceneGpencil" title="bpy.types.SceneGpencil"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneGpencil</span></code></a>, (readonly)</p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneGpencil.html#bpy.types.SceneGpencil" title="bpy.types.SceneGpencil"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneGpencil</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2755,7 +2756,7 @@ Exponential Clamped – Exponential distance model with clamping.</p></li>
 <dd><p>Hydra settings for the scene</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneHydra.html#bpy.types.SceneHydra" title="bpy.types.SceneHydra"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneHydra</span></code></a>, (readonly)</p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.SceneHydra.html#bpy.types.SceneHydra" title="bpy.types.SceneHydra"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneHydra</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2871,7 +2872,7 @@ Exponential Clamped – Exponential distance model with clamping.</p></li>
 <dd><p>Settings of color space sequencer is working in</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ColorManagedSequencerColorspaceSettings.html#bpy.types.ColorManagedSequencerColorspaceSettings" title="bpy.types.ColorManagedSequencerColorspaceSettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorManagedSequencerColorspaceSettings</span></code></a>, (readonly)</p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ColorManagedSequencerColorspaceSettings.html#bpy.types.ColorManagedSequencerColorspaceSettings" title="bpy.types.ColorManagedSequencerColorspaceSettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorManagedSequencerColorspaceSettings</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3074,7 +3075,7 @@ Sync to Audio – Sync to audio playback, dropping frames.</p></li>
 <dd><p>Color management settings applied on image before saving</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ColorManagedViewSettings.html#bpy.types.ColorManagedViewSettings" title="bpy.types.ColorManagedViewSettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorManagedViewSettings</span></code></a>, (readonly)</p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.ColorManagedViewSettings.html#bpy.types.ColorManagedViewSettings" title="bpy.types.ColorManagedViewSettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorManagedViewSettings</span></code></a>, (readonly, never None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3092,7 +3093,7 @@ Sync to Audio – Sync to audio playback, dropping frames.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Scene.update_render_engine">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_render_engine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.update_render_engine" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_render_engine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.update_render_engine" title="Link to this definition">¶</a></dt>
 <dd><p>Trigger a render engine update</p>
 </dd></dl>
 
@@ -3115,7 +3116,7 @@ Sync to Audio – Sync to audio playback, dropping frames.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Scene.frame_set">
-<span class="sig-name descname"><span class="pre">frame_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.frame_set" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">frame_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">subframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.frame_set" title="Link to this definition">¶</a></dt>
 <dd><p>Set scene frame updating all objects and view layers immediately</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3146,7 +3147,7 @@ Sync to Audio – Sync to audio playback, dropping frames.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Scene.ray_cast">
-<span class="sig-name descname"><span class="pre">ray_cast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.70141e+38</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.ray_cast" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ray_cast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depsgraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.70141e+38</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.ray_cast" title="Link to this definition">¶</a></dt>
 <dd><p>Cast a ray onto evaluated geometry in world-space</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3192,7 +3193,7 @@ Sync to Audio – Sync to audio playback, dropping frames.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Scene.alembic_export">
-<span class="sig-name descname"><span class="pre">alembic_export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xform_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shutter_open</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shutter_close</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uvs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vcolors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_subdiv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible_objects_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subdiv_schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export_hair</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export_particles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packuv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triangulate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quad_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BEAUTY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngon_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BEAUTY'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.alembic_export" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">alembic_export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xform_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shutter_open</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shutter_close</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uvs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vcolors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_subdiv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible_objects_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subdiv_schema</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export_hair</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export_particles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packuv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triangulate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quad_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BEAUTY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngon_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BEAUTY'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.alembic_export" title="Link to this definition">¶</a></dt>
 <dd><p>Export to Alembic file (deprecated, use the Alembic export operator)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3227,7 +3228,7 @@ Sync to Audio – Sync to audio playback, dropping frames.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Scene.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -3243,7 +3244,7 @@ Sync to Audio – Sync to audio playback, dropping frames.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Scene.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Scene.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>

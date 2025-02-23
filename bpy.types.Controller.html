@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="CopyLocationConstraint(Constraint)" href="bpy.types.CopyLocationConstraint.html" /><link rel="prev" title="Context(bpy_struct)" href="bpy.types.Context.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.Controller.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
         <title>Controller(bpy_struct) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -280,6 +280,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
@@ -2451,7 +2452,7 @@
 <a class="reference internal" href="bpy.types.AndController.html#bpy.types.AndController" title="bpy.types.AndController"><code class="xref py py-class docutils literal notranslate"><span class="pre">AndController</span></code></a>, <a class="reference internal" href="bpy.types.ExpressionController.html#bpy.types.ExpressionController" title="bpy.types.ExpressionController"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExpressionController</span></code></a>, <a class="reference internal" href="bpy.types.NandController.html#bpy.types.NandController" title="bpy.types.NandController"><code class="xref py py-class docutils literal notranslate"><span class="pre">NandController</span></code></a>, <a class="reference internal" href="bpy.types.NorController.html#bpy.types.NorController" title="bpy.types.NorController"><code class="xref py py-class docutils literal notranslate"><span class="pre">NorController</span></code></a>, <a class="reference internal" href="bpy.types.OrController.html#bpy.types.OrController" title="bpy.types.OrController"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrController</span></code></a>, <a class="reference internal" href="bpy.types.PythonController.html#bpy.types.PythonController" title="bpy.types.PythonController"><code class="xref py py-class docutils literal notranslate"><span class="pre">PythonController</span></code></a>, <a class="reference internal" href="bpy.types.XnorController.html#bpy.types.XnorController" title="bpy.types.XnorController"><code class="xref py py-class docutils literal notranslate"><span class="pre">XnorController</span></code></a>, <a class="reference internal" href="bpy.types.XorController.html#bpy.types.XorController" title="bpy.types.XorController"><code class="xref py py-class docutils literal notranslate"><span class="pre">XorController</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.Controller">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller" title="Link to this definition">¶</a></dt>
 <dd><p>Game engine logic brick to process events, connecting sensors to actuators</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Controller.active">
@@ -2530,7 +2531,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Controller.link">
-<span class="sig-name descname"><span class="pre">link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actuator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.link" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actuator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.link" title="Link to this definition">¶</a></dt>
 <dd><p>Link the controller with a sensor/actuator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2544,7 +2545,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Controller.unlink">
-<span class="sig-name descname"><span class="pre">unlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actuator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.unlink" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">unlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actuator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.unlink" title="Link to this definition">¶</a></dt>
 <dd><p>Unlink the controller from a sensor/actuator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2558,7 +2559,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Controller.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2574,7 +2575,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Controller.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Controller.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>

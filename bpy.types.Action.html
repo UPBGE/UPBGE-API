@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="ActionActuator(Actuator)" href="bpy.types.ActionActuator.html" /><link rel="prev" title="ASSETBROWSER_UL_metadata_tags(UIList)" href="bpy.types.ASSETBROWSER_UL_metadata_tags.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.Action.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
         <title>Action(ID) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -280,6 +280,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
@@ -2449,7 +2450,7 @@
 <p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.Action">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">Action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action" title="Link to this definition">¶</a></dt>
 <dd><p>A collection of F-Curves for animation</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Action.curve_frame_range">
@@ -2465,7 +2466,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Action.fcurves">
 <span class="sig-name descname"><span class="pre">fcurves</span></span><a class="headerlink" href="#bpy.types.Action.fcurves" title="Link to this definition">¶</a></dt>
-<dd><p>The individual F-Curves that make up the action</p>
+<dd><p>Legacy API, for backward compatibility with code that does not handle slotted actions yet. This collection contains the F-Curves for the action’s first slot</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="bpy.types.ActionFCurves.html#bpy.types.ActionFCurves" title="bpy.types.ActionFCurves"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionFCurves</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.FCurve.html#bpy.types.FCurve" title="bpy.types.FCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">FCurve</span></code></a>, (readonly)</p>
@@ -2509,7 +2510,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Action.groups">
 <span class="sig-name descname"><span class="pre">groups</span></span><a class="headerlink" href="#bpy.types.Action.groups" title="Link to this definition">¶</a></dt>
-<dd><p>Convenient groupings of F-Curves</p>
+<dd><p>Legacy API, for backward compatibility with code that does not handle slotted actions yet. This collection contains the F-Curve groups for the action’s first slot</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="bpy.types.ActionGroups.html#bpy.types.ActionGroups" title="bpy.types.ActionGroups"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionGroups</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.ActionGroup.html#bpy.types.ActionGroup" title="bpy.types.ActionGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionGroup</span></code></a>, (readonly)</p>
@@ -2520,7 +2521,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Action.id_root">
 <span class="sig-name descname"><span class="pre">id_root</span></span><a class="headerlink" href="#bpy.types.Action.id_root" title="Link to this definition">¶</a></dt>
-<dd><p>Type of ID block that action can be used on - DO NOT CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING</p>
+<dd><p>Legacy API, for backward compatibility with code that does not handle slotted actions yet. Type of data-block that the action’s first slot can be used on. Do not change unless you know what you are doing</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ACTION</span></code>
 Action.</p></li>
@@ -2624,7 +2625,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.Action.is_action_legacy">
 <span class="sig-name descname"><span class="pre">is_action_legacy</span></span><a class="headerlink" href="#bpy.types.Action.is_action_legacy" title="Link to this definition">¶</a></dt>
-<dd><p>Return whether this is a legacy Action. Legacy Actions have no layers or slots. An empty Action considered as both a ‘legacy’ and a ‘layered’ Action.</p>
+<dd><p>Return whether this is a legacy Action. Legacy Actions have no layers or slots. An empty Action considered as both a ‘legacy’ and a ‘layered’ Action. Since Blender 4.4 actions are automatically updated to layered actions, and thus this will only return True when the action is empty</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False, (readonly)</p>
@@ -2705,6 +2706,27 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.Action.fcurve_ensure_for_datablock">
+<span class="sig-name descname"><span class="pre">fcurve_ensure_for_datablock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datablock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action.fcurve_ensure_for_datablock" title="Link to this definition">¶</a></dt>
+<dd><p>Ensure that an F-Curve exists, with the given data path and array index, for the given data-block. This action must already be assigned to the data-block. This function will also create the layer, keyframe strip, and action slot if necessary, and take care of assigning the action slot too</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datablock</strong> (<a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a>, (never None)) – The data-block animated by this action, for which to ensure the F-Curve exists. This action must already be assigned to the data-block</p></li>
+<li><p><strong>data_path</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Data Path, F-Curve data path</p></li>
+<li><p><strong>index</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Index, Array index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The found or created F-Curve</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.FCurve.html#bpy.types.FCurve" title="bpy.types.FCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">FCurve</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Action.flip_with_pose">
 <span class="sig-name descname"><span class="pre">flip_with_pose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action.flip_with_pose" title="Link to this definition">¶</a></dt>
 <dd><p>Flip the action around the X axis using a pose</p>
@@ -2717,7 +2739,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Action.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2733,7 +2755,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Action.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Action.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2936,6 +2958,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 <li><a class="reference internal" href="#bpy.types.Action.use_cyclic"><code class="docutils literal notranslate"><span class="pre">Action.use_cyclic</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Action.use_frame_range"><code class="docutils literal notranslate"><span class="pre">Action.use_frame_range</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Action.deselect_keys"><code class="docutils literal notranslate"><span class="pre">Action.deselect_keys()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Action.fcurve_ensure_for_datablock"><code class="docutils literal notranslate"><span class="pre">Action.fcurve_ensure_for_datablock()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Action.flip_with_pose"><code class="docutils literal notranslate"><span class="pre">Action.flip_with_pose()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Action.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">Action.bl_rna_get_subclass()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Action.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">Action.bl_rna_get_subclass_py()</span></code></a></li>

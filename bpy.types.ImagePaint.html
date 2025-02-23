@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="ImagePreview(bpy_struct)" href="bpy.types.ImagePreview.html" /><link rel="prev" title="ImagePackedFile(bpy_struct)" href="bpy.types.ImagePackedFile.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.ImagePaint.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
         <title>ImagePaint(Paint) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -280,6 +280,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
@@ -2449,7 +2450,7 @@
 <p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Paint.html#bpy.types.Paint" title="bpy.types.Paint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Paint</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.ImagePaint">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">ImagePaint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Paint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ImagePaint" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">ImagePaint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Paint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ImagePaint" title="Link to this definition">¶</a></dt>
 <dd><p>Properties of image and texture painting mode</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ImagePaint.canvas">
@@ -2463,12 +2464,33 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ImagePaint.clone_alpha">
+<span class="sig-name descname"><span class="pre">clone_alpha</span></span><a class="headerlink" href="#bpy.types.ImagePaint.clone_alpha" title="Link to this definition">¶</a></dt>
+<dd><p>Opacity of clone image display</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [0, 1], default 0.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ImagePaint.clone_image">
 <span class="sig-name descname"><span class="pre">clone_image</span></span><a class="headerlink" href="#bpy.types.ImagePaint.clone_image" title="Link to this definition">¶</a></dt>
 <dd><p>Image used as clone source</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal notranslate"><span class="pre">Image</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ImagePaint.clone_offset">
+<span class="sig-name descname"><span class="pre">clone_offset</span></span><a class="headerlink" href="#bpy.types.ImagePaint.clone_offset" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 2 items in [-inf, inf], default (0.0, 0.0)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2696,7 +2718,7 @@ Single Image – Set image for texture painting directly.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.ImagePaint.bl_rna_get_subclass">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ImagePaint.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ImagePaint.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2712,7 +2734,7 @@ Single Image – Set image for texture painting directly.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.ImagePaint.bl_rna_get_subclass_py">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ImagePaint.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ImagePaint.bl_rna_get_subclass_py" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2865,7 +2887,9 @@ Single Image – Set image for texture painting directly.</p></li>
 <li><a class="reference internal" href="#">ImagePaint(Paint)</a><ul>
 <li><a class="reference internal" href="#bpy.types.ImagePaint"><code class="docutils literal notranslate"><span class="pre">ImagePaint</span></code></a><ul>
 <li><a class="reference internal" href="#bpy.types.ImagePaint.canvas"><code class="docutils literal notranslate"><span class="pre">ImagePaint.canvas</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ImagePaint.clone_alpha"><code class="docutils literal notranslate"><span class="pre">ImagePaint.clone_alpha</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.ImagePaint.clone_image"><code class="docutils literal notranslate"><span class="pre">ImagePaint.clone_image</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.ImagePaint.clone_offset"><code class="docutils literal notranslate"><span class="pre">ImagePaint.clone_offset</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.ImagePaint.dither"><code class="docutils literal notranslate"><span class="pre">ImagePaint.dither</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.ImagePaint.interpolation"><code class="docutils literal notranslate"><span class="pre">ImagePaint.interpolation</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.ImagePaint.invert_stencil"><code class="docutils literal notranslate"><span class="pre">ImagePaint.invert_stencil</span></code></a></li>

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="GPU Matrix Utilities (gpu.matrix)" href="gpu.matrix.html" /><link rel="prev" title="GPU Module (gpu)" href="gpu.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/gpu.types.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
         <title>GPU Types (gpu.types) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -280,6 +280,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
@@ -2448,7 +2449,7 @@
 <span id="gpu-types-gpu-types"></span><h1>GPU Types (gpu.types)<a class="headerlink" href="#module-gpu.types" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.Buffer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">Buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.Buffer" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">Buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.Buffer" title="Link to this definition">¶</a></dt>
 <dd><p>For Python access to GPU functions requiring a pointer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2471,7 +2472,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <ci
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUBatch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUBatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUBatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch" title="Link to this definition">¶</a></dt>
 <dd><p>Reusable container for drawable geometry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2497,7 +2498,7 @@ If <code class="docutils literal notranslate"><span class="pre">None</span></cod
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUBatch.draw_instanced">
-<span class="sig-name descname"><span class="pre">draw_instanced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch.draw_instanced" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw_instanced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch.draw_instanced" title="Link to this definition">¶</a></dt>
 <dd><p>Draw multiple instances of the drawing program with the parameters assigned
 to the batch. In the vertex shader, <cite>gl_InstanceID</cite> will contain the instance
 number being drawn.</p>
@@ -2516,7 +2517,7 @@ vertex buffer.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUBatch.draw_range">
-<span class="sig-name descname"><span class="pre">draw_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch.draw_range" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUBatch.draw_range" title="Link to this definition">¶</a></dt>
 <dd><p>Run the drawing program with the parameters assigned to the batch. Only draw the <code class="docutils literal notranslate"><span class="pre">elem_count</span></code> elements of the index buffer starting at <code class="docutils literal notranslate"><span class="pre">elem_start</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2566,7 +2567,7 @@ Current a batch can have at most GPU_BATCH_VBO_MAX_LEN vertex buffers.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUFrameBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth_slot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_slots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUFrameBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth_slot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_slots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer" title="Link to this definition">¶</a></dt>
 <dd><p>This object gives access to framebuffer functionalities.
 When a ‘layer’ is specified in a argument, a single layer of a 3D or array texture is attached to the frame-buffer.
 For cube map textures, layer is translated into a cube map face.</p>
@@ -2677,7 +2678,7 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUIndexBuf">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUIndexBuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUIndexBuf" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUIndexBuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUIndexBuf" title="Link to this definition">¶</a></dt>
 <dd><p>Contains an index buffer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2694,7 +2695,7 @@ Optionally the sequence can support the buffer protocol.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUOffScreen">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUOffScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGBA8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUOffScreen" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUOffScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGBA8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUOffScreen" title="Link to this definition">¶</a></dt>
 <dd><p>This object gives access to off screen buffers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2801,7 +2802,7 @@ The framebuffer, texture and render objects will no longer be accessible.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUShader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUShader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertexcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geocode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">libcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pyGPUShader'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShader" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUShader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertexcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geocode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">libcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pyGPUShader'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShader" title="Link to this definition">¶</a></dt>
 <dd><p>GPUShader combines multiple GLSL shaders into a program used for drawing.
 It must contain at least a vertex and fragment shaders.</p>
 <p>The GLSL <code class="docutils literal notranslate"><span class="pre">#version</span></code> directive is automatically included at the top of shaders,
@@ -3051,7 +3052,7 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUShaderCreateInfo</span></span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUShaderCreateInfo</span></span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo" title="Link to this definition">¶</a></dt>
 <dd><p>Stores and describes types and variables that are used in shader sources.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUShaderCreateInfo.compute_source">
@@ -3438,7 +3439,7 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUStageInterfaceInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUStageInterfaceInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUStageInterfaceInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUStageInterfaceInfo" title="Link to this definition">¶</a></dt>
 <dd><p>List of varyings between shader stages.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3556,7 +3557,7 @@ to transform the output sRGB colors to the frame-buffer color-space.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUTexture">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_cubemap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGBA8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_cubemap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGBA8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture" title="Link to this definition">¶</a></dt>
 <dd><p>This object gives access to off GPU textures.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3671,7 +3672,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <ci
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUUniformBuf">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUUniformBuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUUniformBuf" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUUniformBuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUUniformBuf" title="Link to this definition">¶</a></dt>
 <dd><p>This object gives access to off uniform buffers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3688,7 +3689,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <ci
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUVertBuf">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUVertBuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUVertBuf" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUVertBuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUVertBuf" title="Link to this definition">¶</a></dt>
 <dd><p>Contains a VBO.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3716,7 +3717,7 @@ Possible values are <cite>FLOAT</cite>, <cite>INT</cite>, <cite>UINT</cite>, <ci
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUVertFormat">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUVertFormat</span></span><a class="headerlink" href="#gpu.types.GPUVertFormat" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUVertFormat</span></span><a class="headerlink" href="#gpu.types.GPUVertFormat" title="Link to this definition">¶</a></dt>
 <dd><p>This object contains information about the structure of a vertex buffer.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUVertFormat.attr_add">
