@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="MeshCacheModifier(Modifier)" href="bpy.types.MeshCacheModifier.html" /><link rel="prev" title="Menu(bpy_struct)" href="bpy.types.Menu.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.Mesh.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Mesh(ID) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -861,6 +861,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportText.html">GeometryNodeImportText(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeIndexOfNearest.html">GeometryNodeIndexOfNearest(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeIndexSwitch.html">GeometryNodeIndexSwitch(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputActiveCamera.html">GeometryNodeInputActiveCamera(GeometryNode)</a></li>
@@ -3093,11 +3094,14 @@ Quad – Use the quad remesher.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Mesh.calc_smooth_groups">
-<span class="sig-name descname"><span class="pre">calc_smooth_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_bitflags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Mesh.calc_smooth_groups" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">calc_smooth_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_bitflags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_boundary_vertices_for_bitflags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Mesh.calc_smooth_groups" title="Link to this definition">¶</a></dt>
 <dd><p>Calculate smooth groups from sharp edges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>use_bitflags</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Produce bitflags groups instead of simple numeric values</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_bitflags</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Produce bitflags groups instead of simple numeric values</p></li>
+<li><p><strong>use_boundary_vertices_for_bitflags</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Also consider different smoothgroups sharing only vertices (but without any common edge) as neighbors, preventing them from sharing the same bitflag value. Only effective when <cite>use_bitflags</cite> is set. WARNING: Will overflow (run out of available bits) easily with some types of topology, e.g. large fans of sharp edges</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p><cite>poly_groups</cite>, Smooth Groups, int array of 1 items in [-inf, inf]</p>

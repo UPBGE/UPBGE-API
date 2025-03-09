@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="WipeStrip(EffectStrip)" href="bpy.types.WipeStrip.html" /><link rel="prev" title="Window(bpy_struct)" href="bpy.types.Window.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.types.WindowManager.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>WindowManager(ID) - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -861,6 +861,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportText.html">GeometryNodeImportText(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeIndexOfNearest.html">GeometryNodeIndexOfNearest(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeIndexSwitch.html">GeometryNodeIndexSwitch(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputActiveCamera.html">GeometryNodeInputActiveCamera(GeometryNode)</a></li>
@@ -2498,7 +2499,7 @@ Testing – Newly contributed scripts (excluded from release builds).</p></li>
 <span class="sig-name descname"><span class="pre">addon_tags</span></span><a class="headerlink" href="#bpy.types.WindowManager.addon_tags" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BlExtDummyGroup</span></code>, (readonly, never None)</p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BlExtDummyGroup</span></code>, (readonly)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2552,7 +2553,7 @@ Testing – Newly contributed scripts (excluded from release builds).</p></li>
 <span class="sig-name descname"><span class="pre">extension_tags</span></span><a class="headerlink" href="#bpy.types.WindowManager.extension_tags" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BlExtDummyGroup</span></code>, (readonly, never None)</p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BlExtDummyGroup</span></code>, (readonly)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2696,7 +2697,7 @@ Themes – Only show themes.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.fileselect_add">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fileselect_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.fileselect_add" title="Link to this definition">¶</a></dt>
-<dd><p>Opens a file selector with an operator. The string properties ‘filepath’, ‘filename’, ‘directory’ and a ‘files’ collection are assigned when present in the operator.</p>
+<dd><p>Opens a file selector with an operator. The string properties ‘filepath’, ‘filename’, ‘directory’ and a ‘files’ collection are assigned when present in the operator. If ‘filter_glob’ property is present in the operator and it’s not empty, it will be used as a file filter (example value: ‘<em>.zip;</em>.py;*.exe’).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code></a>) – Operator to call</p>

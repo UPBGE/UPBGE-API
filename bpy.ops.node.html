@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Object Operators" href="bpy.ops.object.html" /><link rel="prev" title="Nla Operators" href="bpy.ops.nla.html" />
         <link rel="canonical" href="https://docs.blender.org/api/current/bpy.ops.node.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.1 and Furo 2024.08.06 -->
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Node Operators - Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
@@ -861,6 +861,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportOBJ.html">GeometryNodeImportOBJ(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportPLY.html">GeometryNodeImportPLY(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportSTL.html">GeometryNodeImportSTL(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImportText.html">GeometryNodeImportText(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeIndexOfNearest.html">GeometryNodeIndexOfNearest(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeIndexSwitch.html">GeometryNodeIndexSwitch(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputActiveCamera.html">GeometryNodeInputActiveCamera(GeometryNode)</a></li>
@@ -2448,6 +2449,12 @@
           <section id="module-bpy.ops.node">
 <span id="node-operators"></span><h1>Node Operators<a class="headerlink" href="#module-bpy.ops.node" title="Link to this heading">¶</a></h1>
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.activate_viewer">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">activate_viewer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.activate_viewer" title="Link to this definition">¶</a></dt>
+<dd><p>Activate selected viewer node in compositor and geometry nodes</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.add_collection">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">add_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_collection" title="Link to this definition">¶</a></dt>
 <dd><p>Add a collection info node to the current node editor</p>
@@ -2552,7 +2559,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start transform operator after inserting the node</p></li>
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional, never None)) – Settings, Settings to be applied on the newly created node</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional)) – Settings, Settings to be applied on the newly created node</p></li>
 <li><p><strong>offset</strong> (<em>float array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset, Offset of nodes from the cursor when added</p></li>
 </ul>
 </dd>
@@ -2642,7 +2649,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start transform operator after inserting the node</p></li>
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional, never None)) – Settings, Settings to be applied on the newly created node</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional)) – Settings, Settings to be applied on the newly created node</p></li>
 <li><p><strong>type</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Node Type, Node type</p></li>
 </ul>
 </dd>
@@ -2674,7 +2681,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start transform operator after inserting the node</p></li>
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional, never None)) – Settings, Settings to be applied on the newly created node</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional)) – Settings, Settings to be applied on the newly created node</p></li>
 <li><p><strong>offset</strong> (<em>float array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset, Offset of nodes from the cursor when added</p></li>
 </ul>
 </dd>
@@ -2706,7 +2713,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>use_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Transform, Start transform operator after inserting the node</p></li>
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional, never None)) – Settings, Settings to be applied on the newly created node</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>, (optional)) – Settings, Settings to be applied on the newly created node</p></li>
 <li><p><strong>offset</strong> (<em>float array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset, Offset of nodes from the cursor when added</p></li>
 </ul>
 </dd>
@@ -3155,21 +3162,32 @@ Move – Move to parent node tree, remove from group.</p></li>
 <dd><p>Add a copy of the active item to the interface</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L380">startup/bl_operators/node.py:380</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L406">startup/bl_operators/node.py:406</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.interface_item_make_panel_toggle">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">interface_item_make_panel_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.interface_item_make_panel_toggle" title="Link to this definition">¶</a></dt>
+<dd><p>Make the active boolean socket a toggle for its parent panel</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L469">startup/bl_operators/node.py:469</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.interface_item_new">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">interface_item_new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INPUT'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.interface_item_new" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">interface_item_new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.interface_item_new" title="Link to this definition">¶</a></dt>
 <dd><p>Add a new item to the interface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>item_type</strong> (<em>enum in</em><em> [</em><em>'INPUT'</em><em>, </em><em>'OUTPUT'</em><em>, </em><em>'PANEL'</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Item Type, Type of the item to create</p>
+<dd class="field-odd"><p><strong>item_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Item Type, Type of the item to create</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L335">startup/bl_operators/node.py:335</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L349">startup/bl_operators/node.py:349</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3180,7 +3198,18 @@ Move – Move to parent node tree, remove from group.</p></li>
 <dd><p>Remove active item from the interface</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L399">startup/bl_operators/node.py:399</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L425">startup/bl_operators/node.py:425</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.interface_item_unlink_panel_toggle">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">interface_item_unlink_panel_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.interface_item_unlink_panel_toggle" title="Link to this definition">¶</a></dt>
+<dd><p>Make the panel toggle a stand-alone socket</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L517">startup/bl_operators/node.py:517</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3734,7 +3763,7 @@ Subtract – Subtract existing selection.</p></li>
 <dd class="field-odd"><p><strong>viewer_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Viewer Index, Index corresponding to the shortcut, e.g. number key 1 corresponds to index 1 etc..</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L503">startup/bl_operators/node.py:503</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L635">startup/bl_operators/node.py:635</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3748,7 +3777,7 @@ Subtract – Subtract existing selection.</p></li>
 <dd class="field-odd"><p><strong>viewer_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Viewer Index, Index corresponding to the shortcut, e.g. number key 1 corresponds to index 1 etc..</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L440">startup/bl_operators/node.py:440</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/node.py#L571">startup/bl_operators/node.py:571</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3818,6 +3847,7 @@ Subtract – Subtract existing selection.</p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Node Operators</a><ul>
+<li><a class="reference internal" href="#bpy.ops.node.activate_viewer"><code class="docutils literal notranslate"><span class="pre">activate_viewer()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.add_collection"><code class="docutils literal notranslate"><span class="pre">add_collection()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.add_color"><code class="docutils literal notranslate"><span class="pre">add_color()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.add_file"><code class="docutils literal notranslate"><span class="pre">add_file()</span></code></a></li>
@@ -3885,8 +3915,10 @@ Subtract – Subtract existing selection.</p></li>
 <li><a class="reference internal" href="#bpy.ops.node.index_switch_item_remove"><code class="docutils literal notranslate"><span class="pre">index_switch_item_remove()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.insert_offset"><code class="docutils literal notranslate"><span class="pre">insert_offset()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.interface_item_duplicate"><code class="docutils literal notranslate"><span class="pre">interface_item_duplicate()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.node.interface_item_make_panel_toggle"><code class="docutils literal notranslate"><span class="pre">interface_item_make_panel_toggle()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.interface_item_new"><code class="docutils literal notranslate"><span class="pre">interface_item_new()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.interface_item_remove"><code class="docutils literal notranslate"><span class="pre">interface_item_remove()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.ops.node.interface_item_unlink_panel_toggle"><code class="docutils literal notranslate"><span class="pre">interface_item_unlink_panel_toggle()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.join"><code class="docutils literal notranslate"><span class="pre">join()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.link"><code class="docutils literal notranslate"><span class="pre">link()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.ops.node.link_make"><code class="docutils literal notranslate"><span class="pre">link_make()</span></code></a></li>
