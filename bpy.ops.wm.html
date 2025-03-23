@@ -555,6 +555,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeHueSat.html">CompositorNodeHueSat(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeIDMask.html">CompositorNodeIDMask(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeImage.html">CompositorNodeImage(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeImageInfo.html">CompositorNodeImageInfo(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeInpaint.html">CompositorNodeInpaint(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeInvert.html">CompositorNodeInvert(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeKeying.html">CompositorNodeKeying(CompositorNode)</a></li>
@@ -3846,7 +3847,7 @@ Viewport – Export objects as they appear in the viewport.</p></li>
 </p></li>
 <li><p><strong>export_selected_objects</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Selected Objects, Export only selected objects instead of all supported objects</p></li>
 <li><p><strong>export_uv</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export UVs</p></li>
-<li><p><strong>export_normals</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Normals, Export per-face normals if the face is flat-shaded, per-face-per-loop normals if smooth-shaded</p></li>
+<li><p><strong>export_normals</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Normals, Export per-face normals if the face is flat-shaded, per-face-corner normals if smooth-shaded</p></li>
 <li><p><strong>export_colors</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Colors, Export per-vertex colors</p></li>
 <li><p><strong>export_materials</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Materials, Export MTL library. There must be a Principled-BSDF node for image textures to be exported to the MTL file</p></li>
 <li><p><strong>export_pbr_extensions</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Materials with PBR Extensions, Export MTL library using PBR extensions (roughness, metallic, sheen, coat, anisotropy, transmission)</p></li>
@@ -3871,8 +3872,8 @@ Copy – Copy the file to the destination path.</p></li>
 <li><p><strong>export_object_groups</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Object Groups, Append mesh name to object name, separated by a ‘_’</p></li>
 <li><p><strong>export_material_groups</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Material Groups, Generate an OBJ group for each part of a geometry using a different material</p></li>
 <li><p><strong>export_vertex_groups</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Vertex Groups, Export the name of the vertex group of a face. It is approximated by choosing the vertex group with the most members among the vertices of a face</p></li>
-<li><p><strong>export_smooth_groups</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Smooth Groups, Every smooth-shaded face is assigned group “1” and every flat-shaded face “off”</p></li>
-<li><p><strong>smooth_group_bitflags</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Generate Bitflags for Smooth Groups</p></li>
+<li><p><strong>export_smooth_groups</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Smooth Groups, Generate smooth groups identifiers for each group of smooth faces, as unique integer values by default</p></li>
+<li><p><strong>smooth_group_bitflags</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Bitflags Smooth Groups, If exporting smoothgroups, generate ‘bitflags’ values for the groups, instead of unique integer values. The same bitflag value can be re-used for different groups of smooth faces, as long as they have no common sharp edges or vertices</p></li>
 <li><p><strong>filter_glob</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Extension Filter</p></li>
 <li><p><strong>collection</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Collection</p></li>
 </ul>

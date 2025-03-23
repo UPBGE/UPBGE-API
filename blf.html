@@ -555,6 +555,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeHueSat.html">CompositorNodeHueSat(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeIDMask.html">CompositorNodeIDMask(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeImage.html">CompositorNodeImage(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeImageInfo.html">CompositorNodeImageInfo(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeInpaint.html">CompositorNodeInpaint(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeInvert.html">CompositorNodeInvert(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeKeying.html">CompositorNodeKeying(CompositorNode)</a></li>
@@ -2493,6 +2494,34 @@ need to use the GPU module <a class="reference internal" href="gpu.html#module-g
     <span class="n">init</span><span class="p">()</span>
 </pre></div>
 </div>
+</section>
+<section id="drawing-text-to-an-image">
+<h2>Drawing Text to an Image<a class="headerlink" href="#drawing-text-to-an-image" title="Link to this heading">¶</a></h2>
+<p>Example showing how text can be draw into an image.
+This can be done by binding an image buffer (<a class="reference internal" href="imbuf.html#module-imbuf" title="imbuf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imbuf</span></code></a>) to the font’s ID.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">blf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imbuf</span>
+
+<span class="n">image_size</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">512</span>
+<span class="n">font_size</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">ibuf</span> <span class="o">=</span> <span class="n">imbuf</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">image_size</span><span class="p">)</span>
+
+<span class="n">font_id</span> <span class="o">=</span> <span class="n">blf</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;/path/to/font.ttf&quot;</span><span class="p">)</span>
+
+<span class="n">blf</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">blf</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">font_size</span><span class="p">)</span>
+<span class="n">blf</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">font_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">blf</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">blf</span><span class="o">.</span><span class="n">WORD_WRAP</span><span class="p">)</span>
+<span class="n">blf</span><span class="o">.</span><span class="n">word_wrap</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">with</span> <span class="n">blf</span><span class="o">.</span><span class="n">bind_imbuf</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">ibuf</span><span class="p">,</span> <span class="n">display_name</span><span class="o">=</span><span class="s2">&quot;sRGB&quot;</span><span class="p">):</span>
+    <span class="n">blf</span><span class="o">.</span><span class="n">draw_buffer</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="s2">&quot;Lots of wrapped text. &quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="n">imbuf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ibuf</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;/path/to/image.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.aspect">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">aspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.aspect" title="Link to this definition">¶</a></dt>
@@ -2503,6 +2532,27 @@ need to use the GPU module <a class="reference internal" href="gpu.html#module-g
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
 <li><p><strong>aspect</strong> (<em>float</em>) – The aspect ratio for text drawing to use.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="blf.bind_imbuf">
+<span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">bind_imbuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.bind_imbuf" title="Link to this definition">¶</a></dt>
+<dd><p>Context manager to draw text into an image buffer instead of the GPU’s context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
+<li><p><strong>imbuf</strong> (<a class="reference internal" href="imbuf.types.html#imbuf.types.ImBuf" title="imbuf.types.ImBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">imbuf.types.ImBuf</span></code></a>) – The image to draw into.</p></li>
+<li><p><strong>display_name</strong> (<em>str</em><em> | </em><em>None</em>) – The color management display name to use or None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The BLF ImBuf context manager.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BLFImBufContext</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2579,6 +2629,20 @@ need to use the GPU module <a class="reference internal" href="gpu.html#module-g
 <dt class="sig sig-object py" id="blf.draw">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.draw" title="Link to this definition">¶</a></dt>
 <dd><p>Draw text in the current context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – the text to draw.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blf.draw_buffer">
+<span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">draw_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.draw_buffer" title="Link to this definition">¶</a></dt>
+<dd><p>Draw text into the buffer bound to the fontid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2818,13 +2882,16 @@ need to use the GPU module <a class="reference internal" href="gpu.html#module-g
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Font Drawing (blf)</a><ul>
-<li><a class="reference internal" href="#hello-world-text-example">Hello World Text Example</a><ul>
+<li><a class="reference internal" href="#hello-world-text-example">Hello World Text Example</a></li>
+<li><a class="reference internal" href="#drawing-text-to-an-image">Drawing Text to an Image</a><ul>
 <li><a class="reference internal" href="#blf.aspect"><code class="docutils literal notranslate"><span class="pre">aspect()</span></code></a></li>
+<li><a class="reference internal" href="#blf.bind_imbuf"><code class="docutils literal notranslate"><span class="pre">bind_imbuf()</span></code></a></li>
 <li><a class="reference internal" href="#blf.clipping"><code class="docutils literal notranslate"><span class="pre">clipping()</span></code></a></li>
 <li><a class="reference internal" href="#blf.color"><code class="docutils literal notranslate"><span class="pre">color()</span></code></a></li>
 <li><a class="reference internal" href="#blf.dimensions"><code class="docutils literal notranslate"><span class="pre">dimensions()</span></code></a></li>
 <li><a class="reference internal" href="#blf.disable"><code class="docutils literal notranslate"><span class="pre">disable()</span></code></a></li>
 <li><a class="reference internal" href="#blf.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li><a class="reference internal" href="#blf.draw_buffer"><code class="docutils literal notranslate"><span class="pre">draw_buffer()</span></code></a></li>
 <li><a class="reference internal" href="#blf.enable"><code class="docutils literal notranslate"><span class="pre">enable()</span></code></a></li>
 <li><a class="reference internal" href="#blf.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
 <li><a class="reference internal" href="#blf.position"><code class="docutils literal notranslate"><span class="pre">position()</span></code></a></li>

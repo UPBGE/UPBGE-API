@@ -555,6 +555,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeHueSat.html">CompositorNodeHueSat(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeIDMask.html">CompositorNodeIDMask(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeImage.html">CompositorNodeImage(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeImageInfo.html">CompositorNodeImageInfo(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeInpaint.html">CompositorNodeInpaint(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeInvert.html">CompositorNodeInvert(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeKeying.html">CompositorNodeKeying(CompositorNode)</a></li>
@@ -2594,6 +2595,35 @@ slice via <cite>drawing.strokes[n]</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.GreasePencilDrawing.vertex_group_assign">
+<span class="sig-name descname"><span class="pre">vertex_group_assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vgroup_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GreasePencilDrawing.vertex_group_assign" title="Link to this definition">¶</a></dt>
+<dd><p>Assign points to vertex group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vgroup_name</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Vertex Group Name, Name of the vertex group</p></li>
+<li><p><strong>indices_ptr</strong> (<em>int array</em><em> of </em><em>1 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Indices, The point indices to assign the weight to</p></li>
+<li><p><strong>weight</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em>) – Vertex weight</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.GreasePencilDrawing.vertex_group_remove">
+<span class="sig-name descname"><span class="pre">vertex_group_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vgroup_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices_ptr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GreasePencilDrawing.vertex_group_remove" title="Link to this definition">¶</a></dt>
+<dd><p>Remove points from vertex group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vgroup_name</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – Vertex Group Name, Name of the vertex group</p></li>
+<li><p><strong>indices_ptr</strong> (<em>int array</em><em> of </em><em>1 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em>) – Indices, The point indices to remove from the vertex group</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.GreasePencilDrawing.bl_rna_get_subclass">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GreasePencilDrawing.bl_rna_get_subclass" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -2754,6 +2784,8 @@ slice via <cite>drawing.strokes[n]</cite>.</p>
 <li><a class="reference internal" href="#bpy.types.GreasePencilDrawing.reorder_strokes"><code class="docutils literal notranslate"><span class="pre">GreasePencilDrawing.reorder_strokes()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.GreasePencilDrawing.set_types"><code class="docutils literal notranslate"><span class="pre">GreasePencilDrawing.set_types()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.GreasePencilDrawing.tag_positions_changed"><code class="docutils literal notranslate"><span class="pre">GreasePencilDrawing.tag_positions_changed()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.GreasePencilDrawing.vertex_group_assign"><code class="docutils literal notranslate"><span class="pre">GreasePencilDrawing.vertex_group_assign()</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.GreasePencilDrawing.vertex_group_remove"><code class="docutils literal notranslate"><span class="pre">GreasePencilDrawing.vertex_group_remove()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.GreasePencilDrawing.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">GreasePencilDrawing.bl_rna_get_subclass()</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.GreasePencilDrawing.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">GreasePencilDrawing.bl_rna_get_subclass_py()</span></code></a></li>
 </ul>
