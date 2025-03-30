@@ -2459,7 +2459,7 @@ meaning that operator execution was aborted without making any changes, and
 that no undo step will created (see next example for more info about undo).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Operator subclasses must be registered before accessing them from blender.</p>
+<p>Operator subclasses must be registered before accessing them from Blender.</p>
 </div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
@@ -2552,11 +2552,17 @@ invoke() is typically used to assign properties which are then used by
 execute().
 Some operators don’t have an execute() function, removing the ability to be
 repeated from a script or macro.</p>
+<p>When an operator is called via <a class="reference internal" href="bpy.ops.html#module-bpy.ops" title="bpy.ops"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops</span></code></a>, the execution context depends
+on the argument provided to <a class="reference internal" href="bpy.ops.html#module-bpy.ops" title="bpy.ops"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops</span></code></a>. By default, it uses execute().
+When an operator is activated from a button or menu item, it follows
+the setting in <a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout.operator_context" title="bpy.types.UILayout.operator_context"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout.operator_context</span></code></a>. In most cases, invoke() is used.
+Running an operator via a key shortcut always uses invoke(),
+and this behavior cannot be changed.</p>
 <p>This example shows how to define an operator which gets mouse input to
 execute a function and that this operator can be invoked or executed from
-the python api.</p>
+the Python API.</p>
 <p>Also notice this operator defines its own properties, these are different
-to typical class properties because blender registers them with the
+to typical class properties because Blender registers them with the
 operator, to use as arguments when called, saved for operator undo/redo and
 automatically added into the user interface.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
@@ -2762,7 +2768,7 @@ by returning <code class="docutils literal notranslate"><span class="pre">{'RUNN
 For other operator types they are not useful but for modal operators they will
 be called before the <a class="reference internal" href="#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> and after the operator finishes.
 Also see the
-<a class="reference internal" href="info_overview.html#info-overview-class-construction-destruction"><span class="std std-ref">class construction and destruction section</span></a></p>
+<a class="reference internal" href="info_overview.html#info-overview-class-construction-destruction"><span class="std std-ref">class construction and destruction section</span></a>.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 

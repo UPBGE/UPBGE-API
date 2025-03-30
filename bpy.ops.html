@@ -2451,8 +2451,8 @@
 <span id="operators-bpy-ops"></span><h1>Operators (bpy.ops)<a class="headerlink" href="#module-bpy.ops" title="Link to this heading">¶</a></h1>
 <section id="calling-operators">
 <h2>Calling Operators<a class="headerlink" href="#calling-operators" title="Link to this heading">¶</a></h2>
-<p>Provides python access to calling operators, this includes operators written in
-C, Python or macros.</p>
+<p>Provides Python access to calling operators, this includes operators written in
+C++, Python or macros.</p>
 <p>Only keyword arguments can be used to pass operator properties.</p>
 <p>Operators don’t have return values as you might expect,
 instead they return a set() which is made up of:
@@ -2460,10 +2460,13 @@ instead they return a set() which is made up of:
 Common return values are <code class="docutils literal notranslate"><span class="pre">{'FINISHED'}</span></code> and <code class="docutils literal notranslate"><span class="pre">{'CANCELLED'}</span></code>, the latter
 meaning that the operator execution was aborted without making any changes or
 saving an undo history entry.</p>
+<p>If operator was cancelled but there wasn’t any reports from it with <code class="docutils literal notranslate"><span class="pre">{'ERROR'}</span></code> type,
+it will just return <code class="docutils literal notranslate"><span class="pre">{'CANCELLED'}</span></code> without raising any exceptions.
+If it had error reports, then it will raise a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> including all report messages.</p>
 <p>Calling an operator in the wrong context will raise a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code>,
 there is a poll() method to avoid this problem.</p>
 <p>Note that the operator ID (bl_idname) in this example is <code class="docutils literal notranslate"><span class="pre">mesh.subdivide</span></code>,
-<code class="docutils literal notranslate"><span class="pre">bpy.ops</span></code> is just the access path for python.</p>
+<code class="docutils literal notranslate"><span class="pre">bpy.ops</span></code> is just the access path for Python.</p>
 <section id="keywords-and-positional-arguments">
 <h3>Keywords and Positional Arguments<a class="headerlink" href="#keywords-and-positional-arguments" title="Link to this heading">¶</a></h3>
 <p>For calling operators keywords are used for operator properties and

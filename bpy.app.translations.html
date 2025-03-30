@@ -2460,7 +2460,7 @@ If you are a regular add-on, you should only bother about <a class="reference in
 and the <a class="reference internal" href="#bpy.app.translations.register" title="bpy.app.translations.register"><code class="xref py py-func docutils literal notranslate"><span class="pre">register()</span></code></a>/<a class="reference internal" href="#bpy.app.translations.unregister" title="bpy.app.translations.unregister"><code class="xref py py-func docutils literal notranslate"><span class="pre">unregister()</span></code></a> functions! The <a class="reference internal" href="#bpy.app.translations.pgettext" title="bpy.app.translations.pgettext"><code class="xref py py-func docutils literal notranslate"><span class="pre">pgettext()</span></code></a> family of functions
 should only be used in rare, specific cases (like e.g. complex “composited” UI strings…).</p>
 </div>
-<p>To add translations to your python script, you must define a dictionary formatted like that:
+<p>To add translations to your Python script, you must define a dictionary formatted like that:
 <code class="docutils literal notranslate"><span class="pre">{locale:</span> <span class="pre">{msg_key:</span> <span class="pre">msg_translation,</span> <span class="pre">...},</span> <span class="pre">...}</span></code> where:</p>
 <ul class="simple">
 <li><p>locale is either a lang iso code (e.g. <code class="docutils literal notranslate"><span class="pre">fr</span></code>), a lang+country code (e.g. <code class="docutils literal notranslate"><span class="pre">pt_BR</span></code>),
@@ -2471,7 +2471,7 @@ a lang+variant code (e.g. <code class="docutils literal notranslate"><span class
 <p>Then, call <code class="docutils literal notranslate"><span class="pre">bpy.app.translations.register(__name__,</span> <span class="pre">your_dict)</span></code> in your <code class="docutils literal notranslate"><span class="pre">register()</span></code> function, and
 <code class="docutils literal notranslate"><span class="pre">bpy.app.translations.unregister(__name__)</span></code> in your <code class="docutils literal notranslate"><span class="pre">unregister()</span></code> one.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">UI</span> <span class="pre">translations</span></code> add-on has several functions to help you collect strings to translate, and
-generate the needed python code (the translation dictionary), as well as optional intermediary po files
+generate the needed Python code (the translation dictionary), as well as optional intermediary po files
 if you want some… See
 <a class="reference external" href="https://developer.blender.org/docs/handbook/translating/translator_guide/">How to Translate Blender</a> and
 <a class="reference external" href="https://developer.blender.org/docs/handbook/translating/developer_guide/">Using i18n in Blender Code</a>

@@ -2457,14 +2457,16 @@ reference from a header, panel or another menu.</p>
 convention for menus.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Menu subclasses must be registered before referencing them from blender.</p>
+<p>Menu subclasses must be registered before referencing them from Blender.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Menus have their <code class="xref py py-class docutils literal notranslate"><span class="pre">Layout.operator_context</span></code> initialized as
-‘EXEC_REGION_WIN’ rather than ‘INVOKE_DEFAULT’ (see <a class="reference internal" href="bpy.ops.html#operator-execution-context"><span class="std std-ref">Execution Context</span></a>).
+<p>Menus have their <a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout.operator_context" title="bpy.types.UILayout.operator_context"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout.operator_context</span></code></a> initialized as
+‘EXEC_REGION_WIN’ rather than ‘INVOKE_REGION_WIN’ (see <a class="reference internal" href="bpy.ops.html#operator-execution-context"><span class="std std-ref">Execution Context</span></a>).
 If the operator context needs to initialize inputs from the
-<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> function, then this needs to be explicitly set.</p>
+<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator.invoke</span></code></a> function, then this needs to be explicitly set.
+When a menu is added to UI elements such as a panel or header,
+the operator execution context will be inherited from them.</p>
 </div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
