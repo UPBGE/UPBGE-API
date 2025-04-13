@@ -848,7 +848,10 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeExtrudeMesh.html">GeometryNodeExtrudeMesh(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFaceOfCorner.html">GeometryNodeFaceOfCorner(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldAtIndex.html">GeometryNodeFieldAtIndex(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldAverage.html">GeometryNodeFieldAverage(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldMinAndMax.html">GeometryNodeFieldMinAndMax(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldOnDomain.html">GeometryNodeFieldOnDomain(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldVariance.html">GeometryNodeFieldVariance(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFillCurve.html">GeometryNodeFillCurve(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFilletCurve.html">GeometryNodeFilletCurve(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFlipFaces.html">GeometryNodeFlipFaces(GeometryNode)</a></li>
@@ -966,6 +969,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveRadius.html">GeometryNodeSetCurveRadius(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveTilt.html">GeometryNodeSetCurveTilt(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGeometryName.html">GeometryNodeSetGeometryName(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGreasePencilColor.html">GeometryNodeSetGreasePencilColor(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGreasePencilDepth.html">GeometryNodeSetGreasePencilDepth(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetID.html">GeometryNodeSetID(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetInstanceTransform.html">GeometryNodeSetInstanceTransform(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetMaterial.html">GeometryNodeSetMaterial(GeometryNode)</a></li>
@@ -2096,6 +2101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/brush_image_brush_type_items.html">Brush Image Brush Type Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/brush_curve_preset_items.html">Brush Curve Preset Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/grease_pencil_selectmode_items.html">Grease Pencil Selectmode Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/stroke_depth_order_items.html">Stroke Depth Order Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/axis_xy_items.html">Axis Xy Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html">Axis Xyz Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/axis_flag_xyz_items.html">Axis Flag Xyz Items</a></li>
@@ -5446,8 +5452,6 @@
           <li><a href="bpy.types.SpaceView3D.html#bpy.types.SpaceView3D.show_gizmo_navigate">(bpy.types.SpaceView3D attribute)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="bpy.types.SpaceView3D.html#bpy.types.SpaceView3D.show_gizmo_object_rotate">show_gizmo_object_rotate (bpy.types.SpaceView3D attribute)</a>
 </li>
         <li><a href="bpy.types.SpaceView3D.html#bpy.types.SpaceView3D.show_gizmo_object_scale">show_gizmo_object_scale (bpy.types.SpaceView3D attribute)</a>
@@ -5472,6 +5476,8 @@
 </li>
         <li><a href="bpy.types.SpaceClipEditor.html#bpy.types.SpaceClipEditor.show_graph_tracks_motion">show_graph_tracks_motion (bpy.types.SpaceClipEditor attribute)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="bpy.types.SpaceClipEditor.html#bpy.types.SpaceClipEditor.show_green_channel">show_green_channel (bpy.types.SpaceClipEditor attribute)</a>
 </li>
         <li><a href="bpy.types.SequencerTimelineOverlay.html#bpy.types.SequencerTimelineOverlay.show_grid">show_grid (bpy.types.SequencerTimelineOverlay attribute)</a>
@@ -5935,6 +5941,44 @@
         <li><a href="bpy.types.Node.html#bpy.types.Node.show_preview">show_preview (bpy.types.Node attribute)</a>
 </li>
         <li><a href="bpy.types.SpaceNodeOverlay.html#bpy.types.SpaceNodeOverlay.show_previews">show_previews (bpy.types.SpaceNodeOverlay attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_bone">show_properties_bone (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_bone_constraints">show_properties_bone_constraints (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_collection">show_properties_collection (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_constraints">show_properties_constraints (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_data">show_properties_data (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_effects">show_properties_effects (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_game">show_properties_game (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_material">show_properties_material (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_modifiers">show_properties_modifiers (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_object">show_properties_object (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_output">show_properties_output (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_particles">show_properties_particles (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_physics">show_properties_physics (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_render">show_properties_render (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_scene">show_properties_scene (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_texture">show_properties_texture (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_tool">show_properties_tool (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_view_layer">show_properties_view_layer (bpy.types.SpaceProperties attribute)</a>
+</li>
+        <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.show_properties_world">show_properties_world (bpy.types.SpaceProperties attribute)</a>
 </li>
         <li><a href="bpy.types.PreferencesFilePaths.html#bpy.types.PreferencesFilePaths.show_recent_locations">show_recent_locations (bpy.types.PreferencesFilePaths attribute)</a>
 </li>

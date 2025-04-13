@@ -848,7 +848,10 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeExtrudeMesh.html">GeometryNodeExtrudeMesh(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFaceOfCorner.html">GeometryNodeFaceOfCorner(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldAtIndex.html">GeometryNodeFieldAtIndex(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldAverage.html">GeometryNodeFieldAverage(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldMinAndMax.html">GeometryNodeFieldMinAndMax(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldOnDomain.html">GeometryNodeFieldOnDomain(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldVariance.html">GeometryNodeFieldVariance(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFillCurve.html">GeometryNodeFillCurve(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFilletCurve.html">GeometryNodeFilletCurve(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFlipFaces.html">GeometryNodeFlipFaces(GeometryNode)</a></li>
@@ -966,6 +969,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveRadius.html">GeometryNodeSetCurveRadius(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveTilt.html">GeometryNodeSetCurveTilt(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGeometryName.html">GeometryNodeSetGeometryName(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGreasePencilColor.html">GeometryNodeSetGreasePencilColor(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGreasePencilDepth.html">GeometryNodeSetGreasePencilDepth(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetID.html">GeometryNodeSetID(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetInstanceTransform.html">GeometryNodeSetInstanceTransform(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetMaterial.html">GeometryNodeSetMaterial(GeometryNode)</a></li>
@@ -2096,6 +2101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/brush_image_brush_type_items.html">Brush Image Brush Type Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/brush_curve_preset_items.html">Brush Curve Preset Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/grease_pencil_selectmode_items.html">Grease Pencil Selectmode Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/stroke_depth_order_items.html">Stroke Depth Order Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/axis_xy_items.html">Axis Xy Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html">Axis Xyz Items</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/axis_flag_xyz_items.html">Axis Flag Xyz Items</a></li>
@@ -2509,10 +2515,10 @@ Data – Object Data Properties.</p></li>
 Bone – Bone Properties.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BONE_CONSTRAINT</span></code>
 Bone Constraints – Bone Constraint Properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GAME</span></code>
+Game Components – Game Components Properties.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MATERIAL</span></code>
 Material – Material Properties.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GAME</span></code>
-Game – Game Object Properties.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TEXTURE</span></code>
 Texture – Texture Properties.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PARTICLES</span></code>
@@ -2524,7 +2530,7 @@ Effects – Visual Effects Properties.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [‘TOOL’, ‘SCENE’, ‘RENDER’, ‘OUTPUT’, ‘VIEW_LAYER’, ‘WORLD’, ‘COLLECTION’, ‘OBJECT’, ‘CONSTRAINT’, ‘MODIFIER’, ‘DATA’, ‘BONE’, ‘BONE_CONSTRAINT’, ‘MATERIAL’, ‘GAME’, ‘TEXTURE’, ‘PARTICLES’, ‘PHYSICS’, ‘SHADERFX’], default ‘RENDER’</p>
+<dd class="field-odd"><p>enum in [‘TOOL’, ‘SCENE’, ‘RENDER’, ‘OUTPUT’, ‘VIEW_LAYER’, ‘WORLD’, ‘COLLECTION’, ‘OBJECT’, ‘CONSTRAINT’, ‘MODIFIER’, ‘DATA’, ‘BONE’, ‘BONE_CONSTRAINT’, ‘GAME’, ‘MATERIAL’, ‘TEXTURE’, ‘PARTICLES’, ‘PHYSICS’, ‘SHADERFX’], default ‘RENDER’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2565,6 +2571,196 @@ Auto – Change tabs only when this editor shares a border with an outliner.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, default “”, (never None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_bone">
+<span class="sig-name descname"><span class="pre">show_properties_bone</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_bone" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_bone_constraints">
+<span class="sig-name descname"><span class="pre">show_properties_bone_constraints</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_bone_constraints" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_collection">
+<span class="sig-name descname"><span class="pre">show_properties_collection</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_collection" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_constraints">
+<span class="sig-name descname"><span class="pre">show_properties_constraints</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_constraints" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_data">
+<span class="sig-name descname"><span class="pre">show_properties_data</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_data" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_effects">
+<span class="sig-name descname"><span class="pre">show_properties_effects</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_effects" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_game">
+<span class="sig-name descname"><span class="pre">show_properties_game</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_game" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_material">
+<span class="sig-name descname"><span class="pre">show_properties_material</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_material" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_modifiers">
+<span class="sig-name descname"><span class="pre">show_properties_modifiers</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_modifiers" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_object">
+<span class="sig-name descname"><span class="pre">show_properties_object</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_object" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_output">
+<span class="sig-name descname"><span class="pre">show_properties_output</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_output" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_particles">
+<span class="sig-name descname"><span class="pre">show_properties_particles</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_particles" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_physics">
+<span class="sig-name descname"><span class="pre">show_properties_physics</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_physics" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_render">
+<span class="sig-name descname"><span class="pre">show_properties_render</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_render" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_scene">
+<span class="sig-name descname"><span class="pre">show_properties_scene</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_scene" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_texture">
+<span class="sig-name descname"><span class="pre">show_properties_texture</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_texture" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_tool">
+<span class="sig-name descname"><span class="pre">show_properties_tool</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_tool" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_view_layer">
+<span class="sig-name descname"><span class="pre">show_properties_view_layer</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_view_layer" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SpaceProperties.show_properties_world">
+<span class="sig-name descname"><span class="pre">show_properties_world</span></span><a class="headerlink" href="#bpy.types.SpaceProperties.show_properties_world" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2781,6 +2977,25 @@ It gets the specified arguments as input, it’s return value is ignored.</p></l
 <li><a class="reference internal" href="#bpy.types.SpaceProperties.outliner_sync"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.outliner_sync</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.SpaceProperties.pin_id"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.pin_id</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.SpaceProperties.search_filter"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.search_filter</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_bone"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_bone</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_bone_constraints"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_bone_constraints</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_collection"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_collection</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_constraints"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_constraints</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_data"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_data</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_effects"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_effects</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_game"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_game</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_material"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_material</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_modifiers"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_modifiers</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_object"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_object</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_output"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_output</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_particles"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_particles</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_physics"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_physics</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_render"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_render</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_scene"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_scene</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_texture"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_texture</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_tool"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_tool</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_view_layer"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_view_layer</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.SpaceProperties.show_properties_world"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.show_properties_world</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.SpaceProperties.tab_search_results"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.tab_search_results</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.SpaceProperties.use_pin_id"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.use_pin_id</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.SpaceProperties.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">SpaceProperties.bl_rna_get_subclass()</span></code></a></li>
