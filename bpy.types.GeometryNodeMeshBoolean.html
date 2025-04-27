@@ -2509,13 +2509,15 @@ Difference – Combine meshes in a subtractive way.</p></li>
 <span class="sig-name descname"><span class="pre">solver</span></span><a class="headerlink" href="#bpy.types.GeometryNodeMeshBoolean.solver" title="Link to this definition">¶</a></dt>
 <dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">EXACT</span></code>
-Exact – Exact solver for the best results.</p></li>
+Exact – Slower solver with the best results for coplanar faces.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>
-Float – Simple solver for the best performance, without support for overlapping geometry.</p></li>
+Float – Simple solver with good performance, without support for overlapping geometry.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MANIFOLD</span></code>
+Manifold – Fastest solver that works only on manifold meshes but gives better results.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [‘EXACT’, ‘FLOAT’], default ‘FLOAT’</p>
+<dd class="field-odd"><p>enum in [‘EXACT’, ‘FLOAT’, ‘MANIFOLD’], default ‘FLOAT’</p>
 </dd>
 </dl>
 </dd></dl>
