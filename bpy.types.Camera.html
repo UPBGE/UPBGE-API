@@ -2619,6 +2619,66 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Camera.custom_bytecode">
+<span class="sig-name descname"><span class="pre">custom_bytecode</span></span><a class="headerlink" href="#bpy.types.Camera.custom_bytecode" title="Link to this definition">¶</a></dt>
+<dd><p>Compiled bytecode of the custom shader</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, default “”, (never None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Camera.custom_bytecode_hash">
+<span class="sig-name descname"><span class="pre">custom_bytecode_hash</span></span><a class="headerlink" href="#bpy.types.Camera.custom_bytecode_hash" title="Link to this definition">¶</a></dt>
+<dd><p>Hash of the compiled bytecode of the custom shader, for quick equality checking</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, default “”, (never None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Camera.custom_filepath">
+<span class="sig-name descname"><span class="pre">custom_filepath</span></span><a class="headerlink" href="#bpy.types.Camera.custom_filepath" title="Link to this definition">¶</a></dt>
+<dd><p>Path to the shader defining the custom camera</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, default “”, (never None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Camera.custom_mode">
+<span class="sig-name descname"><span class="pre">custom_mode</span></span><a class="headerlink" href="#bpy.types.Camera.custom_mode" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INTERNAL</span></code>
+Internal – Use internal text data-block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTERNAL</span></code>
+External – Use external file.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in [‘INTERNAL’, ‘EXTERNAL’], default ‘INTERNAL’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.Camera.custom_shader">
+<span class="sig-name descname"><span class="pre">custom_shader</span></span><a class="headerlink" href="#bpy.types.Camera.custom_shader" title="Link to this definition">¶</a></dt>
+<dd><p>Shader defining the custom camera</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.Text.html#bpy.types.Text" title="bpy.types.Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">Text</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Camera.display_size">
 <span class="sig-name descname"><span class="pre">display_size</span></span><a class="headerlink" href="#bpy.types.Camera.display_size" title="Link to this definition">¶</a></dt>
 <dd><p>Apparent size of the Camera object in the 3D View</p>
@@ -3136,7 +3196,7 @@ Vertical – Fit to the sensor height.</p></li>
 <dd><p>Camera types</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [‘PERSP’, ‘ORTHO’, ‘PANO’], default ‘PERSP’</p>
+<dd class="field-odd"><p>enum in [‘PERSP’, ‘ORTHO’, ‘PANO’, ‘CUSTOM’], default ‘PERSP’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3306,6 +3366,7 @@ Vertical – Fit to the sensor height.</p></li>
 </td><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.BlendDataCameras.html#bpy.types.BlendDataCameras.remove" title="bpy.types.BlendDataCameras.remove"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlendDataCameras.remove</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ProxyCameraProperty.html#bpy.types.ProxyCameraProperty.value" title="bpy.types.ProxyCameraProperty.value"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyCameraProperty.value</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine.update_custom_camera" title="bpy.types.RenderEngine.update_custom_camera"><code class="xref py py-class docutils literal notranslate"><span class="pre">RenderEngine.update_custom_camera</span></code></a></p></li>
 </ul>
 </td></tr></table>
 </section>
@@ -3387,6 +3448,11 @@ Vertical – Fit to the sensor height.</p></li>
 <li><a class="reference internal" href="#bpy.types.Camera.central_cylindrical_range_v_min"><code class="docutils literal notranslate"><span class="pre">Camera.central_cylindrical_range_v_min</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Camera.clip_end"><code class="docutils literal notranslate"><span class="pre">Camera.clip_end</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Camera.clip_start"><code class="docutils literal notranslate"><span class="pre">Camera.clip_start</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Camera.custom_bytecode"><code class="docutils literal notranslate"><span class="pre">Camera.custom_bytecode</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Camera.custom_bytecode_hash"><code class="docutils literal notranslate"><span class="pre">Camera.custom_bytecode_hash</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Camera.custom_filepath"><code class="docutils literal notranslate"><span class="pre">Camera.custom_filepath</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Camera.custom_mode"><code class="docutils literal notranslate"><span class="pre">Camera.custom_mode</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Camera.custom_shader"><code class="docutils literal notranslate"><span class="pre">Camera.custom_shader</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Camera.display_size"><code class="docutils literal notranslate"><span class="pre">Camera.display_size</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Camera.dof"><code class="docutils literal notranslate"><span class="pre">Camera.dof</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.Camera.fisheye_fov"><code class="docutils literal notranslate"><span class="pre">Camera.fisheye_fov</span></code></a></li>

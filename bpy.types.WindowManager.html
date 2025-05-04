@@ -2732,12 +2732,50 @@ Themes – Only show themes.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.fileselect_add">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fileselect_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.fileselect_add" title="Link to this definition">¶</a></dt>
-<dd><p>Opens a file selector with an operator. The string properties ‘filepath’, ‘filename’, ‘directory’ and a ‘files’ collection are assigned when present in the operator. If ‘filter_glob’ property is present in the operator and it’s not empty, it will be used as a file filter (example value: ‘<em>.zip;</em>.py;*.exe’).</p>
+<dd><p>Opens a file selector with an operator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code></a>) – Operator to call</p>
 </dd>
 </dl>
+<p>This method is used from the operators <code class="docutils literal notranslate"><span class="pre">invoke</span></code> callback
+which must then return <code class="docutils literal notranslate"><span class="pre">{'RUNNING_MODAL'}</span></code>.</p>
+<p>Accepting the file selector will run the operators <code class="docutils literal notranslate"><span class="pre">execute</span></code> callback.</p>
+<p>The following properties are supported:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">filepath</span></code>: <code class="docutils literal notranslate"><span class="pre">bpy.props.StringProperty(subtype='FILE_PATH')</span></code></dt><dd><p>Represents the absolute path to the file.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">dirpath</span></code>: <code class="docutils literal notranslate"><span class="pre">bpy.props.StringProperty(subtype='DIR_PATH')</span></code></dt><dd><p>Represents the absolute path to the directory.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">filename</span></code>: <code class="docutils literal notranslate"><span class="pre">bpy.props.StringProperty(subtype='FILE_NAME')</span></code></dt><dd><p>Represents the filename without the leading directory.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">files</span></code>: <code class="docutils literal notranslate"><span class="pre">bpy.props.CollectionProperty(type=bpy.types.OperatorFileListElement)</span></code></dt><dd><p>When present in the operator this collection includes all selected files.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">filter_glob</span></code>: <code class="docutils literal notranslate"><span class="pre">bpy.props.StringProperty(default=&quot;*.ext&quot;)</span></code></dt><dd><p>When present in the operator and it’s not empty,
+it will be used as a file filter (example value: <code class="docutils literal notranslate"><span class="pre">*.zip;*.py;*.exe</span></code>).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">check_existing</span></code>: <code class="docutils literal notranslate"><span class="pre">bpy.props.BoolProperty()</span></code></dt><dd><p>If this property is present and set to <code class="docutils literal notranslate"><span class="pre">True</span></code>,
+the operator will warn if the provided file-path already exists
+by highlighting the filename input field in red.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>After opening the file-browser the user may continue to use Blender,
+this means it is possible for the user to change the context in ways
+that would cause the operators <code class="docutils literal notranslate"><span class="pre">poll</span></code> function to fail.</p>
+<p>Unless the operator reads all necessary data from the context before the file-selector is opened,
+it is recommended for operators to check the <code class="docutils literal notranslate"><span class="pre">poll</span></code> function from <code class="docutils literal notranslate"><span class="pre">execute</span></code>
+to ensure the context is still valid.</p>
+<p>Example from the body of an operators <code class="docutils literal notranslate"><span class="pre">execute</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">is_invoke</span><span class="p">:</span>
+    <span class="c1"># The context may have changed since invoking the file selector.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="s1">&#39;ERROR&#39;</span><span class="p">},</span> <span class="s2">&quot;Invalid context&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </dd></dl>
 
 <dl class="py method">

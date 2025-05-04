@@ -2487,9 +2487,25 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">CompositorNodeLensdist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CompositorNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeLensdist" title="Link to this definition">¶</a></dt>
 <dd><p>Simulate distortion and dispersion from camera lenses</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.CompositorNodeLensdist.distortion_type">
+<span class="sig-name descname"><span class="pre">distortion_type</span></span><a class="headerlink" href="#bpy.types.CompositorNodeLensdist.distortion_type" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RADIAL</span></code>
+Radial – Radially distorts the image to create a barrel or a Pincushion distortion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HORIZONTAL</span></code>
+Horizontal – Horizontally distorts the image to create a channel/color shifting effect.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in [‘RADIAL’, ‘HORIZONTAL’], default ‘RADIAL’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeLensdist.use_fit">
 <span class="sig-name descname"><span class="pre">use_fit</span></span><a class="headerlink" href="#bpy.types.CompositorNodeLensdist.use_fit" title="Link to this definition">¶</a></dt>
-<dd><p>For positive distortion factor only: scale image such that black areas are not visible</p>
+<dd><p>For positive distortion factor only: scale image such that black areas are not visible. (Deprecated: Use Fit input instead.)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -2500,7 +2516,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeLensdist.use_jitter">
 <span class="sig-name descname"><span class="pre">use_jitter</span></span><a class="headerlink" href="#bpy.types.CompositorNodeLensdist.use_jitter" title="Link to this definition">¶</a></dt>
-<dd><p>Enable/disable jittering (faster, but also noisier)</p>
+<dd><p>Enable/disable jittering (faster, but also noisier). (Deprecated: Use Jitter input instead.)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -2511,7 +2527,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeLensdist.use_projector">
 <span class="sig-name descname"><span class="pre">use_projector</span></span><a class="headerlink" href="#bpy.types.CompositorNodeLensdist.use_projector" title="Link to this definition">¶</a></dt>
-<dd><p>Enable/disable projector mode (the effect is applied in horizontal direction only)</p>
+<dd><p>Enable/disable projector mode (the effect is applied in horizontal direction only). (Deprecated: Use distortion_type property instead.)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -2774,6 +2790,7 @@
             <ul>
 <li><a class="reference internal" href="#">CompositorNodeLensdist(CompositorNode)</a><ul>
 <li><a class="reference internal" href="#bpy.types.CompositorNodeLensdist"><code class="docutils literal notranslate"><span class="pre">CompositorNodeLensdist</span></code></a><ul>
+<li><a class="reference internal" href="#bpy.types.CompositorNodeLensdist.distortion_type"><code class="docutils literal notranslate"><span class="pre">CompositorNodeLensdist.distortion_type</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.CompositorNodeLensdist.use_fit"><code class="docutils literal notranslate"><span class="pre">CompositorNodeLensdist.use_fit</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.CompositorNodeLensdist.use_jitter"><code class="docutils literal notranslate"><span class="pre">CompositorNodeLensdist.use_jitter</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.CompositorNodeLensdist.use_projector"><code class="docutils literal notranslate"><span class="pre">CompositorNodeLensdist.use_projector</span></code></a></li>
