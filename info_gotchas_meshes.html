@@ -1,58 +1,144 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Modes and Mesh Access &#8212; Blender Python API</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
-    <link rel="canonical" href="https://docs.blender.org/api/current/info_gotchas_meshes.html" />
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Blender Python API"
-          href="_static/opensearch.xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modes and Mesh Access</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme_overrides_upbge.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/info_gotchas_meshes.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within "
+          href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Bones &amp; Armatures" href="info_gotchas_armatures_and_bones.html" />
     <link rel="prev" title="Using Operators" href="info_gotchas_operators.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="info_gotchas_armatures_and_bones.html" title="Bones &amp; Armatures"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="info_gotchas_operators.html" title="Using Operators"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="info_gotcha.html" accesskey="U">Gotchas</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Modes and Mesh Access</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Blender 5.0.0 Alpha Python API
+            <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="info_gotcha.html">Gotchas</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_crashes.html">Troubleshooting Errors &amp; Crashes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_threading.html">Python Threads are Not Supported</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_internal_data_and_python_objects.html">Internal Data &amp; Their Python Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_operators.html">Using Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modes and Mesh Access</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#n-gons-and-tessellation">N-Gons and Tessellation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#support-overview">Support Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating">Creating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing">Editing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exporting">Exporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_armatures_and_bones.html">Bones &amp; Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_file_paths_and_encoding.html">File Paths &amp; String Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blender 5.0.0 Alpha Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="info_gotcha.html">Gotchas</a> &raquo;</li>
+      <li>Modes and Mesh Access</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="modes-and-mesh-access">
-<h1>Modes and Mesh Access<a class="headerlink" href="#modes-and-mesh-access" title="Permalink to this headline">¶</a></h1>
+<h1>Modes and Mesh Access<a class="headerlink" href="#modes-and-mesh-access" title="Permalink to this headline"></a></h1>
 <p>When working with mesh data you may run into the problem where a script fails to run as expected in Edit-Mode.
 This is caused by Edit-Mode having its own data which is only written back to the mesh when exiting Edit-Mode.</p>
 <p>A common example is that exporters may access a mesh through <code class="docutils literal notranslate"><span class="pre">obj.data</span></code> (a <a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh</span></code></a>)
@@ -65,7 +151,7 @@ when the user is in Edit-Mode, where the mesh data is available but out of sync 
 <li><p>Report the context as incorrect and only allow the script to run outside Edit-Mode.</p></li>
 </ul>
 <section id="n-gons-and-tessellation">
-<span id="info-gotcha-mesh-faces"></span><h2>N-Gons and Tessellation<a class="headerlink" href="#n-gons-and-tessellation" title="Permalink to this headline">¶</a></h2>
+<span id="info-gotcha-mesh-faces"></span><h2>N-Gons and Tessellation<a class="headerlink" href="#n-gons-and-tessellation" title="Permalink to this headline"></a></h2>
 <p>Since 2.63 n-gons are supported, this adds some complexity
 since in some cases you need to access triangles still (some exporters for example).</p>
 <p>There are now three ways to access faces:</p>
@@ -83,7 +169,7 @@ the polygons as used in Edit-Mode.</p></li>
 these will be referred to as polygons, loop triangles and BMesh-faces respectively.</p>
 <p>Faces with five or more sides will be referred to as <code class="docutils literal notranslate"><span class="pre">ngons</span></code>.</p>
 <section id="support-overview">
-<h3>Support Overview<a class="headerlink" href="#support-overview" title="Permalink to this headline">¶</a></h3>
+<h3>Support Overview<a class="headerlink" href="#support-overview" title="Permalink to this headline"></a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -124,7 +210,7 @@ not simply for a different way to access faces.</p>
 </div>
 </section>
 <section id="creating">
-<h3>Creating<a class="headerlink" href="#creating" title="Permalink to this headline">¶</a></h3>
+<h3>Creating<a class="headerlink" href="#creating" title="Permalink to this headline"></a></h3>
 <p>All three data types can be used for face creation:</p>
 <ul class="simple">
 <li><p>Polygons are the most efficient way to create faces but the data structure is <em>very</em> rigid and inflexible,
@@ -137,7 +223,7 @@ While <code class="xref py py-class docutils literal notranslate"><span class="p
 </ul>
 </section>
 <section id="editing">
-<h3>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h3>
+<h3>Editing<a class="headerlink" href="#editing" title="Permalink to this headline"></a></h3>
 <p>Editing is where the three data types vary most.</p>
 <ul class="simple">
 <li><p>Polygons are very limited for editing,
@@ -148,7 +234,7 @@ they are too inflexible and are only intended for storage.</p></li>
 </ul>
 </section>
 <section id="exporting">
-<h3>Exporting<a class="headerlink" href="#exporting" title="Permalink to this headline">¶</a></h3>
+<h3>Exporting<a class="headerlink" href="#exporting" title="Permalink to this headline"></a></h3>
 <p>All three data types can be used for exporting,
 the choice mostly depends on whether the target format supports n-gons or not.</p>
 <ul class="simple">
@@ -163,75 +249,33 @@ since using BMesh gives some overhead because it’s not the native storage form
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Modes and Mesh Access</a><ul>
-<li><a class="reference internal" href="#n-gons-and-tessellation">N-Gons and Tessellation</a><ul>
-<li><a class="reference internal" href="#support-overview">Support Overview</a></li>
-<li><a class="reference internal" href="#creating">Creating</a></li>
-<li><a class="reference internal" href="#editing">Editing</a></li>
-<li><a class="reference internal" href="#exporting">Exporting</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="info_gotchas_operators.html" class="btn btn-neutral float-left" title="Using Operators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="info_gotchas_armatures_and_bones.html" class="btn btn-neutral float-right" title="Bones &amp; Armatures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fd6c1e7d8f94>fd6c1e7d8f94</a> - 04/08/2025</code>.
+      </span></p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="info_gotchas_operators.html"
-                          title="previous chapter">Using Operators</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="info_gotchas_armatures_and_bones.html"
-                          title="next chapter">Bones &amp; Armatures</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="info_gotchas_armatures_and_bones.html" title="Bones &amp; Armatures"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="info_gotchas_operators.html" title="Using Operators"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="info_gotcha.html" >Gotchas</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Modes and Mesh Access</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Blender Authors.
-    </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 <div class="footer-contribute">
   <ul>
     <li>
@@ -240,5 +284,6 @@ since using BMesh gives some overhead because it’s not the native storage form
     </li>
   </ul>
 </div>
-  </body>
+
+</body>
 </html>

@@ -1,59 +1,132 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Rasterizer (bge.render) &#8212; Blender Python API</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
-    <link rel="canonical" href="https://docs.blender.org/api/current/bge.render.html" />
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Blender Python API"
-          href="_static/opensearch.xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rasterizer (bge.render)</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme_overrides_upbge.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/bge.render.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within "
+          href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Video Texture (bge.texture)" href="bge.texture.html" />
     <link rel="prev" title="Game Logic (bge.logic)" href="bge.logic.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bge.texture.html" title="Video Texture (bge.texture)"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="bge.logic.html" title="Game Logic (bge.logic)"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Rasterizer (bge.render)</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Blender 5.0.0 Alpha Python API
+            <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotchas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rasterizer (bge.render)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-bge.render">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blender 5.0.0 Alpha Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Rasterizer (bge.render)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="rasterizer-bge-render">
-<h1>Rasterizer (bge.render)<a class="headerlink" href="#rasterizer-bge-render" title="Permalink to this headline">¶</a></h1>
+<h1>Rasterizer (bge.render)<a class="headerlink" href="#rasterizer-bge-render" title="Permalink to this headline"></a></h1>
 <section id="module-bge.render">
-<span id="intro"></span><h2>Intro<a class="headerlink" href="#module-bge.render" title="Permalink to this headline">¶</a></h2>
+<span id="intro"></span><h2>Intro<a class="headerlink" href="#module-bge.render" title="Permalink to this headline"></a></h2>
 <p>Example of using a <a class="reference internal" href="bge.types.SCA_MouseSensor.html#bge.types.SCA_MouseSensor" title="bge.types.SCA_MouseSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">bge.types.SCA_MouseSensor</span></code></a>,
 and two <a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bge.types.SCA_ObjectActuator" title="bge.types.SCA_ObjectActuator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bge.types.SCA_ObjectActuator</span></code></a> to implement MouseLook:</p>
 <div class="admonition note">
@@ -99,10 +172,10 @@ and two <a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bg
 </div>
 </section>
 <section id="constants">
-<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.KX_TEXFACE_MATERIAL">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">KX_TEXFACE_MATERIAL</span></span><a class="headerlink" href="#bge.render.KX_TEXFACE_MATERIAL" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">KX_TEXFACE_MATERIAL</span></span><a class="headerlink" href="#bge.render.KX_TEXFACE_MATERIAL" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.2.2.</span></p>
 </div>
@@ -115,7 +188,7 @@ and two <a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bg
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.KX_BLENDER_MULTITEX_MATERIAL">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">KX_BLENDER_MULTITEX_MATERIAL</span></span><a class="headerlink" href="#bge.render.KX_BLENDER_MULTITEX_MATERIAL" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">KX_BLENDER_MULTITEX_MATERIAL</span></span><a class="headerlink" href="#bge.render.KX_BLENDER_MULTITEX_MATERIAL" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.2.2.</span></p>
 </div>
@@ -128,7 +201,7 @@ and two <a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bg
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.KX_BLENDER_GLSL_MATERIAL">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">KX_BLENDER_GLSL_MATERIAL</span></span><a class="headerlink" href="#bge.render.KX_BLENDER_GLSL_MATERIAL" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">KX_BLENDER_GLSL_MATERIAL</span></span><a class="headerlink" href="#bge.render.KX_BLENDER_GLSL_MATERIAL" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.2.2.</span></p>
 </div>
@@ -141,7 +214,7 @@ and two <a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bg
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.VSYNC_OFF">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">VSYNC_OFF</span></span><a class="headerlink" href="#bge.render.VSYNC_OFF" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">VSYNC_OFF</span></span><a class="headerlink" href="#bge.render.VSYNC_OFF" title="Permalink to this definition"></a></dt>
 <dd><p>Disables vsync</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -152,7 +225,7 @@ and two <a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bg
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.VSYNC_ON">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">VSYNC_ON</span></span><a class="headerlink" href="#bge.render.VSYNC_ON" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">VSYNC_ON</span></span><a class="headerlink" href="#bge.render.VSYNC_ON" title="Permalink to this definition"></a></dt>
 <dd><p>Enables vsync</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -163,7 +236,7 @@ and two <a class="reference internal" href="bge.types.SCA_ObjectActuator.html#bg
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.VSYNC_ADAPTIVE">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">VSYNC_ADAPTIVE</span></span><a class="headerlink" href="#bge.render.VSYNC_ADAPTIVE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">VSYNC_ADAPTIVE</span></span><a class="headerlink" href="#bge.render.VSYNC_ADAPTIVE" title="Permalink to this definition"></a></dt>
 <dd><p>Enables adaptive vsync if supported.
 Adaptive vsync enables vsync if the framerate is above the monitors refresh rate.
 Otherwise, vsync is disabled if the framerate is too low.</p>
@@ -176,7 +249,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.LEFT_EYE">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">LEFT_EYE</span></span><a class="headerlink" href="#bge.render.LEFT_EYE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">LEFT_EYE</span></span><a class="headerlink" href="#bge.render.LEFT_EYE" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -190,7 +263,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.RIGHT_EYE">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RIGHT_EYE</span></span><a class="headerlink" href="#bge.render.RIGHT_EYE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RIGHT_EYE</span></span><a class="headerlink" href="#bge.render.RIGHT_EYE" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -204,7 +277,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.RAS_MIPMAP_NONE">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RAS_MIPMAP_NONE</span></span><a class="headerlink" href="#bge.render.RAS_MIPMAP_NONE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RAS_MIPMAP_NONE</span></span><a class="headerlink" href="#bge.render.RAS_MIPMAP_NONE" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -218,7 +291,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.RAS_MIPMAP_NEAREST">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RAS_MIPMAP_NEAREST</span></span><a class="headerlink" href="#bge.render.RAS_MIPMAP_NEAREST" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RAS_MIPMAP_NEAREST</span></span><a class="headerlink" href="#bge.render.RAS_MIPMAP_NEAREST" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -232,7 +305,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bge.render.RAS_MIPMAP_LINEAR">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RAS_MIPMAP_LINEAR</span></span><a class="headerlink" href="#bge.render.RAS_MIPMAP_LINEAR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">RAS_MIPMAP_LINEAR</span></span><a class="headerlink" href="#bge.render.RAS_MIPMAP_LINEAR" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -246,10 +319,10 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getWindowWidth">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getWindowWidth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getWindowWidth" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getWindowWidth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getWindowWidth" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the width of the window (in pixels)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -260,7 +333,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getWindowHeight">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getWindowHeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getWindowHeight" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getWindowHeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getWindowHeight" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the height of the window (in pixels)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -271,7 +344,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setWindowSize">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setWindowSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setWindowSize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setWindowSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setWindowSize" title="Permalink to this definition"></a></dt>
 <dd><p>Set the width and height of the window (in pixels). This also works for fullscreen applications.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -289,7 +362,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setFullScreen">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setFullScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setFullScreen" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setFullScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setFullScreen" title="Permalink to this definition"></a></dt>
 <dd><p>Set whether or not the window should be fullscreen.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -304,7 +377,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getFullScreen">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getFullScreen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getFullScreen" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getFullScreen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getFullScreen" title="Permalink to this definition"></a></dt>
 <dd><p>Returns whether or not the window is fullscreen.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -319,7 +392,7 @@ Otherwise, vsync is disabled if the framerate is too low.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getDisplayDimensions">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getDisplayDimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getDisplayDimensions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getDisplayDimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getDisplayDimensions" title="Permalink to this definition"></a></dt>
 <dd><p>Get the display dimensions, in pixels, of the display (e.g., the
 monitor). Can return the size of the entire view, so the
 combination of all monitors; for example, <code class="docutils literal notranslate"><span class="pre">(3840,</span> <span class="pre">1080)</span></code> for two
@@ -333,7 +406,7 @@ side-by-side 1080p monitors.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.makeScreenshot">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">makeScreenshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.makeScreenshot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">makeScreenshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.makeScreenshot" title="Permalink to this definition"></a></dt>
 <dd><p>Writes an image file with the displayed image at the frame end.</p>
 <p>The image is written to <em>‘filename’</em>.
 The path may be absolute (eg. <code class="docutils literal notranslate"><span class="pre">/home/foo/image</span></code>) or relative when started with
@@ -355,7 +428,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.enableVisibility">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">enableVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.enableVisibility" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">enableVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.enableVisibility" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.0.1: </span>Doesn’t do anything.</p>
 </div>
@@ -363,7 +436,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.showMouse">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showMouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showMouse" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showMouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showMouse" title="Permalink to this definition"></a></dt>
 <dd><p>Enables or disables the operating system mouse cursor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -374,7 +447,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setMousePosition">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setMousePosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setMousePosition" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setMousePosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setMousePosition" title="Permalink to this definition"></a></dt>
 <dd><p>Sets the mouse cursor position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -388,7 +461,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setBackgroundColor">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setBackgroundColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgba</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setBackgroundColor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setBackgroundColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgba</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setBackgroundColor" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.2.2: </span>Use <a class="reference internal" href="bge.texture.html#bge.texture.ImageRender.horizon" title="bge.texture.ImageRender.horizon"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bge.texture.ImageRender.horizon</span></code></a> or <a class="reference internal" href="bge.texture.html#bge.texture.ImageRender.zenith" title="bge.texture.ImageRender.zenith"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bge.texture.ImageRender.zenith</span></code></a> instead.</p>
 </div>
@@ -396,7 +469,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setEyeSeparation">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setEyeSeparation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eyesep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setEyeSeparation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setEyeSeparation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eyesep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setEyeSeparation" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -410,7 +483,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getEyeSeparation">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getEyeSeparation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getEyeSeparation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getEyeSeparation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getEyeSeparation" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -424,7 +497,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setFocalLength">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setFocalLength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">focallength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setFocalLength" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setFocalLength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">focallength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setFocalLength" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -438,7 +511,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getFocalLength">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getFocalLength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getFocalLength" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getFocalLength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getFocalLength" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -452,7 +525,7 @@ Additional color conversions are also not supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getStereoEye">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getStereoEye</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getStereoEye" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getStereoEye</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getStereoEye" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -472,7 +545,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setMaterialMode">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setMaterialMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setMaterialMode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setMaterialMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setMaterialMode" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.2.2.</span></p>
 </div>
@@ -480,7 +553,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getMaterialMode">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getMaterialMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getMaterialMode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getMaterialMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getMaterialMode" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.2.2.</span></p>
 </div>
@@ -488,7 +561,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setGLSLMaterialSetting">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setGLSLMaterialSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setGLSLMaterialSetting" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setGLSLMaterialSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setGLSLMaterialSetting" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -496,7 +569,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getGLSLMaterialSetting">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getGLSLMaterialSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getGLSLMaterialSetting" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getGLSLMaterialSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getGLSLMaterialSetting" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -504,7 +577,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setAnisotropicFiltering">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setAnisotropicFiltering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setAnisotropicFiltering" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setAnisotropicFiltering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setAnisotropicFiltering" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -522,7 +595,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getAnisotropicFiltering">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getAnisotropicFiltering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getAnisotropicFiltering" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getAnisotropicFiltering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getAnisotropicFiltering" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -536,7 +609,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setMipmapping">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setMipmapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setMipmapping" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setMipmapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setMipmapping" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -554,7 +627,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getMipmapping">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getMipmapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getMipmapping" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getMipmapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getMipmapping" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -571,7 +644,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.drawLine">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">drawLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromVec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toVec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.drawLine" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">drawLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromVec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toVec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.drawLine" title="Permalink to this definition"></a></dt>
 <dd><p>Draw a line in the 3D scene.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -586,7 +659,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.enableMotionBlur">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">enableMotionBlur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.enableMotionBlur" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">enableMotionBlur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.enableMotionBlur" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -600,7 +673,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.disableMotionBlur">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">disableMotionBlur</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.disableMotionBlur" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">disableMotionBlur</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.disableMotionBlur" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.3.0.</span></p>
 </div>
@@ -609,7 +682,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.showFramerate">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showFramerate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showFramerate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showFramerate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showFramerate" title="Permalink to this definition"></a></dt>
 <dd><p>Show or hide the framerate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -620,7 +693,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.showProfile">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showProfile" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showProfile" title="Permalink to this definition"></a></dt>
 <dd><p>Show or hide the profile.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -631,7 +704,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.showProperties">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showProperties" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">showProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.showProperties" title="Permalink to this definition"></a></dt>
 <dd><p>Show or hide the debug properties.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -642,7 +715,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.autoDebugList">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">autoDebugList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.autoDebugList" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">autoDebugList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.autoDebugList" title="Permalink to this definition"></a></dt>
 <dd><p>Enable or disable auto adding debug properties to the debug list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -653,13 +726,13 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.clearDebugList">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">clearDebugList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.clearDebugList" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">clearDebugList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.clearDebugList" title="Permalink to this definition"></a></dt>
 <dd><p>Clears the debug property list.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.setVsync">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setVsync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setVsync" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">setVsync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.setVsync" title="Permalink to this definition"></a></dt>
 <dd><p>Set the vsync value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -670,7 +743,7 @@ stereoscopic eye.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bge.render.getVsync">
-<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getVsync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getVsync" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bge.render.</span></span><span class="sig-name descname"><span class="pre">getVsync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.render.getVsync" title="Permalink to this definition"></a></dt>
 <dd><p>Get the current vsync value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -686,70 +759,33 @@ stereoscopic eye.</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Rasterizer (bge.render)</a><ul>
-<li><a class="reference internal" href="#module-bge.render">Intro</a></li>
-<li><a class="reference internal" href="#constants">Constants</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bge.logic.html" class="btn btn-neutral float-left" title="Game Logic (bge.logic)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bge.texture.html" class="btn btn-neutral float-right" title="Video Texture (bge.texture)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fd6c1e7d8f94>fd6c1e7d8f94</a> - 04/08/2025</code>.
+      </span></p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="bge.logic.html"
-                          title="previous chapter">Game Logic (bge.logic)</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="bge.texture.html"
-                          title="next chapter">Video Texture (bge.texture)</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bge.texture.html" title="Video Texture (bge.texture)"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="bge.logic.html" title="Game Logic (bge.logic)"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Rasterizer (bge.render)</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Blender Authors.
-    </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 <div class="footer-contribute">
   <ul>
     <li>
@@ -758,5 +794,6 @@ stereoscopic eye.</p>
     </li>
   </ul>
 </div>
-  </body>
+
+</body>
 </html>

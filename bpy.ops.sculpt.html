@@ -1,61 +1,214 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Sculpt Operators &#8212; Blender Python API</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
-    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.ops.sculpt.html" />
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Blender Python API"
-          href="_static/opensearch.xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sculpt Operators</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme_overrides_upbge.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.ops.sculpt.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within "
+          href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Sculpt Curves Operators" href="bpy.ops.sculpt_curves.html" />
     <link rel="prev" title="Script Operators" href="bpy.ops.script.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.sculpt_curves.html" title="Sculpt Curves Operators"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.script.html" title="Script Operators"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Sculpt Operators</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Blender 5.0.0 Alpha Python API
+            <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotchas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.html#calling-operators">Calling Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.html#overriding-context">Overriding Context</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bpy.ops.html#execution-context">Execution Context</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.action.html">Action Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.anim.html">Anim Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.armature.html">Armature Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.asset.html">Asset Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.boid.html">Boid Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.brush.html">Brush Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.buttons.html">Buttons Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.cachefile.html">Cachefile Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.camera.html">Camera Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.clip.html">Clip Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.cloth.html">Cloth Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.collection.html">Collection Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.console.html">Console Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.constraint.html">Constraint Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.curve.html">Curve Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.curves.html">Curves Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.cycles.html">Cycles Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.dpaint.html">Dpaint Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.ed.html">Ed Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.export_anim.html">Export Anim Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.export_scene.html">Export Scene Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.extensions.html">Extensions Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.file.html">File Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.fluid.html">Fluid Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.font.html">Font Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.geometry.html">Geometry Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.gizmogroup.html">Gizmogroup Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.gpencil.html">Gpencil Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.graph.html">Graph Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.grease_pencil.html">Grease Pencil Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.image.html">Image Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.import_anim.html">Import Anim Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.import_curve.html">Import Curve Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.import_scene.html">Import Scene Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.info.html">Info Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.lattice.html">Lattice Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.logic.html">Logic Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.marker.html">Marker Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.mask.html">Mask Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.material.html">Material Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.mball.html">Mball Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.mesh.html">Mesh Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.nla.html">Nla Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.node.html">Node Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.object.html">Object Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.outliner.html">Outliner Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.paint.html">Paint Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.ptcache.html">Ptcache Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.render.html">Render Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.rigidbody.html">Rigidbody Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.scene.html">Scene Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.screen.html">Screen Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.script.html">Script Operators</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sculpt Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.sculpt_curves.html">Sculpt Curves Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.sequencer.html">Sequencer Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.sound.html">Sound Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.spreadsheet.html">Spreadsheet Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.surface.html">Surface Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.text.html">Text Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.text_editor.html">Text Editor Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.texture.html">Texture Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.transform.html">Transform Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.ui.html">Ui Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.uilist.html">Uilist Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.uv.html">Uv Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.view2d.html">View2D Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.view3d.html">View3D Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.wm.html">Wm Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.workspace.html">Workspace Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.world.html">World Operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blender 5.0.0 Alpha Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="bpy.ops.html">Operators (bpy.ops)</a> &raquo;</li>
+      <li>Sculpt Operators</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-bpy.ops.sculpt">
-<span id="sculpt-operators"></span><h1>Sculpt Operators<a class="headerlink" href="#module-bpy.ops.sculpt" title="Permalink to this headline">¶</a></h1>
+<span id="sculpt-operators"></span><h1>Sculpt Operators<a class="headerlink" href="#module-bpy.ops.sculpt" title="Permalink to this headline"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.brush_stroke">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">brush_stroke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_background_click</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.brush_stroke" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">brush_stroke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_background_click</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.brush_stroke" title="Permalink to this definition"></a></dt>
 <dd><p>Sculpt a stroke into the geometry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -83,7 +236,7 @@ Erase – Switch brush to erase mode for duration of stroke.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.cloth_filter">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">cloth_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_mouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GRAVITY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_damping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_collisions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.cloth_filter" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">cloth_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_mouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GRAVITY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloth_damping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_collisions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.cloth_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Applies a cloth simulation deformation to the entire mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -137,7 +290,7 @@ View – Use the view axis to limit the force and set the gravity direction.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.color_filter">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">color_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_mouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FILL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.color_filter" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">color_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_mouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FILL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.color_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Applies a filter to modify the active color attribute</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -178,25 +331,25 @@ Blue – Change blue channel.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.detail_flood_fill">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">detail_flood_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.detail_flood_fill" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">detail_flood_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.detail_flood_fill" title="Permalink to this definition"></a></dt>
 <dd><p>Flood fill the mesh with the selected detail setting</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.dynamic_topology_toggle">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">dynamic_topology_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.dynamic_topology_toggle" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">dynamic_topology_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.dynamic_topology_toggle" title="Permalink to this definition"></a></dt>
 <dd><p>Dynamic topology alters the mesh topology while sculpting</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.dyntopo_detail_size_edit">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">dyntopo_detail_size_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.dyntopo_detail_size_edit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">dyntopo_detail_size_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.dyntopo_detail_size_edit" title="Permalink to this definition"></a></dt>
 <dd><p>Modify the detail size of dyntopo interactively</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.expand">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MASK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">falloff_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GEODESIC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_mask_preserve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_falloff_gradient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_modify_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_reposition_pivot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_geodesic_move_preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_auto_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_falloff_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.expand" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MASK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">falloff_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GEODESIC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_mask_preserve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_falloff_gradient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_modify_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_reposition_pivot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_geodesic_move_preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_auto_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_falloff_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.expand" title="Permalink to this definition"></a></dt>
 <dd><p>Generic sculpt expand operator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -218,7 +371,7 @@ Blue – Change blue channel.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_box_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_box_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_box_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_box_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_box_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Add a face set in a rectangle defined by the cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -236,7 +389,7 @@ Blue – Change blue channel.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_change_visibility">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_change_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TOGGLE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_change_visibility" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_change_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TOGGLE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_change_visibility" title="Permalink to this definition"></a></dt>
 <dd><p>Change the visibility of the Face Sets of the sculpt</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -256,7 +409,7 @@ Hide Active Face Sets – Hide Active Face Sets.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_edit">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_face_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GROW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify_hidden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_edit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_face_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GROW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify_hidden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_edit" title="Permalink to this definition"></a></dt>
 <dd><p>Edits the current active Face Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -285,7 +438,7 @@ Fair Tangency – Creates a smooth as possible geometry patch from the Face Set 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_extract">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_boundary_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_shrinkwrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_solidify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_extract" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_boundary_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_shrinkwrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_solidify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_extract" title="Permalink to this definition"></a></dt>
 <dd><p>Create a new mesh object from the selected Face Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -301,7 +454,7 @@ Fair Tangency – Creates a smooth as possible geometry patch from the Face Set 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_lasso_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_lasso_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_smooth_stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_lasso_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_lasso_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_smooth_stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_lasso_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Add a face set in a shape defined by the cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -318,7 +471,7 @@ Fair Tangency – Creates a smooth as possible geometry patch from the Face Set 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_line_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_line_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_limit_to_segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_line_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_line_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_limit_to_segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_line_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Add a face set to one side of a line defined by the cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -338,7 +491,7 @@ Fair Tangency – Creates a smooth as possible geometry patch from the Face Set 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_polyline_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_polyline_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_polyline_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_polyline_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_polyline_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Add a face set in a shape defined by the cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -352,7 +505,7 @@ Fair Tangency – Creates a smooth as possible geometry patch from the Face Set 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_sets_create">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MASKED'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_create" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MASKED'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_create" title="Permalink to this definition"></a></dt>
 <dd><p>Create a new Face Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -374,7 +527,7 @@ Face Set from Edit Mode Selection – Create an Face Set corresponding to the Ed
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_sets_init">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOOSE_PARTS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_init" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOOSE_PARTS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_init" title="Permalink to this definition"></a></dt>
 <dd><p>Initializes all Face Sets in the mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -407,13 +560,13 @@ Face Sets from Face Set Boundaries – Create a Face Set per isolated Face Set.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_sets_randomize_colors">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_randomize_colors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_randomize_colors" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_randomize_colors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_randomize_colors" title="Permalink to this definition"></a></dt>
 <dd><p>Generates a new set of random colors to render the Face Sets in the viewport</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mask_by_color">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_by_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contiguous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_previous_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_by_color" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_by_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contiguous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_previous_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_by_color" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a mask based on the active color attribute</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -430,7 +583,7 @@ Face Sets from Face Set Boundaries – Create a Face Set per isolated Face Set.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mask_filter">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SMOOTH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_filter" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SMOOTH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Applies a filter to modify the current mask</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -445,7 +598,7 @@ Face Sets from Face Set Boundaries – Create a Face Set per isolated Face Set.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mask_from_boundary">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_from_boundary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OPERATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MESH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagation_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_from_boundary" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_from_boundary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OPERATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MESH'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagation_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_from_boundary" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a mask based on the boundaries of the surface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -478,7 +631,7 @@ Face Sets – Calculate the boundary mask between face sets.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mask_from_cavity">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_from_cavity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OPERATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_curve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_from_cavity" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_from_cavity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OPERATOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_curve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_from_cavity" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a mask based on the curvature of the surface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -506,7 +659,7 @@ Scene – Use settings from scene.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mask_init">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RANDOM_PER_VERTEX'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_init" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mask_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RANDOM_PER_VERTEX'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mask_init" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a new mask for the entire mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -517,7 +670,7 @@ Scene – Use settings from scene.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.mesh_filter">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mesh_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_mouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFLATE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deform_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_shape_preservation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_current_vertex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_smooth_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_intensify_detail_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_curvature_smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mesh_filter" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">mesh_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_mouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_normal_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFLATE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deform_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_shape_preservation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_smooth_current_vertex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_smooth_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_intensify_detail_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpen_curvature_smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.mesh_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Applies a filter to modify the current mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -584,13 +737,13 @@ View – Use the view axis to limit the displacement.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.optimize">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.optimize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.optimize" title="Permalink to this definition"></a></dt>
 <dd><p>Recalculate the sculpt BVH to improve performance</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.paint_mask_extract">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">paint_mask_extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_boundary_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_shrinkwrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_solidify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.paint_mask_extract" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">paint_mask_extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_boundary_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_shrinkwrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_solidify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.paint_mask_extract" title="Permalink to this definition"></a></dt>
 <dd><p>Create a new mesh object from the current paint mask</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -607,7 +760,7 @@ View – Use the view axis to limit the displacement.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.paint_mask_slice">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">paint_mask_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_holes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.paint_mask_slice" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">paint_mask_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_holes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.paint_mask_slice" title="Permalink to this definition"></a></dt>
 <dd><p>Slices the paint mask from the mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -622,7 +775,7 @@ View – Use the view axis to limit the displacement.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.project_line_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">project_line_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_limit_to_segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.project_line_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">project_line_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_limit_to_segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.project_line_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Project the geometry onto a plane defined by a line</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -642,13 +795,13 @@ View – Use the view axis to limit the displacement.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.sample_color">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">sample_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.sample_color" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">sample_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.sample_color" title="Permalink to this definition"></a></dt>
 <dd><p>Sample the vertex color of the active vertex</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.sample_detail_size">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">sample_detail_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DYNTOPO'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.sample_detail_size" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">sample_detail_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DYNTOPO'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.sample_detail_size" title="Permalink to this definition"></a></dt>
 <dd><p>Sample the mesh detail on clicked point</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -669,19 +822,19 @@ Voxel – Sample mesh voxel size.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.sculptmode_toggle">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">sculptmode_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.sculptmode_toggle" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">sculptmode_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.sculptmode_toggle" title="Permalink to this definition"></a></dt>
 <dd><p>Toggle sculpt mode in 3D view</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.set_persistent_base">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">set_persistent_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.set_persistent_base" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">set_persistent_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.set_persistent_base" title="Permalink to this definition"></a></dt>
 <dd><p>Reset the copy of the mesh that is being sculpted on</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.set_pivot_position">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">set_pivot_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UNMASKED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.set_pivot_position" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">set_pivot_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UNMASKED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.set_pivot_position" title="Permalink to this definition"></a></dt>
 <dd><p>Sets the sculpt transform pivot position</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -709,7 +862,7 @@ Surface – Sets the pivot position to the surface under the cursor.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.symmetrize">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">symmetrize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0005</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.symmetrize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">symmetrize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0005</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.symmetrize" title="Permalink to this definition"></a></dt>
 <dd><p>Symmetrize the topology modifications</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -720,7 +873,7 @@ Surface – Sets the pivot position to the surface under the cursor.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.trim_box_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_box_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_box_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_box_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_box_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Execute a boolean operation on the mesh and a rectangle defined by the cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -776,7 +929,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.trim_lasso_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_lasso_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_smooth_stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_lasso_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_lasso_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_smooth_stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_lasso_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Execute a boolean operation on the mesh and a shape defined by the cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -831,7 +984,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.trim_line_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_line_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_limit_to_segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_line_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_line_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xstart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_limit_to_segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_line_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Remove a portion of the mesh on one side of a line</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -889,7 +1042,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.trim_polyline_gesture">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_polyline_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_polyline_gesture" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">trim_polyline_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_front_faces_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DIFFERENCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cursor_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VIEW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_extrude_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FIXED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MANIFOLD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.trim_polyline_gesture" title="Permalink to this definition"></a></dt>
 <dd><p>Execute a boolean operation on the mesh and a polygonal shape defined by the cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -941,7 +1094,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.uv_sculpt_grab">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">uv_sculpt_grab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.uv_sculpt_grab" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">uv_sculpt_grab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.uv_sculpt_grab" title="Permalink to this definition"></a></dt>
 <dd><p>Grab UVs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -952,7 +1105,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.uv_sculpt_pinch">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">uv_sculpt_pinch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.uv_sculpt_pinch" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">uv_sculpt_pinch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.uv_sculpt_pinch" title="Permalink to this definition"></a></dt>
 <dd><p>Pinch UVs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -963,7 +1116,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.uv_sculpt_relax">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">uv_sculpt_relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relax_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'COTAN'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.uv_sculpt_relax" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">uv_sculpt_relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relax_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'COTAN'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.uv_sculpt_relax" title="Permalink to this definition"></a></dt>
 <dd><p>Relax UVs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -987,59 +1140,33 @@ Geometry – Use Geometry (cotangent) relaxation, making UVs follow the underlyi
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bpy.ops.script.html" class="btn btn-neutral float-left" title="Script Operators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bpy.ops.sculpt_curves.html" class="btn btn-neutral float-right" title="Sculpt Curves Operators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fd6c1e7d8f94>fd6c1e7d8f94</a> - 04/08/2025</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="bpy.ops.script.html"
-                          title="previous chapter">Script Operators</a></p>
+    </section>
   </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="bpy.ops.sculpt_curves.html"
-                          title="next chapter">Sculpt Curves Operators</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.sculpt_curves.html" title="Sculpt Curves Operators"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.script.html" title="Script Operators"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Sculpt Operators</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Blender Authors.
-    </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 <div class="footer-contribute">
   <ul>
     <li>
@@ -1048,5 +1175,6 @@ Geometry – Use Geometry (cotangent) relaxation, making UVs follow the underlyi
     </li>
   </ul>
 </div>
-  </body>
+
+</body>
 </html>

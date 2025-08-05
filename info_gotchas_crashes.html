@@ -1,60 +1,157 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Troubleshooting Errors &amp; Crashes &#8212; Blender Python API</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
-    <link rel="canonical" href="https://docs.blender.org/api/current/info_gotchas_crashes.html" />
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Blender Python API"
-          href="_static/opensearch.xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting Errors &amp; Crashes</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme_overrides_upbge.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/info_gotchas_crashes.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within "
+          href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Python Threads are Not Supported" href="info_gotchas_threading.html" />
     <link rel="prev" title="Gotchas" href="info_gotcha.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="info_gotchas_threading.html" title="Python Threads are Not Supported"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="info_gotcha.html" title="Gotchas"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="info_gotcha.html" accesskey="U">Gotchas</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Troubleshooting Errors &amp; Crashes</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Blender 5.0.0 Alpha Python API
+            <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="info_gotcha.html">Gotchas</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Troubleshooting Errors &amp; Crashes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#help-my-script-crashes-blender">Help! My script crashes Blender</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#undo-redo">Undo/Redo</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#modifying-blender-data-undo">Modifying Blender Data &amp; Undo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#undo-library-data">Undo &amp; Library Data</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#abusing-rna-property-callbacks">Abusing RNA property callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-mode-memory-access">Edit-Mode / Memory Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#array-re-allocation">Array Re-Allocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-data">Removing Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfortunate-corner-cases">Unfortunate Corner Cases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#collection-objects">Collection Objects</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#data-blocks-renaming-during-iteration">Data-Blocks Renaming During Iteration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sys-exit">sys.exit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_threading.html">Python Threads are Not Supported</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_internal_data_and_python_objects.html">Internal Data &amp; Their Python Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_operators.html">Using Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_meshes.html">Modes and Mesh Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_armatures_and_bones.html">Bones &amp; Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_gotchas_file_paths_and_encoding.html">File Paths &amp; String Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blender 5.0.0 Alpha Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="info_gotcha.html">Gotchas</a> &raquo;</li>
+      <li>Troubleshooting Errors &amp; Crashes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="troubleshooting-errors-crashes">
-<h1>Troubleshooting Errors &amp; Crashes<a class="headerlink" href="#troubleshooting-errors-crashes" title="Permalink to this headline">¶</a></h1>
+<h1>Troubleshooting Errors &amp; Crashes<a class="headerlink" href="#troubleshooting-errors-crashes" title="Permalink to this headline"></a></h1>
 <section id="help-my-script-crashes-blender">
-<span id="troubleshooting-crashes"></span><h2>Help! My script crashes Blender<a class="headerlink" href="#help-my-script-crashes-blender" title="Permalink to this headline">¶</a></h2>
+<span id="troubleshooting-crashes"></span><h2>Help! My script crashes Blender<a class="headerlink" href="#help-my-script-crashes-blender" title="Permalink to this headline"></a></h2>
 <p><abbr title="Too long; didn't read.">TL;DR</abbr> Do not keep direct references to Blender data (of any kind)
 when modifying the container of that data, and/or when some undo/redo may happen
 (e.g. during modal operators execution…).
@@ -134,7 +231,7 @@ in any possible way.</p>
 </pre></div>
 </div>
 <section id="undo-redo">
-<h3>Undo/Redo<a class="headerlink" href="#undo-redo" title="Permalink to this headline">¶</a></h3>
+<h3>Undo/Redo<a class="headerlink" href="#undo-redo" title="Permalink to this headline"></a></h3>
 <p>For safety, you should assume that undo and redo always invalidates all <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a>
 instances (Object, Scene, Mesh, Light, etc.), as well obviously as all of their sub-data.</p>
 <p>This example shows how you can tell undo changes the memory locations:</p>
@@ -160,13 +257,13 @@ particular history step, may remain unchanged and hence their pointers may remai
 guarantee of any kind that it will be safe and consistent. Use it at your own risk.</p>
 </div>
 <section id="modifying-blender-data-undo">
-<h4>Modifying Blender Data &amp; Undo<a class="headerlink" href="#modifying-blender-data-undo" title="Permalink to this headline">¶</a></h4>
+<h4>Modifying Blender Data &amp; Undo<a class="headerlink" href="#modifying-blender-data-undo" title="Permalink to this headline"></a></h4>
 <p>In general, when Blender data is modified, there should always be an undo step created for it.
 Otherwise, there will be issues, ranging from invalid/broken undo stack, to crashes on undo/redo.</p>
 <p>This is especially true when modifying Blender data <a class="reference internal" href="bpy.types.Operator.html#operator-modifying-blender-data-undo"><span class="std std-ref">in operators</span></a>.</p>
 </section>
 <section id="undo-library-data">
-<h4>Undo &amp; Library Data<a class="headerlink" href="#undo-library-data" title="Permalink to this headline">¶</a></h4>
+<h4>Undo &amp; Library Data<a class="headerlink" href="#undo-library-data" title="Permalink to this headline"></a></h4>
 <p>One of the advantages with Blender’s library linking system that undo
 can skip checking changes in library data since it is assumed to be static.
 Tools in Blender are not allowed to modify library data.
@@ -180,7 +277,7 @@ and only to use it when you know what you’re doing.</p>
 </section>
 </section>
 <section id="abusing-rna-property-callbacks">
-<h3>Abusing RNA property callbacks<a class="headerlink" href="#abusing-rna-property-callbacks" title="Permalink to this headline">¶</a></h3>
+<h3>Abusing RNA property callbacks<a class="headerlink" href="#abusing-rna-property-callbacks" title="Permalink to this headline"></a></h3>
 <p>Python-defined RNA properties can have custom callbacks. Trying to perform complex operations
 from there, like calling an operator, may work, but is not officially recommended nor supported.</p>
 <p>Main reason is that those callback should be very fast, but additionally, it may for example
@@ -188,7 +285,7 @@ create issues with undo/redo system (most operators store an history step, and e
 property does so as well), trigger infinite update loops, and so on.</p>
 </section>
 <section id="edit-mode-memory-access">
-<h3>Edit-Mode / Memory Access<a class="headerlink" href="#edit-mode-memory-access" title="Permalink to this headline">¶</a></h3>
+<h3>Edit-Mode / Memory Access<a class="headerlink" href="#edit-mode-memory-access" title="Permalink to this headline"></a></h3>
 <p>Switching mode <code class="docutils literal notranslate"><span class="pre">bpy.ops.object.mode_set(mode='EDIT')</span></code> or <code class="docutils literal notranslate"><span class="pre">bpy.ops.object.mode_set(mode='OBJECT')</span></code>
 will re-allocate objects data,
 any references to a meshes vertices/polygons/UVs, armatures bones,
@@ -219,7 +316,7 @@ the following example shows how to avoid the crash above.</p>
 the object data but are most common when switching mode.</p>
 </section>
 <section id="array-re-allocation">
-<h3>Array Re-Allocation<a class="headerlink" href="#array-re-allocation" title="Permalink to this headline">¶</a></h3>
+<h3>Array Re-Allocation<a class="headerlink" href="#array-re-allocation" title="Permalink to this headline"></a></h3>
 <p>When adding new points to a curve or vertices/edges/polygons to a mesh,
 internally the array which stores this data is re-allocated.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">primitive_bezier_curve_add</span><span class="p">()</span>
@@ -237,7 +334,7 @@ This means you don’t have to worry about array re-allocation and it’s faster
 since re-allocating the entire array for every added point is inefficient.</p>
 </section>
 <section id="removing-data">
-<h3>Removing Data<a class="headerlink" href="#removing-data" title="Permalink to this headline">¶</a></h3>
+<h3>Removing Data<a class="headerlink" href="#removing-data" title="Permalink to this headline"></a></h3>
 <p><strong>Any</strong> data that you remove shouldn’t be modified or accessed afterwards,
 this includes: F-Curves, drivers, render layers, timeline markers, modifiers, constraints
 along with objects, scenes, collections, bones, etc.</p>
@@ -261,11 +358,11 @@ the next example will still crash:</p>
 </div>
 </section>
 <section id="unfortunate-corner-cases">
-<h3>Unfortunate Corner Cases<a class="headerlink" href="#unfortunate-corner-cases" title="Permalink to this headline">¶</a></h3>
+<h3>Unfortunate Corner Cases<a class="headerlink" href="#unfortunate-corner-cases" title="Permalink to this headline"></a></h3>
 <p>Besides all expected cases listed above, there are a few others that should not be
 an issue but, due to internal implementation details, currently are:</p>
 <section id="collection-objects">
-<h4>Collection Objects<a class="headerlink" href="#collection-objects" title="Permalink to this headline">¶</a></h4>
+<h4>Collection Objects<a class="headerlink" href="#collection-objects" title="Permalink to this headline"></a></h4>
 <p>Changing: <code class="docutils literal notranslate"><span class="pre">Object.hide_viewport</span></code>, <code class="docutils literal notranslate"><span class="pre">Object.hide_select</span></code> or <code class="docutils literal notranslate"><span class="pre">Object.hide_render</span></code>
 will trigger a rebuild of Collection caches, thus breaking any current iteration over <code class="docutils literal notranslate"><span class="pre">Collection.all_objects</span></code>.</p>
 <blockquote>
@@ -286,7 +383,7 @@ will trigger a rebuild of Collection caches, thus breaking any current iteration
 </div></blockquote>
 </section>
 <section id="data-blocks-renaming-during-iteration">
-<h4>Data-Blocks Renaming During Iteration<a class="headerlink" href="#data-blocks-renaming-during-iteration" title="Permalink to this headline">¶</a></h4>
+<h4>Data-Blocks Renaming During Iteration<a class="headerlink" href="#data-blocks-renaming-during-iteration" title="Permalink to this headline"></a></h4>
 <p>Data-blocks accessed from <code class="docutils literal notranslate"><span class="pre">bpy.data</span></code> are sorted when their name is set.
 Any loop that iterates of a data such as <code class="docutils literal notranslate"><span class="pre">bpy.data.objects</span></code> for example,
 and sets the objects <code class="docutils literal notranslate"><span class="pre">name</span></code> must get all items from the iterator first (typically by converting to a list or tuple)
@@ -295,7 +392,7 @@ to avoid missing some objects and iterating over others multiple times.</p>
 </section>
 </section>
 <section id="sys-exit">
-<h2>sys.exit<a class="headerlink" href="#sys-exit" title="Permalink to this headline">¶</a></h2>
+<h2>sys.exit<a class="headerlink" href="#sys-exit" title="Permalink to this headline"></a></h2>
 <p>Some Python modules will call <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code> themselves when an error occurs,
 while not common behavior this is something to watch out for because it may seem
 as if Blender is crashing since <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code> will close Blender immediately.</p>
@@ -306,86 +403,33 @@ you could of course replace <code class="docutils literal notranslate"><span cla
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Troubleshooting Errors &amp; Crashes</a><ul>
-<li><a class="reference internal" href="#help-my-script-crashes-blender">Help! My script crashes Blender</a><ul>
-<li><a class="reference internal" href="#undo-redo">Undo/Redo</a><ul>
-<li><a class="reference internal" href="#modifying-blender-data-undo">Modifying Blender Data &amp; Undo</a></li>
-<li><a class="reference internal" href="#undo-library-data">Undo &amp; Library Data</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#abusing-rna-property-callbacks">Abusing RNA property callbacks</a></li>
-<li><a class="reference internal" href="#edit-mode-memory-access">Edit-Mode / Memory Access</a></li>
-<li><a class="reference internal" href="#array-re-allocation">Array Re-Allocation</a></li>
-<li><a class="reference internal" href="#removing-data">Removing Data</a></li>
-<li><a class="reference internal" href="#unfortunate-corner-cases">Unfortunate Corner Cases</a><ul>
-<li><a class="reference internal" href="#collection-objects">Collection Objects</a></li>
-<li><a class="reference internal" href="#data-blocks-renaming-during-iteration">Data-Blocks Renaming During Iteration</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sys-exit">sys.exit</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="info_gotcha.html" class="btn btn-neutral float-left" title="Gotchas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="info_gotchas_threading.html" class="btn btn-neutral float-right" title="Python Threads are Not Supported" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fd6c1e7d8f94>fd6c1e7d8f94</a> - 04/08/2025</code>.
+      </span></p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="info_gotcha.html"
-                          title="previous chapter">Gotchas</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="info_gotchas_threading.html"
-                          title="next chapter">Python Threads are Not Supported</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="info_gotchas_threading.html" title="Python Threads are Not Supported"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="info_gotcha.html" title="Gotchas"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="info_gotcha.html" >Gotchas</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Troubleshooting Errors &amp; Crashes</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Blender Authors.
-    </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 <div class="footer-contribute">
   <ul>
     <li>
@@ -394,5 +438,6 @@ you could of course replace <code class="docutils literal notranslate"><span cla
     </li>
   </ul>
 </div>
-  </body>
+
+</body>
 </html>

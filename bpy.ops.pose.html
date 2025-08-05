@@ -1,61 +1,214 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Pose Operators &#8212; Blender Python API</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
-    <link rel="canonical" href="https://docs.blender.org/api/current/bpy.ops.pose.html" />
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Blender Python API"
-          href="_static/opensearch.xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pose Operators</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme_overrides_upbge.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.ops.pose.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within "
+          href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Poselib Operators" href="bpy.ops.poselib.html" />
     <link rel="prev" title="Pointcloud Operators" href="bpy.ops.pointcloud.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.poselib.html" title="Poselib Operators"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.pointcloud.html" title="Pointcloud Operators"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Pose Operators</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Blender 5.0.0 Alpha Python API
+            <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_tips_and_tricks.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotchas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.html#calling-operators">Calling Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.html#overriding-context">Overriding Context</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bpy.ops.html#execution-context">Execution Context</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.action.html">Action Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.anim.html">Anim Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.armature.html">Armature Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.asset.html">Asset Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.boid.html">Boid Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.brush.html">Brush Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.buttons.html">Buttons Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.cachefile.html">Cachefile Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.camera.html">Camera Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.clip.html">Clip Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.cloth.html">Cloth Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.collection.html">Collection Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.console.html">Console Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.constraint.html">Constraint Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.curve.html">Curve Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.curves.html">Curves Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.cycles.html">Cycles Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.dpaint.html">Dpaint Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.ed.html">Ed Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.export_anim.html">Export Anim Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.export_scene.html">Export Scene Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.extensions.html">Extensions Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.file.html">File Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.fluid.html">Fluid Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.font.html">Font Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.geometry.html">Geometry Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.gizmogroup.html">Gizmogroup Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.gpencil.html">Gpencil Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.graph.html">Graph Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.grease_pencil.html">Grease Pencil Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.image.html">Image Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.import_anim.html">Import Anim Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.import_curve.html">Import Curve Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.import_scene.html">Import Scene Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.info.html">Info Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.lattice.html">Lattice Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.logic.html">Logic Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.marker.html">Marker Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.mask.html">Mask Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.material.html">Material Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.mball.html">Mball Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.mesh.html">Mesh Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.nla.html">Nla Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.node.html">Node Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.object.html">Object Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.outliner.html">Outliner Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.paint.html">Paint Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.pointcloud.html">Pointcloud Operators</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pose Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.preferences.html">Preferences Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.ptcache.html">Ptcache Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.render.html">Render Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.rigidbody.html">Rigidbody Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.scene.html">Scene Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.screen.html">Screen Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.script.html">Script Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.sculpt.html">Sculpt Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.sculpt_curves.html">Sculpt Curves Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.sequencer.html">Sequencer Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.sound.html">Sound Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.spreadsheet.html">Spreadsheet Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.surface.html">Surface Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.text.html">Text Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.text_editor.html">Text Editor Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.texture.html">Texture Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.transform.html">Transform Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.ui.html">Ui Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.uilist.html">Uilist Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.uv.html">Uv Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.view2d.html">View2D Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.view3d.html">View3D Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.wm.html">Wm Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.workspace.html">Workspace Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.ops.world.html">World Operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blender 5.0.0 Alpha Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="bpy.ops.html">Operators (bpy.ops)</a> &raquo;</li>
+      <li>Pose Operators</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-bpy.ops.pose">
-<span id="pose-operators"></span><h1>Pose Operators<a class="headerlink" href="#module-bpy.ops.pose" title="Permalink to this headline">¶</a></h1>
+<span id="pose-operators"></span><h1>Pose Operators<a class="headerlink" href="#module-bpy.ops.pose" title="Permalink to this headline"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.armature_apply">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">armature_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.armature_apply" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">armature_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.armature_apply" title="Permalink to this definition"></a></dt>
 <dd><p>Apply the current pose as the new rest pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -66,7 +219,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.autoside_names">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">autoside_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'XAXIS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.autoside_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">autoside_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'XAXIS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.autoside_names" title="Permalink to this definition"></a></dt>
 <dd><p>Automatically renames the selected bones according to which side of the target axis they fall on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -86,7 +239,7 @@ Z-Axis – Top/Bottom.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.blend_to_neighbor">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">blend_to_neighbor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.blend_to_neighbor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">blend_to_neighbor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.blend_to_neighbor" title="Permalink to this definition"></a></dt>
 <dd><p>Blend from current position to previous or next keyframe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -129,7 +282,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.blend_with_rest">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">blend_with_rest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.blend_with_rest" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">blend_with_rest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.blend_with_rest" title="Permalink to this definition"></a></dt>
 <dd><p>Make the current pose more similar to, or further away from, the rest pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -172,7 +325,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.breakdown">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">breakdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.breakdown" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">breakdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.breakdown" title="Permalink to this definition"></a></dt>
 <dd><p>Create a suitable breakdown pose on the current frame</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -215,7 +368,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.constraint_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraint_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraint_add" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraint_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraint_add" title="Permalink to this definition"></a></dt>
 <dd><p>Add a constraint to the active bone</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -226,7 +379,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.constraint_add_with_targets">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraint_add_with_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraint_add_with_targets" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraint_add_with_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraint_add_with_targets" title="Permalink to this definition"></a></dt>
 <dd><p>Add a constraint to the active bone, with target (where applicable) set to the selected Objects/Bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -237,25 +390,25 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.constraints_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraints_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraints_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraints_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraints_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Clear all constraints from the selected bones</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.constraints_copy">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraints_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraints_copy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraints_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraints_copy" title="Permalink to this definition"></a></dt>
 <dd><p>Copy constraints to other selected bones</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.copy">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.copy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.copy" title="Permalink to this definition"></a></dt>
 <dd><p>Copy the current pose of the selected bones to the internal clipboard</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.flip_names">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">flip_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_strip_numbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.flip_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">flip_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_strip_numbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.flip_names" title="Permalink to this definition"></a></dt>
 <dd><p>Flips (and corrects) the axis suffixes of the names of selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -266,7 +419,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.hide">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">hide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unselected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.hide" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">hide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unselected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.hide" title="Permalink to this definition"></a></dt>
 <dd><p>Tag selected bones to not be visible in Pose Mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -277,7 +430,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.ik_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">ik_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.ik_add" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">ik_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.ik_add" title="Permalink to this definition"></a></dt>
 <dd><p>Add IK Constraint to the active Bone</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -288,19 +441,19 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.ik_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">ik_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.ik_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">ik_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.ik_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Remove all IK Constraints from selected bones</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.loc_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">loc_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.loc_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">loc_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.loc_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Reset locations of selected bones to their default values</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.paste">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flipped</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paste" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flipped</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paste" title="Permalink to this definition"></a></dt>
 <dd><p>Paste the stored pose on to the current pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -314,7 +467,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.paths_calculate">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RANGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCENE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HEADS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_calculate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RANGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCENE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HEADS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_calculate" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate paths for the selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -329,7 +482,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.paths_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -340,19 +493,19 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.paths_range_update">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_range_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_range_update" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_range_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_range_update" title="Permalink to this definition"></a></dt>
 <dd><p>Update frame range for motion paths from the Scene’s current frame range</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.paths_update">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_update" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_update" title="Permalink to this definition"></a></dt>
 <dd><p>Recalculate paths for bones that already have them</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.propagate">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">propagate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NEXT_KEY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.propagate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">propagate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NEXT_KEY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.propagate" title="Permalink to this definition"></a></dt>
 <dd><p>Copy selected aspects of the current pose to subsequent poses already keyframed</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -381,7 +534,7 @@ On Selected Markers – Propagate pose to all keyframes occurring on frames with
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.push">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.push" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.push" title="Permalink to this definition"></a></dt>
 <dd><p>Exaggerate the current pose in regards to the breakdown pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -424,13 +577,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.quaternions_flip">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">quaternions_flip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.quaternions_flip" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">quaternions_flip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.quaternions_flip" title="Permalink to this definition"></a></dt>
 <dd><p>Flip quaternion values to achieve desired rotations, while maintaining the same orientations</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.relax">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.relax" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FREE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.relax" title="Permalink to this definition"></a></dt>
 <dd><p>Make the current pose more similar to its breakdown pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -473,7 +626,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.reveal">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">reveal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.reveal" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">reveal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.reveal" title="Permalink to this definition"></a></dt>
 <dd><p>Reveal all bones hidden in Pose Mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -484,13 +637,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.rot_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">rot_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.rot_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">rot_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.rot_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Reset rotations of selected bones to their default values</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.rotation_mode_set">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">rotation_mode_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUATERNION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.rotation_mode_set" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">rotation_mode_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUATERNION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.rotation_mode_set" title="Permalink to this definition"></a></dt>
 <dd><p>Set the rotation representation used by selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -501,13 +654,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.scale_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">scale_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.scale_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">scale_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.scale_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Reset scaling of selected bones to their default values</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_all">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TOGGLE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_all" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TOGGLE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_all" title="Permalink to this definition"></a></dt>
 <dd><p>Toggle selection status of all bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -529,13 +682,13 @@ Invert – Invert selection of all elements.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_constraint_target">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_constraint_target</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_constraint_target" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_constraint_target</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_constraint_target" title="Permalink to this definition"></a></dt>
 <dd><p>Select bones used as targets for the currently selected bones</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_grouped">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_grouped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'COLLECTION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_grouped" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_grouped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'COLLECTION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_grouped" title="Permalink to this definition"></a></dt>
 <dd><p>Select all visible bones grouped by similar properties</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -566,7 +719,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_hierarchy">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PARENT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_hierarchy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PARENT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_hierarchy" title="Permalink to this definition"></a></dt>
 <dd><p>Select immediate parent/children of selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -580,13 +733,13 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_linked">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_linked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_linked" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_linked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_linked" title="Permalink to this definition"></a></dt>
 <dd><p>Select all bones linked by parent/child connections to the current selection</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_linked_pick">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_linked_pick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_linked_pick" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_linked_pick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_linked_pick" title="Permalink to this definition"></a></dt>
 <dd><p>Select bones linked by parent/child connections under the mouse cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -597,7 +750,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_mirror">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_mirror" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_mirror" title="Permalink to this definition"></a></dt>
 <dd><p>Mirror the bone selection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -611,13 +764,13 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.select_parent">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_parent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_parent" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_parent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_parent" title="Permalink to this definition"></a></dt>
 <dd><p>Select bones that are parents of the currently selected bones</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_add" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_add" title="Permalink to this definition"></a></dt>
 <dd><p>Create a new empty Selection Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -628,7 +781,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_add_and_assign">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_add_and_assign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_add_and_assign" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_add_and_assign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_add_and_assign" title="Permalink to this definition"></a></dt>
 <dd><p>Create a new Selection Set with the currently selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -639,7 +792,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_assign">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_assign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_assign" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_assign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_assign" title="Permalink to this definition"></a></dt>
 <dd><p>Add selected bones to Selection Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -650,7 +803,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_copy">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_copy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_copy" title="Permalink to this definition"></a></dt>
 <dd><p>Copy the selected Selection Set(s) to the clipboard</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -661,7 +814,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_delete_all">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_delete_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_delete_all" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_delete_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_delete_all" title="Permalink to this definition"></a></dt>
 <dd><p>Remove all Selection Sets from this Armature</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -672,7 +825,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_deselect">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_deselect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_deselect" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_deselect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_deselect" title="Permalink to this definition"></a></dt>
 <dd><p>Remove Selection Set bones from current selection</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -683,7 +836,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_move">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_move" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_move" title="Permalink to this definition"></a></dt>
 <dd><p>Move the active Selection Set up/down the list of sets</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -697,7 +850,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_paste">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_paste</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_paste" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_paste</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_paste" title="Permalink to this definition"></a></dt>
 <dd><p>Add new Selection Set(s) from the clipboard</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -708,7 +861,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_remove">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_remove" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_remove" title="Permalink to this definition"></a></dt>
 <dd><p>Remove a Selection Set from this Armature</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -719,7 +872,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_remove_bones">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_remove_bones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_remove_bones" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_remove_bones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_remove_bones" title="Permalink to this definition"></a></dt>
 <dd><p>Remove the selected bones from all Selection Sets</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -730,7 +883,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_select">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_set_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_select" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_set_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_select" title="Permalink to this definition"></a></dt>
 <dd><p>Select the bones from this Selection Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -744,7 +897,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.selection_set_unassign">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_unassign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_unassign" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_unassign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_unassign" title="Permalink to this definition"></a></dt>
 <dd><p>Remove selected bones from Selection Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">File</dt>
@@ -755,13 +908,13 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.transforms_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">transforms_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.transforms_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">transforms_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.transforms_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Reset location, rotation, and scaling of selected bones to their default values</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.user_transforms_clear">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">user_transforms_clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.user_transforms_clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">user_transforms_clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.user_transforms_clear" title="Permalink to this definition"></a></dt>
 <dd><p>Reset pose bone transforms to keyframed state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -772,66 +925,40 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.visual_transform_apply">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">visual_transform_apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.visual_transform_apply" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">visual_transform_apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.visual_transform_apply" title="Permalink to this definition"></a></dt>
 <dd><p>Apply final constrained position of pose bones to their transform</p>
 </dd></dl>
 
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bpy.ops.pointcloud.html" class="btn btn-neutral float-left" title="Pointcloud Operators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bpy.ops.poselib.html" class="btn btn-neutral float-right" title="Poselib Operators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fd6c1e7d8f94>fd6c1e7d8f94</a> - 04/08/2025</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="bpy.ops.pointcloud.html"
-                          title="previous chapter">Pointcloud Operators</a></p>
+    </section>
   </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="bpy.ops.poselib.html"
-                          title="next chapter">Poselib Operators</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.poselib.html" title="Poselib Operators"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="bpy.ops.pointcloud.html" title="Pointcloud Operators"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Pose Operators</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Blender Authors.
-    </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 <div class="footer-contribute">
   <ul>
     <li>
@@ -840,5 +967,6 @@ Siblings – Select all bones that have the same parent as currently selected bo
     </li>
   </ul>
 </div>
-  </body>
+
+</body>
 </html>

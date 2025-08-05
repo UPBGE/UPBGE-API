@@ -1,62 +1,153 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Tips and Tricks &#8212; Blender Python API</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
-    <link rel="canonical" href="https://docs.blender.org/api/current/info_tips_and_tricks.html" />
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Blender Python API"
-          href="_static/opensearch.xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tips and Tricks</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme_overrides_upbge.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/info_tips_and_tricks.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within "
+          href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Gotchas" href="info_gotcha.html" />
     <link rel="prev" title="Best Practice" href="info_best_practice.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="info_gotcha.html" title="Gotchas"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="info_best_practice.html" title="Best Practice"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Tips and Tricks</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Blender 5.0.0 Alpha Python API
+            <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info_quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_overview.html">API Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_api_reference.html">API Reference Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_best_practice.html">Best Practice</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tips and Tricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-terminal">Use the Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interface-tricks">Interface Tricks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-operator-commands">Access Operator Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-data-path">Access Data Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#show-all-operators">Show All Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-an-external-editor">Use an External Editor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#executing-external-scripts">Executing External Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#executing-modules">Executing Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-blender-without-it-s-user-interface">Use Blender without it’s User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-external-tools">Use External Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bundled-python-extensions">Bundled Python &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#insert-a-python-interpreter-into-your-script">Insert a Python Interpreter into your Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced">Advanced</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#blender-as-a-module">Blender as a Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-safety-build-option">Python Safety (Build Option)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotchas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bpy.context.html">Context Access (bpy.context)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.data.html">Data Access (bpy.data)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.msgbus.html">Message Bus (bpy.msgbus)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.types.html">Types (bpy.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.path.html">Path Utilities (bpy.path)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.app.html">Application Data (bpy.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.props.html">Property Definitions (bpy.props)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Game Engine Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bge.types.html">Game Types (bge.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.logic.html">Game Logic (bge.logic)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.render.html">Rasterizer (bge.render)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html">Video Texture (bge.texture)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#ffmpeg-video-and-image-status">FFmpeg Video and Image Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.texture.html#image-blending-modes">Image Blending Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.events.html">Game Keys (bge.events)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.constraints.html">Physics Constraints (bge.constraints)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bge.app.html">Application Data (bge.app)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgui.html">Game GUI (bgui)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standalone Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bl_math.html">Additional Math Functions (bl_math)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blender 5.0.0 Alpha Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tips and Tricks</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="tips-and-tricks">
-<h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h1>
+<h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline"></a></h1>
 <p>Here are various suggestions that you might find useful when writing scripts.
 Some of these are just Python features that you may not have thought to use with Blender,
 others are Blender-specific.</p>
 <section id="use-the-terminal">
-<span id="id1"></span><h2>Use the Terminal<a class="headerlink" href="#use-the-terminal" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Use the Terminal<a class="headerlink" href="#use-the-terminal" title="Permalink to this headline"></a></h2>
 <p>When writing Python scripts, it’s useful to have a terminal open,
 this is not the built-in Python console but a terminal application which is used to start Blender.</p>
 <p>The three main use cases for the terminal are:</p>
@@ -73,15 +164,15 @@ Blender’s user interface (depending on how the script is executed).</p></li>
 </div>
 </section>
 <section id="interface-tricks">
-<h2>Interface Tricks<a class="headerlink" href="#interface-tricks" title="Permalink to this headline">¶</a></h2>
+<h2>Interface Tricks<a class="headerlink" href="#interface-tricks" title="Permalink to this headline"></a></h2>
 <section id="access-operator-commands">
-<h3>Access Operator Commands<a class="headerlink" href="#access-operator-commands" title="Permalink to this headline">¶</a></h3>
+<h3>Access Operator Commands<a class="headerlink" href="#access-operator-commands" title="Permalink to this headline"></a></h3>
 <p>You may have noticed that the tooltip for menu items and buttons includes the <code class="docutils literal notranslate"><span class="pre">bpy.ops.[...]</span></code> command
 to run that button, a handy (hidden) feature is that you can press <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>-<kbd class="kbd docutils literal notranslate">C</kbd></kbd> over
 any menu item or button to copy this command into the clipboard.</p>
 </section>
 <section id="access-data-path">
-<h3>Access Data Path<a class="headerlink" href="#access-data-path" title="Permalink to this headline">¶</a></h3>
+<h3>Access Data Path<a class="headerlink" href="#access-data-path" title="Permalink to this headline"></a></h3>
 <p>To find the path from an <code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code> data-block to its setting isn’t always so simple since it may be nested away.
 To get this quickly open the context menu of the setting and select <em>Copy Data Path</em>,
 if this can’t be generated, only the property name is copied.</p>
@@ -94,7 +185,7 @@ if this can’t be generated, only the property name is copied.</p>
 </section>
 </section>
 <section id="show-all-operators">
-<span id="info-show-all-operators"></span><h2>Show All Operators<a class="headerlink" href="#show-all-operators" title="Permalink to this headline">¶</a></h2>
+<span id="info-show-all-operators"></span><h2>Show All Operators<a class="headerlink" href="#show-all-operators" title="Permalink to this headline"></a></h2>
 <p>While Blender logs operators in the Info editor,
 this only reports operators with the <code class="docutils literal notranslate"><span class="pre">REGISTER</span></code> option enabled so as not to flood the <em>Info</em> view
 with calls to <code class="docutils literal notranslate"><span class="pre">bpy.ops.view3d.smoothview</span></code> and <code class="docutils literal notranslate"><span class="pre">bpy.ops.view3d.zoom</span></code>.
@@ -103,7 +194,7 @@ do this by enabling the debug option either by passing the <code class="docutils
 or by setting <a class="reference internal" href="bpy.app.html#bpy.app.debug_wm" title="bpy.app.debug_wm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.app.debug_wm</span></code></a> to <code class="docutils literal notranslate"><span class="pre">True</span></code> while Blender is running.</p>
 </section>
 <section id="use-an-external-editor">
-<h2>Use an External Editor<a class="headerlink" href="#use-an-external-editor" title="Permalink to this headline">¶</a></h2>
+<h2>Use an External Editor<a class="headerlink" href="#use-an-external-editor" title="Permalink to this headline"></a></h2>
 <p>Blender’s text editor is fine for small changes and writing tests but its not full featured,
 for larger projects you’ll probably want to use a standalone editor or Python IDE.
 Editing a text file externally and having the same text open in Blender does work
@@ -111,7 +202,7 @@ but isn’t that optimal so here are two ways you can use an external file from 
 Using the following examples you’ll still need text data-block in Blender to execute,
 but reference an external file rather than including it directly.</p>
 <section id="executing-external-scripts">
-<h3>Executing External Scripts<a class="headerlink" href="#executing-external-scripts" title="Permalink to this headline">¶</a></h3>
+<h3>Executing External Scripts<a class="headerlink" href="#executing-external-scripts" title="Permalink to this headline"></a></h3>
 <p>This is the equivalent to running the script directly, referencing a script’s path from a two line code block.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;/full/path/to/myscript.py&quot;</span>
 <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">))</span>
@@ -127,7 +218,7 @@ but reference an external file rather than including it directly.</p>
 </div>
 </section>
 <section id="executing-modules">
-<h3>Executing Modules<a class="headerlink" href="#executing-modules" title="Permalink to this headline">¶</a></h3>
+<h3>Executing Modules<a class="headerlink" href="#executing-modules" title="Permalink to this headline"></a></h3>
 <p>This example shows loading a script in as a module and executing a module function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">myscript</span>
 <span class="kn">import</span> <span class="nn">importlib</span>
@@ -163,7 +254,7 @@ and then loads the script as a module.</p>
 </section>
 </section>
 <section id="use-blender-without-it-s-user-interface">
-<h2>Use Blender without it’s User Interface<a class="headerlink" href="#use-blender-without-it-s-user-interface" title="Permalink to this headline">¶</a></h2>
+<h2>Use Blender without it’s User Interface<a class="headerlink" href="#use-blender-without-it-s-user-interface" title="Permalink to this headline"></a></h2>
 <p>While developing your own scripts Blender’s interface can get in the way,
 manually reloading, running the scripts, opening file import, etc. adds overhead.
 For scripts that are not interactive it can end up being more efficient not to use
@@ -192,7 +283,7 @@ Blender running the script every few seconds with a viewer updating the results,
 so no need to leave your text editor to see changes.</p>
 </section>
 <section id="use-external-tools">
-<h2>Use External Tools<a class="headerlink" href="#use-external-tools" title="Permalink to this headline">¶</a></h2>
+<h2>Use External Tools<a class="headerlink" href="#use-external-tools" title="Permalink to this headline"></a></h2>
 <p>When there are no readily available Python modules to perform specific tasks it’s
 worth keeping in mind you may be able to have Python execute an external command
 on your data and read the result back in.</p>
@@ -206,7 +297,7 @@ but to quickly setup your own custom pipeline or writing one-off scripts this ca
 </ul>
 </section>
 <section id="bundled-python-extensions">
-<h2>Bundled Python &amp; Extensions<a class="headerlink" href="#bundled-python-extensions" title="Permalink to this headline">¶</a></h2>
+<h2>Bundled Python &amp; Extensions<a class="headerlink" href="#bundled-python-extensions" title="Permalink to this headline"></a></h2>
 <p>The Blender releases distributed from blender.org include a complete Python installation on all platforms,
 this has the disadvantage that any extensions you have installed on your system’s Python environment
 will not be found by Blender.</p>
@@ -234,7 +325,7 @@ including any extensions you rely on.</p></li>
 </ul>
 </section>
 <section id="insert-a-python-interpreter-into-your-script">
-<h2>Insert a Python Interpreter into your Script<a class="headerlink" href="#insert-a-python-interpreter-into-your-script" title="Permalink to this headline">¶</a></h2>
+<h2>Insert a Python Interpreter into your Script<a class="headerlink" href="#insert-a-python-interpreter-into-your-script" title="Permalink to this headline"></a></h2>
 <p>In the middle of a script you may want to inspect variables,
 run functions and inspect the flow.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">code</span>
@@ -269,9 +360,9 @@ but its still a handy thing to know.</p>
 </div>
 </section>
 <section id="advanced">
-<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline"></a></h2>
 <section id="blender-as-a-module">
-<h3>Blender as a Module<a class="headerlink" href="#blender-as-a-module" title="Permalink to this headline">¶</a></h3>
+<h3>Blender as a Module<a class="headerlink" href="#blender-as-a-module" title="Permalink to this headline"></a></h3>
 <p>From a Python perspective it’s nicer to have everything as an extension
 which lets the Python script combine many components.</p>
 <p>Advantages include:</p>
@@ -286,7 +377,7 @@ For instructions on building see
 <a class="reference external" href="https://developer.blender.org/docs/handbook/building_blender/python_module/">Building Blender as a Python module</a>.</p>
 </section>
 <section id="python-safety-build-option">
-<h3>Python Safety (Build Option)<a class="headerlink" href="#python-safety-build-option" title="Permalink to this headline">¶</a></h3>
+<h3>Python Safety (Build Option)<a class="headerlink" href="#python-safety-build-option" title="Permalink to this headline"></a></h3>
 <p>Since it’s possible to access data which has been removed (see <a class="reference internal" href="info_gotcha.html"><span class="doc">Gotchas</span></a>),
 it can be hard to track down the cause of crashes.
 To raise Python exceptions on accessing freed data (rather than crashing),
@@ -298,88 +389,33 @@ which is why the option isn’t enabled in release builds.</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Tips and Tricks</a><ul>
-<li><a class="reference internal" href="#use-the-terminal">Use the Terminal</a></li>
-<li><a class="reference internal" href="#interface-tricks">Interface Tricks</a><ul>
-<li><a class="reference internal" href="#access-operator-commands">Access Operator Commands</a></li>
-<li><a class="reference internal" href="#access-data-path">Access Data Path</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#show-all-operators">Show All Operators</a></li>
-<li><a class="reference internal" href="#use-an-external-editor">Use an External Editor</a><ul>
-<li><a class="reference internal" href="#executing-external-scripts">Executing External Scripts</a></li>
-<li><a class="reference internal" href="#executing-modules">Executing Modules</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#use-blender-without-it-s-user-interface">Use Blender without it’s User Interface</a></li>
-<li><a class="reference internal" href="#use-external-tools">Use External Tools</a></li>
-<li><a class="reference internal" href="#bundled-python-extensions">Bundled Python &amp; Extensions</a></li>
-<li><a class="reference internal" href="#insert-a-python-interpreter-into-your-script">Insert a Python Interpreter into your Script</a></li>
-<li><a class="reference internal" href="#advanced">Advanced</a><ul>
-<li><a class="reference internal" href="#blender-as-a-module">Blender as a Module</a></li>
-<li><a class="reference internal" href="#python-safety-build-option">Python Safety (Build Option)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="info_best_practice.html" class="btn btn-neutral float-left" title="Best Practice" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="info_gotcha.html" class="btn btn-neutral float-right" title="Gotchas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blender Authors.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fd6c1e7d8f94>fd6c1e7d8f94</a> - 04/08/2025</code>.
+      </span></p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="info_best_practice.html"
-                          title="previous chapter">Best Practice</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="info_gotcha.html"
-                          title="next chapter">Gotchas</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="info_gotcha.html" title="Gotchas"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="info_best_practice.html" title="Best Practice"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Blender Python API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Tips and Tricks</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Blender Authors.
-    </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 <div class="footer-contribute">
   <ul>
     <li>
@@ -388,5 +424,6 @@ which is why the option isn’t enabled in release builds.</p>
     </li>
   </ul>
 </div>
-  </body>
+
+</body>
 </html>
