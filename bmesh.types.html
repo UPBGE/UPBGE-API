@@ -580,8 +580,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormal.html">CompositorNodeNormal(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormalize.html">CompositorNodeNormalize(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFile.html">CompositorNodeOutputFile(CompositorNode)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileFileSlots.html">CompositorNodeOutputFileFileSlots(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileLayerSlots.html">CompositorNodeOutputFileLayerSlots(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePixelate.html">CompositorNodePixelate(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePlaneTrackDeform.html">CompositorNodePlaneTrackDeform(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePosterize.html">CompositorNodePosterize(CompositorNode)</a></li>
@@ -1312,6 +1310,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundle.html">NodeCombineBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItem.html">NodeCombineBundleItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItems.html">NodeCombineBundleItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItem.html">NodeCompositorFileOutputItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItems.html">NodeCompositorFileOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCustomGroup.html">NodeCustomGroup(Node)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEnumItem.html">NodeEnumItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEvaluateClosure.html">NodeEvaluateClosure(NodeInternal)</a></li>
@@ -1342,8 +1342,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLink.html">NodeLink(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotFile.html">NodeOutputFileSlotFile(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotLayer.html">NodeOutputFileSlotLayer(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
@@ -2266,6 +2264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/controller_type_items.html">Controller Type Items</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="bpy_types_custom_properties.html">Types with Custom Property Support</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Utilities (bpy.utils)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -2600,7 +2599,7 @@ explicitly free the data.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.from_mesh">
 <span class="sig-name descname"><span class="pre">from_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shape_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_key_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.from_mesh" title="Link to this definition"></a></dt>
-<dd><p>Initialize this bmesh from existing mesh datablock.</p>
+<dd><p>Initialize this bmesh from existing mesh data-block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2664,7 +2663,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.to_mesh">
 <span class="sig-name descname"><span class="pre">to_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.to_mesh" title="Link to this definition"></a></dt>
-<dd><p>Writes this BMesh data into an existing Mesh datablock.</p>
+<dd><p>Writes this BMesh data into an existing Mesh data-block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mesh</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Mesh</span></code>) – The mesh data to write into.</p>

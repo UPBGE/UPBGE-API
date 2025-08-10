@@ -580,8 +580,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormal.html">CompositorNodeNormal(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormalize.html">CompositorNodeNormalize(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFile.html">CompositorNodeOutputFile(CompositorNode)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileFileSlots.html">CompositorNodeOutputFileFileSlots(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileLayerSlots.html">CompositorNodeOutputFileLayerSlots(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePixelate.html">CompositorNodePixelate(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePlaneTrackDeform.html">CompositorNodePlaneTrackDeform(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePosterize.html">CompositorNodePosterize(CompositorNode)</a></li>
@@ -1312,6 +1310,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundle.html">NodeCombineBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItem.html">NodeCombineBundleItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItems.html">NodeCombineBundleItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItem.html">NodeCompositorFileOutputItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItems.html">NodeCompositorFileOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCustomGroup.html">NodeCustomGroup(Node)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEnumItem.html">NodeEnumItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEvaluateClosure.html">NodeEvaluateClosure(NodeInternal)</a></li>
@@ -1342,8 +1342,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLink.html">NodeLink(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotFile.html">NodeOutputFileSlotFile(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotLayer.html">NodeOutputFileSlotLayer(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
@@ -2266,6 +2264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/controller_type_items.html">Controller Type Items</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="bpy_types_custom_properties.html">Types with Custom Property Support</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Utilities (bpy.utils)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -2607,17 +2606,6 @@ Displacement – Bake displacement.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NORMALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DISPLACEMENT'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'NORMALS'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.bake_user_scale">
-<span class="sig-name descname"><span class="pre">bake_user_scale</span></span><a class="headerlink" href="#bpy.types.RenderSettings.bake_user_scale" title="Link to this definition"></a></dt>
-<dd><p>Instead of automatically normalizing to the range 0 to 1, apply a user scale to the derivative map</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, 1000], default 0.0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3382,17 +3370,6 @@ Fixed – Manually determine the number of threads.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.use_bake_user_scale">
-<span class="sig-name descname"><span class="pre">use_bake_user_scale</span></span><a class="headerlink" href="#bpy.types.RenderSettings.use_bake_user_scale" title="Link to this definition"></a></dt>
-<dd><p>Use a user scale for the derivative map</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.RenderSettings.use_border">
 <span class="sig-name descname"><span class="pre">use_border</span></span><a class="headerlink" href="#bpy.types.RenderSettings.use_border" title="Link to this definition"></a></dt>
 <dd><p>Render a user-defined render region, within the frame size</p>
@@ -3980,7 +3957,6 @@ Multi-View – Multi camera system, adjust the cameras individually.</p></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.bake_margin_type"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_margin_type</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.bake_samples"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_samples</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.bake_type"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_type</span></code></a></li>
-<li><a class="reference internal" href="#bpy.types.RenderSettings.bake_user_scale"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_user_scale</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.border_max_x"><code class="docutils literal notranslate"><span class="pre">RenderSettings.border_max_x</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.border_max_y"><code class="docutils literal notranslate"><span class="pre">RenderSettings.border_max_y</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.border_min_x"><code class="docutils literal notranslate"><span class="pre">RenderSettings.border_min_x</span></code></a></li>
@@ -4044,7 +4020,6 @@ Multi-View – Multi camera system, adjust the cameras individually.</p></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_lores_mesh"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_lores_mesh</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_multires"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_multires</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_selected_to_active"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_selected_to_active</span></code></a></li>
-<li><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_user_scale"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_user_scale</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.use_border"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_border</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.use_compositing"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_compositing</span></code></a></li>
 <li><a class="reference internal" href="#bpy.types.RenderSettings.use_crop_to_border"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_crop_to_border</span></code></a></li>

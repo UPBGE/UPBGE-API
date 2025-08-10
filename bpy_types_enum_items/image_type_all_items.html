@@ -580,8 +580,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodeNormal.html">CompositorNodeNormal(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodeNormalize.html">CompositorNodeNormalize(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodeOutputFile.html">CompositorNodeOutputFile(CompositorNode)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodeOutputFileFileSlots.html">CompositorNodeOutputFileFileSlots(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodeOutputFileLayerSlots.html">CompositorNodeOutputFileLayerSlots(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodePixelate.html">CompositorNodePixelate(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodePlaneTrackDeform.html">CompositorNodePlaneTrackDeform(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.CompositorNodePosterize.html">CompositorNodePosterize(CompositorNode)</a></li>
@@ -1312,6 +1310,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeCombineBundle.html">NodeCombineBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeCombineBundleItem.html">NodeCombineBundleItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeCombineBundleItems.html">NodeCombineBundleItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeCompositorFileOutputItem.html">NodeCompositorFileOutputItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeCompositorFileOutputItems.html">NodeCompositorFileOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeCustomGroup.html">NodeCustomGroup(Node)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeEnumItem.html">NodeEnumItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeEvaluateClosure.html">NodeEvaluateClosure(NodeInternal)</a></li>
@@ -1342,8 +1342,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeLink.html">NodeLink(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeLinks.html">NodeLinks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeOutputFileSlotFile.html">NodeOutputFileSlotFile(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeOutputFileSlotLayer.html">NodeOutputFileSlotLayer(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeOutputs.html">NodeOutputs(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
@@ -2266,6 +2264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="controller_type_items.html">Controller Type Items</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../bpy_types_custom_properties.html">Types with Custom Property Support</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bpy.utils.html">Utilities (bpy.utils)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Utilities (bpy.utils)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -2530,67 +2529,67 @@
           <section id="image-type-all-items">
 <span id="rna-enum-image-type-all-items"></span><h1>Image Type All Items<a class="headerlink" href="#image-type-all-items" title="Link to this heading"></a></h1>
 <dl class="field-list">
-<dt class="field-odd">BMP<span class="colon">:</span></dt>
-<dd class="field-odd"><p>BMP.</p>
-<p>Output image in bitmap format.</p>
-</dd>
-<dt class="field-even">IRIS<span class="colon">:</span></dt>
-<dd class="field-even"><p>Iris.</p>
-<p>Output image in SGI IRIS format.</p>
-</dd>
-<dt class="field-odd">PNG<span class="colon">:</span></dt>
-<dd class="field-odd"><p>PNG.</p>
-<p>Output image in PNG format.</p>
-</dd>
-<dt class="field-even">JPEG<span class="colon">:</span></dt>
-<dd class="field-even"><p>JPEG.</p>
+<dt class="field-odd">JPEG<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JPEG (.jpg).</p>
 <p>Output image in JPEG format.</p>
 </dd>
-<dt class="field-odd">JPEG2000<span class="colon">:</span></dt>
-<dd class="field-odd"><p>JPEG 2000.</p>
-<p>Output image in JPEG 2000 format.</p>
+<dt class="field-even">OPEN_EXR<span class="colon">:</span></dt>
+<dd class="field-even"><p>OpenEXR (.exr).</p>
+<p>Output image in OpenEXR format.</p>
 </dd>
-<dt class="field-even">TARGA<span class="colon">:</span></dt>
-<dd class="field-even"><p>Targa.</p>
-<p>Output image in Targa format.</p>
+<dt class="field-odd">PNG<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PNG (.png).</p>
+<p>Output image in PNG format.</p>
 </dd>
-<dt class="field-odd">TARGA_RAW<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Targa Raw.</p>
-<p>Output image in uncompressed Targa format.</p>
+<dt class="field-even">WEBP<span class="colon">:</span></dt>
+<dd class="field-even"><p>WebP (.webp).</p>
+<p>Output image in WebP format.</p>
 </dd>
 </dl>
 <hr class="docutils" />
 <dl class="field-list">
-<dt class="field-odd">CINEON<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Cineon.</p>
+<dt class="field-odd">BMP<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Bitmap (.bmp).</p>
+<p>Output image in bitmap format.</p>
+</dd>
+<dt class="field-even">CINEON<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cineon (.cin).</p>
 <p>Output image in Cineon format.</p>
 </dd>
-<dt class="field-even">DPX<span class="colon">:</span></dt>
-<dd class="field-even"><p>DPX.</p>
+<dt class="field-odd">DPX<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DPX (.dpx).</p>
 <p>Output image in DPX format.</p>
 </dd>
-<dt class="field-odd">OPEN_EXR<span class="colon">:</span></dt>
-<dd class="field-odd"><p>OpenEXR.</p>
-<p>Output image in OpenEXR format.</p>
+<dt class="field-even">IRIS<span class="colon">:</span></dt>
+<dd class="field-even"><p>Iris (.rgb).</p>
+<p>Output image in SGI IRIS format.</p>
+</dd>
+<dt class="field-odd">JPEG2000<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JPEG 2000 (.jp2).</p>
+<p>Output image in JPEG 2000 format.</p>
 </dd>
 <dt class="field-even">HDR<span class="colon">:</span></dt>
-<dd class="field-even"><p>Radiance HDR.</p>
+<dd class="field-even"><p>Radiance HDR (.hdr).</p>
 <p>Output image in Radiance HDR format.</p>
 </dd>
+<dt class="field-odd">TARGA<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Targa (.tga).</p>
+<p>Output image in Targa format.</p>
+</dd>
+<dt class="field-even">TARGA_RAW<span class="colon">:</span></dt>
+<dd class="field-even"><p>Targa Raw (.tga).</p>
+<p>Output image in uncompressed Targa format.</p>
+</dd>
 <dt class="field-odd">TIFF<span class="colon">:</span></dt>
-<dd class="field-odd"><p>TIFF.</p>
+<dd class="field-odd"><p>TIFF (.tif).</p>
 <p>Output image in TIFF format.</p>
 </dd>
-<dt class="field-even">WEBP<span class="colon">:</span></dt>
-<dd class="field-even"><p>WebP.</p>
-<p>Output image in WebP format.</p>
-</dd>
-<dt class="field-odd">OPEN_EXR_MULTILAYER<span class="colon">:</span></dt>
-<dd class="field-odd"><p>OpenEXR MultiLayer.</p>
+<dt class="field-even">OPEN_EXR_MULTILAYER<span class="colon">:</span></dt>
+<dd class="field-even"><p>OpenEXR MultiLayer (.exr).</p>
 <p>Output image in multilayer OpenEXR format.</p>
 </dd>
-<dt class="field-even">FFMPEG<span class="colon">:</span></dt>
-<dd class="field-even"><p>FFmpeg Video.</p>
+<dt class="field-odd">FFMPEG<span class="colon">:</span></dt>
+<dd class="field-odd"><p>FFmpeg Video.</p>
 </dd>
 </dl>
 </section>

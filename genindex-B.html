@@ -580,8 +580,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormal.html">CompositorNodeNormal(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormalize.html">CompositorNodeNormalize(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFile.html">CompositorNodeOutputFile(CompositorNode)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileFileSlots.html">CompositorNodeOutputFileFileSlots(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileLayerSlots.html">CompositorNodeOutputFileLayerSlots(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePixelate.html">CompositorNodePixelate(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePlaneTrackDeform.html">CompositorNodePlaneTrackDeform(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePosterize.html">CompositorNodePosterize(CompositorNode)</a></li>
@@ -1312,6 +1310,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundle.html">NodeCombineBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItem.html">NodeCombineBundleItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItems.html">NodeCombineBundleItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItem.html">NodeCompositorFileOutputItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItems.html">NodeCompositorFileOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCustomGroup.html">NodeCustomGroup(Node)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEnumItem.html">NodeEnumItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEvaluateClosure.html">NodeEvaluateClosure(NodeInternal)</a></li>
@@ -1342,8 +1342,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLink.html">NodeLink(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotFile.html">NodeOutputFileSlotFile(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotLayer.html">NodeOutputFileSlotLayer(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
@@ -2266,6 +2264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/controller_type_items.html">Controller Type Items</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="bpy_types_custom_properties.html">Types with Custom Property Support</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Utilities (bpy.utils)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -2693,8 +2692,6 @@
 </li>
         <li><a href="bpy.types.RenderSettings.html#bpy.types.RenderSettings.bake_type">bake_type (bpy.types.RenderSettings attribute)</a>
 </li>
-        <li><a href="bpy.types.RenderSettings.html#bpy.types.RenderSettings.bake_user_scale">bake_user_scale (bpy.types.RenderSettings attribute)</a>
-</li>
         <li><a href="bpy.types.BakeSettings.html#bpy.types.BakeSettings">BakeSettings (class in bpy.types)</a>
 </li>
         <li><a href="bpy.types.BakeSettings.html#bpy.types.BakeSettings.image_settings">BakeSettings.image_settings (in module bpy.types)</a>
@@ -2716,8 +2713,6 @@
         <li><a href="bpy.ops.console.html#bpy.ops.console.banner">banner() (in module bpy.ops.console)</a>
 </li>
         <li><a href="mathutils.geometry.html#mathutils.geometry.barycentric_transform">barycentric_transform() (in module mathutils.geometry)</a>
-</li>
-        <li><a href="bpy.types.CompositorNodeOutputFile.html#bpy.types.CompositorNodeOutputFile.base_path">base_path (bpy.types.CompositorNodeOutputFile attribute)</a>
 </li>
         <li><a href="bpy.types.XrSessionSettings.html#bpy.types.XrSessionSettings.base_pose_angle">base_pose_angle (bpy.types.XrSessionSettings attribute)</a>
 </li>
@@ -3806,10 +3801,6 @@
           <li><a href="bpy.types.CompositorNodeNormalize.html#bpy.types.CompositorNodeNormalize.bl_rna_get_subclass">(bpy.types.CompositorNodeNormalize class method)</a>
 </li>
           <li><a href="bpy.types.CompositorNodeOutputFile.html#bpy.types.CompositorNodeOutputFile.bl_rna_get_subclass">(bpy.types.CompositorNodeOutputFile class method)</a>
-</li>
-          <li><a href="bpy.types.CompositorNodeOutputFileFileSlots.html#bpy.types.CompositorNodeOutputFileFileSlots.bl_rna_get_subclass">(bpy.types.CompositorNodeOutputFileFileSlots class method)</a>
-</li>
-          <li><a href="bpy.types.CompositorNodeOutputFileLayerSlots.html#bpy.types.CompositorNodeOutputFileLayerSlots.bl_rna_get_subclass">(bpy.types.CompositorNodeOutputFileLayerSlots class method)</a>
 </li>
           <li><a href="bpy.types.CompositorNodePixelate.html#bpy.types.CompositorNodePixelate.bl_rna_get_subclass">(bpy.types.CompositorNodePixelate class method)</a>
 </li>
@@ -5271,6 +5262,10 @@
 </li>
           <li><a href="bpy.types.NodeCombineBundleItems.html#bpy.types.NodeCombineBundleItems.bl_rna_get_subclass">(bpy.types.NodeCombineBundleItems class method)</a>
 </li>
+          <li><a href="bpy.types.NodeCompositorFileOutputItem.html#bpy.types.NodeCompositorFileOutputItem.bl_rna_get_subclass">(bpy.types.NodeCompositorFileOutputItem class method)</a>
+</li>
+          <li><a href="bpy.types.NodeCompositorFileOutputItems.html#bpy.types.NodeCompositorFileOutputItems.bl_rna_get_subclass">(bpy.types.NodeCompositorFileOutputItems class method)</a>
+</li>
           <li><a href="bpy.types.NodeCustomGroup.html#bpy.types.NodeCustomGroup.bl_rna_get_subclass">(bpy.types.NodeCustomGroup class method)</a>
 </li>
           <li><a href="bpy.types.NodeEnumItem.html#bpy.types.NodeEnumItem.bl_rna_get_subclass">(bpy.types.NodeEnumItem class method)</a>
@@ -5330,10 +5325,6 @@
           <li><a href="bpy.types.NodeLinks.html#bpy.types.NodeLinks.bl_rna_get_subclass">(bpy.types.NodeLinks class method)</a>
 </li>
           <li><a href="bpy.types.NodeMenuSwitchItems.html#bpy.types.NodeMenuSwitchItems.bl_rna_get_subclass">(bpy.types.NodeMenuSwitchItems class method)</a>
-</li>
-          <li><a href="bpy.types.NodeOutputFileSlotFile.html#bpy.types.NodeOutputFileSlotFile.bl_rna_get_subclass">(bpy.types.NodeOutputFileSlotFile class method)</a>
-</li>
-          <li><a href="bpy.types.NodeOutputFileSlotLayer.html#bpy.types.NodeOutputFileSlotLayer.bl_rna_get_subclass">(bpy.types.NodeOutputFileSlotLayer class method)</a>
 </li>
           <li><a href="bpy.types.NodeOutputs.html#bpy.types.NodeOutputs.bl_rna_get_subclass">(bpy.types.NodeOutputs class method)</a>
 </li>
@@ -7295,10 +7286,6 @@
 </li>
           <li><a href="bpy.types.CompositorNodeOutputFile.html#bpy.types.CompositorNodeOutputFile.bl_rna_get_subclass_py">(bpy.types.CompositorNodeOutputFile class method)</a>
 </li>
-          <li><a href="bpy.types.CompositorNodeOutputFileFileSlots.html#bpy.types.CompositorNodeOutputFileFileSlots.bl_rna_get_subclass_py">(bpy.types.CompositorNodeOutputFileFileSlots class method)</a>
-</li>
-          <li><a href="bpy.types.CompositorNodeOutputFileLayerSlots.html#bpy.types.CompositorNodeOutputFileLayerSlots.bl_rna_get_subclass_py">(bpy.types.CompositorNodeOutputFileLayerSlots class method)</a>
-</li>
           <li><a href="bpy.types.CompositorNodePixelate.html#bpy.types.CompositorNodePixelate.bl_rna_get_subclass_py">(bpy.types.CompositorNodePixelate class method)</a>
 </li>
           <li><a href="bpy.types.CompositorNodePlaneTrackDeform.html#bpy.types.CompositorNodePlaneTrackDeform.bl_rna_get_subclass_py">(bpy.types.CompositorNodePlaneTrackDeform class method)</a>
@@ -8759,6 +8746,10 @@
 </li>
           <li><a href="bpy.types.NodeCombineBundleItems.html#bpy.types.NodeCombineBundleItems.bl_rna_get_subclass_py">(bpy.types.NodeCombineBundleItems class method)</a>
 </li>
+          <li><a href="bpy.types.NodeCompositorFileOutputItem.html#bpy.types.NodeCompositorFileOutputItem.bl_rna_get_subclass_py">(bpy.types.NodeCompositorFileOutputItem class method)</a>
+</li>
+          <li><a href="bpy.types.NodeCompositorFileOutputItems.html#bpy.types.NodeCompositorFileOutputItems.bl_rna_get_subclass_py">(bpy.types.NodeCompositorFileOutputItems class method)</a>
+</li>
           <li><a href="bpy.types.NodeCustomGroup.html#bpy.types.NodeCustomGroup.bl_rna_get_subclass_py">(bpy.types.NodeCustomGroup class method)</a>
 </li>
           <li><a href="bpy.types.NodeEnumItem.html#bpy.types.NodeEnumItem.bl_rna_get_subclass_py">(bpy.types.NodeEnumItem class method)</a>
@@ -8818,10 +8809,6 @@
           <li><a href="bpy.types.NodeLinks.html#bpy.types.NodeLinks.bl_rna_get_subclass_py">(bpy.types.NodeLinks class method)</a>
 </li>
           <li><a href="bpy.types.NodeMenuSwitchItems.html#bpy.types.NodeMenuSwitchItems.bl_rna_get_subclass_py">(bpy.types.NodeMenuSwitchItems class method)</a>
-</li>
-          <li><a href="bpy.types.NodeOutputFileSlotFile.html#bpy.types.NodeOutputFileSlotFile.bl_rna_get_subclass_py">(bpy.types.NodeOutputFileSlotFile class method)</a>
-</li>
-          <li><a href="bpy.types.NodeOutputFileSlotLayer.html#bpy.types.NodeOutputFileSlotLayer.bl_rna_get_subclass_py">(bpy.types.NodeOutputFileSlotLayer class method)</a>
 </li>
           <li><a href="bpy.types.NodeOutputs.html#bpy.types.NodeOutputs.bl_rna_get_subclass_py">(bpy.types.NodeOutputs class method)</a>
 </li>
@@ -10817,10 +10804,10 @@
 </li>
         <li><a href="bmesh.types.html#bmesh.types.bmesh.types.BMLayerAccessLoop">bmesh.types.BMLayerAccessLoop (class in bmesh.types)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="bmesh.types.html#bmesh.types.bmesh.types.BMLayerAccessVert">bmesh.types.BMLayerAccessVert (class in bmesh.types)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="bmesh.types.html#bmesh.types.bmesh.types.BMLayerCollection">bmesh.types.BMLayerCollection (class in bmesh.types)</a>
 </li>
         <li><a href="bmesh.types.html#bmesh.types.bmesh.types.BMLayerItem">bmesh.types.BMLayerItem (class in bmesh.types)</a>

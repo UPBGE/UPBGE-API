@@ -580,8 +580,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormal.html">CompositorNodeNormal(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormalize.html">CompositorNodeNormalize(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFile.html">CompositorNodeOutputFile(CompositorNode)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileFileSlots.html">CompositorNodeOutputFileFileSlots(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileLayerSlots.html">CompositorNodeOutputFileLayerSlots(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePixelate.html">CompositorNodePixelate(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePlaneTrackDeform.html">CompositorNodePlaneTrackDeform(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePosterize.html">CompositorNodePosterize(CompositorNode)</a></li>
@@ -1312,6 +1310,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundle.html">NodeCombineBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItem.html">NodeCombineBundleItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItems.html">NodeCombineBundleItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItem.html">NodeCompositorFileOutputItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItems.html">NodeCompositorFileOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCustomGroup.html">NodeCustomGroup(Node)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEnumItem.html">NodeEnumItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEvaluateClosure.html">NodeEvaluateClosure(NodeInternal)</a></li>
@@ -1342,8 +1342,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLink.html">NodeLink(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotFile.html">NodeOutputFileSlotFile(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotLayer.html">NodeOutputFileSlotLayer(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
@@ -2266,6 +2264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/controller_type_items.html">Controller Type Items</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="bpy_types_custom_properties.html">Types with Custom Property Support</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Utilities (bpy.utils)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -3021,10 +3020,10 @@
 </li>
         <li><a href="bpy.app.html#bpy.app.online_access">online_access (in module bpy.app)</a>
 </li>
-        <li><a href="bpy.app.html#bpy.app.online_access_override">online_access_override (in module bpy.app)</a>
-</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="bpy.app.html#bpy.app.online_access_override">online_access_override (in module bpy.app)</a>
+</li>
         <li><a href="bpy.types.ShaderNodeAmbientOcclusion.html#bpy.types.ShaderNodeAmbientOcclusion.only_local">only_local (bpy.types.ShaderNodeAmbientOcclusion attribute)</a>
 </li>
         <li><a href="bge.types.KX_GameObject.html#bge.types.KX_GameObject.onRemove">onRemove (bge.types.KX_GameObject attribute)</a>
@@ -3364,12 +3363,6 @@
         <li><a href="bpy.types.SpaceProperties.html#bpy.types.SpaceProperties.outliner_sync">outliner_sync (bpy.types.SpaceProperties attribute)</a>
 </li>
         <li><a href="bpy.types.DynamicPaintSurface.html#bpy.types.DynamicPaintSurface.output_exists">output_exists() (bpy.types.DynamicPaintSurface method)</a>
-</li>
-        <li><a href="bpy.ops.node.html#bpy.ops.node.output_file_add_socket">output_file_add_socket() (in module bpy.ops.node)</a>
-</li>
-        <li><a href="bpy.ops.node.html#bpy.ops.node.output_file_move_active_socket">output_file_move_active_socket() (in module bpy.ops.node)</a>
-</li>
-        <li><a href="bpy.ops.node.html#bpy.ops.node.output_file_remove_active_socket">output_file_remove_active_socket() (in module bpy.ops.node)</a>
 </li>
         <li><a href="bpy.types.DynamicPaintSurface.html#bpy.types.DynamicPaintSurface.output_name_a">output_name_a (bpy.types.DynamicPaintSurface attribute)</a>
 </li>
@@ -4430,6 +4423,8 @@
         <li><a href="bpy.ops.ui.html#bpy.ops.ui.override_idtemplate_make">override_idtemplate_make() (in module bpy.ops.ui)</a>
 </li>
         <li><a href="bpy.ops.ui.html#bpy.ops.ui.override_idtemplate_reset">override_idtemplate_reset() (in module bpy.ops.ui)</a>
+</li>
+        <li><a href="bpy.types.NodeCompositorFileOutputItem.html#bpy.types.NodeCompositorFileOutputItem.override_node_format">override_node_format (bpy.types.NodeCompositorFileOutputItem attribute)</a>
 </li>
         <li><a href="bpy.ops.ui.html#bpy.ops.ui.override_remove_button">override_remove_button() (in module bpy.ops.ui)</a>
 </li>

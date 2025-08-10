@@ -580,8 +580,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormal.html">CompositorNodeNormal(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormalize.html">CompositorNodeNormalize(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFile.html">CompositorNodeOutputFile(CompositorNode)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileFileSlots.html">CompositorNodeOutputFileFileSlots(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeOutputFileLayerSlots.html">CompositorNodeOutputFileLayerSlots(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePixelate.html">CompositorNodePixelate(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePlaneTrackDeform.html">CompositorNodePlaneTrackDeform(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodePosterize.html">CompositorNodePosterize(CompositorNode)</a></li>
@@ -1312,6 +1310,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundle.html">NodeCombineBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItem.html">NodeCombineBundleItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCombineBundleItems.html">NodeCombineBundleItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItem.html">NodeCompositorFileOutputItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItems.html">NodeCompositorFileOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCustomGroup.html">NodeCustomGroup(Node)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEnumItem.html">NodeEnumItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEvaluateClosure.html">NodeEvaluateClosure(NodeInternal)</a></li>
@@ -1342,8 +1342,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLink.html">NodeLink(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotFile.html">NodeOutputFileSlotFile(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputFileSlotLayer.html">NodeOutputFileSlotLayer(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
@@ -2266,6 +2264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy_types_enum_items/controller_type_items.html">Controller Type Items</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="bpy_types_custom_properties.html">Types with Custom Property Support</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bpy.utils.html">Utilities (bpy.utils)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Utilities (bpy.utils)</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -2586,79 +2585,79 @@ such cases, lock the interface (Render → Lock Interface or
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.animation_playback_post">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">animation_playback_post</span></span><a class="headerlink" href="#bpy.app.handlers.animation_playback_post" title="Link to this definition"></a></dt>
-<dd><p>on ending animation playback. Accepts two arguments: The scene datablock and the dependency graph being updated</p>
+<dd><p>on ending animation playback. Accepts two arguments: The scene data-block and the dependency graph being updated</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.animation_playback_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">animation_playback_pre</span></span><a class="headerlink" href="#bpy.app.handlers.animation_playback_pre" title="Link to this definition"></a></dt>
-<dd><p>on starting animation playback. Accepts two arguments: The scene datablock and the dependency graph being updated</p>
+<dd><p>on starting animation playback. Accepts two arguments: The scene data-block and the dependency graph being updated</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.annotation_post">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">annotation_post</span></span><a class="headerlink" href="#bpy.app.handlers.annotation_post" title="Link to this definition"></a></dt>
-<dd><p>on drawing an annotation (after)</p>
+<dd><p>on drawing an annotation (after). Accepts two arguments: the annotation data-block and dependency graph</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.annotation_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">annotation_pre</span></span><a class="headerlink" href="#bpy.app.handlers.annotation_pre" title="Link to this definition"></a></dt>
-<dd><p>on drawing an annotation (before)</p>
+<dd><p>on drawing an annotation (before). Accepts two arguments: the annotation data-block and dependency graph</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.blend_import_post">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">blend_import_post</span></span><a class="headerlink" href="#bpy.app.handlers.blend_import_post" title="Link to this definition"></a></dt>
-<dd><p>on linking or appending data (after), get a single <cite>BlendImportContext</cite> parameter</p>
+<dd><p>on linking or appending data (after). Accepts one argument: a BlendImportContext</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.blend_import_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">blend_import_pre</span></span><a class="headerlink" href="#bpy.app.handlers.blend_import_pre" title="Link to this definition"></a></dt>
-<dd><p>on linking or appending data (before), get a single <cite>BlendImportContext</cite> parameter</p>
+<dd><p>on linking or appending data (before). Accepts one argument: a BlendImportContext</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.composite_cancel">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">composite_cancel</span></span><a class="headerlink" href="#bpy.app.handlers.composite_cancel" title="Link to this definition"></a></dt>
-<dd><p>on a compositing background job (cancel). Accepts one argument: the scene datablock</p>
+<dd><p>on a compositing background job (cancel). Accepts one argument: the scene data-block</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.composite_post">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">composite_post</span></span><a class="headerlink" href="#bpy.app.handlers.composite_post" title="Link to this definition"></a></dt>
-<dd><p>on a compositing background job (after). Accepts one argument: the scene datablock</p>
+<dd><p>on a compositing background job (after). Accepts one argument: the scene data-block</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.composite_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">composite_pre</span></span><a class="headerlink" href="#bpy.app.handlers.composite_pre" title="Link to this definition"></a></dt>
-<dd><p>on a compositing background job (before). Accepts one argument: the scene datablock</p>
+<dd><p>on a compositing background job (before). Accepts one argument: the scene data-block</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.depsgraph_update_post">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">depsgraph_update_post</span></span><a class="headerlink" href="#bpy.app.handlers.depsgraph_update_post" title="Link to this definition"></a></dt>
-<dd><p>on depsgraph update (post). Accepts two arguments: The scene datablock and the dependency graph being updated</p>
+<dd><p>on depsgraph update (post). Accepts two arguments: The scene data-block and the dependency graph being updated</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.depsgraph_update_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">depsgraph_update_pre</span></span><a class="headerlink" href="#bpy.app.handlers.depsgraph_update_pre" title="Link to this definition"></a></dt>
-<dd><p>on depsgraph update (pre). Accepts two arguments: The scene datablock and the dependency graph being updated</p>
+<dd><p>on depsgraph update (pre). Accepts two arguments: The scene data-block and the dependency graph being updated</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.frame_change_post">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">frame_change_post</span></span><a class="headerlink" href="#bpy.app.handlers.frame_change_post" title="Link to this definition"></a></dt>
-<dd><p>Called after frame change for playback and rendering, after the data has been evaluated for the new frame. Accepts two arguments: The scene datablock and the dependency graph being updated</p>
+<dd><p>Called after frame change for playback and rendering, after the data has been evaluated for the new frame. Accepts two arguments: The scene data-block and the dependency graph being updated</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.frame_change_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">frame_change_pre</span></span><a class="headerlink" href="#bpy.app.handlers.frame_change_pre" title="Link to this definition"></a></dt>
-<dd><p>Called after frame change for playback and rendering, before any data is evaluated for the new frame. This makes it possible to change data and relations (for example swap an object to another mesh) for the new frame. Note that this handler is <strong>not</strong> to be used as ‘before the frame changes’ event. The dependency graph is not available in this handler, as data and relations may have been altered and the dependency graph has not yet been updated for that. Accepts two arguments: The scene datablock and the dependency graph being updated</p>
+<dd><p>Called after frame change for playback and rendering, before any data is evaluated for the new frame. This makes it possible to change data and relations (for example swap an object to another mesh) for the new frame. Note that this handler is <strong>not</strong> to be used as ‘before the frame changes’ event. The dependency graph is not available in this handler, as data and relations may have been altered and the dependency graph has not yet been updated for that. Accepts two arguments: The scene data-block and the dependency graph being updated</p>
 </dd></dl>
 
 <dl class="py data">
@@ -2706,19 +2705,19 @@ such cases, lock the interface (Render → Lock Interface or
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.object_bake_cancel">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">object_bake_cancel</span></span><a class="headerlink" href="#bpy.app.handlers.object_bake_cancel" title="Link to this definition"></a></dt>
-<dd><p>on canceling a bake job; will be called in the main thread. Accepts one argument: the object datablock being baked</p>
+<dd><p>on canceling a bake job; will be called in the main thread. Accepts one argument: the object data-block being baked</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.object_bake_complete">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">object_bake_complete</span></span><a class="headerlink" href="#bpy.app.handlers.object_bake_complete" title="Link to this definition"></a></dt>
-<dd><p>on completing a bake job; will be called in the main thread. Accepts one argument: the object datablock being baked</p>
+<dd><p>on completing a bake job; will be called in the main thread. Accepts one argument: the object data-block being baked</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.object_bake_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">object_bake_pre</span></span><a class="headerlink" href="#bpy.app.handlers.object_bake_pre" title="Link to this definition"></a></dt>
-<dd><p>before starting a bake job. Accepts one argument: the object datablock being baked</p>
+<dd><p>before starting a bake job. Accepts one argument: the object data-block being baked</p>
 </dd></dl>
 
 <dl class="py data">
@@ -2736,19 +2735,19 @@ such cases, lock the interface (Render → Lock Interface or
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.render_cancel">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">render_cancel</span></span><a class="headerlink" href="#bpy.app.handlers.render_cancel" title="Link to this definition"></a></dt>
-<dd><p>on canceling a render job. Accepts one argument: the scene datablock being rendered</p>
+<dd><p>on canceling a render job. Accepts one argument: the scene data-block being rendered</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.render_complete">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">render_complete</span></span><a class="headerlink" href="#bpy.app.handlers.render_complete" title="Link to this definition"></a></dt>
-<dd><p>on completion of render job. Accepts one argument: the scene datablock being rendered</p>
+<dd><p>on completion of render job. Accepts one argument: the scene data-block being rendered</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.handlers.render_init">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">render_init</span></span><a class="headerlink" href="#bpy.app.handlers.render_init" title="Link to this definition"></a></dt>
-<dd><p>on initialization of a render job. Accepts one argument: the scene datablock being rendered</p>
+<dd><p>on initialization of a render job. Accepts one argument: the scene data-block being rendered</p>
 </dd></dl>
 
 <dl class="py data">
