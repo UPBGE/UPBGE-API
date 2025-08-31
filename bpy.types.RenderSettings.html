@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCryptomatte.html">CompositorNodeCryptomatte(CompositorNode)</a></li>
@@ -1371,11 +1372,6 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RenderSettings(bpy_struct)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.RenderSettings"><code class="docutils literal notranslate"><span class="pre">RenderSettings</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.bake"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.bake_bias"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_bias</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.bake_margin"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_margin</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.bake_margin_type"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_margin_type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.bake_samples"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_samples</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.bake_type"><code class="docutils literal notranslate"><span class="pre">RenderSettings.bake_type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.border_max_x"><code class="docutils literal notranslate"><span class="pre">RenderSettings.border_max_x</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.border_max_y"><code class="docutils literal notranslate"><span class="pre">RenderSettings.border_max_y</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.border_min_x"><code class="docutils literal notranslate"><span class="pre">RenderSettings.border_min_x</span></code></a></li>
@@ -1435,10 +1431,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.stereo_views"><code class="docutils literal notranslate"><span class="pre">RenderSettings.stereo_views</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.threads"><code class="docutils literal notranslate"><span class="pre">RenderSettings.threads</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.threads_mode"><code class="docutils literal notranslate"><span class="pre">RenderSettings.threads_mode</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_clear"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_clear</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_lores_mesh"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_lores_mesh</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_multires"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_multires</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.use_bake_selected_to_active"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_bake_selected_to_active</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.use_border"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_border</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.use_compositing"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_compositing</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderSettings.use_crop_to_border"><code class="docutils literal notranslate"><span class="pre">RenderSettings.use_crop_to_border</span></code></a></li>
@@ -2010,73 +2002,6 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.bake_bias">
-<span class="sig-name descname"><span class="pre">bake_bias</span></span><a class="headerlink" href="#bpy.types.RenderSettings.bake_bias" title="Link to this definition"></a></dt>
-<dd><p>Bias towards faces further away from the object (in Blender units)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, 1000], default 0.001</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.bake_margin">
-<span class="sig-name descname"><span class="pre">bake_margin</span></span><a class="headerlink" href="#bpy.types.RenderSettings.bake_margin" title="Link to this definition"></a></dt>
-<dd><p>Extends the baked result as a post process filter</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [0, 64], default 16</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.bake_margin_type">
-<span class="sig-name descname"><span class="pre">bake_margin_type</span></span><a class="headerlink" href="#bpy.types.RenderSettings.bake_margin_type" title="Link to this definition"></a></dt>
-<dd><p>Algorithm to generate the margin</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ADJACENT_FACES</span></code>
-Adjacent Faces – Use pixels from adjacent faces across UV seams.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>
-Extend – Extend border pixels outwards.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'ADJACENT_FACES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'EXTEND'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'ADJACENT_FACES'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.bake_samples">
-<span class="sig-name descname"><span class="pre">bake_samples</span></span><a class="headerlink" href="#bpy.types.RenderSettings.bake_samples" title="Link to this definition"></a></dt>
-<dd><p>Number of samples used for ambient occlusion baking from multires</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [64, 1024], default 256</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.bake_type">
-<span class="sig-name descname"><span class="pre">bake_type</span></span><a class="headerlink" href="#bpy.types.RenderSettings.bake_type" title="Link to this definition"></a></dt>
-<dd><p>Choose shading information to bake into the image</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">NORMALS</span></code>
-Normals – Bake normals.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DISPLACEMENT</span></code>
-Displacement – Bake displacement.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NORMALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DISPLACEMENT'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'NORMALS'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.RenderSettings.border_max_x">
 <span class="sig-name descname"><span class="pre">border_max_x</span></span><a class="headerlink" href="#bpy.types.RenderSettings.border_max_x" title="Link to this definition"></a></dt>
 <dd><p>Maximum X value for the render region</p>
@@ -2343,7 +2268,7 @@ Full – Full precision.</p></li>
 <dd><p>Curves shape type</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'STRAND'</span></code>, <code class="docutils literal notranslate"><span class="pre">'STRIP'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'STRAND'&quot;</span></code></p>
+<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'STRAND'</span></code>, <code class="docutils literal notranslate"><span class="pre">'STRIP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CYLINDER'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'STRAND'&quot;</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2787,50 +2712,6 @@ Fixed – Manually determine the number of threads.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'AUTO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FIXED'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'AUTO'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.use_bake_clear">
-<span class="sig-name descname"><span class="pre">use_bake_clear</span></span><a class="headerlink" href="#bpy.types.RenderSettings.use_bake_clear" title="Link to this definition"></a></dt>
-<dd><p>Clear Images before baking</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default True</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.use_bake_lores_mesh">
-<span class="sig-name descname"><span class="pre">use_bake_lores_mesh</span></span><a class="headerlink" href="#bpy.types.RenderSettings.use_bake_lores_mesh" title="Link to this definition"></a></dt>
-<dd><p>Calculate heights against unsubdivided low resolution mesh</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.use_bake_multires">
-<span class="sig-name descname"><span class="pre">use_bake_multires</span></span><a class="headerlink" href="#bpy.types.RenderSettings.use_bake_multires" title="Link to this definition"></a></dt>
-<dd><p>Bake directly from multires object</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.RenderSettings.use_bake_selected_to_active">
-<span class="sig-name descname"><span class="pre">use_bake_selected_to_active</span></span><a class="headerlink" href="#bpy.types.RenderSettings.use_bake_selected_to_active" title="Link to this definition"></a></dt>
-<dd><p>Bake shading on the surface of selected objects to the active object</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3365,7 +3246,7 @@ Multi-View – Multi camera system, adjust the cameras individually.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 

@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCryptomatte.html">CompositorNodeCryptomatte(CompositorNode)</a></li>
@@ -342,9 +343,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeRelativeToPixel.html">CompositorNodeRelativeToPixel(CompositorNode)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CompositorNodeRotate(CompositorNode)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.CompositorNodeRotate"><code class="docutils literal notranslate"><span class="pre">CompositorNodeRotate</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeRotate.extension_x"><code class="docutils literal notranslate"><span class="pre">CompositorNodeRotate.extension_x</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeRotate.extension_y"><code class="docutils literal notranslate"><span class="pre">CompositorNodeRotate.extension_y</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeRotate.interpolation"><code class="docutils literal notranslate"><span class="pre">CompositorNodeRotate.interpolation</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeRotate.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">CompositorNodeRotate.is_registered_node_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeRotate.input_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeRotate.input_template()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeRotate.output_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeRotate.output_template()</span></code></a></li>
@@ -1898,65 +1896,6 @@
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeRotate">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">CompositorNodeRotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CompositorNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeRotate" title="Link to this definition"></a></dt>
 <dd><p>Rotate image by specified angle</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeRotate.extension_x">
-<span class="sig-name descname"><span class="pre">extension_x</span></span><a class="headerlink" href="#bpy.types.CompositorNodeRotate.extension_x" title="Link to this definition"></a></dt>
-<dd><p>The extension mode applied to the X axis</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CLIP</span></code>
-Clip – Areas outside of the image are filled with zero.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>
-Extend – Areas outside of the image are filled with the closest boundary pixel in the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">REPEAT</span></code>
-Repeat – Areas outside of the image are filled with repetitions of the image.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'CLIP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'EXTEND'</span></code>, <code class="docutils literal notranslate"><span class="pre">'REPEAT'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'CLIP'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeRotate.extension_y">
-<span class="sig-name descname"><span class="pre">extension_y</span></span><a class="headerlink" href="#bpy.types.CompositorNodeRotate.extension_y" title="Link to this definition"></a></dt>
-<dd><p>The extension mode applied to the Y axis</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CLIP</span></code>
-Clip – Areas outside of the image are filled with zero.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>
-Extend – Areas outside of the image are filled with the closest boundary pixel in the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">REPEAT</span></code>
-Repeat – Areas outside of the image are filled with repetitions of the image.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'CLIP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'EXTEND'</span></code>, <code class="docutils literal notranslate"><span class="pre">'REPEAT'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'CLIP'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeRotate.interpolation">
-<span class="sig-name descname"><span class="pre">interpolation</span></span><a class="headerlink" href="#bpy.types.CompositorNodeRotate.interpolation" title="Link to this definition"></a></dt>
-<dd><p>Interpolation method</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">NEAREST</span></code>
-Nearest – Use Nearest interpolation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BILINEAR</span></code>
-Bilinear – Use Bilinear interpolation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BICUBIC</span></code>
-Bicubic – Use Cubic B-Spline interpolation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ANISOTROPIC</span></code>
-Anisotropic – Use Anisotropic interpolation.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NEAREST'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BILINEAR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BICUBIC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ANISOTROPIC'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'NEAREST'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeRotate.is_registered_node_type">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeRotate.is_registered_node_type" title="Link to this definition"></a></dt>
@@ -2161,7 +2100,7 @@ Anisotropic – Use Anisotropic interpolation.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 

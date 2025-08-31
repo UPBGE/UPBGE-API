@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCryptomatte.html">CompositorNodeCryptomatte(CompositorNode)</a></li>
@@ -1795,9 +1796,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.object_mode"><code class="docutils literal notranslate"><span class="pre">WorkSpace.object_mode</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.owner_ids"><code class="docutils literal notranslate"><span class="pre">WorkSpace.owner_ids</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.screens"><code class="docutils literal notranslate"><span class="pre">WorkSpace.screens</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.sequencer_scene"><code class="docutils literal notranslate"><span class="pre">WorkSpace.sequencer_scene</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.tools"><code class="docutils literal notranslate"><span class="pre">WorkSpace.tools</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.use_filter_by_owner"><code class="docutils literal notranslate"><span class="pre">WorkSpace.use_filter_by_owner</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.use_pin_scene"><code class="docutils literal notranslate"><span class="pre">WorkSpace.use_pin_scene</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.use_scene_time_sync"><code class="docutils literal notranslate"><span class="pre">WorkSpace.use_scene_time_sync</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.status_text_set_internal"><code class="docutils literal notranslate"><span class="pre">WorkSpace.status_text_set_internal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.status_text_set"><code class="docutils literal notranslate"><span class="pre">WorkSpace.status_text_set()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WorkSpace.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">WorkSpace.bl_rna_get_subclass()</span></code></a></li>
@@ -1966,6 +1969,16 @@ Custom – Show assets from the asset libraries configured in the Preferences.</
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.WorkSpace.sequencer_scene">
+<span class="sig-name descname"><span class="pre">sequencer_scene</span></span><a class="headerlink" href="#bpy.types.WorkSpace.sequencer_scene" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.WorkSpace.tools">
 <span class="sig-name descname"><span class="pre">tools</span></span><a class="headerlink" href="#bpy.types.WorkSpace.tools" title="Link to this definition"></a></dt>
@@ -1991,6 +2004,17 @@ Custom – Show assets from the asset libraries configured in the Preferences.</
 <dt class="sig sig-object py" id="bpy.types.WorkSpace.use_pin_scene">
 <span class="sig-name descname"><span class="pre">use_pin_scene</span></span><a class="headerlink" href="#bpy.types.WorkSpace.use_pin_scene" title="Link to this definition"></a></dt>
 <dd><p>Remember the last used scene for the workspace and switch to it whenever this workspace is activated again</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.WorkSpace.use_scene_time_sync">
+<span class="sig-name descname"><span class="pre">use_scene_time_sync</span></span><a class="headerlink" href="#bpy.types.WorkSpace.use_scene_time_sync" title="Link to this definition"></a></dt>
+<dd><p>Set the active scene and time based on the current scene strip</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default False</p>
@@ -2154,7 +2178,7 @@ When text is a function, this will be called with the (header, context) argument
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 

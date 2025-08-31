@@ -714,16 +714,18 @@ Elastic – Exponentially decaying sine wave, like an elastic band.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.grease_pencil.join_selection">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">join_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'JOIN'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.join_selection" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">join_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'JOINSTROKES'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.join_selection" title="Link to this definition"></a></dt>
 <dd><p>New stroke from selected points/strokes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'JOINCOPY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'JOIN'</span></code>], (optional)) – <p>Type, Defines how the operator will behave on the selection in the active layer</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'JOINSTROKES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SPLITCOPY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SPLIT'</span></code>], (optional)) – <p>Type, Defines how the operator will behave on the selection in the active layer</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">JOINCOPY</span></code>
-Join and Copy – Copy the selection in the new stroke.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">JOIN</span></code>
-Join – Move the selection to the new stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JOINSTROKES</span></code>
+Join Strokes – Join the selected strokes into one stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SPLITCOPY</span></code>
+Split and Copy – Copy the selected points to a new stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SPLIT</span></code>
+Split – Split the selected point to a new stroke.</p></li>
 </ul>
 </p>
 </dd>
@@ -1421,7 +1423,20 @@ By Layer – Separate by layer.</p></li>
 <dd><p>Set the handle type for bezier curves</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/curves_handle_type_items.html#rna-enum-curves-handle-type-items"><span class="std std-ref">Curves Handle Type Items</span></a>, (optional)) – Type</p>
+<dd class="field-odd"><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'AUTO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VECTOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FREE_ALIGN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'TOGGLE_FREE_ALIGN'</span></code>], (optional)) – <p>Type</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
+Auto – The location is automatically calculated to be smooth.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VECTOR</span></code>
+Vector – The location is calculated to point to the next/previous control point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALIGN</span></code>
+Align – The location is constrained to point in the opposite direction as the other handle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FREE_ALIGN</span></code>
+Free – The handle can be moved anywhere, and does not influence the point’s other handle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOGGLE_FREE_ALIGN</span></code>
+Toggle Free/Align – Replace Free handles with Align, and all Align with Free handles.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1910,7 +1925,7 @@ Erase – Switch brush to erase mode for duration of stroke.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 

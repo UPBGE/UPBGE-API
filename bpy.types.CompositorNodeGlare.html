@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCryptomatte.html">CompositorNodeCryptomatte(CompositorNode)</a></li>
@@ -311,8 +312,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeGamma.html">CompositorNodeGamma(CompositorNode)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CompositorNodeGlare(CompositorNode)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.CompositorNodeGlare"><code class="docutils literal notranslate"><span class="pre">CompositorNodeGlare</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeGlare.glare_type"><code class="docutils literal notranslate"><span class="pre">CompositorNodeGlare.glare_type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeGlare.quality"><code class="docutils literal notranslate"><span class="pre">CompositorNodeGlare.quality</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeGlare.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">CompositorNodeGlare.is_registered_node_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeGlare.input_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeGlare.input_template()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeGlare.output_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeGlare.output_template()</span></code></a></li>
@@ -1897,27 +1896,6 @@
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeGlare">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">CompositorNodeGlare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CompositorNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeGlare" title="Link to this definition"></a></dt>
 <dd><p>Add lens flares, fog and glows around bright parts of the image</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeGlare.glare_type">
-<span class="sig-name descname"><span class="pre">glare_type</span></span><a class="headerlink" href="#bpy.types.CompositorNodeGlare.glare_type" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'BLOOM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GHOSTS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'STREAKS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FOG_GLOW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SIMPLE_STAR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SUN_BEAMS'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'SIMPLE_STAR'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeGlare.quality">
-<span class="sig-name descname"><span class="pre">quality</span></span><a class="headerlink" href="#bpy.types.CompositorNodeGlare.quality" title="Link to this definition"></a></dt>
-<dd><p>If not set to high quality, the effect will be applied to a low-res copy of the source image</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'HIGH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MEDIUM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOW'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'HIGH'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeGlare.is_registered_node_type">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeGlare.is_registered_node_type" title="Link to this definition"></a></dt>
@@ -2122,7 +2100,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 

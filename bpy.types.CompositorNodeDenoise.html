@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCryptomatte.html">CompositorNodeCryptomatte(CompositorNode)</a></li>
@@ -299,8 +300,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeDefocus.html">CompositorNodeDefocus(CompositorNode)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CompositorNodeDenoise(CompositorNode)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.CompositorNodeDenoise"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDenoise</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDenoise.prefilter"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDenoise.prefilter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDenoise.quality"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDenoise.quality</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDenoise.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDenoise.is_registered_node_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDenoise.input_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDenoise.input_template()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDenoise.output_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDenoise.output_template()</span></code></a></li>
@@ -1897,46 +1896,6 @@
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeDenoise">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">CompositorNodeDenoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CompositorNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeDenoise" title="Link to this definition"></a></dt>
 <dd><p>Denoise renders from Cycles and other ray tracing renderers</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeDenoise.prefilter">
-<span class="sig-name descname"><span class="pre">prefilter</span></span><a class="headerlink" href="#bpy.types.CompositorNodeDenoise.prefilter" title="Link to this definition"></a></dt>
-<dd><p>Denoising prefilter</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
-None – No prefiltering, use when guiding passes are noise-free.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FAST</span></code>
-Fast – Denoise image and guiding passes together. Improves quality when guiding passes are noisy using least amount of extra processing time..</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ACCURATE</span></code>
-Accurate – Prefilter noisy guiding passes before denoising image. Improves quality when guiding passes are noisy using extra processing time..</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FAST'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACCURATE'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'ACCURATE'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeDenoise.quality">
-<span class="sig-name descname"><span class="pre">quality</span></span><a class="headerlink" href="#bpy.types.CompositorNodeDenoise.quality" title="Link to this definition"></a></dt>
-<dd><p>Denoising quality</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">FOLLOW_SCENE</span></code>
-Follow Scene – Use the scene’s denoising quality setting.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">HIGH</span></code>
-High – High quality.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BALANCED</span></code>
-Balanced – Balanced between performance and quality.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FAST</span></code>
-Fast – High perfomance.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'FOLLOW_SCENE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HIGH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BALANCED'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FAST'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'FOLLOW_SCENE'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeDenoise.is_registered_node_type">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeDenoise.is_registered_node_type" title="Link to this definition"></a></dt>
@@ -2141,7 +2100,7 @@ Fast – High perfomance.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 

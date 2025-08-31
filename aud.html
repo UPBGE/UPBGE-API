@@ -94,6 +94,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#aud.AP_ORIENTATION"><code class="docutils literal notranslate"><span class="pre">AP_ORIENTATION</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.AP_PANNING"><code class="docutils literal notranslate"><span class="pre">AP_PANNING</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.AP_PITCH"><code class="docutils literal notranslate"><span class="pre">AP_PITCH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aud.AP_PITCH_SCALE"><code class="docutils literal notranslate"><span class="pre">AP_PITCH_SCALE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aud.AP_TIME_STRETCH"><code class="docutils literal notranslate"><span class="pre">AP_TIME_STRETCH</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.AP_VOLUME"><code class="docutils literal notranslate"><span class="pre">AP_VOLUME</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.CHANNELS_INVALID"><code class="docutils literal notranslate"><span class="pre">CHANNELS_INVALID</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.CHANNELS_MONO"><code class="docutils literal notranslate"><span class="pre">CHANNELS_MONO</span></code></a></li>
@@ -151,6 +153,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#aud.STATUS_PAUSED"><code class="docutils literal notranslate"><span class="pre">STATUS_PAUSED</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.STATUS_PLAYING"><code class="docutils literal notranslate"><span class="pre">STATUS_PLAYING</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.STATUS_STOPPED"><code class="docutils literal notranslate"><span class="pre">STATUS_STOPPED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aud.aud.AnimateableProperty"><code class="docutils literal notranslate"><span class="pre">aud.AnimateableProperty</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aud.aud.AnimateableProperty.read"><code class="docutils literal notranslate"><span class="pre">aud.AnimateableProperty.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aud.aud.AnimateableProperty.readSingle"><code class="docutils literal notranslate"><span class="pre">aud.AnimateableProperty.readSingle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aud.aud.AnimateableProperty.write"><code class="docutils literal notranslate"><span class="pre">aud.AnimateableProperty.write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aud.aud.AnimateableProperty.writeConstantRange"><code class="docutils literal notranslate"><span class="pre">aud.AnimateableProperty.writeConstantRange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aud.aud.AnimateableProperty.animated"><code class="docutils literal notranslate"><span class="pre">aud.AnimateableProperty.animated</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aud.aud.AnimateableProperty.count"><code class="docutils literal notranslate"><span class="pre">aud.AnimateableProperty.count</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#aud.aud.Device"><code class="docutils literal notranslate"><span class="pre">aud.Device</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#aud.aud.Device.lock"><code class="docutils literal notranslate"><span class="pre">aud.Device.lock()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#aud.aud.Device.play"><code class="docutils literal notranslate"><span class="pre">aud.Device.play()</span></code></a></li>
@@ -387,6 +398,18 @@
 <dt class="sig sig-object py" id="aud.AP_PITCH">
 <span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">AP_PITCH</span></span><a class="headerlink" href="#aud.AP_PITCH" title="Link to this definition"></a></dt>
 <dd><p>Constant value 2</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="aud.AP_PITCH_SCALE">
+<span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">AP_PITCH_SCALE</span></span><a class="headerlink" href="#aud.AP_PITCH_SCALE" title="Link to this definition"></a></dt>
+<dd><p>Constant value 6</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="aud.AP_TIME_STRETCH">
+<span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">AP_TIME_STRETCH</span></span><a class="headerlink" href="#aud.AP_TIME_STRETCH" title="Link to this definition"></a></dt>
+<dd><p>Constant value 5</p>
 </dd></dl>
 
 <dl class="py data">
@@ -732,6 +755,89 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="aud.aud.AnimateableProperty">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">AnimateableProperty</span></span><a class="headerlink" href="#aud.aud.AnimateableProperty" title="Link to this definition"></a></dt>
+<dd><p>An AnimateableProperty object stores an array of float values for animating sound properties (e.g. pan, volume, pitch-scale)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aud.aud.AnimateableProperty.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.aud.AnimateableProperty.read" title="Link to this definition"></a></dt>
+<dd><p>Reads the properties value at the given position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>float</em>) – The position in the animation in frames.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A numpy array of values representing the properties value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aud.aud.AnimateableProperty.readSingle">
+<span class="sig-name descname"><span class="pre">readSingle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.aud.AnimateableProperty.readSingle" title="Link to this definition"></a></dt>
+<dd><p>Reads the properties value at the given position, assuming there is exactly one value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>float</em>) – The position in the animation in frames.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value at that position.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aud.aud.AnimateableProperty.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#aud.aud.AnimateableProperty.write" title="Link to this definition"></a></dt>
+<dd><p>Writes the properties value.</p>
+<p>If <cite>position</cite> is also given, the property is marked animated and
+the values are written starting at <cite>position</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>numpy.ndarray</em>) – numpy array of float32 values.</p></li>
+<li><p><strong>position</strong> (<em>int</em>) – The starting position in frames.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aud.aud.AnimateableProperty.writeConstantRange">
+<span class="sig-name descname"><span class="pre">writeConstantRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.aud.AnimateableProperty.writeConstantRange" title="Link to this definition"></a></dt>
+<dd><p>Fills the properties frame range with a constant value and marks it animated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>numpy.ndarray</em>) – numpy array of float values representing the constant value.</p></li>
+<li><p><strong>position_start</strong> (<em>int</em>) – The start position in frames.</p></li>
+<li><p><strong>position_end</strong> (<em>int</em>) – The end position in frames.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aud.aud.AnimateableProperty.animated">
+<span class="sig-name descname"><span class="pre">animated</span></span><a class="headerlink" href="#aud.aud.AnimateableProperty.animated" title="Link to this definition"></a></dt>
+<dd><p>Whether the property is animated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aud.aud.AnimateableProperty.count">
+<span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#aud.aud.AnimateableProperty.count" title="Link to this definition"></a></dt>
+<dd><p>The count of floats for a property.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="aud.aud.Device">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#aud.aud.Device" title="Link to this definition"></a></dt>
 <dd><p>Device objects represent an audio output backend like OpenAL or SDL, but might also represent a file output or RAM buffer output.</p>
@@ -891,7 +997,7 @@ The default transition is a crossfade effect, and the default scene is silent an
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>false if the ini or end scenes don’t exist, true othrwise.</p>
+<dd class="field-even"><p>false if the ini or end scenes don’t exist, true otherwise.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -1278,7 +1384,7 @@ This can be used to seek the sound to some position and start playback again.</p
 <dd class="field-odd"><p><strong>catKey</strong> (<em>int</em>) – the key of the category.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The volume of the cateogry.</p>
+<dd class="field-even"><p>The volume of the category.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -2459,7 +2565,7 @@ non-zero.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 

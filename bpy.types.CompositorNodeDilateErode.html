@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCryptomatte.html">CompositorNodeCryptomatte(CompositorNode)</a></li>
@@ -302,8 +303,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeDiffMatte.html">CompositorNodeDiffMatte(CompositorNode)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CompositorNodeDilateErode(CompositorNode)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.CompositorNodeDilateErode"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDilateErode</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDilateErode.falloff"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDilateErode.falloff</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDilateErode.mode"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDilateErode.mode</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDilateErode.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDilateErode.is_registered_node_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDilateErode.input_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDilateErode.input_template()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.CompositorNodeDilateErode.output_template"><code class="docutils literal notranslate"><span class="pre">CompositorNodeDilateErode.output_template()</span></code></a></li>
@@ -1897,28 +1896,6 @@
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeDilateErode">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">CompositorNodeDilateErode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CompositorNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeDilateErode" title="Link to this definition"></a></dt>
 <dd><p>Expand and shrink masks</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeDilateErode.falloff">
-<span class="sig-name descname"><span class="pre">falloff</span></span><a class="headerlink" href="#bpy.types.CompositorNodeDilateErode.falloff" title="Link to this definition"></a></dt>
-<dd><p>Falloff type of the feather</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_curve_only_items.html#rna-enum-proportional-falloff-curve-only-items"><span class="std std-ref">Proportional Falloff Curve Only Items</span></a>, default <code class="docutils literal notranslate"><span class="pre">&quot;'SMOOTH'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.CompositorNodeDilateErode.mode">
-<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#bpy.types.CompositorNodeDilateErode.mode" title="Link to this definition"></a></dt>
-<dd><p>Growing/shrinking mode</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'STEP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'THRESHOLD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DISTANCE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FEATHER'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'STEP'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.CompositorNodeDilateErode.is_registered_node_type">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.CompositorNodeDilateErode.is_registered_node_type" title="Link to this definition"></a></dt>
@@ -2123,7 +2100,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/154554a10fdd>154554a10fdd</a> - 24/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
       </span></p>
   </div>
 
