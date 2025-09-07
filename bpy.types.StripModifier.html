@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertToDisplay.html">CompositorNodeConvertToDisplay(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
@@ -1598,9 +1599,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.StripElements.html">StripElements(bpy_struct)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">StripModifier(bpy_struct)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.StripModifier"><code class="docutils literal notranslate"><span class="pre">StripModifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.enable"><code class="docutils literal notranslate"><span class="pre">StripModifier.enable</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.input_mask_id"><code class="docutils literal notranslate"><span class="pre">StripModifier.input_mask_id</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.input_mask_strip"><code class="docutils literal notranslate"><span class="pre">StripModifier.input_mask_strip</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.input_mask_type"><code class="docutils literal notranslate"><span class="pre">StripModifier.input_mask_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.is_active"><code class="docutils literal notranslate"><span class="pre">StripModifier.is_active</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.mask_time"><code class="docutils literal notranslate"><span class="pre">StripModifier.mask_time</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.mute"><code class="docutils literal notranslate"><span class="pre">StripModifier.mute</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.name"><code class="docutils literal notranslate"><span class="pre">StripModifier.name</span></code></a></li>
@@ -1904,6 +1907,17 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">StripModifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.StripModifier" title="Link to this definition"></a></dt>
 <dd><p>Modifier for sequence strip</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.StripModifier.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><a class="headerlink" href="#bpy.types.StripModifier.enable" title="Link to this definition"></a></dt>
+<dd><p>Enable this modifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.StripModifier.input_mask_id">
 <span class="sig-name descname"><span class="pre">input_mask_id</span></span><a class="headerlink" href="#bpy.types.StripModifier.input_mask_id" title="Link to this definition"></a></dt>
 <dd><p>Mask ID used as mask input for the modifier</p>
@@ -1938,6 +1952,17 @@ Mask – Use mask ID as mask input.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'STRIP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ID'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'STRIP'&quot;</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.StripModifier.is_active">
+<span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#bpy.types.StripModifier.is_active" title="Link to this definition"></a></dt>
+<dd><p>This modifier is active</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2079,9 +2104,10 @@ Absolute – Mask animation is in sync with scene frame.</p></li>
 <h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.Strip.html#bpy.types.Strip.modifiers" title="bpy.types.Strip.modifiers"><code class="xref py py-class docutils literal notranslate"><span class="pre">Strip.modifiers</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.StripModifiers.html#bpy.types.StripModifiers.new" title="bpy.types.StripModifiers.new"><code class="xref py py-class docutils literal notranslate"><span class="pre">StripModifiers.new</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.StripModifiers.html#bpy.types.StripModifiers.active" title="bpy.types.StripModifiers.active"><code class="xref py py-class docutils literal notranslate"><span class="pre">StripModifiers.active</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.StripModifiers.html#bpy.types.StripModifiers.new" title="bpy.types.StripModifiers.new"><code class="xref py py-class docutils literal notranslate"><span class="pre">StripModifiers.new</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.StripModifiers.html#bpy.types.StripModifiers.remove" title="bpy.types.StripModifiers.remove"><code class="xref py py-class docutils literal notranslate"><span class="pre">StripModifiers.remove</span></code></a></p></li>
 </ul>
 </td></tr></table>
@@ -2100,7 +2126,7 @@ Absolute – Mask animation is in sync with scene frame.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/10aa63403c5d>10aa63403c5d</a> - 07/09/2025</code>.
       </span></p>
   </div>
 

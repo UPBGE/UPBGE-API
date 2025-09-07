@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertToDisplay.html">CompositorNodeConvertToDisplay(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
@@ -1734,7 +1735,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.secondary_color"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.secondary_color</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.size"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.size</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.strength"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.strength</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.unprojected_radius"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.unprojected_radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.unprojected_size"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.unprojected_size</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.use_color_jitter"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.use_color_jitter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.use_locked_size"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.use_locked_size</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UnifiedPaintSettings.use_random_press_hue"><code class="docutils literal notranslate"><span class="pre">UnifiedPaintSettings.use_random_press_hue</span></code></a></li>
@@ -1972,10 +1973,10 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.UnifiedPaintSettings.size">
 <span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#bpy.types.UnifiedPaintSettings.size" title="Link to this definition"></a></dt>
-<dd><p>Radius of the brush</p>
+<dd><p>Diameter of the brush</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [1, 5000], default 50</p>
+<dd class="field-odd"><p>int in [1, 10000], default 100</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1992,12 +1993,12 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.UnifiedPaintSettings.unprojected_radius">
-<span class="sig-name descname"><span class="pre">unprojected_radius</span></span><a class="headerlink" href="#bpy.types.UnifiedPaintSettings.unprojected_radius" title="Link to this definition"></a></dt>
-<dd><p>Radius of brush in Blender units</p>
+<dt class="sig sig-object py" id="bpy.types.UnifiedPaintSettings.unprojected_size">
+<span class="sig-name descname"><span class="pre">unprojected_size</span></span><a class="headerlink" href="#bpy.types.UnifiedPaintSettings.unprojected_size" title="Link to this definition"></a></dt>
+<dd><p>Diameter of brush in Blender units</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0.001, inf], default 0.29</p>
+<dd class="field-odd"><p>float in [0.001, inf], default 0.58</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2121,7 +2122,7 @@ Scene – Measure brush size relative to the scene.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.UnifiedPaintSettings.use_unified_size">
 <span class="sig-name descname"><span class="pre">use_unified_size</span></span><a class="headerlink" href="#bpy.types.UnifiedPaintSettings.use_unified_size" title="Link to this definition"></a></dt>
-<dd><p>Instead of per-brush radius, the radius is shared across brushes</p>
+<dd><p>Instead of per-brush size, the size is shared across brushes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, default True</p>
@@ -2270,7 +2271,7 @@ Scene – Measure brush size relative to the scene.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/10aa63403c5d>10aa63403c5d</a> - 07/09/2025</code>.
       </span></p>
   </div>
 

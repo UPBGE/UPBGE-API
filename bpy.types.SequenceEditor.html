@@ -289,6 +289,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertToDisplay.html">CompositorNodeConvertToDisplay(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
@@ -1418,8 +1419,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.proxy_dir"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.proxy_dir</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.proxy_storage"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.proxy_storage</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.selected_retiming_keys"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.selected_retiming_keys</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.sequences"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.sequences</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.sequences_all"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.sequences_all</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.show_missing_media"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.show_missing_media</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.show_overlay_frame"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.show_overlay_frame</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequenceEditor.strips"><code class="docutils literal notranslate"><span class="pre">SequenceEditor.strips</span></code></a></li>
@@ -2015,28 +2014,6 @@ Project – Store proxies using project directory.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.SequenceEditor.sequences">
-<span class="sig-name descname"><span class="pre">sequences</span></span><a class="headerlink" href="#bpy.types.SequenceEditor.sequences" title="Link to this definition"></a></dt>
-<dd><p>(Deprecated: Replaced by ‘.strips’) Top-level strips only</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.StripsTopLevel.html#bpy.types.StripsTopLevel" title="bpy.types.StripsTopLevel"><code class="xref py py-class docutils literal notranslate"><span class="pre">StripsTopLevel</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Strip.html#bpy.types.Strip" title="bpy.types.Strip"><code class="xref py py-class docutils literal notranslate"><span class="pre">Strip</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.SequenceEditor.sequences_all">
-<span class="sig-name descname"><span class="pre">sequences_all</span></span><a class="headerlink" href="#bpy.types.SequenceEditor.sequences_all" title="Link to this definition"></a></dt>
-<dd><p>(Deprecated: Replaced by ‘.strips_all’) All strips, recursively including those inside metastrips</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Strip.html#bpy.types.Strip" title="bpy.types.Strip"><code class="xref py py-class docutils literal notranslate"><span class="pre">Strip</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.SequenceEditor.show_missing_media">
 <span class="sig-name descname"><span class="pre">show_missing_media</span></span><a class="headerlink" href="#bpy.types.SequenceEditor.show_missing_media" title="Link to this definition"></a></dt>
@@ -2233,7 +2210,7 @@ Project – Store proxies using project directory.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/10aa63403c5d>10aa63403c5d</a> - 07/09/2025</code>.
       </span></p>
   </div>
 

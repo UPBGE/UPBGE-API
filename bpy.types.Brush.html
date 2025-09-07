@@ -240,10 +240,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.cursor_color_subtract"><code class="docutils literal notranslate"><span class="pre">Brush.cursor_color_subtract</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.cursor_overlay_alpha"><code class="docutils literal notranslate"><span class="pre">Brush.cursor_overlay_alpha</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve"><code class="docutils literal notranslate"><span class="pre">Brush.curve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve_jitter"><code class="docutils literal notranslate"><span class="pre">Brush.curve_jitter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve_preset"><code class="docutils literal notranslate"><span class="pre">Brush.curve_preset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve_random_hue"><code class="docutils literal notranslate"><span class="pre">Brush.curve_random_hue</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve_random_saturation"><code class="docutils literal notranslate"><span class="pre">Brush.curve_random_saturation</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve_random_value"><code class="docutils literal notranslate"><span class="pre">Brush.curve_random_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve_size"><code class="docutils literal notranslate"><span class="pre">Brush.curve_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curve_strength"><code class="docutils literal notranslate"><span class="pre">Brush.curve_strength</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curves_sculpt_brush_type"><code class="docutils literal notranslate"><span class="pre">Brush.curves_sculpt_brush_type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.curves_sculpt_settings"><code class="docutils literal notranslate"><span class="pre">Brush.curves_sculpt_settings</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.dash_ratio"><code class="docutils literal notranslate"><span class="pre">Brush.dash_ratio</span></code></a></li>
@@ -337,7 +340,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.tip_roundness"><code class="docutils literal notranslate"><span class="pre">Brush.tip_roundness</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.tip_scale_x"><code class="docutils literal notranslate"><span class="pre">Brush.tip_scale_x</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.topology_rake_factor"><code class="docutils literal notranslate"><span class="pre">Brush.topology_rake_factor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.unprojected_radius"><code class="docutils literal notranslate"><span class="pre">Brush.unprojected_radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.unprojected_size"><code class="docutils literal notranslate"><span class="pre">Brush.unprojected_size</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.use_accumulate"><code class="docutils literal notranslate"><span class="pre">Brush.use_accumulate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.use_adaptive_space"><code class="docutils literal notranslate"><span class="pre">Brush.use_adaptive_space</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Brush.use_airbrush"><code class="docutils literal notranslate"><span class="pre">Brush.use_airbrush</span></code></a></li>
@@ -512,6 +515,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombYUVA.html">CompositorNodeCombYUVA(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCombineColor.html">CompositorNodeCombineColor(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertColorSpace.html">CompositorNodeConvertColorSpace(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvertToDisplay.html">CompositorNodeConvertToDisplay(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeConvolve.html">CompositorNodeConvolve(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCornerPin.html">CompositorNodeCornerPin(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeCrop.html">CompositorNodeCrop(CompositorNode)</a></li>
@@ -2529,6 +2533,17 @@ Gradient – Paint with a gradient.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.Brush.curve_jitter">
+<span class="sig-name descname"><span class="pre">curve_jitter</span></span><a class="headerlink" href="#bpy.types.Brush.curve_jitter" title="Link to this definition"></a></dt>
+<dd><p>Curve used to map pressure to brush jitter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveMapping</span></code></a>, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Brush.curve_preset">
 <span class="sig-name descname"><span class="pre">curve_preset</span></span><a class="headerlink" href="#bpy.types.Brush.curve_preset" title="Link to this definition"></a></dt>
@@ -2565,6 +2580,28 @@ Gradient – Paint with a gradient.</p></li>
 <dt class="sig sig-object py" id="bpy.types.Brush.curve_random_value">
 <span class="sig-name descname"><span class="pre">curve_random_value</span></span><a class="headerlink" href="#bpy.types.Brush.curve_random_value" title="Link to this definition"></a></dt>
 <dd><p>Curve used for modulating effect</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveMapping</span></code></a>, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.Brush.curve_size">
+<span class="sig-name descname"><span class="pre">curve_size</span></span><a class="headerlink" href="#bpy.types.Brush.curve_size" title="Link to this definition"></a></dt>
+<dd><p>Curve used to map pressure to brush size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveMapping</span></code></a>, (readonly)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.Brush.curve_strength">
+<span class="sig-name descname"><span class="pre">curve_strength</span></span><a class="headerlink" href="#bpy.types.Brush.curve_strength" title="Link to this definition"></a></dt>
+<dd><p>Curve used to map pressure to brush strength</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveMapping</span></code></a>, (readonly)</p>
@@ -3340,10 +3377,10 @@ Face Sets FK – Simulates an FK deformation using the Face Set under the cursor
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Brush.size">
 <span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#bpy.types.Brush.size" title="Link to this definition"></a></dt>
-<dd><p>Radius of the brush in pixels</p>
+<dd><p>Diameter of the brush in pixels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [1, 5000], default 35</p>
+<dd class="field-odd"><p>int in [1, 10000], default 70</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3637,12 +3674,12 @@ Curve – Define the stroke curve with a Bézier curve (dabs are separated accor
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.Brush.unprojected_radius">
-<span class="sig-name descname"><span class="pre">unprojected_radius</span></span><a class="headerlink" href="#bpy.types.Brush.unprojected_radius" title="Link to this definition"></a></dt>
-<dd><p>Radius of brush in Blender units</p>
+<dt class="sig sig-object py" id="bpy.types.Brush.unprojected_size">
+<span class="sig-name descname"><span class="pre">unprojected_size</span></span><a class="headerlink" href="#bpy.types.Brush.unprojected_size" title="Link to this definition"></a></dt>
+<dd><p>Diameter of brush in Blender units</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0.001, inf], default 0.05</p>
+<dd class="field-odd"><p>float in [0.001, inf], default 0.1</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4710,7 +4747,7 @@ Scene – Calculate brush spacing relative to the scene using the stroke locatio
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/7479204257f5>7479204257f5</a> - 30/08/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/10aa63403c5d>10aa63403c5d</a> - 07/09/2025</code>.
       </span></p>
   </div>
 
