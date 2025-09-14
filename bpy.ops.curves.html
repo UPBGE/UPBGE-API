@@ -101,6 +101,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.curves.extrude"><code class="docutils literal notranslate"><span class="pre">extrude()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.curves.extrude_move"><code class="docutils literal notranslate"><span class="pre">extrude_move()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.curves.handle_type_set"><code class="docutils literal notranslate"><span class="pre">handle_type_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.curves.pen"><code class="docutils literal notranslate"><span class="pre">pen()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.curves.sculptmode_toggle"><code class="docutils literal notranslate"><span class="pre">sculptmode_toggle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.curves.select_all"><code class="docutils literal notranslate"><span class="pre">select_all()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.curves.select_ends"><code class="docutils literal notranslate"><span class="pre">select_ends()</span></code></a></li>
@@ -441,6 +442,32 @@ Toggle Free/Align – Replace Free handles with Align, and all Align with Free h
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.curves.pen">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.curves.</span></span><span class="sig-name descname"><span class="pre">pen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_passthrough</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extrude_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extrude_handle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VECTOR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insert_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">move_segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">move_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycle_handle_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.curves.pen" title="Link to this definition"></a></dt>
+<dd><p>Construct and edit Bézier curves</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend selection instead of deselecting everything first</p></li>
+<li><p><strong>deselect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Deselect, Remove from selection</p></li>
+<li><p><strong>toggle</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Toggle Selection, Toggle the selection</p></li>
+<li><p><strong>deselect_all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Deselect On Nothing, Deselect all when nothing under the cursor</p></li>
+<li><p><strong>select_passthrough</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Select Unselected, Ignore the select action when the element is already selected</p></li>
+<li><p><strong>extrude_point</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extrude Point, Add a point connected to the last selected point</p></li>
+<li><p><strong>extrude_handle</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'AUTO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VECTOR'</span></code>], (optional)) – Extrude Handle Type, Type of the extruded handle</p></li>
+<li><p><strong>delete_point</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Delete Point, Delete an existing point</p></li>
+<li><p><strong>insert_point</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Insert Point, Insert Point into a curve segment</p></li>
+<li><p><strong>move_segment</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Move Segment, Delete an existing point</p></li>
+<li><p><strong>select_point</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select Point, Select a point or its handles</p></li>
+<li><p><strong>move_point</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Move Point, Move a point or its handles</p></li>
+<li><p><strong>cycle_handle_type</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cycle Handle Type, Cycle between all four handle types</p></li>
+<li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.curves.sculptmode_toggle">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.curves.</span></span><span class="sig-name descname"><span class="pre">sculptmode_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.curves.sculptmode_toggle" title="Link to this definition"></a></dt>
 <dd><p>Enter/Exit sculpt mode for curves</p>
@@ -609,7 +636,7 @@ Deform – Re-attach curves to a deformed surface using the existing attachment 
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/10aa63403c5d>10aa63403c5d</a> - 07/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/be57c2cebd15>be57c2cebd15</a> - 13/09/2025</code>.
       </span></p>
   </div>
 

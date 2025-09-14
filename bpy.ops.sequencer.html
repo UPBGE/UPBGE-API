@@ -195,6 +195,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_grouped"><code class="docutils literal notranslate"><span class="pre">select_grouped()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_handle"><code class="docutils literal notranslate"><span class="pre">select_handle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_handles"><code class="docutils literal notranslate"><span class="pre">select_handles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_lasso"><code class="docutils literal notranslate"><span class="pre">select_lasso()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_less"><code class="docutils literal notranslate"><span class="pre">select_less()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_linked"><code class="docutils literal notranslate"><span class="pre">select_linked()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_linked_pick"><code class="docutils literal notranslate"><span class="pre">select_linked_pick()</span></code></a></li>
@@ -986,11 +987,15 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sequencer.paste">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.paste" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.paste" title="Link to this definition"></a></dt>
 <dd><p>Paste strips from the internal clipboard</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>keep_offset</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Offset, Keep strip offset relative to the current frame when pasting</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keep_offset</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Offset, Keep strip offset relative to the current frame when pasting</p></li>
+<li><p><strong>x</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X</p></li>
+<li><p><strong>y</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1384,6 +1389,32 @@ Overlap – Overlapping time.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>side</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LEFT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RIGHT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LEFT_NEIGHBOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RIGHT_NEIGHBOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BOTH_NEIGHBORS'</span></code>], (optional)) – Side, The side of the handle that is selected</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sequencer.select_lasso">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">select_lasso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_smooth_stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_stroke_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SET'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.select_lasso" title="Link to this definition"></a></dt>
+<dd><p>Select strips using lasso selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>, (optional)) – Path</p></li>
+<li><p><strong>use_smooth_stroke</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path</p></li>
+<li><p><strong>smooth_stroke_factor</strong> (<em>float in</em><em> [</em><em>0.5</em><em>, </em><em>0.99</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Stroke Factor, Higher values gives a smoother stroke</p></li>
+<li><p><strong>smooth_stroke_radius</strong> (<em>int in</em><em> [</em><em>10</em><em>, </em><em>200</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues</p></li>
+<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SET'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ADD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SUB'</span></code>], (optional)) – <p>Mode</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SET</span></code>
+Set – Set a new selection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
+Extend – Extend existing selection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SUB</span></code>
+Subtract – Subtract existing selection.</p></li>
+</ul>
+</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1954,7 +1985,7 @@ All – Reset strip transform location, scale and rotation.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/10aa63403c5d>10aa63403c5d</a> - 07/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/be57c2cebd15>be57c2cebd15</a> - 13/09/2025</code>.
       </span></p>
   </div>
 

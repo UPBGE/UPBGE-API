@@ -146,8 +146,10 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Uv Operators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.align"><code class="docutils literal notranslate"><span class="pre">align()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.align_rotation"><code class="docutils literal notranslate"><span class="pre">align_rotation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.arrange_islands"><code class="docutils literal notranslate"><span class="pre">arrange_islands()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.average_islands_scale"><code class="docutils literal notranslate"><span class="pre">average_islands_scale()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.copy"><code class="docutils literal notranslate"><span class="pre">copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.copy_mirrored_faces"><code class="docutils literal notranslate"><span class="pre">copy_mirrored_faces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.cube_project"><code class="docutils literal notranslate"><span class="pre">cube_project()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.cursor_set"><code class="docutils literal notranslate"><span class="pre">cursor_set()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.cylinder_project"><code class="docutils literal notranslate"><span class="pre">cylinder_project()</span></code></a></li>
@@ -266,12 +268,13 @@
 <span id="uv-operators"></span><h1>Uv Operators<a class="headerlink" href="#module-bpy.ops.uv" title="Link to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.align">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALIGN_AUTO'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.align" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALIGN_AUTO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MEAN'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.align" title="Link to this definition"></a></dt>
 <dd><p>Aligns selected UV vertices on a line</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALIGN_S'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_T'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_U'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_AUTO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_Y'</span></code>], (optional)) – <p>Axis, Axis to align UV locations on</p>
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALIGN_S'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_T'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_U'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_AUTO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALIGN_Y'</span></code>], (optional)) – <p>Axis, Axis to align UV locations on</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALIGN_S</span></code>
 Straighten – Align UV vertices along the line defined by the endpoints.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALIGN_T</span></code>
@@ -285,7 +288,18 @@ Align Vertically – Align UV vertices on a vertical line.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALIGN_Y</span></code>
 Align Horizontally – Align UV vertices on a horizontal line.</p></li>
 </ul>
-</p>
+</p></li>
+<li><p><strong>position_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MEAN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MIN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MAX'</span></code>], (optional)) – <p>Position Mode, Method of calculating the alignment position</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">MEAN</span></code>
+Mean – Align UVs along the mean position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MIN</span></code>
+Minimum – Align UVs along the minimum position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAX</span></code>
+Maximum – Align UVs along the maximum position.</p></li>
+</ul>
+</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -327,6 +341,61 @@ Z – Z axis.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.uv.arrange_islands">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">arrange_islands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BOUNDING_BOX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIN'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LARGE_TO_SMALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.arrange_islands" title="Link to this definition"></a></dt>
+<dd><p>Arrange selected UV islands on a line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_position</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'BOUNDING_BOX'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UV_GRID'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTIVE_UDIM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CURSOR'</span></code>], (optional)) – <p>Initial Position, Initial position to arrange islands from</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOUNDING_BOX</span></code>
+Bounding Box – Initial alignment based on the islands bounding box.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_GRID</span></code>
+UV Grid – Initial alignment based on UV Tile Grid.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE_UDIM</span></code>
+Active UDIM – Initial alignment based on Active UDIM.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR</span></code>
+2D Cursor – Initial alignment based on 2D cursor.</p></li>
+</ul>
+</p></li>
+<li><p><strong>axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>], (optional)) – <p>Axis, Axis to arrange UV islands on</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
+X – Align UV islands along the X axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>
+Y – Align UV islands along the Y axis.</p></li>
+</ul>
+</p></li>
+<li><p><strong>align</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MIN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MAX'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CENTER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>], (optional)) – <p>Align, Location to align islands on</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">MIN</span></code>
+Min – Align the islands to the min of the island.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAX</span></code>
+Max – Align the islands to the left side of the island.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CENTER</span></code>
+Center – Align the islands to the center of the largest island.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
+None – Preserve island alignment.</p></li>
+</ul>
+</p></li>
+<li><p><strong>order</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LARGE_TO_SMALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMALL_TO_LARGE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Fixed'</span></code>], (optional)) – <p>Order, Order of islands</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">LARGE_TO_SMALL</span></code>
+Largest to Smallest – Sort Islands from Largest to Smallest.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SMALL_TO_LARGE</span></code>
+Smallest to Largest – Sort Islands from Smallest to Largest.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fixed</span></code>
+Fixed – Preserve island order.</p></li>
+</ul>
+</p></li>
+<li><p><strong>margin</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Margin, Space between islands</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.average_islands_scale">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">average_islands_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_uv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.average_islands_scale" title="Link to this definition"></a></dt>
 <dd><p>Average the size of separate UV islands, based on their area in 3D space</p>
@@ -344,6 +413,20 @@ Z – Z axis.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.uv.copy">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.copy" title="Link to this definition"></a></dt>
 <dd><p>Copy selected UV vertices</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.uv.copy_mirrored_faces">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">copy_mirrored_faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POSITIVE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.copy_mirrored_faces" title="Link to this definition"></a></dt>
+<dd><p>Copy mirror UV coordinates on the X axis based on a mirrored mesh</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>direction</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'POSITIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NEGATIVE'</span></code>], (optional)) – Axis Direction</p></li>
+<li><p><strong>precision</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>16</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Precision, Tolerance for finding vertex duplicates</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1218,7 +1301,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/10aa63403c5d>10aa63403c5d</a> - 07/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/be57c2cebd15>be57c2cebd15</a> - 13/09/2025</code>.
       </span></p>
   </div>
 
