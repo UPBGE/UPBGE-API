@@ -107,16 +107,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUBatch.vertbuf_add"><code class="docutils literal notranslate"><span class="pre">GPUBatch.vertbuf_add()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#gpu.types.GPUFrameBuffer"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUFrameBuffer.bind"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer.bind()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUFrameBuffer.clear"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer.clear()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUFrameBuffer.read_color"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer.read_color()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUFrameBuffer.read_depth"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer.read_depth()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUFrameBuffer.viewport_get"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer.viewport_get()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUFrameBuffer.viewport_set"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer.viewport_set()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUFrameBuffer.is_bound"><code class="docutils literal notranslate"><span class="pre">GPUFrameBuffer.is_bound</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#gpu.types.GPUIndexBuf"><code class="docutils literal notranslate"><span class="pre">GPUIndexBuf</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gpu.types.GPUOffScreen"><code class="docutils literal notranslate"><span class="pre">GPUOffScreen</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUOffScreen.bind"><code class="docutils literal notranslate"><span class="pre">GPUOffScreen.bind()</span></code></a></li>
@@ -191,6 +181,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUVertFormat.attr_add"><code class="docutils literal notranslate"><span class="pre">GPUVertFormat.attr_add()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.bind"><code class="docutils literal notranslate"><span class="pre">bind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.read_color"><code class="docutils literal notranslate"><span class="pre">read_color()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.read_depth"><code class="docutils literal notranslate"><span class="pre">read_depth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.viewport_get"><code class="docutils literal notranslate"><span class="pre">viewport_get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.viewport_set"><code class="docutils literal notranslate"><span class="pre">viewport_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.is_bound"><code class="docutils literal notranslate"><span class="pre">is_bound</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.matrix.html">GPU Matrix Utilities (gpu.matrix)</a></li>
@@ -356,118 +353,6 @@ Current a batch can have at most GPU_BATCH_VBO_MAX_LEN vertex buffers.</p>
 <dd class="field-odd"><p><strong>buf</strong> (<a class="reference internal" href="#gpu.types.GPUVertBuf" title="gpu.types.GPUVertBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertBuf</span></code></a>) – The vertex buffer that will be added to the batch.</p>
 </dd>
 </dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUFrameBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_slot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_slots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer" title="Link to this definition"></a></dt>
-<dd><p>This object gives access to framebuffer functionalities.
-When a ‘layer’ is specified in a argument, a single layer of a 3D or array texture is attached to the frame-buffer.
-For cube map textures, layer is translated into a cube map face.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>depth_slot</strong> (<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[] | None) – GPUTexture to attach or a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing keywords: ‘texture’, ‘layer’ and ‘mip’.</p></li>
-<li><p><strong>color_slots</strong> (<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[str, int | <a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>] | Sequence[<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[str, int | <a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>]] | None) – Tuple where each item can be a GPUTexture or a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing keywords: ‘texture’, ‘layer’ and ‘mip’.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.bind">
-<span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.bind" title="Link to this definition"></a></dt>
-<dd><p>Context manager to ensure balanced bind calls, even in the case of an error.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stencil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.clear" title="Link to this definition"></a></dt>
-<dd><p>Fill color, depth and stencil textures with specific value.
-Common values: color=(0.0, 0.0, 0.0, 1.0), depth=1.0, stencil=0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>color</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Sequence of 3 or 4 floats representing <code class="docutils literal notranslate"><span class="pre">(r,</span> <span class="pre">g,</span> <span class="pre">b,</span> <span class="pre">a)</span></code>.</p></li>
-<li><p><strong>depth</strong> (<em>float</em>) – depth value.</p></li>
-<li><p><strong>stencil</strong> (<em>int</em>) – stencil value.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.read_color">
-<span class="sig-name descname"><span class="pre">read_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.read_color" title="Link to this definition"></a></dt>
-<dd><p>Read a block of pixels from the frame buffer.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – Lower left corner of a rectangular block of pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – Dimensions of the pixel rectangle.</p></li>
-<li><p><strong>channels</strong> (<em>int</em>) – Number of components to read.</p></li>
-<li><p><strong>slot</strong> (<em>int</em>) – The framebuffer slot to read data from.</p></li>
-<li><p><strong>format</strong> (<em>str</em>) – The format that describes the content of a single channel.
-Possible values are <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT</span></code>, <code class="docutils literal notranslate"><span class="pre">UBYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">10_11_11_REV</span></code>.
-<code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> instead.</p></li>
-<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Optional Buffer object to fill with the pixels values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The Buffer with the read pixels.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.read_depth">
-<span class="sig-name descname"><span class="pre">read_depth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysize</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.read_depth" title="Link to this definition"></a></dt>
-<dd><p>Read a pixel depth block from the frame buffer.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – Lower left corner of a rectangular block of pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – Dimensions of the pixel rectangle.</p></li>
-<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Optional Buffer object to fill with the pixels values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The Buffer with the read pixels.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.viewport_get">
-<span class="sig-name descname"><span class="pre">viewport_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.viewport_get" title="Link to this definition"></a></dt>
-<dd><p>Returns position and dimension to current viewport.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.viewport_set">
-<span class="sig-name descname"><span class="pre">viewport_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.viewport_set" title="Link to this definition"></a></dt>
-<dd><p>Set the viewport for this framebuffer object.
-Note: The viewport state is not saved upon framebuffer rebind.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – lower left corner of the viewport_set rectangle, in pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – width and height of the viewport_set.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.is_bound">
-<span class="sig-name descname"><span class="pre">is_bound</span></span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.is_bound" title="Link to this definition"></a></dt>
-<dd><p>Checks if this is the active frame-buffer in the context.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1536,6 +1421,118 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gpu::FrameBuffer(*,</span> <span class="pre">depth_slot=None,</span> <span class="pre">color_slots=None)</span></span></dt>
+<dd><p>This object gives access to framebuffer functionalities.
+When a ‘layer’ is specified in a argument, a single layer of a 3D or array texture is attached to the frame-buffer.
+For cube map textures, layer is translated into a cube map face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>depth_slot</strong> (<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[] | None) – GPUTexture to attach or a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing keywords: ‘texture’, ‘layer’ and ‘mip’.</p></li>
+<li><p><strong>color_slots</strong> (<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[str, int | <a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>] | Sequence[<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[str, int | <a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>]] | None) – Tuple where each item can be a GPUTexture or a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing keywords: ‘texture’, ‘layer’ and ‘mip’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.types.bind">
+<span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.bind" title="Link to this definition"></a></dt>
+<dd><p>Context manager to ensure balanced bind calls, even in the case of an error.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.clear">
+<span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stencil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.clear" title="Link to this definition"></a></dt>
+<dd><p>Fill color, depth and stencil textures with specific value.
+Common values: color=(0.0, 0.0, 0.0, 1.0), depth=1.0, stencil=0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Sequence of 3 or 4 floats representing <code class="docutils literal notranslate"><span class="pre">(r,</span> <span class="pre">g,</span> <span class="pre">b,</span> <span class="pre">a)</span></code>.</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – depth value.</p></li>
+<li><p><strong>stencil</strong> (<em>int</em>) – stencil value.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.types.read_color">
+<span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">read_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.read_color" title="Link to this definition"></a></dt>
+<dd><p>Read a block of pixels from the frame buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>x</em><em>,</em>) – Lower left corner of a rectangular block of pixels.</p></li>
+<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – Dimensions of the pixel rectangle.</p></li>
+<li><p><strong>channels</strong> (<em>int</em>) – Number of components to read.</p></li>
+<li><p><strong>slot</strong> (<em>int</em>) – The framebuffer slot to read data from.</p></li>
+<li><p><strong>format</strong> (<em>str</em>) – The format that describes the content of a single channel.
+Possible values are <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT</span></code>, <code class="docutils literal notranslate"><span class="pre">UBYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">10_11_11_REV</span></code>.
+<code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> instead.</p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Optional Buffer object to fill with the pixels values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Buffer with the read pixels.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.types.read_depth">
+<span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">read_depth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysize</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.read_depth" title="Link to this definition"></a></dt>
+<dd><p>Read a pixel depth block from the frame buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>x</em><em>,</em>) – Lower left corner of a rectangular block of pixels.</p></li>
+<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – Dimensions of the pixel rectangle.</p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Optional Buffer object to fill with the pixels values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Buffer with the read pixels.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.types.viewport_get">
+<span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">viewport_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.viewport_get" title="Link to this definition"></a></dt>
+<dd><p>Returns position and dimension to current viewport.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.types.viewport_set">
+<span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">viewport_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.viewport_set" title="Link to this definition"></a></dt>
+<dd><p>Set the viewport for this framebuffer object.
+Note: The viewport state is not saved upon framebuffer rebind.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>x</em><em>,</em>) – lower left corner of the viewport_set rectangle, in pixels.</p></li>
+<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – width and height of the viewport_set.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpu.types.is_bound">
+<span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">is_bound</span></span><a class="headerlink" href="#gpu.types.is_bound" title="Link to this definition"></a></dt>
+<dd><p>Checks if this is the active frame-buffer in the context.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -1550,7 +1547,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/be57c2cebd15>be57c2cebd15</a> - 13/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abbd955c5784>abbd955c5784</a> - 18/09/2025</code>.
       </span></p>
   </div>
 
