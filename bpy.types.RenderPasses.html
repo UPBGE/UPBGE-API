@@ -123,7 +123,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureModifier.html">ArmatureModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureSensor.html">ArmatureSensor(Sensor)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArrayModifier.html">ArrayModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetCatalogPath.html">AssetCatalogPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryCollection.html">AssetLibraryCollection(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryReference.html">AssetLibraryReference(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetMetaData.html">AssetMetaData(bpy_struct)</a></li>
@@ -1080,6 +1079,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementMainItems.html">NodeGeometryForeachGeometryElementMainItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryRepeatOutputItems.html">NodeGeometryRepeatOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -1364,7 +1365,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RenderPass.html">RenderPass(bpy_struct)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RenderPasses(bpy_struct)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.RenderPasses"><code class="docutils literal notranslate"><span class="pre">RenderPasses</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderPasses.find_by_type"><code class="docutils literal notranslate"><span class="pre">RenderPasses.find_by_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderPasses.find_by_name"><code class="docutils literal notranslate"><span class="pre">RenderPasses.find_by_name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderPasses.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">RenderPasses.bl_rna_get_subclass()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RenderPasses.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">RenderPasses.bl_rna_get_subclass_py()</span></code></a></li>
@@ -1492,6 +1492,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGB.html">ShaderNodeRGB(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBCurve.html">ShaderNodeRGBCurve(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBToBW.html">ShaderNodeRGBToBW(ShaderNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRadialTiling.html">ShaderNodeRadialTiling(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeScript.html">ShaderNodeScript(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateColor.html">ShaderNodeSeparateColor(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateXYZ.html">ShaderNodeSeparateXYZ(ShaderNode)</a></li>
@@ -1554,6 +1555,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SoundStrip.html">SoundStrip(Strip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Space.html">Space(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipEditor.html">SpaceClipEditor(Space)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipOverlay.html">SpaceClipOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceConsole.html">SpaceConsole(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceDopeSheetEditor.html">SpaceDopeSheetEditor(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceFileBrowser.html">SpaceFileBrowser(Space)</a></li>
@@ -1893,26 +1895,6 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">RenderPasses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderPasses" title="Link to this definition"></a></dt>
 <dd><p>Collection of render passes</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.RenderPasses.find_by_type">
-<span class="sig-name descname"><span class="pre">find_by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pass_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderPasses.find_by_type" title="Link to this definition"></a></dt>
-<dd><p>Get the render pass for a given type and view</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pass_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/render_pass_type_items.html#rna-enum-render-pass-type-items"><span class="std std-ref">Render Pass Type Items</span></a>) – Pass</p></li>
-<li><p><strong>view</strong> (<em>string</em><em>, </em><em>(</em><em>never None</em><em>)</em>) – View, Render view to get pass from</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The matching render pass</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.RenderPass.html#bpy.types.RenderPass" title="bpy.types.RenderPass"><code class="xref py py-class docutils literal notranslate"><span class="pre">RenderPass</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.RenderPasses.find_by_name">
 <span class="sig-name descname"><span class="pre">find_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderPasses.find_by_name" title="Link to this definition"></a></dt>
 <dd><p>Get the render pass for a given name and view</p>
@@ -2029,7 +2011,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abbd955c5784>abbd955c5784</a> - 18/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
       </span></p>
   </div>
 

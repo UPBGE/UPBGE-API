@@ -123,7 +123,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureModifier.html">ArmatureModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureSensor.html">ArmatureSensor(Sensor)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArrayModifier.html">ArrayModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetCatalogPath.html">AssetCatalogPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryCollection.html">AssetLibraryCollection(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryReference.html">AssetLibraryReference(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetMetaData.html">AssetMetaData(bpy_struct)</a></li>
@@ -1080,6 +1079,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementMainItems.html">NodeGeometryForeachGeometryElementMainItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryRepeatOutputItems.html">NodeGeometryRepeatOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -1480,6 +1481,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGB.html">ShaderNodeRGB(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBCurve.html">ShaderNodeRGBCurve(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBToBW.html">ShaderNodeRGBToBW(ShaderNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRadialTiling.html">ShaderNodeRadialTiling(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeScript.html">ShaderNodeScript(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateColor.html">ShaderNodeSeparateColor(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateXYZ.html">ShaderNodeSeparateXYZ(ShaderNode)</a></li>
@@ -1542,6 +1544,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SoundStrip.html">SoundStrip(Strip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Space.html">Space(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipEditor.html">SpaceClipEditor(Space)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipOverlay.html">SpaceClipOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceConsole.html">SpaceConsole(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceDopeSheetEditor.html">SpaceDopeSheetEditor(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceFileBrowser.html">SpaceFileBrowser(Space)</a></li>
@@ -1803,6 +1806,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.World.sun_shadow_maximum_resolution"><code class="docutils literal notranslate"><span class="pre">World.sun_shadow_maximum_resolution</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.World.sun_threshold"><code class="docutils literal notranslate"><span class="pre">World.sun_threshold</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.World.use_eevee_finite_volume"><code class="docutils literal notranslate"><span class="pre">World.use_eevee_finite_volume</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.World.use_nodes"><code class="docutils literal notranslate"><span class="pre">World.use_nodes</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.World.use_sun_shadow"><code class="docutils literal notranslate"><span class="pre">World.use_sun_shadow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.World.use_sun_shadow_jitter"><code class="docutils literal notranslate"><span class="pre">World.use_sun_shadow_jitter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.World.inline_shader_nodes"><code class="docutils literal notranslate"><span class="pre">World.inline_shader_nodes()</span></code></a></li>
@@ -2050,6 +2054,21 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.World.use_nodes">
+<span class="sig-name descname"><span class="pre">use_nodes</span></span><a class="headerlink" href="#bpy.types.World.use_nodes" title="Link to this definition"></a></dt>
+<dd><p>Use shader nodes to render the world</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 5.0: </span>removal planned in version 6.0</p>
+<p>Unused but kept for compatibility reasons. Setting the property has no effect, and getting it always returns True.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.World.use_sun_shadow">
 <span class="sig-name descname"><span class="pre">use_sun_shadow</span></span><a class="headerlink" href="#bpy.types.World.use_sun_shadow" title="Link to this definition"></a></dt>
 <dd><p>Enable sun shadow casting</p>
@@ -2228,7 +2247,7 @@ to remove nested groups, repeat zones and more.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abbd955c5784>abbd955c5784</a> - 18/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
       </span></p>
   </div>
 

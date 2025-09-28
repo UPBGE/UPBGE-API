@@ -123,7 +123,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureModifier.html">ArmatureModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureSensor.html">ArmatureSensor(Sensor)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArrayModifier.html">ArrayModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetCatalogPath.html">AssetCatalogPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryCollection.html">AssetLibraryCollection(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryReference.html">AssetLibraryReference(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetMetaData.html">AssetMetaData(bpy_struct)</a></li>
@@ -758,9 +757,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeVertexOfCorner.html">GeometryNodeVertexOfCorner(GeometryNode)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GeometryNodeViewer(GeometryNode)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.GeometryNodeViewer"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.data_type"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.data_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.active_index"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.active_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.active_item"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.active_item</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.domain"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.domain</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.ui_shortcut"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.ui_shortcut</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.viewer_items"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.viewer_items</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.is_registered_node_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.input_template"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.input_template()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeViewer.output_template"><code class="docutils literal notranslate"><span class="pre">GeometryNodeViewer.output_template()</span></code></a></li>
@@ -1095,6 +1096,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementMainItems.html">NodeGeometryForeachGeometryElementMainItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryRepeatOutputItems.html">NodeGeometryRepeatOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -1495,6 +1498,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGB.html">ShaderNodeRGB(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBCurve.html">ShaderNodeRGBCurve(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBToBW.html">ShaderNodeRGBToBW(ShaderNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRadialTiling.html">ShaderNodeRadialTiling(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeScript.html">ShaderNodeScript(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateColor.html">ShaderNodeSeparateColor(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateXYZ.html">ShaderNodeSeparateXYZ(ShaderNode)</a></li>
@@ -1557,6 +1561,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SoundStrip.html">SoundStrip(Strip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Space.html">Space(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipEditor.html">SpaceClipEditor(Space)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipOverlay.html">SpaceClipOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceConsole.html">SpaceConsole(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceDopeSheetEditor.html">SpaceDopeSheetEditor(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceFileBrowser.html">SpaceFileBrowser(Space)</a></li>
@@ -1896,11 +1901,22 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeViewer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GeometryNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeViewer" title="Link to this definition"></a></dt>
 <dd><p>Display the input data in the Spreadsheet Editor</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GeometryNodeViewer.data_type">
-<span class="sig-name descname"><span class="pre">data_type</span></span><a class="headerlink" href="#bpy.types.GeometryNodeViewer.data_type" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeViewer.active_index">
+<span class="sig-name descname"><span class="pre">active_index</span></span><a class="headerlink" href="#bpy.types.GeometryNodeViewer.active_index" title="Link to this definition"></a></dt>
+<dd><p>Index of the active item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int in [0, inf], default 0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeViewer.active_item">
+<span class="sig-name descname"><span class="pre">active_item</span></span><a class="headerlink" href="#bpy.types.GeometryNodeViewer.active_item" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/attribute_type_items.html#rna-enum-attribute-type-items"><span class="std std-ref">Attribute Type Items</span></a>, default <code class="docutils literal notranslate"><span class="pre">&quot;'FLOAT'&quot;</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html#bpy.types.NodeGeometryViewerItem" title="bpy.types.NodeGeometryViewerItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGeometryViewerItem</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1908,7 +1924,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.GeometryNodeViewer.domain">
 <span class="sig-name descname"><span class="pre">domain</span></span><a class="headerlink" href="#bpy.types.GeometryNodeViewer.domain" title="Link to this definition"></a></dt>
-<dd><p>Domain to evaluate the field on</p>
+<dd><p>Domain to evaluate fields on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/attribute_domain_with_auto_items.html#rna-enum-attribute-domain-with-auto-items"><span class="std std-ref">Attribute Domain With Auto Items</span></a>, default <code class="docutils literal notranslate"><span class="pre">&quot;'POINT'&quot;</span></code></p>
@@ -1921,7 +1937,17 @@
 <span class="sig-name descname"><span class="pre">ui_shortcut</span></span><a class="headerlink" href="#bpy.types.GeometryNodeViewer.ui_shortcut" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [-inf, inf], default 0</p>
+<dd class="field-odd"><p>int in [-32768, 32767], default 0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeViewer.viewer_items">
+<span class="sig-name descname"><span class="pre">viewer_items</span></span><a class="headerlink" href="#bpy.types.GeometryNodeViewer.viewer_items" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html#bpy.types.NodeGeometryViewerItems" title="bpy.types.NodeGeometryViewerItems"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGeometryViewerItems</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html#bpy.types.NodeGeometryViewerItem" title="bpy.types.NodeGeometryViewerItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGeometryViewerItem</span></code></a>, (readonly)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2123,7 +2149,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abbd955c5784>abbd955c5784</a> - 18/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
       </span></p>
   </div>
 

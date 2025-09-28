@@ -198,6 +198,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.join_shapes"><code class="docutils literal notranslate"><span class="pre">join_shapes()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.join_uvs"><code class="docutils literal notranslate"><span class="pre">join_uvs()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.laplaciandeform_bind"><code class="docutils literal notranslate"><span class="pre">laplaciandeform_bind()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.lattice_add_to_selected"><code class="docutils literal notranslate"><span class="pre">lattice_add_to_selected()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.light_add"><code class="docutils literal notranslate"><span class="pre">light_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.light_linking_blocker_collection_new"><code class="docutils literal notranslate"><span class="pre">light_linking_blocker_collection_new()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.light_linking_blockers_link"><code class="docutils literal notranslate"><span class="pre">light_linking_blockers_link()</span></code></a></li>
@@ -504,7 +505,7 @@ View – Align the new object to the view.</p></li>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">File<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_ui/properties_data_modifier.py#L283">startup/bl_ui/properties_data_modifier.py:283</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_ui/properties_data_modifier.py#L284">startup/bl_ui/properties_data_modifier.py:284</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1456,7 +1457,7 @@ View – Align the new object to the view.</p></li>
 <dd class="field-odd"><p><strong>use_selected_objects</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected Objects, Affect all selected objects instead of just the active object</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L277">startup/bl_operators/geometry_nodes.py:277</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/geometry_nodes.py#L280">startup/bl_operators/geometry_nodes.py:280</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1749,8 +1750,13 @@ View – Align the new object to the view.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.join_shapes">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">join_shapes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.join_shapes" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">join_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_mirror</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.join_shapes" title="Link to this definition"></a></dt>
 <dd><p>Add the vertex positions of selected objects as shape keys or update existing shape keys with matching names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>use_mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror, Mirror the new shape key values</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1771,6 +1777,39 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.lattice_add_to_selected">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">lattice_add_to_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_to_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enter_editmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WORLD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.lattice_add_to_selected" title="Link to this definition"></a></dt>
+<dd><p>Add a lattice and use it to deform selected objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fit_to_selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Fit to Selected, Resize lattice to fit selected deformable objects</p></li>
+<li><p><strong>radius</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Radius</p></li>
+<li><p><strong>margin</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Margin, Add margin to lattice dimensions</p></li>
+<li><p><strong>add_modifiers</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Add Modifiers, Automatically add lattice modifiers to selected objects</p></li>
+<li><p><strong>resolution_u</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>64</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Resolution U, Lattice resolution in U direction</p></li>
+<li><p><strong>resolution_v</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>64</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – V, Lattice resolution in V direction</p></li>
+<li><p><strong>resolution_w</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>64</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – W, Lattice resolution in W direction</p></li>
+<li><p><strong>enter_editmode</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Enter Edit Mode, Enter edit mode when adding this object</p></li>
+<li><p><strong>align</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'WORLD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VIEW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CURSOR'</span></code>], (optional)) – <p>Align, The alignment of the new object</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">WORLD</span></code>
+World – Align the new object to the world.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
+View – Align the new object to the view.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURSOR</span></code>
+3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
+</ul>
+</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Location, Location for the newly added object</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> rotation of 3 items in [-inf, inf], (optional)) – Rotation, Rotation for the newly added object</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Scale, Scale for the newly added object</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -3647,8 +3686,13 @@ Scale – Transfer scale transforms only.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.update_shapes">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">update_shapes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.update_shapes" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">update_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_mirror</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.update_shapes" title="Link to this definition"></a></dt>
 <dd><p>Update existing shape keys with the vertex positions of selected objects with matching names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>use_mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror, Mirror the new shape key values</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -4091,7 +4135,7 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abbd955c5784>abbd955c5784</a> - 18/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
       </span></p>
   </div>
 

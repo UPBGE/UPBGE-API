@@ -123,7 +123,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureModifier.html">ArmatureModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArmatureSensor.html">ArmatureSensor(Sensor)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ArrayModifier.html">ArrayModifier(Modifier)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetCatalogPath.html">AssetCatalogPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryCollection.html">AssetLibraryCollection(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetLibraryReference.html">AssetLibraryReference(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.AssetMetaData.html">AssetMetaData(bpy_struct)</a></li>
@@ -1080,6 +1079,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementMainItems.html">NodeGeometryForeachGeometryElementMainItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryRepeatOutputItems.html">NodeGeometryRepeatOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -1480,6 +1481,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGB.html">ShaderNodeRGB(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBCurve.html">ShaderNodeRGBCurve(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBToBW.html">ShaderNodeRGBToBW(ShaderNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRadialTiling.html">ShaderNodeRadialTiling(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeScript.html">ShaderNodeScript(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateColor.html">ShaderNodeSeparateColor(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateXYZ.html">ShaderNodeSeparateXYZ(ShaderNode)</a></li>
@@ -1542,6 +1544,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SoundStrip.html">SoundStrip(Strip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Space.html">Space(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipEditor.html">SpaceClipEditor(Space)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceClipOverlay.html">SpaceClipOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceConsole.html">SpaceConsole(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceDopeSheetEditor.html">SpaceDopeSheetEditor(Space)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SpaceFileBrowser.html">SpaceFileBrowser(Space)</a></li>
@@ -2087,14 +2090,14 @@ Regular – Draw standard button emboss style.</p></li>
 None – Draw only text and icons.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PULLDOWN_MENU</span></code>
 Pull-down Menu – Draw pull-down menu style.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RADIAL_MENU</span></code>
+<li><p><code class="docutils literal notranslate"><span class="pre">PIE_MENU</span></code>
 Pie Menu – Draw radial menu style.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NONE_OR_STATUS</span></code>
 None or Status – Draw with no emboss unless the button has a coloring status like an animation state.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PULLDOWN_MENU'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RADIAL_MENU'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE_OR_STATUS'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'NORMAL'&quot;</span></code></p>
+<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PULLDOWN_MENU'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PIE_MENU'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE_OR_STATUS'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'NORMAL'&quot;</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3479,9 +3482,19 @@ Line – Horizontal or Vertical line, depending on layout direction..</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UILayout.template_node_asset_menu_items">
-<span class="sig-name descname"><span class="pre">template_node_asset_menu_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">catalog_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_node_asset_menu_items" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">template_node_asset_menu_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">catalog_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ADD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.template_node_asset_menu_items" title="Link to this definition"></a></dt>
 <dd><p>template_node_asset_menu_items</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>operator</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ADD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SWAP'</span></code>], (optional)) – <p>Operator, The operator the asset menu will use</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
+Add Node – Add a node to the active tree..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SWAP</span></code>
+Swap Node – Replace the selected nodes with the specified type..</p></li>
+</ul>
+</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -3961,7 +3974,7 @@ Line – Horizontal or Vertical line, depending on layout direction..</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abbd955c5784>abbd955c5784</a> - 18/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
       </span></p>
   </div>
 
