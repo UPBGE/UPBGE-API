@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GreasePencilv3(ID) &mdash; UPBGE/Blender Python API</title>
+  <title>GeometryNodeGridCurl(GeometryNode) &mdash; UPBGE/Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides_upbge.css?v=3436ad75" />
 
   
     <link rel="shortcut icon" href="_static/upbge_favicon.png"/>
-    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.GreasePencilv3.html" />
+    <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.GeometryNodeGridCurl.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=639a1cbb"></script>
@@ -25,8 +25,8 @@
           href="_static/opensearch.xml"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GreasePencilv3LayerGroup(bpy_struct)" href="bpy.types.GreasePencilv3LayerGroup.html" />
-    <link rel="prev" title="GreasePencilWeightProximityModifier(Modifier)" href="bpy.types.GreasePencilWeightProximityModifier.html" /> 
+    <link rel="next" title="GeometryNodeGridDivergence(GeometryNode)" href="bpy.types.GeometryNodeGridDivergence.html" />
+    <link rel="prev" title="GeometryNodeGreasePencilToCurves(GeometryNode)" href="bpy.types.GeometryNodeGreasePencilToCurves.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -589,6 +589,9 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldAverage.html">GeometryNodeFieldAverage(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldMinAndMax.html">GeometryNodeFieldMinAndMax(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldOnDomain.html">GeometryNodeFieldOnDomain(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGrid.html">GeometryNodeFieldToGrid(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItem.html">GeometryNodeFieldToGridItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItems.html">GeometryNodeFieldToGridItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFieldVariance.html">GeometryNodeFieldVariance(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFillCurve.html">GeometryNodeFillCurve(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeFilletCurve.html">GeometryNodeFilletCurve(GeometryNode)</a></li>
@@ -601,8 +604,26 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGizmoLinear.html">GeometryNodeGizmoLinear(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGizmoTransform.html">GeometryNodeGizmoTransform(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGreasePencilToCurves.html">GeometryNodeGreasePencilToCurves(GeometryNode)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GeometryNodeGridCurl(GeometryNode)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bpy.types.GeometryNodeGridCurl"><code class="docutils literal notranslate"><span class="pre">GeometryNodeGridCurl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeGridCurl.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">GeometryNodeGridCurl.is_registered_node_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeGridCurl.input_template"><code class="docutils literal notranslate"><span class="pre">GeometryNodeGridCurl.input_template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeGridCurl.output_template"><code class="docutils literal notranslate"><span class="pre">GeometryNodeGridCurl.output_template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeGridCurl.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">GeometryNodeGridCurl.bl_rna_get_subclass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GeometryNodeGridCurl.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">GeometryNodeGridCurl.bl_rna_get_subclass_py()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inherited-properties">Inherited Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inherited-functions">Inherited Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridDivergence.html">GeometryNodeGridDivergence(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridGradient.html">GeometryNodeGridGradient(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridInfo.html">GeometryNodeGridInfo(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridLaplacian.html">GeometryNodeGridLaplacian(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridPrune.html">GeometryNodeGridPrune(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridToMesh.html">GeometryNodeGridToMesh(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridVoxelize.html">GeometryNodeGridVoxelize(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGroup.html">GeometryNodeGroup(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageInfo.html">GeometryNodeImageInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageTexture.html">GeometryNodeImageTexture(GeometryNode)</a></li>
@@ -715,6 +736,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGreasePencilColor.html">GeometryNodeSetGreasePencilColor(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGreasePencilDepth.html">GeometryNodeSetGreasePencilDepth(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGreasePencilSoftness.html">GeometryNodeSetGreasePencilSoftness(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGridBackground.html">GeometryNodeSetGridBackground(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGridTransform.html">GeometryNodeSetGridTransform(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetID.html">GeometryNodeSetID(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetInstanceTransform.html">GeometryNodeSetInstanceTransform(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetMaterial.html">GeometryNodeSetMaterial(GeometryNode)</a></li>
@@ -753,6 +776,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeTriangulate.html">GeometryNodeTriangulate(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeTrimCurve.html">GeometryNodeTrimCurve(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeUVPackIslands.html">GeometryNodeUVPackIslands(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeUVTangent.html">GeometryNodeUVTangent(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeUVUnwrap.html">GeometryNodeUVUnwrap(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeVertexOfCorner.html">GeometryNodeVertexOfCorner(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeViewer.html">GeometryNodeViewer(GeometryNode)</a></li>
@@ -771,6 +795,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GpSculptPaint.html">GpSculptPaint(Paint)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GpVertexPaint.html">GpVertexPaint(Paint)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GpWeightPaint.html">GpWeightPaint(Paint)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencil.html">GreasePencil(ID)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilArmatureModifier.html">GreasePencilArmatureModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilArrayModifier.html">GreasePencilArrayModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilBuildModifier.html">GreasePencilBuildModifier(Modifier)</a></li>
@@ -807,35 +832,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilTreeNode.html">GreasePencilTreeNode(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightAngleModifier.html">GreasePencilWeightAngleModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilWeightProximityModifier.html">GreasePencilWeightProximityModifier(Modifier)</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GreasePencilv3(ID)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bpy.types.GreasePencilv3"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.after_color"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.after_color</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.animation_data"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.animation_data</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.attributes"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.attributes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.before_color"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.before_color</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.color_attributes"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.color_attributes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.ghost_after_range"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.ghost_after_range</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.ghost_before_range"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.ghost_before_range</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.layer_groups"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.layer_groups</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.layers"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.layers</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.materials"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.materials</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.onion_factor"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.onion_factor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.onion_keyframe_type"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.onion_keyframe_type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.onion_mode"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.onion_mode</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.stroke_depth_order"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.stroke_depth_order</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.use_autolock_layers"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.use_autolock_layers</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.use_ghost_custom_colors"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.use_ghost_custom_colors</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.use_onion_fade"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.use_onion_fade</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.use_onion_loop"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.use_onion_loop</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.bl_rna_get_subclass()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.GreasePencilv3.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">GreasePencilv3.bl_rna_get_subclass_py()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#inherited-properties">Inherited Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#inherited-functions">Inherited Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilv3LayerGroup.html">GreasePencilv3LayerGroup(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GreasePencilv3Layers.html">GreasePencilv3Layers(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GroupNodeViewerPathElem.html">GroupNodeViewerPathElem(ViewerPathElem)</a></li>
@@ -1089,6 +1085,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItem.html">NodeCompositorFileOutputItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCompositorFileOutputItems.html">NodeCompositorFileOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeCustomGroup.html">NodeCustomGroup(Node)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEnableOutput.html">NodeEnableOutput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEnumItem.html">NodeEnumItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEvaluateClosure.html">NodeEvaluateClosure(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeEvaluateClosureInputItem.html">NodeEvaluateClosureInputItem(bpy_struct)</a></li>
@@ -1117,6 +1114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeInstanceHash.html">NodeInstanceHash(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeInternal.html">NodeInternal(Node)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeInternalSocketTemplate.html">NodeInternalSocketTemplate(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeJoinBundle.html">NodeJoinBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLink.html">NodeLink(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_struct)</a></li>
@@ -1434,6 +1432,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequenceEditor.html">SequenceEditor(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequenceTimelineChannel.html">SequenceTimelineChannel(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCacheOverlay.html">SequencerCacheOverlay(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCompositorModifierData.html">SequencerCompositorModifierData(StripModifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerPreviewOverlay.html">SequencerPreviewOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerTimelineOverlay.html">SequencerTimelineOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerTonemapModifierData.html">SequencerTonemapModifierData(StripModifier)</a></li>
@@ -1736,7 +1735,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TransformConstraint.html">TransformConstraint(Constraint)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TransformOrientation.html">TransformOrientation(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TransformOrientationSlot.html">TransformOrientationSlot(bpy_struct)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bpy.types.TransformStrip.html">TransformStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TriangulateModifier.html">TriangulateModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.UDIMTile.html">UDIMTile(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.UDIMTiles.html">UDIMTiles(bpy_struct)</a></li>
@@ -1833,6 +1831,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrComponentPath.html">XrComponentPath(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrComponentPaths.html">XrComponentPaths(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrEventData.html">XrEventData(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.XrNavigation.html">XrNavigation(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrSessionSettings.html">XrSessionSettings(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrSessionState.html">XrSessionState(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.XrUserPath.html">XrUserPath(bpy_struct)</a></li>
@@ -1895,7 +1894,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="bpy.types.html">Types (bpy.types)</a></li>
-      <li class="breadcrumb-item active">GreasePencilv3(ID)</li>
+      <li class="breadcrumb-item active">GeometryNodeGridCurl(GeometryNode)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1904,237 +1903,64 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="greasepencilv3-id">
-<h1>GreasePencilv3(ID)<a class="headerlink" href="#greasepencilv3-id" title="Link to this heading"></a></h1>
-<p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a></p>
+  <section id="geometrynodegridcurl-geometrynode">
+<h1>GeometryNodeGridCurl(GeometryNode)<a class="headerlink" href="#geometrynodegridcurl-geometrynode" title="Link to this heading"></a></h1>
+<p>base classes — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Node.html#bpy.types.Node" title="bpy.types.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a>, <a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal" title="bpy.types.NodeInternal"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal</span></code></a>, <a class="reference internal" href="bpy.types.GeometryNode.html#bpy.types.GeometryNode" title="bpy.types.GeometryNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNode</span></code></a></p>
 <dl class="py class">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GreasePencilv3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GreasePencilv3" title="Link to this definition"></a></dt>
-<dd><p>Grease Pencil data-block</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.after_color">
-<span class="sig-name descname"><span class="pre">after_color</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.after_color" title="Link to this definition"></a></dt>
-<dd><p>Base color for ghosts after the active frame</p>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeGridCurl">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeGridCurl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GeometryNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeGridCurl" title="Link to this definition"></a></dt>
+<dd><p>Calculate the magnitude and direction of circulation of a directional vector grid</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeGridCurl.is_registered_node_type">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeGridCurl.is_registered_node_type" title="Link to this definition"></a></dt>
+<dd><p>True if a registered node type</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Color</span></code></a> of 3 items in [0, 1], default (0.12549, 0.082353, 0.529412)</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result</p>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.animation_data">
-<span class="sig-name descname"><span class="pre">animation_data</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.animation_data" title="Link to this definition"></a></dt>
-<dd><p>Animation data for this data-block</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData" title="bpy.types.AnimData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnimData</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.attributes">
-<span class="sig-name descname"><span class="pre">attributes</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.attributes" title="Link to this definition"></a></dt>
-<dd><p>Geometry attributes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.AttributeGroupGreasePencil.html#bpy.types.AttributeGroupGreasePencil" title="bpy.types.AttributeGroupGreasePencil"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributeGroupGreasePencil</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Attribute.html#bpy.types.Attribute" title="bpy.types.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attribute</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.before_color">
-<span class="sig-name descname"><span class="pre">before_color</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.before_color" title="Link to this definition"></a></dt>
-<dd><p>Base color for ghosts before the active frame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Color</span></code></a> of 3 items in [0, 1], default (0.145098, 0.419608, 0.137255)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.color_attributes">
-<span class="sig-name descname"><span class="pre">color_attributes</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.color_attributes" title="Link to this definition"></a></dt>
-<dd><p>Geometry color attributes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.AttributeGroupGreasePencil.html#bpy.types.AttributeGroupGreasePencil" title="bpy.types.AttributeGroupGreasePencil"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributeGroupGreasePencil</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Attribute.html#bpy.types.Attribute" title="bpy.types.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attribute</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.ghost_after_range">
-<span class="sig-name descname"><span class="pre">ghost_after_range</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.ghost_after_range" title="Link to this definition"></a></dt>
-<dd><p>Maximum number of frames to show after current frame (0 = don’t show any frames after current)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [0, 120], default 1</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.ghost_before_range">
-<span class="sig-name descname"><span class="pre">ghost_before_range</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.ghost_before_range" title="Link to this definition"></a></dt>
-<dd><p>Maximum number of frames to show before current frame (0 = don’t show any frames before current)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [0, 120], default 1</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.layer_groups">
-<span class="sig-name descname"><span class="pre">layer_groups</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.layer_groups" title="Link to this definition"></a></dt>
-<dd><p>Grease Pencil layer groups</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.GreasePencilv3LayerGroup.html#bpy.types.GreasePencilv3LayerGroup" title="bpy.types.GreasePencilv3LayerGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreasePencilv3LayerGroup</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.GreasePencilLayerGroup.html#bpy.types.GreasePencilLayerGroup" title="bpy.types.GreasePencilLayerGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreasePencilLayerGroup</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.layers">
-<span class="sig-name descname"><span class="pre">layers</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.layers" title="Link to this definition"></a></dt>
-<dd><p>Grease Pencil layers</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.GreasePencilv3Layers.html#bpy.types.GreasePencilv3Layers" title="bpy.types.GreasePencilv3Layers"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreasePencilv3Layers</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.GreasePencilLayer.html#bpy.types.GreasePencilLayer" title="bpy.types.GreasePencilLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreasePencilLayer</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.materials">
-<span class="sig-name descname"><span class="pre">materials</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.materials" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.IDMaterials.html#bpy.types.IDMaterials" title="bpy.types.IDMaterials"><code class="xref py py-class docutils literal notranslate"><span class="pre">IDMaterials</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material" title="bpy.types.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">Material</span></code></a>, (readonly)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.onion_factor">
-<span class="sig-name descname"><span class="pre">onion_factor</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.onion_factor" title="Link to this definition"></a></dt>
-<dd><p>Change fade opacity of displayed onion frames</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float in [0, 1], default 0.5</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.onion_keyframe_type">
-<span class="sig-name descname"><span class="pre">onion_keyframe_type</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.onion_keyframe_type" title="Link to this definition"></a></dt>
-<dd><p>Type of keyframe (for filtering)</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
-All – Include all Keyframe types.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">KEYFRAME</span></code>
-Keyframe – Normal keyframe, e.g. for key poses.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BREAKDOWN</span></code>
-Breakdown – A breakdown pose, e.g. for transitions between key poses.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MOVING_HOLD</span></code>
-Moving Hold – A keyframe that is part of a moving hold.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTREME</span></code>
-Extreme – An ‘extreme’ pose, or some other purpose as needed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">JITTER</span></code>
-Jitter – A filler or baked keyframe for keying on ones, or some other purpose as needed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GENERATED</span></code>
-Generated – A key generated automatically by a tool, not manually created.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'KEYFRAME'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BREAKDOWN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MOVING_HOLD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'EXTREME'</span></code>, <code class="docutils literal notranslate"><span class="pre">'JITTER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GENERATED'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'ALL'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.onion_mode">
-<span class="sig-name descname"><span class="pre">onion_mode</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.onion_mode" title="Link to this definition"></a></dt>
-<dd><p>Mode to display frames</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ABSOLUTE</span></code>
-Frames – Frames in absolute range of the scene frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RELATIVE</span></code>
-Keyframes – Frames in relative range of the Grease Pencil keyframes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SELECTED</span></code>
-Selected – Only selected keyframes.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'ABSOLUTE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RELATIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECTED'</span></code>], default <code class="docutils literal notranslate"><span class="pre">&quot;'ABSOLUTE'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.stroke_depth_order">
-<span class="sig-name descname"><span class="pre">stroke_depth_order</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.stroke_depth_order" title="Link to this definition"></a></dt>
-<dd><p>Defines how the strokes are ordered in 3D space (for objects not displayed ‘In Front’)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in <a class="reference internal" href="bpy_types_enum_items/stroke_depth_order_items.html#rna-enum-stroke-depth-order-items"><span class="std std-ref">Stroke Depth Order Items</span></a>, default <code class="docutils literal notranslate"><span class="pre">&quot;'2D'&quot;</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.use_autolock_layers">
-<span class="sig-name descname"><span class="pre">use_autolock_layers</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.use_autolock_layers" title="Link to this definition"></a></dt>
-<dd><p>Automatically lock all layers except the active one to avoid accidental changes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.use_ghost_custom_colors">
-<span class="sig-name descname"><span class="pre">use_ghost_custom_colors</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.use_ghost_custom_colors" title="Link to this definition"></a></dt>
-<dd><p>Use custom colors for ghost frames</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.use_onion_fade">
-<span class="sig-name descname"><span class="pre">use_onion_fade</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.use_onion_fade" title="Link to this definition"></a></dt>
-<dd><p>Display onion keyframes with a fade in color transparency</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.use_onion_loop">
-<span class="sig-name descname"><span class="pre">use_onion_loop</span></span><a class="headerlink" href="#bpy.types.GreasePencilv3.use_onion_loop" title="Link to this definition"></a></dt>
-<dd><p>Display onion keyframes for looping animations</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>boolean, default False</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>boolean</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.bl_rna_get_subclass">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GreasePencilv3.bl_rna_get_subclass" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeGridCurl.input_template">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeGridCurl.input_template" title="Link to this definition"></a></dt>
+<dd><p>Input socket template</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Index</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>result</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.NodeInternalSocketTemplate.html#bpy.types.NodeInternalSocketTemplate" title="bpy.types.NodeInternalSocketTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternalSocketTemplate</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeGridCurl.output_template">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeGridCurl.output_template" title="Link to this definition"></a></dt>
+<dd><p>Output socket template</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em>) – Index</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>result</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.NodeInternalSocketTemplate.html#bpy.types.NodeInternalSocketTemplate" title="bpy.types.NodeInternalSocketTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternalSocketTemplate</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeGridCurl.bl_rna_get_subclass">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeGridCurl.bl_rna_get_subclass" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2149,8 +1975,8 @@ Selected – Only selected keyframes.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.GreasePencilv3.bl_rna_get_subclass_py">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GreasePencilv3.bl_rna_get_subclass_py" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeGridCurl.bl_rna_get_subclass_py">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeGridCurl.bl_rna_get_subclass_py" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2170,28 +1996,41 @@ Selected – Only selected keyframes.</p></li>
 <h2>Inherited Properties<a class="headerlink" href="#inherited-properties" title="Link to this heading"></a></h2>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.id_data</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.name</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name_full" title="bpy.types.ID.name_full"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.name_full</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.id_type" title="bpy.types.ID.id_type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.id_type</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.session_uid" title="bpy.types.ID.session_uid"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.session_uid</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_evaluated" title="bpy.types.ID.is_evaluated"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_evaluated</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.original" title="bpy.types.ID.original"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.original</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.users</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.use_fake_user</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_extra_user" title="bpy.types.ID.use_extra_user"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.use_extra_user</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_embedded_data" title="bpy.types.ID.is_embedded_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_embedded_data</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.type" title="bpy.types.Node.type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.type</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.location" title="bpy.types.Node.location"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.location</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.location_absolute" title="bpy.types.Node.location_absolute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.location_absolute</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.width" title="bpy.types.Node.width"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.width</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.height" title="bpy.types.Node.height"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.height</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.dimensions" title="bpy.types.Node.dimensions"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.dimensions</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.name" title="bpy.types.Node.name"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.name</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.label" title="bpy.types.Node.label"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.label</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.inputs" title="bpy.types.Node.inputs"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.inputs</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.outputs" title="bpy.types.Node.outputs"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.outputs</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.internal_links" title="bpy.types.Node.internal_links"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.internal_links</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.parent" title="bpy.types.Node.parent"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.parent</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.warning_propagation" title="bpy.types.Node.warning_propagation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.warning_propagation</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.use_custom_color" title="bpy.types.Node.use_custom_color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.use_custom_color</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.color" title="bpy.types.Node.color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.color</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.color_tag" title="bpy.types.Node.color_tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.color_tag</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_missing" title="bpy.types.ID.is_missing"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_missing</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_runtime_data" title="bpy.types.ID.is_runtime_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_runtime_data</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_editable" title="bpy.types.ID.is_editable"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_editable</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.tag</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_library_indirect</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.library</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library_weak_reference" title="bpy.types.ID.library_weak_reference"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.library_weak_reference</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.asset_data" title="bpy.types.ID.asset_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.asset_data</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.override_library" title="bpy.types.ID.override_library"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.override_library</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.preview</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.select" title="bpy.types.Node.select"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.select</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.show_options" title="bpy.types.Node.show_options"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.show_options</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.show_preview" title="bpy.types.Node.show_preview"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.show_preview</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.hide" title="bpy.types.Node.hide"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.hide</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.mute" title="bpy.types.Node.mute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.mute</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.show_texture" title="bpy.types.Node.show_texture"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.show_texture</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_idname" title="bpy.types.Node.bl_idname"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_idname</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_label" title="bpy.types.Node.bl_label"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_label</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_description" title="bpy.types.Node.bl_description"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_description</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_icon" title="bpy.types.Node.bl_icon"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_icon</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_static_type" title="bpy.types.Node.bl_static_type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_static_type</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_width_default" title="bpy.types.Node.bl_width_default"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_width_default</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_width_min" title="bpy.types.Node.bl_width_min"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_width_min</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_width_max" title="bpy.types.Node.bl_width_max"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_width_max</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_height_default" title="bpy.types.Node.bl_height_default"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_height_default</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_height_min" title="bpy.types.Node.bl_height_min"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_height_min</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_height_max" title="bpy.types.Node.bl_height_max"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_height_max</span></code></a></p></li>
 </ul>
 </td></tr></table>
 </section>
@@ -2214,46 +2053,44 @@ Selected – Only selected keyframes.</p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.keyframe_insert</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.keys</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.path_from_id</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_module" title="bpy.types.bpy_struct.path_from_module"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.path_from_module</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.path_resolve</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.pop" title="bpy.types.bpy_struct.pop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.pop</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_overridable_library_set" title="bpy.types.bpy_struct.property_overridable_library_set"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.property_overridable_library_set</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.property_unset</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.rna_ancestors" title="bpy.types.bpy_struct.rna_ancestors"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.rna_ancestors</span></code></a></p></li>
-</ul>
-</td><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.type_recast</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.values</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.bl_system_properties_get" title="bpy.types.ID.bl_system_properties_get"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.bl_system_properties_get</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.rename" title="bpy.types.ID.rename"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.rename</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.evaluated_get" title="bpy.types.ID.evaluated_get"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.evaluated_get</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.copy</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.asset_mark" title="bpy.types.ID.asset_mark"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.asset_mark</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.asset_clear" title="bpy.types.ID.asset_clear"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.asset_clear</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.asset_generate_preview" title="bpy.types.ID.asset_generate_preview"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.asset_generate_preview</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.override_create" title="bpy.types.ID.override_create"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.override_create</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.override_hierarchy_create" title="bpy.types.ID.override_hierarchy_create"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.override_hierarchy_create</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.user_clear</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.user_remap</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.make_local" title="bpy.types.ID.make_local"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.make_local</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.user_of_id</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.animation_data_create</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.animation_data_clear</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.update_tag</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview_ensure" title="bpy.types.ID.preview_ensure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.preview_ensure</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.bl_rna_get_subclass" title="bpy.types.ID.bl_rna_get_subclass"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.bl_rna_get_subclass</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.bl_rna_get_subclass_py" title="bpy.types.ID.bl_rna_get_subclass_py"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.bl_rna_get_subclass_py</span></code></a></p></li>
-</ul>
-</td></tr></table>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
-<table class="hlist"><tr><td><ul class="simple">
-<li><p><a class="reference internal" href="bpy.context.html#bpy.context.grease_pencil" title="bpy.context.grease_pencil"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.context.grease_pencil</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.BlendData.html#bpy.types.BlendData.grease_pencils_v3" title="bpy.types.BlendData.grease_pencils_v3"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlendData.grease_pencils_v3</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_system_properties_get" title="bpy.types.Node.bl_system_properties_get"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_system_properties_get</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.socket_value_update" title="bpy.types.Node.socket_value_update"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.socket_value_update</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
-<li><p><a class="reference internal" href="bpy.types.BlendDataGreasePencilsV3.html#bpy.types.BlendDataGreasePencilsV3.new" title="bpy.types.BlendDataGreasePencilsV3.new"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlendDataGreasePencilsV3.new</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.BlendDataGreasePencilsV3.html#bpy.types.BlendDataGreasePencilsV3.remove" title="bpy.types.BlendDataGreasePencilsV3.remove"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlendDataGreasePencilsV3.remove</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.is_registered_node_type" title="bpy.types.Node.is_registered_node_type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.is_registered_node_type</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.poll" title="bpy.types.Node.poll"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.poll</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.poll_instance" title="bpy.types.Node.poll_instance"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.poll_instance</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.update" title="bpy.types.Node.update"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.update</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.insert_link" title="bpy.types.Node.insert_link"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.insert_link</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.init" title="bpy.types.Node.init"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.init</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.copy" title="bpy.types.Node.copy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.copy</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.free" title="bpy.types.Node.free"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.free</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.draw_buttons" title="bpy.types.Node.draw_buttons"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.draw_buttons</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.draw_buttons_ext" title="bpy.types.Node.draw_buttons_ext"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.draw_buttons_ext</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.draw_label" title="bpy.types.Node.draw_label"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.draw_label</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.debug_zone_body_lazy_function_graph" title="bpy.types.Node.debug_zone_body_lazy_function_graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.debug_zone_body_lazy_function_graph</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.debug_zone_lazy_function_graph" title="bpy.types.Node.debug_zone_lazy_function_graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.debug_zone_lazy_function_graph</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.poll" title="bpy.types.Node.poll"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.poll</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_rna_get_subclass" title="bpy.types.Node.bl_rna_get_subclass"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_rna_get_subclass</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.bl_rna_get_subclass_py" title="bpy.types.Node.bl_rna_get_subclass_py"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node.bl_rna_get_subclass_py</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.poll" title="bpy.types.NodeInternal.poll"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.poll</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.poll_instance" title="bpy.types.NodeInternal.poll_instance"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.poll_instance</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.update" title="bpy.types.NodeInternal.update"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.update</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.draw_buttons" title="bpy.types.NodeInternal.draw_buttons"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.draw_buttons</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.draw_buttons_ext" title="bpy.types.NodeInternal.draw_buttons_ext"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.draw_buttons_ext</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.bl_rna_get_subclass" title="bpy.types.NodeInternal.bl_rna_get_subclass"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.bl_rna_get_subclass</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.NodeInternal.html#bpy.types.NodeInternal.bl_rna_get_subclass_py" title="bpy.types.NodeInternal.bl_rna_get_subclass_py"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInternal.bl_rna_get_subclass_py</span></code></a></p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNode.poll</span></code></p></li>
+<li><p><a class="reference internal" href="bpy.types.GeometryNode.html#bpy.types.GeometryNode.bl_rna_get_subclass" title="bpy.types.GeometryNode.bl_rna_get_subclass"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNode.bl_rna_get_subclass</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.GeometryNode.html#bpy.types.GeometryNode.bl_rna_get_subclass_py" title="bpy.types.GeometryNode.bl_rna_get_subclass_py"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNode.bl_rna_get_subclass_py</span></code></a></p></li>
 </ul>
 </td></tr></table>
 </section>
@@ -2263,15 +2100,15 @@ Selected – Only selected keyframes.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bpy.types.GreasePencilWeightProximityModifier.html" class="btn btn-neutral float-left" title="GreasePencilWeightProximityModifier(Modifier)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bpy.types.GreasePencilv3LayerGroup.html" class="btn btn-neutral float-right" title="GreasePencilv3LayerGroup(bpy_struct)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bpy.types.GeometryNodeGreasePencilToCurves.html" class="btn btn-neutral float-left" title="GeometryNodeGreasePencilToCurves(GeometryNode)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bpy.types.GeometryNodeGridDivergence.html" class="btn btn-neutral float-right" title="GeometryNodeGridDivergence(GeometryNode)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3ecf8e69396b>3ecf8e69396b</a> - 03/10/2025</code>.
       </span></p>
   </div>
 
@@ -2290,7 +2127,7 @@ Selected – Only selected keyframes.</p></li>
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.GreasePencilv3.rst%60%0D%0ABlender+Version%3A+%605.0%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.0%2Fbpy.types.GreasePencilv3.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.GeometryNodeGridCurl.rst%60%0D%0ABlender+Version%3A+%605.0%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.0%2Fbpy.types.GeometryNodeGridCurl.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>

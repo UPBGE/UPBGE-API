@@ -160,6 +160,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.lightmap_pack"><code class="docutils literal notranslate"><span class="pre">lightmap_pack()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.mark_seam"><code class="docutils literal notranslate"><span class="pre">mark_seam()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.minimize_stretch"><code class="docutils literal notranslate"><span class="pre">minimize_stretch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.move_on_axis"><code class="docutils literal notranslate"><span class="pre">move_on_axis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.pack_islands"><code class="docutils literal notranslate"><span class="pre">pack_islands()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.paste"><code class="docutils literal notranslate"><span class="pre">paste()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.pin"><code class="docutils literal notranslate"><span class="pre">pin()</span></code></a></li>
@@ -640,6 +641,37 @@ All Faces – Average space UVs edge length of each loop.</p></li>
 <li><p><strong>fill_holes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Fill Holes, Virtually fill holes in mesh before unwrapping, to better avoid overlaps and preserve symmetry</p></li>
 <li><p><strong>blend</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blend, Blend factor between stretch minimized and original</p></li>
 <li><p><strong>iterations</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Iterations, Number of iterations to run, 0 is unlimited when run interactively</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.uv.move_on_axis">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">move_on_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UDIM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.move_on_axis" title="Link to this definition"></a></dt>
+<dd><p>Move UVs on an axis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DYNAMIC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PIXEL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UDIM'</span></code>], (optional)) – <p>Type, Move Type</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DYNAMIC</span></code>
+Dynamic – Move by dynamic grid.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PIXEL</span></code>
+Pixel – Move by pixel.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UDIM</span></code>
+UDIM – Move by UDIM.</p></li>
+</ul>
+</p></li>
+<li><p><strong>axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>], (optional)) – <p>Axis, Axis to move UVs on</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
+X axis – Move vertices on the X axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>
+Y axis – Move vertices on the Y axis.</p></li>
+</ul>
+</p></li>
+<li><p><strong>distance</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Distance, Distance to move UVs</p></li>
 </ul>
 </dd>
 </dl>
@@ -1321,7 +1353,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3ecf8e69396b>3ecf8e69396b</a> - 03/10/2025</code>.
       </span></p>
   </div>
 

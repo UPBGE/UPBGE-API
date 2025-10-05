@@ -115,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#mathutils.geometry.intersect_line_sphere_2d"><code class="docutils literal notranslate"><span class="pre">intersect_line_sphere_2d()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mathutils.geometry.intersect_plane_plane"><code class="docutils literal notranslate"><span class="pre">intersect_plane_plane()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mathutils.geometry.intersect_point_line"><code class="docutils literal notranslate"><span class="pre">intersect_point_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mathutils.geometry.intersect_point_line_segment"><code class="docutils literal notranslate"><span class="pre">intersect_point_line_segment()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mathutils.geometry.intersect_point_quad_2d"><code class="docutils literal notranslate"><span class="pre">intersect_point_quad_2d()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mathutils.geometry.intersect_point_tri"><code class="docutils literal notranslate"><span class="pre">intersect_point_tri()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mathutils.geometry.intersect_point_tri_2d"><code class="docutils literal notranslate"><span class="pre">intersect_point_tri_2d()</span></code></a></li>
@@ -504,13 +505,31 @@ returns the intersection</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="mathutils.geometry.intersect_point_line">
 <span class="sig-prename descclassname"><span class="pre">mathutils.geometry.</span></span><span class="sig-name descname"><span class="pre">intersect_point_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_p2</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_point_line" title="Link to this definition"></a></dt>
-<dd><p>Takes a point and a line and returns a tuple with the closest point on the line and its distance from the first point of the line as a percentage of the length of the line.</p>
+<dd><p>Takes a point and a line and returns the closest point on the line and its distance from the first point of the line as a percentage of the length of the line.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pt</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point</p></li>
 <li><p><strong>line_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the line</p></li>
-<li><p><strong>line_p1</strong> – Second point of the line</p></li>
+<li><p><strong>line_p2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mathutils.geometry.intersect_point_line_segment">
+<span class="sig-prename descclassname"><span class="pre">mathutils.geometry.</span></span><span class="sig-name descname"><span class="pre">intersect_point_line_segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seg_p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seg_p2</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_point_line_segment" title="Link to this definition"></a></dt>
+<dd><p>Takes a point and a segment and returns the closest point on the segment and the distance to the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point</p></li>
+<li><p><strong>seg_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the segment</p></li>
+<li><p><strong>seg_p2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the segment</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -721,7 +740,7 @@ Works only with convex quads without singular edges.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/97b30ab636eb>97b30ab636eb</a> - 26/09/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3ecf8e69396b>3ecf8e69396b</a> - 03/10/2025</code>.
       </span></p>
   </div>
 
