@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://upbge.org/docs/latest/api/bmesh.utils.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=639a1cbb"></script>
+      <script src="_static/documentation_options.js?v=0755ccff"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.5x & Blender 5.0.0 Alpha Python API
+            UPBGE 0.5x & Blender 5.1.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -108,6 +108,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bmesh.utils.face_split_edgenet"><code class="docutils literal notranslate"><span class="pre">face_split_edgenet()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bmesh.utils.face_vert_separate"><code class="docutils literal notranslate"><span class="pre">face_vert_separate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bmesh.utils.loop_separate"><code class="docutils literal notranslate"><span class="pre">loop_separate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bmesh.utils.uv_select_check"><code class="docutils literal notranslate"><span class="pre">uv_select_check()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bmesh.utils.vert_collapse_edge"><code class="docutils literal notranslate"><span class="pre">vert_collapse_edge()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bmesh.utils.vert_collapse_faces"><code class="docutils literal notranslate"><span class="pre">vert_collapse_faces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bmesh.utils.vert_dissolve"><code class="docutils literal notranslate"><span class="pre">vert_dissolve()</span></code></a></li>
@@ -138,7 +139,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.5x & Blender 5.0.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.5x & Blender 5.1.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -323,6 +324,27 @@ If rotating the edge fails, None will be returned.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bmesh.utils.uv_select_check">
+<span class="sig-prename descclassname"><span class="pre">bmesh.utils.</span></span><span class="sig-name descname"><span class="pre">uv_select_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flush</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contiguous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.uv_select_check" title="Link to this definition"></a></dt>
+<dd><p>Split an edge, return the newly created data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sync</strong> (<em>bool</em>) – Check the data is properly synchronized between UV’s and the underlying mesh. Failure to synchronize with the mesh selection may cause tools not to behave properly.</p></li>
+<li><p><strong>flush</strong> (<em>bool</em>) – Check the selection has been properly flushed between elements (based on the current <code class="xref py py-class docutils literal notranslate"><span class="pre">BMesh.select_mode</span></code>).</p></li>
+<li><p><strong>contiguous</strong> (<em>bool</em>) – Check connected UV’s and edges have a matching selection state.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An error dictionary or None when there are no errors found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, int] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bmesh.utils.vert_collapse_edge">
 <span class="sig-prename descclassname"><span class="pre">bmesh.utils.</span></span><span class="sig-name descname"><span class="pre">vert_collapse_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.vert_collapse_edge" title="Link to this definition"></a></dt>
 <dd><p>Collapse a vertex into an edge.</p>
@@ -433,7 +455,7 @@ If rotating the edge fails, None will be returned.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3ecf8e69396b>3ecf8e69396b</a> - 03/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/aa90fbe003c3>aa90fbe003c3</a> - 09/10/2025</code>.
       </span></p>
   </div>
 
@@ -452,7 +474,7 @@ If rotating the edge fails, None will be returned.</p>
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bmesh.utils.rst%60%0D%0ABlender+Version%3A+%605.0%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.0%2Fbmesh.utils.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bmesh.utils.rst%60%0D%0ABlender+Version%3A+%605.1%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.1%2Fbmesh.utils.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>

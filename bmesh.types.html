@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://upbge.org/docs/latest/api/bmesh.types.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=639a1cbb"></script>
+      <script src="_static/documentation_options.js?v=0755ccff"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.5x & Blender 5.0.0 Alpha Python API
+            UPBGE 0.5x & Blender 5.1.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -113,6 +113,13 @@
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.select_flush_mode"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_flush_mode()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.to_mesh"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.to_mesh()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.transform"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.transform()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush_mode"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush_shared"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_shared()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_foreach_set"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_foreach_set()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_foreach_set_from_mesh"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_foreach_set_from_mesh()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_from_mesh"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_from_mesh()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_to_mesh()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.edges"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.edges</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.faces"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.faces</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.is_valid"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.is_valid</span></code></a></li>
@@ -120,6 +127,7 @@
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.loops"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.loops</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.select_history"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_history</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.select_mode"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_mode</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_valid"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_valid</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.verts"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMesh.verts</span></code></a></li>
 </ul>
 </li>
@@ -194,6 +202,7 @@
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.normal_flip"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.normal_flip()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.normal_update"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.normal_update()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.select_set"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.select_set()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.uv_select_set"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.uv_select_set()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.edges"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.edges</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.hide"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.hide</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.index"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.index</span></code></a></li>
@@ -204,6 +213,7 @@
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.select"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.select</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.smooth"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.smooth</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.tag"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.tag</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.uv_select"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.uv_select</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMFace.verts"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMFace.verts</span></code></a></li>
 </ul>
 </li>
@@ -213,6 +223,8 @@
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.calc_tangent"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.calc_tangent()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.copy_from"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.copy_from()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.copy_from_face_interp"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.copy_from_face_interp()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.uv_select_edge_set"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.uv_select_edge_set()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.uv_select_vert_set"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.uv_select_vert_set()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.edge"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.edge</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.face"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.face</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.index"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.index</span></code></a></li>
@@ -224,6 +236,8 @@
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.link_loop_radial_prev"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.link_loop_radial_prev</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.link_loops"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.link_loops</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.tag"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.tag</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.uv_select_edge"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.uv_select_edge</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.uv_select_vert"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.uv_select_vert</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop.vert"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoop.vert</span></code></a></li>
 </ul>
 </li>
@@ -351,8 +365,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#custom-data-layer-types">Custom-Data Layer Types</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoopUV"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV</span></code></a><ul>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoopUV.pin_uv"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV.pin_uv</span></code></a></li>
-<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoopUV.select"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV.select</span></code></a></li>
-<li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoopUV.select_edge"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV.select_edge</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bmesh.types.bmesh.types.BMLoopUV.uv"><code class="docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV.uv</span></code></a></li>
 </ul>
 </li>
@@ -392,7 +404,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.5x & Blender 5.0.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.5x & Blender 5.1.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -540,8 +552,13 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.select_flush_mode">
-<span class="sig-name descname"><span class="pre">select_flush_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.select_flush_mode" title="Link to this definition"></a></dt>
-<dd><p>flush selection based on the current mode current <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.select_mode" title="bmesh.types.bmesh.types.BMesh.select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_mode</span></code></a>.</p>
+<span class="sig-name descname"><span class="pre">select_flush_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flush_down=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.select_flush_mode" title="Link to this definition"></a></dt>
+<dd><p>Flush selection based on the current mode current <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.select_mode" title="bmesh.types.bmesh.types.BMesh.select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_mode</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flush_down</strong> (<em>bool</em>) – Flush selection down from faces to edges &amp; verts or from edges to verts. This option is ignored when vertex selection mode is enabled.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -567,6 +584,117 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_flush">
+<span class="sig-name descname"><span class="pre">uv_select_flush</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush" title="Link to this definition"></a></dt>
+<dd><p>Flush selection from UV vertices to edges &amp; faces independent of the selection mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>select</strong> (<em>bool</em>) – Flush selection or de-selected elements.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>This function doesn’t flush the selection to the mesh, typically <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh" title="bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_to_mesh</span></code></a> should be called afterwards.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_flush_mode">
+<span class="sig-name descname"><span class="pre">uv_select_flush_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flush_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush_mode" title="Link to this definition"></a></dt>
+<dd><p>Flush selection based on the current mode current <code class="xref py py-class docutils literal notranslate"><span class="pre">BMesh.select_mode</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flush_down</strong> (<em>bool</em>) – Flush selection down from faces to edges &amp; verts or from edges to verts. This option is ignored when vertex selection mode is enabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_flush_shared">
+<span class="sig-name descname"><span class="pre">uv_select_flush_shared</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush_shared" title="Link to this definition"></a></dt>
+<dd><p>Flush selection from UV vertices to contiguous UV’s independent of the selection mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>select</strong> (<em>bool</em>) – Flush selection or de-selected elements.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>This function doesn’t flush the selection to the mesh, typically <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh" title="bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_to_mesh</span></code></a> should be called afterwards.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_foreach_set">
+<span class="sig-name descname"><span class="pre">uv_select_foreach_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sticky_select_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SHARED_LOCATION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_foreach_set" title="Link to this definition"></a></dt>
+<dd><p>Set the UV selection state for loop-vertices, loop-edges &amp; faces.</p>
+<p>This is a close equivalent to selecting in the UV editor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>select</strong> (<em>bool</em>) – The selection state to set.</p></li>
+<li><p><strong>loop_verts</strong> (Iterable[<a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop" title="bmesh.types.bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>]) – Loop verts to operate on.</p></li>
+<li><p><strong>loop_edges</strong> (Iterable[<a class="reference internal" href="#bmesh.types.bmesh.types.BMLoop" title="bmesh.types.bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>]) – Loop edges to operate on.</p></li>
+<li><p><strong>faces</strong> (Iterable[<a class="reference internal" href="#bmesh.types.bmesh.types.BMFace" title="bmesh.types.bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Faces to operate on.</p></li>
+<li><p><strong>sticky_select_mode</strong> (Literal[‘SHARED_LOCATION’, ‘DISABLED’, ‘SHARED_VERTEX’]) – See (<a class="reference internal" href="bpy.types.ToolSettings.html#bpy.types.ToolSettings.uv_sticky_select_mode" title="bpy.types.ToolSettings.uv_sticky_select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ToolSettings.uv_sticky_select_mode</span></code></a> which may be passed in directly)..</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>This function selection-mode independent, typically <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush_mode" title="bmesh.types.bmesh.types.BMesh.uv_select_flush_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode</span></code></a> should be called afterwards.</p></li>
+<li><p>This function doesn’t flush the selection to the mesh, typically <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh" title="bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_to_mesh</span></code></a> should be called afterwards.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_foreach_set_from_mesh">
+<span class="sig-name descname"><span class="pre">uv_select_foreach_set_from_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sticky_select_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SHARED_LOCATION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_foreach_set_from_mesh" title="Link to this definition"></a></dt>
+<dd><p>Select or de-select mesh elements, updating the UV selection.</p>
+<p>An equivalent to selecting from the 3D viewport for selection operations that support maintaining a synchronized UV selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>select</strong> (<em>bool</em>) – The selection state to set.</p></li>
+<li><p><strong>verts</strong> (Iterable[<a class="reference internal" href="#bmesh.types.bmesh.types.BMVert" title="bmesh.types.bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]) – Verts to operate on.</p></li>
+<li><p><strong>edges</strong> (Iterable[<a class="reference internal" href="#bmesh.types.bmesh.types.BMEdge" title="bmesh.types.bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Edges to operate on.</p></li>
+<li><p><strong>faces</strong> (Iterable[<a class="reference internal" href="#bmesh.types.bmesh.types.BMFace" title="bmesh.types.bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Faces to operate on.</p></li>
+<li><p><strong>sticky_select_mode</strong> (Literal[‘SHARED_LOCATION’, ‘DISABLED’, ‘SHARED_VERTEX’]) – See (<a class="reference internal" href="bpy.types.ToolSettings.html#bpy.types.ToolSettings.uv_sticky_select_mode" title="bpy.types.ToolSettings.uv_sticky_select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ToolSettings.uv_sticky_select_mode</span></code></a> which may be passed in directly)..</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_sync_from_mesh">
+<span class="sig-name descname"><span class="pre">uv_select_sync_from_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sticky_select_mode='SHARED_LOCATION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_from_mesh" title="Link to this definition"></a></dt>
+<dd><p>Sync selection from mesh to UVs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sticky_select_mode</strong> (Literal[‘SHARED_LOCATION’, ‘DISABLED’, ‘SHARED_VERTEX’]) – Behavior when flushing from the mesh to UV selection (<a class="reference internal" href="bpy.types.ToolSettings.html#bpy.types.ToolSettings.uv_sticky_select_mode" title="bpy.types.ToolSettings.uv_sticky_select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ToolSettings.uv_sticky_select_mode</span></code></a> which may be passed in directly).. This should only be used when preparing to create a UV selection.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>This function doesn’t flush the selection to the mesh, typically <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh" title="bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_to_mesh</span></code></a> should be called afterwards.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh">
+<span class="sig-name descname"><span class="pre">uv_select_sync_to_mesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_to_mesh" title="Link to this definition"></a></dt>
+<dd><p>Sync selection from UVs to the mesh.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -648,6 +776,13 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dd class="field-odd"><p>set[Literal[‘VERT’, ‘EDGE’, ‘FACE’]]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMesh.uv_select_sync_valid">
+<span class="sig-name descname"><span class="pre">uv_select_sync_valid</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMesh.uv_select_sync_valid" title="Link to this definition"></a></dt>
+<dd><p>When true, the UV selection has been synchronized. Setting to False means the UV selection will be ignored. While setting to true is supported it is up to the script author to ensure a correct selection state before doing so.
+:type: bool</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -767,7 +902,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently this only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
+<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
 </div>
 </dd></dl>
 
@@ -1048,7 +1183,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently this only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
+<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
 </div>
 </dd></dl>
 
@@ -1437,6 +1572,21 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMFace.uv_select_set">
+<span class="sig-name descname"><span class="pre">uv_select_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMFace.uv_select_set" title="Link to this definition"></a></dt>
+<dd><p>Select the face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>select</strong> (<em>bool</em>) – Select or de-select.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Currently this only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
 </div>
 </dd></dl>
@@ -1558,6 +1708,17 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMFace.uv_select">
+<span class="sig-name descname"><span class="pre">uv_select</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMFace.uv_select" title="Link to this definition"></a></dt>
+<dd><p>UV selected state of this element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMFace.verts">
 <span class="sig-name descname"><span class="pre">verts</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMFace.verts" title="Link to this definition"></a></dt>
 <dd><p>Verts of this face, (read-only).</p>
@@ -1638,6 +1799,36 @@ Falls back to the face normal for straight lines.</p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoop.uv_select_edge_set">
+<span class="sig-name descname"><span class="pre">uv_select_edge_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoop.uv_select_edge_set" title="Link to this definition"></a></dt>
+<dd><p>Set the UV edge selection state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>select</strong> (<em>bool</em>) – Select or de-select.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This only flushes down, so selecting an edge will select all its vertices but de-selecting a vertex won’t de-select the faces that use it, before finishing with a mesh typically flushing with <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush_mode" title="bmesh.types.bmesh.types.BMesh.uv_select_flush_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode</span></code></a> is still needed.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoop.uv_select_vert_set">
+<span class="sig-name descname"><span class="pre">uv_select_vert_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoop.uv_select_vert_set" title="Link to this definition"></a></dt>
+<dd><p>Select the UV vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>select</strong> (<em>bool</em>) – Select or de-select.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently this only flushes down, so selecting an edge will select all its vertices but de-selecting a vertex       won’t de-select the edges &amp; faces that use it, before finishing with a mesh typically flushing with <a class="reference internal" href="#bmesh.types.bmesh.types.BMesh.uv_select_flush_mode" title="bmesh.types.bmesh.types.BMesh.uv_select_flush_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode</span></code></a> is still needed.</p>
+</div>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1760,6 +1951,28 @@ Falls back to the face normal for straight lines.</p>
 <dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoop.tag">
 <span class="sig-name descname"><span class="pre">tag</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoop.tag" title="Link to this definition"></a></dt>
 <dd><p>Generic attribute scripts can use for own logic</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoop.uv_select_edge">
+<span class="sig-name descname"><span class="pre">uv_select_edge</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoop.uv_select_edge" title="Link to this definition"></a></dt>
+<dd><p>UV selected state of this element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoop.uv_select_vert">
+<span class="sig-name descname"><span class="pre">uv_select_vert</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoop.uv_select_vert" title="Link to this definition"></a></dt>
+<dd><p>UV selected state of this element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2766,28 +2979,6 @@ when not found (matches Python’s dictionary function of the same name).</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoopUV.select">
-<span class="sig-name descname"><span class="pre">select</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoopUV.select" title="Link to this definition"></a></dt>
-<dd><p>UV select state.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoopUV.select_edge">
-<span class="sig-name descname"><span class="pre">select_edge</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoopUV.select_edge" title="Link to this definition"></a></dt>
-<dd><p>UV edge select state.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.bmesh.types.BMLoopUV.uv">
 <span class="sig-name descname"><span class="pre">uv</span></span><a class="headerlink" href="#bmesh.types.bmesh.types.BMLoopUV.uv" title="Link to this definition"></a></dt>
 <dd><p>Loops UV (as a 2D Vector).</p>
@@ -2887,7 +3078,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3ecf8e69396b>3ecf8e69396b</a> - 03/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/aa90fbe003c3>aa90fbe003c3</a> - 09/10/2025</code>.
       </span></p>
   </div>
 
@@ -2906,7 +3097,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bmesh.types.rst%60%0D%0ABlender+Version%3A+%605.0%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.0%2Fbmesh.types.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bmesh.types.rst%60%0D%0ABlender+Version%3A+%605.1%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.1%2Fbmesh.types.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>

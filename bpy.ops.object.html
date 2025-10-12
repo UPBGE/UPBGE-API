@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.ops.object.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=639a1cbb"></script>
+      <script src="_static/documentation_options.js?v=0755ccff"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.5x & Blender 5.0.0 Alpha Python API
+            UPBGE 0.5x & Blender 5.1.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -140,6 +140,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.constraints_clear"><code class="docutils literal notranslate"><span class="pre">constraints_clear()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.constraints_copy"><code class="docutils literal notranslate"><span class="pre">constraints_copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.copy_global_transform"><code class="docutils literal notranslate"><span class="pre">copy_global_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.copy_relative_transform"><code class="docutils literal notranslate"><span class="pre">copy_relative_transform()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.correctivesmooth_bind"><code class="docutils literal notranslate"><span class="pre">correctivesmooth_bind()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.curves_empty_hair_add"><code class="docutils literal notranslate"><span class="pre">curves_empty_hair_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.curves_random_add"><code class="docutils literal notranslate"><span class="pre">curves_random_add()</span></code></a></li>
@@ -147,6 +149,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.data_transfer"><code class="docutils literal notranslate"><span class="pre">data_transfer()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.datalayout_transfer"><code class="docutils literal notranslate"><span class="pre">datalayout_transfer()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.delete"><code class="docutils literal notranslate"><span class="pre">delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.delete_fix_to_camera_keys"><code class="docutils literal notranslate"><span class="pre">delete_fix_to_camera_keys()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.drop_geometry_nodes"><code class="docutils literal notranslate"><span class="pre">drop_geometry_nodes()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.drop_named_material"><code class="docutils literal notranslate"><span class="pre">drop_named_material()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
@@ -158,6 +161,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.empty_add"><code class="docutils literal notranslate"><span class="pre">empty_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.empty_image_add"><code class="docutils literal notranslate"><span class="pre">empty_image_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.explode_refresh"><code class="docutils literal notranslate"><span class="pre">explode_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.fix_to_camera"><code class="docutils literal notranslate"><span class="pre">fix_to_camera()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.forcefield_toggle"><code class="docutils literal notranslate"><span class="pre">forcefield_toggle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.game_physics_copy"><code class="docutils literal notranslate"><span class="pre">game_physics_copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.game_property_clear"><code class="docutils literal notranslate"><span class="pre">game_property_clear()</span></code></a></li>
@@ -271,6 +275,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.parent_set"><code class="docutils literal notranslate"><span class="pre">parent_set()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.particle_system_add"><code class="docutils literal notranslate"><span class="pre">particle_system_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.particle_system_remove"><code class="docutils literal notranslate"><span class="pre">particle_system_remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.paste_transform"><code class="docutils literal notranslate"><span class="pre">paste_transform()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.paths_calculate"><code class="docutils literal notranslate"><span class="pre">paths_calculate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.paths_clear"><code class="docutils literal notranslate"><span class="pre">paths_clear()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.object.paths_update"><code class="docutils literal notranslate"><span class="pre">paths_update()</span></code></a></li>
@@ -451,7 +456,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.5x & Blender 5.0.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.5x & Blender 5.1.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -852,6 +857,28 @@ Grease Pencil – Grease Pencil from Curve or Mesh objects.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.copy_global_transform">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">copy_global_transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.copy_global_transform" title="Link to this definition"></a></dt>
+<dd><p>Copies the matrix of the currently active object or pose bone to the clipboard. Uses world-space matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/copy_global_transform.py#L150">startup/bl_operators/copy_global_transform.py:150</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.copy_relative_transform">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">copy_relative_transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.copy_relative_transform" title="Link to this definition"></a></dt>
+<dd><p>Copies the matrix of the currently active object or pose bone to the clipboard. Uses matrices relative to a specific object or the active scene camera</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/copy_global_transform.py#L180">startup/bl_operators/copy_global_transform.py:180</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.correctivesmooth_bind">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">correctivesmooth_bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.correctivesmooth_bind" title="Link to this definition"></a></dt>
 <dd><p>Bind base pose in Corrective Smooth modifier</p>
@@ -1057,6 +1084,17 @@ Freestyle Mark – Transfer Freestyle face mark.</p></li>
 <li><p><strong>use_global</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Delete Globally, Remove object from all scenes</p></li>
 <li><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.delete_fix_to_camera_keys">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">delete_fix_to_camera_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.delete_fix_to_camera_keys" title="Link to this definition"></a></dt>
+<dd><p>Delete all keys that were generated by the ‘Fix to Scene Camera’ operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">File<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/copy_global_transform.py#L639">startup/bl_operators/copy_global_transform.py:639</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1292,6 +1330,24 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>modifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Modifier, Name of the modifier to edit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.fix_to_camera">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">fix_to_camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.fix_to_camera" title="Link to this definition"></a></dt>
+<dd><p>Generate new keys to fix the selected object/bone to the camera on unkeyed frames</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_location</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Create Location keys when fixing to the scene camera</p></li>
+<li><p><strong>use_rotation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Rotation, Create Rotation keys when fixing to the scene camera</p></li>
+<li><p><strong>use_scale</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scale, Create Scale keys when fixing to the scene camera</p></li>
+</ul>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/copy_global_transform.py#L639">startup/bl_operators/copy_global_transform.py:639</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2751,6 +2807,36 @@ Clear Parent Inverse – Reset the transform corrections applied to the parentin
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.object.paste_transform">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">paste_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CURRENT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_mirror</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_axis_loc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_axis_rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.paste_transform" title="Link to this definition"></a></dt>
+<dd><p>Pastes the matrix from the clipboard to the currently active pose bone or object. Uses world-space matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'CURRENT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'EXISTING_KEYS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BAKE'</span></code>], (optional)) – <p>Paste Method, Update the current transform, selected keyframes, or even create new keys</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURRENT</span></code>
+Current Transform – Paste onto the current values only, only manipulating the animation data if auto-keying is enabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXISTING_KEYS</span></code>
+Selected Keys – Paste onto frames that have a selected key, potentially creating new keys on those frames.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BAKE</span></code>
+Bake on Key Range – Paste onto all frames between the first and last selected key, creating new keyframes if necessary.</p></li>
+</ul>
+</p></li>
+<li><p><strong>bake_step</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Frame Step, Only used for baking. Step=1 creates a key on every frame, step=2 bakes on 2s, etc</p></li>
+<li><p><strong>use_mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Transform, When pasting, mirror the transform relative to a specific object or bone</p></li>
+<li><p><strong>mirror_axis_loc</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'x'</span></code>, <code class="docutils literal notranslate"><span class="pre">'y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'z'</span></code>], (optional)) – Location Axis, Coordinate axis used to mirror the location part of the transform</p></li>
+<li><p><strong>mirror_axis_rot</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'x'</span></code>, <code class="docutils literal notranslate"><span class="pre">'y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'z'</span></code>], (optional)) – Rotation Axis, Coordinate axis used to mirror the rotation part of the transform</p></li>
+<li><p><strong>use_relative</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Relative Paste, When pasting, assume the pasted matrix is relative to another object (set in the user interface)</p></li>
+</ul>
+</dd>
+<dt class="field-even">File<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/copy_global_transform.py#L325">startup/bl_operators/copy_global_transform.py:325</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.object.paths_calculate">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.object.</span></span><span class="sig-name descname"><span class="pre">paths_calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RANGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SCENE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.object.paths_calculate" title="Link to this definition"></a></dt>
 <dd><p>Generate motion paths for the selected objects</p>
@@ -4135,7 +4221,7 @@ View – Align the new object to the view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3ecf8e69396b>3ecf8e69396b</a> - 03/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/aa90fbe003c3>aa90fbe003c3</a> - 09/10/2025</code>.
       </span></p>
   </div>
 
@@ -4154,7 +4240,7 @@ View – Align the new object to the view.</p></li>
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.object.rst%60%0D%0ABlender+Version%3A+%605.0%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.0%2Fbpy.ops.object.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.object.rst%60%0D%0ABlender+Version%3A+%605.1%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.1%2Fbpy.ops.object.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>
