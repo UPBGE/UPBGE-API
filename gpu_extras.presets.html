@@ -155,7 +155,7 @@ If None or not specified, an automatic value will be calculated.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gpu_extras.presets.draw_texture_2d">
-<span class="sig-prename descclassname"><span class="pre">gpu_extras.presets.</span></span><span class="sig-name descname"><span class="pre">draw_texture_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu_extras.presets.draw_texture_2d" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">gpu_extras.presets.</span></span><span class="sig-name descname"><span class="pre">draw_texture_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_scene_linear_with_rec709_srgb_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu_extras.presets.draw_texture_2d" title="Link to this definition"></a></dt>
 <dd><p>Draw a 2d texture.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -165,6 +165,11 @@ If None or not specified, an automatic value will be calculated.</p></li>
 <li><p><strong>width</strong> (<em>float</em>) – Width of the image when drawn (not necessarily
 the original width of the texture).</p></li>
 <li><p><strong>height</strong> (<em>float</em>) – Height of the image when drawn.</p></li>
+<li><p><strong>is_scene_linear_with_rec709_srgb_target</strong> (<em>bool</em>) – True if the <cite>texture</cite> is stored in scene linear color space and
+the destination framebuffer uses the Rec.709 sRGB color space
+(which is true when drawing textures acquired from <a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Image</span></code></a> inside a
+‘PRE_VIEW’, ‘POST_VIEW’ or ‘POST_PIXEL’ draw handler).
+Otherwise the color space is assumed to match the one of the framebuffer. (default=False)</p></li>
 </ul>
 </dd>
 </dl>
@@ -184,7 +189,7 @@ the original width of the texture).</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/aa90fbe003c3>aa90fbe003c3</a> - 09/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/b617982ae8fa>b617982ae8fa</a> - 17/10/2025</code>.
       </span></p>
   </div>
 

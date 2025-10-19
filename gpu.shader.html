@@ -152,6 +152,10 @@
 <p class="rubric" id="built-in-shaders">Built-in shaders</p>
 <p>All built-in shaders have the <code class="docutils literal notranslate"><span class="pre">mat4</span> <span class="pre">ModelViewProjectionMatrix</span></code> uniform.</p>
 <p>Its value must be modified using the <a class="reference internal" href="gpu.matrix.html#module-gpu.matrix" title="gpu.matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.matrix</span></code></a> module.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Shader uniforms must be explicitly initialized to avoid retaining values from previous executions.</p>
+</div>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">FLAT_COLOR</span></code></dt><dd><dl class="field-list simple">
 <dt class="field-odd">Attributes<span class="colon">:</span></dt>
@@ -171,12 +175,36 @@
 </dd>
 </dl>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IMAGE_SCENE_LINEAR_TO_REC709_SRGB</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vec3 pos, vec2 texCoord</p>
+</dd>
+<dt class="field-even">Uniforms<span class="colon">:</span></dt>
+<dd class="field-even"><p>sampler2D image</p>
+</dd>
+<dt class="field-odd">Note<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Expect texture to be in scene linear color space</p>
+</dd>
+</dl>
+</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">IMAGE_COLOR</span></code></dt><dd><dl class="field-list simple">
 <dt class="field-odd">Attributes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>vec3 pos, vec2 texCoord</p>
 </dd>
 <dt class="field-even">Uniforms<span class="colon">:</span></dt>
 <dd class="field-even"><p>sampler2D image, vec4 color</p>
+</dd>
+</dl>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">IMAGE_COLOR_SCENE_LINEAR_TO_REC709_SRGB</span></code></dt><dd><dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vec3 pos, vec2 texCoord</p>
+</dd>
+<dt class="field-even">Uniforms<span class="colon">:</span></dt>
+<dd class="field-even"><p>sampler2D image, vec4 color</p>
+</dd>
+<dt class="field-odd">Note<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Expect texture to be in scene linear color space</p>
 </dd>
 </dl>
 </dd>
@@ -309,7 +337,7 @@ which can be edited by the <a class="reference internal" href="gpu.matrix.html#m
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/aa90fbe003c3>aa90fbe003c3</a> - 09/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/b617982ae8fa>b617982ae8fa</a> - 17/10/2025</code>.
       </span></p>
   </div>
 
