@@ -340,6 +340,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeScale.html">CompositorNodeScale(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSceneTime.html">CompositorNodeSceneTime(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSeparateColor.html">CompositorNodeSeparateColor(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSequencerStripInfo.html">CompositorNodeSequencerStripInfo(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSetAlpha.html">CompositorNodeSetAlpha(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSplit.html">CompositorNodeSplit(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeStabilize.html">CompositorNodeStabilize(CompositorNode)</a></li>
@@ -2610,7 +2611,7 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UILayout.prop_search">
-<span class="sig-name descname"><span class="pre">prop_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_property</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_ctxt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results_are_suggestions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.prop_search" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">prop_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_property</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_ctxt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results_are_suggestions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_search_property</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.prop_search" title="Link to this definition"></a></dt>
 <dd><p>prop_search</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2624,6 +2625,7 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 <li><p><strong>translate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Translate the given text, when UI translation is enabled</p></li>
 <li><p><strong>icon</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/icon_items.html#rna-enum-icon-items"><span class="std std-ref">Icon Items</span></a>, (optional)) – Icon, Override automatic icon of the item</p></li>
 <li><p><strong>results_are_suggestions</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accept inputs that do not match any item</p></li>
+<li><p><strong>item_search_property</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Identifier of the string property in each collection’s items to use for searching (defaults to the items’ type ‘name property’)</p></li>
 </ul>
 </dd>
 </dl>
@@ -4014,7 +4016,7 @@ Swap Node – Replace the selected nodes with the specified type..</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/b617982ae8fa>b617982ae8fa</a> - 17/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/18a52b91829e>18a52b91829e</a> - 25/10/2025</code>.
       </span></p>
   </div>
 

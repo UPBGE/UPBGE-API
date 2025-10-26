@@ -172,7 +172,13 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpu.types.GPUTexture"><code class="docutils literal notranslate"><span class="pre">GPUTexture</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.anisotropic_filter"><code class="docutils literal notranslate"><span class="pre">GPUTexture.anisotropic_filter()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.clear"><code class="docutils literal notranslate"><span class="pre">GPUTexture.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.extend_mode"><code class="docutils literal notranslate"><span class="pre">GPUTexture.extend_mode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.extend_mode_x"><code class="docutils literal notranslate"><span class="pre">GPUTexture.extend_mode_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.extend_mode_y"><code class="docutils literal notranslate"><span class="pre">GPUTexture.extend_mode_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.filter_mode"><code class="docutils literal notranslate"><span class="pre">GPUTexture.filter_mode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.mipmap_mode"><code class="docutils literal notranslate"><span class="pre">GPUTexture.mipmap_mode()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.read"><code class="docutils literal notranslate"><span class="pre">GPUTexture.read()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.format"><code class="docutils literal notranslate"><span class="pre">GPUTexture.format</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUTexture.height"><code class="docutils literal notranslate"><span class="pre">GPUTexture.height</span></code></a></li>
@@ -1350,7 +1356,7 @@ to be performed.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUTexture">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_cubemap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGBA8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture" title="Link to this definition"></a></dt>
-<dd><p>This object gives access to off GPU textures.</p>
+<dd><p>This object gives access to GPU textures.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1407,6 +1413,17 @@ to be performed.</p>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUTexture.anisotropic_filter">
+<span class="sig-name descname"><span class="pre">anisotropic_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_anisotropic</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.anisotropic_filter" title="Link to this definition"></a></dt>
+<dd><p>Set anisotropic filter usage. This only has effect if mipmapping is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>use_anisotropic</strong> (<em>bool</em>) – If set to true, the texture will use anisotropic filtering.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUTexture.clear">
 <span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.clear" title="Link to this definition"></a></dt>
 <dd><p>Fill texture with specific value.</p>
@@ -1417,6 +1434,68 @@ to be performed.</p>
 Possible values are <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT</span></code>, <code class="docutils literal notranslate"><span class="pre">UBYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">10_11_11_REV</span></code>.
 <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> instead.</p></li>
 <li><p><strong>value</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Sequence each representing the value to fill. Sizes 1..4 are supported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUTexture.extend_mode">
+<span class="sig-name descname"><span class="pre">extend_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extend_mode=`EXTEND`</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.extend_mode" title="Link to this definition"></a></dt>
+<dd><p>Set texture sampling method for coordinates outside of the [0..1] uv range along
+both the x and y axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>extend_mode</strong> (<em>str</em>) – the specified extent mode.
+Possible values are <code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>, <code class="docutils literal notranslate"><span class="pre">REPEAT</span></code>, <code class="docutils literal notranslate"><span class="pre">MIRRORED_REPEAT</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">CLAMP_TO_BORDER</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUTexture.extend_mode_x">
+<span class="sig-name descname"><span class="pre">extend_mode_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extend_mode=`EXTEND`</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.extend_mode_x" title="Link to this definition"></a></dt>
+<dd><p>Set texture sampling method for coordinates outside of the [0..1] uv range along the x axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>extend_mode</strong> (<em>str</em>) – the specified extent mode.
+Possible values are <code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>, <code class="docutils literal notranslate"><span class="pre">REPEAT</span></code>, <code class="docutils literal notranslate"><span class="pre">MIRRORED_REPEAT</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">CLAMP_TO_BORDER</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUTexture.extend_mode_y">
+<span class="sig-name descname"><span class="pre">extend_mode_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extend_mode=`EXTEND`</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.extend_mode_y" title="Link to this definition"></a></dt>
+<dd><p>Set texture sampling method for coordinates outside of the [0..1] uv range along the y axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>extend_mode</strong> (<em>str</em>) – the specified extent mode.
+Possible values are <code class="docutils literal notranslate"><span class="pre">EXTEND</span></code>, <code class="docutils literal notranslate"><span class="pre">REPEAT</span></code>, <code class="docutils literal notranslate"><span class="pre">MIRRORED_REPEAT</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">CLAMP_TO_BORDER</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUTexture.filter_mode">
+<span class="sig-name descname"><span class="pre">filter_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_filter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.filter_mode" title="Link to this definition"></a></dt>
+<dd><p>Set texture filter usage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>use_filter</strong> (<em>bool</em>) – If set to true, the texture will use linear interpolation between neighboring texels.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.GPUTexture.mipmap_mode">
+<span class="sig-name descname"><span class="pre">mipmap_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_mipmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.mipmap_mode" title="Link to this definition"></a></dt>
+<dd><p>Set texture filter and mip-map usage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_mipmap</strong> (<em>bool</em>) – If set to true, the texture will use mip-mapping as anti-aliasing method.</p></li>
+<li><p><strong>use_filter</strong> (<em>bool</em>) – If set to true, the texture will use linear interpolation between neighboring texels.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1550,7 +1629,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/b617982ae8fa>b617982ae8fa</a> - 17/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/18a52b91829e>18a52b91829e</a> - 25/10/2025</code>.
       </span></p>
   </div>
 
