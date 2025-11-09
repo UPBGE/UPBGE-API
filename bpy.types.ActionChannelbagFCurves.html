@@ -76,6 +76,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ActionChannelbagFCurves(bpy_struct)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.ActionChannelbagFCurves"><code class="docutils literal notranslate"><span class="pre">ActionChannelbagFCurves</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionChannelbagFCurves.new"><code class="docutils literal notranslate"><span class="pre">ActionChannelbagFCurves.new()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionChannelbagFCurves.new_from_fcurve"><code class="docutils literal notranslate"><span class="pre">ActionChannelbagFCurves.new_from_fcurve()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionChannelbagFCurves.ensure"><code class="docutils literal notranslate"><span class="pre">ActionChannelbagFCurves.ensure()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionChannelbagFCurves.find"><code class="docutils literal notranslate"><span class="pre">ActionChannelbagFCurves.find()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionChannelbagFCurves.remove"><code class="docutils literal notranslate"><span class="pre">ActionChannelbagFCurves.remove()</span></code></a></li>
@@ -1320,6 +1321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ParticleTarget.html">ParticleTarget(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PathCompare.html">PathCompare(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PathCompareCollection.html">PathCompareCollection(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.PitchModifier.html">PitchModifier(StripModifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PivotConstraint.html">PivotConstraint(Constraint)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Point.html">Point(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.PointCache.html">PointCache(bpy_struct)</a></li>
@@ -1944,6 +1946,26 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.ActionChannelbagFCurves.new_from_fcurve">
+<span class="sig-name descname"><span class="pre">new_from_fcurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionChannelbagFCurves.new_from_fcurve" title="Link to this definition"></a></dt>
+<dd><p>Copy an F-Curve into the channelbag. The original F-Curve is unchanged</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<a class="reference internal" href="bpy.types.FCurve.html#bpy.types.FCurve" title="bpy.types.FCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">FCurve</span></code></a>) – Source F-Curve, The F-Curve to copy</p></li>
+<li><p><strong>data_path</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Data Path, F-Curve data path to use. If not provided, this will use the same data path as the given F-Curve</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Newly created F-Curve</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.FCurve.html#bpy.types.FCurve" title="bpy.types.FCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">FCurve</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.ActionChannelbagFCurves.ensure">
 <span class="sig-name descname"><span class="pre">ensure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionChannelbagFCurves.ensure" title="Link to this definition"></a></dt>
 <dd><p>Returns the F-Curve if it already exists, and creates it if necessary</p>
@@ -2099,7 +2121,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/f9a767e67e81>f9a767e67e81</a> - 30/10/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/806f0bfd85a6>806f0bfd85a6</a> - 08/11/2025</code>.
       </span></p>
   </div>
 
