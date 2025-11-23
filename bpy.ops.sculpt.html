@@ -330,7 +330,7 @@ View – Use the view axis to limit the force and set the gravity direction.</p>
 </p></li>
 <li><p><strong>cloth_mass</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>2</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cloth Mass, Mass of each simulation particle</p></li>
 <li><p><strong>cloth_damping</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cloth Damping, How much the applied forces are propagated through the cloth</p></li>
-<li><p><strong>use_face_sets</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Face Sets, Apply the filter only to the Face Set under the cursor</p></li>
+<li><p><strong>use_face_sets</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Face Sets, Apply the filter only to the face set under the cursor</p></li>
 <li><p><strong>use_collisions</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Collisions, Collide with other collider objects in the scene</p></li>
 </ul>
 </dd>
@@ -408,7 +408,7 @@ Blue – Change blue channel.</p></li>
 <li><p><strong>invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Invert, Invert the expand active elements</p></li>
 <li><p><strong>use_mask_preserve</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Preserve Previous, Preserve the previous state of the target data</p></li>
 <li><p><strong>use_falloff_gradient</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Falloff Gradient, Expand Using a linear falloff</p></li>
-<li><p><strong>use_modify_active</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Modify Active, Modify the active Face Set instead of creating a new one</p></li>
+<li><p><strong>use_modify_active</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Modify Active, Modify the active face set instead of creating a new one</p></li>
 <li><p><strong>use_reposition_pivot</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Reposition Pivot, Reposition the sculpt transform pivot to the boundary of the expand active area</p></li>
 <li><p><strong>max_geodesic_move_preview</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Max Vertex Count for Geodesic Move Preview, Maximum number of vertices in the mesh for using geodesic falloff when moving the origin of expand. If the total number of vertices is greater than this value, the falloff will be set to spherical when moving</p></li>
 <li><p><strong>use_auto_mask</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Create, Fill in mask if nothing is already masked</p></li>
@@ -439,17 +439,17 @@ Blue – Change blue channel.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_change_visibility">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_change_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TOGGLE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_change_visibility" title="Link to this definition"></a></dt>
-<dd><p>Change the visibility of the Face Sets of the sculpt</p>
+<dd><p>Change the visibility of the face sets of the sculpt</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHOW_ACTIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HIDE_ACTIVE'</span></code>], (optional)) – <p>Mode</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TOGGLE</span></code>
-Toggle Visibility – Hide all Face Sets except for the active one.</p></li>
+Toggle Visibility – Hide all face sets except for the active one.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SHOW_ACTIVE</span></code>
-Show Active Face Set – Show Active Face Set.</p></li>
+Show Active Face Set – Show the active face set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HIDE_ACTIVE</span></code>
-Hide Active Face Sets – Hide Active Face Sets.</p></li>
+Hide Active Face Set – Hide the active face set.</p></li>
 </ul>
 </p>
 </dd>
@@ -459,7 +459,7 @@ Hide Active Face Sets – Hide Active Face Sets.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_edit">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_face_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GROW'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify_hidden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_edit" title="Link to this definition"></a></dt>
-<dd><p>Edits the current active Face Set</p>
+<dd><p>Edits the current active face set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -467,15 +467,15 @@ Hide Active Face Sets – Hide Active Face Sets.</p></li>
 <li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'GROW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHRINK'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DELETE_GEOMETRY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FAIR_POSITIONS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FAIR_TANGENCY'</span></code>], (optional)) – <p>Mode</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">GROW</span></code>
-Grow Face Set – Grows the Face Sets boundary by one face based on mesh topology.</p></li>
+Grow Face Set – Grows the face set boundary by one face based on mesh topology.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SHRINK</span></code>
-Shrink Face Set – Shrinks the Face Sets boundary by one face based on mesh topology.</p></li>
+Shrink Face Set – Shrinks the face set boundary by one face based on mesh topology.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DELETE_GEOMETRY</span></code>
-Delete Geometry – Deletes the faces that are assigned to the Face Set.</p></li>
+Delete Geometry – Deletes the faces that are assigned to the face set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FAIR_POSITIONS</span></code>
-Fair Positions – Creates a smooth as possible geometry patch from the Face Set minimizing changes in vertex positions.</p></li>
+Fair Positions – Creates a smooth as possible geometry patch from the face set minimizing changes in vertex positions.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FAIR_TANGENCY</span></code>
-Fair Tangency – Creates a smooth as possible geometry patch from the Face Set minimizing changes in vertex tangents.</p></li>
+Fair Tangency – Creates a smooth as possible geometry patch from the face set minimizing changes in vertex tangents.</p></li>
 </ul>
 </p></li>
 <li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength</p></li>
@@ -488,7 +488,7 @@ Fair Tangency – Creates a smooth as possible geometry patch from the Face Set 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_set_extract">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_set_extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_boundary_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_shrinkwrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_solidify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_set_extract" title="Link to this definition"></a></dt>
-<dd><p>Create a new mesh object from the selected Face Set</p>
+<dd><p>Create a new mesh object from the selected face set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -555,19 +555,19 @@ Fair Tangency – Creates a smooth as possible geometry patch from the Face Set 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_sets_create">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MASKED'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_create" title="Link to this definition"></a></dt>
-<dd><p>Create a new Face Set</p>
+<dd><p>Create a new face set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MASKED'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VISIBLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECTION'</span></code>], (optional)) – <p>Mode</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MASKED</span></code>
-Face Set from Masked – Create a new Face Set from the masked faces.</p></li>
+Face Set from Masked – Create a new face set from the masked faces.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VISIBLE</span></code>
-Face Set from Visible – Create a new Face Set from the visible vertices.</p></li>
+Face Set from Visible – Create a new face set from the visible vertices.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
-Face Set Full Mesh – Create an unique Face Set with all faces in the sculpt.</p></li>
+Face Set Full Mesh – Create an unique face set with all faces in the sculpt.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SELECTION</span></code>
-Face Set from Edit Mode Selection – Create an Face Set corresponding to the Edit Mode face selection.</p></li>
+Face Set from Edit Mode Selection – Create an face set corresponding to the Edit Mode face selection.</p></li>
 </ul>
 </p>
 </dd>
@@ -577,31 +577,31 @@ Face Set from Edit Mode Selection – Create an Face Set corresponding to the Ed
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_sets_init">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOOSE_PARTS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_init" title="Link to this definition"></a></dt>
-<dd><p>Initializes all Face Sets in the mesh</p>
+<dd><p>Initializes all face sets in the mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LOOSE_PARTS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MATERIALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NORMALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UV_SEAMS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CREASES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BEVEL_WEIGHT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHARP_EDGES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FACE_SET_BOUNDARIES'</span></code>], (optional)) – <p>Mode</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOOSE_PARTS</span></code>
-Face Sets from Loose Parts – Create a Face Set per loose part in the mesh.</p></li>
+Face Sets from Loose Parts – Create a face set per loose part in the mesh.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MATERIALS</span></code>
-Face Sets from Material Slots – Create a Face Set per Material Slot.</p></li>
+Face Sets from Material Slots – Create a face set per material slot.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NORMALS</span></code>
-Face Sets from Mesh Normals – Create Face Sets for Faces that have similar normal.</p></li>
+Face Sets from Mesh Normals – Create face sets for faces that have similar normal.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">UV_SEAMS</span></code>
-Face Sets from UV Seams – Create Face Sets using UV Seams as boundaries.</p></li>
+Face Sets from UV Seams – Create face sets using UV seams as boundaries.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CREASES</span></code>
-Face Sets from Edge Creases – Create Face Sets using Edge Creases as boundaries.</p></li>
+Face Sets from Edge Creases – Create face sets using edge creases as boundaries.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BEVEL_WEIGHT</span></code>
-Face Sets from Bevel Weight – Create Face Sets using Bevel Weights as boundaries.</p></li>
+Face Sets from Bevel Weight – Create face sets using bevel weights as boundaries.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SHARP_EDGES</span></code>
-Face Sets from Sharp Edges – Create Face Sets using Sharp Edges as boundaries.</p></li>
+Face Sets from Sharp Edges – Create face sets using sharp edges as boundaries.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FACE_SET_BOUNDARIES</span></code>
-Face Sets from Face Set Boundaries – Create a Face Set per isolated Face Set.</p></li>
+Face Sets from Face Set Boundaries – Create a face set per isolated face set.</p></li>
 </ul>
 </p></li>
-<li><p><strong>threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, Minimum value to consider a certain attribute a boundary when creating the Face Sets</p></li>
+<li><p><strong>threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, Minimum value to consider a certain attribute a boundary when creating the face sets</p></li>
 </ul>
 </dd>
 </dl>
@@ -610,7 +610,7 @@ Face Sets from Face Set Boundaries – Create a Face Set per isolated Face Set.<
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_sets_randomize_colors">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_randomize_colors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_randomize_colors" title="Link to this definition"></a></dt>
-<dd><p>Generates a new set of random colors to render the Face Sets in the viewport</p>
+<dd><p>Generates a new set of random colors to render the face sets in the viewport</p>
 </dd></dl>
 
 <dl class="py function">
@@ -743,7 +743,7 @@ Random – Randomize vertex positions.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RELAX</span></code>
 Relax – Relax mesh.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RELAX_FACE_SETS</span></code>
-Relax Face Sets – Smooth the edges of all the Face Sets.</p></li>
+Relax Face Sets – Smooth the edges of all the face sets.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SURFACE_SMOOTH</span></code>
 Surface Smooth – Smooth the surface of the mesh, preserving the volume.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SHARPEN</span></code>
@@ -1200,7 +1200,7 @@ Geometry – Use Geometry (cotangent) relaxation, making UVs follow the underlyi
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/a586a9c6df1d>a586a9c6df1d</a> - 14/11/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/09ac47509854>09ac47509854</a> - 22/11/2025</code>.
       </span></p>
   </div>
 
