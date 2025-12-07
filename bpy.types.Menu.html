@@ -406,6 +406,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.DynamicPaintSurface.html">DynamicPaintSurface(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.DynamicPaintSurfaces.html">DynamicPaintSurfaces(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.EQCurveMappingData.html">EQCurveMappingData(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.EchoModifier.html">EchoModifier(StripModifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.EdgeSplitModifier.html">EdgeSplitModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.EditBone.html">EditBone(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.EditObjectActuator.html">EditObjectActuator(Actuator)</a></li>
@@ -1994,7 +1995,7 @@ the operator execution context will be inherited from them.</p>
         <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_random&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Random&quot;</span><span class="p">)</span>
 
         <span class="c1"># Access this operator as a sub-menu.</span>
-        <span class="n">layout</span><span class="o">.</span><span class="n">operator_menu_enum</span><span class="p">(</span><span class="s2">&quot;object.select_by_type&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select All by Type...&quot;</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator_menu_enum</span><span class="p">(</span><span class="s2">&quot;object.select_by_type&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select All by Type&quot;</span><span class="p">)</span>
 
         <span class="n">layout</span><span class="o">.</span><span class="n">separator</span><span class="p">()</span>
 
@@ -2122,7 +2123,7 @@ material properties) and choose <em>Execute Custom Action</em>.</p>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">.</span><span class="si">{:s}</span><span class="s2"> = </span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">.</span><span class="si">{:s}</span><span class="s2"> = </span><span class="si">{!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">)))</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">WM_OT_button_context_test</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
@@ -2424,7 +2425,7 @@ the menus draw function</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2e1cabc706e6>2e1cabc706e6</a> - 28/11/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3f3515c19f3b>3f3515c19f3b</a> - 06/12/2025</code>.
       </span></p>
   </div>
 
