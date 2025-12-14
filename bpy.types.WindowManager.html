@@ -546,6 +546,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeAttributeStatistic.html">GeometryNodeAttributeStatistic(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBake.html">GeometryNodeBake(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBlurAttribute.html">GeometryNodeBlurAttribute(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBoneInfo.html">GeometryNodeBoneInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBoundBox.html">GeometryNodeBoundBox(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeCameraInfo.html">GeometryNodeCameraInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeCaptureAttribute.html">GeometryNodeCaptureAttribute(GeometryNode)</a></li>
@@ -1817,11 +1818,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.addon_support"><code class="docutils literal notranslate"><span class="pre">WindowManager.addon_support</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.addon_tags"><code class="docutils literal notranslate"><span class="pre">WindowManager.addon_tags</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.asset_path_dummy"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_path_dummy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extension_repo_filter"><code class="docutils literal notranslate"><span class="pre">WindowManager.extension_repo_filter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extension_search"><code class="docutils literal notranslate"><span class="pre">WindowManager.extension_search</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extension_show_panel_available"><code class="docutils literal notranslate"><span class="pre">WindowManager.extension_show_panel_available</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extension_show_panel_installed"><code class="docutils literal notranslate"><span class="pre">WindowManager.extension_show_panel_installed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extension_tags"><code class="docutils literal notranslate"><span class="pre">WindowManager.extension_tags</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extension_type"><code class="docutils literal notranslate"><span class="pre">WindowManager.extension_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extension_use_filter"><code class="docutils literal notranslate"><span class="pre">WindowManager.extension_use_filter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extensions_blocked"><code class="docutils literal notranslate"><span class="pre">WindowManager.extensions_blocked</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.extensions_updates"><code class="docutils literal notranslate"><span class="pre">WindowManager.extensions_updates</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.is_interface_locked"><code class="docutils literal notranslate"><span class="pre">WindowManager.is_interface_locked</span></code></a></li>
@@ -2031,6 +2034,17 @@ Testing – Newly contributed scripts (excluded from release builds).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.WindowManager.extension_repo_filter">
+<span class="sig-name descname"><span class="pre">extension_repo_filter</span></span><a class="headerlink" href="#bpy.types.WindowManager.extension_repo_filter" title="Link to this definition"></a></dt>
+<dd><p>Filter extensions by repository</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>enum in []</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.extension_search">
 <span class="sig-name descname"><span class="pre">extension_search</span></span><a class="headerlink" href="#bpy.types.WindowManager.extension_search" title="Link to this definition"></a></dt>
 <dd><p>Filter by extension name, author &amp; category</p>
@@ -2088,6 +2102,17 @@ Themes – Only show themes.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ADDON'</span></code>, <code class="docutils literal notranslate"><span class="pre">'THEME'</span></code>], default <code class="docutils literal notranslate"><span class="pre">'ADDON'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.WindowManager.extension_use_filter">
+<span class="sig-name descname"><span class="pre">extension_use_filter</span></span><a class="headerlink" href="#bpy.types.WindowManager.extension_use_filter" title="Link to this definition"></a></dt>
+<dd><p>Filter Extensions by Tags &amp; Repository</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, default False</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2754,7 +2779,7 @@ It gets the specified arguments as input with the mouse position (<code class="d
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3f3515c19f3b>3f3515c19f3b</a> - 06/12/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/134873f4fb24>134873f4fb24</a> - 13/12/2025</code>.
       </span></p>
   </div>
 

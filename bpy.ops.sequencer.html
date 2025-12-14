@@ -135,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.ops.sculpt_curves.html">Sculpt Curves Operators</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Sequencer Operators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.add_scene_strip_from_scene_asset"><code class="docutils literal notranslate"><span class="pre">add_scene_strip_from_scene_asset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.box_blade"><code class="docutils literal notranslate"><span class="pre">box_blade()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.change_effect_type"><code class="docutils literal notranslate"><span class="pre">change_effect_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.change_path"><code class="docutils literal notranslate"><span class="pre">change_path()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.change_scene"><code class="docutils literal notranslate"><span class="pre">change_scene()</span></code></a></li>
@@ -339,6 +340,37 @@
 <li><p><strong>asset_library_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>, (optional)) – Asset Library Type</p></li>
 <li><p><strong>asset_library_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Asset Library Identifier</p></li>
 <li><p><strong>relative_asset_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Relative Asset Identifier</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sequencer.box_blade">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">box_blade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SET'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SOFT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_connections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.box_blade" title="Link to this definition"></a></dt>
+<dd><p>Draw a box around the parts of strips you want to cut away</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xmin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Min</p></li>
+<li><p><strong>xmax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Max</p></li>
+<li><p><strong>ymin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Min</p></li>
+<li><p><strong>ymax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Max</p></li>
+<li><p><strong>wait_for_input</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Wait for Input</p></li>
+<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SET'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ADD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SUB'</span></code>], (optional)) – <p>Mode</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SET</span></code>
+Set – Set a new selection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADD</span></code>
+Extend – Extend existing selection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SUB</span></code>
+Subtract – Subtract existing selection.</p></li>
+</ul>
+</p></li>
+<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SOFT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HARD'</span></code>], (optional)) – Type, The type of split operation to perform on strips</p></li>
+<li><p><strong>ignore_selection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Ignore Selection, In box blade mode, make cuts to all strips, even if they are not selected</p></li>
+<li><p><strong>ignore_connections</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Ignore Connections, Don’t propagate split to connected strips</p></li>
+<li><p><strong>remove_gaps</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remove Gaps, In box blade mode, close gaps between cut strips, rippling later strips on the same channel</p></li>
 </ul>
 </dd>
 </dl>
@@ -1994,7 +2026,7 @@ All – Reset strip transform location, scale and rotation.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3f3515c19f3b>3f3515c19f3b</a> - 06/12/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/134873f4fb24>134873f4fb24</a> - 13/12/2025</code>.
       </span></p>
   </div>
 

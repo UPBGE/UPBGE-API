@@ -432,6 +432,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.FFmpegSettings.buffersize"><code class="docutils literal notranslate"><span class="pre">FFmpegSettings.buffersize</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.FFmpegSettings.codec"><code class="docutils literal notranslate"><span class="pre">FFmpegSettings.codec</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.FFmpegSettings.constant_rate_factor"><code class="docutils literal notranslate"><span class="pre">FFmpegSettings.constant_rate_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.FFmpegSettings.custom_constant_rate_factor"><code class="docutils literal notranslate"><span class="pre">FFmpegSettings.custom_constant_rate_factor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.FFmpegSettings.ffmpeg_preset"><code class="docutils literal notranslate"><span class="pre">FFmpegSettings.ffmpeg_preset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.FFmpegSettings.ffmpeg_prores_profile"><code class="docutils literal notranslate"><span class="pre">FFmpegSettings.ffmpeg_prores_profile</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.FFmpegSettings.format"><code class="docutils literal notranslate"><span class="pre">FFmpegSettings.format</span></code></a></li>
@@ -577,6 +578,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeAttributeStatistic.html">GeometryNodeAttributeStatistic(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBake.html">GeometryNodeBake(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBlurAttribute.html">GeometryNodeBlurAttribute(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBoneInfo.html">GeometryNodeBoneInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeBoundBox.html">GeometryNodeBoundBox(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeCameraInfo.html">GeometryNodeCameraInfo(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeCaptureAttribute.html">GeometryNodeCaptureAttribute(GeometryNode)</a></li>
@@ -1946,7 +1948,7 @@
 <dd><p>Audio bitrate (kb/s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int in [32, 384], default 192</p>
+<dd class="field-odd"><p>int in [32, 2048], default 192</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2106,10 +2108,23 @@ Low Quality.</p></li>
 Very Low Quality.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOWEST</span></code>
 Lowest Quality.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CUSTOM</span></code>
+Custom Quality – Set a custom Constant Rate Factor (CRF)..</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOSSLESS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PERC_LOSSLESS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HIGH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MEDIUM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VERYLOW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOWEST'</span></code>], default <code class="docutils literal notranslate"><span class="pre">'MEDIUM'</span></code></p>
+<dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOSSLESS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PERC_LOSSLESS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HIGH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MEDIUM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VERYLOW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOWEST'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CUSTOM'</span></code>], default <code class="docutils literal notranslate"><span class="pre">'MEDIUM'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.FFmpegSettings.custom_constant_rate_factor">
+<span class="sig-name descname"><span class="pre">custom_constant_rate_factor</span></span><a class="headerlink" href="#bpy.types.FFmpegSettings.custom_constant_rate_factor" title="Link to this definition"></a></dt>
+<dd><p>A smaller Constant Rate Factor (CRF) results in better video quality but larger file size. The range of allowed CRF values is dependent on the codec.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int in [0, 63], default 23</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2363,7 +2378,7 @@ Realtime – Recommended for fast encoding.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/3f3515c19f3b>3f3515c19f3b</a> - 06/12/2025</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/134873f4fb24>134873f4fb24</a> - 13/12/2025</code>.
       </span></p>
   </div>
 
