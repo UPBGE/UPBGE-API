@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GPU State Utilities (gpu.state) &mdash; UPBGE/Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides_upbge.css?v=3436ad75" />
 
   
@@ -17,8 +17,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=0755ccff"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within UPBGE/Blender Python API"
@@ -168,14 +168,30 @@
 <p>This module provides access to the gpu state.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="gpu.state.active_framebuffer_get">
-<span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">active_framebuffer_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.active_framebuffer_get" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">active_framebuffer_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.active_framebuffer_get" title="Link to this definition"></a></dt>
 <dd><p>Return the active frame-buffer in context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The active framebuffer.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="gpu.types.html#gpu.types.GPUFrameBuffer" title="gpu.types.GPUFrameBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUFrameBuffer</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gpu.state.blend_get">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">blend_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.blend_get" title="Link to this definition"></a></dt>
 <dd><p>Current blending equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current blend mode.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -217,7 +233,12 @@
 <dd><p>Enable or disable writing of frame buffer color components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>a</strong> (<em>r</em><em>, </em><em>g</em><em>, </em><em>b</em><em>,</em>) – components red, green, blue, and alpha.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>bool</em>) – Red component.</p></li>
+<li><p><strong>g</strong> (<em>bool</em>) – Green component.</p></li>
+<li><p><strong>b</strong> (<em>bool</em>) – Blue component.</p></li>
+<li><p><strong>a</strong> (<em>bool</em>) – Alpha component.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -226,6 +247,14 @@
 <dt class="sig sig-object py" id="gpu.state.depth_mask_get">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">depth_mask_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.depth_mask_get" title="Link to this definition"></a></dt>
 <dd><p>Writing status in the depth component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if writing to the depth component is enabled.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -234,7 +263,7 @@
 <dd><p>Write to depth component.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> – True for writing to the depth component.</p>
+<dd class="field-odd"><p><strong>value</strong> (<em>bool</em>) – True for writing to the depth component.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -243,6 +272,14 @@
 <dt class="sig sig-object py" id="gpu.state.depth_test_get">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">depth_test_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.depth_test_get" title="Link to this definition"></a></dt>
 <dd><p>Current depth_test equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current depth test mode.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -263,7 +300,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dd><p>Specify whether none, front-facing or back-facing facets can be culled.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mode</strong> (<em>str</em>) – <code class="docutils literal notranslate"><span class="pre">NONE</span></code>, <code class="docutils literal notranslate"><span class="pre">FRONT</span></code> or <code class="docutils literal notranslate"><span class="pre">BACK</span></code>.</p>
+<dd class="field-odd"><p><strong>culling</strong> (<em>str</em>) – <code class="docutils literal notranslate"><span class="pre">NONE</span></code>, <code class="docutils literal notranslate"><span class="pre">FRONT</span></code> or <code class="docutils literal notranslate"><span class="pre">BACK</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -274,7 +311,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dd><p>Specifies the orientation of front-facing polygons.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>invert</strong> – True for clockwise polygons as front-facing.</p>
+<dd class="field-odd"><p><strong>invert</strong> (<em>bool</em>) – True for clockwise polygons as front-facing.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -283,6 +320,14 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dt class="sig sig-object py" id="gpu.state.line_width_get">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">line_width_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.line_width_get" title="Link to this definition"></a></dt>
 <dd><p>Current width of rasterized lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current line width.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -291,7 +336,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dd><p>Specify the width of rasterized lines.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>size</strong> – New width.</p>
+<dd class="field-odd"><p><strong>width</strong> (<em>float</em>) – New width.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,7 +347,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dd><p>Specify the diameter of rasterized points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>size</strong> – New diameter.</p>
+<dd class="field-odd"><p><strong>size</strong> (<em>float</em>) – New diameter.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -344,8 +389,10 @@ Note: The scissor state is not saved upon framebuffer rebind.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – lower left corner of the scissor rectangle, in pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – width and height of the scissor rectangle.</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Lower left corner x coordinate, in pixels.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Lower left corner y coordinate, in pixels.</p></li>
+<li><p><strong>xsize</strong> (<em>int</em>) – Width of the scissor rectangle.</p></li>
+<li><p><strong>ysize</strong> (<em>int</em>) – Height of the scissor rectangle.</p></li>
 </ul>
 </dd>
 </dl>
@@ -367,6 +414,14 @@ False - disable scissor testing.</p>
 <dt class="sig sig-object py" id="gpu.state.viewport_get">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">viewport_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.viewport_get" title="Link to this definition"></a></dt>
 <dd><p>Viewport of the active framebuffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The viewport as a tuple (x, y, xsize, ysize).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[int, int, int, int]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -377,8 +432,10 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – lower left corner of the viewport_set rectangle, in pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – width and height of the viewport_set.</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Lower left corner x coordinate, in pixels.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Lower left corner y coordinate, in pixels.</p></li>
+<li><p><strong>xsize</strong> (<em>int</em>) – Width of the viewport.</p></li>
+<li><p><strong>ysize</strong> (<em>int</em>) – Height of the viewport.</p></li>
 </ul>
 </dd>
 </dl>
@@ -398,7 +455,7 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/687863430654>687863430654</a> - 03/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
       </span></p>
   </div>
 

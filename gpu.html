@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GPU Module (gpu) &mdash; UPBGE/Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides_upbge.css?v=3436ad75" />
 
   
@@ -17,8 +17,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=0755ccff"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within UPBGE/Blender Python API"
@@ -118,7 +118,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#copy-off-screen-rendering-result-back-to-ram">Copy Off-screen Rendering result back to RAM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rendering-the-3d-view-into-a-texture">Rendering the 3D View into a Texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#custom-shader-for-dotted-3d-line">Custom Shader for dotted 3D Line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#custom-compute-shader-using-image-store-and-vertex-fragment-shader">Custom compute shader (using image store) and vertex/fragment shader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-compute-shader-using-image-store-and-vertex-fragment-shader">Custom compute shader (using image store) and vertex/fragment shader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_BUFFER_UPDATE"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_BUFFER_UPDATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_COMMAND"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_COMMAND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_DEFAULT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_ELEMENT_ARRAY"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_ELEMENT_ARRAY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_FRAMEBUFFER"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_FRAMEBUFFER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_SHADER_IMAGE_ACCESS"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_SHADER_IMAGE_ACCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_SHADER_STORAGE"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_SHADER_STORAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_TEXTURE_FETCH"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_TEXTURE_FETCH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_TEXTURE_UPDATE"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_TEXTURE_UPDATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_UNIFORM"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_UNIFORM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.GPU_BARRIER_VERTEX_ATTRIB_ARRAY"><code class="docutils literal notranslate"><span class="pre">GPU_BARRIER_VERTEX_ATTRIB_ARRAY</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -895,6 +908,72 @@ based on current time.</p>
 <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">SpaceView3D</span><span class="o">.</span><span class="n">draw_handler_add</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="p">(),</span> <span class="s1">&#39;WINDOW&#39;</span><span class="p">,</span> <span class="s1">&#39;POST_VIEW&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_BUFFER_UPDATE">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_BUFFER_UPDATE</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_BUFFER_UPDATE" title="Link to this definition"></a></dt>
+<dd><p>Constant value 32768</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_COMMAND">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_COMMAND</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_COMMAND" title="Link to this definition"></a></dt>
+<dd><p>Constant value 1024</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_DEFAULT">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_DEFAULT</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_DEFAULT" title="Link to this definition"></a></dt>
+<dd><p>Constant value 6</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_ELEMENT_ARRAY">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_ELEMENT_ARRAY</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_ELEMENT_ARRAY" title="Link to this definition"></a></dt>
+<dd><p>Constant value 8192</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_FRAMEBUFFER">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_FRAMEBUFFER</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_FRAMEBUFFER" title="Link to this definition"></a></dt>
+<dd><p>Constant value 1</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_SHADER_IMAGE_ACCESS">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_SHADER_IMAGE_ACCESS</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_SHADER_IMAGE_ACCESS" title="Link to this definition"></a></dt>
+<dd><p>Constant value 2</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_SHADER_STORAGE">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_SHADER_STORAGE</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_SHADER_STORAGE" title="Link to this definition"></a></dt>
+<dd><p>Constant value 2048</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_TEXTURE_FETCH">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_TEXTURE_FETCH</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_TEXTURE_FETCH" title="Link to this definition"></a></dt>
+<dd><p>Constant value 4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_TEXTURE_UPDATE">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_TEXTURE_UPDATE</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_TEXTURE_UPDATE" title="Link to this definition"></a></dt>
+<dd><p>Constant value 8</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_UNIFORM">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_UNIFORM</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_UNIFORM" title="Link to this definition"></a></dt>
+<dd><p>Constant value 16384</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gpu.GPU_BARRIER_VERTEX_ATTRIB_ARRAY">
+<span class="sig-prename descclassname"><span class="pre">gpu.</span></span><span class="sig-name descname"><span class="pre">GPU_BARRIER_VERTEX_ATTRIB_ARRAY</span></span><a class="headerlink" href="#gpu.GPU_BARRIER_VERTEX_ATTRIB_ARRAY" title="Link to this definition"></a></dt>
+<dd><p>Constant value 4096</p>
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -911,7 +990,7 @@ based on current time.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/687863430654>687863430654</a> - 03/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
       </span></p>
   </div>
 

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Geometry Utilities (mathutils.geometry) &mdash; UPBGE/Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides_upbge.css?v=3436ad75" />
 
   
@@ -17,8 +17,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=0755ccff"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within UPBGE/Blender Python API"
@@ -269,7 +269,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mathutils.geometry.convex_hull_2d">
-<span class="sig-prename descclassname"><span class="pre">mathutils.geometry.</span></span><span class="sig-name descname"><span class="pre">convex_hull_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.convex_hull_2d" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mathutils.geometry.</span></span><span class="sig-name descname"><span class="pre">convex_hull_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.convex_hull_2d" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of indices into the list given</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -444,7 +444,7 @@ returns the intersection</p>
 <li><p><strong>line_b</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the line</p></li>
 <li><p><strong>sphere_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The center of the sphere</p></li>
 <li><p><strong>sphere_radius</strong> (<em>float</em>) – Radius of the sphere</p></li>
-<li><p><strong>clip</strong> (<em>bool</em>) – When False, don’t restrict the intersection to the area of the sphere.</p></li>
+<li><p><strong>clip</strong> (<em>bool</em>) – When False, don’t restrict the intersection to the line segment.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -468,7 +468,7 @@ returns the intersection</p>
 <li><p><strong>line_b</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the line</p></li>
 <li><p><strong>sphere_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The center of the sphere</p></li>
 <li><p><strong>sphere_radius</strong> (<em>float</em>) – Radius of the sphere</p></li>
-<li><p><strong>clip</strong> (<em>bool</em>) – When False, don’t restrict the intersection to the area of the sphere.</p></li>
+<li><p><strong>clip</strong> (<em>bool</em>) – When False, don’t restrict the intersection to the line segment.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -574,7 +574,7 @@ Works only with convex quads without singular edges.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Point on the triangles plane or None if its outside the triangle</p>
+<dd class="field-even"><p>Point on the triangle’s plane or None if its outside the triangle</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | None</p>
@@ -628,7 +628,7 @@ Works only with convex quads without singular edges.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="mathutils.geometry.intersect_sphere_sphere_2d">
 <span class="sig-prename descclassname"><span class="pre">mathutils.geometry.</span></span><span class="sig-name descname"><span class="pre">intersect_sphere_sphere_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius_b</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_sphere_sphere_2d" title="Link to this definition"></a></dt>
-<dd><p>Returns 2 points on between intersecting circles.</p>
+<dd><p>Returns 2 points between intersecting circles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -639,7 +639,7 @@ Works only with convex quads without singular edges.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>2 points on between intersecting circles or None when there is no intersection.</p>
+<dd class="field-even"><p>2 points between intersecting circles or None when there is no intersection.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>] | tuple[None, None]</p>
@@ -652,6 +652,19 @@ Works only with convex quads without singular edges.</p>
 <span class="sig-prename descclassname"><span class="pre">mathutils.geometry.</span></span><span class="sig-name descname"><span class="pre">intersect_tri_tri_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tri_a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_a3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_b1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_b2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_b3</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_tri_tri_2d" title="Link to this definition"></a></dt>
 <dd><p>Check if two 2D triangles intersect.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tri_a1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First vertex of the first triangle.</p></li>
+<li><p><strong>tri_a2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second vertex of the first triangle.</p></li>
+<li><p><strong>tri_a3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Third vertex of the first triangle.</p></li>
+<li><p><strong>tri_b1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First vertex of the second triangle.</p></li>
+<li><p><strong>tri_b2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second vertex of the second triangle.</p></li>
+<li><p><strong>tri_b3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Third vertex of the second triangle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the triangles intersect.</p>
+</dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
@@ -680,12 +693,12 @@ Works only with convex quads without singular edges.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>planes</strong> (list[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]) – List of planes (4D vectors).</p></li>
-<li><p><strong>epsilon_coplanar</strong> (<em>float</em>) – Epsilon value for interpreting plane pairs as co-plannar.</p></li>
+<li><p><strong>epsilon_coplanar</strong> (<em>float</em>) – Epsilon value for interpreting plane pairs as co-planar.</p></li>
 <li><p><strong>epsilon_isect</strong> (<em>float</em>) – Epsilon value for intersection.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Two lists, once containing the 3D coordinates inside the planes, another containing the plane indices used.</p>
+<dd class="field-even"><p>Two lists, one containing the 3D coordinates inside the planes, another containing the plane indices used.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[list[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>], list[int]]</p>
@@ -699,10 +712,13 @@ Works only with convex quads without singular edges.</p>
 <dd><p>Takes a list of polylines (each point a pair or triplet of numbers) and returns the point indices for a polyline filled with triangles. Does not handle degenerate geometry (such as zero-length lines due to consecutive identical points).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>polylines</strong> (<em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em><em>]   </em><em>:return: A list</em><em> of </em><em>triangles.</em>) – Polygons where each polygon is a sequence of 2D or 3D points.</p>
+<dd class="field-odd"><p><strong>polylines</strong> (<em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em><em>]</em>) – Polygons where each polygon is a sequence of 2D or 3D points.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[tuple[int, int, int]]</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of triangles.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple[int, int, int]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -740,7 +756,7 @@ Works only with convex quads without singular edges.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/687863430654>687863430654</a> - 03/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
       </span></p>
   </div>
 

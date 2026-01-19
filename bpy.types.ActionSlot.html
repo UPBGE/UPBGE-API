@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ActionSlot(bpy_struct) &mdash; UPBGE/Blender Python API</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme_overrides_upbge.css?v=3436ad75" />
 
   
@@ -17,8 +17,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=0755ccff"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within UPBGE/Blender Python API"
@@ -83,24 +83,30 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ActionLayers.html">ActionLayers(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ActionPoseMarkers.html">ActionPoseMarkers(bpy_struct)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ActionSlot(bpy_struct)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bpy.types.ActionSlot"><code class="docutils literal notranslate"><span class="pre">ActionSlot</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.active"><code class="docutils literal notranslate"><span class="pre">ActionSlot.active</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.handle"><code class="docutils literal notranslate"><span class="pre">ActionSlot.handle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.identifier"><code class="docutils literal notranslate"><span class="pre">ActionSlot.identifier</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.name_display"><code class="docutils literal notranslate"><span class="pre">ActionSlot.name_display</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.select"><code class="docutils literal notranslate"><span class="pre">ActionSlot.select</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.show_expanded"><code class="docutils literal notranslate"><span class="pre">ActionSlot.show_expanded</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.target_id_type"><code class="docutils literal notranslate"><span class="pre">ActionSlot.target_id_type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.target_id_type_icon"><code class="docutils literal notranslate"><span class="pre">ActionSlot.target_id_type_icon</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.users"><code class="docutils literal notranslate"><span class="pre">ActionSlot.users()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.duplicate"><code class="docutils literal notranslate"><span class="pre">ActionSlot.duplicate()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">ActionSlot.bl_rna_get_subclass()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">ActionSlot.bl_rna_get_subclass_py()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-access-an-action-slot">Create &amp; Access an Action Slot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manually-create-an-action-slot">Manually Create an Action Slot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#explicitly-assigning-action-slots">Explicitly Assigning Action Slots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-action-slot-users">Finding Action Slot Users</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ActionSlot"><code class="docutils literal notranslate"><span class="pre">ActionSlot</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.active"><code class="docutils literal notranslate"><span class="pre">ActionSlot.active</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.handle"><code class="docutils literal notranslate"><span class="pre">ActionSlot.handle</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.identifier"><code class="docutils literal notranslate"><span class="pre">ActionSlot.identifier</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.name_display"><code class="docutils literal notranslate"><span class="pre">ActionSlot.name_display</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.select"><code class="docutils literal notranslate"><span class="pre">ActionSlot.select</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.show_expanded"><code class="docutils literal notranslate"><span class="pre">ActionSlot.show_expanded</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.target_id_type"><code class="docutils literal notranslate"><span class="pre">ActionSlot.target_id_type</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.target_id_type_icon"><code class="docutils literal notranslate"><span class="pre">ActionSlot.target_id_type_icon</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.users"><code class="docutils literal notranslate"><span class="pre">ActionSlot.users()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.duplicate"><code class="docutils literal notranslate"><span class="pre">ActionSlot.duplicate()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">ActionSlot.bl_rna_get_subclass()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.ActionSlot.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">ActionSlot.bl_rna_get_subclass_py()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#inherited-properties">Inherited Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#inherited-functions">Inherited Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inherited-properties">Inherited Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inherited-functions">Inherited Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ActionSlots.html">ActionSlots(bpy_struct)</a></li>
@@ -343,6 +349,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeLumaMatte.html">CompositorNodeLumaMatte(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeMapUV.html">CompositorNodeMapUV(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeMask.html">CompositorNodeMask(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeMaskToSDF.html">CompositorNodeMaskToSDF(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeMovieClip.html">CompositorNodeMovieClip(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeMovieDistortion.html">CompositorNodeMovieDistortion(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeNormal.html">CompositorNodeNormal(CompositorNode)</a></li>
@@ -1124,6 +1131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -1153,6 +1161,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketFloatDistance.html">NodeSocketFloatDistance(NodeSocketStandard)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketFloatFactor.html">NodeSocketFloatFactor(NodeSocketStandard)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketFloatFrequency.html">NodeSocketFloatFrequency(NodeSocketStandard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketFloatMass.html">NodeSocketFloatMass(NodeSocketStandard)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketFloatPercentage.html">NodeSocketFloatPercentage(NodeSocketStandard)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketFloatTime.html">NodeSocketFloatTime(NodeSocketStandard)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketFloatTimeAbsolute.html">NodeSocketFloatTimeAbsolute(NodeSocketStandard)</a></li>
@@ -1207,6 +1216,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketVectorXYZ2D.html">NodeSocketVectorXYZ2D(NodeSocketStandard)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketVectorXYZ4D.html">NodeSocketVectorXYZ4D(NodeSocketStandard)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSocketVirtual.html">NodeSocketVirtual(NodeSocketStandard)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeStoreBundleItem.html">NodeStoreBundleItem(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTree.html">NodeTree(ID)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterface.html">NodeTreeInterface(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceItem.html">NodeTreeInterfaceItem(bpy_struct)</a></li>
@@ -1223,6 +1233,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceSocketFloatDistance.html">NodeTreeInterfaceSocketFloatDistance(NodeTreeInterfaceSocket)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceSocketFloatFactor.html">NodeTreeInterfaceSocketFloatFactor(NodeTreeInterfaceSocket)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceSocketFloatFrequency.html">NodeTreeInterfaceSocketFloatFrequency(NodeTreeInterfaceSocket)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceSocketFloatMass.html">NodeTreeInterfaceSocketFloatMass(NodeTreeInterfaceSocket)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceSocketFloatPercentage.html">NodeTreeInterfaceSocketFloatPercentage(NodeTreeInterfaceSocket)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceSocketFloatTime.html">NodeTreeInterfaceSocketFloatTime(NodeTreeInterfaceSocket)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeTreeInterfaceSocketFloatTimeAbsolute.html">NodeTreeInterfaceSocketFloatTimeAbsolute(NodeTreeInterfaceSocket)</a></li>
@@ -1935,10 +1946,85 @@
              
   <section id="actionslot-bpy-struct">
 <h1>ActionSlot(bpy_struct)<a class="headerlink" href="#actionslot-bpy-struct" title="Link to this heading"></a></h1>
+<p>Action Slots organize animation data within an action. Each action has slots with specific animation
+data. An animated data-block specifies an action and a slot, determining the animation data it uses.
+See the <a class="reference external" href="https://docs.blender.org/manual/en/5.1/animation/actions.html#action-slots">Blender Manual</a>
+for how Action Slots are used, or the <a class="reference external" href="https://developer.blender.org/docs/features/animation/">technical documentation</a>
+for details on the animation system’s architecture.</p>
+<section id="create-access-an-action-slot">
+<h2>Create &amp; Access an Action Slot<a class="headerlink" href="#create-access-an-action-slot" title="Link to this heading"></a></h2>
+<p>To get started with Action Slots, you can easily create them by inserting a keyframe on an object. When you do this,
+Blender automatically creates an Action &amp; Slot for that data-block.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+
+<span class="c1"># Assume Suzanne mesh is present in the scene.</span>
+<span class="n">suzanne</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Suzanne&quot;</span><span class="p">]</span>
+
+<span class="c1"># Create animation data and an action for Suzanne:</span>
+<span class="c1"># Slot will be automatically created.</span>
+<span class="n">suzanne</span><span class="o">.</span><span class="n">keyframe_insert</span><span class="p">(</span><span class="s2">&quot;location&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Action slots can be accessed like this:</span>
+<span class="n">action</span> <span class="o">=</span> <span class="n">suzanne</span><span class="o">.</span><span class="n">animation_data</span><span class="o">.</span><span class="n">action</span>
+<span class="k">for</span> <span class="n">slot</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">slots</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Slot Identifier </span><span class="si">{</span><span class="n">slot</span><span class="o">.</span><span class="n">identifier</span><span class="si">!r}</span><span class="s2"> &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;with name </span><span class="si">{</span><span class="n">slot</span><span class="o">.</span><span class="n">name_display</span><span class="si">!r}</span><span class="s2"> &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;targets ID type </span><span class="si">{</span><span class="n">slot</span><span class="o">.</span><span class="n">target_id_type</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="manually-create-an-action-slot">
+<h2>Manually Create an Action Slot<a class="headerlink" href="#manually-create-an-action-slot" title="Link to this heading"></a></h2>
+<p>If required you can also manually create Action Slots on an Action. Note the <code class="docutils literal notranslate"><span class="pre">target_id_type</span></code>
+that matches the data-block type. Identifiers start with a prefix based on the ID type,
+e.g. “OB” for objects, followed by the name. There can be identifiers like <code class="docutils literal notranslate"><span class="pre">OBSuzanne</span></code>
+and <code class="docutils literal notranslate"><span class="pre">MESuzanne</span></code> and the name (<code class="docutils literal notranslate"><span class="pre">Suzanne</span></code>) can be shared between them. This is intentional,
+so that the slots and the datablocks can have the same name.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actions creation.</span>
+<span class="n">action</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;SuzanneAction&quot;</span><span class="p">)</span>
+
+<span class="c1"># Creation of slots requires an ID type and a name.</span>
+<span class="n">slot</span> <span class="o">=</span> <span class="n">action</span><span class="o">.</span><span class="n">slots</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">id_type</span><span class="o">=</span><span class="s1">&#39;OBJECT&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Suzanne&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;slot type=</span><span class="si">{</span><span class="n">slot</span><span class="o">.</span><span class="n">target_id_type</span><span class="si">!r}</span><span class="s2"> &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;name=</span><span class="si">{</span><span class="n">slot</span><span class="o">.</span><span class="n">name_display</span><span class="si">!r}</span><span class="s2"> &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;identifier=</span><span class="si">{</span><span class="n">slot</span><span class="o">.</span><span class="n">identifier</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1">#   slot type=OBJECT name=Suzanne identifier=OBSuzanne</span>
+</pre></div>
+</div>
+</section>
+<section id="explicitly-assigning-action-slots">
+<h2>Explicitly Assigning Action Slots<a class="headerlink" href="#explicitly-assigning-action-slots" title="Link to this heading"></a></h2>
+<p>An action slot is compatible with a data-block if the slot’s <code class="docutils literal notranslate"><span class="pre">target_id_type</span></code> matches the data-block’s type.
+If there are multiple slots on the Action, and you want to just pick the first one that’s
+compatible, use the following code. <code class="docutils literal notranslate"><span class="pre">anim_data.action_suitable_slots</span></code> can be used <cite>after</cite> the
+Action has been assigned; it is a list of action slots of that Action, but only the ones that
+are actually compatible with the owner of anim_data (in this case, Suzanne).</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If there are multiple slots on the Action, pick the first one that&#39;s compatible</span>
+<span class="n">anim_data</span> <span class="o">=</span> <span class="n">suzanne</span><span class="o">.</span><span class="n">animation_data_create</span><span class="p">()</span>
+<span class="n">anim_data</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+<span class="k">assert</span> <span class="n">anim_data</span><span class="o">.</span><span class="n">action_suitable_slots</span><span class="p">,</span> <span class="s2">&quot;expecting at least one suitable slot&quot;</span>
+<span class="n">anim_data</span><span class="o">.</span><span class="n">action_slot</span> <span class="o">=</span> <span class="n">anim_data</span><span class="o">.</span><span class="n">action_suitable_slots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="finding-action-slot-users">
+<h2>Finding Action Slot Users<a class="headerlink" href="#finding-action-slot-users" title="Link to this heading"></a></h2>
+<p>To return a list of the data-blocks that are animated by a specific slot of an Action, use the <code class="docutils literal notranslate"><span class="pre">users()</span></code> method of the ActionSlot.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate through all actions in the Blender data.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Action &amp; slot users:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">slot</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">slots</span><span class="p">:</span>
+        <span class="c1"># Return the data-blocks that are animated by this slot of this action</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="n">slot</span><span class="o">.</span><span class="n">users</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">action</span><span class="o">.</span><span class="n">name</span><span class="si">:</span><span class="s2">20</span><span class="si">}</span><span class="s2"> slot=</span><span class="si">{</span><span class="n">slot</span><span class="o">.</span><span class="n">identifier</span><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2"> users: </span><span class="si">{</span><span class="n">users</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>base class — <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct</span></code></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="bpy.types.ActionSlot">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">ActionSlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">ActionSlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot" title="Link to this definition"></a></dt>
 <dd><p>Identifier for a set of channels in this Action, that can be used by a data-block to specify what it gets animated by</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.ActionSlot.active">
@@ -2140,7 +2226,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.ActionSlot.bl_rna_get_subclass">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot.bl_rna_get_subclass" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot.bl_rna_get_subclass" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2156,7 +2242,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.ActionSlot.bl_rna_get_subclass_py">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot.bl_rna_get_subclass_py" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ActionSlot.bl_rna_get_subclass_py" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
@@ -2173,7 +2259,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 </dd></dl>
 
 <section id="inherited-properties">
-<h2>Inherited Properties<a class="headerlink" href="#inherited-properties" title="Link to this heading"></a></h2>
+<h3>Inherited Properties<a class="headerlink" href="#inherited-properties" title="Link to this heading"></a></h3>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.id_data</span></code></a></p></li>
 </ul>
@@ -2182,7 +2268,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 </td></tr></table>
 </section>
 <section id="inherited-functions">
-<h2>Inherited Functions<a class="headerlink" href="#inherited-functions" title="Link to this heading"></a></h2>
+<h3>Inherited Functions<a class="headerlink" href="#inherited-functions" title="Link to this heading"></a></h3>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.as_pointer</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_struct.driver_add</span></code></a></p></li>
@@ -2214,7 +2300,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 </td></tr></table>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<h3>References<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
 <table class="hlist"><tr><td><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action.slots" title="bpy.types.Action.slots"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action.slots</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ActionChannelbag.html#bpy.types.ActionChannelbag.slot" title="bpy.types.ActionChannelbag.slot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionChannelbag.slot</span></code></a></p></li>
@@ -2237,6 +2323,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 </td></tr></table>
 </section>
 </section>
+</section>
 
 
            </div>
@@ -2250,7 +2337,7 @@ Unspecified – Not yet specified. When this slot is first assigned to a data-bl
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/687863430654>687863430654</a> - 03/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
       </span></p>
   </div>
 
