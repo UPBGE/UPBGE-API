@@ -121,7 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.html">ID Properties Module (idprop)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
 </ul>
@@ -210,7 +210,7 @@ The only other exception to this are when converting mesh data to and from <a cl
 <h2>Mesh Access<a class="headerlink" href="#mesh-access" title="Link to this heading"></a></h2>
 <p>There are two ways to access BMesh data, you can create a new BMesh by converting a mesh from
 <a class="reference internal" href="bpy.types.BlendData.html#bpy.types.BlendData.meshes" title="bpy.types.BlendData.meshes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.BlendData.meshes</span></code></a> or by accessing the current Edit-Mode mesh.
-See: <code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.from_mesh</span></code> and <a class="reference internal" href="#bmesh.from_edit_mesh" title="bmesh.from_edit_mesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh.from_edit_mesh</span></code></a> respectively.</p>
+See: <a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh.from_mesh" title="bmesh.types.BMesh.from_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.from_mesh</span></code></a> and <a class="reference internal" href="#bmesh.from_edit_mesh" title="bmesh.from_edit_mesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh.from_edit_mesh</span></code></a> respectively.</p>
 <p>When explicitly converting from mesh data Python <strong>owns</strong> the data, that means that
 the mesh only exists while Python holds a reference to it.
 The script is responsible for putting it back into a mesh data-block when the edits are done.</p>
@@ -219,7 +219,7 @@ a BMesh can be created, edited and freed without the user ever seeing or having 
 Unlike Edit-Mode, the BMesh module can use multiple BMesh instances at once.</p>
 <p>Take care when dealing with multiple BMesh instances since the mesh data can use a lot of memory.
 While a mesh that the Python script owns will be freed when the script holds no references to it,
-it’s good practice to call <code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.free</span></code> which will remove all the mesh data immediately
+it’s good practice to call <a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh.free" title="bmesh.types.BMesh.free"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.free</span></code></a> which will remove all the mesh data immediately
 and disable further access.</p>
 <section id="edit-mode-tessellation">
 <h3>Edit-Mode Tessellation<a class="headerlink" href="#edit-mode-tessellation" title="Link to this heading"></a></h3>
@@ -315,7 +315,7 @@ after performing a series of edits. This validates the selection state.</p>
 <dd class="field-even"><p>the BMesh associated with this mesh.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -331,7 +331,7 @@ after performing a series of edits. This validates the selection state.</p>
 <dd class="field-even"><p>Return a new, empty BMesh.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -367,7 +367,7 @@ optionally recalculating n-gon tessellation.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/d6edda76d5fc>d6edda76d5fc</a> - 25/01/2026</code>.
       </span></p>
   </div>
 

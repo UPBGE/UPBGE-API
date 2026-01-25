@@ -151,6 +151,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.paint.vert_select_less"><code class="docutils literal notranslate"><span class="pre">vert_select_less()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.paint.vert_select_linked"><code class="docutils literal notranslate"><span class="pre">vert_select_linked()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.paint.vert_select_linked_pick"><code class="docutils literal notranslate"><span class="pre">vert_select_linked_pick()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.paint.vert_select_loop"><code class="docutils literal notranslate"><span class="pre">vert_select_loop()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.paint.vert_select_more"><code class="docutils literal notranslate"><span class="pre">vert_select_more()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.paint.vert_select_ungrouped"><code class="docutils literal notranslate"><span class="pre">vert_select_ungrouped()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.paint.vertex_color_brightness_contrast"><code class="docutils literal notranslate"><span class="pre">vertex_color_brightness_contrast()</span></code></a></li>
@@ -238,7 +239,7 @@
 <li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.html">ID Properties Module (idprop)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
 </ul>
@@ -594,22 +595,30 @@ Inside – Hide or show vertices inside the selection.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.paint.image_paint">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">image_paint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.image_paint" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">image_paint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brush_toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.image_paint" title="Link to this definition"></a></dt>
 <dd><p>Paint a stroke into the image</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>, (optional)) – Stroke</p></li>
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
+<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
 Regular – Apply brush normally.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">INVERT</span></code>
 Invert – Invert action of brush for duration of stroke.</p></li>
+</ul>
+</p></li>
+<li><p><strong>brush_toggle</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MASK'</span></code>], (optional)) – <p>Temporary Brush Toggle Type, Brush to use for duration of stroke</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
+None – Apply brush normally.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
-Smooth – Switch brush to smooth mode for duration of stroke.</p></li>
+Smooth – Switch to smooth brush for duration of stroke.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ERASE</span></code>
-Erase – Switch brush to erase mode for duration of stroke.</p></li>
+Erase – Switch to erase brush for duration of stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MASK</span></code>
+Mask – Switch to mask brush for duration of stroke.</p></li>
 </ul>
 </p></li>
 <li><p><strong>pen_flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pen Flip, Whether a tablet’s eraser mode is being used</p></li>
@@ -848,6 +857,20 @@ Invert – Invert selection of all elements.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.paint.vert_select_loop">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">vert_select_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.vert_select_loop" title="Link to this definition"></a></dt>
+<dd><p>Select vertex loop under the cursor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>select</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select, If false, vertices will be deselected</p></li>
+<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend the selection</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.paint.vert_select_more">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">vert_select_more</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.vert_select_more" title="Link to this definition"></a></dt>
 <dd><p>Select Vertices connected to existing selection</p>
@@ -964,22 +987,30 @@ Invert – Invert selection of all elements.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.paint.vertex_paint">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">vertex_paint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.vertex_paint" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">vertex_paint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brush_toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.vertex_paint" title="Link to this definition"></a></dt>
 <dd><p>Paint a stroke in the active color attribute layer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>, (optional)) – Stroke</p></li>
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
+<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
 Regular – Apply brush normally.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">INVERT</span></code>
 Invert – Invert action of brush for duration of stroke.</p></li>
+</ul>
+</p></li>
+<li><p><strong>brush_toggle</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MASK'</span></code>], (optional)) – <p>Temporary Brush Toggle Type, Brush to use for duration of stroke</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
+None – Apply brush normally.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
-Smooth – Switch brush to smooth mode for duration of stroke.</p></li>
+Smooth – Switch to smooth brush for duration of stroke.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ERASE</span></code>
-Erase – Switch brush to erase mode for duration of stroke.</p></li>
+Erase – Switch to erase brush for duration of stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MASK</span></code>
+Mask – Switch to mask brush for duration of stroke.</p></li>
 </ul>
 </p></li>
 <li><p><strong>pen_flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pen Flip, Whether a tablet’s eraser mode is being used</p></li>
@@ -1062,22 +1093,30 @@ From Envelopes – Weights from envelopes with user defined radius.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.paint.weight_paint">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">weight_paint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.weight_paint" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.paint.</span></span><span class="sig-name descname"><span class="pre">weight_paint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NORMAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brush_toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paint.weight_paint" title="Link to this definition"></a></dt>
 <dd><p>Paint a stroke in the current vertex group’s weights</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>, (optional)) – Stroke</p></li>
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
+<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
 Regular – Apply brush normally.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">INVERT</span></code>
 Invert – Invert action of brush for duration of stroke.</p></li>
+</ul>
+</p></li>
+<li><p><strong>brush_toggle</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MASK'</span></code>], (optional)) – <p>Temporary Brush Toggle Type, Brush to use for duration of stroke</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
+None – Apply brush normally.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
-Smooth – Switch brush to smooth mode for duration of stroke.</p></li>
+Smooth – Switch to smooth brush for duration of stroke.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ERASE</span></code>
-Erase – Switch brush to erase mode for duration of stroke.</p></li>
+Erase – Switch to erase brush for duration of stroke.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MASK</span></code>
+Mask – Switch to mask brush for duration of stroke.</p></li>
 </ul>
 </p></li>
 <li><p><strong>pen_flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pen Flip, Whether a tablet’s eraser mode is being used</p></li>
@@ -1125,7 +1164,7 @@ Erase – Switch brush to erase mode for duration of stroke.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/d6edda76d5fc>d6edda76d5fc</a> - 25/01/2026</code>.
       </span></p>
   </div>
 

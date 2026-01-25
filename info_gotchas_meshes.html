@@ -113,7 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.html">ID Properties Module (idprop)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
 </ul>
@@ -151,7 +151,7 @@ when the user is in Edit-Mode, where the mesh data is available but out of sync 
 <p>In this situation you can…</p>
 <ul class="simple">
 <li><p>Exit Edit-Mode before running the tool.</p></li>
-<li><p>Explicitly update the mesh by calling <code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.to_mesh</span></code>.</p></li>
+<li><p>Explicitly update the mesh by calling <a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh.to_mesh" title="bmesh.types.BMesh.to_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.to_mesh</span></code></a>.</p></li>
 <li><p>Modify the script to support working on the edit-mode data directly, see: <a class="reference internal" href="bmesh.html#bmesh.from_edit_mesh" title="bmesh.from_edit_mesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bmesh.from_edit_mesh</span></code></a>.</p></li>
 <li><p>Report the context as incorrect and only allow the script to run outside Edit-Mode.</p></li>
 </ul>
@@ -167,7 +167,7 @@ this is the data structure which now stores faces in Object-Mode
 <li><p><a class="reference internal" href="bpy.types.MeshLoopTriangle.html#bpy.types.MeshLoopTriangle" title="bpy.types.MeshLoopTriangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.MeshLoopTriangle</span></code></a> –
 the result of tessellating polygons into triangles
 (access as <code class="docutils literal notranslate"><span class="pre">mesh.loop_triangles</span></code>).</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code> –
+<li><p><a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> –
 the polygons as used in Edit-Mode.</p></li>
 </ul>
 <p>For the purpose of the following documentation,
@@ -180,7 +180,7 @@ these will be referred to as polygons, loop triangles and BMesh-faces respective
 <tr class="row-odd"><th class="head stub"><p>Usage</p></th>
 <th class="head"><p><a class="reference internal" href="bpy.types.MeshPolygon.html#bpy.types.MeshPolygon" title="bpy.types.MeshPolygon"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.MeshPolygon</span></code></a></p></th>
 <th class="head"><p><a class="reference internal" href="bpy.types.MeshLoopTriangle.html#bpy.types.MeshLoopTriangle" title="bpy.types.MeshLoopTriangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.MeshLoopTriangle</span></code></a></p></th>
-<th class="head"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></p></th>
+<th class="head"><p><a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a></p></th>
 </tr>
 </thead>
 <tbody>
@@ -218,7 +218,7 @@ This is further complicated by the fact that each polygon does not store its own
 rather they reference an index and size in <a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh.loops" title="bpy.types.Mesh.loops"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh.loops</span></code></a> which are a fixed array too.</p></li>
 <li><p>BMesh-faces are most likely the easiest way to create faces in new scripts,
 since faces can be added one by one and the API has features intended for mesh manipulation.
-While <code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code> uses more memory it can be managed by only operating on one mesh at a time.</p></li>
+While <a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a> uses more memory it can be managed by only operating on one mesh at a time.</p></li>
 </ul>
 </section>
 <section id="editing">
@@ -259,7 +259,7 @@ since using BMesh gives some overhead because it’s not the native storage form
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/d6edda76d5fc>d6edda76d5fc</a> - 25/01/2026</code>.
       </span></p>
   </div>
 

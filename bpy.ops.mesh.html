@@ -176,7 +176,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.intersect_boolean"><code class="docutils literal notranslate"><span class="pre">intersect_boolean()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.knife_project"><code class="docutils literal notranslate"><span class="pre">knife_project()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.knife_tool"><code class="docutils literal notranslate"><span class="pre">knife_tool()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.loop_multi_select"><code class="docutils literal notranslate"><span class="pre">loop_multi_select()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.loop_select"><code class="docutils literal notranslate"><span class="pre">loop_select()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.loop_to_region"><code class="docutils literal notranslate"><span class="pre">loop_to_region()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.loopcut"><code class="docutils literal notranslate"><span class="pre">loopcut()</span></code></a></li>
@@ -233,6 +232,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_axis"><code class="docutils literal notranslate"><span class="pre">select_axis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_by_attribute"><code class="docutils literal notranslate"><span class="pre">select_by_attribute()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_by_pole_count"><code class="docutils literal notranslate"><span class="pre">select_by_pole_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_edge_loop_multi"><code class="docutils literal notranslate"><span class="pre">select_edge_loop_multi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_edge_ring_multi"><code class="docutils literal notranslate"><span class="pre">select_edge_ring_multi()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_face_by_sides"><code class="docutils literal notranslate"><span class="pre">select_face_by_sides()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_interior_faces"><code class="docutils literal notranslate"><span class="pre">select_interior_faces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.select_less"><code class="docutils literal notranslate"><span class="pre">select_less()</span></code></a></li>
@@ -350,7 +351,7 @@
 <li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.html">ID Properties Module (idprop)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
 </ul>
@@ -875,15 +876,15 @@ Faces &amp; Edges by Vertices – Split faces and edges connected to selected ve
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.edgering_select">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">edgering_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.edgering_select" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">edgering_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_edge_ring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'NGONS'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vert_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.edgering_select" title="Link to this definition"></a></dt>
 <dd><p>Select an edge ring</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend the selection</p></li>
+<li><p><strong>delimit_edge_ring</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/mesh_walk_delimit_edge_ring_items.html#rna-enum-mesh-walk-delimit-edge-ring-items"><span class="std std-ref">Mesh Walk Delimit Edge Ring Items</span></a>, (optional)) – Edge Ring Delimit, Delimit edge ring selection</p></li>
+<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend Select, Extend the selection</p></li>
 <li><p><strong>deselect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Deselect, Remove from the selection</p></li>
 <li><p><strong>toggle</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Toggle Select, Toggle the selection</p></li>
-<li><p><strong>ring</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select Ring, Select ring</p></li>
 </ul>
 </dd>
 </dl>
@@ -1324,27 +1325,17 @@ Relative – Angle snapping relative to the previous cut edge.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bpy.ops.mesh.loop_multi_select">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">loop_multi_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">ring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.loop_multi_select" title="Link to this definition"></a></dt>
-<dd><p>Select a loop of connected edges by connection type</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ring</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Ring</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.loop_select">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">loop_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.loop_select" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">loop_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_edge_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'NGONS',</span> <span class="pre">'OUTER_CORNERS'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_face_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vert_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.loop_select" title="Link to this definition"></a></dt>
 <dd><p>Select a loop of connected edges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>delimit_edge_loop</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/mesh_walk_delimit_edge_loop_items.html#rna-enum-mesh-walk-delimit-edge-loop-items"><span class="std std-ref">Mesh Walk Delimit Edge Loop Items</span></a>, (optional)) – Boundary Delimit, Delimit edge loop selection</p></li>
+<li><p><strong>delimit_face_loop</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/mesh_walk_delimit_face_loop_items.html#rna-enum-mesh-walk-delimit-face-loop-items"><span class="std std-ref">Mesh Walk Delimit Face Loop Items</span></a>, (optional)) – Face Loop Delimit, Delimit face loop selection</p></li>
 <li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend Select, Extend the selection</p></li>
 <li><p><strong>deselect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Deselect, Remove from the selection</p></li>
 <li><p><strong>toggle</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Toggle Select, Toggle the selection</p></li>
-<li><p><strong>ring</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select Ring, Select ring</p></li>
 </ul>
 </dd>
 </dl>
@@ -2321,6 +2312,28 @@ Invert – Invert selection of all elements.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.mesh.select_edge_loop_multi">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">select_edge_loop_multi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_edge_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'NGONS',</span> <span class="pre">'OUTER_CORNERS'}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.select_edge_loop_multi" title="Link to this definition"></a></dt>
+<dd><p>Select loops of connected edges from each selected edge</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delimit_edge_loop</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/mesh_walk_delimit_edge_loop_items.html#rna-enum-mesh-walk-delimit-edge-loop-items"><span class="std std-ref">Mesh Walk Delimit Edge Loop Items</span></a>, (optional)) – Boundary Delimit, Delimit edge loop selection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.mesh.select_edge_ring_multi">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">select_edge_ring_multi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_edge_ring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'NGONS'}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.select_edge_ring_multi" title="Link to this definition"></a></dt>
+<dd><p>Select rings of connected edges from each selected edge</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delimit_edge_ring</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/mesh_walk_delimit_edge_ring_items.html#rna-enum-mesh-walk-delimit-edge-ring-items"><span class="std std-ref">Mesh Walk Delimit Edge Ring Items</span></a>, (optional)) – Edge Ring Delimit, Delimit edge ring selection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.select_face_by_sides">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">select_face_by_sides</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EQUAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.select_face_by_sides" title="Link to this definition"></a></dt>
 <dd><p>Select vertices or faces by the number of face sides</p>
@@ -2941,7 +2954,7 @@ Reverse – Reverse current order of selected elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/d6edda76d5fc>d6edda76d5fc</a> - 25/01/2026</code>.
       </span></p>
   </div>
 

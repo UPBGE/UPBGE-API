@@ -85,6 +85,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.app.handlers.composite_pre"><code class="docutils literal notranslate"><span class="pre">composite_pre</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.app.handlers.depsgraph_update_post"><code class="docutils literal notranslate"><span class="pre">depsgraph_update_post</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.app.handlers.depsgraph_update_pre"><code class="docutils literal notranslate"><span class="pre">depsgraph_update_pre</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.app.handlers.exit_pre"><code class="docutils literal notranslate"><span class="pre">exit_pre</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.app.handlers.frame_change_post"><code class="docutils literal notranslate"><span class="pre">frame_change_post</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.app.handlers.frame_change_pre"><code class="docutils literal notranslate"><span class="pre">frame_change_pre</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.app.handlers.game_post"><code class="docutils literal notranslate"><span class="pre">game_post</span></code></a></li>
@@ -211,7 +212,7 @@
 <li class="toctree-l1"><a class="reference internal" href="freestyle.html">Freestyle Module (freestyle)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.html">ID Properties Module (idprop)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
 </ul>
@@ -360,6 +361,12 @@ such cases, lock the interface (Render → Lock Interface or
 <dt class="sig sig-object py" id="bpy.app.handlers.depsgraph_update_pre">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">depsgraph_update_pre</span></span><a class="headerlink" href="#bpy.app.handlers.depsgraph_update_pre" title="Link to this definition"></a></dt>
 <dd><p>on depsgraph update (pre). Accepts two arguments: The scene data-block and the dependency graph being updated</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.app.handlers.exit_pre">
+<span class="sig-prename descclassname"><span class="pre">bpy.app.handlers.</span></span><span class="sig-name descname"><span class="pre">exit_pre</span></span><a class="headerlink" href="#bpy.app.handlers.exit_pre" title="Link to this definition"></a></dt>
+<dd><p>just before Blender shuts down, while all data is still valid. Accepts one boolean argument. True indicates either that a user has been using Blender and exited, or that Blender is exiting in a circumstance that should be treated as if that were the case. False indicates that Blender is running in background mode, or is exiting due to failed command line arguments, etc.</p>
 </dd></dl>
 
 <dl class="py data">
@@ -557,7 +564,7 @@ such cases, lock the interface (Render → Lock Interface or
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/d6edda76d5fc>d6edda76d5fc</a> - 25/01/2026</code>.
       </span></p>
   </div>
 

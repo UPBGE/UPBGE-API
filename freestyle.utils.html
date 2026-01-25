@@ -125,12 +125,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.stroke_curvature"><code class="docutils literal notranslate"><span class="pre">stroke_curvature()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.stroke_normal"><code class="docutils literal notranslate"><span class="pre">stroke_normal()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.tripplewise"><code class="docutils literal notranslate"><span class="pre">tripplewise()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.freestyle.utils.BoundingBox"><code class="docutils literal notranslate"><span class="pre">freestyle.utils.BoundingBox</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#freestyle.utils.freestyle.utils.BoundingBox.inside"><code class="docutils literal notranslate"><span class="pre">freestyle.utils.BoundingBox.inside()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.BoundingBox"><code class="docutils literal notranslate"><span class="pre">BoundingBox</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#freestyle.utils.BoundingBox.inside"><code class="docutils literal notranslate"><span class="pre">BoundingBox.inside()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.freestyle.utils.StrokeCollector"><code class="docutils literal notranslate"><span class="pre">freestyle.utils.StrokeCollector</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#freestyle.utils.freestyle.utils.StrokeCollector.shade"><code class="docutils literal notranslate"><span class="pre">freestyle.utils.StrokeCollector.shade()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.StrokeCollector"><code class="docutils literal notranslate"><span class="pre">StrokeCollector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#freestyle.utils.StrokeCollector.shade"><code class="docutils literal notranslate"><span class="pre">StrokeCollector.shade()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -139,7 +139,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_extras.html">GPU Utilities (gpu_extras)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="idprop.types.html">ID Property Access (idprop.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idprop.html">ID Properties Module (idprop)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
 </ul>
@@ -232,10 +232,8 @@ or <code class="xref py py-class docutils literal notranslate"><span class="pre"
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.bound">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">higher</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.bound" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Returns x bounded by a maximum and minimum value. Equivalent to:</dt><dd><p>return min(max(x, lower), higher)</p>
-</dd>
-</dl>
+<dd><p>Returns x bounded by a maximum and minimum value. Equivalent to:
+return min(max(x, lower), higher)</p>
 </dd></dl>
 
 <dl class="py function">
@@ -247,10 +245,8 @@ or <code class="xref py py-class docutils literal notranslate"><span class="pre"
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.curvature_from_stroke_vertex">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">curvature_from_stroke_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">svert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.curvature_from_stroke_vertex" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>The 3D curvature of an stroke vertex’ underlying geometry</dt><dd><p>The result is None or in the range [-inf, inf]</p>
-</dd>
-</dl>
+<dd><p>The 3D curvature of an stroke vertex’ underlying geometry
+The result is None or in the range [-inf, inf]</p>
 </dd></dl>
 
 <dl class="py function">
@@ -332,10 +328,8 @@ given minimum and maximum values.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.normal_at_I0D">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">normal_at_I0D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Interface0DIterator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span></span></span><a class="headerlink" href="#freestyle.utils.normal_at_I0D" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Normal at an Interface0D object. In contrast to Normal2DF0D this</dt><dd><p>function uses the actual data instead of underlying Fedge objects.</p>
-</dd>
-</dl>
+<dd><p>Normal at an Interface0D object. In contrast to Normal2DF0D this
+function uses the actual data instead of underlying Fedge objects.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -384,24 +378,24 @@ cast this generator function to a tuple or list</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="freestyle.utils.freestyle.utils.BoundingBox">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">BoundingBox</span></span><a class="headerlink" href="#freestyle.utils.freestyle.utils.BoundingBox" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="freestyle.utils.BoundingBox">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">BoundingBox</span></span><a class="headerlink" href="#freestyle.utils.BoundingBox" title="Link to this definition"></a></dt>
 <dd><p>Object representing a bounding box consisting out of 2 2D vectors</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="freestyle.utils.freestyle.utils.BoundingBox.inside">
-<span class="sig-name descname"><span class="pre">inside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.freestyle.utils.BoundingBox.inside" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="freestyle.utils.BoundingBox.inside">
+<span class="sig-name descname"><span class="pre">inside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.BoundingBox.inside" title="Link to this definition"></a></dt>
 <dd><p>True if self inside other, False otherwise</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="freestyle.utils.freestyle.utils.StrokeCollector">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">StrokeCollector</span></span><a class="headerlink" href="#freestyle.utils.freestyle.utils.StrokeCollector" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="freestyle.utils.StrokeCollector">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">StrokeCollector</span></span><a class="headerlink" href="#freestyle.utils.StrokeCollector" title="Link to this definition"></a></dt>
 <dd><p>Collects and Stores stroke objects</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="freestyle.utils.freestyle.utils.StrokeCollector.shade">
-<span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.freestyle.utils.StrokeCollector.shade" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="freestyle.utils.StrokeCollector.shade">
+<span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.StrokeCollector.shade" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -420,7 +414,7 @@ cast this generator function to a tuple or list</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/325fe1a6b796>325fe1a6b796</a> - 19/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/d6edda76d5fc>d6edda76d5fc</a> - 25/01/2026</code>.
       </span></p>
   </div>
 
