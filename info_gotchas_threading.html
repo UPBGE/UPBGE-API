@@ -187,9 +187,14 @@ running.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting threads...&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
    <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># NOTE: While threads are running, no code (including the main thread)</span>
+<span class="c1"># may use bpy or any Blender API - only standard Python or third-party modules.</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Waiting for threads to finish...&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
    <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="c1"># It&#39;s now safe to use bpy again since all threads have finished.</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Threads all done, now Blender can continue&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -224,7 +229,7 @@ errors in Blender’s own drawing code.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/0b6cc6a5378a>0b6cc6a5378a</a> - 27/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/93a935a00ead>93a935a00ead</a> - 31/01/2026</code>.
       </span></p>
   </div>
 
