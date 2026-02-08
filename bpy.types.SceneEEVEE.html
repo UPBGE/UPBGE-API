@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.SceneEEVEE.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=0755ccff"></script>
+      <script src="_static/documentation_options.js?v=aa05bc33"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.5x & Blender 5.1.0 Alpha Python API
+            UPBGE 0.5x & Blender 5.2.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotchas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_contributing.html">Contribute Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
 <ul class="current">
@@ -615,6 +616,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGizmoTransform.html">GeometryNodeGizmoTransform(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGreasePencilToCurves.html">GeometryNodeGreasePencilToCurves(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridAdvect.html">GeometryNodeGridAdvect(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridClip.html">GeometryNodeGridClip(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridCurl.html">GeometryNodeGridCurl(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridDilateAndErode.html">GeometryNodeGridDilateAndErode(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridDivergence.html">GeometryNodeGridDivergence(GeometryNode)</a></li>
@@ -625,6 +627,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridMedian.html">GeometryNodeGridMedian(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridPrune.html">GeometryNodeGridPrune(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridToMesh.html">GeometryNodeGridToMesh(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridToPoints.html">GeometryNodeGridToPoints(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGridVoxelize.html">GeometryNodeGridVoxelize(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeGroup.html">GeometryNodeGroup(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeImageInfo.html">GeometryNodeImageInfo(GeometryNode)</a></li>
@@ -1447,6 +1450,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.clamp_surface_indirect"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.clamp_surface_indirect</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.clamp_volume_direct"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.clamp_volume_direct</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.clamp_volume_indirect"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.clamp_volume_indirect</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.direct_light_intensity"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.direct_light_intensity</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.fast_gi_bias"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.fast_gi_bias</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.fast_gi_distance"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.fast_gi_distance</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.fast_gi_method"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.fast_gi_method</span></code></a></li>
@@ -1461,6 +1465,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.gi_glossy_clamp"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.gi_glossy_clamp</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.gi_irradiance_pool_size"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.gi_irradiance_pool_size</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.gi_visibility_resolution"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.gi_visibility_resolution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.indirect_light_intensity"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.indirect_light_intensity</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.light_threshold"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.light_threshold</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.motion_blur_depth_scale"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.motion_blur_depth_scale</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SceneEEVEE.motion_blur_max"><code class="docutils literal notranslate"><span class="pre">SceneEEVEE.motion_blur_max</span></code></a></li>
@@ -1595,6 +1600,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBCurve.html">ShaderNodeRGBCurve(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRGBToBW.html">ShaderNodeRGBToBW(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRadialTiling.html">ShaderNodeRadialTiling(ShaderNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRaycast.html">ShaderNodeRaycast(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeScript.html">ShaderNodeScript(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateColor.html">ShaderNodeSeparateColor(ShaderNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeSeparateXYZ.html">ShaderNodeSeparateXYZ(ShaderNode)</a></li>
@@ -1899,6 +1905,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.WhiteBalanceModifier.html">WhiteBalanceModifier(StripModifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Window.html">Window(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.WindowManager.html">WindowManager(ID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.Windows.html">Windows(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.WipeStrip.html">WipeStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.WireframeModifier.html">WireframeModifier(Modifier)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.WoodTexture.html">WoodTexture(Texture)</a></li>
@@ -1972,7 +1979,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.5x & Blender 5.1.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.5x & Blender 5.2.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -2081,6 +2088,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float in [0, inf], default 0.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SceneEEVEE.direct_light_intensity">
+<span class="sig-name descname"><span class="pre">direct_light_intensity</span></span><a class="headerlink" href="#bpy.types.SceneEEVEE.direct_light_intensity" title="Link to this definition"></a></dt>
+<dd><p>Scale the contribution of direct lighting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [0, inf], default 1.0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2253,6 +2271,17 @@ Global Illumination – Compute global illumination taking into account light bo
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>enum in [<code class="docutils literal notranslate"><span class="pre">'8'</span></code>, <code class="docutils literal notranslate"><span class="pre">'16'</span></code>, <code class="docutils literal notranslate"><span class="pre">'32'</span></code>, <code class="docutils literal notranslate"><span class="pre">'64'</span></code>], default <code class="docutils literal notranslate"><span class="pre">'32'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SceneEEVEE.indirect_light_intensity">
+<span class="sig-name descname"><span class="pre">indirect_light_intensity</span></span><a class="headerlink" href="#bpy.types.SceneEEVEE.indirect_light_intensity" title="Link to this definition"></a></dt>
+<dd><p>Scale the contribution of indirect lighting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float in [0, inf], default 1.0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2703,7 +2732,7 @@ Screen-Trace – Raytrace against the depth buffer. Fallback to light probes for
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/93a935a00ead>93a935a00ead</a> - 31/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/9b2ae7dafe50>9b2ae7dafe50</a> - 08/02/2026</code>.
       </span></p>
   </div>
 
@@ -2722,7 +2751,7 @@ Screen-Trace – Raytrace against the depth buffer. Fallback to light probes for
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.SceneEEVEE.rst%60%0D%0ABlender+Version%3A+%605.1%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.1%2Fbpy.types.SceneEEVEE.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.SceneEEVEE.rst%60%0D%0ABlender+Version%3A+%605.2%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.2%2Fbpy.types.SceneEEVEE.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>

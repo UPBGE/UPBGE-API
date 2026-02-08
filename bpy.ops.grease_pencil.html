@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.ops.grease_pencil.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=0755ccff"></script>
+      <script src="_static/documentation_options.js?v=aa05bc33"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.5x & Blender 5.1.0 Alpha Python API
+            UPBGE 0.5x & Blender 5.2.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="info_gotcha.html">Gotchas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="info_advanced.html">Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_contributing.html">Contribute Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Application Modules</span></p>
 <ul class="current">
@@ -124,6 +125,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.insert_blank_frame"><code class="docutils literal notranslate"><span class="pre">insert_blank_frame()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.interpolate_sequence"><code class="docutils literal notranslate"><span class="pre">interpolate_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.join_fills"><code class="docutils literal notranslate"><span class="pre">join_fills()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.join_selection"><code class="docutils literal notranslate"><span class="pre">join_selection()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.layer_active"><code class="docutils literal notranslate"><span class="pre">layer_active()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.layer_add"><code class="docutils literal notranslate"><span class="pre">layer_add()</span></code></a></li>
@@ -171,13 +173,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.sculptmode_toggle"><code class="docutils literal notranslate"><span class="pre">sculptmode_toggle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_all"><code class="docutils literal notranslate"><span class="pre">select_all()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_alternate"><code class="docutils literal notranslate"><span class="pre">select_alternate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_by_stroke_type"><code class="docutils literal notranslate"><span class="pre">select_by_stroke_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_ends"><code class="docutils literal notranslate"><span class="pre">select_ends()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_fill"><code class="docutils literal notranslate"><span class="pre">select_fill()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_less"><code class="docutils literal notranslate"><span class="pre">select_less()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_linked"><code class="docutils literal notranslate"><span class="pre">select_linked()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_more"><code class="docutils literal notranslate"><span class="pre">select_more()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_random"><code class="docutils literal notranslate"><span class="pre">select_random()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.select_similar"><code class="docutils literal notranslate"><span class="pre">select_similar()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.separate"><code class="docutils literal notranslate"><span class="pre">separate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.separate_fills"><code class="docutils literal notranslate"><span class="pre">separate_fills()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_active_material"><code class="docutils literal notranslate"><span class="pre">set_active_material()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_corner_type"><code class="docutils literal notranslate"><span class="pre">set_corner_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_curve_resolution"><code class="docutils literal notranslate"><span class="pre">set_curve_resolution()</span></code></a></li>
@@ -186,6 +191,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_material"><code class="docutils literal notranslate"><span class="pre">set_material()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_selection_mode"><code class="docutils literal notranslate"><span class="pre">set_selection_mode()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_start_point"><code class="docutils literal notranslate"><span class="pre">set_start_point()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_stroke_type"><code class="docutils literal notranslate"><span class="pre">set_stroke_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_uniform_opacity"><code class="docutils literal notranslate"><span class="pre">set_uniform_opacity()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.set_uniform_thickness"><code class="docutils literal notranslate"><span class="pre">set_uniform_thickness()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.grease_pencil.snap_cursor_to_selected"><code class="docutils literal notranslate"><span class="pre">snap_cursor_to_selected()</span></code></a></li>
@@ -313,7 +319,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.5x & Blender 5.1.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.5x & Blender 5.2.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -480,8 +486,22 @@ Toggle End.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.grease_pencil.delete">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.delete" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.delete" title="Link to this definition"></a></dt>
 <dd><p>Delete selected strokes or points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'STROKES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FILLS'</span></code>], (optional)) – <p>Mode, The kind of strokes or fills to delete</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
+All – Delete all selected strokes or points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STROKES</span></code>
+Only Strokes – Delete only strokes and not fills.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FILLS</span></code>
+Only Fills – Delte only fills and not strokes.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -719,6 +739,12 @@ Elastic – Exponentially decaying sine wave, like an elastic band.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.grease_pencil.join_fills">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">join_fills</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.join_fills" title="Link to this definition"></a></dt>
+<dd><p>Join selected strokes into one fill to create holes</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1316,6 +1342,20 @@ Invert – Invert selection of all elements.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.grease_pencil.select_by_stroke_type">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">select_by_stroke_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'STROKE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.select_by_stroke_type" title="Link to this definition"></a></dt>
+<dd><p>Select/Deselect all strokes or fills</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'STROKE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FILL'</span></code>], (optional)) – Type</p></li>
+<li><p><strong>deselect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Deselect, Unselect strokes</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.grease_pencil.select_ends">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">select_ends</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.select_ends" title="Link to this definition"></a></dt>
 <dd><p>Select end points of strokes</p>
@@ -1327,6 +1367,12 @@ Invert – Invert selection of all elements.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.grease_pencil.select_fill">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">select_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.select_fill" title="Link to this definition"></a></dt>
+<dd><p>Select all curves in a fill</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1399,6 +1445,17 @@ By Material – Separate by material.</p></li>
 By Layer – Separate by layer.</p></li>
 </ul>
 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.grease_pencil.separate_fills">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">separate_fills</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">individual</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.separate_fills" title="Link to this definition"></a></dt>
+<dd><p>Separate the selected strokes from current fill</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>individual</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Individual, Create a separate fill for each individual stroke</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1498,6 +1555,17 @@ Toggle Free/Align – Replace Free handles with Align, and all Align with Free h
 <dt class="sig sig-object py" id="bpy.ops.grease_pencil.set_start_point">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">set_start_point</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.set_start_point" title="Link to this definition"></a></dt>
 <dd><p>Select which point is the beginning of the curve</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.grease_pencil.set_stroke_type">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.grease_pencil.</span></span><span class="sig-name descname"><span class="pre">set_stroke_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'STROKE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.grease_pencil.set_stroke_type" title="Link to this definition"></a></dt>
+<dd><p>Set the stroke type (stroke, fill, or both) of the selected strokes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'STROKE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FILL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BOTH'</span></code>], (optional)) – Type</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1972,7 +2040,7 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/93a935a00ead>93a935a00ead</a> - 31/01/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/9b2ae7dafe50>9b2ae7dafe50</a> - 08/02/2026</code>.
       </span></p>
   </div>
 
@@ -1991,7 +2059,7 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.grease_pencil.rst%60%0D%0ABlender+Version%3A+%605.1%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.1%2Fbpy.ops.grease_pencil.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.ops.grease_pencil.rst%60%0D%0ABlender+Version%3A+%605.2%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.2%2Fbpy.ops.grease_pencil.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>
