@@ -104,6 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.object_utils.object_report_if_active_shape_key_is_locked"><code class="docutils literal notranslate"><span class="pre">object_report_if_active_shape_key_is_locked()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.object_utils.AddObjectHelper"><code class="docutils literal notranslate"><span class="pre">AddObjectHelper</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy_extras.object_utils.AddObjectHelper.align_update_callback"><code class="docutils literal notranslate"><span class="pre">AddObjectHelper.align_update_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.object_utils.AddObjectHelper.poll"><code class="docutils literal notranslate"><span class="pre">AddObjectHelper.poll()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +160,7 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context to use.</p></li>
-<li><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a>) – The operator, checked for location and rotation properties.</p></li>
+<li><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a> | None) – The operator, checked for location and rotation properties.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -180,9 +181,9 @@ location, rotation and layer.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context to use.</p></li>
-<li><p><strong>obdata</strong> (<a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a> | None) – Valid object data to used for the new object or None.</p></li>
-<li><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a>) – The operator, checked for location and rotation properties.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Optional name</p></li>
+<li><p><strong>obdata</strong> (<a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.ID</span></code></a> | None) – Valid object data to be used for the new object or None.</p></li>
+<li><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a> | None) – The operator, checked for location and rotation properties.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – Optional name</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -198,13 +199,32 @@ location, rotation and layer.</p>
 <dt class="sig sig-object py" id="bpy_extras.object_utils.object_add_grid_scale">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.object_utils.</span></span><span class="sig-name descname"><span class="pre">object_add_grid_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.object_utils.object_add_grid_scale" title="Link to this definition"></a></dt>
 <dd><p>Return scale which should be applied on object
-data to align it to grid scale</p>
+data to align it to grid scale.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The grid scale.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.object_utils.object_add_grid_scale_apply_operator">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.object_utils.</span></span><span class="sig-name descname"><span class="pre">object_add_grid_scale_apply_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.object_utils.object_add_grid_scale_apply_operator" title="Link to this definition"></a></dt>
-<dd><p>Scale an operators distance values by the grid size.</p>
+<dd><p>Scale an operator’s distance values by the grid size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a>) – The operator to scale.</p></li>
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -245,11 +265,14 @@ Z is the depth on the view axis.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – Object to check.</p></li>
-<li><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a>) – Currently running operator to report the error through. Use None to suppress emitting the message.</p></li>
+<li><p><strong>operator</strong> (<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a> | None) – Currently running operator to report the error through. Use None to suppress emitting the message.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the shape key was locked.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -260,7 +283,25 @@ Z is the depth on the view axis.</p>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="bpy_extras.object_utils.AddObjectHelper.align_update_callback">
 <span class="sig-name descname"><span class="pre">align_update_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.object_utils.AddObjectHelper.align_update_callback" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Update callback for the align property, resets rotation for world alignment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.object_utils.AddObjectHelper.poll">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.object_utils.AddObjectHelper.poll" title="Link to this definition"></a></dt>
+<dd><p>Check the scene is not linked from a library.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True when the scene is local (not linked from a library).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -278,7 +319,7 @@ Z is the depth on the view axis.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

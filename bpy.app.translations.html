@@ -305,13 +305,13 @@ for more info.</p>
    <span class="c1"># Usual operator/UI/etc. unregistration...</span>
 </pre></div>
 </div>
-<dl class="py attribute">
+<dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.translations.locale">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.translations.</span></span><span class="sig-name descname"><span class="pre">locale</span></span><a class="headerlink" href="#bpy.app.translations.locale" title="Link to this definition"></a></dt>
-<dd><p>The actual locale currently in use (will always return a void string when Blender is built without internationalization support).</p>
+<dd><p>The actual locale currently in use (will always return an empty string when Blender is built without internationalization support).</p>
 </dd></dl>
 
-<dl class="py attribute">
+<dl class="py data">
 <dt class="sig sig-object py" id="bpy.app.translations.locales">
 <span class="sig-prename descclassname"><span class="pre">bpy.app.translations.</span></span><span class="sig-name descname"><span class="pre">locales</span></span><a class="headerlink" href="#bpy.app.translations.locales" title="Link to this definition"></a></dt>
 <dd><p>All locales currently known by Blender (i.e. available as translations).</p>
@@ -340,10 +340,13 @@ for more info.</p>
 <p>For non-complete locales, missing elements will be None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>locale</strong> – The ISO locale string to explode.</p>
+<dd class="field-odd"><p><strong>locale</strong> (<em>str</em>) – The ISO locale string to explode.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A tuple <code class="docutils literal notranslate"><span class="pre">(language,</span> <span class="pre">country,</span> <span class="pre">variant,</span> <span class="pre">language_country,</span> <span class="pre">language&#64;variant)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[str | None, str | None, str | None, str | None, str | None]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -377,6 +380,9 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The translated string (or msgid if no translation was found).</p>
 </dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -397,6 +403,9 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The translated string (or <code class="docutils literal notranslate"><span class="pre">msgid</span></code> if no translation was found).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -419,6 +428,9 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The translated string (or msgid if no translation was found).</p>
 </dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -439,6 +451,9 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The original string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -461,6 +476,9 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The translated string (or msgid if no translation was found).</p>
 </dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -482,6 +500,9 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The translated string (or msgid if no translation was found).</p>
 </dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -497,7 +518,7 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>module_name</strong> (<em>str</em>) – The name identifying the addon.</p></li>
-<li><p><strong>translations_dict</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – A dictionary built like that:
+<li><p><strong>translations_dict</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>tuple</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>, </em><em>str</em><em>]</em><em>]</em>) – A dictionary built like that:
 <code class="docutils literal notranslate"><span class="pre">{locale:</span> <span class="pre">{msg_key:</span> <span class="pre">msg_translation,</span> <span class="pre">...},</span> <span class="pre">...}</span></code></p></li>
 </ul>
 </dd>
@@ -534,7 +555,7 @@ but you should rather use <a class="reference internal" href="#bpy.app.translati
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

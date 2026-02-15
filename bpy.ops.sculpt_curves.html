@@ -227,8 +227,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>, (optional)) – Stroke</p></li>
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
+<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – Stroke, (optional)</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'NORMAL'</em><em>, </em><em>'INVERT'</em><em>]</em>) – <p>Stroke Mode, Action taken when a paint stroke is made (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
 Regular – Apply brush normally.</p></li>
@@ -236,7 +236,7 @@ Regular – Apply brush normally.</p></li>
 Invert – Invert action of brush for duration of stroke.</p></li>
 </ul>
 </p></li>
-<li><p><strong>brush_toggle</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MASK'</span></code>], (optional)) – <p>Temporary Brush Toggle Type, Brush to use for duration of stroke</p>
+<li><p><strong>brush_toggle</strong> (<em>Literal</em><em>[</em><em>'None'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'ERASE'</em><em>, </em><em>'MASK'</em><em>]</em>) – <p>Temporary Brush Toggle Type, Brush to use for duration of stroke (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
 None – Apply brush normally.</p></li>
@@ -248,8 +248,14 @@ Erase – Switch to erase brush for duration of stroke.</p></li>
 Mask – Switch to mask brush for duration of stroke.</p></li>
 </ul>
 </p></li>
-<li><p><strong>pen_flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pen Flip, Whether a tablet’s eraser mode is being used</p></li>
+<li><p><strong>pen_flip</strong> (<em>bool</em>) – Pen Flip, Whether a tablet’s eraser mode is being used (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -258,6 +264,14 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.sculpt_curves.min_distance_edit">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt_curves.</span></span><span class="sig-name descname"><span class="pre">min_distance_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt_curves.min_distance_edit" title="Link to this definition"></a></dt>
 <dd><p>Change the minimum distance used by the density brush</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -266,7 +280,13 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 <dd><p>Select curves which are close to curves that are selected already</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>distance</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Distance, By how much to grow the selection</p>
+<dd class="field-odd"><p><strong>distance</strong> (<em>float</em>) – Distance, By how much to grow the selection (in [-inf, inf], optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -278,12 +298,18 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>seed</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Seed, Source of randomness</p></li>
-<li><p><strong>partial</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Partial, Allow points or curves to be selected partially</p></li>
-<li><p><strong>probability</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Probability, Chance of every point or curve being included in the selection</p></li>
-<li><p><strong>min</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Min, Minimum value for the random selection</p></li>
-<li><p><strong>constant_per_curve</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constant per Curve, The generated random number is the same for every control point of a curve</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Seed, Source of randomness (in [-inf, inf], optional)</p></li>
+<li><p><strong>partial</strong> (<em>bool</em>) – Partial, Allow points or curves to be selected partially (optional)</p></li>
+<li><p><strong>probability</strong> (<em>float</em>) – Probability, Chance of every point or curve being included in the selection (in [0, 1], optional)</p></li>
+<li><p><strong>min</strong> (<em>float</em>) – Min, Minimum value for the random selection (in [0, 1], optional)</p></li>
+<li><p><strong>constant_per_curve</strong> (<em>bool</em>) – Constant per Curve, The generated random number is the same for every control point of a curve (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,7 +328,7 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

@@ -225,11 +225,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Filepath used for importing the file</p></li>
-<li><p><strong>directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – directory</p></li>
-<li><p><strong>filter_glob</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filter_glob</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>, (optional)) – File Path</p></li>
-<li><p><strong>ui_tab</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MAIN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ARMATURE'</span></code>], (optional)) – <p>ui_tab, Import options categories</p>
+<li><p><strong>filepath</strong> (<em>str</em>) – File Path, Filepath used for importing the file (optional, never None)</p></li>
+<li><p><strong>directory</strong> (<em>str</em>) – directory, (optional, never None)</p></li>
+<li><p><strong>filter_glob</strong> (<em>str</em>) – filter_glob, (optional, never None)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – File Path, (optional)</p></li>
+<li><p><strong>ui_tab</strong> (<em>Literal</em><em>[</em><em>'MAIN'</em><em>, </em><em>'ARMATURE'</em><em>]</em>) – <p>ui_tab, Import options categories (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">MAIN</span></code>
 Main – Main basic settings.</p></li>
@@ -237,11 +237,11 @@ Main – Main basic settings.</p></li>
 Armatures – Armature-related settings.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_manual_orientation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Manual Orientation, Specify orientation and scale, instead of using embedded data in FBX file</p></li>
-<li><p><strong>global_scale</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>1000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scale</p></li>
-<li><p><strong>bake_space_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Apply Transform, Bake space transform into object data, avoids getting unwanted rotations to objects when target space is not aligned with Blender’s space (WARNING! experimental option, use at own risk, known to be broken with armatures/animations)</p></li>
-<li><p><strong>use_custom_normals</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Custom Normals, Import custom normals, if available (otherwise Blender will recompute them)</p></li>
-<li><p><strong>colors_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SRGB'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LINEAR'</span></code>], (optional)) – <p>Vertex Colors, Import vertex color attributes</p>
+<li><p><strong>use_manual_orientation</strong> (<em>bool</em>) – Manual Orientation, Specify orientation and scale, instead of using embedded data in FBX file (optional)</p></li>
+<li><p><strong>global_scale</strong> (<em>float</em>) – Scale, (in [0.001, 1000], optional)</p></li>
+<li><p><strong>bake_space_transform</strong> (<em>bool</em>) – Apply Transform, Bake space transform into object data, avoids getting unwanted rotations to objects when target space is not aligned with Blender’s space (WARNING! experimental option, use at own risk, known to be broken with armatures/animations) (optional)</p></li>
+<li><p><strong>use_custom_normals</strong> (<em>bool</em>) – Custom Normals, Import custom normals, if available (otherwise Blender will recompute them) (optional)</p></li>
+<li><p><strong>colors_type</strong> (<em>Literal</em><em>[</em><em>'NONE'</em><em>, </em><em>'SRGB'</em><em>, </em><em>'LINEAR'</em><em>]</em>) – <p>Vertex Colors, Import vertex color attributes (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
 None – Do not import color attributes.</p></li>
@@ -251,21 +251,21 @@ sRGB – Expect file colors in sRGB color space.</p></li>
 Linear – Expect file colors in linear color space.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_image_search</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Image Search, Search subdirs for any associated images (WARNING: may be slow)</p></li>
-<li><p><strong>use_alpha_decals</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Alpha Decals, Treat materials with alpha as decals (no shadow casting)</p></li>
-<li><p><strong>decal_offset</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Decal Offset, Displace geometry of alpha meshes</p></li>
-<li><p><strong>use_anim</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Import Animation, Import FBX animation</p></li>
-<li><p><strong>anim_offset</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Animation Offset, Offset to apply to animation during import, in frames</p></li>
-<li><p><strong>use_subsurf</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Subdivision Data, Import FBX subdivision information as subdivision surface modifiers</p></li>
-<li><p><strong>use_custom_props</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Custom Properties, Import user properties as custom properties</p></li>
-<li><p><strong>use_custom_props_enum_as_string</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Import Enums As Strings, Store enumeration values as strings</p></li>
-<li><p><strong>ignore_leaf_bones</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Ignore Leaf Bones, Ignore the last bone at the end of each chain (used to mark the length of the previous bone)</p></li>
-<li><p><strong>force_connect_children</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Force Connect Children, Force connection of children bones to their parent, even if their computed head/tail positions do not match (can be useful with pure-joints-type armatures)</p></li>
-<li><p><strong>automatic_bone_orientation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Automatic Bone Orientation, Try to align the major bone axis with the bone children</p></li>
-<li><p><strong>primary_bone_axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Primary Bone Axis</p></li>
-<li><p><strong>secondary_bone_axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Secondary Bone Axis</p></li>
-<li><p><strong>use_prepost_rot</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Pre/Post Rotation, Use pre/post rotation from FBX transform (you may have to disable that in some cases)</p></li>
-<li><p><strong>mtl_name_collision_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MAKE_UNIQUE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'REFERENCE_EXISTING'</span></code>], (optional)) – <p>Material Name Collision, Behavior when the name of an imported material conflicts with an existing material</p>
+<li><p><strong>use_image_search</strong> (<em>bool</em>) – Image Search, Search subdirs for any associated images (WARNING: may be slow) (optional)</p></li>
+<li><p><strong>use_alpha_decals</strong> (<em>bool</em>) – Alpha Decals, Treat materials with alpha as decals (no shadow casting) (optional)</p></li>
+<li><p><strong>decal_offset</strong> (<em>float</em>) – Decal Offset, Displace geometry of alpha meshes (in [0, 1], optional)</p></li>
+<li><p><strong>use_anim</strong> (<em>bool</em>) – Import Animation, Import FBX animation (optional)</p></li>
+<li><p><strong>anim_offset</strong> (<em>float</em>) – Animation Offset, Offset to apply to animation during import, in frames (in [-inf, inf], optional)</p></li>
+<li><p><strong>use_subsurf</strong> (<em>bool</em>) – Subdivision Data, Import FBX subdivision information as subdivision surface modifiers (optional)</p></li>
+<li><p><strong>use_custom_props</strong> (<em>bool</em>) – Custom Properties, Import user properties as custom properties (optional)</p></li>
+<li><p><strong>use_custom_props_enum_as_string</strong> (<em>bool</em>) – Import Enums As Strings, Store enumeration values as strings (optional)</p></li>
+<li><p><strong>ignore_leaf_bones</strong> (<em>bool</em>) – Ignore Leaf Bones, Ignore the last bone at the end of each chain (used to mark the length of the previous bone) (optional)</p></li>
+<li><p><strong>force_connect_children</strong> (<em>bool</em>) – Force Connect Children, Force connection of children bones to their parent, even if their computed head/tail positions do not match (can be useful with pure-joints-type armatures) (optional)</p></li>
+<li><p><strong>automatic_bone_orientation</strong> (<em>bool</em>) – Automatic Bone Orientation, Try to align the major bone axis with the bone children (optional)</p></li>
+<li><p><strong>primary_bone_axis</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Primary Bone Axis, (optional)</p></li>
+<li><p><strong>secondary_bone_axis</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Secondary Bone Axis, (optional)</p></li>
+<li><p><strong>use_prepost_rot</strong> (<em>bool</em>) – Use Pre/Post Rotation, Use pre/post rotation from FBX transform (you may have to disable that in some cases) (optional)</p></li>
+<li><p><strong>mtl_name_collision_mode</strong> (<em>Literal</em><em>[</em><em>'MAKE_UNIQUE'</em><em>, </em><em>'REFERENCE_EXISTING'</em><em>]</em>) – <p>Material Name Collision, Behavior when the name of an imported material conflicts with an existing material (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">MAKE_UNIQUE</span></code>
 Make Unique – Import each FBX material as a unique Blender material.</p></li>
@@ -273,9 +273,15 @@ Make Unique – Import each FBX material as a unique Blender material.</p></li>
 Reference Existing – If a material with the same name already exists, reference that instead of importing.</p></li>
 </ul>
 </p></li>
-<li><p><strong>axis_forward</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Forward</p></li>
-<li><p><strong>axis_up</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Up</p></li>
+<li><p><strong>axis_forward</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Forward, (optional)</p></li>
+<li><p><strong>axis_up</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Up, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/io_scene_fbx/__init__.py#L222">addons_core/io_scene_fbx/__init__.py:222</a></p>
@@ -290,8 +296,8 @@ Reference Existing – If a material with the same name already exists, referenc
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Filepath used for importing the file</p></li>
-<li><p><strong>export_import_convert_lighting_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SPEC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'COMPAT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RAW'</span></code>], (optional)) – <p>Lighting Mode, Optional backwards compatibility for non-standard render engines. Applies to lights</p>
+<li><p><strong>filepath</strong> (<em>str</em>) – File Path, Filepath used for importing the file (optional, never None)</p></li>
+<li><p><strong>export_import_convert_lighting_mode</strong> (<em>Literal</em><em>[</em><em>'SPEC'</em><em>, </em><em>'COMPAT'</em><em>, </em><em>'RAW'</em><em>]</em>) – <p>Lighting Mode, Optional backwards compatibility for non-standard render engines. Applies to lights (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SPEC</span></code>
 Standard – Physically-based glTF lighting units (cd, lx, nt).</p></li>
@@ -301,14 +307,14 @@ Unitless – Non-physical, unitless lighting. Useful when exposure controls are 
 Raw (Deprecated) – Blender lighting strengths with no conversion.</p></li>
 </ul>
 </p></li>
-<li><p><strong>filter_glob</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filter_glob</p></li>
-<li><p><strong>directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – directory</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>, (optional)) – File Path</p></li>
-<li><p><strong>loglevel</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Log Level, Log Level</p></li>
-<li><p><strong>import_pack_images</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pack Images, Pack all images into .blend file</p></li>
-<li><p><strong>merge_vertices</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge Vertices, The glTF format requires discontinuous normals, UVs, and other vertex attributes to be stored as separate vertices, as required for rendering on typical graphics hardware. This option attempts to combine co-located vertices where possible. Currently cannot combine verts with different normals</p></li>
-<li><p><strong>import_shading</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FLAT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>], (optional)) – Shading, How normals are computed during import</p></li>
-<li><p><strong>bone_heuristic</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'BLENDER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'TEMPERANCE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FORTUNE'</span></code>], (optional)) – <p>Bone Dir, Heuristic for placing bones. Tries to make bones pretty</p>
+<li><p><strong>filter_glob</strong> (<em>str</em>) – filter_glob, (optional, never None)</p></li>
+<li><p><strong>directory</strong> (<em>str</em>) – directory, (optional, never None)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – File Path, (optional)</p></li>
+<li><p><strong>loglevel</strong> (<em>int</em>) – Log Level, Log Level (in [-inf, inf], optional)</p></li>
+<li><p><strong>import_pack_images</strong> (<em>bool</em>) – Pack Images, Pack all images into .blend file (optional)</p></li>
+<li><p><strong>merge_vertices</strong> (<em>bool</em>) – Merge Vertices, The glTF format requires discontinuous normals, UVs, and other vertex attributes to be stored as separate vertices, as required for rendering on typical graphics hardware. This option attempts to combine co-located vertices where possible. Currently cannot combine verts with different normals (optional)</p></li>
+<li><p><strong>import_shading</strong> (<em>Literal</em><em>[</em><em>'NORMALS'</em><em>, </em><em>'FLAT'</em><em>, </em><em>'SMOOTH'</em><em>]</em>) – Shading, How normals are computed during import (optional)</p></li>
+<li><p><strong>bone_heuristic</strong> (<em>Literal</em><em>[</em><em>'BLENDER'</em><em>, </em><em>'TEMPERANCE'</em><em>, </em><em>'FORTUNE'</em><em>]</em>) – <p>Bone Dir, Heuristic for placing bones. Tries to make bones pretty (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">BLENDER</span></code>
 Blender (best for import/export round trip) – Good for re-importing glTFs exported from Blender, and re-exporting glTFs to glTFs after Blender editing. Bone tips are placed on their local +Y axis (in glTF space).</p></li>
@@ -318,16 +324,22 @@ Temperance (average) – Decent all-around strategy. A bone with one child has i
 Fortune (may look better, less accurate) – Might look better than Temperance, but also might have errors. A bone with one child has its tip placed at its child’s root. Non-uniform scalings may get messed up though, so beware.</p></li>
 </ul>
 </p></li>
-<li><p><strong>disable_bone_shape</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Disable Bone Shape, Do not create bone shapes</p></li>
-<li><p><strong>bone_shape_scale_factor</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Bone Shape Scale, Scale factor for bone shapes</p></li>
-<li><p><strong>guess_original_bind_pose</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Guess Original Bind Pose, Try to guess the original bind pose for skinned meshes from the inverse bind matrices. When off, use default/rest pose as bind pose</p></li>
-<li><p><strong>import_webp_texture</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Import WebP Textures, If a texture exists in WebP format, loads the WebP texture instead of the fallback PNG/JPEG one</p></li>
-<li><p><strong>import_unused_materials</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Import Unused Materials &amp; Images, Import materials &amp; Images not assigned to any mesh</p></li>
-<li><p><strong>import_select_created_objects</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select Imported Objects, Select created objects at the end of the import</p></li>
-<li><p><strong>import_scene_extras</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Import Scene Extras, Import scene extras as custom properties. Existing custom properties will be overwritten</p></li>
-<li><p><strong>import_scene_as_collection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Import Scene as Collection, Import the scene as a collection</p></li>
-<li><p><strong>import_merge_material_slots</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge Material Slot when possible, Merge material slots when possible</p></li>
+<li><p><strong>disable_bone_shape</strong> (<em>bool</em>) – Disable Bone Shape, Do not create bone shapes (optional)</p></li>
+<li><p><strong>bone_shape_scale_factor</strong> (<em>float</em>) – Bone Shape Scale, Scale factor for bone shapes (in [-inf, inf], optional)</p></li>
+<li><p><strong>guess_original_bind_pose</strong> (<em>bool</em>) – Guess Original Bind Pose, Try to guess the original bind pose for skinned meshes from the inverse bind matrices. When off, use default/rest pose as bind pose (optional)</p></li>
+<li><p><strong>import_webp_texture</strong> (<em>bool</em>) – Import WebP Textures, If a texture exists in WebP format, loads the WebP texture instead of the fallback PNG/JPEG one (optional)</p></li>
+<li><p><strong>import_unused_materials</strong> (<em>bool</em>) – Import Unused Materials &amp; Images, Import materials &amp; Images not assigned to any mesh (optional)</p></li>
+<li><p><strong>import_select_created_objects</strong> (<em>bool</em>) – Select Imported Objects, Select created objects at the end of the import (optional)</p></li>
+<li><p><strong>import_scene_extras</strong> (<em>bool</em>) – Import Scene Extras, Import scene extras as custom properties. Existing custom properties will be overwritten (optional)</p></li>
+<li><p><strong>import_scene_as_collection</strong> (<em>bool</em>) – Import Scene as Collection, Import the scene as a collection (optional)</p></li>
+<li><p><strong>import_merge_material_slots</strong> (<em>bool</em>) – Merge Material Slot when possible, Merge material slots when possible (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/io_scene_gltf2/__init__.py#L2013">addons_core/io_scene_gltf2/__init__.py:2013</a></p>
@@ -349,7 +361,7 @@ Fortune (may look better, less accurate) – Might look better than Temperance, 
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

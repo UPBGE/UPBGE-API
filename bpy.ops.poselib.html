@@ -232,12 +232,18 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>asset_library_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>, (optional)) – Asset Library Type</p></li>
-<li><p><strong>asset_library_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Asset Library Identifier</p></li>
-<li><p><strong>relative_asset_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Relative Asset Identifier</p></li>
-<li><p><strong>blend_factor</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blend Factor, Amount that the pose is applied on top of the existing poses. A negative value will subtract the pose instead of adding it</p></li>
-<li><p><strong>flipped</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Apply Flipped, When enabled, applies the pose flipped over the X-axis</p></li>
+<li><p><strong>asset_library_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>]) – Asset Library Type, (optional)</p></li>
+<li><p><strong>asset_library_identifier</strong> (<em>str</em>) – Asset Library Identifier, (optional, never None)</p></li>
+<li><p><strong>relative_asset_identifier</strong> (<em>str</em>) – Relative Asset Identifier, (optional, never None)</p></li>
+<li><p><strong>blend_factor</strong> (<em>float</em>) – Blend Factor, Amount that the pose is applied on top of the existing poses. A negative value will subtract the pose instead of adding it (in [-inf, inf], optional)</p></li>
+<li><p><strong>flipped</strong> (<em>bool</em>) – Apply Flipped, When enabled, applies the pose flipped over the X-axis (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -246,6 +252,14 @@
 <dt class="sig sig-object py" id="bpy.ops.poselib.asset_delete">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">asset_delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.asset_delete" title="Link to this definition"></a></dt>
 <dd><p>Delete the selected Pose Asset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -254,7 +268,7 @@
 <dd><p>Update the selected pose asset in the asset library from the currently selected bones. The mode defines how the asset is updated</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ADJUST'</span></code>, <code class="docutils literal notranslate"><span class="pre">'REPLACE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ADD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'REMOVE'</span></code>], (optional)) – <p>Overwrite Mode, Specify which parts of the pose asset are overwritten</p>
+<dd class="field-odd"><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'ADJUST'</em><em>, </em><em>'REPLACE'</em><em>, </em><em>'ADD'</em><em>, </em><em>'REMOVE'</em><em>]</em>) – <p>Overwrite Mode, Specify which parts of the pose asset are overwritten (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ADJUST</span></code>
 Adjust – Update existing channels in the pose asset but don’t remove or add any channels.</p></li>
@@ -267,6 +281,12 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 </ul>
 </p>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -277,13 +297,19 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>asset_library_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>, (optional)) – Asset Library Type</p></li>
-<li><p><strong>asset_library_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Asset Library Identifier</p></li>
-<li><p><strong>relative_asset_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Relative Asset Identifier</p></li>
-<li><p><strong>blend_factor</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blend Factor, Amount that the pose is applied on top of the existing poses. A negative value will subtract the pose instead of adding it</p></li>
-<li><p><strong>flipped</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Apply Flipped, When enabled, applies the pose flipped over the X-axis</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
+<li><p><strong>asset_library_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>]) – Asset Library Type, (optional)</p></li>
+<li><p><strong>asset_library_identifier</strong> (<em>str</em>) – Asset Library Identifier, (optional, never None)</p></li>
+<li><p><strong>relative_asset_identifier</strong> (<em>str</em>) – Relative Asset Identifier, (optional, never None)</p></li>
+<li><p><strong>blend_factor</strong> (<em>float</em>) – Blend Factor, Amount that the pose is applied on top of the existing poses. A negative value will subtract the pose instead of adding it (in [-inf, inf], optional)</p></li>
+<li><p><strong>flipped</strong> (<em>bool</em>) – Apply Flipped, When enabled, applies the pose flipped over the X-axis (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -293,6 +319,12 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">copy_as_asset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.copy_as_asset" title="Link to this definition"></a></dt>
 <dd><p>Create a new pose asset on the clipboard, to be pasted into an Asset Browser</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/pose_library/operators.py#L116">addons_core/pose_library/operators.py:116</a></p>
 </dd>
@@ -306,10 +338,16 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pose_name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Pose Name, Name for the new pose asset</p></li>
-<li><p><strong>asset_library_reference</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Library, Asset library used to store the new pose</p></li>
-<li><p><strong>catalog_path</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Catalog, Catalog to use for the new asset</p></li>
+<li><p><strong>pose_name</strong> (<em>str</em>) – Pose Name, Name for the new pose asset (optional, never None)</p></li>
+<li><p><strong>asset_library_reference</strong> (<em>str</em>) – Library, Asset library used to store the new pose (optional)</p></li>
+<li><p><strong>catalog_path</strong> (<em>str</em>) – Catalog, Catalog to use for the new asset (optional, never None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -319,6 +357,12 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">paste_asset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.paste_asset" title="Link to this definition"></a></dt>
 <dd><p>Paste the Asset that was previously copied using Copy As Asset</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/pose_library/operators.py#L190">addons_core/pose_library/operators.py:190</a></p>
 </dd>
@@ -332,9 +376,15 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>select</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select</p></li>
-<li><p><strong>flipped</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flipped</p></li>
+<li><p><strong>select</strong> (<em>bool</em>) – Select, (optional)</p></li>
+<li><p><strong>flipped</strong> (<em>bool</em>) – Flipped, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/pose_library/operators.py#L228">addons_core/pose_library/operators.py:228</a></p>
@@ -347,6 +397,12 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.poselib.</span></span><span class="sig-name descname"><span class="pre">restore_previous_action</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.restore_previous_action" title="Link to this definition"></a></dt>
 <dd><p>Switch back to the previous Action, after creating a pose asset</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/pose_library/operators.py#L65">addons_core/pose_library/operators.py:65</a></p>
 </dd>
@@ -367,7 +423,7 @@ Remove Selected Bones – Remove channels of the selection from the pose asset.<
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

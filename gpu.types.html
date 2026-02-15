@@ -97,6 +97,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="gpu.html">GPU Module (gpu)</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GPU Types (gpu.types)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpu.types.Buffer"><code class="docutils literal notranslate"><span class="pre">Buffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.to_list"><code class="docutils literal notranslate"><span class="pre">Buffer.to_list()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.dimensions"><code class="docutils literal notranslate"><span class="pre">Buffer.dimensions</span></code></a></li>
 </ul>
 </li>
@@ -205,6 +206,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUVertFormat.attr_add"><code class="docutils literal notranslate"><span class="pre">GPUVertFormat.attr_add()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.MatrixStackContext"><code class="docutils literal notranslate"><span class="pre">MatrixStackContext</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.OffScreenStackContext"><code class="docutils literal notranslate"><span class="pre">OffScreenStackContext</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.matrix.html">GPU Matrix Utilities (gpu.matrix)</a></li>
@@ -262,15 +265,27 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>format</strong> (<em>str</em>) – Format type to interpret the buffer.
-Possible values are <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT</span></code>, <code class="docutils literal notranslate"><span class="pre">UBYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">10_11_11_REV</span></code>.
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'INT'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UBYTE'</em><em>, </em><em>'UINT_24_8'</em><em>, </em><em>'10_11_11_REV'</em><em>]</em>) – Format type to interpret the buffer.
 <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> instead.</p></li>
-<li><p><strong>dimensions</strong> (<em>int</em>) – Array describing the dimensions.</p></li>
+<li><p><strong>dimensions</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Array describing the dimensions.</p></li>
 <li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><em>Buffer</em></a><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>] </em><em>| </em><em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Optional data array.</p></li>
 </ul>
 </dd>
 </dl>
-<p>return the buffer as a list</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.Buffer.to_list">
+<span class="sig-name descname"><span class="pre">to_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.Buffer.to_list" title="Link to this definition"></a></dt>
+<dd><p>Return the buffer as a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The buffer as a list.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="gpu.types.Buffer.dimensions">
 <span class="sig-name descname"><span class="pre">dimensions</span></span><a class="headerlink" href="#gpu.types.Buffer.dimensions" title="Link to this definition"></a></dt>
@@ -286,10 +301,9 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>str</em>) – The primitive type of geometry to be drawn.
-Possible values are <code class="docutils literal notranslate"><span class="pre">POINTS</span></code>, <code class="docutils literal notranslate"><span class="pre">LINES</span></code>, <code class="docutils literal notranslate"><span class="pre">TRIS</span></code>, <code class="docutils literal notranslate"><span class="pre">LINE_STRIP</span></code>, <code class="docutils literal notranslate"><span class="pre">LINE_LOOP</span></code>, <code class="docutils literal notranslate"><span class="pre">TRI_STRIP</span></code>, <code class="docutils literal notranslate"><span class="pre">TRI_FAN</span></code>, <code class="docutils literal notranslate"><span class="pre">LINES_ADJ</span></code>, <code class="docutils literal notranslate"><span class="pre">TRIS_ADJ</span></code> and <code class="docutils literal notranslate"><span class="pre">LINE_STRIP_ADJ</span></code>.</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'POINTS'</em><em>, </em><em>'LINES'</em><em>, </em><em>'TRIS'</em><em>, </em><em>'LINE_STRIP'</em><em>, </em><em>'LINE_LOOP'</em><em>, </em><em>'TRI_STRIP'</em><em>, </em><em>'TRI_FAN'</em><em>, </em><em>'LINES_ADJ'</em><em>, </em><em>'TRIS_ADJ'</em><em>, </em><em>'LINE_STRIP_ADJ'</em><em>]</em>) – The primitive type of geometry to be drawn.</p></li>
 <li><p><strong>buf</strong> (<a class="reference internal" href="#gpu.types.GPUVertBuf" title="gpu.types.GPUVertBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertBuf</span></code></a>) – Vertex buffer containing all or some of the attributes required for drawing.</p></li>
-<li><p><strong>elem</strong> (<a class="reference internal" href="#gpu.types.GPUIndexBuf" title="gpu.types.GPUIndexBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUIndexBuf</span></code></a>) – An optional index buffer.</p></li>
+<li><p><strong>elem</strong> (<a class="reference internal" href="#gpu.types.GPUIndexBuf" title="gpu.types.GPUIndexBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUIndexBuf</span></code></a> | None) – An optional index buffer.</p></li>
 </ul>
 </dd>
 </dl>
@@ -299,7 +313,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dd><p>Run the drawing shader with the parameters assigned to the batch.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shader</strong> (<a class="reference internal" href="#gpu.types.GPUShader" title="gpu.types.GPUShader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUShader</span></code></a>) – Shader that performs the drawing operations.
+<dd class="field-odd"><p><strong>shader</strong> (<a class="reference internal" href="#gpu.types.GPUShader" title="gpu.types.GPUShader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUShader</span></code></a> | None) – Shader that performs the drawing operations.
 If <code class="docutils literal notranslate"><span class="pre">None</span></code> is passed, the last shader set to this batch will run.</p>
 </dd>
 </dl>
@@ -383,7 +397,7 @@ For cube map textures, layer is translated into a cube map face.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>depth_slot</strong> (<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[] | None) – GPUTexture to attach or a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing keywords: ‘texture’, ‘layer’ and ‘mip’.</p></li>
+<li><p><strong>depth_slot</strong> (<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[str, int | <a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>] | None) – GPUTexture to attach or a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing keywords: ‘texture’, ‘layer’ and ‘mip’.</p></li>
 <li><p><strong>color_slots</strong> (<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[str, int | <a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>] | Sequence[<a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | dict[str, int | <a class="reference internal" href="#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>]] | None) – Tuple where each item can be a GPUTexture or a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing keywords: ‘texture’, ‘layer’ and ‘mip’.</p></li>
 </ul>
 </dd>
@@ -402,9 +416,9 @@ Common values: color=(0.0, 0.0, 0.0, 1.0), depth=1.0, stencil=0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>color</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Sequence of 3 or 4 floats representing <code class="docutils literal notranslate"><span class="pre">(r,</span> <span class="pre">g,</span> <span class="pre">b,</span> <span class="pre">a)</span></code>.</p></li>
-<li><p><strong>depth</strong> (<em>float</em>) – depth value.</p></li>
-<li><p><strong>stencil</strong> (<em>int</em>) – stencil value.</p></li>
+<li><p><strong>color</strong> (<em>Sequence</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – Sequence of 3 or 4 floats representing <code class="docutils literal notranslate"><span class="pre">(r,</span> <span class="pre">g,</span> <span class="pre">b,</span> <span class="pre">a)</span></code>.</p></li>
+<li><p><strong>depth</strong> (<em>float</em><em> | </em><em>None</em>) – depth value.</p></li>
+<li><p><strong>stencil</strong> (<em>int</em><em> | </em><em>None</em>) – stencil value.</p></li>
 </ul>
 </dd>
 </dl>
@@ -417,14 +431,15 @@ Common values: color=(0.0, 0.0, 0.0, 1.0), depth=1.0, stencil=0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – Lower left corner of a rectangular block of pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – Dimensions of the pixel rectangle.</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Lower left corner x of a rectangular block of pixels.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Lower left corner y of a rectangular block of pixels.</p></li>
+<li><p><strong>xsize</strong> (<em>int</em>) – Width of the pixel rectangle.</p></li>
+<li><p><strong>ysize</strong> (<em>int</em>) – Height of the pixel rectangle.</p></li>
 <li><p><strong>channels</strong> (<em>int</em>) – Number of components to read.</p></li>
 <li><p><strong>slot</strong> (<em>int</em>) – The framebuffer slot to read data from.</p></li>
-<li><p><strong>format</strong> (<em>str</em>) – The format that describes the content of a single channel.
-Possible values are <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT</span></code>, <code class="docutils literal notranslate"><span class="pre">UBYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">10_11_11_REV</span></code>.
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'INT'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UBYTE'</em><em>, </em><em>'UINT_24_8'</em><em>, </em><em>'10_11_11_REV'</em><em>]</em>) – The format that describes the content of a single channel.
 <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> instead.</p></li>
-<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Optional Buffer object to fill with the pixels values.</p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a> | None) – Optional Buffer object to fill with the pixels values.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -443,9 +458,11 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – Lower left corner of a rectangular block of pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – Dimensions of the pixel rectangle.</p></li>
-<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Optional Buffer object to fill with the pixels values.</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Lower left corner x of a rectangular block of pixels.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Lower left corner y of a rectangular block of pixels.</p></li>
+<li><p><strong>xsize</strong> (<em>int</em>) – Width of the pixel rectangle.</p></li>
+<li><p><strong>ysize</strong> (<em>int</em>) – Height of the pixel rectangle.</p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a> | None) – Optional Buffer object to fill with the pixels values.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -461,6 +478,14 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 <dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.viewport_get">
 <span class="sig-name descname"><span class="pre">viewport_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.viewport_get" title="Link to this definition"></a></dt>
 <dd><p>Returns position and dimension to current viewport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The viewport as <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height)</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[int, int, int, int]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -471,8 +496,10 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>x</em><em>,</em>) – lower left corner of the viewport_set rectangle, in pixels.</p></li>
-<li><p><strong>ysize</strong> (<em>xsize</em><em>,</em>) – width and height of the viewport_set.</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Lower left corner x of the viewport rectangle, in pixels.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Lower left corner y of the viewport rectangle, in pixels.</p></li>
+<li><p><strong>xsize</strong> (<em>int</em>) – Width of the viewport.</p></li>
+<li><p><strong>ysize</strong> (<em>int</em>) – Height of the viewport.</p></li>
 </ul>
 </dd>
 </dl>
@@ -493,8 +520,7 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>str</em>) – The primitive type this index buffer is composed of.
-Possible values are [<code class="docutils literal notranslate"><span class="pre">POINTS</span></code>, <code class="docutils literal notranslate"><span class="pre">LINES</span></code>, <code class="docutils literal notranslate"><span class="pre">TRIS</span></code>, <code class="docutils literal notranslate"><span class="pre">LINES_ADJ</span></code>, <code class="docutils literal notranslate"><span class="pre">TRIS_ADJ</span></code>].</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'POINTS'</em><em>, </em><em>'LINES'</em><em>, </em><em>'TRIS'</em><em>, </em><em>'LINES_ADJ'</em><em>, </em><em>'TRIS_ADJ'</em><em>]</em>) – The primitive type this index buffer is composed of.</p></li>
 <li><p><strong>seq</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><em>Buffer</em></a><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>] </em><em>| </em><em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em>) – Indices this index buffer will contain.
 Whether a 1D or 2D sequence is required depends on the type.
 Optionally the sequence can support the buffer protocol.</p></li>
@@ -512,11 +538,7 @@ Optionally the sequence can support the buffer protocol.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Horizontal dimension of the buffer.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Vertical dimension of the buffer.</p></li>
-<li><p><strong>format</strong> (<em>str</em>) – Internal data format inside GPU memory for color attachment texture. Possible values are:
-<code class="docutils literal notranslate"><span class="pre">RGBA8</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA16</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA16F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA32F</span></code>.</p></li>
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>'RGBA8'</em><em>, </em><em>'RGBA16'</em><em>, </em><em>'RGBA16F'</em><em>, </em><em>'RGBA32F'</em><em>]</em>) – Internal data format inside GPU memory for color attachment texture.</p></li>
 </ul>
 </dd>
 </dl>
@@ -524,6 +546,14 @@ Optionally the sequence can support the buffer protocol.</p></li>
 <dt class="sig sig-object py" id="gpu.types.GPUOffScreen.bind">
 <span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUOffScreen.bind" title="Link to this definition"></a></dt>
 <dd><p>Context manager to ensure balanced bind calls, even in the case of an error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A context manager for the off-screen binding.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gpu.types.OffScreenStackContext" title="gpu.types.OffScreenStackContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.OffScreenStackContext</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -818,7 +848,7 @@ The framebuffer, texture and render objects will no longer be accessible.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>location</strong> (<em>int</em>) – Location of the uniform variable to be modified.</p></li>
-<li><p><strong>buffer</strong> (<em>object exposing buffer interface</em>) – Buffer object with format matching the uniform.</p></li>
+<li><p><strong>buffer</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><em>Buffer</em></a>) – Buffer object with format matching the uniform.</p></li>
 <li><p><strong>length</strong> (<em>int</em>) – Size of the uniform data type.</p></li>
 <li><p><strong>count</strong> (<em>int</em>) – Specifies the number of elements that are to be modified.</p></li>
 </ul>
@@ -904,17 +934,17 @@ test to be run before the fragment shader so that the shader evaluation
 can be skipped if the fragment ends up being discarded because it is occluded.</p>
 <p>This optimization does not affect the final rendering, and is typically
 possible when the fragment does not change the depth programmatically.
-There are, however a class of operations on the depth in the shader which
+There is, however, a class of operations on the depth in the shader which
 could still be performed while allowing the early depth test to operate.</p>
 <p>This function alters the behavior of the optimization to allow those operations
 to be performed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – Depth write value. It can be ‘UNCHANGED’ (default), ‘ANY’, ‘GREATER’ or ‘LESS’.
-:UNCHANGED: disables depth write in a fragment shader and execution of thefragments can be optimized away.
+<dd class="field-odd"><p><strong>value</strong> (<em>Literal</em><em>[</em><em>'UNCHANGED'</em><em>, </em><em>'ANY'</em><em>, </em><em>'GREATER'</em><em>, </em><em>'LESS'</em><em>]</em>) – Depth write value.
+:UNCHANGED: disables depth write in a fragment shader and execution of the fragments can be optimized away.
 :ANY: enables depth write in a fragment shader for any fragments
-:GREATER: enables depth write in a fragment shader for depth values thatare greater than the depth value in the output buffer.
-:LESS: enables depth write in a fragment shader for depth values thatare less than the depth value in the output buffer.</p>
+:GREATER: enables depth write in a fragment shader for depth values that are greater than the depth value in the output buffer.
+:LESS: enables depth write in a fragment shader for depth values that are less than the depth value in the output buffer.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -927,27 +957,9 @@ to be performed.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slot</strong> (<em>int</em>) – The attribute index.</p></li>
-<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'VEC2'</em><em>, </em><em>'VEC3'</em><em>, </em><em>'VEC4'</em><em>, </em><em>'MAT3'</em><em>, </em><em>'MAT4'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UVEC2'</em><em>, </em><em>'UVEC3'</em><em>, </em><em>'UVEC4'</em><em>, </em><em>'INT'</em><em>, </em><em>'IVEC2'</em><em>, </em><em>'IVEC3'</em><em>, </em><em>'IVEC4'</em><em>, </em><em>'BOOL'</em><em>]</em>) – The data type of the output.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – Name of the attribute.</p></li>
-<li><p><strong>blend</strong> (<em>str</em>) – Dual Source Blending Index. It can be ‘NONE’, ‘SRC_0’ or ‘SRC_1’.</p></li>
+<li><p><strong>blend</strong> (<em>Literal</em><em>[</em><em>'NONE'</em><em>, </em><em>'SRC_0'</em><em>, </em><em>'SRC_1'</em><em>]</em>) – Dual Source Blending Index.</p></li>
 </ul>
 </dd>
 </dl>
@@ -958,7 +970,7 @@ to be performed.</p>
 <span class="sig-name descname"><span class="pre">fragment_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.fragment_source" title="Link to this definition"></a></dt>
 <dd><p>Fragment shader source code written in GLSL.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main {fragColor = vec4(0.0, 0.0, 0.0, 1.0);}&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main() {fragColor = vec4(0.0, 0.0, 0.0, 1.0);}&quot;</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -980,95 +992,10 @@ to be performed.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slot</strong> (<em>int</em>) – The image resource index.</p></li>
-<li><p><strong>format</strong> (<em>str</em>) – <p>The GPUTexture format that is passed to the shader. Possible values are:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA8UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA8I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA8</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA32UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA32I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA32F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA16UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA16I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA16F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA16</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG8UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG8I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG8</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG32UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG32I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG32F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG16UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG16I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG16F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RG16</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R8UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R8I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R8</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R32UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R32I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R32F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R16UI</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R16I</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R16F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R16</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">R11F_G11F_B10F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH32F_STENCIL8</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH24_STENCIL8</span></code> (deprecated, use <code class="docutils literal notranslate"><span class="pre">DEPTH32F_STENCIL8</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SRGB8_A8</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGB16F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SRGB8_A8_DXT1</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SRGB8_A8_DXT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SRGB8_A8_DXT5</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA8_DXT1</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA8_DXT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RGBA8_DXT5</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT32F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT24</span></code> (deprecated, use <code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT32F</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT16</span></code></p></li>
-</ul>
-</p></li>
-<li><p><strong>type</strong> (<em>str</em>) – <p>The data type describing how the image is to be read in the shader. Possible values are:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_BUFFER</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_3D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_BUFFER</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_1D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_1D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_3D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_BUFFER</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_1D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_1D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_3D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE_ARRAY</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>'RGBA8UI'</em><em>, </em><em>'RGBA8I'</em><em>, </em><em>'RGBA8'</em><em>, </em><em>'RGBA32UI'</em><em>, </em><em>'RGBA32I'</em><em>, </em><em>'RGBA32F'</em><em>, </em><em>'RGBA16UI'</em><em>, </em><em>'RGBA16I'</em><em>, </em><em>'RGBA16F'</em><em>, </em><em>'RGBA16'</em><em>, </em><em>'RG8UI'</em><em>, </em><em>'RG8I'</em><em>, </em><em>'RG8'</em><em>, </em><em>'RG32UI'</em><em>, </em><em>'RG32I'</em><em>, </em><em>'RG32F'</em><em>, </em><em>'RG16UI'</em><em>, </em><em>'RG16I'</em><em>, </em><em>'RG16F'</em><em>, </em><em>'RG16'</em><em>, </em><em>'R8UI'</em><em>, </em><em>'R8I'</em><em>, </em><em>'R8'</em><em>, </em><em>'R32UI'</em><em>, </em><em>'R32I'</em><em>, </em><em>'R32F'</em><em>, </em><em>'R16UI'</em><em>, </em><em>'R16I'</em><em>, </em><em>'R16F'</em><em>, </em><em>'R16'</em><em>, </em><em>'R11F_G11F_B10F'</em><em>, </em><em>'DEPTH32F_STENCIL8'</em><em>, </em><em>'DEPTH24_STENCIL8'</em><em>, </em><em>'SRGB8_A8'</em><em>, </em><em>'RGB16F'</em><em>, </em><em>'SRGB8_A8_DXT1'</em><em>, </em><em>'SRGB8_A8_DXT3'</em><em>, </em><em>'SRGB8_A8_DXT5'</em><em>, </em><em>'RGBA8_DXT1'</em><em>, </em><em>'RGBA8_DXT3'</em><em>, </em><em>'RGBA8_DXT5'</em><em>, </em><em>'DEPTH_COMPONENT32F'</em><em>, </em><em>'DEPTH_COMPONENT24'</em><em>, </em><em>'DEPTH_COMPONENT16'</em><em>]</em>) – The GPUTexture format that is passed to the shader.</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT_BUFFER'</em><em>, </em><em>'FLOAT_1D'</em><em>, </em><em>'FLOAT_1D_ARRAY'</em><em>, </em><em>'FLOAT_2D'</em><em>, </em><em>'FLOAT_2D_ARRAY'</em><em>, </em><em>'FLOAT_3D'</em><em>, </em><em>'FLOAT_CUBE'</em><em>, </em><em>'FLOAT_CUBE_ARRAY'</em><em>, </em><em>'INT_BUFFER'</em><em>, </em><em>'INT_1D'</em><em>, </em><em>'INT_1D_ARRAY'</em><em>, </em><em>'INT_2D'</em><em>, </em><em>'INT_2D_ARRAY'</em><em>, </em><em>'INT_3D'</em><em>, </em><em>'INT_CUBE'</em><em>, </em><em>'INT_CUBE_ARRAY'</em><em>, </em><em>'UINT_BUFFER'</em><em>, </em><em>'UINT_1D'</em><em>, </em><em>'UINT_1D_ARRAY'</em><em>, </em><em>'UINT_2D'</em><em>, </em><em>'UINT_2D_ARRAY'</em><em>, </em><em>'UINT_3D'</em><em>, </em><em>'UINT_CUBE'</em><em>, </em><em>'UINT_CUBE_ARRAY'</em><em>, </em><em>'SHADOW_2D'</em><em>, </em><em>'SHADOW_2D_ARRAY'</em><em>, </em><em>'SHADOW_CUBE'</em><em>, </em><em>'SHADOW_CUBE_ARRAY'</em><em>, </em><em>'DEPTH_2D'</em><em>, </em><em>'DEPTH_2D_ARRAY'</em><em>, </em><em>'DEPTH_CUBE'</em><em>, </em><em>'DEPTH_CUBE_ARRAY'</em><em>]</em>) – The data type describing how the image is to be read in the shader.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The image resource name.</p></li>
-<li><p><strong>qualifiers</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Set containing values that describe how the image resource is to be read or written. Possible values are:
-- <code class="docutils literal notranslate"><span class="pre">NO_RESTRICT</span></code>
-- <code class="docutils literal notranslate"><span class="pre">READ</span></code>
-- <code class="docutils literal notranslate"><span class="pre">WRITE</span></code></p></li>
+<li><p><strong>qualifiers</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'NO_RESTRICT'</em><em>, </em><em>'READ'</em><em>, </em><em>'WRITE'</em><em>]</em><em>]</em>) – Set containing values that describe how the image resource is to be read or written.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1096,25 +1023,7 @@ to be performed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'VEC2'</em><em>, </em><em>'VEC3'</em><em>, </em><em>'VEC4'</em><em>, </em><em>'MAT3'</em><em>, </em><em>'MAT4'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UVEC2'</em><em>, </em><em>'UVEC3'</em><em>, </em><em>'UVEC4'</em><em>, </em><em>'INT'</em><em>, </em><em>'IVEC2'</em><em>, </em><em>'IVEC3'</em><em>, </em><em>'IVEC4'</em><em>, </em><em>'BOOL'</em><em>]</em>) – The data type of the constant.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – Name of the constant.</p></li>
 <li><p><strong>size</strong> (<em>int</em>) – If not zero, indicates that the constant is an array with the specified size.</p></li>
 </ul>
@@ -1130,42 +1039,7 @@ to be performed.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slot</strong> (<em>int</em>) – The image texture sampler index.</p></li>
-<li><p><strong>type</strong> (<em>str</em>) – <p>The data type describing the format of each sampler unit. Possible values are:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_BUFFER</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_1D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_3D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_BUFFER</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_1D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_1D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_3D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_BUFFER</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_1D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_1D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_3D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SHADOW_CUBE_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_2D_ARRAY</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEPTH_CUBE_ARRAY</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT_BUFFER'</em><em>, </em><em>'FLOAT_1D'</em><em>, </em><em>'FLOAT_1D_ARRAY'</em><em>, </em><em>'FLOAT_2D'</em><em>, </em><em>'FLOAT_2D_ARRAY'</em><em>, </em><em>'FLOAT_3D'</em><em>, </em><em>'FLOAT_CUBE'</em><em>, </em><em>'FLOAT_CUBE_ARRAY'</em><em>, </em><em>'INT_BUFFER'</em><em>, </em><em>'INT_1D'</em><em>, </em><em>'INT_1D_ARRAY'</em><em>, </em><em>'INT_2D'</em><em>, </em><em>'INT_2D_ARRAY'</em><em>, </em><em>'INT_3D'</em><em>, </em><em>'INT_CUBE'</em><em>, </em><em>'INT_CUBE_ARRAY'</em><em>, </em><em>'UINT_BUFFER'</em><em>, </em><em>'UINT_1D'</em><em>, </em><em>'UINT_1D_ARRAY'</em><em>, </em><em>'UINT_2D'</em><em>, </em><em>'UINT_2D_ARRAY'</em><em>, </em><em>'UINT_3D'</em><em>, </em><em>'UINT_CUBE'</em><em>, </em><em>'UINT_CUBE_ARRAY'</em><em>, </em><em>'SHADOW_2D'</em><em>, </em><em>'SHADOW_2D_ARRAY'</em><em>, </em><em>'SHADOW_CUBE'</em><em>, </em><em>'SHADOW_CUBE_ARRAY'</em><em>, </em><em>'DEPTH_2D'</em><em>, </em><em>'DEPTH_2D_ARRAY'</em><em>, </em><em>'DEPTH_CUBE'</em><em>, </em><em>'DEPTH_CUBE_ARRAY'</em><em>]</em>) – The data type describing the format of each sampler unit.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The image texture sampler name.</p></li>
 </ul>
 </dd>
@@ -1183,11 +1057,7 @@ to be performed.</p>
 <li><p><strong>type_name</strong> (<em>str</em>) – Name of the data type. It can be a struct type defined in the
 source passed through <a class="reference internal" href="#gpu.types.GPUShaderCreateInfo.typedef_source" title="gpu.types.GPUShaderCreateInfo.typedef_source"><code class="xref py py-meth docutils literal notranslate"><span class="pre">gpu.types.GPUShaderCreateInfo.typedef_source()</span></code></a>.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The storage buffer variable name.</p></li>
-<li><p><strong>qualifiers</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Set containing values that describe how the storage buffer is to be
-accessed. Possible values are:
-- <code class="docutils literal notranslate"><span class="pre">NO_RESTRICT</span></code>
-- <code class="docutils literal notranslate"><span class="pre">READ</span></code>
-- <code class="docutils literal notranslate"><span class="pre">WRITE</span></code></p></li>
+<li><p><strong>qualifiers</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'NO_RESTRICT'</em><em>, </em><em>'READ'</em><em>, </em><em>'WRITE'</em><em>]</em><em>]</em>) – Set containing values that describe how the ssbo is to be read or written.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1231,25 +1101,7 @@ accessed. Possible values are:
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>slot</strong> (<em>int</em>) – The attribute index.</p></li>
-<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'VEC2'</em><em>, </em><em>'VEC3'</em><em>, </em><em>'VEC4'</em><em>, </em><em>'MAT3'</em><em>, </em><em>'MAT4'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UVEC2'</em><em>, </em><em>'UVEC3'</em><em>, </em><em>'UVEC4'</em><em>, </em><em>'INT'</em><em>, </em><em>'IVEC2'</em><em>, </em><em>'IVEC3'</em><em>, </em><em>'IVEC4'</em><em>, </em><em>'BOOL'</em><em>]</em>) – The data type of the attribute.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
 </ul>
 </dd>
@@ -1272,7 +1124,7 @@ accessed. Possible values are:
 <span class="sig-name descname"><span class="pre">vertex_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUShaderCreateInfo.vertex_source" title="Link to this definition"></a></dt>
 <dd><p>Vertex shader source code written in GLSL.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main {gl_Position = vec4(pos, 1.0);}&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;void main() {gl_Position = vec4(pos, 1.0);}&quot;</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1304,25 +1156,7 @@ accessed. Possible values are:
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'VEC2'</em><em>, </em><em>'VEC3'</em><em>, </em><em>'VEC4'</em><em>, </em><em>'MAT3'</em><em>, </em><em>'MAT4'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UVEC2'</em><em>, </em><em>'UVEC3'</em><em>, </em><em>'UVEC4'</em><em>, </em><em>'INT'</em><em>, </em><em>'IVEC2'</em><em>, </em><em>'IVEC3'</em><em>, </em><em>'IVEC4'</em><em>, </em><em>'BOOL'</em><em>]</em>) – The data type of the attribute.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
 </ul>
 </dd>
@@ -1336,25 +1170,7 @@ accessed. Possible values are:
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'VEC2'</em><em>, </em><em>'VEC3'</em><em>, </em><em>'VEC4'</em><em>, </em><em>'MAT3'</em><em>, </em><em>'MAT4'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UVEC2'</em><em>, </em><em>'UVEC3'</em><em>, </em><em>'UVEC4'</em><em>, </em><em>'INT'</em><em>, </em><em>'IVEC2'</em><em>, </em><em>'IVEC3'</em><em>, </em><em>'IVEC4'</em><em>, </em><em>'BOOL'</em><em>]</em>) – The data type of the attribute.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
 </ul>
 </dd>
@@ -1368,25 +1184,7 @@ accessed. Possible values are:
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>str</em>) – <p>One of these types:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MAT4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UINT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IVEC4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code></p></li>
-</ul>
-</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'VEC2'</em><em>, </em><em>'VEC3'</em><em>, </em><em>'VEC4'</em><em>, </em><em>'MAT3'</em><em>, </em><em>'MAT4'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UVEC2'</em><em>, </em><em>'UVEC3'</em><em>, </em><em>'UVEC4'</em><em>, </em><em>'INT'</em><em>, </em><em>'IVEC2'</em><em>, </em><em>'IVEC3'</em><em>, </em><em>'IVEC4'</em><em>, </em><em>'BOOL'</em><em>]</em>) – The data type of the attribute.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – name of the attribute.</p></li>
 </ul>
 </dd>
@@ -1441,52 +1239,10 @@ Data length will be padded to vec4 (16 bytes) if needed.</p>
 <li><p><strong>size</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Dimensions of the texture 1D, 2D, 3D or cubemap.</p></li>
 <li><p><strong>layers</strong> (<em>int</em>) – Number of layers in texture array or number of cubemaps in cubemap array</p></li>
 <li><p><strong>is_cubemap</strong> (<em>bool</em>) – Indicates the creation of a cubemap texture.</p></li>
-<li><p><strong>format</strong> (<em>str</em>) – Internal data format inside GPU memory. Possible values are:
-<code class="docutils literal notranslate"><span class="pre">RGBA8UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA8I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA8</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA32UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA32I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA32F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA16UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA16I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA16F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA16</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG8UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG8I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG8</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG32UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG32I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG32F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG16UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG16I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG16F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RG16</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R8UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R8I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R8</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R32UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R32I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R32F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R16UI</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R16I</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R16F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R16</span></code>,
-<code class="docutils literal notranslate"><span class="pre">R11F_G11F_B10F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">DEPTH32F_STENCIL8</span></code>,
-<code class="docutils literal notranslate"><span class="pre">DEPTH24_STENCIL8</span></code> (deprecated, use <code class="docutils literal notranslate"><span class="pre">DEPTH32F_STENCIL8</span></code>),
-<code class="docutils literal notranslate"><span class="pre">SRGB8_A8</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGB16F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">SRGB8_A8_DXT1</span></code>,
-<code class="docutils literal notranslate"><span class="pre">SRGB8_A8_DXT3</span></code>,
-<code class="docutils literal notranslate"><span class="pre">SRGB8_A8_DXT5</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA8_DXT1</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA8_DXT3</span></code>,
-<code class="docutils literal notranslate"><span class="pre">RGBA8_DXT5</span></code>,
-<code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT32F</span></code>,
-<code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT24</span></code>, (deprecated, use <code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT32F</span></code>),
-<code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT16</span></code>.</p></li>
-<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a>) – Buffer object to fill the texture.</p></li>
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>'RGBA8UI'</em><em>, </em><em>'RGBA8I'</em><em>, </em><em>'RGBA8'</em><em>, </em><em>'RGBA32UI'</em><em>, </em><em>'RGBA32I'</em><em>, </em><em>'RGBA32F'</em><em>, </em><em>'RGBA16UI'</em><em>, </em><em>'RGBA16I'</em><em>, </em><em>'RGBA16F'</em><em>, </em><em>'RGBA16'</em><em>, </em><em>'RG8UI'</em><em>, </em><em>'RG8I'</em><em>, </em><em>'RG8'</em><em>, </em><em>'RG32UI'</em><em>, </em><em>'RG32I'</em><em>, </em><em>'RG32F'</em><em>, </em><em>'RG16UI'</em><em>, </em><em>'RG16I'</em><em>, </em><em>'RG16F'</em><em>, </em><em>'RG16'</em><em>, </em><em>'R8UI'</em><em>, </em><em>'R8I'</em><em>, </em><em>'R8'</em><em>, </em><em>'R32UI'</em><em>, </em><em>'R32I'</em><em>, </em><em>'R32F'</em><em>, </em><em>'R16UI'</em><em>, </em><em>'R16I'</em><em>, </em><em>'R16F'</em><em>, </em><em>'R16'</em><em>, </em><em>'R11F_G11F_B10F'</em><em>, </em><em>'DEPTH32F_STENCIL8'</em><em>, </em><em>'DEPTH24_STENCIL8'</em><em>, </em><em>'SRGB8_A8'</em><em>, </em><em>'RGB16F'</em><em>, </em><em>'SRGB8_A8_DXT1'</em><em>, </em><em>'SRGB8_A8_DXT3'</em><em>, </em><em>'SRGB8_A8_DXT5'</em><em>, </em><em>'RGBA8_DXT1'</em><em>, </em><em>'RGBA8_DXT3'</em><em>, </em><em>'RGBA8_DXT5'</em><em>, </em><em>'DEPTH_COMPONENT32F'</em><em>, </em><em>'DEPTH_COMPONENT24'</em><em>, </em><em>'DEPTH_COMPONENT16'</em><em>]</em>) – Internal data format inside GPU memory.
+<code class="docutils literal notranslate"><span class="pre">DEPTH24_STENCIL8</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">DEPTH32F_STENCIL8</span></code>.
+<code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT24</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">DEPTH_COMPONENT32F</span></code>.</p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a> | None) – Buffer object to fill the texture.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1508,10 +1264,9 @@ Data length will be padded to vec4 (16 bytes) if needed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>format</strong> (<em>str</em>) – The format that describes the content of a single item.
-Possible values are <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT</span></code>, <code class="docutils literal notranslate"><span class="pre">UBYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">10_11_11_REV</span></code>.
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'INT'</em><em>, </em><em>'UINT'</em><em>, </em><em>'UBYTE'</em><em>, </em><em>'UINT_24_8'</em><em>, </em><em>'10_11_11_REV'</em><em>]</em>) – The format that describes the content of a single item.
 <code class="docutils literal notranslate"><span class="pre">UINT_24_8</span></code> is deprecated, use <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> instead.</p></li>
-<li><p><strong>value</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Sequence each representing the value to fill. Sizes 1..4 are supported.</p></li>
+<li><p><strong>value</strong> (<em>Sequence</em><em>[</em><em>float</em><em>] </em><em>| </em><em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Sequence each representing the value to fill. Sizes 1..4 are supported.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1580,6 +1335,14 @@ both the x and y axis.</p>
 <dt class="sig sig-object py" id="gpu.types.GPUTexture.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUTexture.read" title="Link to this definition"></a></dt>
 <dd><p>Creates a buffer with the value of all pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The Buffer with the read pixels.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.Buffer</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1620,16 +1383,21 @@ both the x and y axis.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUUniformBuf">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">GPUUniformBuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUUniformBuf" title="Link to this definition"></a></dt>
-<dd><p>This object gives access to off uniform buffers.</p>
+<dd><p>This object gives access to uniform buffers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>object exposing buffer interface</em>) – Data to fill the buffer.</p>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><em>Buffer</em></a>) – Data to fill the buffer.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpu.types.GPUUniformBuf.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.GPUUniformBuf.update" title="Link to this definition"></a></dt>
 <dd><p>Update the data of the uniform buffer object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="#gpu.types.Buffer" title="gpu.types.Buffer"><em>Buffer</em></a>) – Data to fill the buffer.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1673,21 +1441,31 @@ both the x and y axis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>str</em>) – Name the attribute. Often <code class="docutils literal notranslate"><span class="pre">position</span></code>, <code class="docutils literal notranslate"><span class="pre">normal</span></code>, …</p></li>
-<li><p><strong>comp_type</strong> (<em>str</em>) – The data type that will be used store the value in memory.
-Possible values are <code class="docutils literal notranslate"><span class="pre">I8</span></code>, <code class="docutils literal notranslate"><span class="pre">U8</span></code>, <code class="docutils literal notranslate"><span class="pre">I16</span></code>, <code class="docutils literal notranslate"><span class="pre">U16</span></code>, <code class="docutils literal notranslate"><span class="pre">I32</span></code>, <code class="docutils literal notranslate"><span class="pre">U32</span></code>, <code class="docutils literal notranslate"><span class="pre">F32</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">I10</span></code>.</p></li>
+<li><p><strong>id</strong> (<em>str</em>) – Name of the attribute. Often <code class="docutils literal notranslate"><span class="pre">position</span></code>, <code class="docutils literal notranslate"><span class="pre">normal</span></code>, …</p></li>
+<li><p><strong>comp_type</strong> (<em>Literal</em><em>[</em><em>'I8'</em><em>, </em><em>'U8'</em><em>, </em><em>'I16'</em><em>, </em><em>'U16'</em><em>, </em><em>'I32'</em><em>, </em><em>'U32'</em><em>, </em><em>'F32'</em><em>, </em><em>'I10'</em><em>]</em>) – The data type that will be used to store the value in memory.</p></li>
 <li><p><strong>len</strong> (<em>int</em>) – How many individual values the attribute consists of
 (e.g. 2 for uv coordinates).</p></li>
-<li><p><strong>fetch_mode</strong> (<em>str</em>) – How values from memory will be converted when used in the shader.
+<li><p><strong>fetch_mode</strong> (<em>Literal</em><em>[</em><em>'FLOAT'</em><em>, </em><em>'INT'</em><em>, </em><em>'INT_TO_FLOAT_UNIT'</em><em>]</em>) – How values from memory will be converted when used in the shader.
 This is mainly useful for memory optimizations when you want to store values with
 reduced precision. E.g. you can store a float in only 1 byte but it will be
-converted to a normal 4 byte float when used.
-Possible values are <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code> or <code class="docutils literal notranslate"><span class="pre">INT_TO_FLOAT_UNIT</span></code>.</p></li>
+converted to a normal 4 byte float when used.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gpu.types.MatrixStackContext">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">MatrixStackContext</span></span><a class="headerlink" href="#gpu.types.MatrixStackContext" title="Link to this definition"></a></dt>
+<dd><p>Context manager for matrix stack push/pop.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gpu.types.OffScreenStackContext">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">OffScreenStackContext</span></span><a class="headerlink" href="#gpu.types.OffScreenStackContext" title="Link to this definition"></a></dt>
+<dd><p>Context manager for off-screen framebuffer binding.</p>
 </dd></dl>
 
 </section>
@@ -1704,7 +1482,7 @@ Possible values are <code class="docutils literal notranslate"><span class="pre"
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

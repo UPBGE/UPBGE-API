@@ -148,19 +148,19 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.view3d_utils.region_2d_to_vector_3d">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.view3d_utils.</span></span><span class="sig-name descname"><span class="pre">region_2d_to_vector_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rv3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.region_2d_to_vector_3d" title="Link to this definition"></a></dt>
-<dd><p>Return a direction vector from the viewport at the specific 2d region
+<dd><p>Return a direction vector from the viewport at the specific 2D region
 coordinate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Region</span></code></a>) – region of the 3D viewport, typically bpy.context.region.</p></li>
 <li><p><strong>rv3d</strong> (<a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.RegionView3D</span></code></a>) – 3D region data, typically bpy.context.space_data.region_3d.</p></li>
-<li><p><strong>coord</strong> (<em>2d vector</em>) – 2d coordinates relative to the region:
+<li><p><strong>coord</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – 2D coordinates relative to the region:
 (event.mouse_region_x, event.mouse_region_y) for example.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>normalized 3d vector.</p>
+<dd class="field-even"><p>normalized 3D vector.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
@@ -171,13 +171,13 @@ coordinate.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.view3d_utils.region_2d_to_origin_3d">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.view3d_utils.</span></span><span class="sig-name descname"><span class="pre">region_2d_to_origin_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rv3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.region_2d_to_origin_3d" title="Link to this definition"></a></dt>
-<dd><p>Return the 3d view origin from the region relative 2d coords.</p>
+<dd><p>Return the 3D view origin from the region relative 2D coords.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Orthographic views have a less obvious origin,
 the far clip is used to define the viewport near/far extents.
 Since far clip can be a very large value,
-the result may give with numeric precision issues.</p>
+the result may have numeric precision issues.</p>
 <p>To avoid this problem, you can optionally clamp the far clip to a
 smaller value based on the data you’re operating on.</p>
 </div>
@@ -193,7 +193,7 @@ smaller value based on the data you’re operating on.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The origin of the viewpoint in 3d space.</p>
+<dd class="field-even"><p>The origin of the viewpoint in 3D space.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
@@ -204,21 +204,21 @@ smaller value based on the data you’re operating on.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.view3d_utils.region_2d_to_location_3d">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.view3d_utils.</span></span><span class="sig-name descname"><span class="pre">region_2d_to_location_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rv3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_location</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.region_2d_to_location_3d" title="Link to this definition"></a></dt>
-<dd><p>Return a 3d location from the region relative 2d coords, aligned with
+<dd><p>Return a 3D location from the region relative 2D coords, aligned with
 <em>depth_location</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Region</span></code></a>) – region of the 3D viewport, typically bpy.context.region.</p></li>
 <li><p><strong>rv3d</strong> (<a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.RegionView3D</span></code></a>) – 3D region data, typically bpy.context.space_data.region_3d.</p></li>
-<li><p><strong>coord</strong> (<em>2d vector</em>) – 2d coordinates relative to the region;
+<li><p><strong>coord</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – 2D coordinates relative to the region;
 (event.mouse_region_x, event.mouse_region_y) for example.</p></li>
-<li><p><strong>depth_location</strong> (<em>3d vector</em>) – the returned vectors depth is aligned with this since
-there is no defined depth with a 2d region input.</p></li>
+<li><p><strong>depth_location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – the returned vectors depth is aligned with this since
+there is no defined depth with a 2D region input.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>normalized 3d vector.</p>
+<dd class="field-even"><p>normalized 3D vector.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
@@ -229,19 +229,19 @@ there is no defined depth with a 2d region input.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.view3d_utils.location_3d_to_region_2d">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.view3d_utils.</span></span><span class="sig-name descname"><span class="pre">location_3d_to_region_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rv3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.location_3d_to_region_2d" title="Link to this definition"></a></dt>
-<dd><p>Return the <em>region</em> relative 2d location of a 3d position.</p>
+<dd><p>Return the <em>region</em> relative 2D location of a 3D position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Region</span></code></a>) – region of the 3D viewport, typically bpy.context.region.</p></li>
 <li><p><strong>rv3d</strong> (<a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.RegionView3D</span></code></a>) – 3D region data, typically bpy.context.space_data.region_3d.</p></li>
-<li><p><strong>coord</strong> (<em>3d vector</em>) – 3d world-space location.</p></li>
-<li><p><strong>default</strong> – Return this value if <code class="docutils literal notranslate"><span class="pre">coord</span></code>
+<li><p><strong>coord</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – 3D world-space location.</p></li>
+<li><p><strong>default</strong> (<em>Any</em>) – Return this value if <code class="docutils literal notranslate"><span class="pre">coord</span></code>
 is behind the origin of a perspective view.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>2d location</p>
+<dd class="field-even"><p>2D location</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Any</p>
@@ -263,7 +263,7 @@ is behind the origin of a perspective view.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

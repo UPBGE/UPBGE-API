@@ -225,16 +225,16 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Filepath used for exporting the file</p></li>
-<li><p><strong>check_existing</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Check Existing, Check and warn on overwriting existing files</p></li>
-<li><p><strong>filter_glob</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filter_glob</p></li>
-<li><p><strong>use_selection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected Objects, Export selected and visible objects only</p></li>
-<li><p><strong>use_visible</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Visible Objects, Export visible objects only</p></li>
-<li><p><strong>use_active_collection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Collection, Export only objects from the active collection (and its children)</p></li>
-<li><p><strong>collection</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Source Collection, Export only objects from this collection (and its children)</p></li>
-<li><p><strong>global_scale</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>1000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scale, Scale all data (Some importers do not support scaled armatures!)</p></li>
-<li><p><strong>apply_unit_scale</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Apply Unit, Take into account current Blender units settings (if unset, raw Blender Units values are used as-is)</p></li>
-<li><p><strong>apply_scale_options</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FBX_SCALE_NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FBX_SCALE_UNITS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FBX_SCALE_CUSTOM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FBX_SCALE_ALL'</span></code>], (optional)) – <p>Apply Scalings, How to apply custom and units scalings in generated FBX file (Blender uses FBX scale to detect units on import, but many other applications do not handle the same way)</p>
+<li><p><strong>filepath</strong> (<em>str</em>) – File Path, Filepath used for exporting the file (optional, never None)</p></li>
+<li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
+<li><p><strong>filter_glob</strong> (<em>str</em>) – filter_glob, (optional, never None)</p></li>
+<li><p><strong>use_selection</strong> (<em>bool</em>) – Selected Objects, Export selected and visible objects only (optional)</p></li>
+<li><p><strong>use_visible</strong> (<em>bool</em>) – Visible Objects, Export visible objects only (optional)</p></li>
+<li><p><strong>use_active_collection</strong> (<em>bool</em>) – Active Collection, Export only objects from the active collection (and its children) (optional)</p></li>
+<li><p><strong>collection</strong> (<em>str</em>) – Source Collection, Export only objects from this collection (and its children) (optional, never None)</p></li>
+<li><p><strong>global_scale</strong> (<em>float</em>) – Scale, Scale all data (Some importers do not support scaled armatures!) (in [0.001, 1000], optional)</p></li>
+<li><p><strong>apply_unit_scale</strong> (<em>bool</em>) – Apply Unit, Take into account current Blender units settings (if unset, raw Blender Units values are used as-is) (optional)</p></li>
+<li><p><strong>apply_scale_options</strong> (<em>Literal</em><em>[</em><em>'FBX_SCALE_NONE'</em><em>, </em><em>'FBX_SCALE_UNITS'</em><em>, </em><em>'FBX_SCALE_CUSTOM'</em><em>, </em><em>'FBX_SCALE_ALL'</em><em>]</em>) – <p>Apply Scalings, How to apply custom and units scalings in generated FBX file (Blender uses FBX scale to detect units on import, but many other applications do not handle the same way) (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FBX_SCALE_NONE</span></code>
 All Local – Apply custom scaling and units scaling to each object transformation, FBX scale remains at 1.0.</p></li>
@@ -246,9 +246,9 @@ FBX Custom Scale – Apply custom scaling to FBX scale, and units scaling to eac
 FBX All – Apply custom scaling and units scaling to FBX scale.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_space_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Space Transform, Apply global space transform to the object rotations. When disabled only the axis space is written to the file and all object transforms are left as-is</p></li>
-<li><p><strong>bake_space_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Apply Transform, Bake space transform into object data, avoids getting unwanted rotations to objects when target space is not aligned with Blender’s space (WARNING! experimental option, use at own risk, known to be broken with armatures/animations)</p></li>
-<li><p><strong>object_types</strong> (enum set in {<code class="docutils literal notranslate"><span class="pre">'EMPTY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CAMERA'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LIGHT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ARMATURE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MESH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'OTHER'</span></code>}, (optional)) – <p>Object Types, Which kind of object to export</p>
+<li><p><strong>use_space_transform</strong> (<em>bool</em>) – Use Space Transform, Apply global space transform to the object rotations. When disabled only the axis space is written to the file and all object transforms are left as-is (optional)</p></li>
+<li><p><strong>bake_space_transform</strong> (<em>bool</em>) – Apply Transform, Bake space transform into object data, avoids getting unwanted rotations to objects when target space is not aligned with Blender’s space (WARNING! experimental option, use at own risk, known to be broken with armatures/animations) (optional)</p></li>
+<li><p><strong>object_types</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'EMPTY'</em><em>, </em><em>'CAMERA'</em><em>, </em><em>'LIGHT'</em><em>, </em><em>'ARMATURE'</em><em>, </em><em>'MESH'</em><em>, </em><em>'OTHER'</em><em>]</em><em>]</em>) – <p>Object Types, Which kind of object to export (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">EMPTY</span></code>
 Empty.</p></li>
@@ -264,9 +264,9 @@ Mesh.</p></li>
 Other – Other geometry types, like curve, meta-ball, etc. (converted to meshes).</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_mesh_modifiers</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Apply Modifiers, Apply modifiers to mesh objects (except Armature ones) - WARNING: prevents exporting shape keys</p></li>
-<li><p><strong>use_mesh_modifiers_render</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Modifiers Render Setting, Use render settings when applying modifiers to mesh objects (DISABLED in Blender 2.8)</p></li>
-<li><p><strong>mesh_smooth_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'OFF'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FACE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'EDGE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH_GROUP'</span></code>], (optional)) – <p>Smoothing, Export smoothing information (prefer ‘Normals Only’ option if your target importer understands custom normals)</p>
+<li><p><strong>use_mesh_modifiers</strong> (<em>bool</em>) – Apply Modifiers, Apply modifiers to mesh objects (except Armature ones) - WARNING: prevents exporting shape keys (optional)</p></li>
+<li><p><strong>use_mesh_modifiers_render</strong> (<em>bool</em>) – Use Modifiers Render Setting, Use render settings when applying modifiers to mesh objects (DISABLED in Blender 2.8) (optional)</p></li>
+<li><p><strong>mesh_smooth_type</strong> (<em>Literal</em><em>[</em><em>'OFF'</em><em>, </em><em>'FACE'</em><em>, </em><em>'EDGE'</em><em>, </em><em>'SMOOTH_GROUP'</em><em>]</em>) – <p>Smoothing, Export smoothing information (prefer ‘Normals Only’ option if your target importer understands custom normals) (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code>
 Normals Only – Export only normals instead of writing edge or face smoothing data.</p></li>
@@ -278,7 +278,7 @@ Edge – Write edge smoothing.</p></li>
 Smoothing Groups – Write face smoothing groups.</p></li>
 </ul>
 </p></li>
-<li><p><strong>colors_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SRGB'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LINEAR'</span></code>], (optional)) – <p>Vertex Colors, Export vertex color attributes</p>
+<li><p><strong>colors_type</strong> (<em>Literal</em><em>[</em><em>'NONE'</em><em>, </em><em>'SRGB'</em><em>, </em><em>'LINEAR'</em><em>]</em>) – <p>Vertex Colors, Export vertex color attributes (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
 None – Do not export color attributes.</p></li>
@@ -288,17 +288,17 @@ sRGB – Export colors in sRGB color space.</p></li>
 Linear – Export colors in linear color space.</p></li>
 </ul>
 </p></li>
-<li><p><strong>prioritize_active_color</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Prioritize Active Color, Make sure active color will be exported first. Could be important since some other software can discard other color attributes besides the first one</p></li>
-<li><p><strong>use_subsurf</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Subdivision Surface, Export the last Catmull-Rom subdivision modifier as FBX subdivision (does not apply the modifier even if ‘Apply Modifiers’ is enabled)</p></li>
-<li><p><strong>use_mesh_edges</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Loose Edges, Export loose edges (as two-vertices polygons)</p></li>
-<li><p><strong>use_tspace</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Tangent Space, Add binormal and tangent vectors, together with normal they form the tangent space (will only work correctly with tris/quads only meshes!)</p></li>
-<li><p><strong>use_triangles</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Triangulate Faces, Convert all faces to triangles</p></li>
-<li><p><strong>use_custom_props</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Custom Properties, Export custom properties</p></li>
-<li><p><strong>add_leaf_bones</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Add Leaf Bones, Append a final bone to the end of each chain to specify last bone length (use this when you intend to edit the armature from exported data)</p></li>
-<li><p><strong>primary_bone_axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Primary Bone Axis</p></li>
-<li><p><strong>secondary_bone_axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Secondary Bone Axis</p></li>
-<li><p><strong>use_armature_deform_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Deform Bones, Only write deforming bones (and non-deforming ones when they have deforming children)</p></li>
-<li><p><strong>armature_nodetype</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NULL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ROOT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LIMBNODE'</span></code>], (optional)) – <p>Armature FBXNode Type, FBX type of node (object) used to represent Blender’s armatures (use the Null type unless you experience issues with the other app, as other choices may not import back perfectly into Blender…)</p>
+<li><p><strong>prioritize_active_color</strong> (<em>bool</em>) – Prioritize Active Color, Make sure active color will be exported first. Could be important since some other software can discard other color attributes besides the first one (optional)</p></li>
+<li><p><strong>use_subsurf</strong> (<em>bool</em>) – Export Subdivision Surface, Export the last Catmull-Rom subdivision modifier as FBX subdivision (does not apply the modifier even if ‘Apply Modifiers’ is enabled) (optional)</p></li>
+<li><p><strong>use_mesh_edges</strong> (<em>bool</em>) – Loose Edges, Export loose edges (as two-vertices polygons) (optional)</p></li>
+<li><p><strong>use_tspace</strong> (<em>bool</em>) – Tangent Space, Add binormal and tangent vectors, together with normal they form the tangent space (will only work correctly with tris/quads only meshes!) (optional)</p></li>
+<li><p><strong>use_triangles</strong> (<em>bool</em>) – Triangulate Faces, Convert all faces to triangles (optional)</p></li>
+<li><p><strong>use_custom_props</strong> (<em>bool</em>) – Custom Properties, Export custom properties (optional)</p></li>
+<li><p><strong>add_leaf_bones</strong> (<em>bool</em>) – Add Leaf Bones, Append a final bone to the end of each chain to specify last bone length (use this when you intend to edit the armature from exported data) (optional)</p></li>
+<li><p><strong>primary_bone_axis</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Primary Bone Axis, (optional)</p></li>
+<li><p><strong>secondary_bone_axis</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Secondary Bone Axis, (optional)</p></li>
+<li><p><strong>use_armature_deform_only</strong> (<em>bool</em>) – Only Deform Bones, Only write deforming bones (and non-deforming ones when they have deforming children) (optional)</p></li>
+<li><p><strong>armature_nodetype</strong> (<em>Literal</em><em>[</em><em>'NULL'</em><em>, </em><em>'ROOT'</em><em>, </em><em>'LIMBNODE'</em><em>]</em>) – <p>Armature FBXNode Type, FBX type of node (object) used to represent Blender’s armatures (use the Null type unless you experience issues with the other app, as other choices may not import back perfectly into Blender…) (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NULL</span></code>
 Null – ‘Null’ FBX node, similar to Blender’s Empty (default).</p></li>
@@ -308,14 +308,14 @@ Root – ‘Root’ FBX node, supposed to be the root of chains of bones….</p>
 LimbNode – ‘LimbNode’ FBX node, a regular joint between two bones….</p></li>
 </ul>
 </p></li>
-<li><p><strong>bake_anim</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Baked Animation, Export baked keyframe animation</p></li>
-<li><p><strong>bake_anim_use_all_bones</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Key All Bones, Force exporting at least one key of animation for all bones (needed with some target applications, like UE4)</p></li>
-<li><p><strong>bake_anim_use_nla_strips</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – NLA Strips, Export each non-muted NLA strip as a separated FBX’s AnimStack, if any, instead of global scene animation</p></li>
-<li><p><strong>bake_anim_use_all_actions</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All Actions, Export each action as a separated FBX’s AnimStack, instead of global scene animation (note that animated objects will get all actions compatible with them, others will get no animation at all)</p></li>
-<li><p><strong>bake_anim_force_startend_keying</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Force Start/End Keying, Always add a keyframe at start and end of actions for animated channels</p></li>
-<li><p><strong>bake_anim_step</strong> (<em>float in</em><em> [</em><em>0.01</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Sampling Rate, How often to evaluate animated values (in frames)</p></li>
-<li><p><strong>bake_anim_simplify_factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Simplify, How much to simplify baked values (0.0 to disable, the higher the more simplified)</p></li>
-<li><p><strong>path_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'AUTO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ABSOLUTE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RELATIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MATCH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'STRIP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'COPY'</span></code>], (optional)) – <p>Path Mode, Method used to reference paths</p>
+<li><p><strong>bake_anim</strong> (<em>bool</em>) – Baked Animation, Export baked keyframe animation (optional)</p></li>
+<li><p><strong>bake_anim_use_all_bones</strong> (<em>bool</em>) – Key All Bones, Force exporting at least one key of animation for all bones (needed with some target applications, like UE4) (optional)</p></li>
+<li><p><strong>bake_anim_use_nla_strips</strong> (<em>bool</em>) – NLA Strips, Export each non-muted NLA strip as a separated FBX’s AnimStack, if any, instead of global scene animation (optional)</p></li>
+<li><p><strong>bake_anim_use_all_actions</strong> (<em>bool</em>) – All Actions, Export each action as a separated FBX’s AnimStack, instead of global scene animation (note that animated objects will get all actions compatible with them, others will get no animation at all) (optional)</p></li>
+<li><p><strong>bake_anim_force_startend_keying</strong> (<em>bool</em>) – Force Start/End Keying, Always add a keyframe at start and end of actions for animated channels (optional)</p></li>
+<li><p><strong>bake_anim_step</strong> (<em>float</em>) – Sampling Rate, How often to evaluate animated values (in frames) (in [0.01, 100], optional)</p></li>
+<li><p><strong>bake_anim_simplify_factor</strong> (<em>float</em>) – Simplify, How much to simplify baked values (0.0 to disable, the higher the more simplified) (in [0, 100], optional)</p></li>
+<li><p><strong>path_mode</strong> (<em>Literal</em><em>[</em><em>'AUTO'</em><em>, </em><em>'ABSOLUTE'</em><em>, </em><em>'RELATIVE'</em><em>, </em><em>'MATCH'</em><em>, </em><em>'STRIP'</em><em>, </em><em>'COPY'</em><em>]</em>) – <p>Path Mode, Method used to reference paths (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
 Auto – Use relative paths with subdirectories only.</p></li>
@@ -331,8 +331,8 @@ Strip – Filename only.</p></li>
 Copy – Copy the file to the destination path (or subdirectory).</p></li>
 </ul>
 </p></li>
-<li><p><strong>embed_textures</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Embed Textures, Embed textures in FBX binary file (only for “Copy” path mode!)</p></li>
-<li><p><strong>batch_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'OFF'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCENE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'COLLECTION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCENE_COLLECTION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTIVE_SCENE_COLLECTION'</span></code>], (optional)) – <p>Batch Mode</p>
+<li><p><strong>embed_textures</strong> (<em>bool</em>) – Embed Textures, Embed textures in FBX binary file (only for “Copy” path mode!) (optional)</p></li>
+<li><p><strong>batch_mode</strong> (<em>Literal</em><em>[</em><em>'OFF'</em><em>, </em><em>'SCENE'</em><em>, </em><em>'COLLECTION'</em><em>, </em><em>'SCENE_COLLECTION'</em><em>, </em><em>'ACTIVE_SCENE_COLLECTION'</em><em>]</em>) – <p>Batch Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code>
 Off – Active scene to file.</p></li>
@@ -346,11 +346,17 @@ Scene Collections – Each collection (including master, non-data-block ones) of
 Active Scene Collections – Each collection (including master, non-data-block one) of the active scene as a file, including content from children collections.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_batch_own_dir</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Batch Own Dir, Create a dir for each exported file</p></li>
-<li><p><strong>use_metadata</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Metadata</p></li>
-<li><p><strong>axis_forward</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Forward</p></li>
-<li><p><strong>axis_up</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-Z'</span></code>], (optional)) – Up</p></li>
+<li><p><strong>use_batch_own_dir</strong> (<em>bool</em>) – Batch Own Dir, Create a dir for each exported file (optional)</p></li>
+<li><p><strong>use_metadata</strong> (<em>bool</em>) – Use Metadata, (optional)</p></li>
+<li><p><strong>axis_forward</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Forward, (optional)</p></li>
+<li><p><strong>axis_up</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Up, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/io_scene_fbx/__init__.py#L604">addons_core/io_scene_fbx/__init__.py:604</a></p>
@@ -365,9 +371,9 @@ Active Scene Collections – Each collection (including master, non-data-block o
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Filepath used for exporting the file</p></li>
-<li><p><strong>check_existing</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Check Existing, Check and warn on overwriting existing files</p></li>
-<li><p><strong>export_import_convert_lighting_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SPEC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'COMPAT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RAW'</span></code>], (optional)) – <p>Lighting Mode, Optional backwards compatibility for non-standard render engines. Applies to lights</p>
+<li><p><strong>filepath</strong> (<em>str</em>) – File Path, Filepath used for exporting the file (optional, never None)</p></li>
+<li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
+<li><p><strong>export_import_convert_lighting_mode</strong> (<em>Literal</em><em>[</em><em>'SPEC'</em><em>, </em><em>'COMPAT'</em><em>, </em><em>'RAW'</em><em>]</em>) – <p>Lighting Mode, Optional backwards compatibility for non-standard render engines. Applies to lights (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SPEC</span></code>
 Standard – Physically-based glTF lighting units (cd, lx, nt).</p></li>
@@ -377,18 +383,18 @@ Unitless – Non-physical, unitless lighting. Useful when exposure controls are 
 Raw (Deprecated) – Blender lighting strengths with no conversion.</p></li>
 </ul>
 </p></li>
-<li><p><strong>gltf_export_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Identifier, Identifier of caller (in case of add-on calling this exporter). Can be useful in case of Extension added by other add-ons</p></li>
-<li><p><strong>export_use_gltfpack</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Gltfpack, Use gltfpack to simplify the mesh and/or compress its textures</p></li>
-<li><p><strong>export_gltfpack_tc</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – KTX2 Compression, Convert all textures to KTX2 with BasisU supercompression</p></li>
-<li><p><strong>export_gltfpack_tq</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Texture Encoding Quality, Texture encoding quality</p></li>
-<li><p><strong>export_gltfpack_si</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mesh Simplification Ratio, Simplify meshes targeting triangle count ratio</p></li>
-<li><p><strong>export_gltfpack_sa</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Aggressive Mesh Simplification, Aggressively simplify to the target ratio disregarding quality</p></li>
-<li><p><strong>export_gltfpack_slb</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Lock Mesh Border Vertices, Lock border vertices during simplification to avoid gaps on connected meshes</p></li>
-<li><p><strong>export_gltfpack_vp</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>16</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Position Quantization, Use N-bit quantization for positions</p></li>
-<li><p><strong>export_gltfpack_vt</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>16</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Texture Coordinate Quantization, Use N-bit quantization for texture coordinates</p></li>
-<li><p><strong>export_gltfpack_vn</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>16</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal/Tangent Quantization, Use N-bit quantization for normals and tangents</p></li>
-<li><p><strong>export_gltfpack_vc</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>16</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Vertex Color Quantization, Use N-bit quantization for colors</p></li>
-<li><p><strong>export_gltfpack_vpi</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'Integer'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Normalized'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Floating-point'</span></code>], (optional)) – <p>Vertex Position Attributes, Type to use for vertex position attributes</p>
+<li><p><strong>gltf_export_id</strong> (<em>str</em>) – Identifier, Identifier of caller (in case of add-on calling this exporter). Can be useful in case of Extension added by other add-ons (optional, never None)</p></li>
+<li><p><strong>export_use_gltfpack</strong> (<em>bool</em>) – Use Gltfpack, Use gltfpack to simplify the mesh and/or compress its textures (optional)</p></li>
+<li><p><strong>export_gltfpack_tc</strong> (<em>bool</em>) – KTX2 Compression, Convert all textures to KTX2 with BasisU supercompression (optional)</p></li>
+<li><p><strong>export_gltfpack_tq</strong> (<em>int</em>) – Texture Encoding Quality, Texture encoding quality (in [1, 10], optional)</p></li>
+<li><p><strong>export_gltfpack_si</strong> (<em>float</em>) – Mesh Simplification Ratio, Simplify meshes targeting triangle count ratio (in [0, 1], optional)</p></li>
+<li><p><strong>export_gltfpack_sa</strong> (<em>bool</em>) – Aggressive Mesh Simplification, Aggressively simplify to the target ratio disregarding quality (optional)</p></li>
+<li><p><strong>export_gltfpack_slb</strong> (<em>bool</em>) – Lock Mesh Border Vertices, Lock border vertices during simplification to avoid gaps on connected meshes (optional)</p></li>
+<li><p><strong>export_gltfpack_vp</strong> (<em>int</em>) – Position Quantization, Use N-bit quantization for positions (in [1, 16], optional)</p></li>
+<li><p><strong>export_gltfpack_vt</strong> (<em>int</em>) – Texture Coordinate Quantization, Use N-bit quantization for texture coordinates (in [1, 16], optional)</p></li>
+<li><p><strong>export_gltfpack_vn</strong> (<em>int</em>) – Normal/Tangent Quantization, Use N-bit quantization for normals and tangents (in [1, 16], optional)</p></li>
+<li><p><strong>export_gltfpack_vc</strong> (<em>int</em>) – Vertex Color Quantization, Use N-bit quantization for colors (in [1, 16], optional)</p></li>
+<li><p><strong>export_gltfpack_vpi</strong> (<em>Literal</em><em>[</em><em>'Integer'</em><em>, </em><em>'Normalized'</em><em>, </em><em>'Floating-point'</em><em>]</em>) – <p>Vertex Position Attributes, Type to use for vertex position attributes (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Integer</span></code>
 Integer – Use integer attributes for positions.</p></li>
@@ -398,10 +404,10 @@ Normalized – Use normalized attributes for positions.</p></li>
 Floating-point – Use floating-point attributes for positions.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_gltfpack_noq</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Disable Quantization, Disable quantization; produces much larger glTF files with no extensions</p></li>
-<li><p><strong>export_gltfpack_kn</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Named Nodes, Restrict some optimization to keep named nodes and meshes attached to named nodes so that named nodes can be transformed externally</p></li>
-<li><p><strong>export_format</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Format, Output format. Binary is most efficient, but JSON may be easier to edit later</p></li>
-<li><p><strong>ui_tab</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'GENERAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MESHES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'OBJECTS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ANIMATION'</span></code>], (optional)) – <p>ui_tab, Export setting categories</p>
+<li><p><strong>export_gltfpack_noq</strong> (<em>bool</em>) – Disable Quantization, Disable quantization; produces much larger glTF files with no extensions (optional)</p></li>
+<li><p><strong>export_gltfpack_kn</strong> (<em>bool</em>) – Keep Named Nodes, Restrict some optimization to keep named nodes and meshes attached to named nodes so that named nodes can be transformed externally (optional)</p></li>
+<li><p><strong>export_format</strong> (<em>str</em>) – Format, Output format. Binary is most efficient, but JSON may be easier to edit later (optional)</p></li>
+<li><p><strong>ui_tab</strong> (<em>Literal</em><em>[</em><em>'GENERAL'</em><em>, </em><em>'MESHES'</em><em>, </em><em>'OBJECTS'</em><em>, </em><em>'ANIMATION'</em><em>]</em>) – <p>ui_tab, Export setting categories (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">GENERAL</span></code>
 General – General settings.</p></li>
@@ -413,8 +419,8 @@ Objects – Object settings.</p></li>
 Animation – Animation settings.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_copyright</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Copyright, Legal rights and conditions for the model</p></li>
-<li><p><strong>export_image_format</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'AUTO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'JPEG'</span></code>, <code class="docutils literal notranslate"><span class="pre">'WEBP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>], (optional)) – <p>Images, Output format for images. PNG is lossless and generally preferred, but JPEG might be preferable for web applications due to the smaller file size. Alternatively they can be omitted if they are not needed</p>
+<li><p><strong>export_copyright</strong> (<em>str</em>) – Copyright, Legal rights and conditions for the model (optional, never None)</p></li>
+<li><p><strong>export_image_format</strong> (<em>Literal</em><em>[</em><em>'AUTO'</em><em>, </em><em>'JPEG'</em><em>, </em><em>'WEBP'</em><em>, </em><em>'NONE'</em><em>]</em>) – <p>Images, Output format for images. PNG is lossless and generally preferred, but JPEG might be preferable for web applications due to the smaller file size. Alternatively they can be omitted if they are not needed (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
 Automatic – Save PNGs as PNGs, JPEGs as JPEGs, WebPs as WebPs. For other formats, use PNG.</p></li>
@@ -426,24 +432,24 @@ WebP Format – Save images as WebPs as main image (no fallback).</p></li>
 None – Don’t export images.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_image_add_webp</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Create WebP, Creates WebP textures for every texture. For already WebP textures, nothing happens</p></li>
-<li><p><strong>export_image_webp_fallback</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – WebP Fallback, For all WebP textures, create a PNG fallback texture</p></li>
-<li><p><strong>export_texture_dir</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Textures, Folder to place texture files in. Relative to the .gltf file</p></li>
-<li><p><strong>export_jpeg_quality</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – JPEG Quality, Quality of JPEG export</p></li>
-<li><p><strong>export_image_quality</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Image Quality, Quality of image export</p></li>
-<li><p><strong>export_keep_originals</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Keep Original, Keep original textures files if possible. WARNING: if you use more than one texture, where pbr standard requires only one, only one texture will be used. This can lead to unexpected results</p></li>
-<li><p><strong>export_texcoords</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – UVs, Export UVs (texture coordinates) with meshes</p></li>
-<li><p><strong>export_normals</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normals, Export vertex normals with meshes</p></li>
-<li><p><strong>export_gn_mesh</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Geometry Nodes Instances (Experimental), Export Geometry nodes instance meshes</p></li>
-<li><p><strong>export_draco_mesh_compression_enable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Draco Mesh Compression, Compress mesh using Draco</p></li>
-<li><p><strong>export_draco_mesh_compression_level</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Compression Level, Compression level (0 = most speed, 6 = most compression, higher values currently not supported)</p></li>
-<li><p><strong>export_draco_position_quantization</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>30</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Position Quantization Bits, Quantization bits for position values (0 = no quantization)</p></li>
-<li><p><strong>export_draco_normal_quantization</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>30</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Quantization Bits, Quantization bits for normal values (0 = no quantization)</p></li>
-<li><p><strong>export_draco_texcoord_quantization</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>30</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Texcoord Quantization Bits, Quantization bits for texture coordinate values (0 = no quantization)</p></li>
-<li><p><strong>export_draco_color_quantization</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>30</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Color Quantization Bits, Quantization bits for color values (0 = no quantization)</p></li>
-<li><p><strong>export_draco_generic_quantization</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>30</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Generic Quantization Bits, Quantization bits for generic values like weights or joints (0 = no quantization)</p></li>
-<li><p><strong>export_tangents</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Tangents, Export vertex tangents with meshes</p></li>
-<li><p><strong>export_materials</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'EXPORT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PLACEHOLDER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VIEWPORT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>], (optional)) – <p>Materials, Export materials</p>
+<li><p><strong>export_image_add_webp</strong> (<em>bool</em>) – Create WebP, Creates WebP textures for every texture. For already WebP textures, nothing happens (optional)</p></li>
+<li><p><strong>export_image_webp_fallback</strong> (<em>bool</em>) – WebP Fallback, For all WebP textures, create a PNG fallback texture (optional)</p></li>
+<li><p><strong>export_texture_dir</strong> (<em>str</em>) – Textures, Folder to place texture files in. Relative to the .gltf file (optional, never None)</p></li>
+<li><p><strong>export_jpeg_quality</strong> (<em>int</em>) – JPEG Quality, Quality of JPEG export (in [0, 100], optional)</p></li>
+<li><p><strong>export_image_quality</strong> (<em>int</em>) – Image Quality, Quality of image export (in [0, 100], optional)</p></li>
+<li><p><strong>export_keep_originals</strong> (<em>bool</em>) – Keep Original, Keep original textures files if possible. WARNING: if you use more than one texture, where pbr standard requires only one, only one texture will be used. This can lead to unexpected results (optional)</p></li>
+<li><p><strong>export_texcoords</strong> (<em>bool</em>) – UVs, Export UVs (texture coordinates) with meshes (optional)</p></li>
+<li><p><strong>export_normals</strong> (<em>bool</em>) – Normals, Export vertex normals with meshes (optional)</p></li>
+<li><p><strong>export_gn_mesh</strong> (<em>bool</em>) – Geometry Nodes Instances (Experimental), Export Geometry nodes instance meshes (optional)</p></li>
+<li><p><strong>export_draco_mesh_compression_enable</strong> (<em>bool</em>) – Draco Mesh Compression, Compress mesh using Draco (optional)</p></li>
+<li><p><strong>export_draco_mesh_compression_level</strong> (<em>int</em>) – Compression Level, Compression level (0 = most speed, 6 = most compression, higher values currently not supported) (in [0, 10], optional)</p></li>
+<li><p><strong>export_draco_position_quantization</strong> (<em>int</em>) – Position Quantization Bits, Quantization bits for position values (0 = no quantization) (in [0, 30], optional)</p></li>
+<li><p><strong>export_draco_normal_quantization</strong> (<em>int</em>) – Normal Quantization Bits, Quantization bits for normal values (0 = no quantization) (in [0, 30], optional)</p></li>
+<li><p><strong>export_draco_texcoord_quantization</strong> (<em>int</em>) – Texcoord Quantization Bits, Quantization bits for texture coordinate values (0 = no quantization) (in [0, 30], optional)</p></li>
+<li><p><strong>export_draco_color_quantization</strong> (<em>int</em>) – Color Quantization Bits, Quantization bits for color values (0 = no quantization) (in [0, 30], optional)</p></li>
+<li><p><strong>export_draco_generic_quantization</strong> (<em>int</em>) – Generic Quantization Bits, Quantization bits for generic values like weights or joints (0 = no quantization) (in [0, 30], optional)</p></li>
+<li><p><strong>export_tangents</strong> (<em>bool</em>) – Tangents, Export vertex tangents with meshes (optional)</p></li>
+<li><p><strong>export_materials</strong> (<em>Literal</em><em>[</em><em>'EXPORT'</em><em>, </em><em>'PLACEHOLDER'</em><em>, </em><em>'VIEWPORT'</em><em>, </em><em>'NONE'</em><em>]</em>) – <p>Materials, Export materials (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">EXPORT</span></code>
 Export – Export all materials used by included objects.</p></li>
@@ -455,9 +461,9 @@ Viewport – Export minimal materials as defined in Viewport display properties.
 No export – Do not export materials, and combine mesh primitive groups, losing material slot information.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_unused_images</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Unused Images, Export images not assigned to any material</p></li>
-<li><p><strong>export_unused_textures</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Prepare Unused Textures, Export image texture nodes not assigned to any material. This feature is not standard and needs an external extension to be included in the glTF file</p></li>
-<li><p><strong>export_vertex_color</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MATERIAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NAME'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>], (optional)) – <p>Use Vertex Color, How to export vertex color</p>
+<li><p><strong>export_unused_images</strong> (<em>bool</em>) – Unused Images, Export images not assigned to any material (optional)</p></li>
+<li><p><strong>export_unused_textures</strong> (<em>bool</em>) – Prepare Unused Textures, Export image texture nodes not assigned to any material. This feature is not standard and needs an external extension to be included in the glTF file (optional)</p></li>
+<li><p><strong>export_vertex_color</strong> (<em>Literal</em><em>[</em><em>'MATERIAL'</em><em>, </em><em>'ACTIVE'</em><em>, </em><em>'NAME'</em><em>, </em><em>'NONE'</em><em>]</em>) – <p>Use Vertex Color, How to export vertex color (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">MATERIAL</span></code>
 Material – Export vertex color when used by material.</p></li>
@@ -469,30 +475,30 @@ Name – Export vertex color with this name.</p></li>
 None – Do not export vertex color.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_vertex_color_name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Vertex Color Name, Name of vertex color to export</p></li>
-<li><p><strong>export_all_vertex_colors</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export All Vertex Colors, Export all vertex colors, even if not used by any material. If no Vertex Color is used in the mesh materials, a fake COLOR_0 will be created, in order to keep material unchanged</p></li>
-<li><p><strong>export_active_vertex_color_when_no_material</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Active Vertex Color When No Material, When there is no material on object, export active vertex color</p></li>
-<li><p><strong>export_attributes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Attributes, Export Attributes (when starting with underscore)</p></li>
-<li><p><strong>use_mesh_edges</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Loose Edges, Export loose edges as lines, using the material from the first material slot</p></li>
-<li><p><strong>use_mesh_vertices</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Loose Points, Export loose points as glTF points, using the material from the first material slot</p></li>
-<li><p><strong>export_cameras</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cameras, Export cameras</p></li>
-<li><p><strong>use_selection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected Objects, Export selected objects only</p></li>
-<li><p><strong>use_visible</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Visible Objects, Export visible objects only</p></li>
-<li><p><strong>use_renderable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Renderable Objects, Export renderable objects only</p></li>
-<li><p><strong>use_active_collection_with_nested</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Include Nested Collections, Include active collection and nested collections</p></li>
-<li><p><strong>use_active_collection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Collection, Export objects in the active collection only</p></li>
-<li><p><strong>use_active_scene</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Scene, Export active scene only</p></li>
-<li><p><strong>collection</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Source Collection, Export only objects from this collection (and its children)</p></li>
-<li><p><strong>at_collection_center</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export at Collection Center, Export at Collection center of mass of root objects of the collection</p></li>
-<li><p><strong>export_extras</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Custom Properties, Export custom properties as glTF extras</p></li>
-<li><p><strong>export_yup</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – +Y Up, Export using glTF convention, +Y up</p></li>
-<li><p><strong>export_apply</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Apply Modifiers, Apply modifiers (excluding Armatures) to mesh objects -WARNING: prevents exporting shape keys</p></li>
-<li><p><strong>export_shared_accessors</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Shared Accessors, Export Primitives using shared accessors for attributes</p></li>
-<li><p><strong>export_animations</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Animations, Exports active actions and NLA tracks as glTF animations</p></li>
-<li><p><strong>export_frame_range</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Limit to Playback Range, Clips animations to selected playback range</p></li>
-<li><p><strong>export_frame_step</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>120</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Sampling Rate, How often to evaluate animated values (in frames)</p></li>
-<li><p><strong>export_force_sampling</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Always Sample Animations, Apply sampling to all animations</p></li>
-<li><p><strong>export_sampling_interpolation_fallback</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LINEAR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'STEP'</span></code>], (optional)) – <p>Sampling Interpolation Fallback, Interpolation fallback for sampled animations, when the property is not keyed</p>
+<li><p><strong>export_vertex_color_name</strong> (<em>str</em>) – Vertex Color Name, Name of vertex color to export (optional, never None)</p></li>
+<li><p><strong>export_all_vertex_colors</strong> (<em>bool</em>) – Export All Vertex Colors, Export all vertex colors, even if not used by any material. If no Vertex Color is used in the mesh materials, a fake COLOR_0 will be created, in order to keep material unchanged (optional)</p></li>
+<li><p><strong>export_active_vertex_color_when_no_material</strong> (<em>bool</em>) – Export Active Vertex Color When No Material, When there is no material on object, export active vertex color (optional)</p></li>
+<li><p><strong>export_attributes</strong> (<em>bool</em>) – Attributes, Export Attributes (when starting with underscore) (optional)</p></li>
+<li><p><strong>use_mesh_edges</strong> (<em>bool</em>) – Loose Edges, Export loose edges as lines, using the material from the first material slot (optional)</p></li>
+<li><p><strong>use_mesh_vertices</strong> (<em>bool</em>) – Loose Points, Export loose points as glTF points, using the material from the first material slot (optional)</p></li>
+<li><p><strong>export_cameras</strong> (<em>bool</em>) – Cameras, Export cameras (optional)</p></li>
+<li><p><strong>use_selection</strong> (<em>bool</em>) – Selected Objects, Export selected objects only (optional)</p></li>
+<li><p><strong>use_visible</strong> (<em>bool</em>) – Visible Objects, Export visible objects only (optional)</p></li>
+<li><p><strong>use_renderable</strong> (<em>bool</em>) – Renderable Objects, Export renderable objects only (optional)</p></li>
+<li><p><strong>use_active_collection_with_nested</strong> (<em>bool</em>) – Include Nested Collections, Include active collection and nested collections (optional)</p></li>
+<li><p><strong>use_active_collection</strong> (<em>bool</em>) – Active Collection, Export objects in the active collection only (optional)</p></li>
+<li><p><strong>use_active_scene</strong> (<em>bool</em>) – Active Scene, Export active scene only (optional)</p></li>
+<li><p><strong>collection</strong> (<em>str</em>) – Source Collection, Export only objects from this collection (and its children) (optional, never None)</p></li>
+<li><p><strong>at_collection_center</strong> (<em>bool</em>) – Export at Collection Center, Export at Collection center of mass of root objects of the collection (optional)</p></li>
+<li><p><strong>export_extras</strong> (<em>bool</em>) – Custom Properties, Export custom properties as glTF extras (optional)</p></li>
+<li><p><strong>export_yup</strong> (<em>bool</em>) – +Y Up, Export using glTF convention, +Y up (optional)</p></li>
+<li><p><strong>export_apply</strong> (<em>bool</em>) – Apply Modifiers, Apply modifiers (excluding Armatures) to mesh objects -WARNING: prevents exporting shape keys (optional)</p></li>
+<li><p><strong>export_shared_accessors</strong> (<em>bool</em>) – Shared Accessors, Export Primitives using shared accessors for attributes (optional)</p></li>
+<li><p><strong>export_animations</strong> (<em>bool</em>) – Animations, Exports active actions and NLA tracks as glTF animations (optional)</p></li>
+<li><p><strong>export_frame_range</strong> (<em>bool</em>) – Limit to Playback Range, Clips animations to selected playback range (optional)</p></li>
+<li><p><strong>export_frame_step</strong> (<em>int</em>) – Sampling Rate, How often to evaluate animated values (in frames) (in [1, 120], optional)</p></li>
+<li><p><strong>export_force_sampling</strong> (<em>bool</em>) – Always Sample Animations, Apply sampling to all animations (optional)</p></li>
+<li><p><strong>export_sampling_interpolation_fallback</strong> (<em>Literal</em><em>[</em><em>'LINEAR'</em><em>, </em><em>'STEP'</em><em>]</em>) – <p>Sampling Interpolation Fallback, Interpolation fallback for sampled animations, when the property is not keyed (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">LINEAR</span></code>
 Linear – Linear interpolation between keyframes.</p></li>
@@ -500,8 +506,8 @@ Linear – Linear interpolation between keyframes.</p></li>
 Step – No interpolation between keyframes.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_pointer_animation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Animation Pointer (Experimental), Export material, Light &amp; Camera animation as Animation Pointer. Available only for baked animation mode ‘NLA Tracks’ and ‘Scene’</p></li>
-<li><p><strong>export_animation_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ACTIONS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTIVE_ACTIONS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BROADCAST'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NLA_TRACKS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCENE'</span></code>], (optional)) – <p>Animation Mode, Export Animation mode</p>
+<li><p><strong>export_pointer_animation</strong> (<em>bool</em>) – Export Animation Pointer (Experimental), Export material, Light &amp; Camera animation as Animation Pointer. Available only for baked animation mode ‘NLA Tracks’ and ‘Scene’ (optional)</p></li>
+<li><p><strong>export_animation_mode</strong> (<em>Literal</em><em>[</em><em>'ACTIONS'</em><em>, </em><em>'ACTIVE_ACTIONS'</em><em>, </em><em>'BROADCAST'</em><em>, </em><em>'NLA_TRACKS'</em><em>, </em><em>'SCENE'</em><em>]</em>) – <p>Animation Mode, Export Animation mode (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ACTIONS</span></code>
 Actions – Export actions (actives and on NLA tracks) as separate animations.</p></li>
@@ -515,17 +521,17 @@ NLA Tracks – Export individual NLA Tracks as separate animation.</p></li>
 Scene – Export baked scene as a single animation.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_nla_strips_merged_animation_name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Merged Animation Name, Name of single glTF animation to be exported</p></li>
-<li><p><strong>export_def_bones</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Deformation Bones Only, Export Deformation bones only</p></li>
-<li><p><strong>export_hierarchy_flatten_bones</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flatten Bone Hierarchy, Flatten Bone Hierarchy. Useful in case of non decomposable transformation matrix</p></li>
-<li><p><strong>export_hierarchy_flatten_objs</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flatten Object Hierarchy, Flatten Object Hierarchy. Useful in case of non decomposable transformation matrix</p></li>
-<li><p><strong>export_armature_object_remove</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remove Armature Object, Remove Armature object if possible. If Armature has multiple root bones, object will not be removed</p></li>
-<li><p><strong>export_leaf_bone</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Add Leaf Bones, Append a final bone to the end of each chain to specify last bone length (use this when you intend to edit the armature from exported data)</p></li>
-<li><p><strong>export_optimize_animation_size</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Optimize Animation Size, Reduce exported file size by removing duplicate keyframes</p></li>
-<li><p><strong>export_optimize_animation_keep_anim_armature</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Force Keeping Channels for Bones, If all keyframes are identical in a rig, force keeping the minimal animation. When off, all possible channels for the bones will be exported, even if empty (minimal animation, 2 keyframes)</p></li>
-<li><p><strong>export_optimize_animation_keep_anim_object</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Force Keeping Channel for Objects, If all keyframes are identical for object transformations, force keeping the minimal animation</p></li>
-<li><p><strong>export_optimize_disable_viewport</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Disable Viewport for Other Objects, When exporting animations, disable viewport for other objects, for performance</p></li>
-<li><p><strong>export_negative_frame</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SLIDE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CROP'</span></code>], (optional)) – <p>Negative Frames, Negative Frames are slid or cropped</p>
+<li><p><strong>export_nla_strips_merged_animation_name</strong> (<em>str</em>) – Merged Animation Name, Name of single glTF animation to be exported (optional, never None)</p></li>
+<li><p><strong>export_def_bones</strong> (<em>bool</em>) – Export Deformation Bones Only, Export Deformation bones only (optional)</p></li>
+<li><p><strong>export_hierarchy_flatten_bones</strong> (<em>bool</em>) – Flatten Bone Hierarchy, Flatten Bone Hierarchy. Useful in case of non decomposable transformation matrix (optional)</p></li>
+<li><p><strong>export_hierarchy_flatten_objs</strong> (<em>bool</em>) – Flatten Object Hierarchy, Flatten Object Hierarchy. Useful in case of non decomposable transformation matrix (optional)</p></li>
+<li><p><strong>export_armature_object_remove</strong> (<em>bool</em>) – Remove Armature Object, Remove Armature object if possible. If Armature has multiple root bones, object will not be removed (optional)</p></li>
+<li><p><strong>export_leaf_bone</strong> (<em>bool</em>) – Add Leaf Bones, Append a final bone to the end of each chain to specify last bone length (use this when you intend to edit the armature from exported data) (optional)</p></li>
+<li><p><strong>export_optimize_animation_size</strong> (<em>bool</em>) – Optimize Animation Size, Reduce exported file size by removing duplicate keyframes (optional)</p></li>
+<li><p><strong>export_optimize_animation_keep_anim_armature</strong> (<em>bool</em>) – Force Keeping Channels for Bones, If all keyframes are identical in a rig, force keeping the minimal animation. When off, all possible channels for the bones will be exported, even if empty (minimal animation, 2 keyframes) (optional)</p></li>
+<li><p><strong>export_optimize_animation_keep_anim_object</strong> (<em>bool</em>) – Force Keeping Channel for Objects, If all keyframes are identical for object transformations, force keeping the minimal animation (optional)</p></li>
+<li><p><strong>export_optimize_disable_viewport</strong> (<em>bool</em>) – Disable Viewport for Other Objects, When exporting animations, disable viewport for other objects, for performance (optional)</p></li>
+<li><p><strong>export_negative_frame</strong> (<em>Literal</em><em>[</em><em>'SLIDE'</em><em>, </em><em>'CROP'</em><em>]</em>) – <p>Negative Frames, Negative Frames are slid or cropped (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SLIDE</span></code>
 Slide – Slide animation to start at frame 0.</p></li>
@@ -533,9 +539,9 @@ Slide – Slide animation to start at frame 0.</p></li>
 Crop – Keep only frames above frame 0.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_anim_slide_to_zero</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Set All glTF Animation Starting at 0, Set all glTF animation starting at 0.0s. Can be useful for looping animations</p></li>
-<li><p><strong>export_bake_animation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Bake All Objects Animations, Force exporting animation on every object. Can be useful when using constraints or driver. Also useful when exporting only selection</p></li>
-<li><p><strong>export_merge_animation</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NLA_TRACK'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>], (optional)) – <p>Merge Animation, Merge Animations</p>
+<li><p><strong>export_anim_slide_to_zero</strong> (<em>bool</em>) – Set All glTF Animation Starting at 0, Set all glTF animation starting at 0.0s. Can be useful for looping animations (optional)</p></li>
+<li><p><strong>export_bake_animation</strong> (<em>bool</em>) – Bake All Objects Animations, Force exporting animation on every object. Can be useful when using constraints or driver. Also useful when exporting only selection (optional)</p></li>
+<li><p><strong>export_merge_animation</strong> (<em>Literal</em><em>[</em><em>'NLA_TRACK'</em><em>, </em><em>'ACTION'</em><em>, </em><em>'NONE'</em><em>]</em>) – <p>Merge Animation, Merge Animations (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NLA_TRACK</span></code>
 NLA Track Names – Merge by NLA Track Names.</p></li>
@@ -545,33 +551,39 @@ Actions – Merge by Actions.</p></li>
 No Merge – Do Not Merge Animations.</p></li>
 </ul>
 </p></li>
-<li><p><strong>export_anim_single_armature</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export all Armature Actions, Export all actions, bound to a single armature. WARNING: Option does not support exports including multiple armatures</p></li>
-<li><p><strong>export_reset_pose_bones</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Reset Pose Bones Between Actions, Reset pose bones between each action exported. This is needed when some bones are not keyed on some animations</p></li>
-<li><p><strong>export_current_frame</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Current Frame as Object Rest Transformations, Export the scene in the current animation frame. When off, frame 0 is used as rest transformations for objects</p></li>
-<li><p><strong>export_rest_position_armature</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Rest Position Armature, Export armatures using rest position as joints’ rest pose. When off, current frame pose is used as rest pose</p></li>
-<li><p><strong>export_anim_scene_split_object</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Split Animation by Object, Export Scene as seen in Viewport, But split animation by Object</p></li>
-<li><p><strong>export_skins</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Skinning, Export skinning (armature) data</p></li>
-<li><p><strong>export_influence_nb</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Bone Influences, Choose how many Bone influences to export</p></li>
-<li><p><strong>export_all_influences</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Include All Bone Influences, Allow export of all joint vertex influences. Models may appear incorrectly in many viewers</p></li>
-<li><p><strong>export_morph</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Shape Keys, Export shape keys (morph targets)</p></li>
-<li><p><strong>export_morph_normal</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Shape Key Normals, Export vertex normals with shape keys (morph targets)</p></li>
-<li><p><strong>export_morph_tangent</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Shape Key Tangents, Export vertex tangents with shape keys (morph targets)</p></li>
-<li><p><strong>export_morph_animation</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Shape Key Animations, Export shape keys animations (morph targets)</p></li>
-<li><p><strong>export_morph_reset_sk_data</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Reset Shape Keys Between Actions, Reset shape keys between each action exported. This is needed when some SK channels are not keyed on some animations</p></li>
-<li><p><strong>export_lights</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Punctual Lights, Export directional, point, and spot lights. Uses “KHR_lights_punctual” glTF extension</p></li>
-<li><p><strong>export_try_sparse_sk</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Sparse Accessor if Better, Try using Sparse Accessor if it saves space</p></li>
-<li><p><strong>export_try_omit_sparse_sk</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Omitting Sparse Accessor if Data is Empty, Omitting Sparse Accessor if data is empty</p></li>
-<li><p><strong>export_gpu_instances</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – GPU Instances, Export using EXT_mesh_gpu_instancing. Limited to children of a given Empty. Multiple materials might be omitted</p></li>
-<li><p><strong>export_action_filter</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Actions, Filter Actions to be exported</p></li>
-<li><p><strong>export_convert_animation_pointer</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Convert TRS/Weights to Animation Pointer, Export TRS and weights as Animation Pointer. Using KHR_animation_pointer extension</p></li>
-<li><p><strong>export_nla_strips</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Group by NLA Track, When on, multiple actions become part of the same glTF animation if they’re pushed onto NLA tracks with the same name. When off, all the currently assigned actions become one glTF animation</p></li>
-<li><p><strong>export_original_specular</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Export Original PBR Specular, Export original glTF PBR Specular, instead of Blender Principled Shader Specular</p></li>
-<li><p><strong>will_save_settings</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remember Export Settings, Store glTF export settings in the Blender project</p></li>
-<li><p><strong>export_hierarchy_full_collections</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Full Collection Hierarchy, Export full hierarchy, including intermediate collections</p></li>
-<li><p><strong>export_extra_animations</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Prepare Extra Animations, Export additional animations.This feature is not standard and needs an external extension to be included in the glTF file</p></li>
-<li><p><strong>export_loglevel</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Log Level, Log Level</p></li>
-<li><p><strong>filter_glob</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filter_glob</p></li>
+<li><p><strong>export_anim_single_armature</strong> (<em>bool</em>) – Export all Armature Actions, Export all actions, bound to a single armature. WARNING: Option does not support exports including multiple armatures (optional)</p></li>
+<li><p><strong>export_reset_pose_bones</strong> (<em>bool</em>) – Reset Pose Bones Between Actions, Reset pose bones between each action exported. This is needed when some bones are not keyed on some animations (optional)</p></li>
+<li><p><strong>export_current_frame</strong> (<em>bool</em>) – Use Current Frame as Object Rest Transformations, Export the scene in the current animation frame. When off, frame 0 is used as rest transformations for objects (optional)</p></li>
+<li><p><strong>export_rest_position_armature</strong> (<em>bool</em>) – Use Rest Position Armature, Export armatures using rest position as joints’ rest pose. When off, current frame pose is used as rest pose (optional)</p></li>
+<li><p><strong>export_anim_scene_split_object</strong> (<em>bool</em>) – Split Animation by Object, Export Scene as seen in Viewport, But split animation by Object (optional)</p></li>
+<li><p><strong>export_skins</strong> (<em>bool</em>) – Skinning, Export skinning (armature) data (optional)</p></li>
+<li><p><strong>export_influence_nb</strong> (<em>int</em>) – Bone Influences, Choose how many Bone influences to export (in [1, inf], optional)</p></li>
+<li><p><strong>export_all_influences</strong> (<em>bool</em>) – Include All Bone Influences, Allow export of all joint vertex influences. Models may appear incorrectly in many viewers (optional)</p></li>
+<li><p><strong>export_morph</strong> (<em>bool</em>) – Shape Keys, Export shape keys (morph targets) (optional)</p></li>
+<li><p><strong>export_morph_normal</strong> (<em>bool</em>) – Shape Key Normals, Export vertex normals with shape keys (morph targets) (optional)</p></li>
+<li><p><strong>export_morph_tangent</strong> (<em>bool</em>) – Shape Key Tangents, Export vertex tangents with shape keys (morph targets) (optional)</p></li>
+<li><p><strong>export_morph_animation</strong> (<em>bool</em>) – Shape Key Animations, Export shape keys animations (morph targets) (optional)</p></li>
+<li><p><strong>export_morph_reset_sk_data</strong> (<em>bool</em>) – Reset Shape Keys Between Actions, Reset shape keys between each action exported. This is needed when some SK channels are not keyed on some animations (optional)</p></li>
+<li><p><strong>export_lights</strong> (<em>bool</em>) – Punctual Lights, Export directional, point, and spot lights. Uses “KHR_lights_punctual” glTF extension (optional)</p></li>
+<li><p><strong>export_try_sparse_sk</strong> (<em>bool</em>) – Use Sparse Accessor if Better, Try using Sparse Accessor if it saves space (optional)</p></li>
+<li><p><strong>export_try_omit_sparse_sk</strong> (<em>bool</em>) – Omitting Sparse Accessor if Data is Empty, Omitting Sparse Accessor if data is empty (optional)</p></li>
+<li><p><strong>export_gpu_instances</strong> (<em>bool</em>) – GPU Instances, Export using EXT_mesh_gpu_instancing. Limited to children of a given Empty. Multiple materials might be omitted (optional)</p></li>
+<li><p><strong>export_action_filter</strong> (<em>bool</em>) – Filter Actions, Filter Actions to be exported (optional)</p></li>
+<li><p><strong>export_convert_animation_pointer</strong> (<em>bool</em>) – Convert TRS/Weights to Animation Pointer, Export TRS and weights as Animation Pointer. Using KHR_animation_pointer extension (optional)</p></li>
+<li><p><strong>export_nla_strips</strong> (<em>bool</em>) – Group by NLA Track, When on, multiple actions become part of the same glTF animation if they’re pushed onto NLA tracks with the same name. When off, all the currently assigned actions become one glTF animation (optional)</p></li>
+<li><p><strong>export_original_specular</strong> (<em>bool</em>) – Export Original PBR Specular, Export original glTF PBR Specular, instead of Blender Principled Shader Specular (optional)</p></li>
+<li><p><strong>will_save_settings</strong> (<em>bool</em>) – Remember Export Settings, Store glTF export settings in the Blender project (optional)</p></li>
+<li><p><strong>export_hierarchy_full_collections</strong> (<em>bool</em>) – Full Collection Hierarchy, Export full hierarchy, including intermediate collections (optional)</p></li>
+<li><p><strong>export_extra_animations</strong> (<em>bool</em>) – Prepare Extra Animations, Export additional animations.This feature is not standard and needs an external extension to be included in the glTF file(optional)</p></li>
+<li><p><strong>export_loglevel</strong> (<em>int</em>) – Log Level, Log Level (in [-inf, inf], optional)</p></li>
+<li><p><strong>filter_glob</strong> (<em>str</em>) – filter_glob, (optional, never None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/io_scene_gltf2/__init__.py#L1084">addons_core/io_scene_gltf2/__init__.py:1084</a></p>
@@ -593,7 +605,7 @@ No Merge – Do Not Merge Animations.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

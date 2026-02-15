@@ -488,7 +488,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The BMesh is freed automatically, typically when the script finishes executing.
-However in some cases its hard to predict when this will be and its useful to
+However in some cases it’s hard to predict when this will be and it’s useful to
 explicitly free the data.</p>
 </div>
 </dd></dl>
@@ -557,7 +557,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMesh.select_flush_mode">
 <span class="sig-name descname"><span class="pre">select_flush_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">flush_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMesh.select_flush_mode" title="Link to this definition"></a></dt>
-<dd><p>Flush selection based on the current mode current <a class="reference internal" href="#bmesh.types.BMesh.select_mode" title="bmesh.types.BMesh.select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_mode</span></code></a>.</p>
+<dd><p>Flush selection based on the current mode <a class="reference internal" href="#bmesh.types.BMesh.select_mode" title="bmesh.types.BMesh.select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_mode</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>flush_down</strong> (<em>bool</em>) – Flush selection down from faces to edges &amp; verts or from edges to verts. This option is ignored when vertex selection mode is enabled.</p>
@@ -584,7 +584,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – 4x4 transform matrix.</p></li>
-<li><p><strong>filter</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'SELECT'</em><em>, </em><em>'HIDE'</em><em>, </em><em>'SEAM'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'TAG'</em><em>]</em><em>]</em>) – Flag to filter vertices.</p></li>
+<li><p><strong>filter</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'SELECT'</em><em>, </em><em>'HIDE'</em><em>, </em><em>'SEAM'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'TAG'</em><em>]</em><em>] </em><em>| </em><em>None</em>) – Flag to filter vertices.</p></li>
 </ul>
 </dd>
 </dl>
@@ -610,7 +610,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMesh.uv_select_flush_mode">
 <span class="sig-name descname"><span class="pre">uv_select_flush_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">flush_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMesh.uv_select_flush_mode" title="Link to this definition"></a></dt>
-<dd><p>Flush selection based on the current mode current <a class="reference internal" href="#bmesh.types.BMesh.select_mode" title="bmesh.types.BMesh.select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMesh.select_mode</span></code></a>.</p>
+<dd><p>Flush selection based on the current mode <a class="reference internal" href="#bmesh.types.BMesh.select_mode" title="bmesh.types.BMesh.select_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.select_mode</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>flush_down</strong> (<em>bool</em>) – Flush selection down from faces to edges &amp; verts or from edges to verts. This option is ignored when vertex selection mode is enabled.</p>
@@ -654,7 +654,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>This function selection-mode independent, typically <a class="reference internal" href="#bmesh.types.BMesh.uv_select_flush_mode" title="bmesh.types.BMesh.uv_select_flush_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode</span></code></a> should be called afterwards.</p></li>
+<li><p>This function is selection-mode independent, typically <a class="reference internal" href="#bmesh.types.BMesh.uv_select_flush_mode" title="bmesh.types.BMesh.uv_select_flush_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode</span></code></a> should be called afterwards.</p></li>
 <li><p>This function doesn’t flush the selection to the mesh, typically <a class="reference internal" href="#bmesh.types.BMesh.uv_select_sync_to_mesh" title="bmesh.types.BMesh.uv_select_sync_to_mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_sync_to_mesh</span></code></a> should be called afterwards.</p></li>
 </ul>
 </div>
@@ -704,7 +704,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMesh.edges">
 <span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#bmesh.types.BMesh.edges" title="Link to this definition"></a></dt>
-<dd><p>This meshes edge sequence (read-only).</p>
+<dd><p>This mesh’s edge sequence (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMEdgeSeq" title="bmesh.types.BMEdgeSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdgeSeq</span></code></a></p>
@@ -715,7 +715,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMesh.faces">
 <span class="sig-name descname"><span class="pre">faces</span></span><a class="headerlink" href="#bmesh.types.BMesh.faces" title="Link to this definition"></a></dt>
-<dd><p>This meshes face sequence (read-only).</p>
+<dd><p>This mesh’s face sequence (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMFaceSeq" title="bmesh.types.BMFaceSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFaceSeq</span></code></a></p>
@@ -748,7 +748,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMesh.loops">
 <span class="sig-name descname"><span class="pre">loops</span></span><a class="headerlink" href="#bmesh.types.BMesh.loops" title="Link to this definition"></a></dt>
-<dd><p>This meshes loops (read-only).</p>
+<dd><p>This mesh’s loops (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLoopSeq" title="bmesh.types.BMLoopSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoopSeq</span></code></a></p>
@@ -796,7 +796,7 @@ Further calls will copy custom-data to matching layers, layers missing on the ta
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bmesh.types.BMesh.verts">
 <span class="sig-name descname"><span class="pre">verts</span></span><a class="headerlink" href="#bmesh.types.BMesh.verts" title="Link to this definition"></a></dt>
-<dd><p>This meshes vert sequence (read-only).</p>
+<dd><p>This mesh’s vert sequence (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMVertSeq" title="bmesh.types.BMVertSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVertSeq</span></code></a></p>
@@ -851,12 +851,17 @@ This is used to maintain shell thickness when offsetting verts along their norma
 <dt class="sig sig-object py" id="bmesh.types.BMVert.copy_from">
 <span class="sig-name descname"><span class="pre">copy_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMVert.copy_from" title="Link to this definition"></a></dt>
 <dd><p>Copy values from another element of matching type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> | <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>) – Another element of matching type to copy from.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMVert.copy_from_face_interp">
 <span class="sig-name descname"><span class="pre">copy_from_face_interp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMVert.copy_from_face_interp" title="Link to this definition"></a></dt>
-<dd><p>Interpolate the customdata from a face onto this loop (the loops vert should overlap the face).</p>
+<dd><p>Interpolate the customdata from a face onto this vert (the vert should overlap the face).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>face</strong> (<a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>) – The face to interpolate data from.</p>
@@ -913,7 +918,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
+<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
 </div>
 </dd></dl>
 
@@ -1006,7 +1011,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Edges connected to this vertex (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1017,7 +1022,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Faces connected to this vertex (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1028,7 +1033,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Loops that use this vertex (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1141,6 +1146,11 @@ This uses the face normal for calculation.</p>
 <dt class="sig sig-object py" id="bmesh.types.BMEdge.copy_from">
 <span class="sig-name descname"><span class="pre">copy_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMEdge.copy_from" title="Link to this definition"></a></dt>
 <dd><p>Copy values from another element of matching type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> | <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>) – Another element of matching type to copy from.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1194,7 +1204,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
+<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
 </div>
 </dd></dl>
 
@@ -1298,7 +1308,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Faces connected to this edge, (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1309,7 +1319,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Loops connected to this edge, (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1364,7 +1374,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Verts this edge uses (always 2), (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1530,6 +1540,11 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dt class="sig sig-object py" id="bmesh.types.BMFace.copy_from">
 <span class="sig-name descname"><span class="pre">copy_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMFace.copy_from" title="Link to this definition"></a></dt>
 <dd><p>Copy values from another element of matching type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> | <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>) – Another element of matching type to copy from.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1583,7 +1598,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
+<p>This only flushes down, so selecting a face will select all its vertices but de-selecting a vertex won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
 </div>
 </dd></dl>
 
@@ -1598,7 +1613,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently this only flushes down, so selecting a face will select all its vertices but de-selecting a vertex       won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
+<p>Currently this only flushes down, so selecting a face will select all its vertices but de-selecting a vertex won’t de-select all the faces that use it, before finishing with a mesh typically flushing is still needed.</p>
 </div>
 </dd></dl>
 
@@ -1608,7 +1623,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Edges of this face, (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1658,7 +1673,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Loops of this face, (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1735,7 +1750,7 @@ This is different from the <em>select</em> attribute because it updates the sele
 <dd><p>Verts of this face, (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1795,6 +1810,11 @@ Falls back to the face normal for straight lines.</p>
 <dt class="sig sig-object py" id="bmesh.types.BMLoop.copy_from">
 <span class="sig-name descname"><span class="pre">copy_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMLoop.copy_from" title="Link to this definition"></a></dt>
 <dd><p>Copy values from another element of matching type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> | <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>) – Another element of matching type to copy from.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1838,7 +1858,7 @@ Falls back to the face normal for straight lines.</p>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently this only flushes down, so selecting an edge will select all its vertices but de-selecting a vertex       won’t de-select the edges &amp; faces that use it, before finishing with a mesh typically flushing with <a class="reference internal" href="#bmesh.types.BMesh.uv_select_flush_mode" title="bmesh.types.BMesh.uv_select_flush_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode</span></code></a> is still needed.</p>
+<p>Currently this only flushes down, so selecting an edge will select all its vertices but de-selecting a vertex won’t de-select the edges &amp; faces that use it, before finishing with a mesh typically flushing with <a class="reference internal" href="#bmesh.types.BMesh.uv_select_flush_mode" title="bmesh.types.BMesh.uv_select_flush_mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh.uv_select_flush_mode</span></code></a> is still needed.</p>
 </div>
 </dd></dl>
 
@@ -1953,7 +1973,7 @@ Falls back to the face normal for straight lines.</p>
 <dd><p>Loops connected to this loop, (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a> of <a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMElemSeq" title="bmesh.types.BMElemSeq"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMElemSeq</span></code></a>[<a class="reference internal" href="#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoop</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2060,13 +2080,13 @@ works but won’t result in each element having a valid index, instead its order
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMVertSeq.new">
-<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">co</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">example</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMVertSeq.new" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">co</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMVertSeq.new" title="Link to this definition"></a></dt>
 <dd><p>Create a new vertex.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>co</strong> (<em>float triplet</em>) – The initial location of the vertex (optional argument).</p></li>
-<li><p><strong>example</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>) – Existing vert to initialize settings.</p></li>
+<li><p><strong>co</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>] </em><em>| </em><em>Sequence</em><em>[</em><em>float</em><em>]</em>) – The initial location of the vertex (optional argument).</p></li>
+<li><p><strong>source</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | None) – Existing vert to initialize settings.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2151,7 +2171,7 @@ In particular this can be used by setting indices manually before calling this m
 <dd class="field-even"><p>The edge found or None</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2174,13 +2194,13 @@ works but won’t result in each element having a valid index, instead its order
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMEdgeSeq.new">
-<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">example</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMEdgeSeq.new" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMEdgeSeq.new" title="Link to this definition"></a></dt>
 <dd><p>Create a new edge from a given pair of verts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>verts</strong> (Sequence[<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]) – Vertex pair.</p></li>
-<li><p><strong>example</strong> (<a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>) – Existing edge to initialize settings (optional argument).</p></li>
+<li><p><strong>source</strong> (<a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | None) – Existing edge to initialize settings (optional argument).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2265,7 +2285,7 @@ In particular this can be used by setting indices manually before calling this m
 <dd class="field-even"><p>The face found or None</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> | None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2288,13 +2308,13 @@ works but won’t result in each element having a valid index, instead its order
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMFaceSeq.new">
-<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">example</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMFaceSeq.new" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMFaceSeq.new" title="Link to this definition"></a></dt>
 <dd><p>Create a new face from a given set of verts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>verts</strong> (Sequence[<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]) – Sequence of 3 or more verts.</p></li>
-<li><p><strong>example</strong> (<a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>) – Existing face to initialize settings (optional argument).</p></li>
+<li><p><strong>source</strong> (<a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> | None) – Existing face to initialize settings (optional argument).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2398,6 +2418,11 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dt class="sig sig-object py" id="bmesh.types.BMEditSelSeq.add">
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMEditSelSeq.add" title="Link to this definition"></a></dt>
 <dd><p>Add an element to the selection history (no action taken if its already added).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMFace</span></code></a>) – The element to add.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2411,12 +2436,22 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <span class="sig-name descname"><span class="pre">discard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMEditSelSeq.discard" title="Link to this definition"></a></dt>
 <dd><p>Discard an element from the selection history.</p>
 <p>Like remove but doesn’t raise an error when the elements not in the selection list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMFace</span></code></a>) – The element to discard.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMEditSelSeq.remove">
 <span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMEditSelSeq.remove" title="Link to this definition"></a></dt>
 <dd><p>Remove an element from the selection history.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">BMFace</span></code></a>) – The element to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2431,7 +2466,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>The last selected element or None (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>, <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> or <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a> | None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2456,7 +2491,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic boolean custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of boolean</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bool]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2467,7 +2502,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with 8-bit precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2478,7 +2513,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Vertex deform weight <a class="reference internal" href="#bmesh.types.BMDeformVert" title="bmesh.types.BMDeformVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMDeformVert</span></code></a> (TODO).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="#bmesh.types.BMDeformVert" title="bmesh.types.BMDeformVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMDeformVert</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="#bmesh.types.BMDeformVert" title="bmesh.types.BMDeformVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMDeformVert</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2489,7 +2524,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic float custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of float</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[float]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2500,7 +2535,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2511,7 +2546,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic 3D vector with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2522,7 +2557,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic int custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of int</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2533,7 +2568,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Vertex shape-key absolute location (as a 3D Vector).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2544,7 +2579,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Accessor for skin layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVertSkin</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVertSkin</span></code>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2555,7 +2590,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic string custom-data layer (exposed as bytes, 255 max length).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of bytes</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bytes]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2572,7 +2607,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic boolean custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of boolean</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bool]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2583,7 +2618,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with 8-bit precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2594,7 +2629,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic float custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of float</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[float]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2605,7 +2640,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2616,7 +2651,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic 3D vector with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2627,7 +2662,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic int custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of int</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2638,7 +2673,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic string custom-data layer (exposed as bytes, 255 max length).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of bytes</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bytes]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2655,7 +2690,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic boolean custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of boolean</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bool]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2666,7 +2701,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with 8-bit precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2677,7 +2712,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic float custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of float</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[float]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2688,7 +2723,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2699,7 +2734,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic 3D vector with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2710,7 +2745,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic int custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of int</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2721,7 +2756,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic string custom-data layer (exposed as bytes, 255 max length).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of bytes</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bytes]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2738,7 +2773,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic boolean custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of boolean</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bool]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2749,7 +2784,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with 8-bit precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2760,7 +2795,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic float custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of float</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[float]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2771,7 +2806,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic RGBA color with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2782,7 +2817,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic 3D vector with float precision custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2793,7 +2828,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic int custom-data layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of int</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2804,7 +2839,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Generic string custom-data layer (exposed as bytes, 255 max length).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of bytes</p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[bytes]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2815,7 +2850,7 @@ used for iterating over <a class="reference internal" href="#bmesh.types.BMElemS
 <dd><p>Accessor for <a class="reference internal" href="#bmesh.types.BMLoopUV" title="bmesh.types.BMLoopUV"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV</span></code></a> UV (as a 2D Vector).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a> of <a class="reference internal" href="#bmesh.types.BMLoopUV" title="bmesh.types.BMLoopUV"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerCollection" title="bmesh.types.BMLayerCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerCollection</span></code></a>[<a class="reference internal" href="#bmesh.types.BMLoopUV" title="bmesh.types.BMLoopUV"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLoopUV</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2838,6 +2873,12 @@ when not found (matches Python’s dictionary function of the same name).</p>
 <li><p><strong>default</strong> (<em>Any</em>) – Optional argument for the value to return if
 <em>key</em> is not found.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The layer matching the key or the default value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#bmesh.types.BMLayerItem" title="bmesh.types.BMLayerItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMLayerItem</span></code></a> | Any</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2874,7 +2915,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bmesh.types.BMLayerCollection.new">
-<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMLayerCollection.new" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.types.BMLayerCollection.new" title="Link to this definition"></a></dt>
 <dd><p>Create a new layer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3033,6 +3074,12 @@ when not found (matches Python’s dictionary function of the same name).</p>
 <em>key</em> is not found.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The deform weight or the default when not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float | Any</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -3098,7 +3145,7 @@ when not found (matches Python’s dictionary function of the same name).</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

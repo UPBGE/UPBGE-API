@@ -152,6 +152,14 @@
 invalid when one of the sockets is a virtual socket (grayed out sockets in
 Group Input and Group Output nodes).</p>
 <p>It replaces node_tree.links.new(input, output)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<a class="reference internal" href="bpy.types.NodeSocket.html#bpy.types.NodeSocket" title="bpy.types.NodeSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.NodeSocket</span></code></a>) – The input socket.</p></li>
+<li><p><strong>output</strong> (<a class="reference internal" href="bpy.types.NodeSocket.html#bpy.types.NodeSocket" title="bpy.types.NodeSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.NodeSocket</span></code></a>) – The output socket.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -159,13 +167,40 @@ Group Input and Group Output nodes).</p>
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.node_utils.</span></span><span class="sig-name descname"><span class="pre">find_base_socket_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.node_utils.find_base_socket_type" title="Link to this definition"></a></dt>
 <dd><p>Find the base class of the socket.</p>
 <p>Sockets can have a subtype such as NodeSocketFloatFactor,
-but only the base type is allowed, e. g. NodeSocketFloat</p>
+but only the base type is allowed, e.g. NodeSocketFloat</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>socket</strong> (<a class="reference internal" href="bpy.types.NodeSocket.html#bpy.types.NodeSocket" title="bpy.types.NodeSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.NodeSocket</span></code></a>) – The socket to find the base type for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The base socket type identifier.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.node_utils.find_node_input">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.node_utils.</span></span><span class="sig-name descname"><span class="pre">find_node_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.node_utils.find_node_input" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Find a node input socket by name.</p>
+<p>Note that names are not unique, returns the first match.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<a class="reference internal" href="bpy.types.Node.html#bpy.types.Node" title="bpy.types.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Node</span></code></a>) – The node to search.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the input socket.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The input socket or None if not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.NodeSocket.html#bpy.types.NodeSocket" title="bpy.types.NodeSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.NodeSocket</span></code></a> | None</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 
@@ -181,7 +216,7 @@ but only the base type is allowed, e. g. NodeSocketFloat</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

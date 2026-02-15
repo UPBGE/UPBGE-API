@@ -273,7 +273,13 @@
 <dd><p>Apply the current pose as the new rest pose</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selected Only, Only apply the selected bones (with propagation to children)</p>
+<dd class="field-odd"><p><strong>selected</strong> (<em>bool</em>) – Selected Only, Only apply the selected bones (with propagation to children) (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -284,7 +290,7 @@
 <dd><p>Automatically renames the selected bones according to which side of the target axis they fall on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>axis</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'XAXIS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'YAXIS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ZAXIS'</span></code>], (optional)) – <p>Axis, Axis to tag names with</p>
+<dd class="field-odd"><p><strong>axis</strong> (<em>Literal</em><em>[</em><em>'XAXIS'</em><em>, </em><em>'YAXIS'</em><em>, </em><em>'ZAXIS'</em><em>]</em>) – <p>Axis, Axis to tag names with (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">XAXIS</span></code>
 X-Axis – Left/Right.</p></li>
@@ -294,6 +300,12 @@ Y-Axis – Front/Back.</p></li>
 Z-Axis – Top/Bottom.</p></li>
 </ul>
 </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -305,10 +317,10 @@ Z-Axis – Top/Bottom.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
-<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
-<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
-<li><p><strong>channels</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ROT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SIZE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BBONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CUSTOM'</span></code>], (optional)) – <p>Channels, Set of properties that are affected</p>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Weighting factor for which keyframe is favored more (in [0, 1], optional)</p></li>
+<li><p><strong>prev_frame</strong> (<em>int</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>next_frame</strong> (<em>int</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>channels</strong> (<em>Literal</em><em>[</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em>) – <p>Channels, Set of properties that are affected (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
 All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
@@ -324,7 +336,7 @@ Bendy Bone – Bendy Bone shape properties.</p></li>
 Custom Properties – Custom properties.</p></li>
 </ul>
 </p></li>
-<li><p><strong>axis_lock</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FREE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>], (optional)) – <p>Axis Lock, Transform axis to restrict effects to</p>
+<li><p><strong>axis_lock</strong> (<em>Literal</em><em>[</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em>) – <p>Axis Lock, Transform axis to restrict effects to (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
 Free – All axes are affected.</p></li>
@@ -337,6 +349,12 @@ Z – Only Z-axis transforms are affected.</p></li>
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -348,10 +366,10 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
-<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
-<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
-<li><p><strong>channels</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ROT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SIZE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BBONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CUSTOM'</span></code>], (optional)) – <p>Channels, Set of properties that are affected</p>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Weighting factor for which keyframe is favored more (in [0, 1], optional)</p></li>
+<li><p><strong>prev_frame</strong> (<em>int</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>next_frame</strong> (<em>int</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>channels</strong> (<em>Literal</em><em>[</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em>) – <p>Channels, Set of properties that are affected (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
 All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
@@ -367,7 +385,7 @@ Bendy Bone – Bendy Bone shape properties.</p></li>
 Custom Properties – Custom properties.</p></li>
 </ul>
 </p></li>
-<li><p><strong>axis_lock</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FREE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>], (optional)) – <p>Axis Lock, Transform axis to restrict effects to</p>
+<li><p><strong>axis_lock</strong> (<em>Literal</em><em>[</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em>) – <p>Axis Lock, Transform axis to restrict effects to (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
 Free – All axes are affected.</p></li>
@@ -380,6 +398,12 @@ Z – Only Z-axis transforms are affected.</p></li>
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -391,10 +415,10 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
-<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
-<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
-<li><p><strong>channels</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ROT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SIZE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BBONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CUSTOM'</span></code>], (optional)) – <p>Channels, Set of properties that are affected</p>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Weighting factor for which keyframe is favored more (in [0, 1], optional)</p></li>
+<li><p><strong>prev_frame</strong> (<em>int</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>next_frame</strong> (<em>int</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>channels</strong> (<em>Literal</em><em>[</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em>) – <p>Channels, Set of properties that are affected (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
 All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
@@ -410,7 +434,7 @@ Bendy Bone – Bendy Bone shape properties.</p></li>
 Custom Properties – Custom properties.</p></li>
 </ul>
 </p></li>
-<li><p><strong>axis_lock</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FREE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>], (optional)) – <p>Axis Lock, Transform axis to restrict effects to</p>
+<li><p><strong>axis_lock</strong> (<em>Literal</em><em>[</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em>) – <p>Axis Lock, Transform axis to restrict effects to (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
 Free – All axes are affected.</p></li>
@@ -424,6 +448,12 @@ Z – Only Z-axis transforms are affected.</p></li>
 </p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -433,7 +463,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Add a constraint to the active bone</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/constraint_type_items.html#rna-enum-constraint-type-items"><span class="std std-ref">Constraint Type Items</span></a>, (optional)) – Type</p>
+<dd class="field-odd"><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/constraint_type_items.html#rna-enum-constraint-type-items"><span class="std std-ref">Constraint Type Items</span></a>]) – Type, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -444,7 +480,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Add a constraint to the active bone, with target (where applicable) set to the selected Objects/Bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/constraint_type_items.html#rna-enum-constraint-type-items"><span class="std std-ref">Constraint Type Items</span></a>, (optional)) – Type</p>
+<dd class="field-odd"><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/constraint_type_items.html#rna-enum-constraint-type-items"><span class="std std-ref">Constraint Type Items</span></a>]) – Type, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -453,18 +495,42 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.constraints_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraints_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraints_clear" title="Link to this definition"></a></dt>
 <dd><p>Clear all constraints from the selected bones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.constraints_copy">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">constraints_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.constraints_copy" title="Link to this definition"></a></dt>
 <dd><p>Copy constraints to other selected bones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.copy">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.copy" title="Link to this definition"></a></dt>
 <dd><p>Copy the current pose of the selected bones to the internal clipboard</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -473,7 +539,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Flips (and corrects) the axis suffixes of the names of selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>do_strip_numbers</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strip Numbers, Try to remove right-most dot-number from flipped names.Warning: May result in incoherent naming in some cases</p>
+<dd class="field-odd"><p><strong>do_strip_numbers</strong> (<em>bool</em>) – Strip Numbers, Try to remove right-most dot-number from flipped names.Warning: May result in incoherent naming in some cases(optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -484,7 +556,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Tag selected bones to not be visible in Pose Mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>unselected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Unselected</p>
+<dd class="field-odd"><p><strong>unselected</strong> (<em>bool</em>) – Unselected, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -495,7 +573,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Add an IK Constraint to the active Bone. The target can be a selected bone or object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>with_targets</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – With Targets, Assign IK Constraint with targets derived from the select bones/objects</p>
+<dd class="field-odd"><p><strong>with_targets</strong> (<em>bool</em>) – With Targets, Assign IK Constraint with targets derived from the select bones/objects (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -504,12 +588,28 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.ik_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">ik_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.ik_clear" title="Link to this definition"></a></dt>
 <dd><p>Remove all IK Constraints from selected bones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.loc_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">loc_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.loc_clear" title="Link to this definition"></a></dt>
 <dd><p>Reset locations of selected bones to their default values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -519,9 +619,15 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>flipped</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flipped on X-Axis, Paste the stored pose flipped on to current pose</p></li>
-<li><p><strong>selected_mask</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – On Selected Only, Only paste the stored pose on to selected bones in the current pose</p></li>
+<li><p><strong>flipped</strong> (<em>bool</em>) – Flipped on X-Axis, Paste the stored pose flipped on to current pose (optional)</p></li>
+<li><p><strong>selected_mask</strong> (<em>bool</em>) – On Selected Only, Only paste the stored pose on to selected bones in the current pose (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -533,10 +639,16 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>display_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_display_type_items.html#rna-enum-motionpath-display-type-items"><span class="std std-ref">Motionpath Display Type Items</span></a>, (optional)) – Display Type</p></li>
-<li><p><strong>range</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_range_items.html#rna-enum-motionpath-range-items"><span class="std std-ref">Motionpath Range Items</span></a>, (optional)) – Computation Range</p></li>
-<li><p><strong>bake_location</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/motionpath_bake_location_items.html#rna-enum-motionpath-bake-location-items"><span class="std std-ref">Motionpath Bake Location Items</span></a>, (optional)) – Bake Location, Which point on the bones is used when calculating paths</p></li>
+<li><p><strong>display_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/motionpath_display_type_items.html#rna-enum-motionpath-display-type-items"><span class="std std-ref">Motionpath Display Type Items</span></a>]) – Display Type, (optional)</p></li>
+<li><p><strong>range</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/motionpath_range_items.html#rna-enum-motionpath-range-items"><span class="std std-ref">Motionpath Range Items</span></a>]) – Computation Range, (optional)</p></li>
+<li><p><strong>bake_location</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/motionpath_bake_location_items.html#rna-enum-motionpath-bake-location-items"><span class="std std-ref">Motionpath Bake Location Items</span></a>]) – Bake Location, Which point on the bones is used when calculating paths (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -547,7 +659,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>only_selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Selected, Only clear motion paths of selected bones</p>
+<dd class="field-odd"><p><strong>only_selected</strong> (<em>bool</em>) – Only Selected, Only clear motion paths of selected bones (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -556,12 +674,28 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.paths_range_update">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_range_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_range_update" title="Link to this definition"></a></dt>
 <dd><p>Update frame range for motion paths from the Scene’s current frame range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.pose.paths_update">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">paths_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.paths_update" title="Link to this definition"></a></dt>
 <dd><p>Recalculate paths for bones that already have them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -571,7 +705,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NEXT_KEY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LAST_KEY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BEFORE_FRAME'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BEFORE_END'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECTED_KEYS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECTED_MARKERS'</span></code>], (optional)) – <p>Terminate Mode, Method used to determine when to stop propagating pose to keyframes</p>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'NEXT_KEY'</em><em>, </em><em>'LAST_KEY'</em><em>, </em><em>'BEFORE_FRAME'</em><em>, </em><em>'BEFORE_END'</em><em>, </em><em>'SELECTED_KEYS'</em><em>, </em><em>'SELECTED_MARKERS'</em><em>]</em>) – <p>Terminate Mode, Method used to determine when to stop propagating pose to keyframes (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NEXT_KEY</span></code>
 To Next Keyframe – Propagate pose to first keyframe following the current frame only.</p></li>
@@ -587,8 +721,14 @@ On Selected Keyframes – Propagate pose to all selected keyframes.</p></li>
 On Selected Markers – Propagate pose to all keyframes occurring on frames with Scene Markers after the current frame.</p></li>
 </ul>
 </p></li>
-<li><p><strong>end_frame</strong> (<em>float in</em><em> [</em><em>1.17549e-38</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – End Frame, Frame to stop propagating frames to (for ‘Before Frame’ mode)</p></li>
+<li><p><strong>end_frame</strong> (<em>float</em>) – End Frame, Frame to stop propagating frames to (for ‘Before Frame’ mode) (in [1.17549e-38, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -600,10 +740,10 @@ On Selected Markers – Propagate pose to all keyframes occurring on frames with
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
-<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
-<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
-<li><p><strong>channels</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ROT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SIZE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BBONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CUSTOM'</span></code>], (optional)) – <p>Channels, Set of properties that are affected</p>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Weighting factor for which keyframe is favored more (in [0, 1], optional)</p></li>
+<li><p><strong>prev_frame</strong> (<em>int</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>next_frame</strong> (<em>int</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>channels</strong> (<em>Literal</em><em>[</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em>) – <p>Channels, Set of properties that are affected (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
 All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
@@ -619,7 +759,7 @@ Bendy Bone – Bendy Bone shape properties.</p></li>
 Custom Properties – Custom properties.</p></li>
 </ul>
 </p></li>
-<li><p><strong>axis_lock</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FREE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>], (optional)) – <p>Axis Lock, Transform axis to restrict effects to</p>
+<li><p><strong>axis_lock</strong> (<em>Literal</em><em>[</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em>) – <p>Axis Lock, Transform axis to restrict effects to (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
 Free – All axes are affected.</p></li>
@@ -633,6 +773,12 @@ Z – Only Z-axis transforms are affected.</p></li>
 </p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -640,6 +786,14 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.quaternions_flip">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">quaternions_flip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.quaternions_flip" title="Link to this definition"></a></dt>
 <dd><p>Flip quaternion values to achieve desired rotations, while maintaining the same orientations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -649,10 +803,10 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, Weighting factor for which keyframe is favored more</p></li>
-<li><p><strong>prev_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame</p></li>
-<li><p><strong>next_frame</strong> (<em>int in</em><em> [</em><em>-1048574</em><em>, </em><em>1048574</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame</p></li>
-<li><p><strong>channels</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LOC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ROT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SIZE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BBONE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CUSTOM'</span></code>], (optional)) – <p>Channels, Set of properties that are affected</p>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Weighting factor for which keyframe is favored more (in [0, 1], optional)</p></li>
+<li><p><strong>prev_frame</strong> (<em>int</em>) – Previous Keyframe, Frame number of keyframe immediately before the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>next_frame</strong> (<em>int</em>) – Next Keyframe, Frame number of keyframe immediately after the current frame (in [-1048574, 1048574], optional)</p></li>
+<li><p><strong>channels</strong> (<em>Literal</em><em>[</em><em>'ALL'</em><em>, </em><em>'LOC'</em><em>, </em><em>'ROT'</em><em>, </em><em>'SIZE'</em><em>, </em><em>'BBONE'</em><em>, </em><em>'CUSTOM'</em><em>]</em>) – <p>Channels, Set of properties that are affected (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
 All Properties – All properties, including transforms, bendy bone shape, and custom properties.</p></li>
@@ -668,7 +822,7 @@ Bendy Bone – Bendy Bone shape properties.</p></li>
 Custom Properties – Custom properties.</p></li>
 </ul>
 </p></li>
-<li><p><strong>axis_lock</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FREE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>], (optional)) – <p>Axis Lock, Transform axis to restrict effects to</p>
+<li><p><strong>axis_lock</strong> (<em>Literal</em><em>[</em><em>'FREE'</em><em>, </em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em>) – <p>Axis Lock, Transform axis to restrict effects to (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FREE</span></code>
 Free – All axes are affected.</p></li>
@@ -681,6 +835,12 @@ Z – Only Z-axis transforms are affected.</p></li>
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -691,7 +851,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Reveal all bones hidden in Pose Mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>select</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select</p>
+<dd class="field-odd"><p><strong>select</strong> (<em>bool</em>) – Select, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -700,6 +866,14 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.rot_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">rot_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.rot_clear" title="Link to this definition"></a></dt>
 <dd><p>Reset rotations of selected bones to their default values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -708,7 +882,13 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Set the rotation representation used by selected bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/object_rotation_mode_items.html#rna-enum-object-rotation-mode-items"><span class="std std-ref">Object Rotation Mode Items</span></a>, (optional)) – Rotation Mode</p>
+<dd class="field-odd"><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/object_rotation_mode_items.html#rna-enum-object-rotation-mode-items"><span class="std std-ref">Object Rotation Mode Items</span></a>]) – Rotation Mode, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -717,6 +897,14 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.scale_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">scale_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.scale_clear" title="Link to this definition"></a></dt>
 <dd><p>Reset scaling of selected bones to their default values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -725,7 +913,7 @@ Z – Only Z-axis transforms are affected.</p></li>
 <dd><p>Toggle selection status of all bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>action</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DESELECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – <p>Action, Selection action to execute</p>
+<dd class="field-odd"><p><strong>action</strong> (<em>Literal</em><em>[</em><em>'TOGGLE'</em><em>, </em><em>'SELECT'</em><em>, </em><em>'DESELECT'</em><em>, </em><em>'INVERT'</em><em>]</em>) – <p>Action, Selection action to execute (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TOGGLE</span></code>
 Toggle – Toggle selection for all elements.</p></li>
@@ -738,6 +926,12 @@ Invert – Invert selection of all elements.</p></li>
 </ul>
 </p>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -745,6 +939,14 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.pose.select_constraint_target">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_constraint_target</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_constraint_target" title="Link to this definition"></a></dt>
 <dd><p>Select bones used as targets for the currently selected bones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -754,8 +956,8 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend selection instead of deselecting everything first</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'COLLECTION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'COLOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'KEYINGSET'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CHILDREN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CHILDREN_IMMEDIATE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PARENT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SIBLINGS'</span></code>], (optional)) – <p>Type</p>
+<li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection instead of deselecting everything first (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'COLLECTION'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'KEYINGSET'</em><em>, </em><em>'CHILDREN'</em><em>, </em><em>'CHILDREN_IMMEDIATE'</em><em>, </em><em>'PARENT'</em><em>, </em><em>'SIBLINGS'</em><em>]</em>) – <p>Type, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">COLLECTION</span></code>
 Collection – Same collections as the active bone.</p></li>
@@ -775,6 +977,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 </p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -785,9 +993,15 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>direction</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PARENT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CHILD'</span></code>], (optional)) – Direction</p></li>
-<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend the selection</p></li>
+<li><p><strong>direction</strong> (<em>Literal</em><em>[</em><em>'PARENT'</em><em>, </em><em>'CHILD'</em><em>]</em>) – Direction, (optional)</p></li>
+<li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend the selection (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -796,6 +1010,14 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dt class="sig sig-object py" id="bpy.ops.pose.select_linked">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_linked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_linked" title="Link to this definition"></a></dt>
 <dd><p>Select all bones linked by connected parent/child relationships from the current selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -804,7 +1026,13 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dd><p>Select bones linked by connected parent/child relationships under the mouse cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend selection instead of deselecting everything first</p>
+<dd class="field-odd"><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection instead of deselecting everything first (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -816,9 +1044,15 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>only_active</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Only, Only operate on the active bone</p></li>
-<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend the selection</p></li>
+<li><p><strong>only_active</strong> (<em>bool</em>) – Active Only, Only operate on the active bone (optional)</p></li>
+<li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend the selection (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -827,6 +1061,14 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dt class="sig sig-object py" id="bpy.ops.pose.select_parent">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">select_parent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.select_parent" title="Link to this definition"></a></dt>
 <dd><p>Select bones that are parents of the currently selected bones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -834,6 +1076,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_add" title="Link to this definition"></a></dt>
 <dd><p>Create a new empty Selection Set</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L147">startup/bl_operators/bone_selection_sets.py:147</a></p>
 </dd>
@@ -845,6 +1093,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_add_and_assign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_add_and_assign" title="Link to this definition"></a></dt>
 <dd><p>Create a new Selection Set with the currently selected bones</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L278">startup/bl_operators/bone_selection_sets.py:278</a></p>
 </dd>
@@ -856,6 +1110,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_assign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_assign" title="Link to this definition"></a></dt>
 <dd><p>Add selected bones to Selection Set</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L194">startup/bl_operators/bone_selection_sets.py:194</a></p>
 </dd>
@@ -867,6 +1127,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_copy" title="Link to this definition"></a></dt>
 <dd><p>Copy the selected Selection Set(s) to the clipboard</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L290">startup/bl_operators/bone_selection_sets.py:290</a></p>
 </dd>
@@ -878,6 +1144,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_delete_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_delete_all" title="Link to this definition"></a></dt>
 <dd><p>Remove all Selection Sets from this Armature</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L77">startup/bl_operators/bone_selection_sets.py:77</a></p>
 </dd>
@@ -889,6 +1161,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_deselect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_deselect" title="Link to this definition"></a></dt>
 <dd><p>Remove Selection Set bones from current selection</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L261">startup/bl_operators/bone_selection_sets.py:261</a></p>
 </dd>
@@ -901,7 +1179,13 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dd><p>Move the active Selection Set up/down the list of sets</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>direction</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'UP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DOWN'</span></code>], (optional)) – Move Direction, Direction to move the active Selection Set: UP (default) or DOWN</p>
+<dd class="field-odd"><p><strong>direction</strong> (<em>Literal</em><em>[</em><em>'UP'</em><em>, </em><em>'DOWN'</em><em>]</em>) – Move Direction, Direction to move the active Selection Set: UP (default) or DOWN (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L126">startup/bl_operators/bone_selection_sets.py:126</a></p>
@@ -914,6 +1198,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_paste</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_paste" title="Link to this definition"></a></dt>
 <dd><p>Add new Selection Set(s) from the clipboard</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L302">startup/bl_operators/bone_selection_sets.py:302</a></p>
 </dd>
@@ -925,6 +1215,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove a Selection Set from this Armature</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L165">startup/bl_operators/bone_selection_sets.py:165</a></p>
 </dd>
@@ -936,6 +1232,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_remove_bones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_remove_bones" title="Link to this definition"></a></dt>
 <dd><p>Remove the selected bones from all Selection Sets</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L89">startup/bl_operators/bone_selection_sets.py:89</a></p>
 </dd>
@@ -948,7 +1250,13 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dd><p>Select the bones from this Selection Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>selection_set_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Selection Set Index, Which Selection Set to select; -1 uses the active Selection Set</p>
+<dd class="field-odd"><p><strong>selection_set_index</strong> (<em>int</em>) – Selection Set Index, Which Selection Set to select; -1 uses the active Selection Set (in [-inf, inf], optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L239">startup/bl_operators/bone_selection_sets.py:239</a></p>
@@ -961,6 +1269,12 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">selection_set_unassign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.selection_set_unassign" title="Link to this definition"></a></dt>
 <dd><p>Remove selected bones from Selection Set</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/bone_selection_sets.py#L213">startup/bl_operators/bone_selection_sets.py:213</a></p>
 </dd>
@@ -971,6 +1285,14 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dt class="sig sig-object py" id="bpy.ops.pose.transforms_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">transforms_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.transforms_clear" title="Link to this definition"></a></dt>
 <dd><p>Reset location, rotation, and scaling of selected bones to their default values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -979,7 +1301,13 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dd><p>Reset pose bone transforms to keyframed state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>only_selected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Selected, Only visible/selected bones</p>
+<dd class="field-odd"><p><strong>only_selected</strong> (<em>bool</em>) – Only Selected, Only visible/selected bones (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -988,6 +1316,14 @@ Siblings – Select all bones that have the same parent as currently selected bo
 <dt class="sig sig-object py" id="bpy.ops.pose.visual_transform_apply">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.pose.</span></span><span class="sig-name descname"><span class="pre">visual_transform_apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.pose.visual_transform_apply" title="Link to this definition"></a></dt>
 <dd><p>Apply final constrained position of pose bones to their transform</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -1004,7 +1340,7 @@ Siblings – Select all bones that have the same parent as currently selected bo
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

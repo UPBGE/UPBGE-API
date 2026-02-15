@@ -146,11 +146,11 @@
 <dt class="sig sig-object py" id="bpy_extras.image_utils.load_image">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.image_utils.</span></span><span class="sig-name descname"><span class="pre">load_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imagepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_holder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncase_cmp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relpath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_reload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.image_utils.load_image" title="Link to this definition"></a></dt>
 <dd><p>Return an image from the file path with options to search multiple paths
-and return a placeholder if its not found.</p>
+and return a placeholder if it’s not found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>str</em>) – The image filename
+<li><p><strong>imagepath</strong> (<em>str</em>) – The image filename
 If a path precedes it, this will be searched as well.</p></li>
 <li><p><strong>dirname</strong> (<em>str</em>) – is the directory where the image may be located - any file at
 the end will be ignored.</p></li>
@@ -160,11 +160,12 @@ this is useful so later you can relink the image to its original data.</p></li>
 Be careful with this if you have files in your root directory because
 it may take a long time.</p></li>
 <li><p><strong>ncase_cmp</strong> (<em>bool</em>) – on non windows systems, find the correct case for the file.</p></li>
-<li><p><strong>convert_callback</strong> (<em>function</em>) – a function that takes an existing path and returns
+<li><p><strong>convert_callback</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – a function that takes an existing path and returns
 a new one. Use this when loading image formats blender may not support,
 the CONVERT_CALLBACK can take the path for a GIF (for example),
 convert it to a PNG and return the PNG’s path.
 For formats blender can read, simply return the path that is given.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If True, print extra information when searching for the image.</p></li>
 <li><p><strong>relpath</strong> (<em>str</em><em> | </em><em>None</em>) – If not None, make the file relative to this path.</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – If true,
 returns already loaded image data-block if possible
@@ -197,7 +198,7 @@ is also enabled).</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

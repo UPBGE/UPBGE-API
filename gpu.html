@@ -283,7 +283,7 @@ are reserved keywords and should not be used.</p></li>
 </section>
 <section id="batch-creation">
 <h2>Batch Creation<a class="headerlink" href="#batch-creation" title="Link to this heading"></a></h2>
-<p>Batches can be creates by first manually creating VBOs and IBOs.
+<p>Batches can be created by first manually creating VBOs and IBOs.
 However, it is recommended to use the <a class="reference internal" href="gpu_extras.batch.html#gpu_extras.batch.batch_for_shader" title="gpu_extras.batch.batch_for_shader"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu_extras.batch.batch_for_shader</span></code></a> function.
 It makes sure that all the vertex attributes necessary for a specific shader are provided.
 Consequently, the shader has to be passed to the function as well.
@@ -309,7 +309,7 @@ the offscreen instance will be freed.</p>
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
-<p>To try these examples, just copy them into Blenders text editor and execute them.
+<p>To try these examples, just copy them into Blender’s text editor and execute them.
 To keep the examples relatively small, they just register a draw function that can’t easily be removed anymore.
 Blender has to be restarted in order to delete the draw handlers.</p>
 <p>3D Points with Single Color</p>
@@ -518,10 +518,10 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 
 <span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">from_builtin</span><span class="p">(</span><span class="s1">&#39;IMAGE_SCENE_LINEAR_TO_REC709_SRGB&#39;</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
-    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_FAN&#39;</span><span class="p">,</span>
+    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_STRIP&#39;</span><span class="p">,</span>
     <span class="p">{</span>
-        <span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)),</span>
-        <span class="s2">&quot;texCoord&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)),</span>
+        <span class="s2">&quot;texCoord&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
     <span class="p">},</span>
 <span class="p">)</span>
 
@@ -636,10 +636,10 @@ Blender has to be restarted in order to delete the draw handlers.</p>
 <span class="k">del</span> <span class="n">shader_info</span>
 
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
-    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_FAN&#39;</span><span class="p">,</span>
+    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_STRIP&#39;</span><span class="p">,</span>
     <span class="p">{</span>
-        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
-        <span class="s2">&quot;uv&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="s2">&quot;uv&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
     <span class="p">},</span>
 <span class="p">)</span>
 
@@ -793,7 +793,7 @@ Based on the result a decision is made on whether the fragment should be drawn o
 
 <span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">Vector</span><span class="p">((</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">()))</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 
-<span class="n">arc_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">arc_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coords</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
     <span class="n">arc_lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arc_lengths</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
 
@@ -880,10 +880,10 @@ based on current time.</p>
 <span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">create_from_info</span><span class="p">(</span><span class="n">shader_info</span><span class="p">)</span>
 
 <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_for_shader</span><span class="p">(</span>
-    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_FAN&#39;</span><span class="p">,</span>
+    <span class="n">shader</span><span class="p">,</span> <span class="s1">&#39;TRI_STRIP&#39;</span><span class="p">,</span>
     <span class="p">{</span>
-        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
-        <span class="s2">&quot;uv&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="s2">&quot;uv&quot;</span><span class="p">:</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
     <span class="p">},</span>
 <span class="p">)</span>
 
@@ -991,7 +991,7 @@ based on current time.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

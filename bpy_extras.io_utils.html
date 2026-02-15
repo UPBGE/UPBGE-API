@@ -167,14 +167,43 @@
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">orientation_helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_forward</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.orientation_helper" title="Link to this definition"></a></dt>
 <dd><p>A decorator for import/export classes, generating properties needed by the axis conversion system and IO helpers,
 with specified default values (axes).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis_forward</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – The default forward axis.</p></li>
+<li><p><strong>axis_up</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – The default up axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A class decorator.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Callable[[type], type]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.axis_conversion">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">axis_conversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_forward</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_forward</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.axis_conversion" title="Link to this definition"></a></dt>
-<dd><p>Each argument is an axis in [‘X’, ‘Y’, ‘Z’, ‘-X’, ‘-Y’, ‘-Z’]
-where the first 2 are a source and the second 2 are the target.
-:rtype: <a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a></p>
+<dd><p>Each argument is an axis
+where the first 2 are a source and the second 2 are the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_forward</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Source forward axis.</p></li>
+<li><p><strong>from_up</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Source up axis.</p></li>
+<li><p><strong>to_forward</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Target forward axis.</p></li>
+<li><p><strong>to_up</strong> (<em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>, </em><em>'-X'</em><em>, </em><em>'-Y'</em><em>, </em><em>'-Z'</em><em>]</em>) – Target up axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The conversion matrix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -207,7 +236,7 @@ to be used from <a class="reference internal" href="bpy.types.Operator.html#bpy.
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>depsgraph</strong> (<a class="reference internal" href="bpy.types.Depsgraph.html#bpy.types.Depsgraph" title="bpy.types.Depsgraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Depsgraph</span></code></a>) – The evaluated depsgraph.</p></li>
-<li><p><strong>objects</strong> (Sequence[<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>]) – A sequencer of objects.</p></li>
+<li><p><strong>objects</strong> (Sequence[<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>]) – A sequence of objects.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -225,17 +254,53 @@ values are lists of (object, matrix) tuples representing instances.</p>
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">poll_file_object_drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.poll_file_object_drop" title="Link to this definition"></a></dt>
 <dd><p>A default implementation for FileHandler poll_drop methods. Allows for both the 3D Viewport and
 the Outliner (in ViewLayer display mode) to be targets for file drag and drop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether the drop target is valid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.unpack_list">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">unpack_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_tuples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.unpack_list" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Flatten a sequence of tuples into a single list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>list_of_tuples</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>]</em>) – A sequence of tuples to unpack.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A flat list of all values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.unpack_face_list">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.io_utils.</span></span><span class="sig-name descname"><span class="pre">unpack_face_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_tuples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.unpack_face_list" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Unpack a list of faces (triangles or quads) into a flat list,
+padding triangles with a zero to fit into groups of four.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>list_of_tuples</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em><em>]</em>) – A sequence of face index tuples (3 or 4 elements each).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A flat list of face indices, padded with zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.path_reference">
@@ -247,14 +312,13 @@ exporters.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filepath</strong> (<em>str</em>) – the file path to return,
 supporting blenders relative ‘//’ prefix.</p></li>
-<li><p><strong>base_src</strong> (<em>str</em>) – the directory the <em>filepath</em> is relative too
+<li><p><strong>base_src</strong> (<em>str</em>) – the directory the <em>filepath</em> is relative to
 (normally the blend file).</p></li>
 <li><p><strong>base_dst</strong> (<em>str</em>) – the directory the <em>filepath</em> will be referenced from
 (normally the export path).</p></li>
-<li><p><strong>mode</strong> (<em>str</em>) – the method used get the path in
-[‘AUTO’, ‘ABSOLUTE’, ‘RELATIVE’, ‘MATCH’, ‘STRIP’, ‘COPY’]</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'AUTO'</em><em>, </em><em>'ABSOLUTE'</em><em>, </em><em>'RELATIVE'</em><em>, </em><em>'MATCH'</em><em>, </em><em>'STRIP'</em><em>, </em><em>'COPY'</em><em>]</em>) – the method used to reference the path.</p></li>
 <li><p><strong>copy_subdir</strong> (<em>str</em>) – the subdirectory of <em>base_dst</em> to use when mode=’COPY’.</p></li>
-<li><p><strong>copy_set</strong> (<em>set</em><em>[</em><em>tuple</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – collect from/to pairs when mode=’COPY’,
+<li><p><strong>copy_set</strong> (<em>set</em><em>[</em><em>tuple</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>] </em><em>| </em><em>None</em>) – collect from/to pairs when mode=’COPY’,
 pass to <em>path_reference_copy</em> when exporting is done.</p></li>
 <li><p><strong>library</strong> (<a class="reference internal" href="bpy.types.Library.html#bpy.types.Library" title="bpy.types.Library"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Library</span></code></a> | None) – The library this path is relative to.</p></li>
 </ul>
@@ -295,13 +359,20 @@ when available.
 This can be the object, mesh, material, etc instance itself.
 Any hashable object associated with the <em>name</em>.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The name used to create a unique value in <em>name_dict</em>.</p></li>
-<li><p><strong>name_dict</strong> (<em>dict</em>) – This is used to cache namespace to ensure no collisions
+<li><p><strong>name_dict</strong> (<em>dict</em><em>[</em><em>Any</em><em>, </em><em>str</em><em>]</em>) – This is used to cache namespace to ensure no collisions
 occur, this should be an empty dict initially and only modified by this
 function.</p></li>
-<li><p><strong>clean_func</strong> (<em>function</em>) – Function to call on <em>name</em> before creating a unique value.</p></li>
+<li><p><strong>name_max</strong> (<em>int</em>) – Maximum length of the name. When <code class="docutils literal notranslate"><span class="pre">-1</span></code> the name is unlimited.</p></li>
+<li><p><strong>clean_func</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – Function to call on <em>name</em> before creating a unique value.</p></li>
 <li><p><strong>sep</strong> (<em>str</em>) – Separator to use when between the name and a number when a
 duplicate name is found.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A unique name.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -312,12 +383,34 @@ duplicate name is found.</p></li>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.ExportHelper.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.ExportHelper.check" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Validate the filepath and axis conversion settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True when a property was updated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.ExportHelper.invoke">
 <span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.ExportHelper.invoke" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Invoke the file selector for exporting, setting a default filepath
+based on the current blend file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operator return value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[str]</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -327,17 +420,55 @@ duplicate name is found.</p></li>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.ImportHelper.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.ImportHelper.check" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Validate axis conversion settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True when a property was updated.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.ImportHelper.invoke">
 <span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.ImportHelper.invoke" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Invoke the file selector for importing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operator return value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[str]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy_extras.io_utils.ImportHelper.invoke_popup">
 <span class="sig-name descname"><span class="pre">invoke_popup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confirm_text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.io_utils.ImportHelper.invoke_popup" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Invoke as a popup confirmation dialog when a filepath is already set,
+otherwise fall back to the file selector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+<li><p><strong>confirm_text</strong> (<em>str</em>) – Label for the confirm button,
+defaults to the operator label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operator return value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[str]</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -355,7 +486,7 @@ duplicate name is found.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

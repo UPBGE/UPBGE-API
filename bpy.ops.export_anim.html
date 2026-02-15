@@ -224,13 +224,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Filepath used for exporting the file</p></li>
-<li><p><strong>check_existing</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Check Existing, Check and warn on overwriting existing files</p></li>
-<li><p><strong>filter_glob</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filter_glob</p></li>
-<li><p><strong>global_scale</strong> (<em>float in</em><em> [</em><em>0.0001</em><em>, </em><em>1e+06</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scale, Scale the BVH by this value</p></li>
-<li><p><strong>frame_start</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Start Frame, Starting frame to export</p></li>
-<li><p><strong>frame_end</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – End Frame, End frame to export</p></li>
-<li><p><strong>rotate_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NATIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'XYZ'</span></code>, <code class="docutils literal notranslate"><span class="pre">'XZY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'YXZ'</span></code>, <code class="docutils literal notranslate"><span class="pre">'YZX'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ZXY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ZYX'</span></code>], (optional)) – <p>Rotation, Rotation conversion</p>
+<li><p><strong>filepath</strong> (<em>str</em>) – File Path, Filepath used for exporting the file (optional, never None)</p></li>
+<li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
+<li><p><strong>filter_glob</strong> (<em>str</em>) – filter_glob, (optional, never None)</p></li>
+<li><p><strong>global_scale</strong> (<em>float</em>) – Scale, Scale the BVH by this value (in [0.0001, 1e+06], optional)</p></li>
+<li><p><strong>frame_start</strong> (<em>int</em>) – Start Frame, Starting frame to export (in [-inf, inf], optional)</p></li>
+<li><p><strong>frame_end</strong> (<em>int</em>) – End Frame, End frame to export (in [-inf, inf], optional)</p></li>
+<li><p><strong>rotate_mode</strong> (<em>Literal</em><em>[</em><em>'NATIVE'</em><em>, </em><em>'XYZ'</em><em>, </em><em>'XZY'</em><em>, </em><em>'YXZ'</em><em>, </em><em>'YZX'</em><em>, </em><em>'ZXY'</em><em>, </em><em>'ZYX'</em><em>]</em>) – <p>Rotation, Rotation conversion (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NATIVE</span></code>
 Euler (Native) – Use the rotation order defined in the BVH file.</p></li>
@@ -248,9 +248,15 @@ Euler (ZXY) – Convert rotations to euler ZXY.</p></li>
 Euler (ZYX) – Convert rotations to euler ZYX.</p></li>
 </ul>
 </p></li>
-<li><p><strong>root_transform_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Root Translation Only, Only write out translation channels for the root bone</p></li>
-<li><p><strong>sort_children_by_names</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Sort Children By Name, Sort the children of each bone alphabetically</p></li>
+<li><p><strong>root_transform_only</strong> (<em>bool</em>) – Root Translation Only, Only write out translation channels for the root bone (optional)</p></li>
+<li><p><strong>sort_children_by_names</strong> (<em>bool</em>) – Sort Children By Name, Sort the children of each bone alphabetically (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/io_anim_bvh/__init__.py#L286">addons_core/io_anim_bvh/__init__.py:286</a></p>
@@ -272,7 +278,7 @@ Euler (ZYX) – Convert rotations to euler ZYX.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

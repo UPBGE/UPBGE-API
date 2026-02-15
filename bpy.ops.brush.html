@@ -234,11 +234,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>asset_library_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>, (optional)) – Asset Library Type</p></li>
-<li><p><strong>asset_library_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Asset Library Identifier</p></li>
-<li><p><strong>relative_asset_identifier</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Relative Asset Identifier</p></li>
-<li><p><strong>use_toggle</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Toggle, Switch between the current and assigned brushes on consecutive uses.</p></li>
+<li><p><strong>asset_library_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>]) – Asset Library Type, (optional)</p></li>
+<li><p><strong>asset_library_identifier</strong> (<em>str</em>) – Asset Library Identifier, (optional, never None)</p></li>
+<li><p><strong>relative_asset_identifier</strong> (<em>str</em>) – Relative Asset Identifier, (optional, never None)</p></li>
+<li><p><strong>use_toggle</strong> (<em>bool</em>) – Toggle, Switch between the current and assigned brushes on consecutive uses. (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -247,6 +253,14 @@
 <dt class="sig sig-object py" id="bpy.ops.brush.asset_delete">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.brush.</span></span><span class="sig-name descname"><span class="pre">asset_delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.brush.asset_delete" title="Link to this definition"></a></dt>
 <dd><p>Delete the active brush asset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -256,10 +270,16 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>catalog_path</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Catalog, The asset’s catalog path</p></li>
-<li><p><strong>author</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Author</p></li>
-<li><p><strong>description</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Description</p></li>
+<li><p><strong>catalog_path</strong> (<em>str</em>) – Catalog, The asset’s catalog path (optional, never None)</p></li>
+<li><p><strong>author</strong> (<em>str</em>) – Author, (optional, never None)</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – Description, (optional, never None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -271,29 +291,29 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – File Path, Path to file</p></li>
-<li><p><strong>hide_props_region</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Hide Operator Properties, Collapse the region displaying the operator settings</p></li>
-<li><p><strong>check_existing</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Check Existing, Check and warn on overwriting existing files</p></li>
-<li><p><strong>filter_blender</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter .blend files</p></li>
-<li><p><strong>filter_backup</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter .blend files</p></li>
-<li><p><strong>filter_image</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter image files</p></li>
-<li><p><strong>filter_movie</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter movie files</p></li>
-<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Python files</p></li>
-<li><p><strong>filter_font</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter font files</p></li>
-<li><p><strong>filter_sound</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter sound files</p></li>
-<li><p><strong>filter_text</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter text files</p></li>
-<li><p><strong>filter_archive</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter archive files</p></li>
-<li><p><strong>filter_btx</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter btx files</p></li>
-<li><p><strong>filter_alembic</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Alembic files</p></li>
-<li><p><strong>filter_usd</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter USD files</p></li>
-<li><p><strong>filter_obj</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter OBJ files</p></li>
-<li><p><strong>filter_volume</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter OpenVDB volume files</p></li>
-<li><p><strong>filter_folder</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter folders</p></li>
-<li><p><strong>filter_blenlib</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Blender IDs</p></li>
-<li><p><strong>filemode</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>9</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</p></li>
-<li><p><strong>show_multiview</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Enable Multi-View</p></li>
-<li><p><strong>use_multiview</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Multi-View</p></li>
-<li><p><strong>display_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DEFAULT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LIST_VERTICAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LIST_HORIZONTAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'THUMBNAIL'</span></code>], (optional)) – <p>Display Type</p>
+<li><p><strong>filepath</strong> (<em>str</em>) – File Path, Path to file (optional, never None)</p></li>
+<li><p><strong>hide_props_region</strong> (<em>bool</em>) – Hide Operator Properties, Collapse the region displaying the operator settings (optional)</p></li>
+<li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
+<li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
+<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
+<li><p><strong>filter_image</strong> (<em>bool</em>) – Filter image files, (optional)</p></li>
+<li><p><strong>filter_movie</strong> (<em>bool</em>) – Filter movie files, (optional)</p></li>
+<li><p><strong>filter_python</strong> (<em>bool</em>) – Filter Python files, (optional)</p></li>
+<li><p><strong>filter_font</strong> (<em>bool</em>) – Filter font files, (optional)</p></li>
+<li><p><strong>filter_sound</strong> (<em>bool</em>) – Filter sound files, (optional)</p></li>
+<li><p><strong>filter_text</strong> (<em>bool</em>) – Filter text files, (optional)</p></li>
+<li><p><strong>filter_archive</strong> (<em>bool</em>) – Filter archive files, (optional)</p></li>
+<li><p><strong>filter_btx</strong> (<em>bool</em>) – Filter btx files, (optional)</p></li>
+<li><p><strong>filter_alembic</strong> (<em>bool</em>) – Filter Alembic files, (optional)</p></li>
+<li><p><strong>filter_usd</strong> (<em>bool</em>) – Filter USD files, (optional)</p></li>
+<li><p><strong>filter_obj</strong> (<em>bool</em>) – Filter OBJ files, (optional)</p></li>
+<li><p><strong>filter_volume</strong> (<em>bool</em>) – Filter OpenVDB volume files, (optional)</p></li>
+<li><p><strong>filter_folder</strong> (<em>bool</em>) – Filter folders, (optional)</p></li>
+<li><p><strong>filter_blenlib</strong> (<em>bool</em>) – Filter Blender IDs, (optional)</p></li>
+<li><p><strong>filemode</strong> (<em>int</em>) – File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file (in [1, 9], optional)</p></li>
+<li><p><strong>show_multiview</strong> (<em>bool</em>) – Enable Multi-View, (optional)</p></li>
+<li><p><strong>use_multiview</strong> (<em>bool</em>) – Use Multi-View, (optional)</p></li>
+<li><p><strong>display_type</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>, </em><em>'LIST_VERTICAL'</em><em>, </em><em>'LIST_HORIZONTAL'</em><em>, </em><em>'THUMBNAIL'</em><em>]</em>) – <p>Display Type, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
 Default – Automatically determine display type for files.</p></li>
@@ -305,8 +325,14 @@ Long List – Display files as a detailed list.</p></li>
 Thumbnails – Display files as thumbnails.</p></li>
 </ul>
 </p></li>
-<li><p><strong>sort_method</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – File sorting mode</p></li>
+<li><p><strong>sort_method</strong> (<em>str</em>) – File sorting mode, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -315,12 +341,28 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.brush.asset_revert">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.brush.</span></span><span class="sig-name descname"><span class="pre">asset_revert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.brush.asset_revert" title="Link to this definition"></a></dt>
 <dd><p>Revert the active brush settings to the default values from the asset library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.brush.asset_save">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.brush.</span></span><span class="sig-name descname"><span class="pre">asset_save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.brush.asset_save" title="Link to this definition"></a></dt>
 <dd><p>Update the active brush asset in the asset library with current settings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -330,10 +372,16 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Name, Name for the new brush asset</p></li>
-<li><p><strong>asset_library_reference</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Library, Asset library used to store the new brush</p></li>
-<li><p><strong>catalog_path</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Catalog, Catalog to use for the new asset</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name, Name for the new brush asset (optional, never None)</p></li>
+<li><p><strong>asset_library_reference</strong> (<em>str</em>) – Library, Asset library used to store the new brush (optional)</p></li>
+<li><p><strong>catalog_path</strong> (<em>str</em>) – Catalog, Catalog to use for the new asset (optional, never None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -344,7 +392,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dd><p>Change brush size by a scalar</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>scalar</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>2</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Scalar, Factor to scale brush size by</p>
+<dd class="field-odd"><p><strong>scalar</strong> (<em>float</em>) – Scalar, Factor to scale brush size by (in [0, 2], optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -356,9 +410,15 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TRANSLATION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCALE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ROTATION'</span></code>], (optional)) – Tool</p></li>
-<li><p><strong>texmode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PRIMARY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SECONDARY'</span></code>], (optional)) – Tool</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'TRANSLATION'</em><em>, </em><em>'SCALE'</em><em>, </em><em>'ROTATION'</em><em>]</em>) – Tool, (optional)</p></li>
+<li><p><strong>texmode</strong> (<em>Literal</em><em>[</em><em>'PRIMARY'</em><em>, </em><em>'SECONDARY'</em><em>]</em>) – Tool, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -370,10 +430,16 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>use_repeat</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Repeat, Use repeat mapping values</p></li>
-<li><p><strong>use_scale</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Scale, Use texture scale values</p></li>
-<li><p><strong>mask</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Modify Mask Stencil, Modify either the primary or mask stencil</p></li>
+<li><p><strong>use_repeat</strong> (<em>bool</em>) – Use Repeat, Use repeat mapping values (optional)</p></li>
+<li><p><strong>use_scale</strong> (<em>bool</em>) – Use Scale, Use texture scale values (optional)</p></li>
+<li><p><strong>mask</strong> (<em>bool</em>) – Modify Mask Stencil, Modify either the primary or mask stencil (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -384,7 +450,13 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dd><p>Reset the stencil transformation to the default</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mask</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Modify Mask Stencil, Modify either the primary or mask stencil</p>
+<dd class="field-odd"><p><strong>mask</strong> (<em>bool</em>) – Modify Mask Stencil, Modify either the primary or mask stencil (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -403,7 +475,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

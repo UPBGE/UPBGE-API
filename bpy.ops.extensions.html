@@ -253,6 +253,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">package_disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.package_disable" title="Link to this definition"></a></dt>
 <dd><p>Turn off this extension</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3592">addons_core/bl_pkg/bl_extension_ops.py:3592</a></p>
 </dd>
@@ -266,13 +272,19 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>repo_directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Repo Directory</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>enable_on_install</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Enable on Install, Enable after installing</p></li>
-<li><p><strong>url</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – URL</p></li>
-<li><p><strong>do_legacy_replace</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Do Legacy Replace</p></li>
+<li><p><strong>repo_directory</strong> (<em>str</em>) – Repo Directory, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>enable_on_install</strong> (<em>bool</em>) – Enable on Install, Enable after installing (optional)</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – URL, (optional, never None)</p></li>
+<li><p><strong>do_legacy_replace</strong> (<em>bool</em>) – Do Legacy Replace, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
@@ -287,16 +299,22 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filter_glob</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filter_glob</p></li>
-<li><p><strong>directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Directory</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>, (optional)) – files</p></li>
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filepath</p></li>
-<li><p><strong>repo</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – User Repository, The user repository to install extensions into</p></li>
-<li><p><strong>enable_on_install</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Enable on Install, Enable after installing</p></li>
-<li><p><strong>target</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Legacy Target Path, Path to install legacy add-on packages to</p></li>
-<li><p><strong>overwrite</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Legacy Overwrite, Remove existing add-ons with the same ID</p></li>
-<li><p><strong>url</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – URL</p></li>
+<li><p><strong>filter_glob</strong> (<em>str</em>) – filter_glob, (optional, never None)</p></li>
+<li><p><strong>directory</strong> (<em>str</em>) – Directory, (optional, never None)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – files, (optional)</p></li>
+<li><p><strong>filepath</strong> (<em>str</em>) – filepath, (optional, never None)</p></li>
+<li><p><strong>repo</strong> (<em>str</em>) – User Repository, The user repository to install extensions into (optional)</p></li>
+<li><p><strong>enable_on_install</strong> (<em>bool</em>) – Enable on Install, Enable after installing (optional)</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – Legacy Target Path, Path to install legacy add-on packages to (optional)</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>) – Legacy Overwrite, Remove existing add-ons with the same ID (optional)</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – URL, (optional, never None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
@@ -310,7 +328,13 @@
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>enable_on_install</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Enable on Install, Enable after installing</p>
+<dd class="field-odd"><p><strong>enable_on_install</strong> (<em>bool</em>) – Enable on Install, Enable after installing (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
@@ -325,9 +349,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3679">addons_core/bl_pkg/bl_extension_ops.py:3679</a></p>
@@ -340,6 +370,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">package_mark_clear_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.package_mark_clear_all" title="Link to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3726">addons_core/bl_pkg/bl_extension_ops.py:3726</a></p>
 </dd>
@@ -353,9 +389,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3665">addons_core/bl_pkg/bl_extension_ops.py:3665</a></p>
@@ -368,6 +410,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">package_mark_set_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.package_mark_set_all" title="Link to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3690">addons_core/bl_pkg/bl_extension_ops.py:3690</a></p>
 </dd>
@@ -379,6 +427,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">package_obsolete_marked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.package_obsolete_marked" title="Link to this definition"></a></dt>
 <dd><p>Zeroes package versions, useful for development - to test upgrading</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3783">addons_core/bl_pkg/bl_extension_ops.py:3783</a></p>
 </dd>
@@ -392,9 +446,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3752">addons_core/bl_pkg/bl_extension_ops.py:3752</a></p>
@@ -409,9 +469,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3738">addons_core/bl_pkg/bl_extension_ops.py:3738</a></p>
@@ -426,9 +492,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3766">addons_core/bl_pkg/bl_extension_ops.py:3766</a></p>
@@ -443,9 +515,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3620">addons_core/bl_pkg/bl_extension_ops.py:3620</a></p>
@@ -460,9 +538,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3606">addons_core/bl_pkg/bl_extension_ops.py:3606</a></p>
@@ -477,10 +561,16 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>repo_directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Repo Directory</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
-<li><p><strong>pkg_id</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Package ID</p></li>
+<li><p><strong>repo_directory</strong> (<em>str</em>) – Repo Directory, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
+<li><p><strong>pkg_id</strong> (<em>str</em>) – Package ID, (optional, never None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
@@ -493,6 +583,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">package_uninstall_marked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.package_uninstall_marked" title="Link to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
 </dd>
@@ -504,6 +600,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">package_uninstall_system</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.package_uninstall_system" title="Link to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3583">addons_core/bl_pkg/bl_extension_ops.py:3583</a></p>
 </dd>
@@ -516,7 +618,13 @@
 <dd><p>Upgrade installed extensions to their latest version from remote repositories</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>use_active_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Only, Only upgrade the active repository</p>
+<dd class="field-odd"><p><strong>use_active_only</strong> (<em>bool</em>) – Active Only, Only upgrade the active repository (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
@@ -530,7 +638,13 @@
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p>
+<dd class="field-odd"><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1834">addons_core/bl_pkg/bl_extension_ops.py:1834</a></p>
@@ -543,6 +657,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">repo_lock_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.repo_lock_all" title="Link to this definition"></a></dt>
 <dd><p>Lock repositories - to test locking</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3852">addons_core/bl_pkg/bl_extension_ops.py:3852</a></p>
 </dd>
@@ -555,7 +675,13 @@
 <dd><p>Refresh extension &amp; legacy add-ons, reloading modules &amp; meta-data (similar to restarting)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>use_active_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Only, Only refresh the active repository</p>
+<dd class="field-odd"><p><strong>use_active_only</strong> (<em>bool</em>) – Active Only, Only refresh the active repository (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1743">addons_core/bl_pkg/bl_extension_ops.py:1743</a></p>
@@ -570,9 +696,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>repo_directory</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Repo Directory</p></li>
-<li><p><strong>repo_index</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repo Index</p></li>
+<li><p><strong>repo_directory</strong> (<em>str</em>) – Repo Directory, (optional, never None)</p></li>
+<li><p><strong>repo_index</strong> (<em>int</em>) – Repo Index, (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
@@ -586,7 +718,13 @@
 <dd><p>Refresh the list of extensions for all the remote repositories</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>use_active_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Only, Only sync the active repository</p>
+<dd class="field-odd"><p><strong>use_active_only</strong> (<em>bool</em>) – Active Only, Only sync the active repository (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1501">addons_core/bl_pkg/bl_extension_ops.py:1501</a></p>
@@ -599,6 +737,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">repo_unlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.repo_unlock" title="Link to this definition"></a></dt>
 <dd><p>Remove the repository file-system lock</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L1921">addons_core/bl_pkg/bl_extension_ops.py:1921</a></p>
 </dd>
@@ -610,6 +754,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">repo_unlock_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.repo_unlock_all" title="Link to this definition"></a></dt>
 <dd><p>Unlock repositories - to test unlocking</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3878">addons_core/bl_pkg/bl_extension_ops.py:3878</a></p>
 </dd>
@@ -621,6 +771,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">status_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.status_clear" title="Link to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3651">addons_core/bl_pkg/bl_extension_ops.py:3651</a></p>
 </dd>
@@ -632,6 +788,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">status_clear_errors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.status_clear_errors" title="Link to this definition"></a></dt>
 <dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3640">addons_core/bl_pkg/bl_extension_ops.py:3640</a></p>
 </dd>
@@ -643,6 +805,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">userpref_allow_online</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.userpref_allow_online" title="Link to this definition"></a></dt>
 <dd><p>Allow internet access. Blender may access configured online extension repositories. Installed third party add-ons may access the internet for their own functionality</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L4003">addons_core/bl_pkg/bl_extension_ops.py:4003</a></p>
 </dd>
@@ -654,6 +822,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">userpref_allow_online_popup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.userpref_allow_online_popup" title="Link to this definition"></a></dt>
 <dd><p>Allow internet access. Blender may access configured online extension repositories. Installed third party add-ons may access the internet for their own functionality</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L4017">addons_core/bl_pkg/bl_extension_ops.py:4017</a></p>
 </dd>
@@ -665,6 +839,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">userpref_show_for_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.userpref_show_for_update" title="Link to this definition"></a></dt>
 <dd><p>Open extensions preferences</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3943">addons_core/bl_pkg/bl_extension_ops.py:3943</a></p>
 </dd>
@@ -676,6 +856,12 @@
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.extensions.</span></span><span class="sig-name descname"><span class="pre">userpref_show_online</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.extensions.userpref_show_online" title="Link to this definition"></a></dt>
 <dd><p>Show system preferences “Network” panel to allow online access</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3983">addons_core/bl_pkg/bl_extension_ops.py:3983</a></p>
 </dd>
@@ -689,9 +875,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Value, Enable or disable all tags</p></li>
-<li><p><strong>data_path</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Data Path</p></li>
+<li><p><strong>value</strong> (<em>bool</em>) – Value, Enable or disable all tags (optional)</p></li>
+<li><p><strong>data_path</strong> (<em>str</em>) – Data Path, (optional, never None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/addons_core/bl_pkg/bl_extension_ops.py#L3912">addons_core/bl_pkg/bl_extension_ops.py:3912</a></p>
@@ -713,7 +905,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

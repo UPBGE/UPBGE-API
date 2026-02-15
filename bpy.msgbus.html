@@ -185,18 +185,27 @@ even if the property was changed multiple times during that period.</p>
 <p>Some properties are converted to Python objects when you retrieve them. This
 needs to be avoided in order to create the subscription, by using
 <code class="docutils literal notranslate"><span class="pre">datablock.path_resolve(&quot;property_name&quot;,</span> <span class="pre">False)</span></code>:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">subscribe_to</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">path_resolve</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+
+<span class="n">subscribe_to</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">path_resolve</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>It is also possible to create subscriptions on a property of all instances of a
 certain type:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">subscribe_to</span> <span class="o">=</span> <span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="s2">&quot;location&quot;</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+
+<span class="n">subscribe_to</span> <span class="o">=</span> <span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="s2">&quot;location&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.msgbus.clear_by_owner">
 <span class="sig-prename descclassname"><span class="pre">bpy.msgbus.</span></span><span class="sig-name descname"><span class="pre">clear_by_owner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.msgbus.clear_by_owner" title="Link to this definition"></a></dt>
 <dd><p>Clear all subscribers using this owner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>owner</strong> (<em>Any</em>) – The owner handle passed to <a class="reference internal" href="#bpy.msgbus.subscribe_rna" title="bpy.msgbus.subscribe_rna"><code class="xref py py-func docutils literal notranslate"><span class="pre">subscribe_rna()</span></code></a>.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -232,7 +241,9 @@ loaded, or can be cleared explicitly via <a class="reference internal" href="#bp
 - A tuple representing a (struct, property name) pair.</p>
 </p></li>
 <li><p><strong>owner</strong> (<em>Any</em>) – Handle for this subscription (compared by identity).</p></li>
-<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – <p>Change the behavior of the subscriber.</p>
+<li><p><strong>args</strong> (<em>tuple</em>) – Arguments passed to the callback.</p></li>
+<li><p><strong>notify</strong> (<em>Callable</em><em>[</em><em>...</em><em>, </em><em>None</em><em>]</em>) – The callback function.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'PERSISTENT'</em><em>]</em><em>]</em>) – <p>Change the behavior of the subscriber.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">PERSISTENT</span></code> when set, the subscriber will be kept when remapping ID data.</p></li>
 </ul>
@@ -262,7 +273,7 @@ see <a class="reference internal" href="bpy.app.handlers.html#bpy.app.handlers.l
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

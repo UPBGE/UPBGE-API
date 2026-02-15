@@ -288,11 +288,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frame</strong> (<em>float in</em><em> [</em><em>-1.04857e+06</em><em>, </em><em>1.04857e+06</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Frame</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Snap</p></li>
-<li><p><strong>seq_solo_preview</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strip Preview</p></li>
-<li><p><strong>pass_through_on_strip_handles</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pass Through on Strip Handles, Allow another operator to operate on strip handles</p></li>
+<li><p><strong>frame</strong> (<em>float</em>) – Frame, (in [-1.04857e+06, 1.04857e+06], optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Snap, (optional)</p></li>
+<li><p><strong>seq_solo_preview</strong> (<em>bool</em>) – Strip Preview, (optional)</p></li>
+<li><p><strong>pass_through_on_strip_handles</strong> (<em>bool</em>) – Pass Through on Strip Handles, Allow another operator to operate on strip handles (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -303,7 +309,13 @@
 <dd><p>Select all keyframes of channel under mouse</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend selection</p>
+<dd class="field-odd"><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -315,9 +327,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>include_handles</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Include Handles, Include handles of keyframes when calculating extents</p></li>
-<li><p><strong>use_preview_range</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Preview Range, Ignore frames outside of the preview range</p></li>
+<li><p><strong>include_handles</strong> (<em>bool</em>) – Include Handles, Include handles of keyframes when calculating extents (optional)</p></li>
+<li><p><strong>use_preview_range</strong> (<em>bool</em>) – Use Preview Range, Ignore frames outside of the preview range (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -329,11 +347,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>use_scene_range</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Scene Range, If enabled, the scene start and end frame will be used to determine the bake range</p></li>
-<li><p><strong>range</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Frame Range, The custom range in which to create new keys. Only used when not using the scene range</p></li>
-<li><p><strong>step</strong> (<em>float in</em><em> [</em><em>0.01</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Frame Step, At which interval to add keys</p></li>
-<li><p><strong>remove_outside_range</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remove Outside Range, Removes keys outside the given range, leaving only the newly baked</p></li>
-<li><p><strong>interpolation_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'BEZIER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LIN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CONST'</span></code>], (optional)) – <p>Interpolation Type, Choose the interpolation type with which new keys will be added</p>
+<li><p><strong>use_scene_range</strong> (<em>bool</em>) – Use Scene Range, If enabled, the scene start and end frame will be used to determine the bake range (optional)</p></li>
+<li><p><strong>range</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Frame Range, The custom range in which to create new keys. Only used when not using the scene range (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>step</strong> (<em>float</em>) – Frame Step, At which interval to add keys (in [0.01, inf], optional)</p></li>
+<li><p><strong>remove_outside_range</strong> (<em>bool</em>) – Remove Outside Range, Removes keys outside the given range, leaving only the newly baked (optional)</p></li>
+<li><p><strong>interpolation_type</strong> (<em>Literal</em><em>[</em><em>'BEZIER'</em><em>, </em><em>'LIN'</em><em>, </em><em>'CONST'</em><em>]</em>) – <p>Interpolation Type, Choose the interpolation type with which new keys will be added (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">BEZIER</span></code>
 Bézier – New keys will be Bézier.</p></li>
@@ -343,8 +361,14 @@ Linear – New keys will be linear.</p></li>
 Constant – New keys will be constant.</p></li>
 </ul>
 </p></li>
-<li><p><strong>bake_modifiers</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Bake Modifiers, Bake Modifiers into keyframes and delete them after</p></li>
+<li><p><strong>bake_modifiers</strong> (<em>bool</em>) – Bake Modifiers, Bake Modifiers into keyframes and delete them after (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -353,6 +377,14 @@ Constant – New keys will be constant.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.channels_clean_empty">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">channels_clean_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.channels_clean_empty" title="Link to this definition"></a></dt>
 <dd><p>Delete all empty animation data containers from visible data-blocks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -362,10 +394,16 @@ Constant – New keys will be constant.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend Select</p></li>
-<li><p><strong>extend_range</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend Range, Selection of active channel to clicked channel</p></li>
-<li><p><strong>children_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Select Children Only</p></li>
+<li><p><strong>extend</strong> (<em>bool</em>) – Extend Select, (optional)</p></li>
+<li><p><strong>extend_range</strong> (<em>bool</em>) – Extend Range, Selection of active channel to clicked channel (optional)</p></li>
+<li><p><strong>children_only</strong> (<em>bool</em>) – Select Children Only, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -376,7 +414,13 @@ Constant – New keys will be constant.</p></li>
 <dd><p>Collapse (close) all selected expandable animation channels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All, Collapse all channels (not just selected ones)</p>
+<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – All, Collapse all channels (not just selected ones) (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -385,6 +429,14 @@ Constant – New keys will be constant.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.channels_delete">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">channels_delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.channels_delete" title="Link to this definition"></a></dt>
 <dd><p>Delete all selected animation channels</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -394,9 +446,15 @@ Constant – New keys will be constant.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DISABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ENABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – Mode</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROTECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MUTE'</span></code>], (optional)) – Type</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'TOGGLE'</em><em>, </em><em>'DISABLE'</em><em>, </em><em>'ENABLE'</em><em>, </em><em>'INVERT'</em><em>]</em>) – Mode, (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'PROTECT'</em><em>, </em><em>'MUTE'</em><em>]</em>) – Type, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -407,7 +465,13 @@ Constant – New keys will be constant.</p></li>
 <dd><p>Expand (open) all selected expandable animation channels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All, Expand all channels (not just selected ones)</p>
+<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – All, Expand all channels (not just selected ones) (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -416,6 +480,14 @@ Constant – New keys will be constant.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.channels_fcurves_enable">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">channels_fcurves_enable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.channels_fcurves_enable" title="Link to this definition"></a></dt>
 <dd><p>Clear ‘disabled’ tag from all F-Curves to get broken F-Curves working again</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -424,7 +496,13 @@ Constant – New keys will be constant.</p></li>
 <dd><p>Add selected F-Curves to a new group</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Name, Name of newly created group</p>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name, Name of newly created group (optional, never None)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -435,7 +513,13 @@ Constant – New keys will be constant.</p></li>
 <dd><p>Rearrange selected animation channels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>direction</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UP'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DOWN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BOTTOM'</span></code>], (optional)) – Direction</p>
+<dd class="field-odd"><p><strong>direction</strong> (<em>Literal</em><em>[</em><em>'TOP'</em><em>, </em><em>'UP'</em><em>, </em><em>'DOWN'</em><em>, </em><em>'BOTTOM'</em><em>]</em>) – Direction, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -444,6 +528,14 @@ Constant – New keys will be constant.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.channels_rename">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">channels_rename</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.channels_rename" title="Link to this definition"></a></dt>
 <dd><p>Rename animation channel under mouse</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -452,7 +544,7 @@ Constant – New keys will be constant.</p></li>
 <dd><p>Toggle selection of all animation channels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>action</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DESELECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – <p>Action, Selection action to execute</p>
+<dd class="field-odd"><p><strong>action</strong> (<em>Literal</em><em>[</em><em>'TOGGLE'</em><em>, </em><em>'SELECT'</em><em>, </em><em>'DESELECT'</em><em>, </em><em>'INVERT'</em><em>]</em>) – <p>Action, Selection action to execute (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TOGGLE</span></code>
 Toggle – Toggle selection for all elements.</p></li>
@@ -465,6 +557,12 @@ Invert – Invert selection of all elements.</p></li>
 </ul>
 </p>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -475,14 +573,20 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xmin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Min</p></li>
-<li><p><strong>xmax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Max</p></li>
-<li><p><strong>ymin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Min</p></li>
-<li><p><strong>ymax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Max</p></li>
-<li><p><strong>wait_for_input</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Wait for Input</p></li>
-<li><p><strong>deselect</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Deselect, Deselect rather than select items</p></li>
-<li><p><strong>extend</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extend, Extend selection instead of deselecting everything first</p></li>
+<li><p><strong>xmin</strong> (<em>int</em>) – X Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>xmax</strong> (<em>int</em>) – X Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymin</strong> (<em>int</em>) – Y Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymax</strong> (<em>int</em>) – Y Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>wait_for_input</strong> (<em>bool</em>) – Wait for Input, (optional)</p></li>
+<li><p><strong>deselect</strong> (<em>bool</em>) – Deselect, Deselect rather than select items (optional)</p></li>
+<li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection instead of deselecting everything first (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -491,6 +595,14 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.channels_select_filter">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">channels_select_filter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.channels_select_filter" title="Link to this definition"></a></dt>
 <dd><p>Start entering text which filters the set of channels shown to only include those with matching names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -500,9 +612,15 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DISABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ENABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – Mode</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROTECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MUTE'</span></code>], (optional)) – Type</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'TOGGLE'</em><em>, </em><em>'DISABLE'</em><em>, </em><em>'ENABLE'</em><em>, </em><em>'INVERT'</em><em>]</em>) – Mode, (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'PROTECT'</em><em>, </em><em>'MUTE'</em><em>]</em>) – Type, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -514,9 +632,15 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DISABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ENABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – Mode</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROTECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MUTE'</span></code>], (optional)) – Type</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'TOGGLE'</em><em>, </em><em>'DISABLE'</em><em>, </em><em>'ENABLE'</em><em>, </em><em>'INVERT'</em><em>]</em>) – Mode, (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'PROTECT'</em><em>, </em><em>'MUTE'</em><em>]</em>) – Type, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -528,9 +652,15 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DISABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ENABLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – Mode</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROTECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MUTE'</span></code>], (optional)) – Type</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'TOGGLE'</em><em>, </em><em>'DISABLE'</em><em>, </em><em>'ENABLE'</em><em>, </em><em>'INVERT'</em><em>]</em>) – Mode, (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'PROTECT'</em><em>, </em><em>'MUTE'</em><em>]</em>) – Type, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -539,6 +669,14 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.channels_ungroup">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">channels_ungroup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.channels_ungroup" title="Link to this definition"></a></dt>
 <dd><p>Remove selected F-Curves from their current groups</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -548,9 +686,15 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>include_handles</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Include Handles, Include handles of keyframes when calculating extents</p></li>
-<li><p><strong>use_preview_range</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Preview Range, Ignore frames outside of the preview range</p></li>
+<li><p><strong>include_handles</strong> (<em>bool</em>) – Include Handles, Include handles of keyframes when calculating extents (optional)</p></li>
+<li><p><strong>use_preview_range</strong> (<em>bool</em>) – Use Preview Range, Ignore frames outside of the preview range (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -561,7 +705,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Mark actions with no F-Curves for deletion after save and reload of file preserving “action libraries”</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>only_unused</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Only Unused, Only unused (Fake User only) actions get considered</p>
+<dd class="field-odd"><p><strong>only_unused</strong> (<em>bool</em>) – Only Unused, Only unused (Fake User only) actions get considered (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L365">startup/bl_operators/anim.py:365</a></p>
@@ -573,18 +723,42 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.copy_driver_button">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">copy_driver_button</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.copy_driver_button" title="Link to this definition"></a></dt>
 <dd><p>Copy the driver for the highlighted button</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.driver_button_add">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">driver_button_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.driver_button_add" title="Link to this definition"></a></dt>
 <dd><p>Add driver for the property under the cursor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.driver_button_edit">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">driver_button_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.driver_button_edit" title="Link to this definition"></a></dt>
 <dd><p>Edit the drivers for the connected property represented by the highlighted button</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -593,7 +767,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Remove the driver(s) for the connected property(s) represented by the highlighted button</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All, Delete drivers for all elements of the array</p>
+<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – All, Delete drivers for all elements of the array (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -602,6 +782,14 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.end_frame_set">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">end_frame_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.end_frame_set" title="Link to this definition"></a></dt>
 <dd><p>Set the current frame as the preview or scene end frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -610,7 +798,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Clear all keyframes on the currently active property</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All, Clear keyframes from all elements of the array</p>
+<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – All, Clear keyframes from all elements of the array (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -621,7 +815,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Remove all keyframe animation for selected objects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p>
+<dd class="field-odd"><p><strong>confirm</strong> (<em>bool</em>) – Confirm, Prompt for confirmation (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -632,7 +832,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Remove all keyframe animation for selected strips</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p>
+<dd class="field-odd"><p><strong>confirm</strong> (<em>bool</em>) – Confirm, Prompt for confirmation (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -643,7 +849,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Delete keyframes on the current frame for all properties in the specified Keying Set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DEFAULT'</span></code>], (optional)) – Keying Set, The Keying Set to use</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>]</em>) – Keying Set, The Keying Set to use (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -654,7 +866,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Delete current keyframe of current UI-active property</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All, Delete keyframes from all elements of the array</p>
+<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – All, Delete keyframes from all elements of the array (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -665,7 +883,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Alternate access to ‘Delete Keyframe’ for keymaps to use</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Keying Set, The Keying Set to use</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>str</em>) – Keying Set, The Keying Set to use (optional, never None)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -676,7 +900,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Remove keyframes on current frame for selected objects and bones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p>
+<dd class="field-odd"><p><strong>confirm</strong> (<em>bool</em>) – Confirm, Prompt for confirmation (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -687,7 +917,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Remove keyframes on current frame for selected strips</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm, Prompt for confirmation</p>
+<dd class="field-odd"><p><strong>confirm</strong> (<em>bool</em>) – Confirm, Prompt for confirmation (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -698,7 +934,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Insert keyframes on the current frame using either the active keying set, or the user preferences if no keying set is active</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DEFAULT'</span></code>], (optional)) – Keying Set, The Keying Set to use</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>]</em>) – Keying Set, The Keying Set to use (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -709,7 +951,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Insert a keyframe for current UI-active property</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All, Insert a keyframe for all element of the array</p>
+<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – All, Insert a keyframe for all element of the array (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -720,7 +968,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Alternate access to ‘Insert Keyframe’ for keymaps to use</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Keying Set, The Keying Set to use</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>str</em>) – Keying Set, The Keying Set to use (optional, never None)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -732,9 +986,15 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DEFAULT'</span></code>], (optional)) – Keying Set, The Keying Set to use</p></li>
-<li><p><strong>always_prompt</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Always Show Menu</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>]</em>) – Keying Set, The Keying Set to use (optional)</p></li>
+<li><p><strong>always_prompt</strong> (<em>bool</em>) – Always Show Menu, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -745,7 +1005,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Set a new active keying set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DEFAULT'</span></code>], (optional)) – Keying Set, The Keying Set to use</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>]</em>) – Keying Set, The Keying Set to use (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -754,6 +1020,14 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.keying_set_add">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">keying_set_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.keying_set_add" title="Link to this definition"></a></dt>
 <dd><p>Add a new (empty) keying set to the active Scene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -763,11 +1037,17 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – filepath</p></li>
-<li><p><strong>filter_folder</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter folders</p></li>
-<li><p><strong>filter_text</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter text</p></li>
-<li><p><strong>filter_python</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Filter Python</p></li>
+<li><p><strong>filepath</strong> (<em>str</em>) – filepath, (optional, never None)</p></li>
+<li><p><strong>filter_folder</strong> (<em>bool</em>) – Filter folders, (optional)</p></li>
+<li><p><strong>filter_text</strong> (<em>bool</em>) – Filter text, (optional)</p></li>
+<li><p><strong>filter_python</strong> (<em>bool</em>) – Filter Python, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L46">startup/bl_operators/anim.py:46</a></p>
@@ -779,18 +1059,42 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.keying_set_path_add">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">keying_set_path_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.keying_set_path_add" title="Link to this definition"></a></dt>
 <dd><p>Add empty path to active keying set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.keying_set_path_remove">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">keying_set_path_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.keying_set_path_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove active Path from active keying set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.keying_set_remove">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">keying_set_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.keying_set_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove the active keying set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -799,7 +1103,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Add current UI-active property to current keying set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – All, Add all elements of the array to a Keying Set</p>
+<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – All, Add all elements of the array to a Keying Set (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -808,24 +1118,56 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.keyingset_button_remove">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">keyingset_button_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.keyingset_button_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove current UI-active property from current keying set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.merge_animation">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">merge_animation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.merge_animation" title="Link to this definition"></a></dt>
 <dd><p>Merge the animation of the selected objects into the action of the active object. Actions are not deleted by this, but might end up with zero users</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.paste_driver_button">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">paste_driver_button</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.paste_driver_button" title="Link to this definition"></a></dt>
 <dd><p>Paste the driver in the internal clipboard to the highlighted button</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.previewrange_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">previewrange_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.previewrange_clear" title="Link to this definition"></a></dt>
 <dd><p>Clear preview range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -835,12 +1177,18 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xmin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Min</p></li>
-<li><p><strong>xmax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Max</p></li>
-<li><p><strong>ymin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Min</p></li>
-<li><p><strong>ymax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Max</p></li>
-<li><p><strong>wait_for_input</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Wait for Input</p></li>
+<li><p><strong>xmin</strong> (<em>int</em>) – X Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>xmax</strong> (<em>int</em>) – X Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymin</strong> (<em>int</em>) – Y Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymax</strong> (<em>int</em>) – Y Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>wait_for_input</strong> (<em>bool</em>) – Wait for Input, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -852,9 +1200,15 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>old_session_uid</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Old Action, Old Action’s session uid to replace</p></li>
-<li><p><strong>new_session_uid</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Replacement Action, The replacement Action’s session uid to remap all selected Action’s users to</p></li>
+<li><p><strong>old_session_uid</strong> (<em>int</em>) – Old Action, Old Action’s session uid to replace (in [-inf, inf], optional)</p></li>
+<li><p><strong>new_session_uid</strong> (<em>int</em>) – Replacement Action, The replacement Action’s session uid to remap all selected Action’s users to (in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -865,7 +1219,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Swap all users of one action to a new action. This ignores the NLA and Action Constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>old_session_uid</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Old Action, Old Action’s session uid to replace</p>
+<dd class="field-odd"><p><strong>old_session_uid</strong> (<em>int</em>) – Old Action, Old Action’s session uid to replace (in [-inf, inf], optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -874,18 +1234,42 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.scene_range_frame">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">scene_range_frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.scene_range_frame" title="Link to this definition"></a></dt>
 <dd><p>Reset the horizontal view to the current scene frame range, taking the preview range into account if it is active</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.separate_slots">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">separate_slots</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.separate_slots" title="Link to this definition"></a></dt>
 <dd><p>Move all slots of the action on the active object into newly created, separate actions. All users of those slots will be reassigned to the new actions. The current action won’t be deleted but will be empty and might end up having zero users</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.slot_channels_move_to_new_action">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">slot_channels_move_to_new_action</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.slot_channels_move_to_new_action" title="Link to this definition"></a></dt>
 <dd><p>Move the selected slots into a newly created action</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -893,6 +1277,12 @@ Invert – Invert selection of all elements.</p></li>
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">slot_new_for_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.slot_new_for_id" title="Link to this definition"></a></dt>
 <dd><p>Create a new action slot for this data-block, to hold its animation</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L721">startup/bl_operators/anim.py:721</a></p>
 </dd>
@@ -904,6 +1294,12 @@ Invert – Invert selection of all elements.</p></li>
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">slot_unassign_from_constraint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.slot_unassign_from_constraint" title="Link to this definition"></a></dt>
 <dd><p>Un-assign the action slot from this constraint</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L779">startup/bl_operators/anim.py:779</a></p>
 </dd>
@@ -915,6 +1311,12 @@ Invert – Invert selection of all elements.</p></li>
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">slot_unassign_from_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.slot_unassign_from_id" title="Link to this definition"></a></dt>
 <dd><p>Un-assign the action slot, effectively making this data-block non-animated</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L758">startup/bl_operators/anim.py:758</a></p>
 </dd>
@@ -926,6 +1328,12 @@ Invert – Invert selection of all elements.</p></li>
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">slot_unassign_from_nla_strip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.slot_unassign_from_nla_strip" title="Link to this definition"></a></dt>
 <dd><p>Un-assign the action slot from this NLA strip, effectively making it non-animated</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L779">startup/bl_operators/anim.py:779</a></p>
 </dd>
@@ -936,6 +1344,14 @@ Invert – Invert selection of all elements.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.anim.start_frame_set">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">start_frame_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.start_frame_set" title="Link to this definition"></a></dt>
 <dd><p>Set the current frame as the preview or scene start frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -944,7 +1360,13 @@ Invert – Invert selection of all elements.</p></li>
 <dd><p>Update f-curves/drivers affecting Transform constraints (use it with files from 2.70 and earlier)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>use_convert_to_radians</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Convert to Radians, Convert f-curves/drivers affecting rotations to radians.Warning: Use this only once</p>
+<dd class="field-odd"><p><strong>use_convert_to_radians</strong> (<em>bool</em>) – Convert to Radians, Convert f-curves/drivers affecting rotations to radians.Warning: Use this only once(optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L402">startup/bl_operators/anim.py:402</a></p>
@@ -957,6 +1379,12 @@ Invert – Invert selection of all elements.</p></li>
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">version_bone_hide_property</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.version_bone_hide_property" title="Link to this definition"></a></dt>
 <dd><p>Moves any F-Curves for the <cite>hide</cite> property of selected armatures into the action of the object. This will only operate on the first layer and strip of the action</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/anim.py#L842">startup/bl_operators/anim.py:842</a></p>
 </dd>
@@ -970,9 +1398,15 @@ Invert – Invert selection of all elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>all</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Show All, Frame the whole array property instead of only the index under the cursor</p></li>
-<li><p><strong>isolate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Isolate, Hides all F-Curves other than the ones being framed</p></li>
+<li><p><strong>all</strong> (<em>bool</em>) – Show All, Frame the whole array property instead of only the index under the cursor (optional)</p></li>
+<li><p><strong>isolate</strong> (<em>bool</em>) – Isolate, Hides all F-Curves other than the ones being framed (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -991,7 +1425,7 @@ Invert – Invert selection of all elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

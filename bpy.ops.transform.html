@@ -250,15 +250,21 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Display Size</p></li>
-<li><p><strong>orient_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Display Size, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_type</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (<em>str</em>) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -270,19 +276,25 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float array</em><em> of </em><em>1 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Angle, (array of 1 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -294,11 +306,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em><em>, </em><em>(</em><em>optional</em><em>, </em><em>never None</em><em>)</em>) – Name, Name of the new custom orientation</p></li>
-<li><p><strong>use_view</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use View, Use the current view instead of the active object to create the new orientation</p></li>
-<li><p><strong>use</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use After Creation, Select orientation after its creation</p></li>
-<li><p><strong>overwrite</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Overwrite Previous, Overwrite previously created orientation with same name</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name, Name of the new custom orientation (optional, never None)</p></li>
+<li><p><strong>use_view</strong> (<em>bool</em>) – Use View, Use the current view instead of the active object to create the new orientation (optional)</p></li>
+<li><p><strong>use</strong> (<em>bool</em>) – Use After Creation, Select orientation after its creation (optional)</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>) – Overwrite Previous, Overwrite previously created orientation with same name (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -307,6 +325,14 @@
 <dt class="sig sig-object py" id="bpy.ops.transform.delete_orientation">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.transform.</span></span><span class="sig-name descname"><span class="pre">delete_orientation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.delete_orientation" title="Link to this definition"></a></dt>
 <dd><p>Delete transformation orientation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -316,11 +342,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-1</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Factor, (in [-1, 1], optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -332,11 +364,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-1</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Factor, (in [-1, 1], optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -348,25 +386,31 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor</p></li>
-<li><p><strong>single_side</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Single Side</p></li>
-<li><p><strong>use_even</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Even, Make the edge loop match the shape of the adjacent edge loop</p></li>
-<li><p><strong>flipped</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flipped, When Even mode is active, flips between the two adjacent edge loops</p></li>
-<li><p><strong>use_clamp</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Clamp, Clamp within the edge extents</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>snap_elements</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, (optional)) – Snap to Elements</p></li>
-<li><p><strong>use_snap_project</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project Individual Elements</p></li>
-<li><p><strong>snap_target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>, (optional)) – Snap Base, Point on source that will snap to target</p></li>
-<li><p><strong>use_snap_self</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Active</p></li>
-<li><p><strong>use_snap_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Edit</p></li>
-<li><p><strong>use_snap_nonedit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Non-Edited</p></li>
-<li><p><strong>use_snap_selectable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Exclude Non-Selectable</p></li>
-<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Point</p></li>
-<li><p><strong>correct_uv</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Correct UVs, Correct UV coordinates when transforming</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Factor, (in [-10, 10], optional)</p></li>
+<li><p><strong>single_side</strong> (<em>bool</em>) – Single Side, (optional)</p></li>
+<li><p><strong>use_even</strong> (<em>bool</em>) – Even, Make the edge loop match the shape of the adjacent edge loop (optional)</p></li>
+<li><p><strong>flipped</strong> (<em>bool</em>) – Flipped, When Even mode is active, flips between the two adjacent edge loops (optional)</p></li>
+<li><p><strong>use_clamp</strong> (<em>bool</em>) – Clamp, Clamp within the edge extents (optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>snap_elements</strong> (set[Literal[<a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>]]) – Snap to Elements, (optional)</p></li>
+<li><p><strong>use_snap_project</strong> (<em>bool</em>) – Project Individual Elements, (optional)</p></li>
+<li><p><strong>snap_target</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>]) – Snap Base, Point on source that will snap to target (optional)</p></li>
+<li><p><strong>use_snap_self</strong> (<em>bool</em>) – Target: Include Active, (optional)</p></li>
+<li><p><strong>use_snap_edit</strong> (<em>bool</em>) – Target: Include Edit, (optional)</p></li>
+<li><p><strong>use_snap_nonedit</strong> (<em>bool</em>) – Target: Include Non-Edited, (optional)</p></li>
+<li><p><strong>use_snap_selectable</strong> (<em>bool</em>) – Target: Exclude Non-Selectable, (optional)</p></li>
+<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>correct_uv</strong> (<em>bool</em>) – Correct UVs, Correct UV coordinates when transforming (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -375,6 +419,14 @@
 <dt class="sig sig-object py" id="bpy.ops.transform.from_gizmo">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.transform.</span></span><span class="sig-name descname"><span class="pre">from_gizmo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.from_gizmo" title="Link to this definition"></a></dt>
 <dd><p>Transform selected items by mode type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -384,15 +436,21 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>orient_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>orient_type</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (<em>str</em>) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -404,18 +462,24 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Distance</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Distance, (in [-inf, inf], optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -427,35 +491,41 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Scale</p></li>
-<li><p><strong>mouse_dir_constraint</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Mouse Directional Constraint</p></li>
-<li><p><strong>orient_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>snap_elements</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, (optional)) – Snap to Elements</p></li>
-<li><p><strong>use_snap_project</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project Individual Elements</p></li>
-<li><p><strong>snap_target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>, (optional)) – Snap Base, Point on source that will snap to target</p></li>
-<li><p><strong>use_snap_self</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Active</p></li>
-<li><p><strong>use_snap_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Edit</p></li>
-<li><p><strong>use_snap_nonedit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Non-Edited</p></li>
-<li><p><strong>use_snap_selectable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Exclude Non-Selectable</p></li>
-<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Point</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>texture_space</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Texture Space, Edit object data texture space</p></li>
-<li><p><strong>remove_on_cancel</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remove on Cancel, Remove elements on cancel</p></li>
-<li><p><strong>use_duplicated_keyframes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Duplicated Keyframes, Transform duplicated keyframes</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>mouse_dir_constraint</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Mouse Directional Constraint, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_type</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (<em>str</em>) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>snap_elements</strong> (set[Literal[<a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>]]) – Snap to Elements, (optional)</p></li>
+<li><p><strong>use_snap_project</strong> (<em>bool</em>) – Project Individual Elements, (optional)</p></li>
+<li><p><strong>snap_target</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>]) – Snap Base, Point on source that will snap to target (optional)</p></li>
+<li><p><strong>use_snap_self</strong> (<em>bool</em>) – Target: Include Active, (optional)</p></li>
+<li><p><strong>use_snap_edit</strong> (<em>bool</em>) – Target: Include Edit, (optional)</p></li>
+<li><p><strong>use_snap_nonedit</strong> (<em>bool</em>) – Target: Include Non-Edited, (optional)</p></li>
+<li><p><strong>use_snap_selectable</strong> (<em>bool</em>) – Target: Exclude Non-Selectable, (optional)</p></li>
+<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>texture_space</strong> (<em>bool</em>) – Edit Texture Space, Edit object data texture space (optional)</p></li>
+<li><p><strong>remove_on_cancel</strong> (<em>bool</em>) – Remove on Cancel, Remove elements on cancel (optional)</p></li>
+<li><p><strong>use_duplicated_keyframes</strong> (<em>bool</em>) – Duplicated Keyframes, Transform duplicated keyframes (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -467,32 +537,38 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle</p></li>
-<li><p><strong>orient_axis</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>, (optional)) – Axis</p></li>
-<li><p><strong>orient_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>snap_elements</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, (optional)) – Snap to Elements</p></li>
-<li><p><strong>use_snap_project</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project Individual Elements</p></li>
-<li><p><strong>snap_target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>, (optional)) – Snap Base, Point on source that will snap to target</p></li>
-<li><p><strong>use_snap_self</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Active</p></li>
-<li><p><strong>use_snap_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Edit</p></li>
-<li><p><strong>use_snap_nonedit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Non-Edited</p></li>
-<li><p><strong>use_snap_selectable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Exclude Non-Selectable</p></li>
-<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Point</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Angle, (in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_axis</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>]) – Axis, (optional)</p></li>
+<li><p><strong>orient_type</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (<em>str</em>) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>snap_elements</strong> (set[Literal[<a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>]]) – Snap to Elements, (optional)</p></li>
+<li><p><strong>use_snap_project</strong> (<em>bool</em>) – Project Individual Elements, (optional)</p></li>
+<li><p><strong>snap_target</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>]) – Snap Base, Point on source that will snap to target (optional)</p></li>
+<li><p><strong>use_snap_self</strong> (<em>bool</em>) – Target: Include Active, (optional)</p></li>
+<li><p><strong>use_snap_edit</strong> (<em>bool</em>) – Target: Include Edit, (optional)</p></li>
+<li><p><strong>use_snap_nonedit</strong> (<em>bool</em>) – Target: Include Non-Edited, (optional)</p></li>
+<li><p><strong>use_snap_selectable</strong> (<em>bool</em>) – Target: Exclude Non-Selectable, (optional)</p></li>
+<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -504,16 +580,22 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle</p></li>
-<li><p><strong>orient_axis</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>, (optional)) – Axis</p></li>
-<li><p><strong>orient_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Angle, (in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_axis</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>]) – Axis, (optional)</p></li>
+<li><p><strong>orient_type</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (<em>str</em>) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -524,7 +606,13 @@
 <dd><p>Select transformation orientation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>orientation</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p>
+<dd class="field-odd"><p><strong>orientation</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -536,16 +624,22 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 2 items in [-inf, inf], (optional)) – Offset</p></li>
-<li><p><strong>use_restore_handle_selection</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Restore Handle Selection, Restore handle selection after tweaking</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>texture_space</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Texture Space, Edit object data texture space</p></li>
-<li><p><strong>remove_on_cancel</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remove on Cancel, Remove elements on cancel</p></li>
-<li><p><strong>use_duplicated_keyframes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Duplicated Keyframes, Transform duplicated keyframes</p></li>
-<li><p><strong>view2d_edge_pan</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edge Pan, Enable edge panning in 2D view</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Offset, (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>use_restore_handle_selection</strong> (<em>bool</em>) – Restore Handle Selection, Restore handle selection after tweaking (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>texture_space</strong> (<em>bool</em>) – Edit Texture Space, Edit object data texture space (optional)</p></li>
+<li><p><strong>remove_on_cancel</strong> (<em>bool</em>) – Remove on Cancel, Remove elements on cancel (optional)</p></li>
+<li><p><strong>use_duplicated_keyframes</strong> (<em>bool</em>) – Duplicated Keyframes, Transform duplicated keyframes (optional)</p></li>
+<li><p><strong>view2d_edge_pan</strong> (<em>bool</em>) – Edge Pan, Enable edge panning in 2D view (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -557,23 +651,29 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>angle</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle</p></li>
-<li><p><strong>orient_axis</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>, (optional)) – Axis</p></li>
-<li><p><strong>orient_axis_ortho</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>, (optional)) – Axis Ortho</p></li>
-<li><p><strong>orient_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Matrix Orientation</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Angle, (in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_axis</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>]) – Axis, (optional)</p></li>
+<li><p><strong>orient_axis_ortho</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>]) – Axis Ortho, (optional)</p></li>
+<li><p><strong>orient_type</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (<em>str</em>) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -585,18 +685,24 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset</p></li>
-<li><p><strong>use_even_offset</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset Even, Scale the offset to give more even thickness</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Offset, (in [-inf, inf], optional)</p></li>
+<li><p><strong>use_even_offset</strong> (<em>bool</em>) – Offset Even, Scale the offset to give more even thickness (optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -608,29 +714,35 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Scale</p></li>
-<li><p><strong>orient_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (<em>enum in</em><em> [</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>snap_elements</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, (optional)) – Snap to Elements</p></li>
-<li><p><strong>use_snap_project</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project Individual Elements</p></li>
-<li><p><strong>snap_target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>, (optional)) – Snap Base, Point on source that will snap to target</p></li>
-<li><p><strong>use_snap_self</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Active</p></li>
-<li><p><strong>use_snap_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Edit</p></li>
-<li><p><strong>use_snap_nonedit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Non-Edited</p></li>
-<li><p><strong>use_snap_selectable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Exclude Non-Selectable</p></li>
-<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Point</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_type</strong> (<em>str</em>) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (<em>str</em>) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>snap_elements</strong> (set[Literal[<a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>]]) – Snap to Elements, (optional)</p></li>
+<li><p><strong>use_snap_project</strong> (<em>bool</em>) – Project Individual Elements, (optional)</p></li>
+<li><p><strong>snap_target</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>]) – Snap Base, Point on source that will snap to target (optional)</p></li>
+<li><p><strong>use_snap_self</strong> (<em>bool</em>) – Target: Include Active, (optional)</p></li>
+<li><p><strong>use_snap_edit</strong> (<em>bool</em>) – Target: Include Edit, (optional)</p></li>
+<li><p><strong>use_snap_nonedit</strong> (<em>bool</em>) – Target: Include Non-Edited, (optional)</p></li>
+<li><p><strong>use_snap_selectable</strong> (<em>bool</em>) – Target: Exclude Non-Selectable, (optional)</p></li>
+<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -642,17 +754,23 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Angle, (in [-inf, inf], optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -664,19 +782,25 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Factor, (in [0, 1], optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -688,19 +812,25 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Angle</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Angle, (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -712,39 +842,45 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_mode_type_items.html#rna-enum-transform-mode-type-items"><span class="std std-ref">Transform Mode Type Items</span></a>, (optional)) – Mode</p></li>
-<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 4 items in [-inf, inf], (optional)) – Values</p></li>
-<li><p><strong>orient_axis</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>, (optional)) – Axis</p></li>
-<li><p><strong>orient_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>, (optional)) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>, (optional)) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>snap_elements</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, (optional)) – Snap to Elements</p></li>
-<li><p><strong>use_snap_project</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project Individual Elements</p></li>
-<li><p><strong>snap_target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>, (optional)) – Snap Base, Point on source that will snap to target</p></li>
-<li><p><strong>use_snap_self</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Active</p></li>
-<li><p><strong>use_snap_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Edit</p></li>
-<li><p><strong>use_snap_nonedit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Non-Edited</p></li>
-<li><p><strong>use_snap_selectable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Exclude Non-Selectable</p></li>
-<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Point</p></li>
-<li><p><strong>snap_align</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Align with Point Normal</p></li>
-<li><p><strong>snap_normal</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Normal</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>texture_space</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Texture Space, Edit object data texture space</p></li>
-<li><p><strong>remove_on_cancel</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remove on Cancel, Remove elements on cancel</p></li>
-<li><p><strong>use_duplicated_keyframes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Duplicated Keyframes, Transform duplicated keyframes</p></li>
-<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center Override, Force using this center value (when set)</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
-<li><p><strong>use_automerge_and_split</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Merge &amp; Split, Forces the use of Auto Merge and Split</p></li>
+<li><p><strong>mode</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/transform_mode_type_items.html#rna-enum-transform-mode-type-items"><span class="std std-ref">Transform Mode Type Items</span></a>]) – Mode, (optional)</p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Values, (array of 4 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_axis</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/axis_xyz_items.html#rna-enum-axis-xyz-items"><span class="std std-ref">Axis Xyz Items</span></a>]) – Axis, (optional)</p></li>
+<li><p><strong>orient_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>]) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>]) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>snap_elements</strong> (set[Literal[<a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>]]) – Snap to Elements, (optional)</p></li>
+<li><p><strong>use_snap_project</strong> (<em>bool</em>) – Project Individual Elements, (optional)</p></li>
+<li><p><strong>snap_target</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>]) – Snap Base, Point on source that will snap to target (optional)</p></li>
+<li><p><strong>use_snap_self</strong> (<em>bool</em>) – Target: Include Active, (optional)</p></li>
+<li><p><strong>use_snap_edit</strong> (<em>bool</em>) – Target: Include Edit, (optional)</p></li>
+<li><p><strong>use_snap_nonedit</strong> (<em>bool</em>) – Target: Include Non-Edited, (optional)</p></li>
+<li><p><strong>use_snap_selectable</strong> (<em>bool</em>) – Target: Exclude Non-Selectable, (optional)</p></li>
+<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>snap_align</strong> (<em>bool</em>) – Align with Point Normal, (optional)</p></li>
+<li><p><strong>snap_normal</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Normal, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>texture_space</strong> (<em>bool</em>) – Edit Texture Space, Edit object data texture space (optional)</p></li>
+<li><p><strong>remove_on_cancel</strong> (<em>bool</em>) – Remove on Cancel, Remove elements on cancel (optional)</p></li>
+<li><p><strong>use_duplicated_keyframes</strong> (<em>bool</em>) – Duplicated Keyframes, Transform duplicated keyframes (optional)</p></li>
+<li><p><strong>center_override</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center Override, Force using this center value (when set) (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
+<li><p><strong>use_automerge_and_split</strong> (<em>bool</em>) – Auto Merge &amp; Split, Forces the use of Auto Merge and Split (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -756,39 +892,45 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Move</p></li>
-<li><p><strong>orient_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>, (optional)) – Orientation, Transformation orientation</p></li>
-<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 3 * 3 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>orient_matrix_type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>, (optional)) – Matrix Orientation</p></li>
-<li><p><strong>constraint_axis</strong> (<em>boolean array</em><em> of </em><em>3 items</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Constraint Axis</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>use_proportional_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Editing</p></li>
-<li><p><strong>proportional_edit_falloff</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>, (optional)) – Proportional Falloff, Falloff type for proportional editing mode</p></li>
-<li><p><strong>proportional_size</strong> (<em>float in</em><em> [</em><em>1e-06</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Proportional Size</p></li>
-<li><p><strong>use_proportional_connected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Connected</p></li>
-<li><p><strong>use_proportional_projected</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Projected (2D)</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>snap_elements</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, (optional)) – Snap to Elements</p></li>
-<li><p><strong>use_snap_project</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project Individual Elements</p></li>
-<li><p><strong>snap_target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>, (optional)) – Snap Base, Point on source that will snap to target</p></li>
-<li><p><strong>use_snap_self</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Active</p></li>
-<li><p><strong>use_snap_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Edit</p></li>
-<li><p><strong>use_snap_nonedit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Non-Edited</p></li>
-<li><p><strong>use_snap_selectable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Exclude Non-Selectable</p></li>
-<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Point</p></li>
-<li><p><strong>snap_align</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Align with Point Normal</p></li>
-<li><p><strong>snap_normal</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Normal</p></li>
-<li><p><strong>gpencil_strokes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes</p></li>
-<li><p><strong>cursor_transform</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Transform Cursor</p></li>
-<li><p><strong>texture_space</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edit Texture Space, Edit object data texture space</p></li>
-<li><p><strong>remove_on_cancel</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Remove on Cancel, Remove elements on cancel</p></li>
-<li><p><strong>use_duplicated_keyframes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Duplicated Keyframes, Transform duplicated keyframes</p></li>
-<li><p><strong>view2d_edge_pan</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Edge Pan, Enable edge panning in 2D view</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
-<li><p><strong>use_automerge_and_split</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Merge &amp; Split, Forces the use of Auto Merge and Split</p></li>
-<li><p><strong>translate_origin</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Translate Origin, Translate origin instead of selection</p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Move, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>]) – Orientation, Transformation orientation (optional)</p></li>
+<li><p><strong>orient_matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 3 * 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>orient_matrix_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/transform_orientation_items.html#rna-enum-transform-orientation-items"><span class="std std-ref">Transform Orientation Items</span></a>]) – Matrix Orientation, (optional)</p></li>
+<li><p><strong>constraint_axis</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Constraint Axis, (array of 3 items, optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>use_proportional_edit</strong> (<em>bool</em>) – Proportional Editing, (optional)</p></li>
+<li><p><strong>proportional_edit_falloff</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_items.html#rna-enum-proportional-falloff-items"><span class="std std-ref">Proportional Falloff Items</span></a>]) – Proportional Falloff, Falloff type for proportional editing mode (optional)</p></li>
+<li><p><strong>proportional_size</strong> (<em>float</em>) – Proportional Size, (in [1e-06, inf], optional)</p></li>
+<li><p><strong>use_proportional_connected</strong> (<em>bool</em>) – Connected, (optional)</p></li>
+<li><p><strong>use_proportional_projected</strong> (<em>bool</em>) – Projected (2D), (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>snap_elements</strong> (set[Literal[<a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>]]) – Snap to Elements, (optional)</p></li>
+<li><p><strong>use_snap_project</strong> (<em>bool</em>) – Project Individual Elements, (optional)</p></li>
+<li><p><strong>snap_target</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>]) – Snap Base, Point on source that will snap to target (optional)</p></li>
+<li><p><strong>use_snap_self</strong> (<em>bool</em>) – Target: Include Active, (optional)</p></li>
+<li><p><strong>use_snap_edit</strong> (<em>bool</em>) – Target: Include Edit, (optional)</p></li>
+<li><p><strong>use_snap_nonedit</strong> (<em>bool</em>) – Target: Include Non-Edited, (optional)</p></li>
+<li><p><strong>use_snap_selectable</strong> (<em>bool</em>) – Target: Exclude Non-Selectable, (optional)</p></li>
+<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>snap_align</strong> (<em>bool</em>) – Align with Point Normal, (optional)</p></li>
+<li><p><strong>snap_normal</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Normal, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>gpencil_strokes</strong> (<em>bool</em>) – Edit Grease Pencil, Edit selected Grease Pencil strokes (optional)</p></li>
+<li><p><strong>cursor_transform</strong> (<em>bool</em>) – Transform Cursor, (optional)</p></li>
+<li><p><strong>texture_space</strong> (<em>bool</em>) – Edit Texture Space, Edit object data texture space (optional)</p></li>
+<li><p><strong>remove_on_cancel</strong> (<em>bool</em>) – Remove on Cancel, Remove elements on cancel (optional)</p></li>
+<li><p><strong>use_duplicated_keyframes</strong> (<em>bool</em>) – Duplicated Keyframes, Transform duplicated keyframes (optional)</p></li>
+<li><p><strong>view2d_edge_pan</strong> (<em>bool</em>) – Edge Pan, Enable edge panning in 2D view (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
+<li><p><strong>use_automerge_and_split</strong> (<em>bool</em>) – Auto Merge &amp; Split, Forces the use of Auto Merge and Split (optional)</p></li>
+<li><p><strong>translate_origin</strong> (<em>bool</em>) – Translate Origin, Translate origin instead of selection (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -800,11 +942,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-1</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Factor, (in [-1, 1], optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -816,25 +964,31 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor</p></li>
-<li><p><strong>use_even</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Even, Make the edge loop match the shape of the adjacent edge loop</p></li>
-<li><p><strong>flipped</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flipped, When Even mode is active, flips between the two adjacent edge loops</p></li>
-<li><p><strong>use_clamp</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Clamp, Clamp within the edge extents</p></li>
-<li><p><strong>direction</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Slide Direction, World-space direction</p></li>
-<li><p><strong>mirror</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mirror Editing</p></li>
-<li><p><strong>snap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Snapping Options</p></li>
-<li><p><strong>snap_elements</strong> (enum set in <a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>, (optional)) – Snap to Elements</p></li>
-<li><p><strong>use_snap_project</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project Individual Elements</p></li>
-<li><p><strong>snap_target</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>, (optional)) – Snap Base, Point on source that will snap to target</p></li>
-<li><p><strong>use_snap_self</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Active</p></li>
-<li><p><strong>use_snap_edit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Edit</p></li>
-<li><p><strong>use_snap_nonedit</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Include Non-Edited</p></li>
-<li><p><strong>use_snap_selectable</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Target: Exclude Non-Selectable</p></li>
-<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Point</p></li>
-<li><p><strong>correct_uv</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Correct UVs, Correct UV coordinates when transforming</p></li>
-<li><p><strong>release_confirm</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Confirm on Release, Always confirm operation when releasing button</p></li>
-<li><p><strong>use_accurate</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Accurate, Use accurate transformation</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Factor, (in [-10, 10], optional)</p></li>
+<li><p><strong>use_even</strong> (<em>bool</em>) – Even, Make the edge loop match the shape of the adjacent edge loop (optional)</p></li>
+<li><p><strong>flipped</strong> (<em>bool</em>) – Flipped, When Even mode is active, flips between the two adjacent edge loops (optional)</p></li>
+<li><p><strong>use_clamp</strong> (<em>bool</em>) – Clamp, Clamp within the edge extents (optional)</p></li>
+<li><p><strong>direction</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Slide Direction, World-space direction (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – Mirror Editing, (optional)</p></li>
+<li><p><strong>snap</strong> (<em>bool</em>) – Use Snapping Options, (optional)</p></li>
+<li><p><strong>snap_elements</strong> (set[Literal[<a class="reference internal" href="bpy_types_enum_items/snap_element_items.html#rna-enum-snap-element-items"><span class="std std-ref">Snap Element Items</span></a>]]) – Snap to Elements, (optional)</p></li>
+<li><p><strong>use_snap_project</strong> (<em>bool</em>) – Project Individual Elements, (optional)</p></li>
+<li><p><strong>snap_target</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/snap_source_items.html#rna-enum-snap-source-items"><span class="std std-ref">Snap Source Items</span></a>]) – Snap Base, Point on source that will snap to target (optional)</p></li>
+<li><p><strong>use_snap_self</strong> (<em>bool</em>) – Target: Include Active, (optional)</p></li>
+<li><p><strong>use_snap_edit</strong> (<em>bool</em>) – Target: Include Edit, (optional)</p></li>
+<li><p><strong>use_snap_nonedit</strong> (<em>bool</em>) – Target: Include Non-Edited, (optional)</p></li>
+<li><p><strong>use_snap_selectable</strong> (<em>bool</em>) – Target: Exclude Non-Selectable, (optional)</p></li>
+<li><p><strong>snap_point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>correct_uv</strong> (<em>bool</em>) – Correct UVs, Correct UV coordinates when transforming (optional)</p></li>
+<li><p><strong>release_confirm</strong> (<em>bool</em>) – Confirm on Release, Always confirm operation when releasing button (optional)</p></li>
+<li><p><strong>use_accurate</strong> (<em>bool</em>) – Accurate, Use accurate transformation (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -846,12 +1000,18 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>offset</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Amount, Distance to offset</p></li>
-<li><p><strong>uniform</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Uniform, Increase for uniform offset distance</p></li>
-<li><p><strong>normal</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal, Align offset direction to normals</p></li>
-<li><p><strong>seed</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>10000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Random Seed, Seed for the random number generator</p></li>
-<li><p><strong>wait_for_input</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Wait for Input</p></li>
+<li><p><strong>offset</strong> (<em>float</em>) – Amount, Distance to offset (in [-inf, inf], optional)</p></li>
+<li><p><strong>uniform</strong> (<em>float</em>) – Uniform, Increase for uniform offset distance (in [0, 1], optional)</p></li>
+<li><p><strong>normal</strong> (<em>float</em>) – Normal, Align offset direction to normals (in [0, 1], optional)</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Random Seed, Seed for the random number generator (in [0, 10000], optional)</p></li>
+<li><p><strong>wait_for_input</strong> (<em>bool</em>) – Wait for Input, (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -863,13 +1023,19 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>warp_angle</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Warp Angle, Amount to warp about the cursor</p></li>
-<li><p><strong>offset_angle</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Offset Angle, Angle to use as the basis for warping</p></li>
-<li><p><strong>min</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Min</p></li>
-<li><p><strong>max</strong> (<em>float in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Max</p></li>
-<li><p><strong>viewmat</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> of 4 * 4 items in [-inf, inf], (optional)) – Matrix</p></li>
-<li><p><strong>center</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> of 3 items in [-inf, inf], (optional)) – Center</p></li>
+<li><p><strong>warp_angle</strong> (<em>float</em>) – Warp Angle, Amount to warp about the cursor (in [-inf, inf], optional)</p></li>
+<li><p><strong>offset_angle</strong> (<em>float</em>) – Offset Angle, Angle to use as the basis for warping (in [-inf, inf], optional)</p></li>
+<li><p><strong>min</strong> (<em>float</em>) – Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>max</strong> (<em>float</em>) – Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>viewmat</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 4 * 4 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>center</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center, (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -888,7 +1054,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

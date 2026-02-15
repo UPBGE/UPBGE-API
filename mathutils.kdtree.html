@@ -117,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mathutils.html#mathutils.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="mathutils.html#mathutils.Euler"><code class="docutils literal notranslate"><span class="pre">Euler</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="mathutils.html#mathutils.Matrix"><code class="docutils literal notranslate"><span class="pre">Matrix</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.html#mathutils.MatrixAccess"><code class="docutils literal notranslate"><span class="pre">MatrixAccess</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="mathutils.html#mathutils.Quaternion"><code class="docutils literal notranslate"><span class="pre">Quaternion</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="mathutils.html#mathutils.Vector"><code class="docutils literal notranslate"><span class="pre">Vector</span></code></a></li>
 </ul>
@@ -188,32 +189,27 @@
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="mathutils.kdtree.KDTree">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">mathutils.kdtree.</span></span><span class="sig-name descname"><span class="pre">KDTree</span></span><a class="headerlink" href="#mathutils.kdtree.KDTree" title="Link to this definition"></a></dt>
-<dd><p>KdTree(size) -&gt; new kd-tree initialized to hold <code class="docutils literal notranslate"><span class="pre">size</span></code> items.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param size<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of items.</p>
-</dd>
-<dt class="field-even">type size<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">mathutils.kdtree.</span></span><span class="sig-name descname"><span class="pre">KDTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree" title="Link to this definition"></a></dt>
+<dd><p>KDTree(size) -&gt; new kd-tree initialized to hold up to <code class="docutils literal notranslate"><span class="pre">size</span></code> items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – Maximum number of items.</p>
 </dd>
 </dl>
-</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><a class="reference internal" href="#mathutils.kdtree.KDTree.balance" title="mathutils.kdtree.KDTree.balance"><code class="xref py py-class docutils literal notranslate"><span class="pre">KDTree.balance</span></code></a> must have been called before using any of the <code class="docutils literal notranslate"><span class="pre">find</span></code> methods.</p>
+<p><a class="reference internal" href="#mathutils.kdtree.KDTree.balance" title="mathutils.kdtree.KDTree.balance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">KDTree.balance()</span></code></a> must have been called before using any of the <code class="docutils literal notranslate"><span class="pre">find</span></code> methods.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.kdtree.KDTree.balance">
 <span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree.balance" title="Link to this definition"></a></dt>
 <dd><p>Balance the tree.</p>
-</dd></dl>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This builds the entire tree, avoid calling after each insertion.</p>
 </div>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.kdtree.KDTree.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">co</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree.find" title="Link to this definition"></a></dt>
@@ -221,8 +217,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>co</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – 3D coordinates.</p></li>
-<li><p><strong>filter</strong> (<em>Callable</em><em>[</em><em>[</em><em>int</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – function which takes an index and returns True for indices to include in the search.</p></li>
+<li><p><strong>co</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – 3D coordinate.</p></li>
+<li><p><strong>filter</strong> (<em>Callable</em><em>[</em><em>[</em><em>int</em><em>]</em><em>, </em><em>bool</em><em>] </em><em>| </em><em>None</em>) – function which takes an index and returns True for indices to include in the search.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -304,7 +300,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

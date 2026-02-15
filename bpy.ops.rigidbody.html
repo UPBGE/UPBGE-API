@@ -236,10 +236,16 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frame_start</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>300000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Start Frame, Start frame for baking</p></li>
-<li><p><strong>frame_end</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>300000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – End Frame, End frame for baking</p></li>
-<li><p><strong>step</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>120</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Frame Step, Frame Step</p></li>
+<li><p><strong>frame_start</strong> (<em>int</em>) – Start Frame, Start frame for baking (in [0, 300000], optional)</p></li>
+<li><p><strong>frame_end</strong> (<em>int</em>) – End Frame, End frame for baking (in [1, 300000], optional)</p></li>
+<li><p><strong>step</strong> (<em>int</em>) – Frame Step, Frame Step (in [1, 120], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/rigidbody.py#L108">startup/bl_operators/rigidbody.py:108</a></p>
@@ -254,7 +260,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>con_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FIXED'</span></code>, <code class="docutils literal notranslate"><span class="pre">'POINT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HINGE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SLIDER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PISTON'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GENERIC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GENERIC_SPRING'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MOTOR'</span></code>], (optional)) – <p>Type, Type of generated constraint</p>
+<li><p><strong>con_type</strong> (<em>Literal</em><em>[</em><em>'FIXED'</em><em>, </em><em>'POINT'</em><em>, </em><em>'HINGE'</em><em>, </em><em>'SLIDER'</em><em>, </em><em>'PISTON'</em><em>, </em><em>'GENERIC'</em><em>, </em><em>'GENERIC_SPRING'</em><em>, </em><em>'MOTOR'</em><em>]</em>) – <p>Type, Type of generated constraint (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FIXED</span></code>
 Fixed – Glue rigid bodies together.</p></li>
@@ -274,7 +280,7 @@ Generic Spring – Restrict translation and rotation to specified axes with spri
 Motor – Drive rigid body around or along an axis.</p></li>
 </ul>
 </p></li>
-<li><p><strong>pivot_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'CENTER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECTED'</span></code>], (optional)) – <p>Location, Constraint pivot location</p>
+<li><p><strong>pivot_type</strong> (<em>Literal</em><em>[</em><em>'CENTER'</em><em>, </em><em>'ACTIVE'</em><em>, </em><em>'SELECTED'</em><em>]</em>) – <p>Location, Constraint pivot location (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CENTER</span></code>
 Center – Pivot location is between the constrained rigid bodies.</p></li>
@@ -284,7 +290,7 @@ Active – Pivot location is at the active object position.</p></li>
 Selected – Pivot location is at the selected object position.</p></li>
 </ul>
 </p></li>
-<li><p><strong>connection_pattern</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SELECTED_TO_ACTIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CHAIN_DISTANCE'</span></code>], (optional)) – <p>Connection Pattern, Pattern used to connect objects</p>
+<li><p><strong>connection_pattern</strong> (<em>Literal</em><em>[</em><em>'SELECTED_TO_ACTIVE'</em><em>, </em><em>'CHAIN_DISTANCE'</em><em>]</em>) – <p>Connection Pattern, Pattern used to connect objects (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SELECTED_TO_ACTIVE</span></code>
 Selected to Active – Connect selected objects to the active object.</p></li>
@@ -293,6 +299,12 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 <dt class="field-even">File<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/rigidbody.py#L277">startup/bl_operators/rigidbody.py:277</a></p>
@@ -306,7 +318,13 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dd><p>Add Rigid Body Constraint to active object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/rigidbody_constraint_type_items.html#rna-enum-rigidbody-constraint-type-items"><span class="std std-ref">Rigidbody Constraint Type Items</span></a>, (optional)) – Rigid Body Constraint Type</p>
+<dd class="field-odd"><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/rigidbody_constraint_type_items.html#rna-enum-rigidbody-constraint-type-items"><span class="std std-ref">Rigidbody Constraint Type Items</span></a>]) – Rigid Body Constraint Type, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -315,6 +333,14 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dt class="sig sig-object py" id="bpy.ops.rigidbody.constraint_remove">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.rigidbody.</span></span><span class="sig-name descname"><span class="pre">constraint_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.constraint_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove Rigid Body Constraint from Object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -324,9 +350,15 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>material</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DEFAULT'</span></code>], (optional)) – Material Preset, Type of material that objects are made of (determines material density)</p></li>
-<li><p><strong>density</strong> (<em>float in</em><em> [</em><em>1.17549e-38</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Density, Density value (kg/m^3), allows custom value if the ‘Custom’ preset is used</p></li>
+<li><p><strong>material</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>]</em>) – Material Preset, Type of material that objects are made of (determines material density) (optional)</p></li>
+<li><p><strong>density</strong> (<em>float</em>) – Density, Density value (kg/m^3), allows custom value if the ‘Custom’ preset is used (in [1.17549e-38, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -337,7 +369,13 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dd><p>Add active object as Rigid Body</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/rigidbody_object_type_items.html#rna-enum-rigidbody-object-type-items"><span class="std std-ref">Rigidbody Object Type Items</span></a>, (optional)) – Rigid Body Type</p>
+<dd class="field-odd"><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/rigidbody_object_type_items.html#rna-enum-rigidbody-object-type-items"><span class="std std-ref">Rigidbody Object Type Items</span></a>]) – Rigid Body Type, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -346,6 +384,14 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dt class="sig sig-object py" id="bpy.ops.rigidbody.object_remove">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.rigidbody.</span></span><span class="sig-name descname"><span class="pre">object_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.object_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove Rigid Body settings from Object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -353,6 +399,12 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.rigidbody.</span></span><span class="sig-name descname"><span class="pre">object_settings_copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.object_settings_copy" title="Link to this definition"></a></dt>
 <dd><p>Copy Rigid Body settings from active object to selected</p>
 <dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 <dt class="field-odd">File<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://projects.blender.org/blender/blender/src/branch/main/scripts/startup/bl_operators/rigidbody.py#L45">startup/bl_operators/rigidbody.py:45</a></p>
 </dd>
@@ -365,7 +417,13 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dd><p>Add selected objects as Rigid Bodies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/rigidbody_object_type_items.html#rna-enum-rigidbody-object-type-items"><span class="std std-ref">Rigidbody Object Type Items</span></a>, (optional)) – Rigid Body Type</p>
+<dd class="field-odd"><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/rigidbody_object_type_items.html#rna-enum-rigidbody-object-type-items"><span class="std std-ref">Rigidbody Object Type Items</span></a>]) – Rigid Body Type, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -374,6 +432,14 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dt class="sig sig-object py" id="bpy.ops.rigidbody.objects_remove">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.rigidbody.</span></span><span class="sig-name descname"><span class="pre">objects_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.objects_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove selected objects from Rigid Body simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -382,7 +448,13 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dd><p>Change collision shapes for selected Rigid Body Objects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (enum in <a class="reference internal" href="bpy_types_enum_items/rigidbody_object_shape_items.html#rna-enum-rigidbody-object-shape-items"><span class="std std-ref">Rigidbody Object Shape Items</span></a>, (optional)) – Rigid Body Shape</p>
+<dd class="field-odd"><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/rigidbody_object_shape_items.html#rna-enum-rigidbody-object-shape-items"><span class="std std-ref">Rigidbody Object Shape Items</span></a>]) – Rigid Body Shape, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -391,12 +463,28 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 <dt class="sig sig-object py" id="bpy.ops.rigidbody.world_add">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.rigidbody.</span></span><span class="sig-name descname"><span class="pre">world_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.world_add" title="Link to this definition"></a></dt>
 <dd><p>Add Rigid Body simulation world to the current scene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.rigidbody.world_remove">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.rigidbody.</span></span><span class="sig-name descname"><span class="pre">world_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.world_remove" title="Link to this definition"></a></dt>
 <dd><p>Remove Rigid Body simulation world from the current scene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -413,7 +501,7 @@ Chain by Distance – Connect objects as a chain based on distance, starting at 
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

@@ -98,7 +98,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.bake_action_objects"><code class="docutils literal notranslate"><span class="pre">bake_action_objects()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.bake_action_iter"><code class="docutils literal notranslate"><span class="pre">bake_action_iter()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.bake_action_objects_iter"><code class="docutils literal notranslate"><span class="pre">bake_action_objects_iter()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying"><code class="docutils literal notranslate"><span class="pre">AutoKeying</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying"><code class="docutils literal notranslate"><span class="pre">AutoKeying</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.active_keyingset"><code class="docutils literal notranslate"><span class="pre">AutoKeying.active_keyingset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.autokey_transformation"><code class="docutils literal notranslate"><span class="pre">AutoKeying.autokey_transformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.autokeying_options"><code class="docutils literal notranslate"><span class="pre">AutoKeying.autokeying_options()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.key_transformation"><code class="docutils literal notranslate"><span class="pre">AutoKeying.key_transformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.key_transformation_via_keyingset"><code class="docutils literal notranslate"><span class="pre">AutoKeying.key_transformation_via_keyingset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.keyframe_channels"><code class="docutils literal notranslate"><span class="pre">AutoKeying.keyframe_channels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.keying_options"><code class="docutils literal notranslate"><span class="pre">AutoKeying.keying_options()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.keying_options_from_keyingset"><code class="docutils literal notranslate"><span class="pre">AutoKeying.keying_options_from_keyingset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.keytype"><code class="docutils literal notranslate"><span class="pre">AutoKeying.keytype()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.options"><code class="docutils literal notranslate"><span class="pre">AutoKeying.options()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy_extras.anim_utils.AutoKeying.get_4d_rotlock"><code class="docutils literal notranslate"><span class="pre">AutoKeying.get_4d_rotlock()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.BakeOptions"><code class="docutils literal notranslate"><span class="pre">BakeOptions</span></code></a></li>
 </ul>
 </li>
@@ -156,7 +169,7 @@
 <li><p><strong>obj</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – Object to bake.</p></li>
 <li><p><strong>action</strong> (<a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a> | None) – An action to bake the data into, or None for a new action
 to be created.</p></li>
-<li><p><strong>frames</strong> (<em>int</em>) – Frames to bake.</p></li>
+<li><p><strong>frames</strong> (<em>Iterable</em><em>[</em><em>int</em><em>]</em>) – Frames to bake.</p></li>
 <li><p><strong>bake_options</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">anim_utils.BakeOptions</span></code>) – Options for baking.</p></li>
 </ul>
 </dd>
@@ -176,7 +189,9 @@ to be created.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frames</strong> (<em>iterable</em><em> of </em><em>int</em>) – Frames to bake.</p></li>
+<li><p><strong>object_action_pairs</strong> (Sequence[tuple[<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>, <a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a> | None]]) – Sequence of object action tuples,
+action is the destination for the baked data. When None a new action will be created.</p></li>
+<li><p><strong>frames</strong> (<em>Iterable</em><em>[</em><em>int</em><em>]</em>) – Frames to bake.</p></li>
 <li><p><strong>bake_options</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">anim_utils.BakeOptions</span></code>) – Options for baking.</p></li>
 </ul>
 </dd>
@@ -192,21 +207,21 @@ to be created.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.anim_utils.bake_action_iter">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">bake_action_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake_options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.bake_action_iter" title="Link to this definition"></a></dt>
-<dd><p>An coroutine that bakes action for a single object.</p>
+<dd><p>A coroutine that bakes action for a single object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – Object to bake.</p></li>
 <li><p><strong>action</strong> (<a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a> | None) – An action to bake the data into, or None for a new action
 to be created.</p></li>
-<li><p><strong>bake_options</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">anim_utils.BakeOptions</span></code>) – Boolean options of what to include into the action bake.</p></li>
+<li><p><strong>bake_options</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">anim_utils.BakeOptions</span></code>) – Options for baking.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>an action or None</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a> | None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -214,14 +229,21 @@ to be created.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.anim_utils.bake_action_objects_iter">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">bake_action_objects_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_action_pairs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake_options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.bake_action_objects_iter" title="Link to this definition"></a></dt>
-<dd><p>An coroutine that bakes actions for multiple objects.</p>
+<dd><p>A coroutine that bakes actions for multiple objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>object_action_pairs</strong> (Sequence of (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>, <a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a>)) – Sequence of object action tuples,
+<li><p><strong>object_action_pairs</strong> (Sequence[tuple[<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>, <a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Action</span></code></a> | None]]) – Sequence of object action tuples,
 action is the destination for the baked data. When None a new action will be created.</p></li>
 <li><p><strong>bake_options</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">anim_utils.BakeOptions</span></code>) – Options for baking.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A generator that yields None for each frame, then finally
+yields a tuple of actions (aligned with <em>object_action_pairs</em>).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Generator</p>
 </dd>
 </dl>
 </dd></dl>
@@ -230,7 +252,197 @@ action is the destination for the baked data. When None a new action will be cre
 <dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">AutoKeying</span></span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying" title="Link to this definition"></a></dt>
 <dd><p>Auto-keying support.</p>
-<p>Retrieve the lock status for 4D rotation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.active_keyingset">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">active_keyingset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.active_keyingset" title="Link to this definition"></a></dt>
+<dd><p>Return the active keying set, if it should be used.</p>
+<p>Only returns the active keying set when the auto-key settings indicate
+it should be used, and when it is not using absolute paths (because
+that’s not supported by the Copy Global Transform add-on).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The active keying set, or None when it should not be used.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.KeyingSet.html#bpy.types.KeyingSet" title="bpy.types.KeyingSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.KeyingSet</span></code></a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.autokey_transformation">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">autokey_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.autokey_transformation" title="Link to this definition"></a></dt>
+<dd><p>Auto-key transformation properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+<li><p><strong>target</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a> | <a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PoseBone</span></code></a>) – The object or pose bone to keyframe.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.autokeying_options">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">autokeying_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.autokeying_options" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the Auto Keyframe options, or None if disabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The keyframing option flags, or None when auto-keying is disabled.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[str] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.key_transformation">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">key_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.key_transformation" title="Link to this definition"></a></dt>
+<dd><p>Keyframe transformation properties, avoiding keying locked channels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a> | <a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PoseBone</span></code></a>) – The object or pose bone to keyframe.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Keyframing options.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.key_transformation_via_keyingset">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">key_transformation_via_keyingset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyingset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.key_transformation_via_keyingset" title="Link to this definition"></a></dt>
+<dd><p>Auto-key transformation properties with the given keying set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+<li><p><strong>target</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a> | <a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PoseBone</span></code></a>) – The object or pose bone to keyframe.</p></li>
+<li><p><strong>keyingset</strong> (<a class="reference internal" href="bpy.types.KeyingSet.html#bpy.types.KeyingSet" title="bpy.types.KeyingSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.KeyingSet</span></code></a>) – The keying set to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.keyframe_channels">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">keyframe_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.keyframe_channels" title="Link to this definition"></a></dt>
+<dd><p>Keyframe channels, avoiding keying locked channels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a> | <a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PoseBone</span></code></a>) – The object or pose bone to keyframe.</p></li>
+<li><p><strong>options</strong> (<em>set</em><em>[</em><em>str</em><em>]</em>) – Keyframing options.</p></li>
+<li><p><strong>data_path</strong> (<em>str</em>) – The data path to keyframe.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – The group name for the keyframes.</p></li>
+<li><p><strong>locks</strong> (<em>Iterable</em><em>[</em><em>bool</em><em>]</em>) – Per-channel lock status.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.keying_options">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">keying_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.keying_options" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the general keyframing options from user preferences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The keyframing option flags.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.keying_options_from_keyingset">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">keying_options_from_keyingset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyingset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.keying_options_from_keyingset" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the general keyframing options from user preferences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+<li><p><strong>keyingset</strong> (<a class="reference internal" href="bpy.types.KeyingSet.html#bpy.types.KeyingSet" title="bpy.types.KeyingSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.KeyingSet</span></code></a>) – The keying set to read options from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The keyframing option flags.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.keytype">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">keytype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">the_keytype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.keytype" title="Link to this definition"></a></dt>
+<dd><p>Context manager to set the key type that’s inserted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>the_keytype</strong> (<em>str</em>) – The key type to use.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A context manager that resets the key type on exit.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Iterator[None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.options">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">keytype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_loc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_autokey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.options" title="Link to this definition"></a></dt>
+<dd><p>Context manager to set various keyframing options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keytype</strong> (<em>str</em>) – The key type to use.</p></li>
+<li><p><strong>use_loc</strong> (<em>bool</em>) – Key location channels.</p></li>
+<li><p><strong>use_rot</strong> (<em>bool</em>) – Key rotation channels.</p></li>
+<li><p><strong>use_scale</strong> (<em>bool</em>) – Key scale channels.</p></li>
+<li><p><strong>force_autokey</strong> (<em>bool</em>) – Allow use without the user activating auto-keying.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A context manager that resets the options on exit.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Iterator[None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.AutoKeying.get_4d_rotlock">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_4d_rotlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bone</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.AutoKeying.get_4d_rotlock" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the lock status for 4D rotation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bone</strong> (<a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.PoseBone</span></code></a>) – The pose bone to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lock status for W, X, Y, Z rotation channels.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[bool]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -253,7 +465,7 @@ action is the destination for the baked data. When None a new action will be cre
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 

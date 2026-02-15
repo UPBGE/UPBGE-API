@@ -262,8 +262,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>, (optional)) – Stroke</p></li>
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'NORMAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INVERT'</span></code>], (optional)) – <p>Stroke Mode, Action taken when a paint stroke is made</p>
+<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – Stroke, (optional)</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'NORMAL'</em><em>, </em><em>'INVERT'</em><em>]</em>) – <p>Stroke Mode, Action taken when a paint stroke is made (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
 Regular – Apply brush normally.</p></li>
@@ -271,7 +271,7 @@ Regular – Apply brush normally.</p></li>
 Invert – Invert action of brush for duration of stroke.</p></li>
 </ul>
 </p></li>
-<li><p><strong>brush_toggle</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MASK'</span></code>], (optional)) – <p>Temporary Brush Toggle Type, Brush to use for duration of stroke</p>
+<li><p><strong>brush_toggle</strong> (<em>Literal</em><em>[</em><em>'None'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'ERASE'</em><em>, </em><em>'MASK'</em><em>]</em>) – <p>Temporary Brush Toggle Type, Brush to use for duration of stroke (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
 None – Apply brush normally.</p></li>
@@ -283,10 +283,16 @@ Erase – Switch to erase brush for duration of stroke.</p></li>
 Mask – Switch to mask brush for duration of stroke.</p></li>
 </ul>
 </p></li>
-<li><p><strong>pen_flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Pen Flip, Whether a tablet’s eraser mode is being used</p></li>
-<li><p><strong>override_location</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Override Location, Override the given “location” array by recalculating object space positions from the provided “mouse_event” positions</p></li>
-<li><p><strong>ignore_background_click</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Ignore Background Click, Clicks on the background do not start the stroke</p></li>
+<li><p><strong>pen_flip</strong> (<em>bool</em>) – Pen Flip, Whether a tablet’s eraser mode is being used (optional)</p></li>
+<li><p><strong>override_location</strong> (<em>bool</em>) – Override Location, Override the given “location” array by recalculating object space positions from the provided “mouse_event” positions (optional)</p></li>
+<li><p><strong>ignore_background_click</strong> (<em>bool</em>) – Ignore Background Click, Clicks on the background do not start the stroke (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -298,11 +304,12 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start_mouse</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>0</em><em>, </em><em>16384</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Starting Mouse</p></li>
-<li><p><strong>area_normal_radius</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius</p></li>
-<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
-<li><p><strong>iteration_count</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>10000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repeat, How many times to repeat the filter</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'GRAVITY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INFLATE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'EXPAND'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PINCH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCALE'</span></code>], (optional)) – <p>Filter Type, Operation that is going to be applied to the mesh</p>
+<li><p><strong>start_mouse</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Starting Mouse, (array of 2 items, in [0, 16384], optional)</p></li>
+<li><p><strong>area_normal_radius</strong> (<em>float</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius(in [0.001, 5], optional)</p></li>
+<li><p><strong>strength</strong> (<em>float</em>) – Strength, Filter strength (in [-10, 10], optional)</p></li>
+<li><p><strong>iteration_count</strong> (<em>int</em>) – Repeat, How many times to repeat the filter (in [1, 10000], optional)</p></li>
+<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'GRAVITY'</em><em>, </em><em>'INFLATE'</em><em>, </em><em>'EXPAND'</em><em>, </em><em>'PINCH'</em><em>, </em><em>'SCALE'</em><em>]</em>) – <p>Filter Type, Operation that is going to be applied to the mesh (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">GRAVITY</span></code>
 Gravity – Applies gravity to the simulation.</p></li>
@@ -316,7 +323,7 @@ Pinch – Pulls the cloth to the cursor’s start position.</p></li>
 Scale – Scales the mesh as a soft body using the origin of the object as scale.</p></li>
 </ul>
 </p></li>
-<li><p><strong>force_axis</strong> (enum set in {<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>}, (optional)) – <p>Force Axis, Apply the force in the selected axis</p>
+<li><p><strong>force_axis</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em><em>]</em>) – <p>Force Axis, Apply the force in the selected axis (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
 X – Apply force in the X axis.</p></li>
@@ -326,7 +333,7 @@ Y – Apply force in the Y axis.</p></li>
 Z – Apply force in the Z axis.</p></li>
 </ul>
 </p></li>
-<li><p><strong>orientation</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LOCAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'WORLD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VIEW'</span></code>], (optional)) – <p>Orientation, Orientation of the axis to limit the filter force</p>
+<li><p><strong>orientation</strong> (<em>Literal</em><em>[</em><em>'LOCAL'</em><em>, </em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>]</em>) – <p>Orientation, Orientation of the axis to limit the filter force (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOCAL</span></code>
 Local – Use the local axis to limit the force and set the gravity direction.</p></li>
@@ -336,11 +343,17 @@ World – Use the global axis to limit the force and set the gravity direction.<
 View – Use the view axis to limit the force and set the gravity direction.</p></li>
 </ul>
 </p></li>
-<li><p><strong>cloth_mass</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>2</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cloth Mass, Mass of each simulation particle</p></li>
-<li><p><strong>cloth_damping</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cloth Damping, How much the applied forces are propagated through the cloth</p></li>
-<li><p><strong>use_face_sets</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Face Sets, Apply the filter only to the face set under the cursor</p></li>
-<li><p><strong>use_collisions</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Collisions, Collide with other collider objects in the scene</p></li>
+<li><p><strong>cloth_mass</strong> (<em>float</em>) – Cloth Mass, Mass of each simulation particle (in [0, 2], optional)</p></li>
+<li><p><strong>cloth_damping</strong> (<em>float</em>) – Cloth Damping, How much the applied forces are propagated through the cloth (in [0, 1], optional)</p></li>
+<li><p><strong>use_face_sets</strong> (<em>bool</em>) – Use Face Sets, Apply the filter only to the face set under the cursor (optional)</p></li>
+<li><p><strong>use_collisions</strong> (<em>bool</em>) – Use Collisions, Collide with other collider objects in the scene (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -352,11 +365,12 @@ View – Use the view axis to limit the force and set the gravity direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start_mouse</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>0</em><em>, </em><em>16384</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Starting Mouse</p></li>
-<li><p><strong>area_normal_radius</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius</p></li>
-<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
-<li><p><strong>iteration_count</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>10000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repeat, How many times to repeat the filter</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'FILL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HUE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SATURATION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VALUE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BRIGHTNESS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CONTRAST'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RED'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GREEN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BLUE'</span></code>], (optional)) – <p>Filter Type</p>
+<li><p><strong>start_mouse</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Starting Mouse, (array of 2 items, in [0, 16384], optional)</p></li>
+<li><p><strong>area_normal_radius</strong> (<em>float</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius(in [0.001, 5], optional)</p></li>
+<li><p><strong>strength</strong> (<em>float</em>) – Strength, Filter strength (in [-10, 10], optional)</p></li>
+<li><p><strong>iteration_count</strong> (<em>int</em>) – Repeat, How many times to repeat the filter (in [1, 10000], optional)</p></li>
+<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FILL'</em><em>, </em><em>'HUE'</em><em>, </em><em>'SATURATION'</em><em>, </em><em>'VALUE'</em><em>, </em><em>'BRIGHTNESS'</em><em>, </em><em>'CONTRAST'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'RED'</em><em>, </em><em>'GREEN'</em><em>, </em><em>'BLUE'</em><em>]</em>) – <p>Filter Type, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FILL</span></code>
 Fill – Fill with a specific color.</p></li>
@@ -380,8 +394,14 @@ Green – Change green channel.</p></li>
 Blue – Change blue channel.</p></li>
 </ul>
 </p></li>
-<li><p><strong>fill_color</strong> (<a class="reference internal" href="mathutils.html#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Color</span></code></a> of 3 items in [0, inf], (optional)) – Fill Color</p></li>
+<li><p><strong>fill_color</strong> (<a class="reference internal" href="mathutils.html#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Color</span></code></a>) – Fill Color, (array of 3 items, in [0, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -390,18 +410,42 @@ Blue – Change blue channel.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.sculpt.detail_flood_fill">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">detail_flood_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.detail_flood_fill" title="Link to this definition"></a></dt>
 <dd><p>Flood fill the mesh with the selected detail setting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.dynamic_topology_toggle">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">dynamic_topology_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.dynamic_topology_toggle" title="Link to this definition"></a></dt>
 <dd><p>Dynamic topology alters the mesh topology while sculpting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.dyntopo_detail_size_edit">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">dyntopo_detail_size_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.dyntopo_detail_size_edit" title="Link to this definition"></a></dt>
 <dd><p>Modify the detail size of dyntopo interactively</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -411,17 +455,23 @@ Blue – Change blue channel.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>target</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MASK'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FACE_SETS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'COLOR'</span></code>], (optional)) – Data Target, Data that is going to be modified in the expand operation</p></li>
-<li><p><strong>falloff_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'GEODESIC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'TOPOLOGY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'TOPOLOGY_DIAGONALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NORMALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SPHERICAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BOUNDARY_TOPOLOGY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BOUNDARY_FACE_SET'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTIVE_FACE_SET'</span></code>], (optional)) – Falloff Type, Initial falloff of the expand operation</p></li>
-<li><p><strong>invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Invert, Invert the expand active elements</p></li>
-<li><p><strong>use_mask_preserve</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Preserve Previous, Preserve the previous state of the target data</p></li>
-<li><p><strong>use_falloff_gradient</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Falloff Gradient, Expand Using a linear falloff</p></li>
-<li><p><strong>use_modify_active</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Modify Active, Modify the active face set instead of creating a new one</p></li>
-<li><p><strong>use_reposition_pivot</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Reposition Pivot, Reposition the sculpt transform pivot to the boundary of the expand active area</p></li>
-<li><p><strong>max_geodesic_move_preview</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Max Vertex Count for Geodesic Move Preview, Maximum number of vertices in the mesh for using geodesic falloff when moving the origin of expand. If the total number of vertices is greater than this value, the falloff will be set to spherical when moving</p></li>
-<li><p><strong>use_auto_mask</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Create, Fill in mask if nothing is already masked</p></li>
-<li><p><strong>normal_falloff_smooth</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Smooth, Blurring steps for normal falloff</p></li>
+<li><p><strong>target</strong> (<em>Literal</em><em>[</em><em>'MASK'</em><em>, </em><em>'FACE_SETS'</em><em>, </em><em>'COLOR'</em><em>]</em>) – Data Target, Data that is going to be modified in the expand operation (optional)</p></li>
+<li><p><strong>falloff_type</strong> (<em>Literal</em><em>[</em><em>'GEODESIC'</em><em>, </em><em>'TOPOLOGY'</em><em>, </em><em>'TOPOLOGY_DIAGONALS'</em><em>, </em><em>'NORMALS'</em><em>, </em><em>'SPHERICAL'</em><em>, </em><em>'BOUNDARY_TOPOLOGY'</em><em>, </em><em>'BOUNDARY_FACE_SET'</em><em>, </em><em>'ACTIVE_FACE_SET'</em><em>]</em>) – Falloff Type, Initial falloff of the expand operation (optional)</p></li>
+<li><p><strong>invert</strong> (<em>bool</em>) – Invert, Invert the expand active elements (optional)</p></li>
+<li><p><strong>use_mask_preserve</strong> (<em>bool</em>) – Preserve Previous, Preserve the previous state of the target data (optional)</p></li>
+<li><p><strong>use_falloff_gradient</strong> (<em>bool</em>) – Falloff Gradient, Expand Using a linear falloff (optional)</p></li>
+<li><p><strong>use_modify_active</strong> (<em>bool</em>) – Modify Active, Modify the active face set instead of creating a new one (optional)</p></li>
+<li><p><strong>use_reposition_pivot</strong> (<em>bool</em>) – Reposition Pivot, Reposition the sculpt transform pivot to the boundary of the expand active area (optional)</p></li>
+<li><p><strong>max_geodesic_move_preview</strong> (<em>int</em>) – Max Vertex Count for Geodesic Move Preview, Maximum number of vertices in the mesh for using geodesic falloff when moving the origin of expand. If the total number of vertices is greater than this value, the falloff will be set to spherical when moving (in [0, inf], optional)</p></li>
+<li><p><strong>use_auto_mask</strong> (<em>bool</em>) – Auto Create, Fill in mask if nothing is already masked (optional)</p></li>
+<li><p><strong>normal_falloff_smooth</strong> (<em>int</em>) – Normal Smooth, Blurring steps for normal falloff (in [0, 10], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -433,13 +483,19 @@ Blue – Change blue channel.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xmin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Min</p></li>
-<li><p><strong>xmax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Max</p></li>
-<li><p><strong>ymin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Min</p></li>
-<li><p><strong>ymax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Max</p></li>
-<li><p><strong>wait_for_input</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Wait for Input</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
+<li><p><strong>xmin</strong> (<em>int</em>) – X Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>xmax</strong> (<em>int</em>) – X Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymin</strong> (<em>int</em>) – Y Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymax</strong> (<em>int</em>) – Y Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>wait_for_input</strong> (<em>bool</em>) – Wait for Input, (optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -451,7 +507,7 @@ Blue – Change blue channel.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'TOGGLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHOW_ACTIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HIDE_ACTIVE'</span></code>], (optional)) – <p>Mode</p>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'TOGGLE'</em><em>, </em><em>'SHOW_ACTIVE'</em><em>, </em><em>'HIDE_ACTIVE'</em><em>]</em>) – <p>Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">TOGGLE</span></code>
 Toggle Visibility – Hide all face sets except for the active one.</p></li>
@@ -461,8 +517,14 @@ Show Active Face Set – Show the active face set.</p></li>
 Hide Active Face Set – Hide the active face set.</p></li>
 </ul>
 </p></li>
-<li><p><strong>active_face_set</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Face Set</p></li>
+<li><p><strong>active_face_set</strong> (<em>int</em>) – Active Face Set, (in [0, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -474,8 +536,8 @@ Hide Active Face Set – Hide the active face set.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>active_face_set</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Active Face Set</p></li>
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'GROW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHRINK'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DELETE_GEOMETRY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FAIR_POSITIONS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FAIR_TANGENCY'</span></code>], (optional)) – <p>Mode</p>
+<li><p><strong>active_face_set</strong> (<em>int</em>) – Active Face Set, (in [0, inf], optional)</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'GROW'</em><em>, </em><em>'SHRINK'</em><em>, </em><em>'DELETE_GEOMETRY'</em><em>, </em><em>'FAIR_POSITIONS'</em><em>, </em><em>'FAIR_TANGENCY'</em><em>]</em>) – <p>Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">GROW</span></code>
 Grow Face Set – Grows the face set boundary by one face based on mesh topology.</p></li>
@@ -489,9 +551,15 @@ Fair Positions – Creates a smooth as possible geometry patch from the face set
 Fair Tangency – Creates a smooth as possible geometry patch from the face set minimizing changes in vertex tangents.</p></li>
 </ul>
 </p></li>
-<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength</p></li>
-<li><p><strong>modify_hidden</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Modify Hidden, Apply the edit operation to hidden geometry</p></li>
+<li><p><strong>strength</strong> (<em>float</em>) – Strength, (in [0, 1], optional)</p></li>
+<li><p><strong>modify_hidden</strong> (<em>bool</em>) – Modify Hidden, Apply the edit operation to hidden geometry (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -503,11 +571,17 @@ Fair Tangency – Creates a smooth as possible geometry patch from the face set 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>add_boundary_loop</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Add Boundary Loop, Add an extra edge loop to better preserve the shape when applying a subdivision surface modifier</p></li>
-<li><p><strong>smooth_iterations</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Iterations, Smooth iterations applied to the extracted mesh</p></li>
-<li><p><strong>apply_shrinkwrap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project to Sculpt, Project the extracted mesh into the original sculpt</p></li>
-<li><p><strong>add_solidify</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extract as Solid, Extract the mask as a solid object with a solidify modifier</p></li>
+<li><p><strong>add_boundary_loop</strong> (<em>bool</em>) – Add Boundary Loop, Add an extra edge loop to better preserve the shape when applying a subdivision surface modifier (optional)</p></li>
+<li><p><strong>smooth_iterations</strong> (<em>int</em>) – Smooth Iterations, Smooth iterations applied to the extracted mesh (in [0, inf], optional)</p></li>
+<li><p><strong>apply_shrinkwrap</strong> (<em>bool</em>) – Project to Sculpt, Project the extracted mesh into the original sculpt (optional)</p></li>
+<li><p><strong>add_solidify</strong> (<em>bool</em>) – Extract as Solid, Extract the mask as a solid object with a solidify modifier (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -519,12 +593,18 @@ Fair Tangency – Creates a smooth as possible geometry patch from the face set 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>, (optional)) – Path</p></li>
-<li><p><strong>use_smooth_stroke</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path</p></li>
-<li><p><strong>smooth_stroke_factor</strong> (<em>float in</em><em> [</em><em>0.5</em><em>, </em><em>0.99</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Stroke Factor, Higher values gives a smoother stroke</p></li>
-<li><p><strong>smooth_stroke_radius</strong> (<em>int in</em><em> [</em><em>10</em><em>, </em><em>200</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
+<li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values gives a smoother stroke (in [0.5, 0.99], optional)</p></li>
+<li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -536,15 +616,21 @@ Fair Tangency – Creates a smooth as possible geometry patch from the face set 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xstart</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Start</p></li>
-<li><p><strong>xend</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X End</p></li>
-<li><p><strong>ystart</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Start</p></li>
-<li><p><strong>yend</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y End</p></li>
-<li><p><strong>flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flip</p></li>
-<li><p><strong>cursor</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cursor, Mouse cursor style to use during the modal operator</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
-<li><p><strong>use_limit_to_segment</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Limit to Segment, Apply the gesture action only to the area that is contained within the segment without extending its effect to the entire line</p></li>
+<li><p><strong>xstart</strong> (<em>int</em>) – X Start, (in [-inf, inf], optional)</p></li>
+<li><p><strong>xend</strong> (<em>int</em>) – X End, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ystart</strong> (<em>int</em>) – Y Start, (in [-inf, inf], optional)</p></li>
+<li><p><strong>yend</strong> (<em>int</em>) – Y End, (in [-inf, inf], optional)</p></li>
+<li><p><strong>flip</strong> (<em>bool</em>) – Flip, (optional)</p></li>
+<li><p><strong>cursor</strong> (<em>int</em>) – Cursor, Mouse cursor style to use during the modal operator (in [0, inf], optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
+<li><p><strong>use_limit_to_segment</strong> (<em>bool</em>) – Limit to Segment, Apply the gesture action only to the area that is contained within the segment without extending its effect to the entire line (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -556,9 +642,15 @@ Fair Tangency – Creates a smooth as possible geometry patch from the face set 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>, (optional)) – Path</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -569,7 +661,7 @@ Fair Tangency – Creates a smooth as possible geometry patch from the face set 
 <dd><p>Create a new face set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MASKED'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VISIBLE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ALL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SELECTION'</span></code>], (optional)) – <p>Mode</p>
+<dd class="field-odd"><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'MASKED'</em><em>, </em><em>'VISIBLE'</em><em>, </em><em>'ALL'</em><em>, </em><em>'SELECTION'</em><em>]</em>) – <p>Mode, (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MASKED</span></code>
 Face Set from Masked – Create a new face set from the masked faces.</p></li>
@@ -582,6 +674,12 @@ Face Set from Edit Mode Selection – Create an face set corresponding to the Ed
 </ul>
 </p>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -592,7 +690,7 @@ Face Set from Edit Mode Selection – Create an face set corresponding to the Ed
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LOOSE_PARTS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MATERIALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NORMALS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UV_SEAMS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CREASES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BEVEL_WEIGHT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHARP_EDGES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FACE_SET_BOUNDARIES'</span></code>], (optional)) – <p>Mode</p>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'LOOSE_PARTS'</em><em>, </em><em>'MATERIALS'</em><em>, </em><em>'NORMALS'</em><em>, </em><em>'UV_SEAMS'</em><em>, </em><em>'CREASES'</em><em>, </em><em>'BEVEL_WEIGHT'</em><em>, </em><em>'SHARP_EDGES'</em><em>, </em><em>'FACE_SET_BOUNDARIES'</em><em>]</em>) – <p>Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOOSE_PARTS</span></code>
 Face Sets from Loose Parts – Create a face set per loose part in the mesh.</p></li>
@@ -612,8 +710,14 @@ Face Sets from Sharp Edges – Create face sets using sharp edges as boundaries.
 Face Sets from Face Set Boundaries – Create a face set per isolated face set.</p></li>
 </ul>
 </p></li>
-<li><p><strong>threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, Minimum value to consider a certain attribute a boundary when creating the face sets</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – Threshold, Minimum value to consider a certain attribute a boundary when creating the face sets (in [0, 1], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -622,6 +726,14 @@ Face Sets from Face Set Boundaries – Create a face set per isolated face set.<
 <dt class="sig sig-object py" id="bpy.ops.sculpt.face_sets_randomize_colors">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">face_sets_randomize_colors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.face_sets_randomize_colors" title="Link to this definition"></a></dt>
 <dd><p>Generates a new set of random colors to render the face sets in the viewport</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -631,12 +743,18 @@ Face Sets from Face Set Boundaries – Create a face set per isolated face set.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>contiguous</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Contiguous, Mask only contiguous color areas</p></li>
-<li><p><strong>invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Invert, Invert the generated mask</p></li>
-<li><p><strong>preserve_previous_mask</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Preserve Previous Mask, Preserve the previous mask and add or subtract the new one generated by the colors</p></li>
-<li><p><strong>threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, How much changes in color affect the mask generation</p></li>
-<li><p><strong>location</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>0</em><em>, </em><em>32767</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Region coordinates of sampling</p></li>
+<li><p><strong>contiguous</strong> (<em>bool</em>) – Contiguous, Mask only contiguous color areas (optional)</p></li>
+<li><p><strong>invert</strong> (<em>bool</em>) – Invert, Invert the generated mask (optional)</p></li>
+<li><p><strong>preserve_previous_mask</strong> (<em>bool</em>) – Preserve Previous Mask, Preserve the previous mask and add or subtract the new one generated by the colors (optional)</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – Threshold, How much changes in color affect the mask generation (in [0, 1], optional)</p></li>
+<li><p><strong>location</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Location, Region coordinates of sampling (array of 2 items, in [0, 32767], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -648,10 +766,16 @@ Face Sets from Face Set Boundaries – Create a face set per isolated face set.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filter_type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHARPEN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GROW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHRINK'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CONTRAST_INCREASE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CONTRAST_DECREASE'</span></code>], (optional)) – Type, Filter that is going to be applied to the mask</p></li>
-<li><p><strong>iterations</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>100</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Iterations, Number of times that the filter is going to be applied</p></li>
-<li><p><strong>auto_iteration_count</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Auto Iteration Count, Use an automatic number of iterations based on the number of vertices of the sculpt</p></li>
+<li><p><strong>filter_type</strong> (<em>Literal</em><em>[</em><em>'SMOOTH'</em><em>, </em><em>'SHARPEN'</em><em>, </em><em>'GROW'</em><em>, </em><em>'SHRINK'</em><em>, </em><em>'CONTRAST_INCREASE'</em><em>, </em><em>'CONTRAST_DECREASE'</em><em>]</em>) – Type, Filter that is going to be applied to the mask (optional)</p></li>
+<li><p><strong>iterations</strong> (<em>int</em>) – Iterations, Number of times that the filter is going to be applied (in [1, 100], optional)</p></li>
+<li><p><strong>auto_iteration_count</strong> (<em>bool</em>) – Auto Iteration Count, Use an automatic number of iterations based on the number of vertices of the sculpt (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -663,9 +787,9 @@ Face Sets from Face Set Boundaries – Create a face set per isolated face set.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mix_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MIX'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MULTIPLY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DIVIDE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ADD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SUBTRACT'</span></code>], (optional)) – Mode, Mix mode</p></li>
-<li><p><strong>mix_factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mix Factor</p></li>
-<li><p><strong>settings_source</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'OPERATOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BRUSH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCENE'</span></code>], (optional)) – <p>Settings, Use settings from here</p>
+<li><p><strong>mix_mode</strong> (<em>Literal</em><em>[</em><em>'MIX'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'DIVIDE'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>]</em>) – Mode, Mix mode (optional)</p></li>
+<li><p><strong>mix_factor</strong> (<em>float</em>) – Mix Factor, (in [0, 5], optional)</p></li>
+<li><p><strong>settings_source</strong> (<em>Literal</em><em>[</em><em>'OPERATOR'</em><em>, </em><em>'BRUSH'</em><em>, </em><em>'SCENE'</em><em>]</em>) – <p>Settings, Use settings from here (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">OPERATOR</span></code>
 Operator – Use settings from operator properties.</p></li>
@@ -675,7 +799,7 @@ Brush – Use settings from brush.</p></li>
 Scene – Use settings from scene.</p></li>
 </ul>
 </p></li>
-<li><p><strong>boundary_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MESH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FACE_SETS'</span></code>], (optional)) – <p>Mode, Boundary type to mask</p>
+<li><p><strong>boundary_mode</strong> (<em>Literal</em><em>[</em><em>'MESH'</em><em>, </em><em>'FACE_SETS'</em><em>]</em>) – <p>Mode, Boundary type to mask (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">MESH</span></code>
 Mesh – Calculate the boundary mask based on disconnected mesh topology islands.</p></li>
@@ -683,8 +807,14 @@ Mesh – Calculate the boundary mask based on disconnected mesh topology islands
 Face Sets – Calculate the boundary mask between face sets.</p></li>
 </ul>
 </p></li>
-<li><p><strong>propagation_steps</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>20</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Propagation Steps</p></li>
+<li><p><strong>propagation_steps</strong> (<em>int</em>) – Propagation Steps, (in [1, 20], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -696,9 +826,9 @@ Face Sets – Calculate the boundary mask between face sets.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mix_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'MIX'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MULTIPLY'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DIVIDE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ADD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SUBTRACT'</span></code>], (optional)) – Mode, Mix mode</p></li>
-<li><p><strong>mix_factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mix Factor</p></li>
-<li><p><strong>settings_source</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'OPERATOR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BRUSH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCENE'</span></code>], (optional)) – <p>Settings, Use settings from here</p>
+<li><p><strong>mix_mode</strong> (<em>Literal</em><em>[</em><em>'MIX'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'DIVIDE'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>]</em>) – Mode, Mix mode (optional)</p></li>
+<li><p><strong>mix_factor</strong> (<em>float</em>) – Mix Factor, (in [0, 5], optional)</p></li>
+<li><p><strong>settings_source</strong> (<em>Literal</em><em>[</em><em>'OPERATOR'</em><em>, </em><em>'BRUSH'</em><em>, </em><em>'SCENE'</em><em>]</em>) – <p>Settings, Use settings from here (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">OPERATOR</span></code>
 Operator – Use settings from operator properties.</p></li>
@@ -708,11 +838,17 @@ Brush – Use settings from brush.</p></li>
 Scene – Use settings from scene.</p></li>
 </ul>
 </p></li>
-<li><p><strong>factor</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Factor, The contrast of the cavity mask</p></li>
-<li><p><strong>blur_steps</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>25</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Blur, The number of times the cavity mask is blurred</p></li>
-<li><p><strong>use_curve</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Custom Curve</p></li>
-<li><p><strong>invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cavity (Inverted)</p></li>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, The contrast of the cavity mask (in [0, 5], optional)</p></li>
+<li><p><strong>blur_steps</strong> (<em>int</em>) – Blur, The number of times the cavity mask is blurred (in [0, 25], optional)</p></li>
+<li><p><strong>use_curve</strong> (<em>bool</em>) – Custom Curve, (optional)</p></li>
+<li><p><strong>invert</strong> (<em>bool</em>) – Cavity (Inverted), (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -723,7 +859,13 @@ Scene – Use settings from scene.</p></li>
 <dd><p>Creates a new mask for the entire mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'RANDOM_PER_VERTEX'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RANDOM_PER_FACE_SET'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RANDOM_PER_LOOSE_PART'</span></code>], (optional)) – Mode</p>
+<dd class="field-odd"><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'RANDOM_PER_VERTEX'</em><em>, </em><em>'RANDOM_PER_FACE_SET'</em><em>, </em><em>'RANDOM_PER_LOOSE_PART'</em><em>]</em>) – Mode, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -735,11 +877,12 @@ Scene – Use settings from scene.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start_mouse</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>0</em><em>, </em><em>16384</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Starting Mouse</p></li>
-<li><p><strong>area_normal_radius</strong> (<em>float in</em><em> [</em><em>0.001</em><em>, </em><em>5</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius</p></li>
-<li><p><strong>strength</strong> (<em>float in</em><em> [</em><em>-10</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Strength, Filter strength</p></li>
-<li><p><strong>iteration_count</strong> (<em>int in</em><em> [</em><em>1</em><em>, </em><em>10000</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Repeat, How many times to repeat the filter</p></li>
-<li><p><strong>type</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SCALE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INFLATE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SPHERE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RANDOM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RELAX'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RELAX_FACE_SETS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SURFACE_SMOOTH'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SHARPEN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ENHANCE_DETAILS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ERASE_DISPLACEMENT'</span></code>], (optional)) – <p>Filter Type, Operation that is going to be applied to the mesh</p>
+<li><p><strong>start_mouse</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Starting Mouse, (array of 2 items, in [0, 16384], optional)</p></li>
+<li><p><strong>area_normal_radius</strong> (<em>float</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius(in [0.001, 5], optional)</p></li>
+<li><p><strong>strength</strong> (<em>float</em>) – Strength, Filter strength (in [-10, 10], optional)</p></li>
+<li><p><strong>iteration_count</strong> (<em>int</em>) – Repeat, How many times to repeat the filter (in [1, 10000], optional)</p></li>
+<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – (optional)</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'SMOOTH'</em><em>, </em><em>'SCALE'</em><em>, </em><em>'INFLATE'</em><em>, </em><em>'SPHERE'</em><em>, </em><em>'RANDOM'</em><em>, </em><em>'RELAX'</em><em>, </em><em>'RELAX_FACE_SETS'</em><em>, </em><em>'SURFACE_SMOOTH'</em><em>, </em><em>'SHARPEN'</em><em>, </em><em>'ENHANCE_DETAILS'</em><em>, </em><em>'ERASE_DISPLACEMENT'</em><em>]</em>) – <p>Filter Type, Operation that is going to be applied to the mesh (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
 Smooth – Smooth mesh.</p></li>
@@ -765,7 +908,7 @@ Enhance Details – Enhance the high frequency surface detail.</p></li>
 Erase Displacement – Deletes the displacement of the Multires Modifier.</p></li>
 </ul>
 </p></li>
-<li><p><strong>deform_axis</strong> (enum set in {<code class="docutils literal notranslate"><span class="pre">'X'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>}, (optional)) – <p>Deform Axis, Apply the deformation in the selected axis</p>
+<li><p><strong>deform_axis</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'X'</em><em>, </em><em>'Y'</em><em>, </em><em>'Z'</em><em>]</em><em>]</em>) – <p>Deform Axis, Apply the deformation in the selected axis (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>
 X – Deform in the X axis.</p></li>
@@ -775,7 +918,7 @@ Y – Deform in the Y axis.</p></li>
 Z – Deform in the Z axis.</p></li>
 </ul>
 </p></li>
-<li><p><strong>orientation</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LOCAL'</span></code>, <code class="docutils literal notranslate"><span class="pre">'WORLD'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VIEW'</span></code>], (optional)) – <p>Orientation, Orientation of the axis to limit the filter displacement</p>
+<li><p><strong>orientation</strong> (<em>Literal</em><em>[</em><em>'LOCAL'</em><em>, </em><em>'WORLD'</em><em>, </em><em>'VIEW'</em><em>]</em>) – <p>Orientation, Orientation of the axis to limit the filter displacement (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOCAL</span></code>
 Local – Use the local axis to limit the displacement.</p></li>
@@ -785,12 +928,18 @@ World – Use the global axis to limit the displacement.</p></li>
 View – Use the view axis to limit the displacement.</p></li>
 </ul>
 </p></li>
-<li><p><strong>surface_smooth_shape_preservation</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Shape Preservation, How much of the original shape is preserved when smoothing</p></li>
-<li><p><strong>surface_smooth_current_vertex</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Per Vertex Displacement, How much the position of each individual vertex influences the final result</p></li>
-<li><p><strong>sharpen_smooth_ratio</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Ratio, How much smoothing is applied to polished surfaces</p></li>
-<li><p><strong>sharpen_intensify_detail_strength</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Intensify Details, How much creases and valleys are intensified</p></li>
-<li><p><strong>sharpen_curvature_smooth_iterations</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>10</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Curvature Smooth Iterations, How much smooth the resulting shape is, ignoring high frequency details</p></li>
+<li><p><strong>surface_smooth_shape_preservation</strong> (<em>float</em>) – Shape Preservation, How much of the original shape is preserved when smoothing (in [0, 1], optional)</p></li>
+<li><p><strong>surface_smooth_current_vertex</strong> (<em>float</em>) – Per Vertex Displacement, How much the position of each individual vertex influences the final result (in [0, 1], optional)</p></li>
+<li><p><strong>sharpen_smooth_ratio</strong> (<em>float</em>) – Smooth Ratio, How much smoothing is applied to polished surfaces (in [0, 1], optional)</p></li>
+<li><p><strong>sharpen_intensify_detail_strength</strong> (<em>float</em>) – Intensify Details, How much creases and valleys are intensified (in [0, 10], optional)</p></li>
+<li><p><strong>sharpen_curvature_smooth_iterations</strong> (<em>int</em>) – Curvature Smooth Iterations, How much smooth the resulting shape is, ignoring high frequency details (in [0, 10], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -799,6 +948,14 @@ View – Use the view axis to limit the displacement.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.sculpt.optimize">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.optimize" title="Link to this definition"></a></dt>
 <dd><p>Recalculate the sculpt BVH to improve performance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -808,12 +965,18 @@ View – Use the view axis to limit the displacement.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mask_threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, Minimum mask value to consider the vertex valid to extract a face from the original mesh</p></li>
-<li><p><strong>add_boundary_loop</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Add Boundary Loop, Add an extra edge loop to better preserve the shape when applying a subdivision surface modifier</p></li>
-<li><p><strong>smooth_iterations</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Iterations, Smooth iterations applied to the extracted mesh</p></li>
-<li><p><strong>apply_shrinkwrap</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Project to Sculpt, Project the extracted mesh into the original sculpt</p></li>
-<li><p><strong>add_solidify</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Extract as Solid, Extract the mask as a solid object with a solidify modifier</p></li>
+<li><p><strong>mask_threshold</strong> (<em>float</em>) – Threshold, Minimum mask value to consider the vertex valid to extract a face from the original mesh (in [0, 1], optional)</p></li>
+<li><p><strong>add_boundary_loop</strong> (<em>bool</em>) – Add Boundary Loop, Add an extra edge loop to better preserve the shape when applying a subdivision surface modifier (optional)</p></li>
+<li><p><strong>smooth_iterations</strong> (<em>int</em>) – Smooth Iterations, Smooth iterations applied to the extracted mesh (in [0, inf], optional)</p></li>
+<li><p><strong>apply_shrinkwrap</strong> (<em>bool</em>) – Project to Sculpt, Project the extracted mesh into the original sculpt (optional)</p></li>
+<li><p><strong>add_solidify</strong> (<em>bool</em>) – Extract as Solid, Extract the mask as a solid object with a solidify modifier (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -825,10 +988,16 @@ View – Use the view axis to limit the displacement.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mask_threshold</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>1</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Threshold, Minimum mask value to consider the vertex valid to extract a face from the original mesh</p></li>
-<li><p><strong>fill_holes</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Fill Holes, Fill holes after slicing the mask</p></li>
-<li><p><strong>new_object</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Slice to New Object, Create a new object from the sliced mask</p></li>
+<li><p><strong>mask_threshold</strong> (<em>float</em>) – Threshold, Minimum mask value to consider the vertex valid to extract a face from the original mesh (in [0, 1], optional)</p></li>
+<li><p><strong>fill_holes</strong> (<em>bool</em>) – Fill Holes, Fill holes after slicing the mask (optional)</p></li>
+<li><p><strong>new_object</strong> (<em>bool</em>) – Slice to New Object, Create a new object from the sliced mask (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -840,15 +1009,21 @@ View – Use the view axis to limit the displacement.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xstart</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Start</p></li>
-<li><p><strong>xend</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X End</p></li>
-<li><p><strong>ystart</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Start</p></li>
-<li><p><strong>yend</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y End</p></li>
-<li><p><strong>flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flip</p></li>
-<li><p><strong>cursor</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cursor, Mouse cursor style to use during the modal operator</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
-<li><p><strong>use_limit_to_segment</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Limit to Segment, Apply the gesture action only to the area that is contained within the segment without extending its effect to the entire line</p></li>
+<li><p><strong>xstart</strong> (<em>int</em>) – X Start, (in [-inf, inf], optional)</p></li>
+<li><p><strong>xend</strong> (<em>int</em>) – X End, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ystart</strong> (<em>int</em>) – Y Start, (in [-inf, inf], optional)</p></li>
+<li><p><strong>yend</strong> (<em>int</em>) – Y End, (in [-inf, inf], optional)</p></li>
+<li><p><strong>flip</strong> (<em>bool</em>) – Flip, (optional)</p></li>
+<li><p><strong>cursor</strong> (<em>int</em>) – Cursor, Mouse cursor style to use during the modal operator (in [0, inf], optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
+<li><p><strong>use_limit_to_segment</strong> (<em>bool</em>) – Limit to Segment, Apply the gesture action only to the area that is contained within the segment without extending its effect to the entire line (optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -860,8 +1035,8 @@ View – Use the view axis to limit the displacement.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>location</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>0</em><em>, </em><em>32767</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Screen coordinates of sampling</p></li>
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DYNTOPO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VOXEL'</span></code>], (optional)) – <p>Detail Mode, Target sculpting workflow that is going to use the sampled size</p>
+<li><p><strong>location</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Location, Screen coordinates of sampling (array of 2 items, in [0, 32767], optional)</p></li>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'DYNTOPO'</em><em>, </em><em>'VOXEL'</em><em>]</em>) – <p>Detail Mode, Target sculpting workflow that is going to use the sampled size (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DYNTOPO</span></code>
 Dyntopo – Sample dyntopo detail.</p></li>
@@ -871,6 +1046,12 @@ Voxel – Sample mesh voxel size.</p></li>
 </p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -878,12 +1059,28 @@ Voxel – Sample mesh voxel size.</p></li>
 <dt class="sig sig-object py" id="bpy.ops.sculpt.sculptmode_toggle">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">sculptmode_toggle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.sculptmode_toggle" title="Link to this definition"></a></dt>
 <dd><p>Toggle sculpt mode in 3D view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sculpt.set_persistent_base">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sculpt.</span></span><span class="sig-name descname"><span class="pre">set_persistent_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sculpt.set_persistent_base" title="Link to this definition"></a></dt>
 <dd><p>Reset the copy of the mesh that is being sculpted on</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -893,7 +1090,7 @@ Voxel – Sample mesh voxel size.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'ORIGIN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UNMASKED'</span></code>, <code class="docutils literal notranslate"><span class="pre">'BORDER'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ACTIVE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SURFACE'</span></code>], (optional)) – <p>Mode</p>
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'ORIGIN'</em><em>, </em><em>'UNMASKED'</em><em>, </em><em>'BORDER'</em><em>, </em><em>'ACTIVE'</em><em>, </em><em>'SURFACE'</em><em>]</em>) – <p>Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ORIGIN</span></code>
 Origin – Sets the pivot to the origin of the sculpt.</p></li>
@@ -907,9 +1104,15 @@ Active Vertex – Sets the pivot position to the active vertex position.</p></li
 Surface – Sets the pivot position to the surface under the cursor.</p></li>
 </ul>
 </p></li>
-<li><p><strong>mouse_x</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mouse Position X, Position of the mouse used for “Surface” and “Active Vertex” mode</p></li>
-<li><p><strong>mouse_y</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Mouse Position Y, Position of the mouse used for “Surface” and “Active Vertex” mode</p></li>
+<li><p><strong>mouse_x</strong> (<em>float</em>) – Mouse Position X, Position of the mouse used for “Surface” and “Active Vertex” mode (in [0, inf], optional)</p></li>
+<li><p><strong>mouse_y</strong> (<em>float</em>) – Mouse Position Y, Position of the mouse used for “Surface” and “Active Vertex” mode (in [0, inf], optional)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -920,7 +1123,13 @@ Surface – Sets the pivot position to the surface under the cursor.</p></li>
 <dd><p>Symmetrize the topology modifications</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>merge_tolerance</strong> (<em>float in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Merge Distance, Distance within which symmetrical vertices are merged</p>
+<dd class="field-odd"><p><strong>merge_tolerance</strong> (<em>float</em>) – Merge Distance, Distance within which symmetrical vertices are merged (in [0, inf], optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -932,14 +1141,14 @@ Surface – Sets the pivot position to the surface under the cursor.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xmin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Min</p></li>
-<li><p><strong>xmax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Max</p></li>
-<li><p><strong>ymin</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Min</p></li>
-<li><p><strong>ymax</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Max</p></li>
-<li><p><strong>wait_for_input</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Wait for Input</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
-<li><p><strong>location</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Mouse location</p></li>
-<li><p><strong>trim_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DIFFERENCE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UNION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'JOIN'</span></code>], (optional)) – <p>Trim Mode</p>
+<li><p><strong>xmin</strong> (<em>int</em>) – X Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>xmax</strong> (<em>int</em>) – X Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymin</strong> (<em>int</em>) – Y Min, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ymax</strong> (<em>int</em>) – Y Max, (in [-inf, inf], optional)</p></li>
+<li><p><strong>wait_for_input</strong> (<em>bool</em>) – Wait for Input, (optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
+<li><p><strong>location</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Location, Mouse location (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>trim_mode</strong> (<em>Literal</em><em>[</em><em>'DIFFERENCE'</em><em>, </em><em>'UNION'</em><em>, </em><em>'JOIN'</em><em>]</em>) – <p>Trim Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DIFFERENCE</span></code>
 Difference – Use a difference boolean operation.</p></li>
@@ -949,8 +1158,8 @@ Union – Use a union boolean operation.</p></li>
 Join – Join the new mesh as separate geometry, without performing any boolean operation.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_cursor_depth</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape</p></li>
-<li><p><strong>trim_orientation</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'VIEW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SURFACE'</span></code>], (optional)) – <p>Shape Orientation</p>
+<li><p><strong>use_cursor_depth</strong> (<em>bool</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape (optional)</p></li>
+<li><p><strong>trim_orientation</strong> (<em>Literal</em><em>[</em><em>'VIEW'</em><em>, </em><em>'SURFACE'</em><em>]</em>) – <p>Shape Orientation, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
 View – Use the view to orientate the trimming shape.</p></li>
@@ -958,7 +1167,7 @@ View – Use the view to orientate the trimming shape.</p></li>
 Surface – Use the surface normal to orientate the trimming shape.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_extrude_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROJECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FIXED'</span></code>], (optional)) – <p>Extrude Mode</p>
+<li><p><strong>trim_extrude_mode</strong> (<em>Literal</em><em>[</em><em>'PROJECT'</em><em>, </em><em>'FIXED'</em><em>]</em>) – <p>Extrude Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">PROJECT</span></code>
 Project – Align trim geometry with the perspective of the current view for a tapered shape.</p></li>
@@ -966,7 +1175,7 @@ Project – Align trim geometry with the perspective of the current view for a t
 Fixed – Align trim geometry orthogonally for a shape with 90 degree angles.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_solver</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'EXACT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FLOAT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MANIFOLD'</span></code>], (optional)) – <p>Solver</p>
+<li><p><strong>trim_solver</strong> (<em>Literal</em><em>[</em><em>'EXACT'</em><em>, </em><em>'FLOAT'</em><em>, </em><em>'MANIFOLD'</em><em>]</em>) – <p>Solver, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">EXACT</span></code>
 Exact – Slower solver with the best results for coplanar faces.</p></li>
@@ -977,6 +1186,12 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -988,13 +1203,13 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>, (optional)) – Path</p></li>
-<li><p><strong>use_smooth_stroke</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path</p></li>
-<li><p><strong>smooth_stroke_factor</strong> (<em>float in</em><em> [</em><em>0.5</em><em>, </em><em>0.99</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Stroke Factor, Higher values gives a smoother stroke</p></li>
-<li><p><strong>smooth_stroke_radius</strong> (<em>int in</em><em> [</em><em>10</em><em>, </em><em>200</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
-<li><p><strong>location</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Mouse location</p></li>
-<li><p><strong>trim_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DIFFERENCE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UNION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'JOIN'</span></code>], (optional)) – <p>Trim Mode</p>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
+<li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values gives a smoother stroke (in [0.5, 0.99], optional)</p></li>
+<li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
+<li><p><strong>location</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Location, Mouse location (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>trim_mode</strong> (<em>Literal</em><em>[</em><em>'DIFFERENCE'</em><em>, </em><em>'UNION'</em><em>, </em><em>'JOIN'</em><em>]</em>) – <p>Trim Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DIFFERENCE</span></code>
 Difference – Use a difference boolean operation.</p></li>
@@ -1004,8 +1219,8 @@ Union – Use a union boolean operation.</p></li>
 Join – Join the new mesh as separate geometry, without performing any boolean operation.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_cursor_depth</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape</p></li>
-<li><p><strong>trim_orientation</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'VIEW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SURFACE'</span></code>], (optional)) – <p>Shape Orientation</p>
+<li><p><strong>use_cursor_depth</strong> (<em>bool</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape (optional)</p></li>
+<li><p><strong>trim_orientation</strong> (<em>Literal</em><em>[</em><em>'VIEW'</em><em>, </em><em>'SURFACE'</em><em>]</em>) – <p>Shape Orientation, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
 View – Use the view to orientate the trimming shape.</p></li>
@@ -1013,7 +1228,7 @@ View – Use the view to orientate the trimming shape.</p></li>
 Surface – Use the surface normal to orientate the trimming shape.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_extrude_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROJECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FIXED'</span></code>], (optional)) – <p>Extrude Mode</p>
+<li><p><strong>trim_extrude_mode</strong> (<em>Literal</em><em>[</em><em>'PROJECT'</em><em>, </em><em>'FIXED'</em><em>]</em>) – <p>Extrude Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">PROJECT</span></code>
 Project – Align trim geometry with the perspective of the current view for a tapered shape.</p></li>
@@ -1021,7 +1236,7 @@ Project – Align trim geometry with the perspective of the current view for a t
 Fixed – Align trim geometry orthogonally for a shape with 90 degree angles.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_solver</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'EXACT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FLOAT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MANIFOLD'</span></code>], (optional)) – <p>Solver</p>
+<li><p><strong>trim_solver</strong> (<em>Literal</em><em>[</em><em>'EXACT'</em><em>, </em><em>'FLOAT'</em><em>, </em><em>'MANIFOLD'</em><em>]</em>) – <p>Solver, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">EXACT</span></code>
 Exact – Slower solver with the best results for coplanar faces.</p></li>
@@ -1032,6 +1247,12 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1043,16 +1264,16 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xstart</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X Start</p></li>
-<li><p><strong>xend</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – X End</p></li>
-<li><p><strong>ystart</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y Start</p></li>
-<li><p><strong>yend</strong> (<em>int in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Y End</p></li>
-<li><p><strong>flip</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Flip</p></li>
-<li><p><strong>cursor</strong> (<em>int in</em><em> [</em><em>0</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Cursor, Mouse cursor style to use during the modal operator</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
-<li><p><strong>use_limit_to_segment</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Limit to Segment, Apply the gesture action only to the area that is contained within the segment without extending its effect to the entire line</p></li>
-<li><p><strong>location</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Mouse location</p></li>
-<li><p><strong>trim_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DIFFERENCE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UNION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'JOIN'</span></code>], (optional)) – <p>Trim Mode</p>
+<li><p><strong>xstart</strong> (<em>int</em>) – X Start, (in [-inf, inf], optional)</p></li>
+<li><p><strong>xend</strong> (<em>int</em>) – X End, (in [-inf, inf], optional)</p></li>
+<li><p><strong>ystart</strong> (<em>int</em>) – Y Start, (in [-inf, inf], optional)</p></li>
+<li><p><strong>yend</strong> (<em>int</em>) – Y End, (in [-inf, inf], optional)</p></li>
+<li><p><strong>flip</strong> (<em>bool</em>) – Flip, (optional)</p></li>
+<li><p><strong>cursor</strong> (<em>int</em>) – Cursor, Mouse cursor style to use during the modal operator (in [0, inf], optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
+<li><p><strong>use_limit_to_segment</strong> (<em>bool</em>) – Limit to Segment, Apply the gesture action only to the area that is contained within the segment without extending its effect to the entire line (optional)</p></li>
+<li><p><strong>location</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Location, Mouse location (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>trim_mode</strong> (<em>Literal</em><em>[</em><em>'DIFFERENCE'</em><em>, </em><em>'UNION'</em><em>, </em><em>'JOIN'</em><em>]</em>) – <p>Trim Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DIFFERENCE</span></code>
 Difference – Use a difference boolean operation.</p></li>
@@ -1062,8 +1283,8 @@ Union – Use a union boolean operation.</p></li>
 Join – Join the new mesh as separate geometry, without performing any boolean operation.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_cursor_depth</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape</p></li>
-<li><p><strong>trim_orientation</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'VIEW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SURFACE'</span></code>], (optional)) – <p>Shape Orientation</p>
+<li><p><strong>use_cursor_depth</strong> (<em>bool</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape (optional)</p></li>
+<li><p><strong>trim_orientation</strong> (<em>Literal</em><em>[</em><em>'VIEW'</em><em>, </em><em>'SURFACE'</em><em>]</em>) – <p>Shape Orientation, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
 View – Use the view to orientate the trimming shape.</p></li>
@@ -1071,7 +1292,7 @@ View – Use the view to orientate the trimming shape.</p></li>
 Surface – Use the surface normal to orientate the trimming shape.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_extrude_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROJECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FIXED'</span></code>], (optional)) – <p>Extrude Mode</p>
+<li><p><strong>trim_extrude_mode</strong> (<em>Literal</em><em>[</em><em>'PROJECT'</em><em>, </em><em>'FIXED'</em><em>]</em>) – <p>Extrude Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">PROJECT</span></code>
 Project – Align trim geometry with the perspective of the current view for a tapered shape.</p></li>
@@ -1079,7 +1300,7 @@ Project – Align trim geometry with the perspective of the current view for a t
 Fixed – Align trim geometry orthogonally for a shape with 90 degree angles.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_solver</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'EXACT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FLOAT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MANIFOLD'</span></code>], (optional)) – <p>Solver</p>
+<li><p><strong>trim_solver</strong> (<em>Literal</em><em>[</em><em>'EXACT'</em><em>, </em><em>'FLOAT'</em><em>, </em><em>'MANIFOLD'</em><em>]</em>) – <p>Solver, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">EXACT</span></code>
 Exact – Slower solver with the best results for coplanar faces.</p></li>
@@ -1090,6 +1311,12 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1101,10 +1328,10 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>, (optional)) – Path</p></li>
-<li><p><strong>use_front_faces_only</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Front Faces Only, Affect only faces facing towards the view</p></li>
-<li><p><strong>location</strong> (<em>int array</em><em> of </em><em>2 items in</em><em> [</em><em>-inf</em><em>, </em><em>inf</em><em>]</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Location, Mouse location</p></li>
-<li><p><strong>trim_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'DIFFERENCE'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UNION'</span></code>, <code class="docutils literal notranslate"><span class="pre">'JOIN'</span></code>], (optional)) – <p>Trim Mode</p>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
+<li><p><strong>location</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Location, Mouse location (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>trim_mode</strong> (<em>Literal</em><em>[</em><em>'DIFFERENCE'</em><em>, </em><em>'UNION'</em><em>, </em><em>'JOIN'</em><em>]</em>) – <p>Trim Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DIFFERENCE</span></code>
 Difference – Use a difference boolean operation.</p></li>
@@ -1114,8 +1341,8 @@ Union – Use a union boolean operation.</p></li>
 Join – Join the new mesh as separate geometry, without performing any boolean operation.</p></li>
 </ul>
 </p></li>
-<li><p><strong>use_cursor_depth</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape</p></li>
-<li><p><strong>trim_orientation</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'VIEW'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SURFACE'</span></code>], (optional)) – <p>Shape Orientation</p>
+<li><p><strong>use_cursor_depth</strong> (<em>bool</em>) – Use Cursor for Depth, Use cursor location and radius for the dimensions and position of the trimming shape (optional)</p></li>
+<li><p><strong>trim_orientation</strong> (<em>Literal</em><em>[</em><em>'VIEW'</em><em>, </em><em>'SURFACE'</em><em>]</em>) – <p>Shape Orientation, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
 View – Use the view to orientate the trimming shape.</p></li>
@@ -1123,7 +1350,7 @@ View – Use the view to orientate the trimming shape.</p></li>
 Surface – Use the surface normal to orientate the trimming shape.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_extrude_mode</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'PROJECT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FIXED'</span></code>], (optional)) – <p>Extrude Mode</p>
+<li><p><strong>trim_extrude_mode</strong> (<em>Literal</em><em>[</em><em>'PROJECT'</em><em>, </em><em>'FIXED'</em><em>]</em>) – <p>Extrude Mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">PROJECT</span></code>
 Project – Align trim geometry with the perspective of the current view for a tapered shape.</p></li>
@@ -1131,7 +1358,7 @@ Project – Align trim geometry with the perspective of the current view for a t
 Fixed – Align trim geometry orthogonally for a shape with 90 degree angles.</p></li>
 </ul>
 </p></li>
-<li><p><strong>trim_solver</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'EXACT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'FLOAT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MANIFOLD'</span></code>], (optional)) – <p>Solver</p>
+<li><p><strong>trim_solver</strong> (<em>Literal</em><em>[</em><em>'EXACT'</em><em>, </em><em>'FLOAT'</em><em>, </em><em>'MANIFOLD'</em><em>]</em>) – <p>Solver, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">EXACT</span></code>
 Exact – Slower solver with the best results for coplanar faces.</p></li>
@@ -1143,6 +1370,12 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 </p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -1152,7 +1385,13 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dd><p>Grab UVs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>use_invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Invert, Invert action for the duration of the stroke</p>
+<dd class="field-odd"><p><strong>use_invert</strong> (<em>bool</em>) – Invert, Invert action for the duration of the stroke (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1163,7 +1402,13 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dd><p>Pinch UVs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>use_invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Invert, Invert action for the duration of the stroke</p>
+<dd class="field-odd"><p><strong>use_invert</strong> (<em>bool</em>) – Invert, Invert action for the duration of the stroke (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1175,8 +1420,8 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>use_invert</strong> (<em>boolean</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – Invert, Invert action for the duration of the stroke</p></li>
-<li><p><strong>relax_method</strong> (enum in [<code class="docutils literal notranslate"><span class="pre">'LAPLACIAN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'HC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'COTAN'</span></code>], (optional)) – <p>Relax Method, Algorithm used for UV relaxation</p>
+<li><p><strong>use_invert</strong> (<em>bool</em>) – Invert, Invert action for the duration of the stroke (optional)</p></li>
+<li><p><strong>relax_method</strong> (<em>Literal</em><em>[</em><em>'LAPLACIAN'</em><em>, </em><em>'HC'</em><em>, </em><em>'COTAN'</em><em>]</em>) – <p>Relax Method, Algorithm used for UV relaxation (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">LAPLACIAN</span></code>
 Laplacian – Use Laplacian method for relaxation.</p></li>
@@ -1187,6 +1432,12 @@ Geometry – Use Geometry (cotangent) relaxation, making UVs follow the underlyi
 </ul>
 </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1205,7 +1456,7 @@ Geometry – Use Geometry (cotangent) relaxation, making UVs follow the underlyi
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/95c1c09a6096>95c1c09a6096</a> - 09/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ff8ac7f704eb>ff8ac7f704eb</a> - 14/02/2026</code>.
       </span></p>
   </div>
 
