@@ -160,7 +160,8 @@ ID type to store and manipulate image data at runtime.</p>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.copy" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return a copy of the image.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A copy of the image.</p>
 </dd>
@@ -173,12 +174,12 @@ ID type to store and manipulate image data at runtime.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.crop">
 <span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.crop" title="Link to this definition"></a></dt>
-<dd><p>Crop the image.</p>
+<dd><p>Crop the image in-place.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>min</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – X, Y minimum.</p></li>
-<li><p><strong>max</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – X, Y maximum.</p></li>
+<li><p><strong>min</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Minimum pixel coordinates (X, Y), inclusive.</p></li>
+<li><p><strong>max</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Maximum pixel coordinates (X, Y), inclusive.</p></li>
 </ul>
 </dd>
 </dl>
@@ -193,12 +194,12 @@ ID type to store and manipulate image data at runtime.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.resize">
 <span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FAST'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.resize" title="Link to this definition"></a></dt>
-<dd><p>Resize the image.</p>
+<dd><p>Resize the image in-place.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>size</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – New size.</p></li>
-<li><p><strong>method</strong> (<em>str</em>) – Method of resizing (‘FAST’, ‘BILINEAR’)</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – Method of resizing (‘FAST’, ‘BILINEAR’).</p></li>
 </ul>
 </dd>
 </dl>
@@ -218,7 +219,7 @@ ID type to store and manipulate image data at runtime.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.filepath">
 <span class="sig-name descname"><span class="pre">filepath</span></span><a class="headerlink" href="#imbuf.types.ImBuf.filepath" title="Link to this definition"></a></dt>
-<dd><p>filepath associated with this image.</p>
+<dd><p>Filepath associated with this image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
@@ -240,7 +241,7 @@ ID type to store and manipulate image data at runtime.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.ppm">
 <span class="sig-name descname"><span class="pre">ppm</span></span><a class="headerlink" href="#imbuf.types.ImBuf.ppm" title="Link to this definition"></a></dt>
-<dd><p>pixels per meter.</p>
+<dd><p>Pixels per meter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[float, float]</p>
@@ -251,7 +252,7 @@ ID type to store and manipulate image data at runtime.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.size">
 <span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#imbuf.types.ImBuf.size" title="Link to this definition"></a></dt>
-<dd><p>size of the image in pixels.</p>
+<dd><p>Size of the image in pixels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[int, int]</p>
@@ -275,7 +276,7 @@ ID type to store and manipulate image data at runtime.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

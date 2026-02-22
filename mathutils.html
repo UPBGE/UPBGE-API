@@ -1177,8 +1177,8 @@ so interpolating between them works as intended.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.Euler.rotate_axis">
 <span class="sig-name descname"><span class="pre">rotate_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Euler.rotate_axis" title="Link to this definition"></a></dt>
-<dd><p>Rotates the euler a certain amount and returning a unique euler rotation
-(no 720 degree pitches).</p>
+<dd><p>Rotates the euler a certain amount, wrapping the result to produce
+a unique euler rotation (no 720 degree pitches).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1571,7 +1571,7 @@ where a single axis is for a 2D matrix only.</p></li>
 <dd><p>Returns a copy of this matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>an instance of itself</p>
+<dd class="field-odd"><p>A copy of the matrix.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a></p>
@@ -1582,7 +1582,7 @@ where a single axis is for a 2D matrix only.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.Matrix.decompose">
 <span class="sig-name descname"><span class="pre">decompose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Matrix.decompose" title="Link to this definition"></a></dt>
-<dd><p>Return the translation, rotation, and scale components of this matrix.</p>
+<dd><p>Return the translation, rotation, and scale components of this 4x4 matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tuple of translation, rotation, and scale.</p>
@@ -1726,7 +1726,7 @@ If tweaked matrix is still degenerated, return the identity matrix instead.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.Matrix.normalize">
 <span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Matrix.normalize" title="Link to this definition"></a></dt>
-<dd><p>Normalize each of the matrix columns.</p>
+<dd><p>Normalize each of the matrix columns (3x3 and 4x4 only).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>for 4x4 matrices, the 4th column (translation) is left untouched.</p>
@@ -1736,7 +1736,7 @@ If tweaked matrix is still degenerated, return the identity matrix instead.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.Matrix.normalized">
 <span class="sig-name descname"><span class="pre">normalized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Matrix.normalized" title="Link to this definition"></a></dt>
-<dd><p>Return a column normalized matrix</p>
+<dd><p>Return a column normalized matrix (3x3 and 4x4 only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>a column normalized matrix</p>
@@ -1761,15 +1761,19 @@ If tweaked matrix is still degenerated, return the identity matrix instead.</p>
 <dt class="sig sig-object py" id="mathutils.Matrix.rotate">
 <span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Matrix.rotate" title="Link to this definition"></a></dt>
 <dd><p>Rotates the matrix by another mathutils value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The matrix must be 3x3.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If any of the columns are not unit length this may not have desired results.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Euler</span></code></a> | <a class="reference internal" href="#mathutils.Quaternion" title="mathutils.Quaternion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quaternion</span></code></a> | <a class="reference internal" href="#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a>) – rotation component of mathutils value</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If any of the columns are not unit length this may not have desired results.</p>
-</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1872,7 +1876,7 @@ Useful for converting a series of matrices to animation curves.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.Matrix.to_translation">
 <span class="sig-name descname"><span class="pre">to_translation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Matrix.to_translation" title="Link to this definition"></a></dt>
-<dd><p>Return the translation part of a 4 row matrix.</p>
+<dd><p>Return the translation part of a 4x4 matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Return the translation of a matrix.</p>
@@ -1916,7 +1920,7 @@ Useful for converting a series of matrices to animation curves.</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mathutils.Matrix.col">
 <span class="sig-name descname"><span class="pre">col</span></span><a class="headerlink" href="#mathutils.Matrix.col" title="Link to this definition"></a></dt>
-<dd><p>Access the matrix by columns, 3x3 and 4x4 only, (read-only).</p>
+<dd><p>Access the matrix by columns (read-only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#mathutils.MatrixAccess" title="mathutils.MatrixAccess"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixAccess</span></code></a></p>
@@ -2060,7 +2064,8 @@ Useful for converting a series of matrices to animation curves.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>seq</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – size 3 or 4</p></li>
+<li><p><strong>seq</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – A (w, x, y, z) quaternion, a 3D exponential map vector,
+or a 3D axis vector (when <em>angle</em> is also provided).</p></li>
 <li><p><strong>angle</strong> (<em>float</em>) – rotation angle, in radians</p></li>
 </ul>
 </dd>
@@ -2241,7 +2246,7 @@ no reference to the original data.</p>
 so interpolating between them works as intended.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#mathutils.Quaternion" title="mathutils.Quaternion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quaternion</span></code></a>) – The other quaternion to make compatible with.</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#mathutils.Quaternion" title="mathutils.Quaternion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quaternion</span></code></a>) – The reference quaternion to make this one compatible with.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2667,7 +2672,7 @@ axis fixed at zero, and the remaining twist rotation angle.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vector</strong> (<a class="reference internal" href="#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The vector to draw values from.</p></li>
+<li><p><strong>vector</strong> (<a class="reference internal" href="#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code></a>) – The vector to draw values from.</p></li>
 <li><p><strong>size</strong> (<em>int</em>) – The size of the vector to be created.</p></li>
 </ul>
 </dd>
@@ -2684,6 +2689,10 @@ axis fixed at zero, and the remaining twist rotation angle.</p>
 <dt class="sig sig-object py" id="mathutils.Vector.angle">
 <span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Vector.angle" title="Link to this definition"></a></dt>
 <dd><p>Return the angle between two vectors.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For 4D vectors, only the x, y, z components are used.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2830,8 +2839,9 @@ no reference to the original data.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Normalize works for vectors of all sizes,
-however 4D Vectors w axis is left untouched.</p>
+<p>For 4D vectors, only the x, y, z components are normalized;
+the w component is left untouched.
+The resulting 4D vector may not have unit length.</p>
 </div>
 </dd></dl>
 
@@ -2839,6 +2849,12 @@ however 4D Vectors w axis is left untouched.</p>
 <dt class="sig sig-object py" id="mathutils.Vector.normalized">
 <span class="sig-name descname"><span class="pre">normalized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.Vector.normalized" title="Link to this definition"></a></dt>
 <dd><p>Return a new, normalized vector.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For 4D vectors, only the x, y, z components are normalized;
+the w component is left untouched.
+The resulting 4D vector may not have unit length.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>a normalized copy of the vector</p>
@@ -6588,7 +6604,7 @@ vector and another.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

@@ -183,7 +183,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>object</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code>) – Object data.</p></li>
+<li><p><strong>object</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code>) – Mesh object.</p></li>
 <li><p><strong>depsgraph</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Depsgraph</span></code>) – Depsgraph to use for evaluating the mesh.</p></li>
 <li><p><strong>deform</strong> (<em>bool</em>) – Use mesh with deformations.</p></li>
 <li><p><strong>cage</strong> (<em>bool</em>) – Use modifiers cage.</p></li>
@@ -206,7 +206,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vertices</strong> (<em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – float triplets each representing <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code></p></li>
+<li><p><strong>vertices</strong> (<em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – float triplets each representing <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code> coordinates.</p></li>
 <li><p><strong>polygons</strong> (<em>Sequence</em><em>[</em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em>) – Sequence of polygons, each containing indices to the vertices argument.</p></li>
 <li><p><strong>all_triangles</strong> (<em>bool</em>) – Use when all <strong>polygons</strong> are triangles for more efficient conversion.</p></li>
 <li><p><strong>epsilon</strong> (<em>float</em>) – Increase the threshold for detecting overlap and raycast hits.</p></li>
@@ -282,12 +282,12 @@ Values will all be None if no hit is found.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mathutils.bvhtree.BVHTree.ray_cast">
 <span class="sig-name descname"><span class="pre">ray_cast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.float_info.max</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.ray_cast" title="Link to this definition"></a></dt>
-<dd><p>Cast a ray onto the mesh.</p>
+<dd><p>Cast a ray onto the geometry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>origin</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>) – Start location of the ray in object space.</p></li>
-<li><p><strong>direction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>) – Direction of the ray in object space.</p></li>
+<li><p><strong>origin</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>) – Start location of the ray.</p></li>
+<li><p><strong>direction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>) – Direction of the ray (normalized internally).</p></li>
 <li><p><strong>distance</strong> (<em>float</em>) – Maximum distance threshold.</p></li>
 </ul>
 </dd>
@@ -317,7 +317,7 @@ Values will all be None if no hit is found.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

@@ -270,7 +270,7 @@ Otherwise, there will be issues, ranging from invalid/broken undo stack, to cras
 </section>
 <section id="undo-library-data">
 <h4>Undo &amp; Library Data<a class="headerlink" href="#undo-library-data" title="Link to this heading"></a></h4>
-<p>One of the advantages with Blender’s library linking system that undo
+<p>One of the advantages with Blender’s library linking system is that undo
 can skip checking changes in library data since it is assumed to be static.
 Tools in Blender are not allowed to modify library data.
 But Python does not enforce this restriction.</p>
@@ -286,8 +286,8 @@ and only to use it when you know what you’re doing.</p>
 <h3>Abusing RNA property callbacks<a class="headerlink" href="#abusing-rna-property-callbacks" title="Link to this heading"></a></h3>
 <p>Python-defined RNA properties can have custom callbacks. Trying to perform complex operations
 from there, like calling an operator, may work, but is not officially recommended nor supported.</p>
-<p>Main reason is that those callback should be very fast, but additionally, it may for example
-create issues with undo/redo system (most operators store an history step, and editing an RNA
+<p>Main reason is that those callbacks should be very fast, but additionally, it may for example
+create issues with undo/redo system (most operators store a history step, and editing an RNA
 property does so as well), trigger infinite update loops, and so on.</p>
 </section>
 <section id="edit-mode-memory-access">
@@ -391,7 +391,7 @@ will trigger a rebuild of Collection caches, thus breaking any current iteration
 <section id="data-blocks-renaming-during-iteration">
 <h4>Data-Blocks Renaming During Iteration<a class="headerlink" href="#data-blocks-renaming-during-iteration" title="Link to this heading"></a></h4>
 <p>Data-blocks accessed from <code class="docutils literal notranslate"><span class="pre">bpy.data</span></code> are sorted when their name is set.
-Any loop that iterates of a data such as <code class="docutils literal notranslate"><span class="pre">bpy.data.objects</span></code> for example,
+Any loop that iterates over data such as <code class="docutils literal notranslate"><span class="pre">bpy.data.objects</span></code> for example,
 and sets the objects <code class="docutils literal notranslate"><span class="pre">name</span></code> must get all items from the iterator first (typically by converting to a list or tuple)
 to avoid missing some objects and iterating over others multiple times.</p>
 </section>
@@ -403,7 +403,7 @@ to avoid missing some objects and iterating over others multiple times.</p>
 while not common behavior this is something to watch out for because it may seem
 as if Blender is crashing since <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code> will close Blender immediately.</p>
 <p>For example, the <code class="docutils literal notranslate"><span class="pre">argparse</span></code> module will print an error and exit if the arguments are invalid.</p>
-<p>An dirty way of troubleshooting this is to set <code class="docutils literal notranslate"><span class="pre">sys.exit</span> <span class="pre">=</span> <span class="pre">None</span></code> and see what line of Python code is quitting,
+<p>A dirty way of troubleshooting this is to set <code class="docutils literal notranslate"><span class="pre">sys.exit</span> <span class="pre">=</span> <span class="pre">None</span></code> and see what line of Python code is quitting,
 you could of course replace <code class="docutils literal notranslate"><span class="pre">sys.exit</span></code> with your own function but manipulating Python in this way is bad practice.</p>
 </section>
 </section>
@@ -420,7 +420,7 @@ you could of course replace <code class="docutils literal notranslate"><span cla
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

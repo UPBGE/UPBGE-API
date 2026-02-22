@@ -156,7 +156,7 @@ allowing <code class="docutils literal notranslate"><span class="pre">import</sp
 <li><p>Image processing using Blender’s compositor.</p></li>
 <li><p>Video editing (using Blender’s sequencer).</p></li>
 <li><p>3D file conversion.</p></li>
-<li><p>Development, accessing <code class="docutils literal notranslate"><span class="pre">bpy</span></code> from Python IDE’s and debugging tools for example.</p></li>
+<li><p>Development, accessing <code class="docutils literal notranslate"><span class="pre">bpy</span></code> from Python IDEs and debugging tools for example.</p></li>
 <li><p>Automation.</p></li>
 </ul>
 </section>
@@ -166,7 +166,7 @@ allowing <code class="docutils literal notranslate"><span class="pre">import</sp
 (passing the command-line arguments <code class="docutils literal notranslate"><span class="pre">--background</span></code> or <code class="docutils literal notranslate"><span class="pre">-b</span></code>),
 however there are some differences to be aware of.</p>
 <dl>
-<dt>Blender’s Executable Access</dt><dd><p>The attribute <a class="reference internal" href="bpy.app.html#bpy.app.binary_path" title="bpy.app.binary_path"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.app.binary_path</span></code></a> defaults to an empty string.</p>
+<dt>Blender’s Executable Access</dt><dd><p>The attribute <a class="reference internal" href="bpy.app.html#bpy.app.binary_path" title="bpy.app.binary_path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bpy.app.binary_path</span></code></a> defaults to an empty string.</p>
 <p>If you wish to point this to the location of a known executable you may set the value.</p>
 <p>This example searches for the binary, setting it when found:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
@@ -181,10 +181,10 @@ however there are some differences to be aware of.</p>
 </pre></div>
 </div>
 </dd>
-<dt>Blender’s Internal Modules</dt><dd><p>There are many modules included with Blender such as <a class="reference internal" href="gpu.html#module-gpu" title="gpu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpu</span></code></a> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">mathuils</span></code>.
+<dt>Blender’s Internal Modules</dt><dd><p>There are many modules included with Blender such as <a class="reference internal" href="gpu.html#module-gpu" title="gpu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpu</span></code></a> and <a class="reference internal" href="mathutils.html#module-mathutils" title="mathutils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mathutils</span></code></a>.
 It’s important that these are imported after <code class="docutils literal notranslate"><span class="pre">bpy</span></code> or they will not be found.</p>
 </dd>
-<dt>Command Line Arguments Unsupported</dt><dd><p>Functionality controlled by command line arguments (shown by calling <code class="docutils literal notranslate"><span class="pre">blender</span> <span class="pre">--help</span></code> aren’t accessible).</p>
+<dt>Command Line Arguments Unsupported</dt><dd><p>Functionality controlled by command line arguments (shown by calling <code class="docutils literal notranslate"><span class="pre">blender</span> <span class="pre">--help</span></code>) isn’t accessible.</p>
 <p>Typically this isn’t such a limitation although there are some command line arguments that don’t have
 equivalents in Blender’s Python API (<code class="docutils literal notranslate"><span class="pre">--threads</span></code> and <code class="docutils literal notranslate"><span class="pre">--log</span></code> for example).</p>
 <div class="admonition note">
@@ -200,9 +200,9 @@ to cancel a render and a crash log is not written in the event of a crash.</p>
 <dt>Startup and Preferences</dt><dd><p>When the <code class="docutils literal notranslate"><span class="pre">bpy</span></code> module loads it contains the default startup scene
 (instead of an “empty” blend-file as you might expect), so there is a default cube, camera and light.</p>
 <p>If you wish to start from an empty file use: <code class="docutils literal notranslate"><span class="pre">bpy.ops.wm.read_factory_settings(use_empty=True)</span></code>.</p>
-<p>The users startup and preferences are ignored to prevent your local configuration from impacting scripts behavior.
+<p>The user’s startup and preferences are ignored to prevent your local configuration from impacting script behavior.
 The Python module behaves as if <code class="docutils literal notranslate"><span class="pre">--factory-startup</span></code> was passed as a command line argument.</p>
-<p>The users preferences and startup can be loaded using operators:</p>
+<p>The user’s preferences and startup can be loaded using operators:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">wm</span><span class="o">.</span><span class="n">read_userpref</span><span class="p">()</span>
@@ -224,7 +224,7 @@ instead of reloading and resetting the module.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>As with the application it’s possible to start multiple instances,
-each with their own <code class="docutils literal notranslate"><span class="pre">bpy</span></code> and therefor Blender state.
+each with their own <code class="docutils literal notranslate"><span class="pre">bpy</span></code> and therefore Blender state.
 Python provides the <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> module to make communicating with sub-processes more convenient.</p>
 <p>In some cases the library API may be an alternative to starting separate processes,
 although this API operates on reading and writing ID data-blocks and isn’t
@@ -253,7 +253,7 @@ supports a temporary data-context to avoid manipulating the current <code class=
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

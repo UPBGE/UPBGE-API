@@ -165,7 +165,7 @@
 <dd><p>Returns cell noise value at the specified position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>position</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The position to evaluate the selected noise function.</p>
+<dd class="field-odd"><p><strong>position</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The position to evaluate the cell noise at.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The cell noise value.</p>
@@ -182,7 +182,7 @@
 <dd><p>Returns cell noise vector at the specified position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>position</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The position to evaluate the selected noise function.</p>
+<dd class="field-odd"><p><strong>position</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The position to evaluate the cell noise at.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The cell noise vector.</p>
@@ -201,7 +201,7 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>position</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The position to evaluate the selected noise function.</p></li>
-<li><p><strong>H</strong> (<em>float</em>) – The fractal increment factor.</p></li>
+<li><p><strong>H</strong> (<em>float</em>) – The fractal increment parameter.</p></li>
 <li><p><strong>lacunarity</strong> (<em>float</em>) – The gap between successive frequencies.</p></li>
 <li><p><strong>octaves</strong> (<em>float</em>) – The number of different noise frequencies used.</p></li>
 <li><p><strong>noise_basis</strong> (<em>Literal</em><em>[</em><em>'BLENDER'</em><em>, </em><em>'PERLIN_ORIGINAL'</em><em>, </em><em>'PERLIN_NEW'</em><em>, </em><em>'VORONOI_F1'</em><em>, </em><em>'VORONOI_F2'</em><em>, </em><em>'VORONOI_F3'</em><em>, </em><em>'VORONOI_F4'</em><em>, </em><em>'VORONOI_F2F1'</em><em>, </em><em>'VORONOI_CRACKLE'</em><em>, </em><em>'CELLNOISE'</em><em>]</em>) – A noise basis string.</p></li>
@@ -273,7 +273,7 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>position</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The position to evaluate the selected noise function.</p></li>
-<li><p><strong>H</strong> (<em>float</em>) – The fractal increment factor.</p></li>
+<li><p><strong>H</strong> (<em>float</em>) – Determines the highest fractal dimension.</p></li>
 <li><p><strong>lacunarity</strong> (<em>float</em>) – The gap between successive frequencies.</p></li>
 <li><p><strong>octaves</strong> (<em>float</em>) – The number of different noise frequencies used.</p></li>
 <li><p><strong>noise_basis</strong> (<em>Literal</em><em>[</em><em>'BLENDER'</em><em>, </em><em>'PERLIN_ORIGINAL'</em><em>, </em><em>'PERLIN_NEW'</em><em>, </em><em>'VORONOI_F1'</em><em>, </em><em>'VORONOI_F2'</em><em>, </em><em>'VORONOI_F3'</em><em>, </em><em>'VORONOI_F4'</em><em>, </em><em>'VORONOI_F2F1'</em><em>, </em><em>'VORONOI_CRACKLE'</em><em>, </em><em>'CELLNOISE'</em><em>]</em>) – A noise basis string.</p></li>
@@ -365,7 +365,7 @@
 <dd><p>Returns a vector with random entries in the range (-1, 1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – The size of the vector to be produced.</p>
+<dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – The size of the vector to be produced, must be 2 or greater.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The random vector.</p>
@@ -425,7 +425,7 @@ When seed is zero, the current time will be used instead.</p>
 <li><p><strong>hard</strong> (<em>bool</em>) – Specifies whether returned turbulence is hard (sharp transitions) or soft (smooth transitions).</p></li>
 <li><p><strong>noise_basis</strong> (<em>Literal</em><em>[</em><em>'BLENDER'</em><em>, </em><em>'PERLIN_ORIGINAL'</em><em>, </em><em>'PERLIN_NEW'</em><em>, </em><em>'VORONOI_F1'</em><em>, </em><em>'VORONOI_F2'</em><em>, </em><em>'VORONOI_F3'</em><em>, </em><em>'VORONOI_F4'</em><em>, </em><em>'VORONOI_F2F1'</em><em>, </em><em>'VORONOI_CRACKLE'</em><em>, </em><em>'CELLNOISE'</em><em>]</em>) – A noise basis string.</p></li>
 <li><p><strong>amplitude_scale</strong> (<em>float</em>) – The amplitude scaling factor.</p></li>
-<li><p><strong>frequency_scale</strong> (<em>float</em>) – The frequency scaling factor</p></li>
+<li><p><strong>frequency_scale</strong> (<em>float</em>) – The frequency scaling factor.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -449,7 +449,7 @@ When seed is zero, the current time will be used instead.</p>
 <li><p><strong>hard</strong> (<em>bool</em>) – Specifies whether returned turbulence is hard (sharp transitions) or soft (smooth transitions).</p></li>
 <li><p><strong>noise_basis</strong> (<em>Literal</em><em>[</em><em>'BLENDER'</em><em>, </em><em>'PERLIN_ORIGINAL'</em><em>, </em><em>'PERLIN_NEW'</em><em>, </em><em>'VORONOI_F1'</em><em>, </em><em>'VORONOI_F2'</em><em>, </em><em>'VORONOI_F3'</em><em>, </em><em>'VORONOI_F4'</em><em>, </em><em>'VORONOI_F2F1'</em><em>, </em><em>'VORONOI_CRACKLE'</em><em>, </em><em>'CELLNOISE'</em><em>]</em>) – A noise basis string.</p></li>
 <li><p><strong>amplitude_scale</strong> (<em>float</em>) – The amplitude scaling factor.</p></li>
-<li><p><strong>frequency_scale</strong> (<em>float</em>) – The frequency scaling factor</p></li>
+<li><p><strong>frequency_scale</strong> (<em>float</em>) – The frequency scaling factor.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -517,7 +517,7 @@ When seed is zero, the current time will be used instead.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

@@ -388,7 +388,7 @@ Y – Align UV islands along the Y axis.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MIN</span></code>
 Min – Align the islands to the min of the island.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MAX</span></code>
-Max – Align the islands to the left side of the island.</p></li>
+Max – Align the islands to the max side of the island.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CENTER</span></code>
 Center – Align the islands to the center of the largest island.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
@@ -685,9 +685,9 @@ Length Average – Average space UVs edge length of each loop.</p></li>
 <li><p><strong>PREF_CONTEXT</strong> (<em>Literal</em><em>[</em><em>'SEL_FACES'</em><em>, </em><em>'ALL_FACES'</em><em>]</em>) – <p>Selection, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SEL_FACES</span></code>
-Selected Faces – Space all UVs evenly.</p></li>
+Selected Faces – Pack only selected faces.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ALL_FACES</span></code>
-All Faces – Average space UVs edge length of each loop.</p></li>
+All Faces – Pack all faces in the mesh.</p></li>
 </ul>
 </p></li>
 <li><p><strong>PREF_PACK_IN_ONE</strong> (<em>bool</em>) – Share Texture Space, Objects share texture space, map all objects into a single UV map (optional)</p></li>
@@ -1031,8 +1031,8 @@ Bounding Box – Uses bounding boxes.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>UV_OT_rip</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – UV Rip, Rip selected vertices or a selected region (optional, <a class="reference internal" href="#bpy.ops.uv.rip" title="bpy.ops.uv.rip"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.uv.rip</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.translate</span></code></a> keyword arguments)</p></li>
+<li><p><strong>UV_OT_rip</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – UV Rip, Rip selected vertices or a selected region (optional, <a class="reference internal" href="#bpy.ops.uv.rip" title="bpy.ops.uv.rip"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.uv.rip()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.translate()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1211,7 +1211,7 @@ Subtract – Subtract existing selection.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
 <li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
-<li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values gives a smoother stroke (in [0.5, 0.99], optional)</p></li>
+<li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values give a smoother stroke (in [0.5, 0.99], optional)</p></li>
 <li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
 <li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'SET'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUB'</em><em>]</em>) – <p>Mode, (optional)</p>
 <ul>
@@ -1391,7 +1391,7 @@ Object.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SIDES</span></code>
 Polygon Sides.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WINDING</span></code>
-Winding – Face direction defined by (clockwise or anti-clockwise winding (facing up or facing down).</p></li>
+Winding – Face direction defined by clockwise or anti-clockwise winding (facing up or facing down).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FACE</span></code>
 Amount of Faces in Island.</p></li>
 </ul>
@@ -1472,7 +1472,7 @@ Amount of Faces in Island.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.shortest_path_select">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">shortest_path_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_topology_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.shortest_path_select" title="Link to this definition"></a></dt>
-<dd><p>Selected shortest path between two vertices/edges/faces</p>
+<dd><p>Select shortest path between two vertices/edges/faces</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1713,7 +1713,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

@@ -214,6 +214,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_jump"><code class="docutils literal notranslate"><span class="pre">strip_jump()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_add"><code class="docutils literal notranslate"><span class="pre">strip_modifier_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_copy"><code class="docutils literal notranslate"><span class="pre">strip_modifier_copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_duplicate"><code class="docutils literal notranslate"><span class="pre">strip_modifier_duplicate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_equalizer_redefine"><code class="docutils literal notranslate"><span class="pre">strip_modifier_equalizer_redefine()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_move"><code class="docutils literal notranslate"><span class="pre">strip_modifier_move()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_move_to_index"><code class="docutils literal notranslate"><span class="pre">strip_modifier_move_to_index()</span></code></a></li>
@@ -395,7 +396,7 @@ Subtract – Subtract existing selection.</p></li>
 <dd><p>Replace effect strip with another that takes the same number of inputs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>]</em>) – <p>Type, Strip effect type (optional)</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>, </em><em>'COMPOSITOR'</em><em>]</em>) – <p>Type, Strip effect type (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CROSS</span></code>
 Crossfade – Fade out of one video, fading into another.</p></li>
@@ -429,6 +430,8 @@ Gaussian Blur – Soften details along axes.</p></li>
 Text – Add a simple text strip.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COLORMIX</span></code>
 Color Mix – Combine two strips using blend modes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMPOSITOR</span></code>
+Compositor – Compositor based effect.</p></li>
 </ul>
 </p>
 </dd>
@@ -454,7 +457,7 @@ Color Mix – Combine two strips using blend modes.</p></li>
 <li><p><strong>hide_props_region</strong> (<em>bool</em>) – Hide Operator Properties, Collapse the region displaying the operator settings (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
-<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
+<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter backup .blend files, (optional)</p></li>
 <li><p><strong>filter_image</strong> (<em>bool</em>) – Filter image files, (optional)</p></li>
 <li><p><strong>filter_movie</strong> (<em>bool</em>) – Filter movie files, (optional)</p></li>
 <li><p><strong>filter_python</strong> (<em>bool</em>) – Filter Python files, (optional)</p></li>
@@ -650,8 +653,8 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide</span></code></a> keyword arguments)</p></li>
+<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -670,8 +673,8 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide</span></code></a> keyword arguments)</p></li>
+<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -690,7 +693,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>]</em>) – <p>Type, Sequencer effect type (optional)</p>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>, </em><em>'COMPOSITOR'</em><em>]</em>) – <p>Type, Sequencer effect type (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CROSS</span></code>
 Crossfade – Fade out of one video, fading into another.</p></li>
@@ -724,6 +727,8 @@ Gaussian Blur – Soften details along axes.</p></li>
 Text – Add a simple text strip.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COLORMIX</span></code>
 Color Mix – Combine two strips using blend modes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMPOSITOR</span></code>
+Compositor – Compositor based effect.</p></li>
 </ul>
 </p></li>
 <li><p><strong>move_strips</strong> (<em>bool</em>) – Move Strips, Automatically begin translating strips with the mouse after adding them to the timeline (optional)</p></li>
@@ -780,7 +785,7 @@ Color Mix – Combine two strips using blend modes.</p></li>
 <li><p><strong>hide_props_region</strong> (<em>bool</em>) – Hide Operator Properties, Collapse the region displaying the operator settings (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
-<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
+<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter backup .blend files, (optional)</p></li>
 <li><p><strong>filter_image</strong> (<em>bool</em>) – Filter image files, (optional)</p></li>
 <li><p><strong>filter_movie</strong> (<em>bool</em>) – Filter movie files, (optional)</p></li>
 <li><p><strong>filter_python</strong> (<em>bool</em>) – Filter Python files, (optional)</p></li>
@@ -918,7 +923,7 @@ To Current Frame – Fade from the start of strips under the time cursor to the 
 <li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – Files, (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
-<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
+<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter backup .blend files, (optional)</p></li>
 <li><p><strong>filter_image</strong> (<em>bool</em>) – Filter image files, (optional)</p></li>
 <li><p><strong>filter_movie</strong> (<em>bool</em>) – Filter movie files, (optional)</p></li>
 <li><p><strong>filter_python</strong> (<em>bool</em>) – Filter Python files, (optional)</p></li>
@@ -1109,7 +1114,7 @@ Individual Images – Add each selected image as an individual strip.</p></li>
 <li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – Files, (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
-<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
+<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter backup .blend files, (optional)</p></li>
 <li><p><strong>filter_image</strong> (<em>bool</em>) – Filter image files, (optional)</p></li>
 <li><p><strong>filter_movie</strong> (<em>bool</em>) – Filter movie files, (optional)</p></li>
 <li><p><strong>filter_python</strong> (<em>bool</em>) – Filter Python files, (optional)</p></li>
@@ -1264,8 +1269,8 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.translate</span></code></a> keyword arguments)</p></li>
+<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.translate()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1284,8 +1289,8 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.translate</span></code></a> keyword arguments)</p></li>
+<li><p><strong>SEQUENCER_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Strips, Duplicate the selected strips (optional, <a class="reference internal" href="#bpy.ops.sequencer.duplicate" title="bpy.ops.sequencer.duplicate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.sequencer.duplicate()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.translate()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1391,8 +1396,8 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>SEQUENCER_OT_retiming_freeze_frame_add</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Add Freeze Frame, Add freeze frame (optional, <a class="reference internal" href="#bpy.ops.sequencer.retiming_freeze_frame_add" title="bpy.ops.sequencer.retiming_freeze_frame_add"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.sequencer.retiming_freeze_frame_add</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide</span></code></a> keyword arguments)</p></li>
+<li><p><strong>SEQUENCER_OT_retiming_freeze_frame_add</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Add Freeze Frame, Add freeze frame (optional, <a class="reference internal" href="#bpy.ops.sequencer.retiming_freeze_frame_add" title="bpy.ops.sequencer.retiming_freeze_frame_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.sequencer.retiming_freeze_frame_add()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1411,8 +1416,8 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>SEQUENCER_OT_retiming_transition_add</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Add Speed Transition, Add smooth transition between 2 retimed segments (optional, <a class="reference internal" href="#bpy.ops.sequencer.retiming_transition_add" title="bpy.ops.sequencer.retiming_transition_add"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.sequencer.retiming_transition_add</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide</span></code></a> keyword arguments)</p></li>
+<li><p><strong>SEQUENCER_OT_retiming_transition_add</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Add Speed Transition, Add smooth transition between 2 retimed segments (optional, <a class="reference internal" href="#bpy.ops.sequencer.retiming_transition_add" title="bpy.ops.sequencer.retiming_transition_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.sequencer.retiming_transition_add()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_seq_slide</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Sequence Slide, Slide a sequence strip in time (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.seq_slide" title="bpy.ops.transform.seq_slide"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.seq_slide()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1844,7 +1849,7 @@ Overlap – Overlapping time.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
 <li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
-<li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values gives a smoother stroke (in [0.5, 0.99], optional)</p></li>
+<li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values give a smoother stroke (in [0.5, 0.99], optional)</p></li>
 <li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
 <li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'SET'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUB'</em><em>]</em>) – <p>Mode, (optional)</p>
 <ul>
@@ -2044,7 +2049,7 @@ Current Frame – Select intersecting with the current frame.</p></li>
 <li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – Files, (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
-<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
+<li><p><strong>filter_backup</strong> (<em>bool</em>) – Filter backup .blend files, (optional)</p></li>
 <li><p><strong>filter_image</strong> (<em>bool</em>) – Filter image files, (optional)</p></li>
 <li><p><strong>filter_movie</strong> (<em>bool</em>) – Filter movie files, (optional)</p></li>
 <li><p><strong>filter_python</strong> (<em>bool</em>) – Filter Python files, (optional)</p></li>
@@ -2174,7 +2179,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sequencer.strip_jump">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">strip_jump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.strip_jump" title="Link to this definition"></a></dt>
-<dd><p>Move frame to previous edit point</p>
+<dd><p>Move frame to next or previous edit point</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2210,18 +2215,38 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sequencer.strip_modifier_copy">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">strip_modifier_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'REPLACE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.strip_modifier_copy" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">strip_modifier_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'REPLACE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.strip_modifier_copy" title="Link to this definition"></a></dt>
 <dd><p>Copy modifiers of the active strip to all selected strips</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'REPLACE'</em><em>, </em><em>'APPEND'</em><em>]</em>) – <p>Type, (optional)</p>
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'REPLACE'</em><em>, </em><em>'APPEND'</em><em>]</em>) – <p>Type, (optional)</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">REPLACE</span></code>
 Replace – Replace modifiers in destination.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">APPEND</span></code>
 Append – Append active modifiers to selected strips.</p></li>
 </ul>
-</p>
+</p></li>
+<li><p><strong>modifier</strong> (<em>str</em>) – Modifier, Name of the modifier to copy. If empty, copy all modifiers (optional, never None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sequencer.strip_modifier_duplicate">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">strip_modifier_duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.strip_modifier_duplicate" title="Link to this definition"></a></dt>
+<dd><p>Duplicate (active) modifier of the active strip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>modifier</strong> (<em>str</em>) – Modifier, Name of the modifier to duplicate. If empty duplicate the active modifier (optional, never None)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2742,7 +2767,7 @@ All – Reset strip transform location, scale and rotation.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

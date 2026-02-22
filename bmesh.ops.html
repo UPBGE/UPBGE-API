@@ -437,10 +437,9 @@ Output slot, computed boundary geometry.</p>
 <dt class="sig sig-object py" id="bmesh.ops.region_extend">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">region_extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contract</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.region_extend" title="Link to this definition"></a></dt>
 <dd><p>Region Extend.</p>
-<p>used to implement the select more/less tools.
-this puts some geometry surrounding regions of
-geometry in geom into geom.out.</p>
-<p>if use_faces is 0 then geom.out spits out verts and edges,
+<p>Used to implement the select more/less tools.
+Puts geometry surrounding regions of geometry in <code class="docutils literal notranslate"><span class="pre">geom</span></code> into <code class="docutils literal notranslate"><span class="pre">geom.out</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">use_faces</span></code> is 0 then <code class="docutils literal notranslate"><span class="pre">geom.out</span></code> spits out verts and edges,
 otherwise it spits out faces.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -563,7 +562,7 @@ Newly created vertices and edges.</p>
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">mirror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">mathutils.Matrix.Identity(4)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_udim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shapekey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.mirror" title="Link to this definition"></a></dt>
 <dd><p>Mirror.</p>
 <p>Mirrors geometry along an axis. The resulting geometry is welded on using
-merge_dist. Pairs of original/mirrored vertices are welded using the merge_dist
+<code class="docutils literal notranslate"><span class="pre">merge_dist</span></code>. Pairs of original/mirrored vertices are welded using the <code class="docutils literal notranslate"><span class="pre">merge_dist</span></code>
 parameter (which defines the minimum distance for welding to happen).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -600,7 +599,7 @@ Output geometry, mirrored.</p>
 <dd><p>Find Doubles.</p>
 <p>Takes input verts and finds vertices they should weld to.
 Outputs a mapping slot suitable for use with the weld verts BMOP.</p>
-<p>If keep_verts is used, vertices outside that set can only be merged
+<p>If <code class="docutils literal notranslate"><span class="pre">keep_verts</span></code> is used, vertices outside that set can only be merged
 with vertices in that set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -681,8 +680,7 @@ using the weld verts BMOP.</p>
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">average_vert_facedata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.average_vert_facedata" title="Link to this definition"></a></dt>
 <dd><p>Average Vertices Face-vert Data.</p>
 <p>Merge uv/vcols associated with the input vertices at
-the bounding box center. (I know, it’s not averaging but
-the vert_snap_to_bb_center is just too long).</p>
+the bounding box center.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -736,8 +734,8 @@ they weld with.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>targetmap</strong> (dict[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>, <a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Maps welded vertices to verts they should weld to.</p></li>
-<li><p><strong>use_centroid</strong> (<em>bool</em>) – Merged vertices to their centroid position,
-otherwise the position of the target vertex is used.</p></li>
+<li><p><strong>use_centroid</strong> (<em>bool</em>) – Merge vertices to their centroid position,
+otherwise use the position of the target vertex.</p></li>
 </ul>
 </dd>
 </dl>
@@ -825,7 +823,7 @@ become a wire edge.</p>
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input geometry.</p></li>
 <li><p><strong>mat_nr</strong> (<em>int</em>) – Material to use.</p></li>
-<li><p><strong>use_smooth</strong> (<em>bool</em>) – Smooth to use.</p></li>
+<li><p><strong>use_smooth</strong> (<em>bool</em>) – Set smooth shading on newly created faces.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -922,7 +920,7 @@ New faces.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>edges</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Input edges.</p></li>
-<li><p><strong>sides</strong> (<em>int</em>) – Number of face sides to fill.</p></li>
+<li><p><strong>sides</strong> (<em>int</em>) – Maximum number of sides for holes to fill (holes with more edges are skipped).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1010,7 +1008,7 @@ New faces.</p>
 <li><p><strong>edges</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Input edges.</p></li>
 <li><p><strong>mat_nr</strong> (<em>int</em>) – Material to use.</p></li>
 <li><p><strong>use_smooth</strong> (<em>bool</em>) – Smooth state to use.</p></li>
-<li><p><strong>sides</strong> (<em>int</em>) – Number of sides.</p></li>
+<li><p><strong>sides</strong> (<em>int</em>) – Maximum number of sides for created faces.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1145,8 +1143,8 @@ BMOP.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
-<li><p><strong>scene</strong> (<a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Scene</span></code></a>) – Pointer to a scene structure.</p></li>
-<li><p><strong>object</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – Pointer to an object structure.</p></li>
+<li><p><strong>scene</strong> (<a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Scene</span></code></a>) – The scene.</p></li>
+<li><p><strong>object</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – The object.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1161,8 +1159,8 @@ BMOP.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
-<li><p><strong>mesh</strong> (<a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh</span></code></a>) – Pointer to a mesh structure to fill in.</p></li>
-<li><p><strong>object</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – Pointer to an object structure.</p></li>
+<li><p><strong>mesh</strong> (<a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh</span></code></a>) – The mesh to write into.</p></li>
+<li><p><strong>object</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – The object.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1178,8 +1176,8 @@ reserved exclusively for entering edit-mode.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
-<li><p><strong>mesh</strong> (<a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh</span></code></a>) – Pointer to a Mesh structure.</p></li>
-<li><p><strong>object</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – Pointer to an Object structure.</p></li>
+<li><p><strong>mesh</strong> (<a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Mesh</span></code></a>) – The mesh to read from.</p></li>
+<li><p><strong>object</strong> (<a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object</span></code></a>) – The object.</p></li>
 <li><p><strong>use_shapekey</strong> (<em>bool</em>) – Load active shapekey coordinates into verts.</p></li>
 </ul>
 </dd>
@@ -1197,7 +1195,7 @@ reserved exclusively for entering edit-mode.</p>
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>faces</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input faces.</p></li>
 <li><p><strong>use_normal_flip</strong> (<em>bool</em>) – Create faces with reversed direction.</p></li>
-<li><p><strong>use_select_history</strong> (<em>bool</em>) – Pass to duplicate.</p></li>
+<li><p><strong>use_select_history</strong> (<em>bool</em>) – Preserve the selection history in the extruded geometry.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1227,7 +1225,7 @@ winged extrusion.</p>
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>edges</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Input edges.</p></li>
 <li><p><strong>use_normal_flip</strong> (<em>bool</em>) – Create faces with reversed direction.</p></li>
-<li><p><strong>use_select_history</strong> (<em>bool</em>) – Pass to duplicate.</p></li>
+<li><p><strong>use_select_history</strong> (<em>bool</em>) – Preserve the selection history in the extruded geometry.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1249,13 +1247,13 @@ Output geometry.</p>
 <dt class="sig sig-object py" id="bmesh.ops.extrude_vert_indiv">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">extrude_vert_indiv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_select_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.extrude_vert_indiv" title="Link to this definition"></a></dt>
 <dd><p>Individual Vertex Extrude.</p>
-<p>Extrudes wire edges from vertices.</p>
+<p>Extrudes individual vertices, creating new vertices connected by wire edges.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>verts</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]) – Input vertices.</p></li>
-<li><p><strong>use_select_history</strong> (<em>bool</em>) – Pass to duplicate.</p></li>
+<li><p><strong>use_select_history</strong> (<em>bool</em>) – Preserve the selection history in the extruded geometry.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1281,7 +1279,7 @@ Output vertices.</p>
 <dt class="sig sig-object py" id="bmesh.ops.connect_verts">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">connect_verts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces_exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_degenerate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.connect_verts" title="Link to this definition"></a></dt>
 <dd><p>Connect Verts.</p>
-<p>Split faces by adding edges that connect <strong>verts</strong>.</p>
+<p>Split faces by adding edges that connect <code class="docutils literal notranslate"><span class="pre">verts</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1309,7 +1307,7 @@ Output vertices.</p>
 <dt class="sig sig-object py" id="bmesh.ops.connect_verts_concave">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">connect_verts_concave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.connect_verts_concave" title="Link to this definition"></a></dt>
 <dd><p>Connect Verts to form Convex Faces.</p>
-<p>Ensures all faces are convex <strong>faces</strong>.</p>
+<p>Splits concave faces into convex faces.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1338,12 +1336,12 @@ Output vertices.</p>
 <dt class="sig sig-object py" id="bmesh.ops.connect_verts_nonplanar">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">connect_verts_nonplanar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.connect_verts_nonplanar" title="Link to this definition"></a></dt>
 <dd><p>Connect Verts Across non Planar Faces.</p>
-<p>Split faces by connecting edges along non planar <strong>faces</strong>.</p>
+<p>Split faces by connecting edges along non planar <code class="docutils literal notranslate"><span class="pre">faces</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
-<li><p><strong>angle_limit</strong> (<em>float</em>) – Total rotation angle (radians).</p></li>
+<li><p><strong>angle_limit</strong> (<em>float</em>) – Maximum angle of non-planarity before splitting (radians).</p></li>
 <li><p><strong>faces</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input faces.</p></li>
 </ul>
 </dd>
@@ -1367,8 +1365,8 @@ Output vertices.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bmesh.ops.connect_vert_pair">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">connect_vert_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verts_exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces_exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.connect_vert_pair" title="Link to this definition"></a></dt>
-<dd><p>Connect Verts.</p>
-<p>Split faces by adding edges that connect <strong>verts</strong>.</p>
+<dd><p>Connect Vert Pair.</p>
+<p>Connect a pair of vertices by splitting faces along the shortest path between them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1403,11 +1401,11 @@ Output vertices.</p>
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Edges and faces.</p></li>
 <li><p><strong>edges_exclude</strong> (set[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input edges to explicitly exclude from extrusion.</p></li>
-<li><p><strong>use_keep_orig</strong> (<em>bool</em>) – Keep original geometry (requires <code class="docutils literal notranslate"><span class="pre">geom</span></code> to include edges).</p></li>
+<li><p><strong>use_keep_orig</strong> (<em>bool</em>) – Keep original geometry (requires <cite>geom</cite> to include edges).</p></li>
 <li><p><strong>use_normal_flip</strong> (<em>bool</em>) – Create faces with reversed direction.</p></li>
 <li><p><strong>use_normal_from_adjacent</strong> (<em>bool</em>) – Use winding from surrounding faces instead of this region.</p></li>
 <li><p><strong>use_dissolve_ortho_edges</strong> (<em>bool</em>) – Dissolve edges whose faces form a flat surface.</p></li>
-<li><p><strong>use_select_history</strong> (<em>bool</em>) – Pass to duplicate.</p></li>
+<li><p><strong>use_select_history</strong> (<em>bool</em>) – Preserve the selection history in the extruded geometry.</p></li>
 <li><p><strong>skip_input_flip</strong> (<em>bool</em>) – Skip flipping of input faces to preserve original orientation.</p></li>
 </ul>
 </dd>
@@ -1505,7 +1503,7 @@ Disabled by default.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
-<li><p><strong>angle_limit</strong> (<em>float</em>) – Total rotation angle (radians).</p></li>
+<li><p><strong>angle_limit</strong> (<em>float</em>) – Maximum angle (radians) between face normals for dissolving.</p></li>
 <li><p><strong>use_dissolve_boundaries</strong> (<em>bool</em>) – Dissolve all vertices in between face boundaries.</p></li>
 <li><p><strong>verts</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]) – Input vertices.</p></li>
 <li><p><strong>edges</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Input edges.</p></li>
@@ -1546,6 +1544,7 @@ Disabled by default.</p></li>
 <dt class="sig sig-object py" id="bmesh.ops.triangulate">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">triangulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quad_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BEAUTY'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngon_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BEAUTY'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.triangulate" title="Link to this definition"></a></dt>
 <dd><p>Triangulate.</p>
+<p>Triangulate faces, splitting quads and n-gons into triangles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1609,16 +1608,16 @@ with options for face patterns, smoothing and randomization.</p>
 <li><p><strong>smooth</strong> (<em>float</em>) – Smoothness factor.</p></li>
 <li><p><strong>smooth_falloff</strong> (<em>Literal</em><em>[</em><em>'SMOOTH'</em><em>, </em><em>'SPHERE'</em><em>, </em><em>'ROOT'</em><em>, </em><em>'SHARP'</em><em>, </em><em>'LINEAR'</em><em>, </em><em>'INVERSE_SQUARE'</em><em>]</em>) – Smooth falloff type.</p></li>
 <li><p><strong>fractal</strong> (<em>float</em>) – Fractal randomness factor.</p></li>
-<li><p><strong>along_normal</strong> (<em>float</em>) – Apply fractal displacement along normal only.</p></li>
+<li><p><strong>along_normal</strong> (<em>float</em>) – Factor (0 to 1) controlling how much fractal displacement is restricted to the normal.</p></li>
 <li><p><strong>cuts</strong> (<em>int</em>) – Number of cuts.</p></li>
 <li><p><strong>seed</strong> (<em>int</em>) – Seed for the random number generator.</p></li>
-<li><p><strong>custom_patterns</strong> (<em>dict</em>) – Uses custom pointers.</p></li>
-<li><p><strong>edge_percents</strong> (dict[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>, float]) – Undocumented.</p></li>
+<li><p><strong>custom_patterns</strong> (<em>dict</em>) – Internal use only, not accessible from Python.</p></li>
+<li><p><strong>edge_percents</strong> (dict[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>, float]) – Mapping of edges to a float (0 to 1) controlling the cut position along each edge.</p></li>
 <li><p><strong>quad_corner_type</strong> (<em>Literal</em><em>[</em><em>'STRAIGHT_CUT'</em><em>, </em><em>'INNER_VERT'</em><em>, </em><em>'PATH'</em><em>, </em><em>'FAN'</em><em>]</em>) – Quad corner type.</p></li>
 <li><p><strong>use_grid_fill</strong> (<em>bool</em>) – Fill in fully-selected faces with a grid.</p></li>
 <li><p><strong>use_single_edge</strong> (<em>bool</em>) – Tessellate the case of one edge selected in a quad or triangle.</p></li>
 <li><p><strong>use_only_quads</strong> (<em>bool</em>) – Only subdivide quads (for loop-cut).</p></li>
-<li><p><strong>use_sphere</strong> (<em>bool</em>) – For making new primitives only.</p></li>
+<li><p><strong>use_sphere</strong> (<em>bool</em>) – Project new vertices onto a sphere (used for spherical primitives).</p></li>
 <li><p><strong>use_smooth_even</strong> (<em>bool</em>) – Maintain even offset when smoothing.</p></li>
 </ul>
 </dd>
@@ -1687,7 +1686,7 @@ Output faces.</p>
 <li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input geometry.</p></li>
 <li><p><strong>dist</strong> (<em>float</em>) – Minimum distance when testing if a vert is exactly on the plane.</p></li>
 <li><p><strong>plane_co</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Point on the plane.</p></li>
-<li><p><strong>plane_no</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Direction of the plane.</p></li>
+<li><p><strong>plane_no</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Normal of the plane.</p></li>
 <li><p><strong>use_snap_center</strong> (<em>bool</em>) – Snap axis aligned verts to the center.</p></li>
 <li><p><strong>clear_outer</strong> (<em>bool</em>) – When enabled, remove all geometry on the positive side of the plane.</p></li>
 <li><p><strong>clear_inner</strong> (<em>bool</em>) – When enabled, remove all geometry on the negative side of the plane.</p></li>
@@ -1740,8 +1739,8 @@ optionally into a destination mesh.</p>
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input geometry.</p></li>
 <li><p><strong>dest</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a> | None) – Destination bmesh, if None will use current one.</p></li>
-<li><p><strong>use_select_history</strong> (<em>bool</em>) – Undocumented.</p></li>
-<li><p><strong>use_edge_flip_from_face</strong> (<em>bool</em>) – Undocumented.</p></li>
+<li><p><strong>use_select_history</strong> (<em>bool</em>) – Preserve the selection history in the duplicated geometry.</p></li>
+<li><p><strong>use_edge_flip_from_face</strong> (<em>bool</em>) – Copy edge flip state from connected faces.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1929,13 +1928,13 @@ Result of last step.</p>
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>edges</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Input edges.</p></li>
 <li><p><strong>verts</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]) – Optional tag verts, use to have greater control of splits.</p></li>
-<li><p><strong>use_verts</strong> (<em>bool</em>) – Use ‘verts’ for splitting, else just find verts to split from edges.</p></li>
+<li><p><strong>use_verts</strong> (<em>bool</em>) – Use <cite>verts</cite> for splitting, else just find verts to split from edges.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">edges</span></code>:
-Old output disconnected edges.</p>
+The original edges that were disconnected.</p>
 <p><strong>type</strong> list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]</p>
 </li>
 </ul>
@@ -2071,7 +2070,7 @@ Output verts.</p>
 <dt class="sig sig-object py" id="bmesh.ops.create_cone">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">create_cone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_ends</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_tris</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">mathutils.Matrix.Identity(4)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_uvs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.create_cone" title="Link to this definition"></a></dt>
 <dd><p>Create Cone.</p>
-<p>Creates a cone with variable depth at both ends</p>
+<p>Creates a cone with variable radius at both ends</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2109,8 +2108,8 @@ Output verts.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
-<li><p><strong>cap_ends</strong> (<em>bool</em>) – Whether or not to fill in the ends with faces.</p></li>
-<li><p><strong>cap_tris</strong> (<em>bool</em>) – Fill ends with triangles instead of ngons.</p></li>
+<li><p><strong>cap_ends</strong> (<em>bool</em>) – Whether or not to fill in the circle with a face.</p></li>
+<li><p><strong>cap_tris</strong> (<em>bool</em>) – Fill the circle with triangles instead of an n-gon.</p></li>
 <li><p><strong>segments</strong> (<em>int</em>) – Number of vertices in the circle.</p></li>
 <li><p><strong>radius</strong> (<em>float</em>) – Radius of the circle.</p></li>
 <li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix to multiply the new geometry with.</p></li>
@@ -2284,12 +2283,13 @@ New faces and edges.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input geometry.</p></li>
-<li><p><strong>thickness</strong> (<em>float</em>) – Thickness.</p></li>
+<li><p><strong>thickness</strong> (<em>float</em>) – Thickness of the solidified shell.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">geom</span></code>:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">geom</span></code>:
+Output geometry (new shell faces, edges, and vertices).</p>
 <p><strong>type</strong> list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]</p>
 </li>
 </ul>
@@ -2311,8 +2311,8 @@ New faces and edges.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>faces</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input faces.</p></li>
-<li><p><strong>thickness</strong> (<em>float</em>) – Thickness.</p></li>
-<li><p><strong>depth</strong> (<em>float</em>) – Depth.</p></li>
+<li><p><strong>thickness</strong> (<em>float</em>) – Inset distance from the boundary.</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – Distance to raise or lower the inset face along its normal.</p></li>
 <li><p><strong>use_even_offset</strong> (<em>bool</em>) – Scale the offset to give more even thickness.</p></li>
 <li><p><strong>use_interpolate</strong> (<em>bool</em>) – Blend face data across the inset.</p></li>
 <li><p><strong>use_relative_offset</strong> (<em>bool</em>) – Scale the offset by surrounding geometry.</p></li>
@@ -2349,8 +2349,8 @@ Output faces.</p>
 <li><p><strong>use_interpolate</strong> (<em>bool</em>) – Blend face data across the inset.</p></li>
 <li><p><strong>use_relative_offset</strong> (<em>bool</em>) – Scale the offset by surrounding geometry.</p></li>
 <li><p><strong>use_edge_rail</strong> (<em>bool</em>) – Inset the region along existing edges.</p></li>
-<li><p><strong>thickness</strong> (<em>float</em>) – Thickness.</p></li>
-<li><p><strong>depth</strong> (<em>float</em>) – Depth.</p></li>
+<li><p><strong>thickness</strong> (<em>float</em>) – Inset distance from the boundary.</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – Distance to raise or lower the inset face along its normal.</p></li>
 <li><p><strong>use_outset</strong> (<em>bool</em>) – Outset rather than inset.</p></li>
 </ul>
 </dd>
@@ -2407,7 +2407,7 @@ Output edges.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>faces</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input faces.</p></li>
-<li><p><strong>thickness</strong> (<em>float</em>) – Thickness.</p></li>
+<li><p><strong>thickness</strong> (<em>float</em>) – Wire thickness.</p></li>
 <li><p><strong>offset</strong> (<em>float</em>) – Offset the thickness from the center.</p></li>
 <li><p><strong>use_replace</strong> (<em>bool</em>) – Remove original geometry.</p></li>
 <li><p><strong>use_boundary</strong> (<em>bool</em>) – Inset face boundaries.</p></li>
@@ -2471,14 +2471,14 @@ Output faces.</p>
 <dt class="sig sig-object py" id="bmesh.ops.convex_hull">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">convex_hull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_existing_faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.convex_hull" title="Link to this definition"></a></dt>
 <dd><p>Convex Hull</p>
-<p>Builds a convex hull from the vertices in ‘input’.</p>
-<p>If ‘use_existing_faces’ is true, the hull will not output triangles
+<p>Builds a convex hull from the vertices in <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">use_existing_faces</span></code> is true, the hull will not output triangles
 that are covered by a pre-existing face.</p>
-<p>All hull vertices, faces, and edges are added to ‘geom.out’. Any
+<p>All hull vertices, faces, and edges are added to <code class="docutils literal notranslate"><span class="pre">geom.out</span></code>. Any
 input elements that end up inside the hull (i.e. are not used by an
-output face) are added to the ‘interior_geom’ slot. The
-‘unused_geom’ slot will contain all interior geometry that is
-completely unused. Lastly, ‘holes_geom’ contains edges and faces
+output face) are added to the <code class="docutils literal notranslate"><span class="pre">geom_interior.out</span></code> slot. The
+<code class="docutils literal notranslate"><span class="pre">geom_unused.out</span></code> slot will contain all interior geometry that is
+completely unused. Lastly, <code class="docutils literal notranslate"><span class="pre">geom_holes.out</span></code> contains edges and faces
 that were in the input and are part of the hull.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2515,11 +2515,11 @@ that were in the input and are part of the hull.</p>
 <dt class="sig sig-object py" id="bmesh.ops.symmetrize">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">symmetrize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shapekey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.symmetrize" title="Link to this definition"></a></dt>
 <dd><p>Symmetrize.</p>
-<p>Makes the mesh elements in the “input” slot symmetrical. Unlike
+<p>Makes the mesh elements in the <code class="docutils literal notranslate"><span class="pre">input</span></code> slot symmetrical. Unlike
 normal mirroring, it only copies in one direction, as specified by
-the “direction” slot. The edges and faces that cross the plane of
+the <code class="docutils literal notranslate"><span class="pre">direction</span></code> slot. The edges and faces that cross the plane of
 symmetry are split as needed to enforce symmetry.</p>
-<p>All new vertices, edges, and faces are added to the “geom.out” slot.</p>
+<p>All new vertices, edges, and faces are added to the <code class="docutils literal notranslate"><span class="pre">geom.out</span></code> slot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2559,7 +2559,7 @@ symmetry are split as needed to enforce symmetry.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

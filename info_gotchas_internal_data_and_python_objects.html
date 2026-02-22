@@ -161,9 +161,9 @@ requires some form of persistence.</p>
 <p>There are some exceptions to this rule. For example, IDs do store their Python instance, once created,
 and re-use it instead of re-creating a new Python object every time they are accessed from Python.
 And modal operators will keep their instance as long as the operator is running.
-However, this is done for performances purpose and is considered an internal implementation detail.
+However, this is done for performance purposes and is considered an internal implementation detail.
 Relying on this behavior from Python code side for any purpose is not recommended.</p>
-<p>Further more, Blender may free its internal data, in which case it will try to invalidate a known
+<p>Furthermore, Blender may free its internal data, in which case it will try to invalidate a known
 Python object wrapping it. But this is not always possible, which can lead to invalid memory access and
 is another good reason to never store these in Python code in any persistent way.
 See also the <a class="reference internal" href="info_gotchas_crashes.html#troubleshooting-crashes"><span class="std std-ref">troubleshooting crashes</span></a> documentation.</p>
@@ -228,7 +228,7 @@ If you need to select between local and library data, there is a feature in <cod
 <span class="c1"># where the second argument excludes library data from being returned.</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;my_obj&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 
-<span class="c1"># Both the examples above also works for `get`.</span>
+<span class="c1"># Both the examples above also work for `get`.</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="s2">&quot;my_obj&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -239,7 +239,7 @@ If you need to select between local and library data, there is a feature in <cod
 <section id="no-updates-after-setting-values">
 <h3>No updates after setting values<a class="headerlink" href="#no-updates-after-setting-values" title="Link to this heading"></a></h3>
 <p>Sometimes you want to modify values from Python and immediately access the updated values, e.g:
-Once changing the objects <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.location" title="bpy.types.Object.location"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object.location</span></code></a>
+After changing the object’s <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.location" title="bpy.types.Object.location"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object.location</span></code></a>
 you may want to access its transformation right after from <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.matrix_world" title="bpy.types.Object.matrix_world"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Object.matrix_world</span></code></a>,
 but this doesn’t work as you might expect. There are similar issues with changes to the UI, that
 are covered in the next section.</p>
@@ -272,7 +272,7 @@ properties that behave that way are:</p>
 <li><p><a class="reference internal" href="bpy.types.Window.html#bpy.types.Window.screen" title="bpy.types.Window.screen"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window.screen</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Window.html#bpy.types.Window.scene" title="bpy.types.Window.scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Window.scene</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.Area.html#bpy.types.Area.type" title="bpy.types.Area.type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Area.type</span></code></a></p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Area.uitype</span></code></p></li>
+<li><p><a class="reference internal" href="bpy.types.Area.html#bpy.types.Area.ui_type" title="bpy.types.Area.ui_type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Area.ui_type</span></code></a></p></li>
 </ul>
 <p>Such changes impact the UI, and with that the context (<a class="reference internal" href="bpy.context.html#module-bpy.context" title="bpy.context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.context</span></code></a>) quite drastically. This can break
 Blender’s context management. So Blender delays this change until after operators have run and just before the UI is
@@ -282,12 +282,12 @@ fashion as well. Possible options include:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference internal" href="bpy.types.Operator.html#modal-operator"><span class="std std-ref">Modal Operator</span></a>.</p></li>
-<li><p><a class="reference internal" href="bpy.app.handlers.html#module-bpy.app.handlers" title="bpy.app.handlers"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.app.handlers</span></code></a>.</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.app.timer</span></code>.</p></li>
+<li><p><a class="reference internal" href="bpy.app.handlers.html#module-bpy.app.handlers" title="bpy.app.handlers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.app.handlers</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="bpy.app.timers.html#module-bpy.app.timers" title="bpy.app.timers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.app.timers</span></code></a>.</p></li>
 </ul>
 </div></blockquote>
 <p>It’s also possible to depend on drawing callbacks although these should generally be avoided as failure to draw a
-hidden panel, region, cursor, etc. could cause your script to be unreliable</p>
+hidden panel, region, cursor, etc. could cause your script to be unreliable.</p>
 </section>
 </section>
 <section id="can-i-redraw-during-script-execution">
@@ -331,7 +331,7 @@ there is also no guaranteed compatibility in future releases.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

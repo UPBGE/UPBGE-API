@@ -223,7 +223,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 
 <span class="n">blf</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="n">blf</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">font_size</span><span class="p">)</span>
-<span class="n">blf</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">font_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blf</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">font_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="n">blf</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">blf</span><span class="o">.</span><span class="n">WORD_WRAP</span><span class="p">)</span>
 <span class="n">blf</span><span class="o">.</span><span class="n">word_wrap</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -259,7 +259,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>aspect</strong> (<em>float</em>) – The aspect ratio for text drawing to use.</p></li>
+<li><p><strong>aspect</strong> (<em>float</em>) – The aspect ratio for non-uniform scaling of text.</p></li>
 </ul>
 </dd>
 </dl>
@@ -274,7 +274,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
 <li><p><strong>imbuf</strong> (<a class="reference internal" href="imbuf.types.html#imbuf.types.ImBuf" title="imbuf.types.ImBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">imbuf.types.ImBuf</span></code></a>) – The image to draw into.</p></li>
-<li><p><strong>display_name</strong> (<em>str</em><em> | </em><em>None</em>) – Ignored, kept for backwards compatibility.</p></li>
+<li><p><strong>display_name</strong> (<em>str</em><em> | </em><em>None</em>) – Ignored (formerly a color-space transform name), kept for backwards compatibility.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -326,15 +326,15 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.clipping">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">clipping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.clipping" title="Link to this definition"></a></dt>
-<dd><p>Set the clipping, enable/disable using CLIPPING.</p>
+<dd><p>Set the clipping, enable/disable using <a class="reference internal" href="#blf.CLIPPING" title="blf.CLIPPING"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLIPPING</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>xmin</strong> (<em>float</em>) – Clip the drawing area by these bounds.</p></li>
-<li><p><strong>ymin</strong> (<em>float</em>) – Clip the drawing area by these bounds.</p></li>
-<li><p><strong>xmax</strong> (<em>float</em>) – Clip the drawing area by these bounds.</p></li>
-<li><p><strong>ymax</strong> (<em>float</em>) – Clip the drawing area by these bounds.</p></li>
+<li><p><strong>xmin</strong> (<em>float</em>) – Left edge of the clipping rectangle.</p></li>
+<li><p><strong>ymin</strong> (<em>float</em>) – Bottom edge of the clipping rectangle.</p></li>
+<li><p><strong>xmax</strong> (<em>float</em>) – Right edge of the clipping rectangle.</p></li>
+<li><p><strong>ymax</strong> (<em>float</em>) – Top edge of the clipping rectangle.</p></li>
 </ul>
 </dd>
 </dl>
@@ -348,10 +348,10 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>r</strong> (<em>float</em>) – red channel 0.0 - 1.0.</p></li>
-<li><p><strong>g</strong> (<em>float</em>) – green channel 0.0 - 1.0.</p></li>
-<li><p><strong>b</strong> (<em>float</em>) – blue channel 0.0 - 1.0.</p></li>
-<li><p><strong>a</strong> (<em>float</em>) – alpha channel 0.0 - 1.0.</p></li>
+<li><p><strong>r</strong> (<em>float</em>) – Red channel 0.0 - 1.0.</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – Green channel 0.0 - 1.0.</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – Blue channel 0.0 - 1.0.</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – Alpha channel 0.0 - 1.0.</p></li>
 </ul>
 </dd>
 </dl>
@@ -382,11 +382,11 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>text</strong> (<em>str</em>) – the text to draw.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The text to measure.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>the width and height of the text.</p>
+<dd class="field-even"><p>The width and height of the text.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[float, float]</p>
@@ -397,12 +397,12 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.disable">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.disable" title="Link to this definition"></a></dt>
-<dd><p>Disable option.</p>
+<dd><p>Disable a font drawing option.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>option</strong> (<em>int</em>) – One of ROTATION, CLIPPING, SHADOW, MONOCHROME or WORD_WRAP.</p></li>
+<li><p><strong>option</strong> (<em>int</em>) – One of <a class="reference internal" href="#blf.ROTATION" title="blf.ROTATION"><code class="xref py py-data docutils literal notranslate"><span class="pre">ROTATION</span></code></a>, <a class="reference internal" href="#blf.CLIPPING" title="blf.CLIPPING"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLIPPING</span></code></a>, <a class="reference internal" href="#blf.SHADOW" title="blf.SHADOW"><code class="xref py py-data docutils literal notranslate"><span class="pre">SHADOW</span></code></a>, <a class="reference internal" href="#blf.MONOCHROME" title="blf.MONOCHROME"><code class="xref py py-data docutils literal notranslate"><span class="pre">MONOCHROME</span></code></a> or <a class="reference internal" href="#blf.WORD_WRAP" title="blf.WORD_WRAP"><code class="xref py py-data docutils literal notranslate"><span class="pre">WORD_WRAP</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -416,7 +416,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>text</strong> (<em>str</em>) – the text to draw.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The text to draw.</p></li>
 </ul>
 </dd>
 </dl>
@@ -425,12 +425,12 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.draw_buffer">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">draw_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.draw_buffer" title="Link to this definition"></a></dt>
-<dd><p>Draw text into the buffer bound to the fontid.</p>
+<dd><p>Draw text into the image buffer bound via <a class="reference internal" href="#blf.bind_imbuf" title="blf.bind_imbuf"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.bind_imbuf()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>text</strong> (<em>str</em>) – the text to draw.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The text to draw into the bound image buffer.</p></li>
 </ul>
 </dd>
 </dl>
@@ -439,12 +439,12 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.enable">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.enable" title="Link to this definition"></a></dt>
-<dd><p>Enable option.</p>
+<dd><p>Enable a font drawing option.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>option</strong> (<em>int</em>) – One of ROTATION, CLIPPING, SHADOW, MONOCHROME or WORD_WRAP.</p></li>
+<li><p><strong>option</strong> (<em>int</em>) – One of <a class="reference internal" href="#blf.ROTATION" title="blf.ROTATION"><code class="xref py py-data docutils literal notranslate"><span class="pre">ROTATION</span></code></a>, <a class="reference internal" href="#blf.CLIPPING" title="blf.CLIPPING"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLIPPING</span></code></a>, <a class="reference internal" href="#blf.SHADOW" title="blf.SHADOW"><code class="xref py py-data docutils literal notranslate"><span class="pre">SHADOW</span></code></a>, <a class="reference internal" href="#blf.MONOCHROME" title="blf.MONOCHROME"><code class="xref py py-data docutils literal notranslate"><span class="pre">MONOCHROME</span></code></a> or <a class="reference internal" href="#blf.WORD_WRAP" title="blf.WORD_WRAP"><code class="xref py py-data docutils literal notranslate"><span class="pre">WORD_WRAP</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -510,10 +510,10 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dd><p>Load a new font.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em> | </em><em>bytes</em>) – the filepath of the font.</p>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em> | </em><em>bytes</em>) – The filepath of the font.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>the new font’s fontid or -1 if there was an error.</p>
+<dd class="field-even"><p>The new font’s fontid or -1 if there was an error.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -531,7 +531,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
 <li><p><strong>x</strong> (<em>float</em>) – X axis position to draw the text.</p></li>
 <li><p><strong>y</strong> (<em>float</em>) – Y axis position to draw the text.</p></li>
-<li><p><strong>z</strong> (<em>float</em>) – Z axis position to draw the text.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z axis position to draw the text (typically 0).</p></li>
 </ul>
 </dd>
 </dl>
@@ -540,12 +540,12 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.rotation">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.rotation" title="Link to this definition"></a></dt>
-<dd><p>Set the text rotation angle, enable/disable using ROTATION.</p>
+<dd><p>Set the text rotation angle, enable/disable using <a class="reference internal" href="#blf.ROTATION" title="blf.ROTATION"><code class="xref py py-data docutils literal notranslate"><span class="pre">ROTATION</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>angle</strong> (<em>float</em>) – The angle for text drawing to use.</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – The angle for text drawing to use (in radians).</p></li>
 </ul>
 </dd>
 </dl>
@@ -554,12 +554,12 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.shadow">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">shadow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.shadow" title="Link to this definition"></a></dt>
-<dd><p>Shadow options, enable/disable using SHADOW.</p>
+<dd><p>Shadow options, enable/disable using <a class="reference internal" href="#blf.SHADOW" title="blf.SHADOW"><code class="xref py py-data docutils literal notranslate"><span class="pre">SHADOW</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fontid</strong> (<em>int</em>) – The id of the typeface as returned by <a class="reference internal" href="#blf.load" title="blf.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">blf.load()</span></code></a>, for default font use 0.</p></li>
-<li><p><strong>level</strong> (<em>int</em>) – The blur level (0, 3, 5) or outline (6).</p></li>
+<li><p><strong>level</strong> (<em>int</em>) – The shadow type: 0 for none, 3 for 3x3 blur, 5 for 5x5 blur or 6 for outline. Other values raise a <code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code>.</p></li>
 <li><p><strong>r</strong> (<em>float</em>) – Shadow color (red channel 0.0 - 1.0).</p></li>
 <li><p><strong>g</strong> (<em>float</em>) – Shadow color (green channel 0.0 - 1.0).</p></li>
 <li><p><strong>b</strong> (<em>float</em>) – Shadow color (blue channel 0.0 - 1.0).</p></li>
@@ -572,7 +572,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.shadow_offset">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">shadow_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.shadow_offset" title="Link to this definition"></a></dt>
-<dd><p>Set the offset for shadow text.</p>
+<dd><p>Set the offset for shadow text, enable/disable using <a class="reference internal" href="#blf.SHADOW" title="blf.SHADOW"><code class="xref py py-data docutils literal notranslate"><span class="pre">SHADOW</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -604,7 +604,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dd><p>Unload an existing font.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em> | </em><em>bytes</em>) – the filepath of the font.</p>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em> | </em><em>bytes</em>) – The filepath of the font.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -612,7 +612,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 <dl class="py function">
 <dt class="sig sig-object py" id="blf.word_wrap">
 <span class="sig-prename descclassname"><span class="pre">blf.</span></span><span class="sig-name descname"><span class="pre">word_wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blf.word_wrap" title="Link to this definition"></a></dt>
-<dd><p>Set the wrap width, enable/disable using WORD_WRAP.</p>
+<dd><p>Set the wrap width, enable/disable using <a class="reference internal" href="#blf.WORD_WRAP" title="blf.WORD_WRAP"><code class="xref py py-data docutils literal notranslate"><span class="pre">WORD_WRAP</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -668,7 +668,7 @@ This can be done by binding an image buffer (<a class="reference internal" href=
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

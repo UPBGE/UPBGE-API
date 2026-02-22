@@ -270,7 +270,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.curve.cyclic_toggle">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.curve.</span></span><span class="sig-name descname"><span class="pre">cyclic_toggle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CYCLIC_U'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.curve.cyclic_toggle" title="Link to this definition"></a></dt>
-<dd><p>Make active spline closed/opened loop</p>
+<dd><p>Make active spline closed/open loop</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>direction</strong> (<em>Literal</em><em>[</em><em>'CYCLIC_U'</em><em>, </em><em>'CYCLIC_V'</em><em>]</em>) – Direction, Direction to make surface cyclic in (optional)</p>
@@ -405,8 +405,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>CURVE_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Curve, Duplicate selected control points (optional, <a class="reference internal" href="#bpy.ops.curve.duplicate" title="bpy.ops.curve.duplicate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.curve.duplicate</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.translate</span></code></a> keyword arguments)</p></li>
+<li><p><strong>CURVE_OT_duplicate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Duplicate Curve, Duplicate selected control points (optional, <a class="reference internal" href="#bpy.ops.curve.duplicate" title="bpy.ops.curve.duplicate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.curve.duplicate()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.translate()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -442,8 +442,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>CURVE_OT_extrude</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Extrude, Extrude selected control point(s) (optional, <a class="reference internal" href="#bpy.ops.curve.extrude" title="bpy.ops.curve.extrude"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.curve.extrude</span></code></a> keyword arguments)</p></li>
-<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.transform.translate</span></code></a> keyword arguments)</p></li>
+<li><p><strong>CURVE_OT_extrude</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Extrude, Extrude selected control point(s) (optional, <a class="reference internal" href="#bpy.ops.curve.extrude" title="bpy.ops.curve.extrude"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.curve.extrude()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.translate()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -550,7 +550,7 @@
 <li><p><strong>extrude_handle</strong> (<em>Literal</em><em>[</em><em>'AUTO'</em><em>, </em><em>'VECTOR'</em><em>]</em>) – Extrude Handle Type, Type of the extruded handle (optional)</p></li>
 <li><p><strong>delete_point</strong> (<em>bool</em>) – Delete Point, Delete an existing point (optional)</p></li>
 <li><p><strong>insert_point</strong> (<em>bool</em>) – Insert Point, Insert Point into a curve segment (optional)</p></li>
-<li><p><strong>move_segment</strong> (<em>bool</em>) – Move Segment, Delete an existing point (optional)</p></li>
+<li><p><strong>move_segment</strong> (<em>bool</em>) – Move Segment, Move an existing curve segment (optional)</p></li>
 <li><p><strong>select_point</strong> (<em>bool</em>) – Select Point, Select a point or its handles (optional)</p></li>
 <li><p><strong>move_point</strong> (<em>bool</em>) – Move Point, Move a point or its handles (optional)</p></li>
 <li><p><strong>close_spline</strong> (<em>bool</em>) – Close Spline, Make a spline cyclic by clicking endpoints (optional)</p></li>
@@ -1234,7 +1234,7 @@ Deselect – Deselect all elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

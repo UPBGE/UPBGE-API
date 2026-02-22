@@ -359,6 +359,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeVecBlur.html">CompositorNodeVecBlur(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeViewer.html">CompositorNodeViewer(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeZcombine.html">CompositorNodeZcombine(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorStrip.html">CompositorStrip(EffectStrip)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ConsoleLine.html">ConsoleLine(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Constraint.html">Constraint(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ConstraintActuator.html">ConstraintActuator(Actuator)</a></li>
@@ -450,6 +451,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Filter2DActuator.html">Filter2DActuator(Actuator)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Float2Attribute.html">Float2Attribute(Attribute)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Float2AttributeValue.html">Float2AttributeValue(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.Float4Attribute.html">Float4Attribute(Attribute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.Float4AttributeValue.html">Float4AttributeValue(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Float4x4Attribute.html">Float4x4Attribute(Attribute)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Float4x4AttributeValue.html">Float4x4AttributeValue(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.FloatAttribute.html">FloatAttribute(Attribute)</a></li>
@@ -1125,6 +1128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeImplicitConversion.html">NodeImplicitConversion(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeIndexSwitchItems.html">NodeIndexSwitchItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeInputs.html">NodeInputs(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeInstanceHash.html">NodeInstanceHash(bpy_struct)</a></li>
@@ -2127,7 +2131,7 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – Name for the new strip (never None)</p></li>
-<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>]</em>) – <p>Type, type for the new strip</p>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CROSS'</em><em>, </em><em>'ADD'</em><em>, </em><em>'SUBTRACT'</em><em>, </em><em>'ALPHA_OVER'</em><em>, </em><em>'ALPHA_UNDER'</em><em>, </em><em>'GAMMA_CROSS'</em><em>, </em><em>'COMPOSITOR'</em><em>, </em><em>'MULTIPLY'</em><em>, </em><em>'WIPE'</em><em>, </em><em>'GLOW'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'SPEED'</em><em>, </em><em>'MULTICAM'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'GAUSSIAN_BLUR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'COLORMIX'</em><em>]</em>) – <p>Type, type for the new strip</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CROSS</span></code>
 Crossfade – Fade out of one video, fading into another.</p></li>
@@ -2141,6 +2145,8 @@ Alpha Over – Blend alpha on top of another video.</p></li>
 Alpha Under – Blend alpha below another video.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">GAMMA_CROSS</span></code>
 Gamma Crossfade – Crossfade with color correction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMPOSITOR</span></code>
+Compositor – Compositor based effect.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MULTIPLY</span></code>
 Multiply – Multiply color channels from two videos.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WIPE</span></code>
@@ -2288,7 +2294,7 @@ Color Mix – Combine two strips using blend modes.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 

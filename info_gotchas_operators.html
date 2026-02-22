@@ -174,8 +174,8 @@ you should be able to find the poll function with no knowledge of C.</p>
 but it’s currently not used much, if you’re interested to help improve the API
 feel free to add calls to <a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator.poll_message_set" title="bpy.types.Operator.poll_message_set"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator.poll_message_set</span></code></a> (<code class="docutils literal notranslate"><span class="pre">CTX_wm_operator_poll_msg_set</span></code> in C)
 where it’s not obvious why poll fails, e.g:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">gpencil</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-<span class="go">RuntimeError: Operator bpy.ops.gpencil.draw.poll() Failed to find Grease Pencil data to draw into</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">vertex_group_add</span><span class="p">()</span>
+<span class="go">RuntimeError: Operator bpy.ops.object.vertex_group_add.poll() No active editable object</span>
 </pre></div>
 </div>
 <p>In some cases using <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context.temp_override" title="bpy.types.Context.temp_override"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context.temp_override</span></code></a> to enable temporary logging or using the
@@ -189,10 +189,10 @@ some operators for example are only called from the properties editor where they
 modifier or constraint.</p>
 <p>Examples of this are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="bpy.ops.texture.html#bpy.ops.texture.slot_move" title="bpy.ops.texture.slot_move"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.texture.slot_move</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.ops.constraint.html#bpy.ops.constraint.limitdistance_reset" title="bpy.ops.constraint.limitdistance_reset"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.constraint.limitdistance_reset</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.ops.object.html#bpy.ops.object.modifier_copy" title="bpy.ops.object.modifier_copy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.object.modifier_copy</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.ops.buttons.html#bpy.ops.buttons.file_browse" title="bpy.ops.buttons.file_browse"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.ops.buttons.file_browse</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.ops.texture.html#bpy.ops.texture.slot_move" title="bpy.ops.texture.slot_move"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.texture.slot_move()</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.ops.constraint.html#bpy.ops.constraint.limitdistance_reset" title="bpy.ops.constraint.limitdistance_reset"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.constraint.limitdistance_reset()</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.ops.object.html#bpy.ops.object.modifier_copy" title="bpy.ops.object.modifier_copy"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.object.modifier_copy()</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.ops.buttons.html#bpy.ops.buttons.file_browse" title="bpy.ops.buttons.file_browse"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.buttons.file_browse()</span></code></a></p></li>
 </ul>
 <p>Another possibility is that you are the first person to attempt to use this operator
 in a script and some modifications need to be made to the operator to run in a different context.
@@ -213,7 +213,7 @@ it should be reported to the bug tracker.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/5daf74591113>5daf74591113</a> - 15/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
       </span></p>
   </div>
 
