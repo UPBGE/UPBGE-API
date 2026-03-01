@@ -112,6 +112,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.mirror"><code class="docutils literal notranslate"><span class="pre">mirror()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.find_doubles"><code class="docutils literal notranslate"><span class="pre">find_doubles()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.remove_doubles"><code class="docutils literal notranslate"><span class="pre">remove_doubles()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.circularize"><code class="docutils literal notranslate"><span class="pre">circularize()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.collapse"><code class="docutils literal notranslate"><span class="pre">collapse()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.pointmerge_facedata"><code class="docutils literal notranslate"><span class="pre">pointmerge_facedata()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.average_vert_facedata"><code class="docutils literal notranslate"><span class="pre">average_vert_facedata()</span></code></a></li>
@@ -638,6 +639,33 @@ using the weld verts BMOP.</p>
 <li><p><strong>verts</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a>]) – Input verts.</p></li>
 <li><p><strong>use_connected</strong> (<em>bool</em>) – Limit the search for doubles by connected geometry.</p></li>
 <li><p><strong>dist</strong> (<em>float</em>) – Maximum distance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmesh.ops.circularize">
+<span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">circularize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock_z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror_z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.circularize" title="Link to this definition"></a></dt>
+<dd><p>Circularize.</p>
+<p>Shape selected geometry into a circle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
+<li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMVert</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a> | <a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input geometry.</p></li>
+<li><p><strong>factor</strong> (<em>float</em>) – Influence factor: spans from 0.0 to 1.0.</p></li>
+<li><p><strong>custom_radius</strong> (<em>float</em>) – Custom radius.</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Rotation angle.</p></li>
+<li><p><strong>fit_method</strong> (<em>int</em>) – Method to fit the circle.</p></li>
+<li><p><strong>flatten</strong> (<em>float</em>) – Flatten factor: 0.0 projects onto the mesh, 1.0 flattens on the optimal plane.</p></li>
+<li><p><strong>regular</strong> (<em>bool</em>) – Distributes vertices at constant distances, otherwise preserves original spacing.</p></li>
+<li><p><strong>lock_x</strong> (<em>bool</em>) – Lock X-axis editing.</p></li>
+<li><p><strong>lock_y</strong> (<em>bool</em>) – Lock Y-axis editing.</p></li>
+<li><p><strong>lock_z</strong> (<em>bool</em>) – Lock Z-axis editing.</p></li>
+<li><p><strong>mirror_x</strong> (<em>bool</em>) – Use X axis of the mirror modifier.</p></li>
+<li><p><strong>mirror_y</strong> (<em>bool</em>) – Use Y axis of the mirror modifier.</p></li>
+<li><p><strong>mirror_z</strong> (<em>bool</em>) – Use Z axis of the mirror modifier.</p></li>
 </ul>
 </dd>
 </dl>
@@ -2559,7 +2587,7 @@ symmetry are split as needed to enforce symmetry.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ae256f9b2b33>ae256f9b2b33</a> - 28/02/2026</code>.
       </span></p>
   </div>
 

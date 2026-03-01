@@ -121,6 +121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.bisect"><code class="docutils literal notranslate"><span class="pre">bisect()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.blend_from_shape"><code class="docutils literal notranslate"><span class="pre">blend_from_shape()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.bridge_edge_loops"><code class="docutils literal notranslate"><span class="pre">bridge_edge_loops()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.circularize"><code class="docutils literal notranslate"><span class="pre">circularize()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.colors_reverse"><code class="docutils literal notranslate"><span class="pre">colors_reverse()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.colors_rotate"><code class="docutils literal notranslate"><span class="pre">colors_rotate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.convex_hull"><code class="docutils literal notranslate"><span class="pre">convex_hull()</span></code></a></li>
@@ -621,6 +622,39 @@ Cutoff – A cutoff at each profile’s end before the intersection.</p></li>
 <li><p><strong>smoothness</strong> (<em>float</em>) – Smoothness, Smoothness factor (in [0, 1000], optional)</p></li>
 <li><p><strong>profile_shape_factor</strong> (<em>float</em>) – Profile Factor, How much intermediary new edges are shrunk/expanded (in [-1000, 1000], optional)</p></li>
 <li><p><strong>profile_shape</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/proportional_falloff_curve_only_items.html#rna-enum-proportional-falloff-curve-only-items"><span class="std std-ref">Proportional Falloff Curve Only Items</span></a>]) – Profile Shape, Shape of the profile (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.mesh.circularize">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">circularize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LEAST_SQUARE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_custom_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(False,</span> <span class="pre">False,</span> <span class="pre">False)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.circularize" title="Link to this definition"></a></dt>
+<dd><p>Shape selected geometry into a circle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Force of the tool (in [0, 1], optional)</p></li>
+<li><p><strong>fit_method</strong> (<em>Literal</em><em>[</em><em>'LEAST_SQUARE'</em><em>, </em><em>'CONTRACT'</em><em>]</em>) – <p>Method, Method used for fitting a circle to the vertices (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">LEAST_SQUARE</span></code>
+Best Fit – Calculate a best-fit circle using non-linear least squares.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTRACT</span></code>
+Interior Fit – Only move vertices towards the center.</p></li>
+</ul>
+</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Rotation, Rotate the circle (in [-6.28319, 6.28319], optional)</p></li>
+<li><p><strong>use_custom_radius</strong> (<em>bool</em>) – Use Custom Radius, Enable custom radius (optional)</p></li>
+<li><p><strong>custom_radius</strong> (<em>float</em>) – Radius, Radius of the circle (in [0, inf], optional)</p></li>
+<li><p><strong>regular</strong> (<em>bool</em>) – Space Evenly, Distribute vertices at constant distances along the circle, otherwise preserves original spacing (optional)</p></li>
+<li><p><strong>flatten</strong> (<em>float</em>) – Flatten, Flatten the circle, instead of projecting it on the mesh (in [0, 1], optional)</p></li>
+<li><p><strong>lock</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Lock, Lock editing of the axis (array of 3 items, optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1734,7 +1768,7 @@ Relative – Angle snapping relative to the previous cut edge.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.loop_select">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">loop_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_edge_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'NGONS',</span> <span class="pre">'OUTER_CORNERS'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_face_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vert_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.loop_select" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">loop_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_edge_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'NGONS',</span> <span class="pre">'OUTER_CORNERS'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit_face_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vert_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.loop_select" title="Link to this definition"></a></dt>
 <dd><p>Select a loop of connected edges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4030,7 +4064,7 @@ Reverse – Reverse current order of selected elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ae256f9b2b33>ae256f9b2b33</a> - 28/02/2026</code>.
       </span></p>
   </div>
 

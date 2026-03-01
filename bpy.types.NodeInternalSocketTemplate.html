@@ -499,6 +499,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.FunctionNodeInputBool.html">FunctionNodeInputBool(FunctionNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.FunctionNodeInputColor.html">FunctionNodeInputColor(FunctionNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.FunctionNodeInputInt.html">FunctionNodeInputInt(FunctionNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.FunctionNodeInputMenu.html">FunctionNodeInputMenu(FunctionNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.FunctionNodeInputRotation.html">FunctionNodeInputRotation(FunctionNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.FunctionNodeInputSpecialCharacters.html">FunctionNodeInputSpecialCharacters(FunctionNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.FunctionNodeInputString.html">FunctionNodeInputString(FunctionNode)</a></li>
@@ -651,6 +652,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputCurveHandlePositions.html">GeometryNodeInputCurveHandlePositions(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputCurveTilt.html">GeometryNodeInputCurveTilt(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputEdgeSmooth.html">GeometryNodeInputEdgeSmooth(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputFont.html">GeometryNodeInputFont(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputID.html">GeometryNodeInputID(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputImage.html">GeometryNodeInputImage(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputIndex.html">GeometryNodeInputIndex(GeometryNode)</a></li>
@@ -747,6 +749,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSeparateGeometry.html">GeometryNodeSeparateGeometry(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveHandlePositions.html">GeometryNodeSetCurveHandlePositions(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveNormal.html">GeometryNodeSetCurveNormal(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveOrder.html">GeometryNodeSetCurveOrder(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveRadius.html">GeometryNodeSetCurveRadius(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetCurveTilt.html">GeometryNodeSetCurveTilt(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSetGeometryBundle.html">GeometryNodeSetGeometryBundle(GeometryNode)</a></li>
@@ -2000,7 +2003,10 @@
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">bl_rna_get_subclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodeInternalSocketTemplate.bl_rna_get_subclass" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p></li>
+<li><p><strong>default</strong> (<a class="reference internal" href="bpy.types.Struct.html#bpy.types.Struct" title="bpy.types.Struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Struct</span></code></a> | None) – The value to return when not found.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The RNA type or default when not found.</p>
@@ -2016,7 +2022,10 @@
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">bl_rna_get_subclass_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodeInternalSocketTemplate.bl_rna_get_subclass_py" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – The RNA type identifier.</p></li>
+<li><p><strong>default</strong> (<a class="reference internal" href="#bpy.types.NodeInternalSocketTemplate.type" title="bpy.types.NodeInternalSocketTemplate.type"><em>type</em></a><em> | </em><em>None</em>) – The value to return when not found.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The class or default when not found.</p>
@@ -2283,6 +2292,8 @@
 <li><p><a class="reference internal" href="bpy.types.FunctionNodeInputColor.html#bpy.types.FunctionNodeInputColor.output_template" title="bpy.types.FunctionNodeInputColor.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputColor.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.FunctionNodeInputInt.html#bpy.types.FunctionNodeInputInt.input_template" title="bpy.types.FunctionNodeInputInt.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputInt.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.FunctionNodeInputInt.html#bpy.types.FunctionNodeInputInt.output_template" title="bpy.types.FunctionNodeInputInt.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputInt.output_template</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.FunctionNodeInputMenu.html#bpy.types.FunctionNodeInputMenu.input_template" title="bpy.types.FunctionNodeInputMenu.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputMenu.input_template</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.FunctionNodeInputMenu.html#bpy.types.FunctionNodeInputMenu.output_template" title="bpy.types.FunctionNodeInputMenu.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputMenu.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.FunctionNodeInputRotation.html#bpy.types.FunctionNodeInputRotation.input_template" title="bpy.types.FunctionNodeInputRotation.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputRotation.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.FunctionNodeInputRotation.html#bpy.types.FunctionNodeInputRotation.output_template" title="bpy.types.FunctionNodeInputRotation.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputRotation.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.FunctionNodeInputSpecialCharacters.html#bpy.types.FunctionNodeInputSpecialCharacters.input_template" title="bpy.types.FunctionNodeInputSpecialCharacters.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionNodeInputSpecialCharacters.input_template</span></code></a></p></li>
@@ -2537,6 +2548,8 @@
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeInputCurveTilt.html#bpy.types.GeometryNodeInputCurveTilt.output_template" title="bpy.types.GeometryNodeInputCurveTilt.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputCurveTilt.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeInputEdgeSmooth.html#bpy.types.GeometryNodeInputEdgeSmooth.input_template" title="bpy.types.GeometryNodeInputEdgeSmooth.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputEdgeSmooth.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeInputEdgeSmooth.html#bpy.types.GeometryNodeInputEdgeSmooth.output_template" title="bpy.types.GeometryNodeInputEdgeSmooth.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputEdgeSmooth.output_template</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.GeometryNodeInputFont.html#bpy.types.GeometryNodeInputFont.input_template" title="bpy.types.GeometryNodeInputFont.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputFont.input_template</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.GeometryNodeInputFont.html#bpy.types.GeometryNodeInputFont.output_template" title="bpy.types.GeometryNodeInputFont.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputFont.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeInputID.html#bpy.types.GeometryNodeInputID.input_template" title="bpy.types.GeometryNodeInputID.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputID.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeInputID.html#bpy.types.GeometryNodeInputID.output_template" title="bpy.types.GeometryNodeInputID.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputID.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeInputImage.html#bpy.types.GeometryNodeInputImage.input_template" title="bpy.types.GeometryNodeInputImage.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInputImage.input_template</span></code></a></p></li>
@@ -2605,9 +2618,9 @@
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeInterpolateCurves.html#bpy.types.GeometryNodeInterpolateCurves.output_template" title="bpy.types.GeometryNodeInterpolateCurves.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeInterpolateCurves.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeIsViewport.html#bpy.types.GeometryNodeIsViewport.input_template" title="bpy.types.GeometryNodeIsViewport.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeIsViewport.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeIsViewport.html#bpy.types.GeometryNodeIsViewport.output_template" title="bpy.types.GeometryNodeIsViewport.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeIsViewport.output_template</span></code></a></p></li>
-<li><p><a class="reference internal" href="bpy.types.GeometryNodeJoinGeometry.html#bpy.types.GeometryNodeJoinGeometry.input_template" title="bpy.types.GeometryNodeJoinGeometry.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeJoinGeometry.input_template</span></code></a></p></li>
 </ul>
 </td><td><ul class="simple">
+<li><p><a class="reference internal" href="bpy.types.GeometryNodeJoinGeometry.html#bpy.types.GeometryNodeJoinGeometry.input_template" title="bpy.types.GeometryNodeJoinGeometry.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeJoinGeometry.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeJoinGeometry.html#bpy.types.GeometryNodeJoinGeometry.output_template" title="bpy.types.GeometryNodeJoinGeometry.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeJoinGeometry.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeListGetItem.html#bpy.types.GeometryNodeListGetItem.input_template" title="bpy.types.GeometryNodeListGetItem.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeListGetItem.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeListGetItem.html#bpy.types.GeometryNodeListGetItem.output_template" title="bpy.types.GeometryNodeListGetItem.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeListGetItem.output_template</span></code></a></p></li>
@@ -2731,6 +2744,8 @@
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveHandlePositions.html#bpy.types.GeometryNodeSetCurveHandlePositions.output_template" title="bpy.types.GeometryNodeSetCurveHandlePositions.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveHandlePositions.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveNormal.html#bpy.types.GeometryNodeSetCurveNormal.input_template" title="bpy.types.GeometryNodeSetCurveNormal.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveNormal.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveNormal.html#bpy.types.GeometryNodeSetCurveNormal.output_template" title="bpy.types.GeometryNodeSetCurveNormal.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveNormal.output_template</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveOrder.html#bpy.types.GeometryNodeSetCurveOrder.input_template" title="bpy.types.GeometryNodeSetCurveOrder.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveOrder.input_template</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveOrder.html#bpy.types.GeometryNodeSetCurveOrder.output_template" title="bpy.types.GeometryNodeSetCurveOrder.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveOrder.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveRadius.html#bpy.types.GeometryNodeSetCurveRadius.input_template" title="bpy.types.GeometryNodeSetCurveRadius.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveRadius.input_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveRadius.html#bpy.types.GeometryNodeSetCurveRadius.output_template" title="bpy.types.GeometryNodeSetCurveRadius.output_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveRadius.output_template</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.GeometryNodeSetCurveTilt.html#bpy.types.GeometryNodeSetCurveTilt.input_template" title="bpy.types.GeometryNodeSetCurveTilt.input_template"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryNodeSetCurveTilt.input_template</span></code></a></p></li>
@@ -3158,7 +3173,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ee34af1d8697>ee34af1d8697</a> - 20/02/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/ae256f9b2b33>ae256f9b2b33</a> - 28/02/2026</code>.
       </span></p>
   </div>
 
