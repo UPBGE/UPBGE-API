@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gpu.state.html">GPU State Utilities (gpu.state)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GPU Texture Utilities (gpu.texture)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpu.texture.from_image"><code class="docutils literal notranslate"><span class="pre">from_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.texture.set_image_texture"><code class="docutils literal notranslate"><span class="pre">set_image_texture()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.platform.html">GPU Platform Utilities (gpu.platform)</a></li>
@@ -166,6 +167,29 @@ Note: Colors read from the texture will be in scene linear color space and have 
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="gpu.texture.set_image_texture">
+<span class="sig-prename descclassname"><span class="pre">gpu.texture.</span></span><span class="sig-name descname"><span class="pre">set_image_texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.texture.set_image_texture" title="Link to this definition"></a></dt>
+<dd><p>Override the GPU texture used by a <a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Image</span></code></a> datablock.
+Material Image Texture nodes will sample from <code class="docutils literal notranslate"><span class="pre">texture</span></code> instead of
+uploading pixel data from CPU memory.
+Pass <code class="docutils literal notranslate"><span class="pre">None</span></code> to clear the override and restore normal behaviour.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The image does not take ownership of the texture.
+You must keep it alive for as long as the image may be rendered,
+and free it manually with <code class="xref py py-meth docutils literal notranslate"><span class="pre">gpu.types.GPUTexture.free()</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Image</span></code></a>) – The Image datablock to override.</p></li>
+<li><p><strong>texture</strong> (<a class="reference internal" href="gpu.types.html#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> | None) – Texture to use, or <code class="docutils literal notranslate"><span class="pre">None</span></code> to clear.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -180,7 +204,7 @@ Note: Colors read from the texture will be in scene linear color space and have 
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6930a3054806>6930a3054806</a> - 12/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
       </span></p>
   </div>
 

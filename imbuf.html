@@ -99,10 +99,12 @@
 <li class="toctree-l1"><a class="reference internal" href="idprop.html">ID Properties Module (idprop)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Image Buffer (imbuf)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="imbuf.types.html">Image Buffer Types (imbuf.types)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imbuf.file_type_from_buffer"><code class="docutils literal notranslate"><span class="pre">file_type_from_buffer()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#imbuf.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#imbuf.load_from_buffer"><code class="docutils literal notranslate"><span class="pre">load_from_buffer()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#imbuf.new"><code class="docutils literal notranslate"><span class="pre">new()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#imbuf.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imbuf.write_to_buffer"><code class="docutils literal notranslate"><span class="pre">write_to_buffer()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
@@ -143,6 +145,23 @@
 </ul>
 </div>
 <dl class="py function">
+<dt class="sig sig-object py" id="imbuf.file_type_from_buffer">
+<span class="sig-prename descclassname"><span class="pre">imbuf.</span></span><span class="sig-name descname"><span class="pre">file_type_from_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.file_type_from_buffer" title="Link to this definition"></a></dt>
+<dd><p>Detect the image file type from a buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>buffer</strong> (<em>collections.abc.Buffer</em>) – A buffer containing image data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The detected file type, or None if unrecognized.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ImBufFileType</span></code> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="imbuf.load">
 <span class="sig-prename descclassname"><span class="pre">imbuf.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.load" title="Link to this definition"></a></dt>
 <dd><p>Load an image from a file.</p>
@@ -178,11 +197,14 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="imbuf.new">
-<span class="sig-prename descclassname"><span class="pre">imbuf.</span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.new" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">imbuf.</span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">planes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.new" title="Link to this definition"></a></dt>
 <dd><p>Create a new image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>size</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – The size of the image in pixels.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – The size of the image in pixels.</p></li>
+<li><p><strong>planes</strong> (<em>Literal</em><em>[</em><em>8</em><em>, </em><em>16</em><em>, </em><em>24</em><em>, </em><em>32</em><em>]</em>) – Number of bits per pixel.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The newly created image.</p>
@@ -207,6 +229,20 @@
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="imbuf.write_to_buffer">
+<span class="sig-prename descclassname"><span class="pre">imbuf.</span></span><span class="sig-name descname"><span class="pre">write_to_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.write_to_buffer" title="Link to this definition"></a></dt>
+<dd><p>Write an image to a file-like object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ImBuf</span></code>) – The image to write.</p></li>
+<li><p><strong>file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryIO</span></code>) – A writable file-like object (e.g. <code class="xref py py-class docutils literal notranslate"><span class="pre">io.BytesIO</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -221,7 +257,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6930a3054806>6930a3054806</a> - 12/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
       </span></p>
   </div>
 

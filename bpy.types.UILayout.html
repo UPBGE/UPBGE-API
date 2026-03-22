@@ -1841,6 +1841,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UILayout.operator_enum"><code class="docutils literal notranslate"><span class="pre">UILayout.operator_enum()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UILayout.operator_menu_enum"><code class="docutils literal notranslate"><span class="pre">UILayout.operator_menu_enum()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UILayout.label"><code class="docutils literal notranslate"><span class="pre">UILayout.label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.UILayout.link"><code class="docutils literal notranslate"><span class="pre">UILayout.link()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UILayout.menu"><code class="docutils literal notranslate"><span class="pre">UILayout.menu()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UILayout.menu_contents"><code class="docutils literal notranslate"><span class="pre">UILayout.menu_contents()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.UILayout.popover"><code class="docutils literal notranslate"><span class="pre">UILayout.popover()</span></code></a></li>
@@ -2821,6 +2822,24 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – Override automatic text of the item (optional)</p></li>
+<li><p><strong>text_ctxt</strong> (<em>str</em>) – Override automatic translation context of the given text (optional)</p></li>
+<li><p><strong>translate</strong> (<em>bool</em>) – Translate the given text, when UI translation is enabled (optional)</p></li>
+<li><p><strong>icon</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/icon_items.html#rna-enum-icon-items"><span class="std std-ref">Icon Items</span></a>]) – Icon, Override automatic icon of the item (optional)</p></li>
+<li><p><strong>icon_value</strong> (<em>int</em>) – Icon Value, Override automatic icon of the item (in [0, inf], optional)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.link">
+<span class="sig-name descname"><span class="pre">link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_ctxt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.link" title="Link to this definition"></a></dt>
+<dd><p>Item. Displays a url that can be clicked in the layout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – (optional, never None)</p></li>
 <li><p><strong>text</strong> (<em>str</em>) – Override automatic text of the item (optional)</p></li>
 <li><p><strong>text_ctxt</strong> (<em>str</em>) – Override automatic translation context of the given text (optional)</p></li>
 <li><p><strong>translate</strong> (<em>bool</em>) – Translate the given text, when UI translation is enabled (optional)</p></li>
@@ -4168,7 +4187,7 @@ Swap Node – Replace the selected nodes with the specified type..</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6930a3054806>6930a3054806</a> - 12/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
       </span></p>
   </div>
 
