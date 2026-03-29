@@ -911,7 +911,7 @@ Interior Fit – Only move vertices towards the center.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.dissolve_edges">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">dissolve_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.14159</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.dissolve_edges" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">dissolve_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.14159</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_preserve_quads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.dissolve_edges" title="Link to this definition"></a></dt>
 <dd><p>Dissolve edges, merging faces</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -919,6 +919,7 @@ Interior Fit – Only move vertices towards the center.</p></li>
 <li><p><strong>use_verts</strong> (<em>bool</em>) – Dissolve Vertices, Dissolve remaining vertices which connect to only two edges (optional)</p></li>
 <li><p><strong>angle_threshold</strong> (<em>float</em>) – Angle Threshold, Remaining vertices which separate edge pairs are preserved if their edge angle exceeds this threshold. (in [0, 3.14159], optional)</p></li>
 <li><p><strong>use_face_split</strong> (<em>bool</em>) – Face Split, Split off face corners to maintain surrounding geometry (optional)</p></li>
+<li><p><strong>use_preserve_quads</strong> (<em>bool</em>) – Preserve Quads, When dissolving the edge between two triangles, don’t dissolve vertices (optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -970,13 +971,14 @@ Interior Fit – Only move vertices towards the center.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.dissolve_mode">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">dissolve_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.14159</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_boundary_tear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.dissolve_mode" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">dissolve_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_verts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.14159</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_preserve_quads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_face_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_boundary_tear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.dissolve_mode" title="Link to this definition"></a></dt>
 <dd><p>Dissolve geometry based on the selection mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>use_verts</strong> (<em>bool</em>) – Dissolve Vertices, Dissolve remaining vertices which connect to only two edges (optional)</p></li>
 <li><p><strong>angle_threshold</strong> (<em>float</em>) – Angle Threshold, Remaining vertices which separate edge pairs are preserved if their edge angle exceeds this threshold. (in [0, 3.14159], optional)</p></li>
+<li><p><strong>use_preserve_quads</strong> (<em>bool</em>) – Preserve Quads, When dissolving the edge between two triangles, don’t dissolve vertices (optional)</p></li>
 <li><p><strong>use_face_split</strong> (<em>bool</em>) – Face Split, Split off face corners to maintain surrounding geometry (optional)</p></li>
 <li><p><strong>use_boundary_tear</strong> (<em>bool</em>) – Tear Boundary, Split off face corners instead of merging faces (optional)</p></li>
 </ul>
@@ -4080,7 +4082,7 @@ Reverse – Reverse current order of selected elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
       </span></p>
   </div>
 

@@ -144,6 +144,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">BlendData(bpy_struct)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.BlendData"><code class="docutils literal notranslate"><span class="pre">BlendData</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.BlendData.actions"><code class="docutils literal notranslate"><span class="pre">BlendData.actions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.BlendData.all_ids"><code class="docutils literal notranslate"><span class="pre">BlendData.all_ids</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.BlendData.annotations"><code class="docutils literal notranslate"><span class="pre">BlendData.annotations</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.BlendData.armatures"><code class="docutils literal notranslate"><span class="pre">BlendData.armatures</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.BlendData.brushes"><code class="docutils literal notranslate"><span class="pre">BlendData.brushes</span></code></a></li>
@@ -313,6 +314,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionChildren.html">CollectionChildren(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionExport.html">CollectionExport(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionExports.html">CollectionExports(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionImport.html">CollectionImport(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionLightLinking.html">CollectionLightLinking(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionObject.html">CollectionObject(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionObjects.html">CollectionObjects(bpy_prop_collection)</a></li>
@@ -335,6 +337,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeAlphaOver.html">CompositorNodeAlphaOver(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeAntiAliasing.html">CompositorNodeAntiAliasing(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBilateralblur.html">CompositorNodeBilateralblur(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBlankImage.html">CompositorNodeBlankImage(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBlur.html">CompositorNodeBlur(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBokehBlur.html">CompositorNodeBokehBlur(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBokehImage.html">CompositorNodeBokehImage(CompositorNode)</a></li>
@@ -2046,6 +2049,17 @@
 </dd></dl>
 
 <dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.BlendData.all_ids">
+<span class="sig-name descname"><span class="pre">all_ids</span></span><a class="headerlink" href="#bpy.types.BlendData.all_ids" title="Link to this definition"></a></dt>
+<dd><p>Read-only list of all IDs listed in Blender data-base (default None, readonly)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code></a>[<a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.BlendData.annotations">
 <span class="sig-name descname"><span class="pre">annotations</span></span><a class="headerlink" href="#bpy.types.BlendData.annotations" title="Link to this definition"></a></dt>
 <dd><p>Annotation data-blocks (legacy Grease Pencil) (default None, readonly)</p>
@@ -2638,14 +2652,14 @@ ID collections), but less safe/versatile (it can break Blender, e.g. by removing
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.BlendData.orphans_purge">
-<span class="sig-name descname"><span class="pre">orphans_purge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.BlendData.orphans_purge" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">orphans_purge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_local_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_linked_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.BlendData.orphans_purge" title="Link to this definition"></a></dt>
 <dd><p>Remove (delete) all IDs with no user.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>do_local_ids</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include unused local IDs in the deletion, defaults to True</p></li>
-<li><p><strong>do_linked_ids</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include unused linked IDs in the deletion, defaults to True</p></li>
-<li><p><strong>do_recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Recursively check for unused IDs, ensuring no orphaned one remain after a single run of that function, defaults to False</p></li>
+<li><p><strong>do_local_ids</strong> (<em>bool</em>) – Include unused local IDs in the deletion, defaults to True</p></li>
+<li><p><strong>do_linked_ids</strong> (<em>bool</em>) – Include unused linked IDs in the deletion, defaults to True</p></li>
+<li><p><strong>do_recursive</strong> (<em>bool</em>) – Recursively check for unused IDs, ensuring no orphaned one remain after a single run of that function, defaults to False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2763,7 +2777,7 @@ ID collections), but less safe/versatile (it can break Blender, e.g. by removing
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
       </span></p>
   </div>
 

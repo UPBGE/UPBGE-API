@@ -251,6 +251,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionChildren.html">CollectionChildren(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionExport.html">CollectionExport(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionExports.html">CollectionExports(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionImport.html">CollectionImport(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionLightLinking.html">CollectionLightLinking(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionObject.html">CollectionObject(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionObjects.html">CollectionObjects(bpy_prop_collection)</a></li>
@@ -273,6 +274,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeAlphaOver.html">CompositorNodeAlphaOver(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeAntiAliasing.html">CompositorNodeAntiAliasing(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBilateralblur.html">CompositorNodeBilateralblur(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBlankImage.html">CompositorNodeBlankImage(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBlur.html">CompositorNodeBlur(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBokehBlur.html">CompositorNodeBokehBlur(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBokehImage.html">CompositorNodeBokehImage(CompositorNode)</a></li>
@@ -1394,6 +1396,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.audio_sample_format"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.audio_sample_format</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.audio_sample_rate"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.audio_sample_rate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.dpi"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.dpi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.geometry_nodes_stack_limit"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.geometry_nodes_stack_limit</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.gl_clip_alpha"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.gl_clip_alpha</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.gl_texture_limit"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.gl_texture_limit</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.gpu_backend"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.gpu_backend</span></code></a></li>
@@ -2155,6 +2158,17 @@ None – No device - there will be no audio output.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.PreferencesSystem.geometry_nodes_stack_limit">
+<span class="sig-name descname"><span class="pre">geometry_nodes_stack_limit</span></span><a class="headerlink" href="#bpy.types.PreferencesSystem.geometry_nodes_stack_limit" title="Link to this definition"></a></dt>
+<dd><p>Approximate maximum size of the call stack used by Geometry Nodes. For example, this corresponds to the number of allowed nested node groups. Setting this too high can result in crashes caused by running out of stack memory. (in [1, inf], default 100)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.PreferencesSystem.gl_clip_alpha">
 <span class="sig-name descname"><span class="pre">gl_clip_alpha</span></span><a class="headerlink" href="#bpy.types.PreferencesSystem.gl_clip_alpha" title="Link to this definition"></a></dt>
 <dd><p>Clip alpha below this threshold in the 3D textured view (in [0, 1], default 0.004)</p>
@@ -2636,7 +2650,7 @@ Single Pass Anti-Aliasing – Scene will be rendered using a single pass anti-al
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
       </span></p>
   </div>
 

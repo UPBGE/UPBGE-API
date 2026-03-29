@@ -781,8 +781,16 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.AnimateableProperty">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">AnimateableProperty</span></span><a class="headerlink" href="#aud.AnimateableProperty" title="Link to this definition"></a></dt>
-<dd><p>An AnimateableProperty object stores an array of float values for animating sound properties (e.g. pan, volume, pitch-scale)</p>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">AnimateableProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.AnimateableProperty" title="Link to this definition"></a></dt>
+<dd><p>An AnimateableProperty object stores an array of float values for animating sound properties (e.g. pan, volume, pitch-scale).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>count</strong> (<em>int</em>) – The number of float values to store per frame.</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – The initial value for all elements.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aud.AnimateableProperty.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.AnimateableProperty.read" title="Link to this definition"></a></dt>
@@ -864,8 +872,20 @@ the values are written starting at <cite>position</cite>.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.Device">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#aud.Device" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">48000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">36</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.Device" title="Link to this definition"></a></dt>
 <dd><p>Device objects represent an audio output backend like OpenAL or SDL, but might also represent a file output or RAM buffer output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>string</em>) – The device type. An empty string means the default device.</p></li>
+<li><p><strong>rate</strong> (<em>double</em>) – The sample rate in Hz.</p></li>
+<li><p><strong>channels</strong> (<em>int</em>) – The number of channels.</p></li>
+<li><p><strong>format</strong> (<em>int</em>) – The sample format.</p></li>
+<li><p><strong>buffer_size</strong> (<em>int</em>) – The size of the audio buffer in samples.</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – The name of the device.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aud.Device.lock">
 <span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aud.Device.lock" title="Link to this definition"></a></dt>
@@ -989,9 +1009,14 @@ The speed of sound in air is typically 343.3 m/s.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.DynamicMusic">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">DynamicMusic</span></span><a class="headerlink" href="#aud.DynamicMusic" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">DynamicMusic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.DynamicMusic" title="Link to this definition"></a></dt>
 <dd><p>The DynamicMusic object allows to play music depending on a current scene, scene changes are managed by the class, with the possibility of custom transitions.
-The default transition is a crossfade effect, and the default scene is silent and has id 0</p>
+The default transition is a crossfade effect, and the default scene is silent and has id 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="#aud.Device" title="aud.Device"><code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code></a>) – The device that will be used to play sounds.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aud.DynamicMusic.addScene">
 <span class="sig-name descname"><span class="pre">addScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.DynamicMusic.addScene" title="Link to this definition"></a></dt>
@@ -1107,7 +1132,7 @@ The default transition is a crossfade effect, and the default scene is silent an
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.HRTF">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">HRTF</span></span><a class="headerlink" href="#aud.HRTF" title="Link to this definition"></a></dt>
-<dd><p>An HRTF object represents a set of head related transfer functions as impulse responses. It’s used for binaural sound</p>
+<dd><p>An HRTF object represents a set of head related transfer functions as impulse responses. It’s used for binaural sound.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="aud.HRTF.loadLeftHrtfSet">
 <span class="sig-name descname"><span class="pre">loadLeftHrtfSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.HRTF.loadLeftHrtfSet" title="Link to this definition"></a></dt>
@@ -1369,14 +1394,24 @@ This can be used to seek the sound to some position and start playback again.</p
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.ImpulseResponse">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">ImpulseResponse</span></span><a class="headerlink" href="#aud.ImpulseResponse" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">ImpulseResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sound</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.ImpulseResponse" title="Link to this definition"></a></dt>
 <dd><p>An ImpulseResponse object represents a filter with which to convolve a sound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sound</strong> (<a class="reference internal" href="#aud.Sound" title="aud.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sound</span></code></a>) – The sound to use as the impulse response.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.PlaybackManager">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">PlaybackManager</span></span><a class="headerlink" href="#aud.PlaybackManager" title="Link to this definition"></a></dt>
-<dd><p>A PlabackManager object allows to easily control groups os sounds organized in categories.</p>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">PlaybackManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.PlaybackManager" title="Link to this definition"></a></dt>
+<dd><p>A PlaybackManager object allows to easily control groups of sounds organized in categories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="#aud.Device" title="aud.Device"><code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code></a>) – The device that will be used to play sounds.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aud.PlaybackManager.addCategory">
 <span class="sig-name descname"><span class="pre">addCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.PlaybackManager.addCategory" title="Link to this definition"></a></dt>
@@ -1513,8 +1548,18 @@ if it doesn’t exist, a new one will be created.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.Sequence">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Sequence</span></span><a class="headerlink" href="#aud.Sequence" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">48000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">muted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.Sequence" title="Link to this definition"></a></dt>
 <dd><p>This sound represents sequenced entries to play a sound sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channels</strong> (<em>int</em>) – The number of channels.</p></li>
+<li><p><strong>rate</strong> (<em>double</em>) – The sample rate in Hz.</p></li>
+<li><p><strong>fps</strong> (<em>float</em>) – The frames per second of the sequence.</p></li>
+<li><p><strong>muted</strong> (<em>bool</em>) – Whether the sequence is muted.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aud.Sequence.add">
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aud.Sequence.add" title="Link to this definition"></a></dt>
@@ -1750,8 +1795,17 @@ At this distance the volume will be exactly <code class="xref py py-attr docutil
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.Sound">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Sound</span></span><a class="headerlink" href="#aud.Sound" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Sound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.Sound" title="Link to this definition"></a></dt>
 <dd><p>Sound objects are immutable and represent a sound that can be played simultaneously multiple times. They are called factories because they create reader objects internally that are used for playback.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>string</em>) – Path of the file.</p></li>
+<li><p><strong>stream</strong> (<em>int</em>) – The index of the audio stream within the file if it
+contains multiple audio streams, 0 by default.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aud.Sound.buffer">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.Sound.buffer" title="Link to this definition"></a></dt>
@@ -2609,8 +2663,17 @@ non-zero.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.Source">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Source</span></span><a class="headerlink" href="#aud.Source" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">Source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azimuth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.Source" title="Link to this definition"></a></dt>
 <dd><p>The source object represents the source position of a binaural sound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>azimuth</strong> (<em>float</em>) – The azimuth angle in degrees.</p></li>
+<li><p><strong>elevation</strong> (<em>float</em>) – The elevation angle in degrees.</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – The distance of the source.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="aud.Source.azimuth">
 <span class="sig-name descname"><span class="pre">azimuth</span></span><a class="headerlink" href="#aud.Source.azimuth" title="Link to this definition"></a></dt>
@@ -2633,8 +2696,13 @@ non-zero.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aud.ThreadPool">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">ThreadPool</span></span><a class="headerlink" href="#aud.ThreadPool" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">aud.</span></span><span class="sig-name descname"><span class="pre">ThreadPool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nThreads</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aud.ThreadPool" title="Link to this definition"></a></dt>
 <dd><p>A ThreadPool is used to parallelize convolution efficiently.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nThreads</strong> (<em>int</em>) – The number of threads in the pool.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
@@ -2657,7 +2725,7 @@ non-zero.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
       </span></p>
   </div>
 

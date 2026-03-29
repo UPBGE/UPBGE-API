@@ -251,6 +251,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionChildren.html">CollectionChildren(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionExport.html">CollectionExport(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionExports.html">CollectionExports(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionImport.html">CollectionImport(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionLightLinking.html">CollectionLightLinking(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionObject.html">CollectionObject(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CollectionObjects.html">CollectionObjects(bpy_prop_collection)</a></li>
@@ -273,6 +274,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeAlphaOver.html">CompositorNodeAlphaOver(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeAntiAliasing.html">CompositorNodeAntiAliasing(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBilateralblur.html">CompositorNodeBilateralblur(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBlankImage.html">CompositorNodeBlankImage(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBlur.html">CompositorNodeBlur(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBokehBlur.html">CompositorNodeBokehBlur(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeBokehImage.html">CompositorNodeBokehImage(CompositorNode)</a></li>
@@ -1707,7 +1709,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Strip.show_retiming_keys"><code class="docutils literal notranslate"><span class="pre">Strip.show_retiming_keys</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Strip.type"><code class="docutils literal notranslate"><span class="pre">Strip.type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Strip.use_default_fade"><code class="docutils literal notranslate"><span class="pre">Strip.use_default_fade</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.Strip.use_linear_modifiers"><code class="docutils literal notranslate"><span class="pre">Strip.use_linear_modifiers</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Strip.bl_system_properties_get"><code class="docutils literal notranslate"><span class="pre">Strip.bl_system_properties_get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Strip.strip_elem_from_frame"><code class="docutils literal notranslate"><span class="pre">Strip.strip_elem_from_frame()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.Strip.swap"><code class="docutils literal notranslate"><span class="pre">Strip.swap()</span></code></a></li>
@@ -2111,10 +2112,10 @@
 </dl>
 </dd></dl>
 
-<dl class="py data">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Strip.duration">
 <span class="sig-name descname"><span class="pre">duration</span></span><a class="headerlink" href="#bpy.types.Strip.duration" title="Link to this definition"></a></dt>
-<dd><p>Length of the strip in frames from left handle to right handle (in [-inf, inf], default 0, readonly)</p>
+<dd><p>Length of the strip in frames from left handle to right handle (in [-inf, inf], default 0)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -2151,7 +2152,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.Strip.frame_final_duration">
 <span class="sig-name descname"><span class="pre">frame_final_duration</span></span><a class="headerlink" href="#bpy.types.Strip.frame_final_duration" title="Link to this definition"></a></dt>
-<dd><p>The length of the contents of this strip after the handles are applied (in [1, 1048574], default 0)</p>
+<dd><p>The length of the contents of this strip after the handles are applied (in [-inf, inf], default 0)</p>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 5.10: </span>removal planned in version 6.0</p>
 <p>Replaced by ‘.duration’.</p>
@@ -2385,17 +2386,6 @@
 <dt class="sig sig-object py" id="bpy.types.Strip.use_default_fade">
 <span class="sig-name descname"><span class="pre">use_default_fade</span></span><a class="headerlink" href="#bpy.types.Strip.use_default_fade" title="Link to this definition"></a></dt>
 <dd><p>Fade effect using the built-in default (usually makes the transition as long as the effect strip) (default False)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.Strip.use_linear_modifiers">
-<span class="sig-name descname"><span class="pre">use_linear_modifiers</span></span><a class="headerlink" href="#bpy.types.Strip.use_linear_modifiers" title="Link to this definition"></a></dt>
-<dd><p>Calculate modifiers in linear space instead of sequencer’s space (default False)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2670,7 +2660,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6cd67edd2350>6cd67edd2350</a> - 20/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
       </span></p>
   </div>
 
