@@ -727,6 +727,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRaycast.html">GeometryNodeRaycast(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRealizeInstances.html">GeometryNodeRealizeInstances(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRemoveAttribute.html">GeometryNodeRemoveAttribute(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRenameAttribute.html">GeometryNodeRenameAttribute(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRepeatInput.html">GeometryNodeRepeatInput(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRepeatOutput.html">GeometryNodeRepeatOutput(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeReplaceMaterial.html">GeometryNodeReplaceMaterial(GeometryNode)</a></li>
@@ -1314,6 +1315,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierDataBlock.html">NodesModifierDataBlock(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPanel.html">NodesModifierPanel(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPanels.html">NodesModifierPanels(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierProperties.html">NodesModifierProperties(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPropertiesEmpty.html">NodesModifierPropertiesEmpty(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierWarning.html">NodesModifierWarning(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NoiseTexture.html">NoiseTexture(Texture)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NorController.html">NorController(Controller)</a></li>
@@ -1408,6 +1411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesFilePaths.temporary_directory"><code class="docutils literal notranslate"><span class="pre">PreferencesFilePaths.temporary_directory</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesFilePaths.text_editor"><code class="docutils literal notranslate"><span class="pre">PreferencesFilePaths.text_editor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesFilePaths.text_editor_args"><code class="docutils literal notranslate"><span class="pre">PreferencesFilePaths.text_editor_args</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesFilePaths.texture_cache_directory"><code class="docutils literal notranslate"><span class="pre">PreferencesFilePaths.texture_cache_directory</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesFilePaths.texture_directory"><code class="docutils literal notranslate"><span class="pre">PreferencesFilePaths.texture_directory</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesFilePaths.use_auto_save_temporary_files"><code class="docutils literal notranslate"><span class="pre">PreferencesFilePaths.use_auto_save_temporary_files</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesFilePaths.use_extension_online_access_handled"><code class="docutils literal notranslate"><span class="pre">PreferencesFilePaths.use_extension_online_access_handled</span></code></a></li>
@@ -1498,6 +1502,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RenderViews.html">RenderViews(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RepeatItem.html">RepeatItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RepeatZoneViewerPathElem.html">RepeatZoneViewerPathElem(ViewerPathElem)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.Report.html">Report(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RetimingKey.html">RetimingKey(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RetimingKeys.html">RetimingKeys(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RigidBodyConstraint.html">RigidBodyConstraint(bpy_struct)</a></li>
@@ -2298,6 +2303,17 @@ Example: -f $filepath -l $line -c $column</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.PreferencesFilePaths.texture_cache_directory">
+<span class="sig-name descname"><span class="pre">texture_cache_directory</span></span><a class="headerlink" href="#bpy.types.PreferencesFilePaths.texture_cache_directory" title="Link to this definition"></a></dt>
+<dd><p>The directory for storing tx files generated from image files, for more efficient rendering. Paths may be absolute, or relative to the image file. Leave blank to store tx files in the same directory as image files (default “”, never None, blend relative <code class="docutils literal notranslate"><span class="pre">//</span></code> prefix supported)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.PreferencesFilePaths.texture_directory">
 <span class="sig-name descname"><span class="pre">texture_directory</span></span><a class="headerlink" href="#bpy.types.PreferencesFilePaths.texture_directory" title="Link to this definition"></a></dt>
 <dd><p>The default directory to search for textures (default “”, never None, blend relative <code class="docutils literal notranslate"><span class="pre">//</span></code> prefix supported)</p>
@@ -2502,7 +2518,7 @@ Warning: Sculpt and edit mode data won’t be saved</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e6ba7651fcc4>e6ba7651fcc4</a> - 04/04/2026</code>.
       </span></p>
   </div>
 

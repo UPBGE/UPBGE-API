@@ -727,6 +727,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRaycast.html">GeometryNodeRaycast(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRealizeInstances.html">GeometryNodeRealizeInstances(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRemoveAttribute.html">GeometryNodeRemoveAttribute(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRenameAttribute.html">GeometryNodeRenameAttribute(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRepeatInput.html">GeometryNodeRepeatInput(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRepeatOutput.html">GeometryNodeRepeatOutput(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeReplaceMaterial.html">GeometryNodeReplaceMaterial(GeometryNode)</a></li>
@@ -1321,9 +1322,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.open_output_attributes_panel"><code class="docutils literal notranslate"><span class="pre">NodesModifier.open_output_attributes_panel</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.open_warnings_panel"><code class="docutils literal notranslate"><span class="pre">NodesModifier.open_warnings_panel</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.panels"><code class="docutils literal notranslate"><span class="pre">NodesModifier.panels</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.properties"><code class="docutils literal notranslate"><span class="pre">NodesModifier.properties</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.show_group_selector"><code class="docutils literal notranslate"><span class="pre">NodesModifier.show_group_selector</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.show_manage_panel"><code class="docutils literal notranslate"><span class="pre">NodesModifier.show_manage_panel</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.bl_system_properties_get"><code class="docutils literal notranslate"><span class="pre">NodesModifier.bl_system_properties_get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.is_input_visible"><code class="docutils literal notranslate"><span class="pre">NodesModifier.is_input_visible()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.is_input_used"><code class="docutils literal notranslate"><span class="pre">NodesModifier.is_input_used()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodesModifier.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">NodesModifier.bl_rna_get_subclass()</span></code></a></li>
@@ -1340,6 +1341,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierDataBlock.html">NodesModifierDataBlock(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPanel.html">NodesModifierPanel(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPanels.html">NodesModifierPanels(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierProperties.html">NodesModifierProperties(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPropertiesEmpty.html">NodesModifierPropertiesEmpty(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierWarning.html">NodesModifierWarning(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NoiseTexture.html">NoiseTexture(Texture)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NorController.html">NorController(Controller)</a></li>
@@ -1483,6 +1486,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RenderViews.html">RenderViews(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RepeatItem.html">RepeatItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RepeatZoneViewerPathElem.html">RepeatZoneViewerPathElem(ViewerPathElem)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.Report.html">Report(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RetimingKey.html">RetimingKey(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RetimingKeys.html">RetimingKeys(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RigidBodyConstraint.html">RigidBodyConstraint(bpy_struct)</a></li>
@@ -2137,6 +2141,17 @@ Disk – Store the baked data in a directory on disk.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.NodesModifier.properties">
+<span class="sig-name descname"><span class="pre">properties</span></span><a class="headerlink" href="#bpy.types.NodesModifier.properties" title="Link to this definition"></a></dt>
+<dd><p>(readonly)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.NodesModifierProperties.html#bpy.types.NodesModifierProperties" title="bpy.types.NodesModifierProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodesModifierProperties</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.NodesModifier.show_group_selector">
 <span class="sig-name descname"><span class="pre">show_group_selector</span></span><a class="headerlink" href="#bpy.types.NodesModifier.show_group_selector" title="Link to this definition"></a></dt>
@@ -2155,23 +2170,6 @@ Disk – Store the baked data in a directory on disk.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.NodesModifier.bl_system_properties_get">
-<span class="sig-name descname"><span class="pre">bl_system_properties_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_create</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodesModifier.bl_system_properties_get" title="Link to this definition"></a></dt>
-<dd><p>DEBUG ONLY. Internal access to runtime-defined RNA data storage, intended solely for testing and debugging purposes. Do not access it in regular scripting work, and in particular, do not assume that it contains writable data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>do_create</strong> (<em>bool</em>) – Ensure that system properties are created if they do not exist yet (optional)</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The system properties root container, or None if there are no system properties stored in this data yet, and its creation was not requested</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyGroup</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2320,7 +2318,7 @@ Disk – Store the baked data in a directory on disk.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e6ba7651fcc4>e6ba7651fcc4</a> - 04/04/2026</code>.
       </span></p>
   </div>
 

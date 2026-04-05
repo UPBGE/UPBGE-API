@@ -727,6 +727,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRaycast.html">GeometryNodeRaycast(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRealizeInstances.html">GeometryNodeRealizeInstances(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRemoveAttribute.html">GeometryNodeRemoveAttribute(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRenameAttribute.html">GeometryNodeRenameAttribute(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRepeatInput.html">GeometryNodeRepeatInput(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeRepeatOutput.html">GeometryNodeRepeatOutput(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeReplaceMaterial.html">GeometryNodeReplaceMaterial(GeometryNode)</a></li>
@@ -1011,6 +1012,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaskLayer.alpha"><code class="docutils literal notranslate"><span class="pre">MaskLayer.alpha</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaskLayer.blend"><code class="docutils literal notranslate"><span class="pre">MaskLayer.blend</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaskLayer.falloff"><code class="docutils literal notranslate"><span class="pre">MaskLayer.falloff</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaskLayer.fill_solver"><code class="docutils literal notranslate"><span class="pre">MaskLayer.fill_solver</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaskLayer.hide"><code class="docutils literal notranslate"><span class="pre">MaskLayer.hide</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaskLayer.hide_render"><code class="docutils literal notranslate"><span class="pre">MaskLayer.hide_render</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaskLayer.hide_select"><code class="docutils literal notranslate"><span class="pre">MaskLayer.hide_select</span></code></a></li>
@@ -1336,6 +1338,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierDataBlock.html">NodesModifierDataBlock(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPanel.html">NodesModifierPanel(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPanels.html">NodesModifierPanels(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierProperties.html">NodesModifierProperties(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierPropertiesEmpty.html">NodesModifierPropertiesEmpty(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodesModifierWarning.html">NodesModifierWarning(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NoiseTexture.html">NoiseTexture(Texture)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NorController.html">NorController(Controller)</a></li>
@@ -1479,6 +1483,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RenderViews.html">RenderViews(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RepeatItem.html">RepeatItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RepeatZoneViewerPathElem.html">RepeatZoneViewerPathElem(ViewerPathElem)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.Report.html">Report(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RetimingKey.html">RetimingKey(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RetimingKeys.html">RetimingKeys(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RigidBodyConstraint.html">RigidBodyConstraint(bpy_struct)</a></li>
@@ -2030,6 +2035,23 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaskLayer.fill_solver">
+<span class="sig-name descname"><span class="pre">fill_solver</span></span><a class="headerlink" href="#bpy.types.MaskLayer.fill_solver" title="Link to this definition"></a></dt>
+<dd><p>Triangulation solver for filling 2D curves (default <code class="docutils literal notranslate"><span class="pre">'CDT'</span></code>)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SWEEP_LINE</span></code>
+Sweep Line – Fast without support for self-intersection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CDT</span></code>
+Delaunay – Constrained Delaunay Triangulation (CDT), robust with support for self-intersections.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Literal[‘SWEEP_LINE’, ‘CDT’]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.MaskLayer.hide">
 <span class="sig-name descname"><span class="pre">hide</span></span><a class="headerlink" href="#bpy.types.MaskLayer.hide" title="Link to this definition"></a></dt>
 <dd><p>Restrict visibility in the viewport (default False)</p>
@@ -2120,7 +2142,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.MaskLayer.use_fill_overlap">
 <span class="sig-name descname"><span class="pre">use_fill_overlap</span></span><a class="headerlink" href="#bpy.types.MaskLayer.use_fill_overlap" title="Link to this definition"></a></dt>
-<dd><p>Calculate self intersections and overlap before filling (default False)</p>
+<dd><p>Calculate self intersections and overlap before filling (only for the sweep-line solver) (default False)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2235,7 +2257,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/17c62bb8ba1e>17c62bb8ba1e</a> - 27/03/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e6ba7651fcc4>e6ba7651fcc4</a> - 04/04/2026</code>.
       </span></p>
   </div>
 
