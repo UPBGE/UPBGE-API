@@ -1250,27 +1250,49 @@ Subtract – Subtract existing selection.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.select_linked">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">select_linked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_linked" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">select_linked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_linked" title="Link to this definition"></a></dt>
 <dd><p>Select all UV vertices linked to the active UV map</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Result of the operator call.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delimit</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'SEAM'</em><em>, </em><em>'SHARP'</em><em>, </em><em>'MATERIAL'</em><em>]</em><em>]</em>) – <p>Delimit, Delimit selection when selecting linked UVs (optional)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SEAM</span></code>
+Seam – Delimit by edge seams.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHARP</span></code>
+Sharp – Delimit by sharp edges.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MATERIAL</span></code>
+Material – Delimit by face material.</p></li>
+</ul>
+</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.select_linked_pick">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">select_linked_pick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_linked_pick" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">select_linked_pick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deselect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">set()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_linked_pick" title="Link to this definition"></a></dt>
 <dd><p>Select all UV vertices linked under the mouse</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection rather than clearing the existing selection (optional)</p></li>
 <li><p><strong>deselect</strong> (<em>bool</em>) – Deselect, Deselect linked UV vertices rather than selecting them (optional)</p></li>
+<li><p><strong>delimit</strong> (<em>set</em><em>[</em><em>Literal</em><em>[</em><em>'SEAM'</em><em>, </em><em>'SHARP'</em><em>, </em><em>'MATERIAL'</em><em>]</em><em>]</em>) – <p>Delimit, Delimit selection when selecting linked UVs (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SEAM</span></code>
+Seam – Delimit by edge seams.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHARP</span></code>
+Sharp – Delimit by sharp edges.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MATERIAL</span></code>
+Material – Delimit by face material.</p></li>
+</ul>
+</p></li>
 <li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Mouse location in normalized coordinates, 0.0 to 1.0 is within the image bounds (array of 2 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
@@ -1713,7 +1735,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e6ba7651fcc4>e6ba7651fcc4</a> - 04/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0abd9d979a5>e0abd9d979a5</a> - 10/04/2026</code>.
       </span></p>
   </div>
 
