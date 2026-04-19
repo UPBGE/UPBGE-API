@@ -1511,6 +1511,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequenceTimelineChannel.html">SequenceTimelineChannel(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCacheOverlay.html">SequencerCacheOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCompositorModifierData.html">SequencerCompositorModifierData(StripModifier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCompositorModifierProperties.html">SequencerCompositorModifierProperties(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCompositorModifierPropertiesEmpty.html">SequencerCompositorModifierPropertiesEmpty(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerPreviewOverlay.html">SequencerPreviewOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerTimelineOverlay.html">SequencerTimelineOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerTonemapModifierData.html">SequencerTonemapModifierData(StripModifier)</a></li>
@@ -1727,6 +1729,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextCurve.html">TextCurve(Curve)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextLine.html">TextLine(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextStrip.html">TextStrip(EffectStrip)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.TextboxState.html">TextboxState(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Texture.html">Texture(ID)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextureNode.html">TextureNode(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextureNodeAt.html">TextureNodeAt(TextureNode)</a></li>
@@ -1949,6 +1952,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_loaded_new_assets"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_loaded_new_assets()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_finished_loading"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_finished_loading()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_failed_loading"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_failed_loading()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.register_node_group_operators"><code class="docutils literal notranslate"><span class="pre">WindowManager.register_node_group_operators()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.popover"><code class="docutils literal notranslate"><span class="pre">WindowManager.popover()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.popup_menu"><code class="docutils literal notranslate"><span class="pre">WindowManager.popup_menu()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.WindowManager.popup_menu_pie"><code class="docutils literal notranslate"><span class="pre">WindowManager.popup_menu_pie()</span></code></a></li>
@@ -2824,6 +2828,12 @@ to ensure the context is still valid.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.WindowManager.register_node_group_operators">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">register_node_group_operators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.register_node_group_operators" title="Link to this definition"></a></dt>
+<dd><p>Trigger manual re-registration of node group operators. Useful in background mode where this doesn’t happen automatically.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.popover">
 <span class="sig-name descname"><span class="pre">popover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">ui_units_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keymap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_active_button</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.popover" title="Link to this definition"></a></dt>
 <dd></dd></dl>
@@ -3031,7 +3041,7 @@ It gets the specified arguments as input with the mouse position (<code class="d
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0abd9d979a5>e0abd9d979a5</a> - 10/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e82b46c62540>e82b46c62540</a> - 17/04/2026</code>.
       </span></p>
   </div>
 

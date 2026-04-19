@@ -1531,6 +1531,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequenceTimelineChannel.html">SequenceTimelineChannel(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCacheOverlay.html">SequencerCacheOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCompositorModifierData.html">SequencerCompositorModifierData(StripModifier)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCompositorModifierProperties.html">SequencerCompositorModifierProperties(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerCompositorModifierPropertiesEmpty.html">SequencerCompositorModifierPropertiesEmpty(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerPreviewOverlay.html">SequencerPreviewOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerTimelineOverlay.html">SequencerTimelineOverlay(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.SequencerTonemapModifierData.html">SequencerTonemapModifierData(StripModifier)</a></li>
@@ -1747,6 +1749,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextCurve.html">TextCurve(Curve)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextLine.html">TextLine(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextStrip.html">TextStrip(EffectStrip)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.TextboxState.html">TextboxState(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.Texture.html">Texture(ID)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextureNode.html">TextureNode(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.TextureNodeAt.html">TextureNodeAt(TextureNode)</a></li>
@@ -2060,7 +2063,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.FloatProperty.hard_max">
 <span class="sig-name descname"><span class="pre">hard_max</span></span><a class="headerlink" href="#bpy.types.FloatProperty.hard_max" title="Link to this definition"></a></dt>
-<dd><p>Maximum value used by buttons (in [-inf, inf], default 0.0, readonly)</p>
+<dd><p>Hard maximum, trying to assign a value above will silently assign this maximum instead (in [-inf, inf], default 0.0, readonly)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -2071,7 +2074,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.FloatProperty.hard_min">
 <span class="sig-name descname"><span class="pre">hard_min</span></span><a class="headerlink" href="#bpy.types.FloatProperty.hard_min" title="Link to this definition"></a></dt>
-<dd><p>Minimum value used by buttons (in [-inf, inf], default 0.0, readonly)</p>
+<dd><p>Hard minimum, trying to assign a value below will silently assign this minimum instead (in [-inf, inf], default 0.0, readonly)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -2104,7 +2107,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.FloatProperty.soft_max">
 <span class="sig-name descname"><span class="pre">soft_max</span></span><a class="headerlink" href="#bpy.types.FloatProperty.soft_max" title="Link to this definition"></a></dt>
-<dd><p>Maximum value used by buttons (in [-inf, inf], default 0.0, readonly)</p>
+<dd><p>Soft maximum (&lt;= hard_max), user cannot drag widgets above this value in the UI (in [-inf, inf], default 0.0, readonly)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -2115,7 +2118,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.FloatProperty.soft_min">
 <span class="sig-name descname"><span class="pre">soft_min</span></span><a class="headerlink" href="#bpy.types.FloatProperty.soft_min" title="Link to this definition"></a></dt>
-<dd><p>Minimum value used by buttons (in [-inf, inf], default 0.0, readonly)</p>
+<dd><p>Soft minimum (&gt;= hard_min), user cannot drag widgets below this value in the UI (in [-inf, inf], default 0.0, readonly)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -2263,7 +2266,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0abd9d979a5>e0abd9d979a5</a> - 10/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e82b46c62540>e82b46c62540</a> - 17/04/2026</code>.
       </span></p>
   </div>
 

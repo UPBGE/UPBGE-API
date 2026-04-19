@@ -94,6 +94,10 @@
 <li class="toctree-l1"><a class="reference internal" href="bmesh.html">BMesh Module (bmesh)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="bpy_extras.html">Extra Utilities (bpy_extras)</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">bpy_extras submodule (bpy_extras.anim_utils)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.action_get_channelbag_for_slot"><code class="docutils literal notranslate"><span class="pre">action_get_channelbag_for_slot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.action_get_first_suitable_slot"><code class="docutils literal notranslate"><span class="pre">action_get_first_suitable_slot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.action_ensure_channelbag_for_slot"><code class="docutils literal notranslate"><span class="pre">action_ensure_channelbag_for_slot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.animdata_get_channelbag_for_assigned_slot"><code class="docutils literal notranslate"><span class="pre">animdata_get_channelbag_for_assigned_slot()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.bake_action"><code class="docutils literal notranslate"><span class="pre">bake_action()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.bake_action_objects"><code class="docutils literal notranslate"><span class="pre">bake_action_objects()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bpy_extras.anim_utils.bake_action_iter"><code class="docutils literal notranslate"><span class="pre">bake_action_iter()</span></code></a></li>
@@ -160,6 +164,35 @@
              
   <section id="module-bpy_extras.anim_utils">
 <span id="bpy-extras-submodule-bpy-extras-anim-utils"></span><h1>bpy_extras submodule (bpy_extras.anim_utils)<a class="headerlink" href="#module-bpy_extras.anim_utils" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.action_get_channelbag_for_slot">
+<span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">action_get_channelbag_for_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><span class="pre">bpy.types.Action</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bpy.types.ActionSlot.html#bpy.types.ActionSlot" title="bpy.types.ActionSlot"><span class="pre">bpy.types.ActionSlot</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bpy.types.ActionChannelbag.html#bpy.types.ActionChannelbag" title="bpy.types.ActionChannelbag"><span class="pre">bpy.types.ActionChannelbag</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#bpy_extras.anim_utils.action_get_channelbag_for_slot" title="Link to this definition"></a></dt>
+<dd><p>Returns the first channelbag found for the slot.
+In case there are multiple layers or strips they are iterated until a
+channelbag for that slot is found. In case no matching channelbag is found, returns None.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.action_get_first_suitable_slot">
+<span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">action_get_first_suitable_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><span class="pre">bpy.types.Action</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_id_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bpy.types.ActionSlot.html#bpy.types.ActionSlot" title="bpy.types.ActionSlot"><span class="pre">bpy.types.ActionSlot</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#bpy_extras.anim_utils.action_get_first_suitable_slot" title="Link to this definition"></a></dt>
+<dd><p>Return the first Slot of the given Action that’s suitable for the given ID type.</p>
+<p>Typically you should not need this function; when an Action is assigned to a
+data-block, just use the slot that was assigned along with it.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.action_ensure_channelbag_for_slot">
+<span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">action_ensure_channelbag_for_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><span class="pre">bpy.types.Action</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bpy.types.ActionSlot.html#bpy.types.ActionSlot" title="bpy.types.ActionSlot"><span class="pre">bpy.types.ActionSlot</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bpy.types.ActionChannelbag.html#bpy.types.ActionChannelbag" title="bpy.types.ActionChannelbag"><span class="pre">bpy.types.ActionChannelbag</span></a></span></span><a class="headerlink" href="#bpy_extras.anim_utils.action_ensure_channelbag_for_slot" title="Link to this definition"></a></dt>
+<dd><p>Ensure a layer and a keyframe strip exists, then ensure that strip has a channelbag for the slot.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy_extras.anim_utils.animdata_get_channelbag_for_assigned_slot">
+<span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">animdata_get_channelbag_for_assigned_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">anim_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData" title="bpy.types.AnimData"><span class="pre">bpy.types.AnimData</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bpy.types.ActionChannelbag.html#bpy.types.ActionChannelbag" title="bpy.types.ActionChannelbag"><span class="pre">bpy.types.ActionChannelbag</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#bpy_extras.anim_utils.animdata_get_channelbag_for_assigned_slot" title="Link to this definition"></a></dt>
+<dd><p>Return the first channelbag used in the given <em>anim_data</em> or None if there is no Action
++ Slot combination defined.</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy_extras.anim_utils.bake_action">
 <span class="sig-prename descclassname"><span class="pre">bpy_extras.anim_utils.</span></span><span class="sig-name descname"><span class="pre">bake_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake_options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.anim_utils.bake_action" title="Link to this definition"></a></dt>
@@ -465,7 +498,7 @@ that’s not supported by the Copy Global Transform add-on).</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0abd9d979a5>e0abd9d979a5</a> - 10/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e82b46c62540>e82b46c62540</a> - 17/04/2026</code>.
       </span></p>
   </div>
 
