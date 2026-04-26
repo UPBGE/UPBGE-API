@@ -176,6 +176,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.select_all"><code class="docutils literal notranslate"><span class="pre">select_all()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.select_box"><code class="docutils literal notranslate"><span class="pre">select_box()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.select_by_winding"><code class="docutils literal notranslate"><span class="pre">select_by_winding()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.select_circle"><code class="docutils literal notranslate"><span class="pre">select_circle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.select_edge_ring"><code class="docutils literal notranslate"><span class="pre">select_edge_ring()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.uv.select_lasso"><code class="docutils literal notranslate"><span class="pre">select_lasso()</span></code></a></li>
@@ -453,12 +454,13 @@ Fixed – Preserve island order.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.uv.copy_mirrored_faces">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">copy_mirrored_faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POSITIVE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.copy_mirrored_faces" title="Link to this definition"></a></dt>
-<dd><p>Copy mirror UV coordinates on the X axis based on a mirrored mesh</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">copy_mirrored_faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POS_X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uv_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.copy_mirrored_faces" title="Link to this definition"></a></dt>
+<dd><p>Copy mirror UV coordinates based on a mirrored mesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>direction</strong> (<em>Literal</em><em>[</em><em>'POSITIVE'</em><em>, </em><em>'NEGATIVE'</em><em>]</em>) – Axis Direction, (optional)</p></li>
+<li><p><strong>mesh_axis</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/object_axis_flip_items.html#rna-enum-object-axis-flip-items"><span class="std std-ref">Object Axis Flip Items</span></a>]) – Mesh Axis, Mirror vertices based on mesh axis (optional)</p></li>
+<li><p><strong>uv_axis</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/axis_xy_items.html#rna-enum-axis-xy-items"><span class="std std-ref">Axis Xy Items</span></a>]) – UV Axis, Axis to mirror UV coordinates (optional)</p></li>
 <li><p><strong>precision</strong> (<em>int</em>) – Precision, Tolerance for finding vertex duplicates (in [1, 16], optional)</p></li>
 </ul>
 </dd>
@@ -1031,7 +1033,7 @@ Bounding Box – Uses bounding boxes.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>UV_OT_rip</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – UV Rip, Rip selected vertices or a selected region (optional, <a class="reference internal" href="#bpy.ops.uv.rip" title="bpy.ops.uv.rip"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.uv.rip()</span></code></a> keyword arguments)</p></li>
+<li><p><strong>UV_OT_rip</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Rip UVs, Rip selected vertices or a selected region (optional, <a class="reference internal" href="#bpy.ops.uv.rip" title="bpy.ops.uv.rip"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.uv.rip()</span></code></a> keyword arguments)</p></li>
 <li><p><strong>TRANSFORM_OT_translate</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Move, Move selected items (optional, <a class="reference internal" href="bpy.ops.transform.html#bpy.ops.transform.translate" title="bpy.ops.transform.translate"><code class="xref py py-func docutils literal notranslate"><span class="pre">bpy.ops.transform.translate()</span></code></a> keyword arguments)</p></li>
 </ul>
 </dd>
@@ -1139,6 +1141,26 @@ Extend – Extend existing selection.</p></li>
 Subtract – Subtract existing selection.</p></li>
 </ul>
 </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.uv.select_by_winding">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.uv.</span></span><span class="sig-name descname"><span class="pre">select_by_winding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">winding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NEGATIVE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_by_winding" title="Link to this definition"></a></dt>
+<dd><p>Select UV faces by their winding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>winding</strong> (<em>Literal</em><em>[</em><em>'POSITIVE'</em><em>, </em><em>'NEGATIVE'</em><em>]</em>) – Winding, Select faces with positive or negative winding (optional)</p></li>
+<li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection rather than clearing the existing selection (optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1735,7 +1757,7 @@ Fraction – Specify a precise fraction of final UV output.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e82b46c62540>e82b46c62540</a> - 17/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2558357af665>2558357af665</a> - 24/04/2026</code>.
       </span></p>
   </div>
 

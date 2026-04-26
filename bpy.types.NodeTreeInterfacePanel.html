@@ -350,6 +350,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSetAlpha.html">CompositorNodeSetAlpha(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSplit.html">CompositorNodeSplit(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeStabilize.html">CompositorNodeStabilize(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeStringToImage.html">CompositorNodeStringToImage(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSwitch.html">CompositorNodeSwitch(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSwitchView.html">CompositorNodeSwitchView(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeTime.html">CompositorNodeTime(CompositorNode)</a></li>
@@ -747,6 +748,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleIndex.html">GeometryNodeSampleIndex(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleNearest.html">GeometryNodeSampleNearest(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleNearestSurface.html">GeometryNodeSampleNearestSurface(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleSoundFrequencies.html">GeometryNodeSampleSoundFrequencies(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleUVSurface.html">GeometryNodeSampleUVSurface(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeScaleElements.html">GeometryNodeScaleElements(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeScaleInstances.html">GeometryNodeScaleInstances(GeometryNode)</a></li>
@@ -1150,6 +1152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodePanelState.html">NodePanelState(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundleItem.html">NodeSeparateBundleItem(bpy_struct)</a></li>
@@ -1244,6 +1247,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.NodeTreeInterfacePanel"><code class="docutils literal notranslate"><span class="pre">NodeTreeInterfacePanel</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodeTreeInterfacePanel.default_closed"><code class="docutils literal notranslate"><span class="pre">NodeTreeInterfacePanel.default_closed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodeTreeInterfacePanel.description"><code class="docutils literal notranslate"><span class="pre">NodeTreeInterfacePanel.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodeTreeInterfacePanel.identifier"><code class="docutils literal notranslate"><span class="pre">NodeTreeInterfacePanel.identifier</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodeTreeInterfacePanel.interface_items"><code class="docutils literal notranslate"><span class="pre">NodeTreeInterfacePanel.interface_items</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodeTreeInterfacePanel.name"><code class="docutils literal notranslate"><span class="pre">NodeTreeInterfacePanel.name</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.NodeTreeInterfacePanel.persistent_uid"><code class="docutils literal notranslate"><span class="pre">NodeTreeInterfacePanel.persistent_uid</span></code></a></li>
@@ -2035,6 +2039,17 @@
 </dd></dl>
 
 <dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.NodeTreeInterfacePanel.identifier">
+<span class="sig-name descname"><span class="pre">identifier</span></span><a class="headerlink" href="#bpy.types.NodeTreeInterfacePanel.identifier" title="Link to this definition"></a></dt>
+<dd><p>Unique identifier for this panel within this node tree (in [-inf, inf], default 0, readonly)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.NodeTreeInterfacePanel.interface_items">
 <span class="sig-name descname"><span class="pre">interface_items</span></span><a class="headerlink" href="#bpy.types.NodeTreeInterfacePanel.interface_items" title="Link to this definition"></a></dt>
 <dd><p>Items in the node panel (default None, readonly)</p>
@@ -2191,7 +2206,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e82b46c62540>e82b46c62540</a> - 17/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2558357af665>2558357af665</a> - 24/04/2026</code>.
       </span></p>
   </div>
 

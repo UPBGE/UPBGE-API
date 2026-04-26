@@ -350,6 +350,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSetAlpha.html">CompositorNodeSetAlpha(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSplit.html">CompositorNodeSplit(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeStabilize.html">CompositorNodeStabilize(CompositorNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeStringToImage.html">CompositorNodeStringToImage(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSwitch.html">CompositorNodeSwitch(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeSwitchView.html">CompositorNodeSwitchView(CompositorNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.CompositorNodeTime.html">CompositorNodeTime(CompositorNode)</a></li>
@@ -747,6 +748,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleIndex.html">GeometryNodeSampleIndex(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleNearest.html">GeometryNodeSampleNearest(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleNearestSurface.html">GeometryNodeSampleNearestSurface(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleSoundFrequencies.html">GeometryNodeSampleSoundFrequencies(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeSampleUVSurface.html">GeometryNodeSampleUVSurface(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeScaleElements.html">GeometryNodeScaleElements(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeScaleInstances.html">GeometryNodeScaleInstances(GeometryNode)</a></li>
@@ -1044,6 +1046,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.placement_density"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.placement_density</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.placement_mode"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.placement_mode</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.placement_radius_spacing"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.placement_radius_spacing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.random_hue_factor"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.random_hue_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.random_noise_scale"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.random_noise_scale</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.random_rotation_factor"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.random_rotation_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.random_saturation_factor"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.random_saturation_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.random_size_factor"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.random_size_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.random_strength_factor"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.random_strength_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.random_value_factor"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.random_value_factor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.show_fill"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.show_fill</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.show_stroke"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.show_stroke</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.stroke_image"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.stroke_image</span></code></a></li>
@@ -1054,6 +1063,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.texture_scale"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.texture_scale</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.use_fill_holdout"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.use_fill_holdout</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.use_overlap_strokes"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.use_overlap_strokes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.use_randomization"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.use_randomization</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.use_stroke_holdout"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.use_stroke_holdout</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.bl_rna_get_subclass()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.MaterialGPencilStyle.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">MaterialGPencilStyle.bl_rna_get_subclass_py()</span></code></a></li>
@@ -1194,6 +1204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeLinks.html">NodeLinks(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_prop_collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodePanelState.html">NodePanelState(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundleItem.html">NodeSeparateBundleItem(bpy_struct)</a></li>
@@ -2330,6 +2341,83 @@ Density – Place dots evenly along the length of the stroke.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.random_hue_factor">
+<span class="sig-name descname"><span class="pre">random_hue_factor</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.random_hue_factor" title="Link to this definition"></a></dt>
+<dd><p>Randomize color hue (in [0, 1], default 0.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.random_noise_scale">
+<span class="sig-name descname"><span class="pre">random_noise_scale</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.random_noise_scale" title="Link to this definition"></a></dt>
+<dd><p>Scale the noise frequency (in [0, inf], default 1.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.random_rotation_factor">
+<span class="sig-name descname"><span class="pre">random_rotation_factor</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.random_rotation_factor" title="Link to this definition"></a></dt>
+<dd><p>Randomize texture rotation (in [0, 1], default 0.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.random_saturation_factor">
+<span class="sig-name descname"><span class="pre">random_saturation_factor</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.random_saturation_factor" title="Link to this definition"></a></dt>
+<dd><p>Randomize color saturation (in [0, 1], default 0.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.random_size_factor">
+<span class="sig-name descname"><span class="pre">random_size_factor</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.random_size_factor" title="Link to this definition"></a></dt>
+<dd><p>Randomize the size (in [0, 1], default 0.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.random_strength_factor">
+<span class="sig-name descname"><span class="pre">random_strength_factor</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.random_strength_factor" title="Link to this definition"></a></dt>
+<dd><p>Randomize strength (in [0, 1], default 0.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.random_value_factor">
+<span class="sig-name descname"><span class="pre">random_value_factor</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.random_value_factor" title="Link to this definition"></a></dt>
+<dd><p>Randomize color value (in [0, 1], default 0.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.show_fill">
 <span class="sig-name descname"><span class="pre">show_fill</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.show_fill" title="Link to this definition"></a></dt>
 <dd><p>Show stroke fills of this material (default False)</p>
@@ -2453,6 +2541,17 @@ Texture – Draw strokes using texture.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.use_randomization">
+<span class="sig-name descname"><span class="pre">use_randomization</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.use_randomization" title="Link to this definition"></a></dt>
+<dd><p>Use materiel randomization (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.MaterialGPencilStyle.use_stroke_holdout">
 <span class="sig-name descname"><span class="pre">use_stroke_holdout</span></span><a class="headerlink" href="#bpy.types.MaterialGPencilStyle.use_stroke_holdout" title="Link to this definition"></a></dt>
 <dd><p>Remove the color from underneath this stroke by using it as a mask (default False)</p>
@@ -2567,7 +2666,7 @@ Texture – Draw strokes using texture.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e82b46c62540>e82b46c62540</a> - 17/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2558357af665>2558357af665</a> - 24/04/2026</code>.
       </span></p>
   </div>
 
