@@ -171,6 +171,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.fill"><code class="docutils literal notranslate"><span class="pre">fill()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.fill_grid"><code class="docutils literal notranslate"><span class="pre">fill_grid()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.fill_holes"><code class="docutils literal notranslate"><span class="pre">fill_holes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.flip_normals"><code class="docutils literal notranslate"><span class="pre">flip_normals()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.flip_quad_tessellation"><code class="docutils literal notranslate"><span class="pre">flip_quad_tessellation()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.hide"><code class="docutils literal notranslate"><span class="pre">hide()</span></code></a></li>
@@ -1560,6 +1561,36 @@ Faces &amp; Edges by Vertices – Split faces and edges connected to selected ve
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sides</strong> (<em>int</em>) – Sides, Number of sides in hole required to fill (zero fills all holes) (in [0, 1000], optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.mesh.flatten">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BEST_FIT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(False,</span> <span class="pre">False,</span> <span class="pre">False)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.flatten" title="Link to this definition"></a></dt>
+<dd><p>Flatten vertices on a best-fitting plane</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Force of the tool (in [0, 1], optional)</p></li>
+<li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'BEST_FIT'</em><em>, </em><em>'NORMAL'</em><em>, </em><em>'VIEW'</em><em>]</em>) – <p>Method, Plane on which vertices are flattened (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">BEST_FIT</span></code>
+Best Fit – Calculate a best fitting plane.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
+Normal – Derive plane by averaging face normals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VIEW</span></code>
+View – Flatten on a plane perpendicular to the viewing angle.</p></li>
+</ul>
+</p></li>
+<li><p><strong>lock</strong> (<em>Sequence</em><em>[</em><em>bool</em><em>]</em>) – Lock, Lock editing of the axis (array of 3 items, optional)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -4103,7 +4134,7 @@ Reverse – Reverse current order of selected elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2558357af665>2558357af665</a> - 24/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
       </span></p>
   </div>
 

@@ -663,6 +663,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputImage.html">GeometryNodeInputImage(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputIndex.html">GeometryNodeInputIndex(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceBounds.html">GeometryNodeInputInstanceBounds(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceReference.html">GeometryNodeInputInstanceReference(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceRotation.html">GeometryNodeInputInstanceRotation(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceScale.html">GeometryNodeInputInstanceScale(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputMaterial.html">GeometryNodeInputMaterial(GeometryNode)</a></li>
@@ -1153,6 +1154,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodePanelState.html">NodePanelState(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItem.html">NodeRaycastSampleAttributeItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItems.html">NodeRaycastSampleAttributeItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundleItem.html">NodeSeparateBundleItem(bpy_struct)</a></li>
@@ -1423,7 +1426,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.gpu_backend"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.gpu_backend</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.gpu_preferred_device"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.gpu_preferred_device</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.gpu_shader_workers"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.gpu_shader_workers</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.image_draw_method"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.image_draw_method</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.is_microsoft_store_install"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.is_microsoft_store_install</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.light_ambient"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.light_ambient</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesSystem.memory_cache_limit"><code class="docutils literal notranslate"><span class="pre">PreferencesSystem.memory_cache_limit</span></code></a></li>
@@ -2261,25 +2263,6 @@ Auto – Auto detect best GPU for running Blender.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.PreferencesSystem.image_draw_method">
-<span class="sig-name descname"><span class="pre">image_draw_method</span></span><a class="headerlink" href="#bpy.types.PreferencesSystem.image_draw_method" title="Link to this definition"></a></dt>
-<dd><p>Method used for displaying images on the screen (default <code class="docutils literal notranslate"><span class="pre">'AUTO'</span></code>)</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code>
-Automatic – Automatically choose method based on GPU and image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2DTEXTURE</span></code>
-2D Texture – Use CPU for display transform and display image with 2D texture.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GLSL</span></code>
-GLSL – Use GLSL shaders for display transform and display image with 2D texture.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Literal[‘AUTO’, ‘2DTEXTURE’, ‘GLSL’]</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py data">
 <dt class="sig sig-object py" id="bpy.types.PreferencesSystem.is_microsoft_store_install">
 <span class="sig-name descname"><span class="pre">is_microsoft_store_install</span></span><a class="headerlink" href="#bpy.types.PreferencesSystem.is_microsoft_store_install" title="Link to this definition"></a></dt>
@@ -2687,7 +2670,7 @@ Single Pass Anti-Aliasing – Scene will be rendered using a single pass anti-al
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2558357af665>2558357af665</a> - 24/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
       </span></p>
   </div>
 

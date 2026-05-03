@@ -663,6 +663,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputImage.html">GeometryNodeInputImage(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputIndex.html">GeometryNodeInputIndex(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceBounds.html">GeometryNodeInputInstanceBounds(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceReference.html">GeometryNodeInputInstanceReference(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceRotation.html">GeometryNodeInputInstanceRotation(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceScale.html">GeometryNodeInputInstanceScale(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputMaterial.html">GeometryNodeInputMaterial(GeometryNode)</a></li>
@@ -1153,6 +1154,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodePanelState.html">NodePanelState(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItem.html">NodeRaycastSampleAttributeItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItems.html">NodeRaycastSampleAttributeItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundleItem.html">NodeSeparateBundleItem(bpy_struct)</a></li>
@@ -1594,7 +1597,10 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ShaderNodeRadialTiling.html">ShaderNodeRadialTiling(ShaderNode)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ShaderNodeRaycast(ShaderNode)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast.active_index"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast.active_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast.active_item"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast.active_item</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast.only_local"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast.only_local</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast.sample_attribute_items"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast.sample_attribute_items</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast.is_registered_node_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast.input_template"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast.input_template()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.ShaderNodeRaycast.output_template"><code class="docutils literal notranslate"><span class="pre">ShaderNodeRaycast.output_template()</span></code></a></li>
@@ -2013,12 +2019,45 @@
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">ShaderNodeRaycast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ShaderNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ShaderNodeRaycast" title="Link to this definition"></a></dt>
 <dd><p>Cast rays and retrieve information from the hit point</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ShaderNodeRaycast.active_index">
+<span class="sig-name descname"><span class="pre">active_index</span></span><a class="headerlink" href="#bpy.types.ShaderNodeRaycast.active_index" title="Link to this definition"></a></dt>
+<dd><p>Index of the active item (in [0, inf], default 0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.ShaderNodeRaycast.active_item">
+<span class="sig-name descname"><span class="pre">active_item</span></span><a class="headerlink" href="#bpy.types.ShaderNodeRaycast.active_item" title="Link to this definition"></a></dt>
+<dd><p>Index of the active item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.RepeatItem.html#bpy.types.RepeatItem" title="bpy.types.RepeatItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepeatItem</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.ShaderNodeRaycast.only_local">
 <span class="sig-name descname"><span class="pre">only_local</span></span><a class="headerlink" href="#bpy.types.ShaderNodeRaycast.only_local" title="Link to this definition"></a></dt>
 <dd><p>Only raycast against the object itself (default False)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bpy.types.ShaderNodeRaycast.sample_attribute_items">
+<span class="sig-name descname"><span class="pre">sample_attribute_items</span></span><a class="headerlink" href="#bpy.types.ShaderNodeRaycast.sample_attribute_items" title="Link to this definition"></a></dt>
+<dd><p>(default None, readonly)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItems.html#bpy.types.NodeRaycastSampleAttributeItems" title="bpy.types.NodeRaycastSampleAttributeItems"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeRaycastSampleAttributeItems</span></code></a>[<a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItem.html#bpy.types.NodeRaycastSampleAttributeItem" title="bpy.types.NodeRaycastSampleAttributeItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeRaycastSampleAttributeItem</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2228,7 +2267,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2558357af665>2558357af665</a> - 24/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
       </span></p>
   </div>
 

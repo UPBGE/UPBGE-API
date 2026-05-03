@@ -663,6 +663,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputImage.html">GeometryNodeInputImage(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputIndex.html">GeometryNodeInputIndex(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceBounds.html">GeometryNodeInputInstanceBounds(GeometryNode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceReference.html">GeometryNodeInputInstanceReference(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceRotation.html">GeometryNodeInputInstanceRotation(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputInstanceScale.html">GeometryNodeInputInstanceScale(GeometryNode)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometryNodeInputMaterial.html">GeometryNodeInputMaterial(GeometryNode)</a></li>
@@ -1153,6 +1154,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeMenuSwitchItems.html">NodeMenuSwitchItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeOutputs.html">NodeOutputs(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodePanelState.html">NodePanelState(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItem.html">NodeRaycastSampleAttributeItem(bpy_struct)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeRaycastSampleAttributeItems.html">NodeRaycastSampleAttributeItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeReroute.html">NodeReroute(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundle.html">NodeSeparateBundle(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeSeparateBundleItem.html">NodeSeparateBundleItem(bpy_struct)</a></li>
@@ -1717,6 +1720,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.mute"><code class="docutils literal notranslate"><span class="pre">StripModifier.mute</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.name"><code class="docutils literal notranslate"><span class="pre">StripModifier.name</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.show_expanded"><code class="docutils literal notranslate"><span class="pre">StripModifier.show_expanded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.show_preview"><code class="docutils literal notranslate"><span class="pre">StripModifier.show_preview</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.type"><code class="docutils literal notranslate"><span class="pre">StripModifier.type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">StripModifier.bl_rna_get_subclass()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.StripModifier.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">StripModifier.bl_rna_get_subclass_py()</span></code></a></li>
@@ -2024,7 +2028,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.StripModifier.enable">
 <span class="sig-name descname"><span class="pre">enable</span></span><a class="headerlink" href="#bpy.types.StripModifier.enable" title="Link to this definition"></a></dt>
-<dd><p>Enable this modifier (default True)</p>
+<dd><p>Use modifier during render (default True)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2125,6 +2129,17 @@ Absolute – Mask animation is in sync with scene frame.</p></li>
 <dt class="sig sig-object py" id="bpy.types.StripModifier.show_expanded">
 <span class="sig-name descname"><span class="pre">show_expanded</span></span><a class="headerlink" href="#bpy.types.StripModifier.show_expanded" title="Link to this definition"></a></dt>
 <dd><p>Mute expanded settings for the modifier (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.StripModifier.show_preview">
+<span class="sig-name descname"><span class="pre">show_preview</span></span><a class="headerlink" href="#bpy.types.StripModifier.show_preview" title="Link to this definition"></a></dt>
+<dd><p>Display modifier in preview (default False)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2251,7 +2266,7 @@ Absolute – Mask animation is in sync with scene frame.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/2558357af665>2558357af665</a> - 24/04/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
       </span></p>
   </div>
 
