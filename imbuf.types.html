@@ -267,10 +267,10 @@ If absent, it is allocated and converted from the other buffer when available.</
 <dl class="py method">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.with_buffer">
 <span class="sig-name descname"><span class="pre">with_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.with_buffer" title="Link to this definition"></a></dt>
-<dd><p>Return a context manager that yields a <code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code> of the image’s pixel data.</p>
+<dd><p>Return a context manager that yields a <code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code> of the image’s pixel data, shaped <code class="docutils literal notranslate"><span class="pre">(height,</span> <span class="pre">width,</span> <span class="pre">channels)</span></code>.</p>
 <p>Usage:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">image</span><span class="o">.</span><span class="n">with_buffer</span><span class="p">(</span><span class="s1">&#39;BYTE&#39;</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">buf</span><span class="p">:</span>
-    <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>  <span class="c1"># set red channel of first pixel</span>
+    <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>  <span class="c1"># set red channel of pixel (0, 0)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -278,8 +278,7 @@ If absent, it is allocated and converted from the other buffer when available.</
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'BYTE'</em><em>, </em><em>'FLOAT'</em><em>]</em>) – The buffer type.</p></li>
 <li><p><strong>write</strong> (<em>bool</em>) – When true the buffer is writable.</p></li>
-<li><p><strong>region</strong> (<em>tuple</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>] </em><em>| </em><em>None</em>) – Optional sub-region <code class="docutils literal notranslate"><span class="pre">((x_min,</span> <span class="pre">y_min),</span> <span class="pre">(x_max,</span> <span class="pre">y_max))</span></code>.
-When set the memoryview is 2D (rows x columns), clamped to image bounds.</p></li>
+<li><p><strong>region</strong> (<em>tuple</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>] </em><em>| </em><em>None</em>) – Optional sub-region <code class="docutils literal notranslate"><span class="pre">((x_min,</span> <span class="pre">y_min),</span> <span class="pre">(x_max,</span> <span class="pre">y_max))</span></code>, clamped to image bounds. When set the shape becomes <code class="docutils literal notranslate"><span class="pre">(region_height,</span> <span class="pre">region_width,</span> <span class="pre">channels)</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -453,7 +452,7 @@ and determines how many channels are written on save.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

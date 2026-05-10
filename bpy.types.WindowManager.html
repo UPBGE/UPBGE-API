@@ -1139,6 +1139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -2842,12 +2843,33 @@ to ensure the context is still valid.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.popover">
 <span class="sig-name descname"><span class="pre">popover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">ui_units_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keymap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_active_button</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.popover" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Display a popover populated by <em>draw_func</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>draw_func</strong> (Callable[[<a class="reference internal" href="bpy.types.UIPopover.html#bpy.types.UIPopover" title="bpy.types.UIPopover"><code class="xref py py-class docutils literal notranslate"><span class="pre">UIPopover</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Function to populate the popover layout.</p></li>
+<li><p><strong>ui_units_x</strong> (<em>int</em>) – Width of the popover in UI units (0 for the default).</p></li>
+<li><p><strong>keymap</strong> (<a class="reference internal" href="bpy.types.KeyMap.html#bpy.types.KeyMap" title="bpy.types.KeyMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyMap</span></code></a> | None) – Optional keymap to attach to the popover.</p></li>
+<li><p><strong>from_active_button</strong> (<em>bool</em>) – Anchor the popover to the active button.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.popup_menu">
 <span class="sig-name descname"><span class="pre">popup_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.popup_menu" title="Link to this definition"></a></dt>
-<dd><p>Popup menus can be useful for creating menus without having to register menu classes.</p>
+<dd><p>Display a popup menu populated by <em>draw_func</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>draw_func</strong> (Callable[[<a class="reference internal" href="bpy.types.UIPopupMenu.html#bpy.types.UIPopupMenu" title="bpy.types.UIPopupMenu"><code class="xref py py-class docutils literal notranslate"><span class="pre">UIPopupMenu</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Function to populate the menu layout.</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Title shown above the menu.</p></li>
+<li><p><strong>icon</strong> (<em>str</em>) – Icon shown next to the title.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Popup menus can be useful for creating menus without having to register menu classes.</p>
 <p>Note that they will not block the scripts execution, so the caller can’t wait for user input.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
@@ -2864,7 +2886,18 @@ to ensure the context is still valid.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.popup_menu_pie">
 <span class="sig-name descname"><span class="pre">popup_menu_pie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.popup_menu_pie" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Display a pie menu populated by <em>draw_func</em> at the location of <em>event</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<a class="reference internal" href="bpy.types.Event.html#bpy.types.Event" title="bpy.types.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a>) – Event used to position the pie menu.</p></li>
+<li><p><strong>draw_func</strong> (Callable[[<a class="reference internal" href="bpy.types.UIPieMenu.html#bpy.types.UIPieMenu" title="bpy.types.UIPieMenu"><code class="xref py py-class docutils literal notranslate"><span class="pre">UIPieMenu</span></code></a>, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Function to populate the pie menu layout.</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Title shown at the center of the pie.</p></li>
+<li><p><strong>icon</strong> (<em>str</em>) – Icon shown next to the title.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.bl_rna_get_subclass">
@@ -3047,7 +3080,7 @@ It gets the specified arguments as input with the mouse position (<code class="d
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

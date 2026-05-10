@@ -1139,6 +1139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -1416,6 +1417,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.PreferencesView"><code class="docutils literal notranslate"><span class="pre">PreferencesView</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.border_width"><code class="docutils literal notranslate"><span class="pre">PreferencesView.border_width</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.color_picker_type"><code class="docutils literal notranslate"><span class="pre">PreferencesView.color_picker_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.date_format"><code class="docutils literal notranslate"><span class="pre">PreferencesView.date_format</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.factor_display_type"><code class="docutils literal notranslate"><span class="pre">PreferencesView.factor_display_type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.filebrowser_display_type"><code class="docutils literal notranslate"><span class="pre">PreferencesView.filebrowser_display_type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.font_path_ui"><code class="docutils literal notranslate"><span class="pre">PreferencesView.font_path_ui</span></code></a></li>
@@ -1463,6 +1465,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.show_view_name"><code class="docutils literal notranslate"><span class="pre">PreferencesView.show_view_name</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.smooth_view"><code class="docutils literal notranslate"><span class="pre">PreferencesView.smooth_view</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.text_hinting"><code class="docutils literal notranslate"><span class="pre">PreferencesView.text_hinting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.time_format"><code class="docutils literal notranslate"><span class="pre">PreferencesView.time_format</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.timecode_style"><code class="docutils literal notranslate"><span class="pre">PreferencesView.timecode_style</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.ui_line_width"><code class="docutils literal notranslate"><span class="pre">PreferencesView.ui_line_width</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.PreferencesView.ui_scale"><code class="docutils literal notranslate"><span class="pre">PreferencesView.ui_scale</span></code></a></li>
@@ -2116,6 +2119,35 @@ Square (HV + S) – A square showing Hue/Value, with Saturation slider.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.PreferencesView.date_format">
+<span class="sig-name descname"><span class="pre">date_format</span></span><a class="headerlink" href="#bpy.types.PreferencesView.date_format" title="Link to this definition"></a></dt>
+<dd><p>Format for displaying date strings (default <code class="docutils literal notranslate"><span class="pre">'DEFAULT'</span></code>)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
+Default – Default date formatting based on output language.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LE_SLASH</span></code>
+dd/mm/yyyy – Date format: dd/mm/yyyy, eg: 27/02/2019.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LE_DOT</span></code>
+dd.mm.yyyy – Date format: dd.mm.yyyy, eg: 27.02.2019.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LE_DASH</span></code>
+dd-mm-yyyy – Date format: dd-mm-yyyy, eg: 27-02-2019.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ME_SLASH</span></code>
+mm/dd/yyyy – Date format: mm/dd/yyyy, eg: 02/27/2019.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BE_SLASH</span></code>
+yyyy/mm/dd – Date format: yyyy/mm/dd, eg: 2019/02/27.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BE_DOT</span></code>
+yyyy.mm.dd – Date format: yyyy.mm.dd, eg: 2019.02.27.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BE_DASH</span></code>
+yyyy-mm-dd – Date format: yyyy-mm-dd, eg: 2019-02-27.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Literal[‘DEFAULT’, ‘LE_SLASH’, ‘LE_DOT’, ‘LE_DASH’, ‘ME_SLASH’, ‘BE_SLASH’, ‘BE_DOT’, ‘BE_DASH’]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.PreferencesView.factor_display_type">
 <span class="sig-name descname"><span class="pre">factor_display_type</span></span><a class="headerlink" href="#bpy.types.PreferencesView.factor_display_type" title="Link to this definition"></a></dt>
 <dd><p>How factor values are displayed (default <code class="docutils literal notranslate"><span class="pre">'FACTOR'</span></code>)</p>
@@ -2234,7 +2266,7 @@ Catalan - Català – Locale code: ca_AD. Translation progress: 100%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zh_HANS</span></code>
 Chinese (Simplified) - 简体中文 – Locale code: zh_HANS. Translation progress: 99%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zh_HANT</span></code>
-Chinese (Traditional) - 繁體中文 – Locale code: zh_HANT. Translation progress: 62%.</p></li>
+Chinese (Traditional) - 繁體中文 – Locale code: zh_HANT. Translation progress: 61%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hr</span></code>
 Croatian - Hrvatski – Locale code: hr. Translation progress: 1%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cs_CZ</span></code>
@@ -2244,7 +2276,7 @@ Danish - Dansk – Locale code: da. Translation progress: 3%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nl_NL</span></code>
 Dutch - Nederlands – Locale code: nl_NL. Translation progress: 8%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">en_GB</span></code>
-English (UK) – Locale code: en_GB. Translation progress: 98%.</p></li>
+English (UK) – Locale code: en_GB. Translation progress: 97%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">en_US</span></code>
 English (US) – Locale code: en_US. Translation progress: 100%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">eo</span></code>
@@ -2270,7 +2302,7 @@ Indonesian - Bahasa indonesia – Locale code: id_ID. Translation progress: 21%.
 <li><p><code class="docutils literal notranslate"><span class="pre">it_IT</span></code>
 Italian - Italiano – Locale code: it_IT. Translation progress: 43%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ja_JP</span></code>
-Japanese - 日本語 – Locale code: ja_JP. Translation progress: 99%.</p></li>
+Japanese - 日本語 – Locale code: ja_JP. Translation progress: 98%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ko_KR</span></code>
 Korean - 한국어 – Locale code: ko_KR. Translation progress: 96%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ky_KG</span></code>
@@ -2298,7 +2330,7 @@ Serbian (Cyrillic) - Српски – Locale code: sr_RS. Translation progress: 
 <li><p><code class="docutils literal notranslate"><span class="pre">sr_RS&#64;latin</span></code>
 Serbian (Latin) - Srpski latinica – Locale code: <a class="reference external" href="mailto:sr_RS&#37;&#52;&#48;latin">sr_RS<span>&#64;</span>latin</a>. Translation progress: 16%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sk_SK</span></code>
-Slovak - Slovenčina – Locale code: sk_SK. Translation progress: 100%.</p></li>
+Slovak - Slovenčina – Locale code: sk_SK. Translation progress: 99%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sl</span></code>
 Slovenian - Slovenščina – Locale code: sl. Translation progress: 50%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">es</span></code>
@@ -2316,9 +2348,9 @@ Turkish - Türkçe – Locale code: tr_TR. Translation progress: 77%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">uk_UA</span></code>
 Ukrainian - Українська – Locale code: uk_UA. Translation progress: 56%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ur</span></code>
-Urdu - وُدرُا – Locale code: ur. Translation progress: 85%.</p></li>
+Urdu - وُدرُا – Locale code: ur. Translation progress: 84%.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">vi_VN</span></code>
-Vietnamese - Tiếng Việt – Locale code: vi_VN. Translation progress: 97%.</p></li>
+Vietnamese - Tiếng Việt – Locale code: vi_VN. Translation progress: 99%.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -2773,6 +2805,23 @@ New Window – Images are rendered in a new window.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.PreferencesView.time_format">
+<span class="sig-name descname"><span class="pre">time_format</span></span><a class="headerlink" href="#bpy.types.PreferencesView.time_format" title="Link to this definition"></a></dt>
+<dd><p>Format for displaying time strings (default <code class="docutils literal notranslate"><span class="pre">'H24'</span></code>)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">H24</span></code>
+24-Hour (23:59) – Time format: 24-hour clock with colon, eg: 23:59.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">H12</span></code>
+12-Hour (11:59 PM) – Time format: 12-hour clock, eg: 11:59 PM.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Literal[‘H24’, ‘H12’]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.PreferencesView.timecode_style">
 <span class="sig-name descname"><span class="pre">timecode_style</span></span><a class="headerlink" href="#bpy.types.PreferencesView.timecode_style" title="Link to this definition"></a></dt>
 <dd><p>Format of timecode displayed when not displaying timing in terms of frames (default <code class="docutils literal notranslate"><span class="pre">'MINIMAL'</span></code>)</p>
@@ -3118,7 +3167,7 @@ It improves shape readability of very dense meshes, but increases eye fatigue wh
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

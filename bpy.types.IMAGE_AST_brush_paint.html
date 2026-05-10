@@ -1152,6 +1152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -2017,22 +2018,75 @@
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.IMAGE_AST_brush_paint.brush_type_poll">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">brush_type_poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IMAGE_AST_brush_paint.brush_type_poll" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test if <em>asset</em> is compatible with the active tool’s brush type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+<li><p><strong>asset</strong> (<a class="reference internal" href="bpy.types.AssetRepresentation.html#bpy.types.AssetRepresentation" title="bpy.types.AssetRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.AssetRepresentation</span></code></a>) – Brush asset to test.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True when the asset’s brush type matches the active tool.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.IMAGE_AST_brush_paint.draw_popup_selector">
 <span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">draw_popup_selector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brush</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IMAGE_AST_brush_paint.draw_popup_selector" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Draw a brush asset-shelf popover into <em>layout</em> for the active paint mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>layout</strong> (<a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.UILayout</span></code></a>) – Layout to draw into.</p></li>
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+<li><p><strong>brush</strong> (<a class="reference internal" href="bpy.types.Brush.html#bpy.types.Brush" title="bpy.types.Brush"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Brush</span></code></a> | None) – Brush whose preview/name is shown on the button.</p></li>
+<li><p><strong>show_name</strong> (<em>bool</em>) – Display the brush name next to the preview.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.IMAGE_AST_brush_paint.get_shelf_name_from_context">
 <span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_shelf_name_from_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IMAGE_AST_brush_paint.get_shelf_name_from_context" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Look up the brush asset-shelf identifier for the current paint mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The asset-shelf <code class="docutils literal notranslate"><span class="pre">bl_idname</span></code>, or <code class="docutils literal notranslate"><span class="pre">None</span></code> when no paint mode is active.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str | None</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.IMAGE_AST_brush_paint.has_tool_with_brush_type">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">has_tool_with_brush_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brush_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.IMAGE_AST_brush_paint.has_tool_with_brush_type" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test if any tool active in the current space matches <em>brush_type</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Context</span></code></a>) – The context.</p></li>
+<li><p><strong>brush_type</strong> (<em>int</em>) – Brush type identifier to match against tool brush types.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True when a registered tool uses this brush type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.IMAGE_AST_brush_paint.bl_rna_get_subclass">
@@ -2180,7 +2234,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

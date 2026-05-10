@@ -1139,6 +1139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -2016,30 +2017,66 @@
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UI_UL_list.filter_items_by_name">
 <span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">filter_items_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitflag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UI_UL_list.filter_items_by_name" title="Link to this definition"></a></dt>
-<dd><p>Set FILTER_ITEM for items which name matches filter_name one (case-insensitive).
-pattern is the filtering pattern.
-propname is the name of the string property to use for filtering.
-flags must be a list of integers the same length as items, or None!
-return a list of flags (based on given flags if not None),
-or an empty list if no flags were given and no filtering has been done.</p>
+<dd><p>Set FILTER_ITEM for items which name matches filter_name one (case-insensitive).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pattern</strong> (<em>str</em>) – Filtering pattern (shell-style glob, case-insensitive).</p></li>
+<li><p><strong>bitflag</strong> (<em>int</em>) – Bit to set on matching items.</p></li>
+<li><p><strong>items</strong> (<em>Sequence</em><em>[</em><em>Any</em><em>]</em>) – Collection to filter.</p></li>
+<li><p><strong>propname</strong> (<em>str</em>) – Name of the string property on each item to match against.</p></li>
+<li><p><strong>flags</strong> (<em>Sequence</em><em>[</em><em>int</em><em>] </em><em>| </em><em>None</em>) – Existing flag list to update; one int per item. <code class="docutils literal notranslate"><span class="pre">None</span></code> allocates a new list.</p></li>
+<li><p><strong>reverse</strong> (<em>bool</em>) – Invert the match (set the bit on non-matching items).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated flags list, or an empty list when no filtering was needed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UI_UL_list.sort_items_by_name">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sort_items_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UI_UL_list.sort_items_by_name" title="Link to this definition"></a></dt>
-<dd><p>Re-order items using their names (case-insensitive).
-propname is the name of the string property to use for sorting.
-return a list mapping org_idx -&gt; new_idx,
-or an empty list if no sorting has been done.</p>
+<dd><p>Re-order items using their names (case-insensitive).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>items</strong> (<em>Sequence</em><em>[</em><em>Any</em><em>]</em>) – Collection to sort.</p></li>
+<li><p><strong>propname</strong> (<em>str</em>) – Name of the string property on each item to sort by.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list mapping original index to new index, or an empty list when no sorting was needed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UI_UL_list.sort_items_helper">
 <span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sort_items_helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UI_UL_list.sort_items_helper" title="Link to this definition"></a></dt>
-<dd><p>Common sorting utility. Returns a neworder list mapping org_idx -&gt; new_idx.
-sort_data must be an (unordered) list of tuples [(org_idx, …), (org_idx, …), …].
-key must be the same kind of callable you would use for sorted() builtin function.
-reverse will reverse the sorting!</p>
+<dd><p>Common sorting utility. Returns a neworder list mapping org_index -&gt; new_index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sort_data</strong> (<em>list</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>Any</em><em>, </em><em>...</em><em>]</em><em>]</em>) – Unordered list of tuples <code class="docutils literal notranslate"><span class="pre">[(org_index,</span> <span class="pre">...),</span> <span class="pre">...]</span></code> to sort in place.</p></li>
+<li><p><strong>key</strong> (<em>Callable</em><em>[</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>Any</em><em>, </em><em>...</em><em>]</em><em>]</em><em>, </em><em>Any</em><em>]</em>) – Sort key callable, same as for the <code class="docutils literal notranslate"><span class="pre">sorted</span></code> builtin.</p></li>
+<li><p><strong>reverse</strong> (<em>bool</em>) – Reverse the sort order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list mapping original index to new index.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2158,7 +2195,7 @@ reverse will reverse the sorting!</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

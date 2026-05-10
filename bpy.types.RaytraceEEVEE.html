@@ -1139,6 +1139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -1466,6 +1467,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.RaySensor.html">RaySensor(Sensor)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RaytraceEEVEE(bpy_struct)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bpy.types.RaytraceEEVEE"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.backface_radiance_scale"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.backface_radiance_scale</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.denoise_bilateral"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.denoise_bilateral</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.denoise_spatial"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.denoise_spatial</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.denoise_temporal"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.denoise_temporal</span></code></a></li>
@@ -1473,6 +1475,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.screen_trace_quality"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.screen_trace_quality</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.screen_trace_thickness"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.screen_trace_thickness</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.trace_max_roughness"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.trace_max_roughness</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.use_backface_hit"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.use_backface_hit</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.use_denoise"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.use_denoise</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.bl_rna_get_subclass()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.RaytraceEEVEE.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">RaytraceEEVEE.bl_rna_get_subclass_py()</span></code></a></li>
@@ -2021,6 +2024,17 @@
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">RaytraceEEVEE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RaytraceEEVEE" title="Link to this definition"></a></dt>
 <dd><p>Quality options for the raytracing pipeline</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.RaytraceEEVEE.backface_radiance_scale">
+<span class="sig-name descname"><span class="pre">backface_radiance_scale</span></span><a class="headerlink" href="#bpy.types.RaytraceEEVEE.backface_radiance_scale" title="Link to this definition"></a></dt>
+<dd><p>Amount of the front face lighting to reuse for backface lighting approximation (in [0, 1], default 0.25)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.RaytraceEEVEE.denoise_bilateral">
 <span class="sig-name descname"><span class="pre">denoise_bilateral</span></span><a class="headerlink" href="#bpy.types.RaytraceEEVEE.denoise_bilateral" title="Link to this definition"></a></dt>
 <dd><p>Blur the resolved radiance using a bilateral filter (default True)</p>
@@ -2090,7 +2104,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.RaytraceEEVEE.screen_trace_thickness">
 <span class="sig-name descname"><span class="pre">screen_trace_thickness</span></span><a class="headerlink" href="#bpy.types.RaytraceEEVEE.screen_trace_thickness" title="Link to this definition"></a></dt>
-<dd><p>Surface thickness used to detect intersection when using screen-tracing (in [1e-06, inf], default 0.2)</p>
+<dd><p>Surface thickness used to detect intersection when using screen-tracing (in [1e-06, inf], default 0.1)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -2105,6 +2119,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.RaytraceEEVEE.use_backface_hit">
+<span class="sig-name descname"><span class="pre">use_backface_hit</span></span><a class="headerlink" href="#bpy.types.RaytraceEEVEE.use_backface_hit" title="Link to this definition"></a></dt>
+<dd><p>Consider rays hitting backfaces as valid (default True)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2224,7 +2249,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

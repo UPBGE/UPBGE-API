@@ -1171,6 +1171,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -2355,8 +2356,11 @@ Search on Key Press – Open a menu search when a key pressed while the menu is 
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.poll" title="Link to this definition"></a></dt>
 <dd><p>If this method returns a non-null output, then the menu can be drawn</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – The context</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2366,6 +2370,9 @@ Search on Key Press – Open a menu search when a key pressed while the menu is 
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.draw" title="Link to this definition"></a></dt>
 <dd><p>Draw UI elements into the menu UI layout</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – The context</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -2374,16 +2381,31 @@ Search on Key Press – Open a menu search when a key pressed while the menu is 
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.append" title="Link to this definition"></a></dt>
 <dd><p>Append a draw function to this menu,
 takes the same arguments as the menus draw function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>draw_func</strong> (Callable[[Self, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Draw function to append.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Menu.draw_collapsible">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">draw_collapsible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.draw_collapsible" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Draw the menu inline when the header shows menus, otherwise draw it
+as a collapsed icon. Intended for use within header draw functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – The context.</p></li>
+<li><p><strong>layout</strong> (<a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>) – The layout to draw into.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Menu.draw_preset">
-<span class="sig-name descname"><span class="pre">draw_preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.draw_preset" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">draw_preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.draw_preset" title="Link to this definition"></a></dt>
 <dd><p>Define these on the subclass:
 - preset_operator (string)
 - preset_subdir (string)</p>
@@ -2391,12 +2413,26 @@ takes the same arguments as the menus draw function</p>
 - preset_add_operator (string)
 - preset_extensions (set of strings)
 - preset_operator_defaults (dict of keyword args)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – The context.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Menu.is_extended">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">is_extended</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.is_extended" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test if any draw function has been added via <a class="reference internal" href="#bpy.types.Menu.append" title="bpy.types.Menu.append"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code></a> or <a class="reference internal" href="#bpy.types.Menu.prepend" title="bpy.types.Menu.prepend"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepend()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True when at least one draw function has been added.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Menu.path_menu">
@@ -2412,7 +2448,12 @@ takes the same arguments as the menus draw function</p>
 <li><p><strong>filter_ext</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>bool</em><em>] </em><em>| </em><em>None</em>) – <p>Optional callback that takes the file extensions.</p>
 <p>Returning false excludes the file from the list.</p>
 </p></li>
+<li><p><strong>filter_path</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>bool</em><em>] </em><em>| </em><em>None</em>) – Optional callback that takes the file name, returns false to exclude it.</p></li>
 <li><p><strong>display_name</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – Optional callback that takes the full path, returns the name to display.</p></li>
+<li><p><strong>add_operator</strong> (<em>str</em><em> | </em><em>None</em>) – Optional operator id used to add or remove entries.</p></li>
+<li><p><strong>add_operator_props</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Properties to assign to the add/remove operator.</p></li>
+<li><p><strong>translate</strong> (<em>bool</em>) – Translate the displayed names.</p></li>
+<li><p><strong>recursive_paths</strong> (<em>bool</em>) – Add submenus for sub-directories instead of listing their contents.</p></li>
 </ul>
 </dd>
 </dl>
@@ -2423,12 +2464,22 @@ takes the same arguments as the menus draw function</p>
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">prepend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.prepend" title="Link to this definition"></a></dt>
 <dd><p>Prepend a draw function to this menu, takes the same arguments as
 the menus draw function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>draw_func</strong> (Callable[[Self, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Draw function to prepend.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Menu.remove">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.remove" title="Link to this definition"></a></dt>
 <dd><p>Remove a draw function that has been added to this menu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>draw_func</strong> (Callable[[Self, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Draw function previously registered via <a class="reference internal" href="#bpy.types.Menu.append" title="bpy.types.Menu.append"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code></a> or <a class="reference internal" href="#bpy.types.Menu.prepend" title="bpy.types.Menu.prepend"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepend()</span></code></a>.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2527,7 +2578,7 @@ the menus draw function</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

@@ -1230,6 +1230,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -2888,7 +2889,16 @@ Quad – Use the quad remesher.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Mesh.edge_creases_ensure">
 <span class="sig-name descname"><span class="pre">edge_creases_ensure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Mesh.edge_creases_ensure" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Ensure the “crease_edge” attribute exists, creating it if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The edge crease attribute.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="bpy.types.FloatAttribute.html#bpy.types.FloatAttribute" title="bpy.types.FloatAttribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatAttribute</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Mesh.edge_creases_remove">
@@ -2911,6 +2921,7 @@ eg: [(0.0, 1.0, 0.5), …].</p></li>
 </p></li>
 <li><p><strong>faces</strong> (<em>Iterable</em><em>[</em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em>) – iterator of faces, each faces contains three or more indices to
 the <em>vertices</em> argument. eg: [(5, 6, 8, 9), (1, 2, 3), …]</p></li>
+<li><p><strong>shade_flat</strong> (<em>bool</em>) – When true, mark new faces as flat-shaded.</p></li>
 </ul>
 </dd>
 </dl>
@@ -2941,7 +2952,16 @@ removing the “sharp_face” attribute</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Mesh.vertex_creases_ensure">
 <span class="sig-name descname"><span class="pre">vertex_creases_ensure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Mesh.vertex_creases_ensure" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Ensure the “crease_vert” attribute exists, creating it if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The vertex crease attribute.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="bpy.types.FloatAttribute.html#bpy.types.FloatAttribute" title="bpy.types.FloatAttribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatAttribute</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Mesh.vertex_creases_remove">
@@ -2951,7 +2971,16 @@ removing the “sharp_face” attribute</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Mesh.vertex_paint_mask_ensure">
 <span class="sig-name descname"><span class="pre">vertex_paint_mask_ensure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Mesh.vertex_paint_mask_ensure" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Ensure the “.sculpt_mask” attribute exists, creating it if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The vertex paint mask attribute.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="bpy.types.FloatAttribute.html#bpy.types.FloatAttribute" title="bpy.types.FloatAttribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatAttribute</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Mesh.vertex_paint_mask_remove">
@@ -3116,7 +3145,7 @@ removing the “sharp_face” attribute</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 

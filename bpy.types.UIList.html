@@ -1139,6 +1139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGeometryViewerItems.html">NodeGeometryViewerItems(bpy_prop_collection)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetBundleItem.html">NodeGetBundleItem(NodeInternal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGetNestedBundlePaths.html">NodeGetNestedBundlePaths(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroup.html">NodeGroup(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupInput.html">NodeGroupInput(NodeInternal)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.NodeGroupOutput.html">NodeGroupOutput(NodeInternal)</a></li>
@@ -2474,6 +2475,7 @@ example of how to create/use filtering/reordering callbacks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – The context</p></li>
 <li><p><strong>layout</strong> (<a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>) – Layout to draw the item (never None)</p></li>
 <li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a>) – Data from which to take Collection property</p></li>
 <li><p><strong>item</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a>) – Item of the collection property</p></li>
@@ -2493,7 +2495,10 @@ example of how to create/use filtering/reordering callbacks.</p>
 <dd><p>Draw filtering options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>layout</strong> (<a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>) – Layout to draw the item (never None)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – The context</p></li>
+<li><p><strong>layout</strong> (<a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">UILayout</span></code></a>) – Layout to draw the item (never None)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -2505,6 +2510,7 @@ example of how to create/use filtering/reordering callbacks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – The context</p></li>
 <li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a>) – Data from which to take Collection property</p></li>
 <li><p><strong>property</strong> (<em>str</em>) – Identifier of property in data, for the collection (never None)</p></li>
 </ul>
@@ -2525,24 +2531,48 @@ example of how to create/use filtering/reordering callbacks.</p>
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UIList.append" title="Link to this definition"></a></dt>
 <dd><p>Append a draw function to this menu,
 takes the same arguments as the menus draw function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>draw_func</strong> (Callable[[Self, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Draw function to append.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UIList.is_extended">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">is_extended</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UIList.is_extended" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test if any draw function has been added via <a class="reference internal" href="#bpy.types.UIList.append" title="bpy.types.UIList.append"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code></a> or <a class="reference internal" href="#bpy.types.UIList.prepend" title="bpy.types.UIList.prepend"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepend()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True when at least one draw function has been added.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UIList.prepend">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">prepend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UIList.prepend" title="Link to this definition"></a></dt>
 <dd><p>Prepend a draw function to this menu, takes the same arguments as
 the menus draw function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>draw_func</strong> (Callable[[Self, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Draw function to prepend.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UIList.remove">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">draw_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UIList.remove" title="Link to this definition"></a></dt>
 <dd><p>Remove a draw function that has been added to this menu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>draw_func</strong> (Callable[[Self, <a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>], None]) – Draw function previously registered via <a class="reference internal" href="#bpy.types.UIList.append" title="bpy.types.UIList.append"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code></a> or <a class="reference internal" href="#bpy.types.UIList.prepend" title="bpy.types.UIList.prepend"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepend()</span></code></a>.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2641,7 +2671,7 @@ the menus draw function</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/e0153ed1a886>e0153ed1a886</a> - 02/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
       </span></p>
   </div>
 
