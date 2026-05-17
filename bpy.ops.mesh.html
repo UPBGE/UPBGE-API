@@ -565,8 +565,8 @@ Cutoff – A cutoff at each profile’s end before the intersection.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>plane_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Plane Point, A point on the plane (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>plane_no</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Plane Normal, The direction the plane points (array of 3 items, in [-1, 1], optional)</p></li>
+<li><p><strong>plane_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Plane Point, A point on the plane (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>plane_no</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Plane Normal, The direction the plane points (array of 3 items, in [-1, 1], optional)</p></li>
 <li><p><strong>use_fill</strong> (<em>bool</em>) – Fill, Fill in the cut (optional)</p></li>
 <li><p><strong>clear_inner</strong> (<em>bool</em>) – Clear Inner, Remove geometry behind the plane (optional)</p></li>
 <li><p><strong>clear_outer</strong> (<em>bool</em>) – Clear Outer, Remove geometry in front of the plane (optional)</p></li>
@@ -1387,7 +1387,7 @@ Faces &amp; Edges by Vertices – Split faces and edges connected to selected ve
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>steps</strong> (<em>int</em>) – Steps, (in [0, 1000000], optional)</p></li>
-<li><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Offset, Offset vector (array of 3 items, in [-100000, 100000], optional)</p></li>
+<li><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Offset, Offset vector (array of 3 items, in [-100000, 100000], optional)</p></li>
 <li><p><strong>scale_offset</strong> (<em>float</em>) – Scale Offset, (in [0, inf], optional)</p></li>
 </ul>
 </dd>
@@ -2202,7 +2202,7 @@ Mouse – Follow mouse cursor.</p></li>
 </p></li>
 <li><p><strong>invert</strong> (<em>bool</em>) – Invert, Invert affected normals (optional)</p></li>
 <li><p><strong>align</strong> (<em>bool</em>) – Align, Make all affected normals parallel (optional)</p></li>
-<li><p><strong>target_location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Target, Target location to which normals will point (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>target_location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Target, Target location to which normals will point (array of 3 items, in [-inf, inf], optional)</p></li>
 <li><p><strong>spherize</strong> (<em>bool</em>) – Spherize, Interpolate between original and new normals (optional)</p></li>
 <li><p><strong>spherize_strength</strong> (<em>float</em>) – Spherize Strength, Ratio of spherized normal to original normal (in [0, 1], optional)</p></li>
 </ul>
@@ -2477,9 +2477,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2524,9 +2524,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2558,9 +2558,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2591,10 +2591,10 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a>) – Matrix, (multi-dimensional array of 4 * 4 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>matrix</strong> (<a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Matrix</span></code></a> | Sequence[Sequence[float]]) – Matrix, (multi-dimensional array of 4 * 4 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2638,9 +2638,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2674,9 +2674,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2709,9 +2709,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2743,9 +2743,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2777,9 +2777,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2808,8 +2808,8 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, (array of 3 items, in [-inf, inf], optional)</p></li>
 <li><p><strong>major_segments</strong> (<em>int</em>) – Major Segments, Number of segments for the main ring of the torus (in [3, 256], optional)</p></li>
 <li><p><strong>minor_segments</strong> (<em>int</em>) – Minor Segments, Number of segments for the minor ring of the torus (in [3, 256], optional)</p></li>
 <li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'MAJOR_MINOR'</em><em>, </em><em>'EXT_INT'</em><em>]</em>) – <p>Dimensions Mode, (optional)</p>
@@ -2861,9 +2861,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2996,8 +2996,8 @@ View – Align the new object to the view.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, World-space ray origin for extending vertices (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>direction</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Direction, World-space direction vector for extending vertices (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, World-space ray origin for extending vertices (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>direction</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Direction, World-space direction vector for extending vertices (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -3058,8 +3058,8 @@ View – Align the new object to the view.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>steps</strong> (<em>int</em>) – Steps, Steps (in [1, 100000], optional)</p></li>
 <li><p><strong>turns</strong> (<em>int</em>) – Turns, Turns (in [1, 100000], optional)</p></li>
-<li><p><strong>center</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center, Center in global view space (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>axis</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Axis, Axis in global view space (array of 3 items, in [-1, 1], optional)</p></li>
+<li><p><strong>center</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Center, Center in global view space (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>axis</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Axis, Axis in global view space (array of 3 items, in [-1, 1], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -3751,8 +3751,8 @@ Reverse – Reverse current order of selected elements.</p></li>
 <li><p><strong>angle</strong> (<em>float</em>) – Angle, Rotation for each step (in [-inf, inf], optional)</p></li>
 <li><p><strong>use_auto_merge</strong> (<em>bool</em>) – Auto Merge, Merge first/last when the angle is a full revolution (optional)</p></li>
 <li><p><strong>use_normal_flip</strong> (<em>bool</em>) – Flip Normals, (optional)</p></li>
-<li><p><strong>center</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center, Center in global view space (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>axis</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Axis, Axis in global view space (array of 3 items, in [-1, 1], optional)</p></li>
+<li><p><strong>center</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Center, Center in global view space (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>axis</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Axis, Axis in global view space (array of 3 items, in [-1, 1], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -4134,7 +4134,7 @@ Reverse – Reverse current order of selected elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

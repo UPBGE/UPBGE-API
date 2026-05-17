@@ -266,9 +266,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -299,9 +299,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, Rotation for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Scale, Scale for the newly added object (array of 3 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -426,7 +426,7 @@ View – Align the new object to the view.</p></li>
 <li><p><strong>fit_method</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/curve_fit_method_items.html#rna-enum-curve-fit-method-items"><span class="std std-ref">Curve Fit Method Items</span></a>]) – Fit Method, (optional)</p></li>
 <li><p><strong>corner_angle</strong> (<em>float</em>) – Corner Angle, (in [0, 3.14159], optional)</p></li>
 <li><p><strong>use_cyclic</strong> (<em>bool</em>) – Cyclic, (optional)</p></li>
-<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – Stroke, (optional)</p></li>
+<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>] | None) – Stroke, (optional)</p></li>
 <li><p><strong>wait_for_input</strong> (<em>bool</em>) – Wait for Input, (optional)</p></li>
 <li><p><strong>is_curve_2d</strong> (<em>bool</em>) – Curve 2D, (optional)</p></li>
 <li><p><strong>bezier_as_nurbs</strong> (<em>bool</em>) – As NURBS, (optional)</p></li>
@@ -854,7 +854,7 @@ Deform – Re-attach curves to a deformed surface using the existing attachment 
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

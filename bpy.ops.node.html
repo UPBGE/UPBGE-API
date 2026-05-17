@@ -414,7 +414,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 <li><p><strong>offset</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Offset, Offset of nodes from the cursor when added (array of 2 items, in [-inf, inf], optional)</p></li>
 </ul>
@@ -479,7 +479,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 </ul>
 </dd>
@@ -502,7 +502,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 <li><p><strong>offset</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Offset, Offset of nodes from the cursor when added (array of 2 items, in [-inf, inf], optional)</p></li>
 </ul>
@@ -590,7 +590,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filepath</strong> (<em>str</em>) – File Path, Path to file (optional, never None)</p></li>
 <li><p><strong>directory</strong> (<em>str</em>) – Directory, Directory of the file (optional, never None)</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – Files, (optional)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>] | None) – Files, (optional)</p></li>
 <li><p><strong>hide_props_region</strong> (<em>bool</em>) – Hide Operator Properties, Collapse the region displaying the operator settings (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
@@ -625,7 +625,7 @@ Long List – Display files as a detailed list.</p></li>
 Thumbnails – Display files as thumbnails.</p></li>
 </ul>
 </p></li>
-<li><p><strong>sort_method</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>, </em><em>'FILE_SORT_ALPHA'</em><em>, </em><em>'FILE_SORT_EXTENSION'</em><em>, </em><em>'FILE_SORT_TIME'</em><em>, </em><em>'FILE_SORT_SIZE'</em><em>, </em><em>'ASSET_CATALOG'</em><em>]</em>) – <p>File sorting mode, (optional)</p>
+<li><p><strong>sort_method</strong> (<em>Literal</em><em>[</em><em>''</em><em>, </em><em>'DEFAULT'</em><em>, </em><em>'FILE_SORT_ALPHA'</em><em>, </em><em>'FILE_SORT_EXTENSION'</em><em>, </em><em>'FILE_SORT_TIME'</em><em>, </em><em>'FILE_SORT_SIZE'</em><em>, </em><em>'ASSET_CATALOG'</em><em>]</em>) – <p>File sorting mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
 Default – Automatically determine sort method for files.</p></li>
@@ -662,7 +662,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>directory</strong> (<em>str</em>) – Directory, Directory of the file (optional, never None)</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – Files, (optional)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>] | None) – Files, (optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -721,7 +721,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 <li><p><strong>type</strong> (<em>str</em>) – Node Type, Node type (optional, never None)</p></li>
 <li><p><strong>visible_output</strong> (<em>str</em>) – Output Name, If provided, all outputs that are named differently will be hidden (optional, never None)</p></li>
@@ -766,7 +766,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 <li><p><strong>offset</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Offset, Offset of nodes from the cursor when added (array of 2 items, in [-inf, inf], optional)</p></li>
 </ul>
@@ -790,7 +790,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>cursor</strong> (<em>int</em>) – Cursor, (in [0, inf], optional)</p></li>
 </ul>
 </dd>
@@ -810,7 +810,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 <li><p><strong>offset</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Offset, Offset of nodes from the cursor when added (array of 2 items, in [-inf, inf], optional)</p></li>
 </ul>
@@ -834,7 +834,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 </ul>
 </dd>
@@ -857,7 +857,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>use_transform</strong> (<em>bool</em>) – Use Transform, Start transform operator after inserting the node (optional)</p></li>
 <li><p><strong>offset</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Offset, Offset of nodes from the cursor when added (array of 2 items, in [-inf, inf], optional)</p></li>
 <li><p><strong>input_node_type</strong> (<em>str</em>) – Input Node, Specifies the input node used by the created zone (optional, never None)</p></li>
@@ -2587,7 +2587,7 @@ Move – Move to parent node tree, remove from group.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>cursor</strong> (<em>int</em>) – Cursor, (in [0, inf], optional)</p></li>
 </ul>
 </dd>
@@ -2621,7 +2621,7 @@ Move – Move to parent node tree, remove from group.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>cursor</strong> (<em>int</em>) – Cursor, (in [0, inf], optional)</p></li>
 </ul>
 </dd>
@@ -3171,7 +3171,7 @@ Subtract – Subtract existing selection.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tweak</strong> (<em>bool</em>) – Tweak, Only activate when mouse is not over a node (useful for tweak gesture) (optional)</p></li>
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
 <li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values give a smoother stroke (in [0.5, 0.99], optional)</p></li>
 <li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
@@ -3406,7 +3406,7 @@ Subtract – Subtract existing selection.</p></li>
 <dd><p>Replace active node with an empty group</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p>
+<dd class="field-odd"><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -3448,7 +3448,7 @@ Subtract – Subtract existing selection.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>type</strong> (<em>str</em>) – Node Type, Node type (optional, never None)</p></li>
 <li><p><strong>visible_output</strong> (<em>str</em>) – Output Name, If provided, all outputs that are named differently will be hidden (optional, never None)</p></li>
 </ul>
@@ -3472,7 +3472,7 @@ Subtract – Subtract existing selection.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>]) – Settings, Settings to be applied on the newly created node (optional)</p></li>
+<li><p><strong>settings</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeSetting</span></code>] | None) – Settings, Settings to be applied on the newly created node (optional)</p></li>
 <li><p><strong>offset</strong> (<em>Sequence</em><em>[</em><em>float</em><em>]</em>) – Offset, Offset of nodes from the cursor when added (array of 2 items, in [-inf, inf], optional)</p></li>
 <li><p><strong>input_node_type</strong> (<em>str</em>) – Input Node, Specifies the input node used by the created zone (optional, never None)</p></li>
 <li><p><strong>output_node_type</strong> (<em>str</em>) – Output Node, Specifies the output node used by the created zone (optional, never None)</p></li>
@@ -3684,7 +3684,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

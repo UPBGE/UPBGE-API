@@ -262,7 +262,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – Stroke, (optional)</p></li>
+<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>] | None) – Stroke, (optional)</p></li>
 <li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'NORMAL'</em><em>, </em><em>'INVERT'</em><em>]</em>) – <p>Stroke Mode, Action taken when a paint stroke is made (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>
@@ -308,7 +308,7 @@ Mask – Switch to mask brush for duration of stroke.</p></li>
 <li><p><strong>area_normal_radius</strong> (<em>float</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius(in [0.001, 5], optional)</p></li>
 <li><p><strong>strength</strong> (<em>float</em>) – Strength, Filter strength (in [-10, 10], optional)</p></li>
 <li><p><strong>iteration_count</strong> (<em>int</em>) – Repeat, How many times to repeat the filter (in [1, 10000], optional)</p></li>
-<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – (optional)</p></li>
+<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>] | None) – (optional)</p></li>
 <li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'GRAVITY'</em><em>, </em><em>'INFLATE'</em><em>, </em><em>'EXPAND'</em><em>, </em><em>'PINCH'</em><em>, </em><em>'SCALE'</em><em>]</em>) – <p>Filter Type, Operation that is going to be applied to the mesh (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">GRAVITY</span></code>
@@ -369,7 +369,7 @@ View – Use the view axis to limit the force and set the gravity direction.</p>
 <li><p><strong>area_normal_radius</strong> (<em>float</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius(in [0.001, 5], optional)</p></li>
 <li><p><strong>strength</strong> (<em>float</em>) – Strength, Filter strength (in [-10, 10], optional)</p></li>
 <li><p><strong>iteration_count</strong> (<em>int</em>) – Repeat, How many times to repeat the filter (in [1, 10000], optional)</p></li>
-<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – (optional)</p></li>
+<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>] | None) – (optional)</p></li>
 <li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'FILL'</em><em>, </em><em>'HUE'</em><em>, </em><em>'SATURATION'</em><em>, </em><em>'VALUE'</em><em>, </em><em>'BRIGHTNESS'</em><em>, </em><em>'CONTRAST'</em><em>, </em><em>'SMOOTH'</em><em>, </em><em>'RED'</em><em>, </em><em>'GREEN'</em><em>, </em><em>'BLUE'</em><em>]</em>) – <p>Filter Type, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">FILL</span></code>
@@ -394,7 +394,7 @@ Green – Change green channel.</p></li>
 Blue – Change blue channel.</p></li>
 </ul>
 </p></li>
-<li><p><strong>fill_color</strong> (<a class="reference internal" href="mathutils.html#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Color</span></code></a>) – Fill Color, (array of 3 items, in [0, inf], optional)</p></li>
+<li><p><strong>fill_color</strong> (<a class="reference internal" href="mathutils.html#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Color</span></code></a> | Sequence[float]) – Fill Color, (array of 3 items, in [0, inf], optional)</p></li>
 <li><p><strong>use_immediate</strong> (<em>bool</em>) – Immediate Apply, Apply once without entering modal interaction (optional)</p></li>
 <li><p><strong>use_secondary_color</strong> (<em>bool</em>) – Use Secondary Color, (optional)</p></li>
 </ul>
@@ -595,7 +595,7 @@ Fair Tangency – Creates the smoothest possible geometry patch from the face se
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
 <li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values give a smoother stroke (in [0.5, 0.99], optional)</p></li>
 <li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
@@ -644,7 +644,7 @@ Fair Tangency – Creates the smoothest possible geometry patch from the face se
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
 </ul>
 </dd>
@@ -883,7 +883,7 @@ Scene – Use settings from scene.</p></li>
 <li><p><strong>area_normal_radius</strong> (<em>float</em>) – Normal Radius, Radius used for calculating area normal on initial click,in percentage of brush radius(in [0.001, 5], optional)</p></li>
 <li><p><strong>strength</strong> (<em>float</em>) – Strength, Filter strength (in [-10, 10], optional)</p></li>
 <li><p><strong>iteration_count</strong> (<em>int</em>) – Repeat, How many times to repeat the filter (in [1, 10000], optional)</p></li>
-<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>]) – (optional)</p></li>
+<li><p><strong>event_history</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorStrokeElement</span></code>] | None) – (optional)</p></li>
 <li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'SMOOTH'</em><em>, </em><em>'SCALE'</em><em>, </em><em>'INFLATE'</em><em>, </em><em>'SPHERE'</em><em>, </em><em>'RANDOM'</em><em>, </em><em>'RELAX'</em><em>, </em><em>'RELAX_FACE_SETS'</em><em>, </em><em>'SURFACE_SMOOTH'</em><em>, </em><em>'SHARPEN'</em><em>, </em><em>'ENHANCE_DETAILS'</em><em>, </em><em>'ERASE_DISPLACEMENT'</em><em>]</em>) – <p>Filter Type, Operation that is going to be applied to the mesh (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SMOOTH</span></code>
@@ -1205,7 +1205,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
 <li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values give a smoother stroke (in [0.5, 0.99], optional)</p></li>
 <li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
@@ -1330,7 +1330,7 @@ Manifold – Fastest solver that works only on manifold meshes but gives better 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>use_front_faces_only</strong> (<em>bool</em>) – Front Faces Only, Affect only faces facing towards the view (optional)</p></li>
 <li><p><strong>location</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – Location, Mouse location (array of 2 items, in [-inf, inf], optional)</p></li>
 <li><p><strong>trim_mode</strong> (<em>Literal</em><em>[</em><em>'DIFFERENCE'</em><em>, </em><em>'UNION'</em><em>, </em><em>'JOIN'</em><em>]</em>) – <p>Trim Mode, (optional)</p>
@@ -1458,7 +1458,7 @@ Geometry – Use Geometry (cotangent) relaxation, making UVs follow the underlyi
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

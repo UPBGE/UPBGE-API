@@ -96,6 +96,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.armature.dissolve"><code class="docutils literal notranslate"><span class="pre">dissolve()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.armature.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.armature.duplicate_move"><code class="docutils literal notranslate"><span class="pre">duplicate_move()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.armature.duplicate_rename"><code class="docutils literal notranslate"><span class="pre">duplicate_rename()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.armature.extrude"><code class="docutils literal notranslate"><span class="pre">extrude()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.armature.extrude_forked"><code class="docutils literal notranslate"><span class="pre">extrude_forked()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.armature.extrude_move"><code class="docutils literal notranslate"><span class="pre">extrude_move()</span></code></a></li>
@@ -667,6 +668,27 @@ Pose Bone – Copy Pose Bone colors from the active pose bone to all selected po
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.armature.duplicate_rename">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.armature.</span></span><span class="sig-name descname"><span class="pre">duplicate_rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_flip_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.armature.duplicate_rename" title="Link to this definition"></a></dt>
+<dd><p>Make copies of the selected bones within the same armature and replace a part of their name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>do_flip_names</strong> (<em>bool</em>) – Flip Names, Try to flip names of the bones, if possible, instead of adding a number extension (optional)</p></li>
+<li><p><strong>search</strong> (<em>str</em>) – Search, A part of the current bone name that will be replaced (optional, never None)</p></li>
+<li><p><strong>replace</strong> (<em>str</em>) – Replace, The substitute to be inserted into the place of the given search term. If left empty the search term will be removed (optional, never None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.armature.extrude">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.armature.</span></span><span class="sig-name descname"><span class="pre">extrude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">forked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.armature.extrude" title="Link to this definition"></a></dt>
 <dd><p>Create new bones from the selected joints</p>
@@ -1119,7 +1141,7 @@ Invert – Invert selection of all elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

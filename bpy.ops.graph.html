@@ -126,6 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.graph.extrapolation_type"><code class="docutils literal notranslate"><span class="pre">extrapolation_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.graph.fmodifier_add"><code class="docutils literal notranslate"><span class="pre">fmodifier_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.graph.fmodifier_copy"><code class="docutils literal notranslate"><span class="pre">fmodifier_copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.graph.fmodifier_delete"><code class="docutils literal notranslate"><span class="pre">fmodifier_delete()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.graph.fmodifier_paste"><code class="docutils literal notranslate"><span class="pre">fmodifier_paste()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.graph.frame_jump"><code class="docutils literal notranslate"><span class="pre">frame_jump()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.graph.gaussian_smooth"><code class="docutils literal notranslate"><span class="pre">gaussian_smooth()</span></code></a></li>
@@ -775,6 +776,35 @@ Clear Cyclic (F-Modifier) – Remove Cycles F-Modifier if not needed anymore.</p
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.graph.fmodifier_delete">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">fmodifier_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GENERATOR'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.fmodifier_delete" title="Link to this definition"></a></dt>
+<dd><p>Remove Modifier(s) from the selected F-Curves</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'ALL'</em><em>, </em><em>'FIRST'</em><em>, </em><em>'TYPE'</em><em>]</em>) – <p>Mode, Decide what the operator will remove (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code>
+Remove All – Remove all modifiers from the selected F-Curves.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FIRST</span></code>
+Remove First – Only remove the first modifier from each F-Curve regardless of type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TYPE</span></code>
+Remove Type – Only remove the specified type of F-Curve modifier.</p></li>
+</ul>
+</p></li>
+<li><p><strong>type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/fmodifier_type_items.html#rna-enum-fmodifier-type-items"><span class="std std-ref">Fmodifier Type Items</span></a>]) – Type, (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.graph.fmodifier_paste">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.graph.</span></span><span class="sig-name descname"><span class="pre">fmodifier_paste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.graph.fmodifier_paste" title="Link to this definition"></a></dt>
 <dd><p>Add copied F-Modifiers to the selected F-Curves</p>
@@ -992,18 +1022,18 @@ Selected Channels at Cursor – Insert a keyframe for selected F-Curves at the c
 <dd><p>Flip selected keyframes over the selected mirror line</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CFRA'</em><em>, </em><em>'VALUE'</em><em>, </em><em>'YAXIS'</em><em>, </em><em>'XAXIS'</em><em>, </em><em>'MARKER'</em><em>]</em>) – <p>Type, (optional)</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'CFRA'</em><em>, </em><em>'MARKER'</em><em>, </em><em>'YAXIS'</em><em>, </em><em>'VALUE'</em><em>, </em><em>'XAXIS'</em><em>]</em>) – <p>Type, (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CFRA</span></code>
 By Times Over Current Frame – Flip times of selected keyframes using the current frame as the mirror line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code>
-By Values Over Cursor Value – Flip values of selected keyframes using the cursor value (Y/Horizontal component) as the mirror line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">YAXIS</span></code>
-By Times Over Zero Time – Flip times of selected keyframes, effectively reversing the order they appear in.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">XAXIS</span></code>
-By Values Over Zero Value – Flip values of selected keyframes (i.e. negative values become positive, and vice versa).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MARKER</span></code>
 By Times Over First Selected Marker – Flip times of selected keyframes using the first selected marker as the reference point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YAXIS</span></code>
+By Times Over Zero Time – Flip times of selected keyframes, effectively reversing the order they appear in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code>
+By Values Over Cursor Value – Flip values of selected keyframes using the cursor value (Y/Horizontal component) as the mirror line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XAXIS</span></code>
+By Values Over Zero Value – Flip values of selected keyframes (i.e. negative values become positive, and vice versa).</p></li>
 </ul>
 </p>
 </dd>
@@ -1308,7 +1338,7 @@ Keep – Leave as is.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
 <li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values give a smoother stroke (in [0.5, 0.99], optional)</p></li>
 <li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
@@ -1624,7 +1654,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

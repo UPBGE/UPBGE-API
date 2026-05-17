@@ -314,7 +314,7 @@
 <dd><p>Place new marker at specified location</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Location of marker on frame (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Location of marker on frame (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -596,7 +596,7 @@ Clear All – Clear the whole path.</p></li>
 <dd><p>Set 2D cursor location</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Cursor location in normalized clip coordinates (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Cursor location in normalized clip coordinates (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -722,7 +722,7 @@ Toggle – Toggle disabled flag for selected markers.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Mouse location to select channel (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Mouse location to select channel (array of 2 items, in [-inf, inf], optional)</p></li>
 <li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection rather than clearing the existing selection (optional)</p></li>
 </ul>
 </dd>
@@ -875,7 +875,7 @@ Toggle – Toggle disabled flag for selected markers.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Mouse location to select nearest entity (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Mouse location to select nearest entity (array of 2 items, in [-inf, inf], optional)</p></li>
 <li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection rather than clearing the existing selection (optional)</p></li>
 </ul>
 </dd>
@@ -1107,7 +1107,7 @@ Toggle – Toggle locked flag for selected tracks.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>directory</strong> (<em>str</em>) – Directory, Directory of the file (optional, never None)</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – Files, (optional)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>] | None) – Files, (optional)</p></li>
 <li><p><strong>hide_props_region</strong> (<em>bool</em>) – Hide Operator Properties, Collapse the region displaying the operator settings (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
@@ -1142,7 +1142,7 @@ Long List – Display files as a detailed list.</p></li>
 Thumbnails – Display files as thumbnails.</p></li>
 </ul>
 </p></li>
-<li><p><strong>sort_method</strong> (<em>Literal</em><em>[</em><em>'DEFAULT'</em><em>, </em><em>'FILE_SORT_ALPHA'</em><em>, </em><em>'FILE_SORT_EXTENSION'</em><em>, </em><em>'FILE_SORT_TIME'</em><em>, </em><em>'FILE_SORT_SIZE'</em><em>, </em><em>'ASSET_CATALOG'</em><em>]</em>) – <p>File sorting mode, (optional)</p>
+<li><p><strong>sort_method</strong> (<em>Literal</em><em>[</em><em>''</em><em>, </em><em>'DEFAULT'</em><em>, </em><em>'FILE_SORT_ALPHA'</em><em>, </em><em>'FILE_SORT_EXTENSION'</em><em>, </em><em>'FILE_SORT_TIME'</em><em>, </em><em>'FILE_SORT_SIZE'</em><em>, </em><em>'ASSET_CATALOG'</em><em>]</em>) – <p>File sorting mode, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>
 Default – Automatically determine sort method for files.</p></li>
@@ -1251,7 +1251,7 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection rather than clearing the existing selection (optional)</p></li>
 <li><p><strong>deselect_all</strong> (<em>bool</em>) – Deselect On Nothing, Deselect all when nothing under the cursor (optional)</p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Mouse location in normalized coordinates, 0.0 to 1.0 is within the image bounds (array of 2 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Mouse location in normalized coordinates, 0.0 to 1.0 is within the image bounds (array of 2 items, in [-inf, inf], optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1397,7 +1397,7 @@ Failed Tracks – Select all tracks which failed to be reconstructed.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>]) – Path, (optional)</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorMousePath</span></code>] | None) – Path, (optional)</p></li>
 <li><p><strong>use_smooth_stroke</strong> (<em>bool</em>) – Stabilize Stroke, Selection lags behind mouse and follows a smoother path (optional)</p></li>
 <li><p><strong>smooth_stroke_factor</strong> (<em>float</em>) – Smooth Stroke Factor, Higher values give a smoother stroke (in [0.5, 0.99], optional)</p></li>
 <li><p><strong>smooth_stroke_radius</strong> (<em>int</em>) – Smooth Stroke Radius, Minimum distance from last point before selection continues (in [10, 200], optional)</p></li>
@@ -1609,7 +1609,7 @@ Wall – Set wall plane.</p></li>
 <dd><p>Slide marker areas</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Offset, Offset in floating-point units, 1.0 is the width and height of the image (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Offset, Offset in floating-point units, 1.0 is the width and height of the image (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1958,7 +1958,7 @@ Wall – Set wall plane.</p></li>
 <dd><p>Pan the view</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Offset, Offset in floating-point units, 1.0 is the width and height of the image (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Offset, Offset in floating-point units, 1.0 is the width and height of the image (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2009,7 +2009,7 @@ Wall – Set wall plane.</p></li>
 <dd><p>Zoom in the view</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Cursor location in screen coordinates (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Cursor location in screen coordinates (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2026,7 +2026,7 @@ Wall – Set wall plane.</p></li>
 <dd><p>Zoom out the view</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Cursor location in normalized (0.0 to 1.0) coordinates (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Cursor location in normalized (0.0 to 1.0) coordinates (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2068,7 +2068,7 @@ Wall – Set wall plane.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

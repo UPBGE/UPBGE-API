@@ -297,7 +297,7 @@ In general, defining custom constructors or destructors should not be needed, an
 have a new instance for every redraw.
 Some other types, like <a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a>, have an even more complex internal handling,
 which can lead to several instantiations for a single operator execution.</p>
-<p>There are a few cases where defining <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> does make sense, e.g. when sub-classing a
+<p>There are a few cases where defining <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> does make sense, e.g., when sub-classing a
 <a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine" title="bpy.types.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.RenderEngine</span></code></a>. When doing so, the parent matching function must always be called,
 otherwise Blender’s internal initialization won’t happen properly:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
@@ -320,12 +320,12 @@ The ‘generic’ signature is the recommended one here, as Blender internal BPY
 the only caller of these functions. The actual arguments passed to the constructor are fully
 internal data, and may change depending on the implementation.</p>
 <p>Unfortunately, the error message, generated in case the expected constructor is not called, can
-be fairly cryptic and unhelping. Generally they should be about failure to create a (python)
+be fairly cryptic and unhelpful. Generally they should be about failure to create a (python)
 object:</p>
 <blockquote>
 <div><p>MemoryError: couldn’t create bpy_struct object</p>
 </div></blockquote>
-<p>With Operators, it might be something like that:</p>
+<p>With Operators, it might be something like this:</p>
 <blockquote>
 <div><p>RuntimeError: could not create instance of &lt;OPERATOR_OT_identifier&gt; to call callback function execute</p>
 </div></blockquote>
@@ -365,7 +365,7 @@ that means that calling <code class="docutils literal notranslate"><span class="
 fail with the following error:
 <code class="docutils literal notranslate"><span class="pre">AttributeError:</span> <span class="pre">'super'</span> <span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span> <span class="pre">'__del__'</span></code>.
 If a call to the MRO ‘parent’ destructor is needed for some reason, the caller code must ensure
-that the destructor does exist, e.g. using something like that:
+that the destructor does exist, e.g., using something like this:
 <code class="docutils literal notranslate"><span class="pre">getattr(super(),</span> <span class="pre">&quot;__del__&quot;,</span> <span class="pre">lambda</span> <span class="pre">self:</span> <span class="pre">None)(self)</span></code></p>
 </div>
 </section>
@@ -392,7 +392,7 @@ These are the <em>only</em> functions that Blender calls from your code, which i
     <span class="n">register</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>These functions usually appear at the bottom of the script containing class registration sometimes adding menu items.
+<p>These functions usually appear at the bottom of the script containing class registration, sometimes adding menu items.
 You can also use them for internal purposes setting up data for your own tools but take care
 since register won’t re-run when a new blend-file is loaded.</p>
 <p>The register/unregister calls are used so it’s possible to toggle add-ons and reload scripts while Blender runs.
@@ -414,7 +414,7 @@ since <code class="docutils literal notranslate"><span class="pre">__main__</spa
 <p>Registering a class with Blender results in the class definition being loaded into Blender,
 where it becomes available alongside existing functionality.
 Once this class is loaded you can access it from <a class="reference internal" href="bpy.types.html#module-bpy.types" title="bpy.types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.types</span></code></a>,
-using the <code class="docutils literal notranslate"><span class="pre">bl_idname</span></code> rather than the classes original name.</p>
+using the <code class="docutils literal notranslate"><span class="pre">bl_idname</span></code> rather than the class’s original name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There are some exceptions to this for class names which aren’t guaranteed to be unique.
@@ -487,7 +487,7 @@ you can’t avoid having to deal with the order of registration/unregistration.<
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The lower most class needs to be registered first and that <code class="docutils literal notranslate"><span class="pre">unregister()</span></code> is a mirror of <code class="docutils literal notranslate"><span class="pre">register()</span></code>.</p>
+<p>The lowest class needs to be registered first and that <code class="docutils literal notranslate"><span class="pre">unregister()</span></code> is a mirror of <code class="docutils literal notranslate"><span class="pre">register()</span></code>.</p>
 </div>
 </section>
 <section id="manipulating-classes">
@@ -566,7 +566,7 @@ This is an alternative syntax for class creation in Python, better suited to con
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

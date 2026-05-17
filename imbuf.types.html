@@ -100,14 +100,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="imbuf.html">Image Buffer (imbuf)</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Image Buffer Types (imbuf.types)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#imbuf.types.ImBuf"><code class="docutils literal notranslate"><span class="pre">ImBuf</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.clear_buffer"><code class="docutils literal notranslate"><span class="pre">ImBuf.clear_buffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.convert_buffer_type"><code class="docutils literal notranslate"><span class="pre">ImBuf.convert_buffer_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.copy"><code class="docutils literal notranslate"><span class="pre">ImBuf.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.crop"><code class="docutils literal notranslate"><span class="pre">ImBuf.crop()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.ensure_buffer"><code class="docutils literal notranslate"><span class="pre">ImBuf.ensure_buffer()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.free"><code class="docutils literal notranslate"><span class="pre">ImBuf.free()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.has_buffer"><code class="docutils literal notranslate"><span class="pre">ImBuf.has_buffer()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.resize"><code class="docutils literal notranslate"><span class="pre">ImBuf.resize()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.with_buffer"><code class="docutils literal notranslate"><span class="pre">ImBuf.with_buffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.buffer_type"><code class="docutils literal notranslate"><span class="pre">ImBuf.buffer_type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.channels"><code class="docutils literal notranslate"><span class="pre">ImBuf.channels</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.compress"><code class="docutils literal notranslate"><span class="pre">ImBuf.compress</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.file_type"><code class="docutils literal notranslate"><span class="pre">ImBuf.file_type</span></code></a></li>
@@ -116,9 +115,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.ppm"><code class="docutils literal notranslate"><span class="pre">ImBuf.ppm</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.quality"><code class="docutils literal notranslate"><span class="pre">ImBuf.quality</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.size"><code class="docutils literal notranslate"><span class="pre">ImBuf.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.__hash__"><code class="docutils literal notranslate"><span class="pre">ImBuf.__hash__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBuf.__repr__"><code class="docutils literal notranslate"><span class="pre">ImBuf.__repr__()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#imbuf.types.ImBufBuffer"><code class="docutils literal notranslate"><span class="pre">ImBufBuffer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#imbuf.types.ImBufBuffer"><code class="docutils literal notranslate"><span class="pre">ImBufBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufBuffer.__enter__"><code class="docutils literal notranslate"><span class="pre">ImBufBuffer.__enter__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufBuffer.__exit__"><code class="docutils literal notranslate"><span class="pre">ImBufBuffer.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufBuffer.__repr__"><code class="docutils literal notranslate"><span class="pre">ImBufBuffer.__repr__()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#imbuf.types.ImBufFileType"><code class="docutils literal notranslate"><span class="pre">ImBufFileType</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufFileType.file_extensions"><code class="docutils literal notranslate"><span class="pre">ImBufFileType.file_extensions</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufFileType.has_read_file"><code class="docutils literal notranslate"><span class="pre">ImBufFileType.has_read_file</span></code></a></li>
@@ -126,6 +132,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufFileType.has_write_file"><code class="docutils literal notranslate"><span class="pre">ImBufFileType.has_write_file</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufFileType.has_write_memory"><code class="docutils literal notranslate"><span class="pre">ImBufFileType.has_write_memory</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufFileType.id"><code class="docutils literal notranslate"><span class="pre">ImBufFileType.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufFileType.__hash__"><code class="docutils literal notranslate"><span class="pre">ImBufFileType.__hash__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imbuf.types.ImBufFileType.__repr__"><code class="docutils literal notranslate"><span class="pre">ImBufFileType.__repr__()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -177,12 +185,14 @@ ID type to store and manipulate image data at runtime.</p>
 <dt class="sig sig-object py" id="imbuf.types.ImBuf">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">imbuf.types.</span></span><span class="sig-name descname"><span class="pre">ImBuf</span></span><a class="headerlink" href="#imbuf.types.ImBuf" title="Link to this definition"></a></dt>
 <dd><dl class="py method">
-<dt class="sig sig-object py" id="imbuf.types.ImBuf.clear_buffer">
-<span class="sig-name descname"><span class="pre">clear_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.clear_buffer" title="Link to this definition"></a></dt>
-<dd><p>Free pixel data of the given type.</p>
+<dt class="sig sig-object py" id="imbuf.types.ImBuf.convert_buffer_type">
+<span class="sig-name descname"><span class="pre">convert_buffer_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.convert_buffer_type" title="Link to this definition"></a></dt>
+<dd><p>Convert the image’s pixel buffer to the given type.
+When the image is already of the given type this is a no-op.
+The previous buffer is freed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'BYTE'</em><em>, </em><em>'FLOAT'</em><em>]</em>) – The buffer type.</p>
+<dd class="field-odd"><p><strong>buffer_type</strong> (<em>Literal</em><em>[</em><em>'BYTE'</em><em>, </em><em>'FLOAT'</em><em>]</em>) – The buffer type.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -216,38 +226,9 @@ ID type to store and manipulate image data at runtime.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imbuf.types.ImBuf.ensure_buffer">
-<span class="sig-name descname"><span class="pre">ensure_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.ensure_buffer" title="Link to this definition"></a></dt>
-<dd><p>Ensure the image has pixel data of the given type.
-If absent, it is allocated and converted from the other buffer when available.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'BYTE'</em><em>, </em><em>'FLOAT'</em><em>]</em>) – The buffer type.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.free">
 <span class="sig-name descname"><span class="pre">free</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.free" title="Link to this definition"></a></dt>
 <dd><p>Clear image data immediately (causing an error on re-use).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="imbuf.types.ImBuf.has_buffer">
-<span class="sig-name descname"><span class="pre">has_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.has_buffer" title="Link to this definition"></a></dt>
-<dd><p>Return whether the image has pixel data of the given type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'BYTE'</em><em>, </em><em>'FLOAT'</em><em>]</em>) – The buffer type.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the buffer exists.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -266,17 +247,16 @@ If absent, it is allocated and converted from the other buffer when available.</
 
 <dl class="py method">
 <dt class="sig sig-object py" id="imbuf.types.ImBuf.with_buffer">
-<span class="sig-name descname"><span class="pre">with_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.with_buffer" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.with_buffer" title="Link to this definition"></a></dt>
 <dd><p>Return a context manager that yields a <code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code> of the image’s pixel data, shaped <code class="docutils literal notranslate"><span class="pre">(height,</span> <span class="pre">width,</span> <span class="pre">channels)</span></code>.</p>
 <p>Usage:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">image</span><span class="o">.</span><span class="n">with_buffer</span><span class="p">(</span><span class="s1">&#39;BYTE&#39;</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">buf</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">image</span><span class="o">.</span><span class="n">with_buffer</span><span class="p">(</span><span class="n">write</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">buf</span><span class="p">:</span>
     <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>  <span class="c1"># set red channel of pixel (0, 0)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'BYTE'</em><em>, </em><em>'FLOAT'</em><em>]</em>) – The buffer type.</p></li>
 <li><p><strong>write</strong> (<em>bool</em>) – When true the buffer is writable.</p></li>
 <li><p><strong>region</strong> (<em>tuple</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>] </em><em>| </em><em>None</em>) – Optional sub-region <code class="docutils literal notranslate"><span class="pre">((x_min,</span> <span class="pre">y_min),</span> <span class="pre">(x_max,</span> <span class="pre">y_max))</span></code>, clamped to image bounds. When set the shape becomes <code class="docutils literal notranslate"><span class="pre">(region_height,</span> <span class="pre">region_width,</span> <span class="pre">channels)</span></code>.</p></li>
 </ul>
@@ -286,6 +266,17 @@ If absent, it is allocated and converted from the other buffer when available.</
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#imbuf.types.ImBufBuffer" title="imbuf.types.ImBufBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImBufBuffer</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imbuf.types.ImBuf.buffer_type">
+<span class="sig-name descname"><span class="pre">buffer_type</span></span><a class="headerlink" href="#imbuf.types.ImBuf.buffer_type" title="Link to this definition"></a></dt>
+<dd><p>Type of the image’s pixel buffer (<code class="docutils literal notranslate"><span class="pre">'BYTE'</span></code> or <code class="docutils literal notranslate"><span class="pre">'FLOAT'</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -390,12 +381,69 @@ and determines how many channels are written on save.</p>
 </dl>
 </dd></dl>
 
+<details><summary>Special Methods</summary><dl class="py method">
+<dt class="sig sig-object py" id="imbuf.types.ImBuf.__hash__">
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.__hash__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imbuf.types.ImBuf.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBuf.__repr__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</details></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="imbuf.types.ImBufBuffer">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">imbuf.types.</span></span><span class="sig-name descname"><span class="pre">ImBufBuffer</span></span><a class="headerlink" href="#imbuf.types.ImBufBuffer" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><details><summary>Special Methods</summary><dl class="py method">
+<dt class="sig sig-object py" id="imbuf.types.ImBufBuffer.__enter__">
+<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBufBuffer.__enter__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#imbuf.types.ImBufBuffer" title="imbuf.types.ImBufBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImBufBuffer</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imbuf.types.ImBufBuffer.__exit__">
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBufBuffer.__exit__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exc_type</strong> (<em>type</em><em> | </em><em>None</em>) – Exception type, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>exc_value</strong> (<em>BaseException</em><em> | </em><em>None</em>) – Exception instance, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>traceback</strong> (<em>BaseException</em><em> | </em><em>None</em>) – Traceback object, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imbuf.types.ImBufBuffer.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBufBuffer.__repr__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</details></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="imbuf.types.ImBufFileType">
@@ -403,40 +451,90 @@ and determines how many channels are written on save.</p>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBufFileType.file_extensions">
 <span class="sig-name descname"><span class="pre">file_extensions</span></span><a class="headerlink" href="#imbuf.types.ImBufFileType.file_extensions" title="Link to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dd><p>The file extensions associated with this image file type (e.g. <code class="docutils literal notranslate"><span class="pre">(&quot;.jpg&quot;,</span> <span class="pre">&quot;.jpeg&quot;)</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[str, …]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBufFileType.has_read_file">
 <span class="sig-name descname"><span class="pre">has_read_file</span></span><a class="headerlink" href="#imbuf.types.ImBufFileType.has_read_file" title="Link to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dd><p>True when images of this file type can be read from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBufFileType.has_read_memory">
 <span class="sig-name descname"><span class="pre">has_read_memory</span></span><a class="headerlink" href="#imbuf.types.ImBufFileType.has_read_memory" title="Link to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dd><p>True when images of this file type can be read from memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBufFileType.has_write_file">
 <span class="sig-name descname"><span class="pre">has_write_file</span></span><a class="headerlink" href="#imbuf.types.ImBufFileType.has_write_file" title="Link to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dd><p>True when images of this file type can be written to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBufFileType.has_write_memory">
 <span class="sig-name descname"><span class="pre">has_write_memory</span></span><a class="headerlink" href="#imbuf.types.ImBufFileType.has_write_memory" title="Link to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dd><p>True when images of this file type can be written to memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imbuf.types.ImBufFileType.id">
 <span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#imbuf.types.ImBufFileType.id" title="Link to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dd><p>The identifier for this image file type (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;PNG&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;JPEG&quot;</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
+<details><summary>Special Methods</summary><dl class="py method">
+<dt class="sig sig-object py" id="imbuf.types.ImBufFileType.__hash__">
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBufFileType.__hash__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imbuf.types.ImBufFileType.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#imbuf.types.ImBufFileType.__repr__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</details></dd></dl>
 
 </section>
 
@@ -452,7 +550,7 @@ and determines how many channels are written on save.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

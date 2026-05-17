@@ -129,6 +129,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.BoundingBox"><code class="docutils literal notranslate"><span class="pre">BoundingBox</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#freestyle.utils.BoundingBox.inside"><code class="docutils literal notranslate"><span class="pre">BoundingBox.inside()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#freestyle.utils.BoundingBox.from_sequence"><code class="docutils literal notranslate"><span class="pre">BoundingBox.from_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#freestyle.utils.BoundingBox.__repr__"><code class="docutils literal notranslate"><span class="pre">BoundingBox.__repr__()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#freestyle.utils.StrokeCollector"><code class="docutils literal notranslate"><span class="pre">StrokeCollector</span></code></a><ul>
@@ -229,6 +230,14 @@ or <code class="xref py py-class docutils literal notranslate"><span class="pre"
 <dt class="sig sig-object py" id="freestyle.utils.angle_x_normal">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">angle_x_normal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Interface0DIterator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.angle_x_normal" title="Link to this definition"></a></dt>
 <dd><p>unsigned angle between a Point’s normal and the X axis, in radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>it</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code>) – An iterator over Interface0D objects.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -236,37 +245,97 @@ or <code class="xref py py-class docutils literal notranslate"><span class="pre"
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">higher</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.bound" title="Link to this definition"></a></dt>
 <dd><p>Returns x bounded by a maximum and minimum value. Equivalent to:
 return min(max(x, lower), higher)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lower</strong> (<em>float</em>) – Lower bound.</p></li>
+<li><p><strong>x</strong> (<em>float</em>) – Value to clamp.</p></li>
+<li><p><strong>higher</strong> (<em>float</em>) – Upper bound.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.bounding_box">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">bounding_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.bounding_box" title="Link to this definition"></a></dt>
 <dd><p>Returns the maximum and minimum coordinates (the bounding box) of the stroke’s vertices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>, <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.curvature_from_stroke_vertex">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">curvature_from_stroke_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">svert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.curvature_from_stroke_vertex" title="Link to this definition"></a></dt>
-<dd><p>The 3D curvature of an stroke vertex’ underlying geometry
-The result is None or in the range [-inf, inf]</p>
+<dd><dl class="simple">
+<dt>The 3D curvature of an stroke vertex’ underlying geometry</dt><dd><p>The result is None or in the range [-inf, inf]</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>svert</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertex</span></code>) – A stroke vertex.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float | None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.find_matching_vertex">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">find_matching_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.find_matching_vertex" title="Link to this definition"></a></dt>
 <dd><p>Finds the matching vertex, or returns None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Id</span></code>) – The ID to match.</p></li>
+<li><p><strong>it</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdjacencyIterator</span></code>) – An iterator over candidate ViewEdges.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code> | None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.get_chain_length">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">get_chain_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.get_chain_length" title="Link to this definition"></a></dt>
 <dd><p>Returns the 2d length of a given ViewEdge.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ve</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ViewEdge</span></code>) – The ViewEdge whose chain length to compute.</p></li>
+<li><p><strong>orientation</strong> (<em>bool</em>) – Direction in which to traverse the chain.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.get_object_name">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">get_object_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.get_object_name" title="Link to this definition"></a></dt>
 <dd><p>Returns the name of the object that this stroke is drawn on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str | None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -285,12 +354,25 @@ The result is None or in the range [-inf, inf]</p>
 <dt class="sig sig-object py" id="freestyle.utils.is_poly_clockwise">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">is_poly_clockwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.is_poly_clockwise" title="Link to this definition"></a></dt>
 <dd><p>True if the stroke is orientated in a clockwise way, False otherwise</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke whose orientation is tested.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.iter_distance_along_stroke">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">iter_distance_along_stroke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.iter_distance_along_stroke" title="Link to this definition"></a></dt>
 <dd><p>Yields the absolute distance along the stroke up to the current vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -299,6 +381,16 @@ The result is None or in the range [-inf, inf]</p>
 <dd><p>Yields the distance to the camera relative to the maximum
 possible distance for every stroke vertex, constrained by
 given minimum and maximum values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p></li>
+<li><p><strong>range_min</strong> (<em>float</em>) – Distances below this value are clamped to 0.</p></li>
+<li><p><strong>range_max</strong> (<em>float</em>) – Distances above this value are clamped to 1.</p></li>
+<li><p><strong>normfac</strong> (<em>float</em>) – Normalization factor applied to <code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">-</span> <span class="pre">range_min</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -307,49 +399,125 @@ given minimum and maximum values.</p>
 <dd><p>yields the distance to the given object relative to the maximum
 possible distance for every stroke vertex, constrained by
 given minimum and maximum values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Reference location in 3D space.</p></li>
+<li><p><strong>range_min</strong> (<em>float</em>) – Distances below this value are clamped to 0.</p></li>
+<li><p><strong>range_max</strong> (<em>float</em>) – Distances above this value are clamped to 1.</p></li>
+<li><p><strong>normfac</strong> (<em>float</em>) – Normalization factor applied to <code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">-</span> <span class="pre">range_min</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.iter_material_value">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">iter_material_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.iter_material_value" title="Link to this definition"></a></dt>
 <dd><p>Yields a specific material attribute from the vertex’ underlying material.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p></li>
+<li><p><strong>func</strong> (Callable[[<code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Material</span></code>]) – A function returning a material for the iterator’s current vertex.</p></li>
+<li><p><strong>attribute</strong> (<em>str</em>) – The material attribute name (e.g. <code class="docutils literal notranslate"><span class="pre">LINE</span></code>, <code class="docutils literal notranslate"><span class="pre">DIFF</span></code>, <code class="docutils literal notranslate"><span class="pre">ALPHA</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.iter_t2d_along_stroke">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">iter_t2d_along_stroke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.iter_t2d_along_stroke" title="Link to this definition"></a></dt>
 <dd><p>Yields the progress along the stroke.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.material_from_fedge">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">material_from_fedge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.material_from_fedge" title="Link to this definition"></a></dt>
-<dd><p>get the diffuse RGBA color from an FEdge</p>
+<dd><p>Get the diffuse RGBA color from an FEdge.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fe</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FEdge</span></code>) – An FEdge.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Material</span></code> | None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.normal_at_I0D">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">normal_at_I0D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Interface0DIterator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span></span></span><a class="headerlink" href="#freestyle.utils.normal_at_I0D" title="Link to this definition"></a></dt>
-<dd><p>Normal at an Interface0D object. In contrast to Normal2DF0D this
-function uses the actual data instead of underlying Fedge objects.</p>
+<dd><dl class="simple">
+<dt>Normal at an Interface0D object. In contrast to Normal2DF0D this</dt><dd><p>function uses the actual data instead of underlying Fedge objects.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>it</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Interface0DIterator</span></code>) – An iterator over Interface0D objects.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.pairwise">
-<span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">pairwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{&lt;class</span> <span class="pre">'Stroke'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;class</span> <span class="pre">'StrokeVertexIterator'&gt;}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.pairwise" title="Link to this definition"></a></dt>
-<dd><p>Yields a tuple containing the previous and current object</p>
+<span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">pairwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.pairwise" title="Link to this definition"></a></dt>
+<dd><p>Yields a tuple containing the previous and current object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iterable</strong> (<em>Iterable</em><em>[</em><em>Any</em><em>]</em>) – An iterable of items.</p></li>
+<li><p><strong>types</strong> (<em>tuple</em><em>[</em><em>type</em><em>, </em><em>...</em><em>] </em><em>| </em><em>None</em>) – Container types for which the iterator’s <code class="docutils literal notranslate"><span class="pre">incremented()</span></code>
+method is used instead of standard tee-based pairing. When <code class="docutils literal notranslate"><span class="pre">None</span></code>
+defaults to <code class="docutils literal notranslate"><span class="pre">(Stroke,</span> <span class="pre">StrokeVertexIterator)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.rgb_to_bw">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">rgb_to_bw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.rgb_to_bw" title="Link to this definition"></a></dt>
 <dd><p>Method to convert rgb to a bw intensity value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>float</em>) – Red channel (0..1).</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – Green channel (0..1).</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – Blue channel (0..1).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.simplify">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.simplify" title="Link to this definition"></a></dt>
-<dd><p>Simplifies a set of points</p>
+<dd><p>Simplifies a set of points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (Sequence[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]) – Points to simplify.</p></li>
+<li><p><strong>tolerance</strong> (<em>float</em>) – Maximum allowed deviation from the original curve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -358,6 +526,11 @@ function uses the actual data instead of underlying Fedge objects.</p>
 <dd><p>Compute the 2D curvature at the stroke vertex pointed by the iterator ‘it’.
 K = 1 / R
 where R is the radius of the circle going through the current vertex and its neighbors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>it</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">StrokeVertexIterator</span></code>) – An iterator over a stroke’s vertices.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -371,12 +544,22 @@ they have already been modified by stroke geometry modifiers.</p>
 vertex position (and therefore the vertex normal) changes.
 for use in geometry modifiers it is advised to
 cast this generator function to a tuple or list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – A stroke.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="freestyle.utils.tripplewise">
 <span class="sig-prename descclassname"><span class="pre">freestyle.utils.</span></span><span class="sig-name descname"><span class="pre">tripplewise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.tripplewise" title="Link to this definition"></a></dt>
-<dd><p>Yields a tuple containing the current object and its immediate neighbors</p>
+<dd><p>Yields a tuple containing the current object and its immediate neighbors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iterable</strong> (<em>Iterable</em><em>[</em><em>Any</em><em>]</em>) – An iterable of items.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
@@ -386,16 +569,42 @@ cast this generator function to a tuple or list</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.utils.BoundingBox.inside">
 <span class="sig-name descname"><span class="pre">inside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.BoundingBox.inside" title="Link to this definition"></a></dt>
-<dd><p>True if self inside other, False otherwise</p>
+<dd><p>True if self inside other, False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#freestyle.utils.BoundingBox" title="freestyle.utils.BoundingBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoundingBox</span></code></a>) – Another bounding box to test containment against.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.utils.BoundingBox.from_sequence">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.BoundingBox.from_sequence" title="Link to this definition"></a></dt>
-<dd><p>BoundingBox from sequence of 2D or 3D Vector objects</p>
+<dd><p>BoundingBox from sequence of 2D or 3D Vector objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sequence</strong> (Iterable[<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>]) – An iterable of vectors to compute the box from.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#freestyle.utils.BoundingBox" title="freestyle.utils.BoundingBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoundingBox</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
+<details><summary>Special Methods</summary><dl class="py method">
+<dt class="sig sig-object py" id="freestyle.utils.BoundingBox.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.BoundingBox.__repr__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
+
+</details></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="freestyle.utils.StrokeCollector">
@@ -404,7 +613,12 @@ cast this generator function to a tuple or list</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="freestyle.utils.StrokeCollector.shade">
 <span class="sig-name descname"><span class="pre">shade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#freestyle.utils.StrokeCollector.shade" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stroke</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Stroke</span></code>) – The stroke to collect.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -422,7 +636,7 @@ cast this generator function to a tuple or list</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

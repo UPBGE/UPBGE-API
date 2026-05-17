@@ -100,6 +100,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.__init__"><code class="docutils literal notranslate"><span class="pre">Buffer.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.to_list"><code class="docutils literal notranslate"><span class="pre">Buffer.to_list()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.dimensions"><code class="docutils literal notranslate"><span class="pre">Buffer.dimensions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.__getitem__"><code class="docutils literal notranslate"><span class="pre">Buffer.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.__len__"><code class="docutils literal notranslate"><span class="pre">Buffer.__len__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.__repr__"><code class="docutils literal notranslate"><span class="pre">Buffer.__repr__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.Buffer.__setitem__"><code class="docutils literal notranslate"><span class="pre">Buffer.__setitem__()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpu.types.GPUBatch"><code class="docutils literal notranslate"><span class="pre">GPUBatch</span></code></a><ul>
@@ -218,17 +222,27 @@
 <li class="toctree-l4"><a class="reference internal" href="#gpu.types.GPUVertFormat.attr_add"><code class="docutils literal notranslate"><span class="pre">GPUVertFormat.attr_add()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#gpu.types.MatrixStackContext"><code class="docutils literal notranslate"><span class="pre">MatrixStackContext</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gpu.types.OffScreenStackContext"><code class="docutils literal notranslate"><span class="pre">OffScreenStackContext</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.MatrixStackContext"><code class="docutils literal notranslate"><span class="pre">MatrixStackContext</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.MatrixStackContext.__enter__"><code class="docutils literal notranslate"><span class="pre">MatrixStackContext.__enter__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.MatrixStackContext.__exit__"><code class="docutils literal notranslate"><span class="pre">MatrixStackContext.__exit__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu.types.OffScreenStackContext"><code class="docutils literal notranslate"><span class="pre">OffScreenStackContext</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.OffScreenStackContext.__enter__"><code class="docutils literal notranslate"><span class="pre">OffScreenStackContext.__enter__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu.types.OffScreenStackContext.__exit__"><code class="docutils literal notranslate"><span class="pre">OffScreenStackContext.__exit__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.matrix.html">GPU Matrix Utilities (gpu.matrix)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpu.mesh.html">GPU Mesh Utilities (gpu.mesh)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.select.html">GPU Select Utilities (gpu.select)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.shader.html">GPU Shader Utilities (gpu.shader)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.state.html">GPU State Utilities (gpu.state)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.texture.html">GPU Texture Utilities (gpu.texture)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.platform.html">GPU Platform Utilities (gpu.platform)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.capabilities.html">GPU Capabilities Utilities (gpu.capabilities)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpu.compute.html">GPU Compute Utilities (gpu.compute)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.html#geometry-batches">Geometry Batches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.html#vertex-buffers">Vertex Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpu.html#index-buffers">Index Buffers</a></li>
@@ -306,10 +320,62 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="gpu.types.Buffer.dimensions">
 <span class="sig-name descname"><span class="pre">dimensions</span></span><a class="headerlink" href="#gpu.types.Buffer.dimensions" title="Link to this definition"></a></dt>
-<dd><p>Undocumented, consider <a class="reference external" href="https://developer.blender.org/">contributing</a>.</p>
+<dd><p>The size of the buffer for each dimension.</p>
+<p>Setting the dimensions is supported when the total number of elements is unchanged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
 </dd></dl>
 
+<details><summary>Special Methods</summary><dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.Buffer.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.Buffer.__getitem__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>int</em>) – Index or key.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.Buffer.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.Buffer.__len__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.Buffer.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.Buffer.__repr__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.Buffer.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.Buffer.__setitem__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>int</em>) – Index or key.</p></li>
+<li><p><strong>value</strong> (<em>object</em>) – Value to assign.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</details></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.GPUBatch">
@@ -536,6 +602,11 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 <dt class="sig sig-object py" id="gpu.types.GPUFrameBuffer.is_bound">
 <span class="sig-name descname"><span class="pre">is_bound</span></span><a class="headerlink" href="#gpu.types.GPUFrameBuffer.is_bound" title="Link to this definition"></a></dt>
 <dd><p>Checks if this is the active frame-buffer in the context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1531,13 +1602,67 @@ converted to a normal 4 byte float when used.</p></li>
 <dt class="sig sig-object py" id="gpu.types.MatrixStackContext">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">MatrixStackContext</span></span><a class="headerlink" href="#gpu.types.MatrixStackContext" title="Link to this definition"></a></dt>
 <dd><p>Context manager for matrix stack push/pop.</p>
+<details><summary>Special Methods</summary><dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.MatrixStackContext.__enter__">
+<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.MatrixStackContext.__enter__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gpu.types.MatrixStackContext" title="gpu.types.MatrixStackContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixStackContext</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.MatrixStackContext.__exit__">
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.MatrixStackContext.__exit__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exc_type</strong> (<em>type</em><em> | </em><em>None</em>) – Exception type, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>exc_value</strong> (<em>BaseException</em><em> | </em><em>None</em>) – Exception instance, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>traceback</strong> (<em>BaseException</em><em> | </em><em>None</em>) – Traceback object, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</details></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpu.types.OffScreenStackContext">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">gpu.types.</span></span><span class="sig-name descname"><span class="pre">OffScreenStackContext</span></span><a class="headerlink" href="#gpu.types.OffScreenStackContext" title="Link to this definition"></a></dt>
 <dd><p>Context manager for off-screen framebuffer binding.</p>
+<details><summary>Special Methods</summary><dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.OffScreenStackContext.__enter__">
+<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.OffScreenStackContext.__enter__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gpu.types.OffScreenStackContext" title="gpu.types.OffScreenStackContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">OffScreenStackContext</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpu.types.OffScreenStackContext.__exit__">
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.types.OffScreenStackContext.__exit__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exc_type</strong> (<em>type</em><em> | </em><em>None</em>) – Exception type, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>exc_value</strong> (<em>BaseException</em><em> | </em><em>None</em>) – Exception instance, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>traceback</strong> (<em>BaseException</em><em> | </em><em>None</em>) – Traceback object, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</details></dd></dl>
 
 </section>
 
@@ -1553,7 +1678,7 @@ converted to a normal 4 byte float when used.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 

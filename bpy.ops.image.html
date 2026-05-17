@@ -625,9 +625,9 @@ View – Align the new object to the view.</p></li>
 3D Cursor – Use the 3D cursor orientation for the new object.</p></li>
 </ul>
 </p></li>
-<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a>) – Rotation, (array of 3 items, in [-inf, inf], optional)</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – files, (optional)</p></li>
+<li><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="mathutils.html#mathutils.Euler" title="mathutils.Euler"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Euler</span></code></a> | Sequence[float]) – Rotation, (array of 3 items, in [-inf, inf], optional)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>] | None) – files, (optional)</p></li>
 <li><p><strong>directory</strong> (<em>str</em>) – directory, (optional, never None)</p></li>
 <li><p><strong>filter_image</strong> (<em>bool</em>) – filter_image, (optional)</p></li>
 <li><p><strong>filter_movie</strong> (<em>bool</em>) – filter_movie, (optional)</p></li>
@@ -804,7 +804,7 @@ Fit – Fit entire image within the camera frame.</p></li>
 <li><p><strong>allow_path_tokens</strong> (<em>bool</em>) – Allow the path to contain substitution tokens (optional)</p></li>
 <li><p><strong>filepath</strong> (<em>str</em>) – File Path, Path to file (optional, never None)</p></li>
 <li><p><strong>directory</strong> (<em>str</em>) – Directory, Directory of the file (optional, never None)</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – Files, (optional)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>] | None) – Files, (optional)</p></li>
 <li><p><strong>hide_props_region</strong> (<em>bool</em>) – Hide Operator Properties, Collapse the region displaying the operator settings (optional)</p></li>
 <li><p><strong>check_existing</strong> (<em>bool</em>) – Check Existing, Check and warn on overwriting existing files (optional)</p></li>
 <li><p><strong>filter_blender</strong> (<em>bool</em>) – Filter .blend files, (optional)</p></li>
@@ -861,7 +861,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>directory</strong> (<em>str</em>) – directory, (optional, never None)</p></li>
-<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>]) – files, (optional)</p></li>
+<li><p><strong>files</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_collection</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OperatorFileListElement</span></code>] | None) – files, (optional)</p></li>
 <li><p><strong>relative_path</strong> (<em>bool</em>) – Use relative path, (optional)</p></li>
 <li><p><strong>use_sequence_detection</strong> (<em>bool</em>) – Use sequence detection, (optional)</p></li>
 <li><p><strong>use_udim_detection</strong> (<em>bool</em>) – Use UDIM detection, (optional)</p></li>
@@ -1385,7 +1385,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dd><p>Pan the view</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Offset, Offset in floating-point units, 1.0 is the width and height of the image (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>offset</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Offset, Offset in floating-point units, 1.0 is the width and height of the image (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1460,7 +1460,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dd><p>Zoom in the image (centered around 2D cursor)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Cursor location in screen coordinates (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Cursor location in screen coordinates (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1477,7 +1477,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 <dd><p>Zoom out the image (centered around 2D cursor)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Location, Cursor location in screen coordinates (array of 2 items, in [-inf, inf], optional)</p>
+<dd class="field-odd"><p><strong>location</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> | Sequence[float]) – Location, Cursor location in screen coordinates (array of 2 items, in [-inf, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1519,7 +1519,7 @@ Thumbnails – Display files as thumbnails.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/40bb3759571f>40bb3759571f</a> - 07/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
       </span></p>
   </div>
 
