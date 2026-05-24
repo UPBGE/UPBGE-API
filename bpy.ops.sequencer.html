@@ -213,6 +213,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_color_tag_set"><code class="docutils literal notranslate"><span class="pre">strip_color_tag_set()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_jump"><code class="docutils literal notranslate"><span class="pre">strip_jump()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_add"><code class="docutils literal notranslate"><span class="pre">strip_modifier_add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_add_node_group"><code class="docutils literal notranslate"><span class="pre">strip_modifier_add_node_group()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_copy"><code class="docutils literal notranslate"><span class="pre">strip_modifier_copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_duplicate"><code class="docutils literal notranslate"><span class="pre">strip_modifier_duplicate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.strip_modifier_equalizer_redefine"><code class="docutils literal notranslate"><span class="pre">strip_modifier_equalizer_redefine()</span></code></a></li>
@@ -2020,7 +2021,7 @@ Current Frame – Select intersecting with the current frame.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sequencer.snap">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">snap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LEFT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.snap" title="Link to this definition"></a></dt>
-<dd><p>Snap strips to the current frame, using the active strip as the anchor, and the mouse cursor relative to the playhead to determine the side of the playhead to snap to</p>
+<dd><p>Snap strips to the current frame, using the active (or closest) strip as the anchor, and the mouse cursor relative to the playhead to determine the side of the playhead to snap to</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2204,6 +2205,28 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>type</strong> (<em>str</em>) – Type, (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sequencer.strip_modifier_add_node_group">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">strip_modifier_add_node_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset_library_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOCAL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset_library_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_asset_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.strip_modifier_add_node_group" title="Link to this definition"></a></dt>
+<dd><p>Add a modifier to the strip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>asset_library_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/asset_library_type_items.html#rna-enum-asset-library-type-items"><span class="std std-ref">Asset Library Type Items</span></a>]) – Asset Library Type, (optional)</p></li>
+<li><p><strong>asset_library_identifier</strong> (<em>str</em>) – Asset Library Identifier, (optional, never None)</p></li>
+<li><p><strong>relative_asset_identifier</strong> (<em>str</em>) – Relative Asset Identifier, (optional, never None)</p></li>
+<li><p><strong>session_uid</strong> (<em>int</em>) – Session UID, Session UID of the data-block to use by the operator (in [-inf, inf], optional)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2792,7 +2815,7 @@ All – Reset strip transform location, scale and rotation.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
       </span></p>
   </div>
 

@@ -181,6 +181,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.wireframe"><code class="docutils literal notranslate"><span class="pre">wireframe()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.poke"><code class="docutils literal notranslate"><span class="pre">poke()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.convex_hull"><code class="docutils literal notranslate"><span class="pre">convex_hull()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.space_edge_loops_evenly"><code class="docutils literal notranslate"><span class="pre">space_edge_loops_evenly()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.symmetrize"><code class="docutils literal notranslate"><span class="pre">symmetrize()</span></code></a></li>
 </ul>
 </li>
@@ -2563,6 +2564,26 @@ that were in the input and are part of the hull.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bmesh.ops.space_edge_loops_evenly">
+<span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">space_edge_loops_evenly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CUBIC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock_z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.space_edge_loops_evenly" title="Link to this definition"></a></dt>
+<dd><p>Space Evenly.</p>
+<p>Space the vertices in a regular distribution on the loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
+<li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Input geometry.</p></li>
+<li><p><strong>interpolation</strong> (<em>Literal</em><em>[</em><em>'CUBIC'</em><em>, </em><em>'LINEAR'</em><em>]</em>) – Method used for interpolation.</p></li>
+<li><p><strong>factor</strong> (<em>float</em>) – Influence factor: spans from 0.0 to 1.0.</p></li>
+<li><p><strong>lock_x</strong> (<em>bool</em>) – Lock X-axis editing.</p></li>
+<li><p><strong>lock_y</strong> (<em>bool</em>) – Lock Y-axis editing.</p></li>
+<li><p><strong>lock_z</strong> (<em>bool</em>) – Lock Z-axis editing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bmesh.ops.symmetrize">
 <span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">symmetrize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_shapekey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.symmetrize" title="Link to this definition"></a></dt>
 <dd><p>Symmetrize.</p>
@@ -2610,7 +2631,7 @@ symmetry are split as needed to enforce symmetry.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
       </span></p>
   </div>
 

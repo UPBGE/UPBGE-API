@@ -327,11 +327,35 @@ Z-Axis – Top/Bottom.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.armature.bone_primitive_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.armature.</span></span><span class="sig-name descname"><span class="pre">bone_primitive_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Bone'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.armature.bone_primitive_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.armature.</span></span><span class="sig-name descname"><span class="pre">bone_primitive_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Bone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OBJECT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.armature.bone_primitive_add" title="Link to this definition"></a></dt>
 <dd><p>Add a new bone located at the 3D cursor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name, Name of the newly created bone (optional, never None)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name, Name of the newly created bone (optional, never None)</p></li>
+<li><p><strong>space</strong> (<em>Literal</em><em>[</em><em>'OBJECT'</em><em>, </em><em>'WORLD'</em><em>]</em>) – <p>Space, Co-ordinate system the new bone will be created in (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code>
+Object – The newly created bone will use Object Space co-ordinate system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WORLD</span></code>
+World – The newly created bone will use World Space co-ordinate system.</p></li>
+</ul>
+</p></li>
+<li><p><strong>align</strong> (<em>Literal</em><em>[</em><em>'UP'</em><em>, </em><em>'AXES'</em><em>, </em><em>'3D_CURSOR'</em><em>, </em><em>'3D_VIEW'</em><em>]</em>) – <p>Align, Initial orientation of the new bone (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">UP</span></code>
+Up – Make the bone visually point upwards so the long axis is aligned with the World/Object positive Z axis (depending on the choice above).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AXES</span></code>
+Axes – Align the new bone to match the axes of the World/Object (depending on the choice above).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3D_CURSOR</span></code>
+3D Cursor – Align new bone to match the axes of the 3D cursor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3D_VIEW</span></code>
+Viewport – Align new bone to match the axes of the 3D viewport.</p></li>
+</ul>
+</p></li>
+<li><p><strong>length</strong> (<em>float</em>) – Length, Length of the new bone (in [0.001, inf], optional)</p></li>
+<li><p><strong>deform</strong> (<em>bool</em>) – Enable Deform, Enable bone to deform geometry (optional)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1141,7 +1165,7 @@ Invert – Invert selection of all elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
       </span></p>
   </div>
 

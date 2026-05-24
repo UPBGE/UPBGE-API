@@ -402,7 +402,10 @@
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_metafiles_in_place"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_metafiles_in_place()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_loaded_new_pages"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_loaded_new_pages()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_loaded_new_preview"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_loaded_new_preview()</span></code></a></li>
-<li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_done"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_asset_file_done()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_progress"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_asset_file_progress()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_succeeded"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_asset_file_succeeded()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_failed"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_asset_file_failed()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_ping_finished_download_queue"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_ping_finished_download_queue()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_finished_loading"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_finished_loading()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.asset_library_status_failed_loading"><code class="docutils literal notranslate"><span class="pre">WindowManager.asset_library_status_failed_loading()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.register_node_group_operators"><code class="docutils literal notranslate"><span class="pre">WindowManager.register_node_group_operators()</span></code></a></li>
@@ -1646,14 +1649,51 @@ to ensure the context is still valid.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bpy.types.WindowManager.asset_library_status_ping_asset_file_done">
-<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">asset_library_status_ping_asset_file_done</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">library_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_done" title="Link to this definition"></a></dt>
-<dd><p>Inform the asset system that a single asset file download has finished, sucessfully or not.</p>
+<dt class="sig sig-object py" id="bpy.types.WindowManager.asset_library_status_ping_asset_file_progress">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">asset_library_status_ping_asset_file_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">absolute_file_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_written</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_progress" title="Link to this definition"></a></dt>
+<dd><p>Inform the asset system about the current progress of an asset file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>library_url</strong> (<em>str</em>) – URL, The URL identifying the asset library being loaded (never None)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>absolute_file_url</strong> (<em>str</em>) – URL, The absolute URL this file was downloaded from (never None)</p></li>
+<li><p><strong>size_written</strong> (<em>int</em>) – Size Written to Disk, The number of bytes written to disk after uncompressing the download data, if needed (in [0, inf])</p></li>
+</ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.WindowManager.asset_library_status_ping_asset_file_succeeded">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">asset_library_status_ping_asset_file_succeeded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">library_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute_file_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_succeeded" title="Link to this definition"></a></dt>
+<dd><p>Inform the asset system that a single asset file download has finished successfully.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>library_url</strong> (<em>str</em>) – URL, The URL identifying the asset library being loaded (never None)</p></li>
+<li><p><strong>absolute_file_url</strong> (<em>str</em>) – URL, The absolute URL this file was downloaded from (never None)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.WindowManager.asset_library_status_ping_asset_file_failed">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">asset_library_status_ping_asset_file_failed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">library_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute_file_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.asset_library_status_ping_asset_file_failed" title="Link to this definition"></a></dt>
+<dd><p>Inform the asset system that a single asset file download has stopped because of some failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>library_url</strong> (<em>str</em>) – URL, The URL identifying the asset library being loaded (never None)</p></li>
+<li><p><strong>absolute_file_url</strong> (<em>str</em>) – URL, The absolute URL this file was downloaded from (never None)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.WindowManager.asset_library_status_ping_finished_download_queue">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">asset_library_status_ping_finished_download_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.asset_library_status_ping_finished_download_queue" title="Link to this definition"></a></dt>
+<dd><p>Inform the asset system that there are no more pending asset file downloads for any asset library.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1927,7 +1967,7 @@ It gets the specified arguments as input with the mouse position (<code class="d
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
       </span></p>
   </div>
 

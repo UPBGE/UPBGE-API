@@ -220,6 +220,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.node.hide_socket_toggle"><code class="docutils literal notranslate"><span class="pre">hide_socket_toggle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.node.hide_toggle"><code class="docutils literal notranslate"><span class="pre">hide_toggle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.node.index_switch_item_add"><code class="docutils literal notranslate"><span class="pre">index_switch_item_add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.node.index_switch_item_move"><code class="docutils literal notranslate"><span class="pre">index_switch_item_move()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.node.index_switch_item_remove"><code class="docutils literal notranslate"><span class="pre">index_switch_item_remove()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.node.insert_offset"><code class="docutils literal notranslate"><span class="pre">insert_offset()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.node.interface_item_duplicate"><code class="docutils literal notranslate"><span class="pre">interface_item_duplicate()</span></code></a></li>
@@ -955,11 +956,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.bake_node_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">bake_node_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.bake_node_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">bake_node_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.bake_node_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1009,11 +1016,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.capture_attribute_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">capture_attribute_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.capture_attribute_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">capture_attribute_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.capture_attribute_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1108,11 +1121,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.closure_input_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">closure_input_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.closure_input_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">closure_input_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.closure_input_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1162,11 +1181,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.closure_output_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">closure_output_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.closure_output_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">closure_output_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.closure_output_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1233,11 +1258,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.combine_bundle_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">combine_bundle_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.combine_bundle_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">combine_bundle_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.combine_bundle_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1554,11 +1585,16 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.enum_definition_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">enum_definition_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.enum_definition_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">enum_definition_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.enum_definition_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1608,11 +1644,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.evaluate_closure_input_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">evaluate_closure_input_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.evaluate_closure_input_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">evaluate_closure_input_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.evaluate_closure_input_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1662,11 +1704,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.evaluate_closure_output_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">evaluate_closure_output_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.evaluate_closure_output_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">evaluate_closure_output_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.evaluate_closure_output_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1716,11 +1764,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.field_to_grid_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">field_to_grid_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.field_to_grid_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">field_to_grid_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.field_to_grid_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1770,11 +1824,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.field_to_list_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">field_to_list_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.field_to_list_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">field_to_list_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.field_to_list_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1824,11 +1884,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.file_output_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">file_output_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.file_output_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">file_output_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.file_output_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1892,11 +1958,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.foreach_geometry_element_zone_generation_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">foreach_geometry_element_zone_generation_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.foreach_geometry_element_zone_generation_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">foreach_geometry_element_zone_generation_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.foreach_geometry_element_zone_generation_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -1946,11 +2018,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.foreach_geometry_element_zone_input_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">foreach_geometry_element_zone_input_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.foreach_geometry_element_zone_input_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">foreach_geometry_element_zone_input_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.foreach_geometry_element_zone_input_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2000,11 +2078,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.foreach_geometry_element_zone_main_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">foreach_geometry_element_zone_main_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.foreach_geometry_element_zone_main_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">foreach_geometry_element_zone_main_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.foreach_geometry_element_zone_main_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2054,11 +2138,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.format_string_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">format_string_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.format_string_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">format_string_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.format_string_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2108,11 +2198,17 @@ Asset Catalog – Sort the asset list so that assets in the same catalog are kep
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.geometry_nodes_viewer_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">geometry_nodes_viewer_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.geometry_nodes_viewer_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">geometry_nodes_viewer_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.geometry_nodes_viewer_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2304,11 +2400,35 @@ Move – Move to parent node tree, remove from group.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.index_switch_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">index_switch_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.index_switch_item_add" title="Link to this definition"></a></dt>
-<dd><p>Add an item to the index switch</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">index_switch_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.index_switch_item_add" title="Link to this definition"></a></dt>
+<dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.node.index_switch_item_move">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">index_switch_item_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.index_switch_item_move" title="Link to this definition"></a></dt>
+<dd><p>Move active item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>direction</strong> (<em>Literal</em><em>[</em><em>'UP'</em><em>, </em><em>'DOWN'</em><em>]</em>) – Direction, Move direction (optional)</p></li>
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2321,11 +2441,11 @@ Move – Move to parent node tree, remove from group.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.index_switch_item_remove">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">index_switch_item_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.index_switch_item_remove" title="Link to this definition"></a></dt>
-<dd><p>Remove an item from the index switch</p>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">index_switch_item_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.index_switch_item_remove" title="Link to this definition"></a></dt>
+<dd><p>Remove active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – Index, Index to remove (in [0, inf], optional)</p>
+<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2903,11 +3023,17 @@ Move – Move to parent node tree, remove from group.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.repeat_zone_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">repeat_zone_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.repeat_zone_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">repeat_zone_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.repeat_zone_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -2971,11 +3097,17 @@ Move – Move to parent node tree, remove from group.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.sample_attribute_items_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">sample_attribute_items_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.sample_attribute_items_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">sample_attribute_items_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.sample_attribute_items_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -3263,11 +3395,17 @@ Subtract – Subtract existing selection.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.separate_bundle_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">separate_bundle_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.separate_bundle_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">separate_bundle_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.separate_bundle_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -3331,11 +3469,17 @@ Subtract – Subtract existing selection.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.node.simulation_zone_item_add">
-<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">simulation_zone_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.simulation_zone_item_add" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.node.</span></span><span class="sig-name descname"><span class="pre">simulation_zone_item_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_dialog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_from_active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.simulation_zone_item_add" title="Link to this definition"></a></dt>
 <dd><p>Add item below active item</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_identifier</strong> (<em>int</em>) – Node Identifier, Optional identifier of the node to operate on (in [0, inf], optional)</p></li>
+<li><p><strong>show_dialog</strong> (<em>bool</em>) – Show Dialog, Show a dialog to edit the initial properties (optional)</p></li>
+<li><p><strong>init_from_active</strong> (<em>bool</em>) – Init from Active, Instead of using the provided name or type, copy the state of the active item (optional)</p></li>
+<li><p><strong>socket_type</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/node_socket_data_type_items.html#rna-enum-node-socket-data-type-items"><span class="std std-ref">Node Socket Data Type Items</span></a>]) – Socket Type, Type of the new socket item (optional)</p></li>
+<li><p><strong>item_name</strong> (<em>str</em>) – Item Name, Name of the new socket item (optional, never None)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of the operator call.</p>
@@ -3684,7 +3828,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/36b20e477f6d>36b20e477f6d</a> - 15/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
       </span></p>
   </div>
 
