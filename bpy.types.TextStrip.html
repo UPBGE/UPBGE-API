@@ -289,6 +289,8 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameObjectSettings.html">GameObjectSettings(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameProperty.html">GameProperty(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameSoftBodySettings.html">GameSoftBodySettings(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeClosureToListItem.html">GeometryNodeClosureToListItem(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeClosureToListItems.html">GeometryNodeClosureToListItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItem.html">GeometryNodeFieldToGridItem(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItems.html">GeometryNodeFieldToGridItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToListItem.html">GeometryNodeFieldToListItem(bpy_struct)</a></li>
@@ -621,6 +623,7 @@
 <li class="toctree-l5"><a class="reference internal" href="bpy.types.SubtractStrip.html">SubtractStrip(EffectStrip)</a></li>
 <li class="toctree-l5 current"><a class="current reference internal" href="#">TextStrip(EffectStrip)</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.TextStrip"><code class="docutils literal notranslate"><span class="pre">TextStrip</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.abs_space_line"><code class="docutils literal notranslate"><span class="pre">TextStrip.abs_space_line</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.alignment_x"><code class="docutils literal notranslate"><span class="pre">TextStrip.alignment_x</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.anchor_x"><code class="docutils literal notranslate"><span class="pre">TextStrip.anchor_x</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.anchor_y"><code class="docutils literal notranslate"><span class="pre">TextStrip.anchor_y</span></code></a></li>
@@ -641,6 +644,7 @@
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.space_line"><code class="docutils literal notranslate"><span class="pre">TextStrip.space_line</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.text"><code class="docutils literal notranslate"><span class="pre">TextStrip.text</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.textbox_state"><code class="docutils literal notranslate"><span class="pre">TextStrip.textbox_state</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.use_absolute_line_spacing"><code class="docutils literal notranslate"><span class="pre">TextStrip.use_absolute_line_spacing</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.use_bold"><code class="docutils literal notranslate"><span class="pre">TextStrip.use_bold</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.use_box"><code class="docutils literal notranslate"><span class="pre">TextStrip.use_box</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.TextStrip.use_italic"><code class="docutils literal notranslate"><span class="pre">TextStrip.use_italic</span></code></a></li>
@@ -878,6 +882,17 @@
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">TextStrip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">EffectStrip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.TextStrip" title="Link to this definition"></a></dt>
 <dd><p>Sequence strip creating text</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.TextStrip.abs_space_line">
+<span class="sig-name descname"><span class="pre">abs_space_line</span></span><a class="headerlink" href="#bpy.types.TextStrip.abs_space_line" title="Link to this definition"></a></dt>
+<dd><p>Distance between lines of text in pixels (in [0, 5000], default 1.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.TextStrip.alignment_x">
 <span class="sig-name descname"><span class="pre">alignment_x</span></span><a class="headerlink" href="#bpy.types.TextStrip.alignment_x" title="Link to this definition"></a></dt>
 <dd><p>Horizontal text alignment (default <code class="docutils literal notranslate"><span class="pre">'LEFT'</span></code>)</p>
@@ -1067,7 +1082,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.TextStrip.space_line">
 <span class="sig-name descname"><span class="pre">space_line</span></span><a class="headerlink" href="#bpy.types.TextStrip.space_line" title="Link to this definition"></a></dt>
-<dd><p>Distance between lines of text (in [0, 50], default 1.0)</p>
+<dd><p>Distance between lines of text in proportion to text size (in [0, 50], default 1.0)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1093,6 +1108,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="bpy.types.TextboxState.html#bpy.types.TextboxState" title="bpy.types.TextboxState"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextboxState</span></code></a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.TextStrip.use_absolute_line_spacing">
+<span class="sig-name descname"><span class="pre">use_absolute_line_spacing</span></span><a class="headerlink" href="#bpy.types.TextStrip.use_absolute_line_spacing" title="Link to this definition"></a></dt>
+<dd><p>Define spacing using pixel values instead of relative scaling based on font size (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1314,7 +1340,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/90e03b7bdede>90e03b7bdede</a> - 28/05/2026</code>.
       </span></p>
   </div>
 

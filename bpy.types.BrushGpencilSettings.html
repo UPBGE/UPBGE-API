@@ -210,8 +210,11 @@
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_draw_mode"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_draw_mode</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_extend_mode"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_extend_mode</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_factor"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_factor</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_gap_factor"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_gap_factor</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_internal_gaps"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_internal_gaps</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_layer_mode"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_layer_mode</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_simplify_level"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_simplify_level</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_solver"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_solver</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.fill_threshold"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.fill_threshold</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.hardness"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.hardness</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.BrushGpencilSettings.input_samples"><code class="docutils literal notranslate"><span class="pre">BrushGpencilSettings.input_samples</span></code></a></li>
@@ -385,6 +388,8 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameObjectSettings.html">GameObjectSettings(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameProperty.html">GameProperty(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameSoftBodySettings.html">GameSoftBodySettings(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeClosureToListItem.html">GeometryNodeClosureToListItem(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeClosureToListItems.html">GeometryNodeClosureToListItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItem.html">GeometryNodeFieldToGridItem(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItems.html">GeometryNodeFieldToGridItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToListItem.html">GeometryNodeFieldToListItem(bpy_struct)</a></li>
@@ -1223,6 +1228,28 @@ Radius – Connect endpoints that are close together.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BrushGpencilSettings.fill_gap_factor">
+<span class="sig-name descname"><span class="pre">fill_gap_factor</span></span><a class="headerlink" href="#bpy.types.BrushGpencilSettings.fill_gap_factor" title="Link to this definition"></a></dt>
+<dd><p>The sensitivity of the gap detection. Higher values results in more gaps detected and as such can create smaller fills (in [0, 1], default 0.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BrushGpencilSettings.fill_internal_gaps">
+<span class="sig-name descname"><span class="pre">fill_internal_gaps</span></span><a class="headerlink" href="#bpy.types.BrushGpencilSettings.fill_internal_gaps" title="Link to this definition"></a></dt>
+<dd><p>Stop at internal gaps (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.BrushGpencilSettings.fill_layer_mode">
 <span class="sig-name descname"><span class="pre">fill_layer_mode</span></span><a class="headerlink" href="#bpy.types.BrushGpencilSettings.fill_layer_mode" title="Link to this definition"></a></dt>
 <dd><p>Layers used as boundaries (default <code class="docutils literal notranslate"><span class="pre">'VISIBLE'</span></code>)</p>
@@ -1254,6 +1281,23 @@ All Below – All layers below active.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.BrushGpencilSettings.fill_solver">
+<span class="sig-name descname"><span class="pre">fill_solver</span></span><a class="headerlink" href="#bpy.types.BrushGpencilSettings.fill_solver" title="Link to this definition"></a></dt>
+<dd><p>Method used for when filling (default <code class="docutils literal notranslate"><span class="pre">'DELAUNAY'</span></code>)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DELAUNAY</span></code>
+Delaunay – Use the exact geometry to create fills.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PIXEL</span></code>
+Pixel – Use pixel based flooding to create fills.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Literal[‘DELAUNAY’, ‘PIXEL’]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2008,7 +2052,7 @@ Both – Painting affects both strokes and fills.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/90e03b7bdede>90e03b7bdede</a> - 28/05/2026</code>.
       </span></p>
   </div>
 

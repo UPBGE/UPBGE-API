@@ -289,6 +289,8 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameObjectSettings.html">GameObjectSettings(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameProperty.html">GameProperty(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GameSoftBodySettings.html">GameSoftBodySettings(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeClosureToListItem.html">GeometryNodeClosureToListItem(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeClosureToListItems.html">GeometryNodeClosureToListItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItem.html">GeometryNodeFieldToGridItem(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToGridItems.html">GeometryNodeFieldToGridItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.GeometryNodeFieldToListItem.html">GeometryNodeFieldToListItem(bpy_struct)</a></li>
@@ -399,14 +401,12 @@
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_25"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_25</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_50"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_50</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_75"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_75</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_record_run"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_record_run</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_undistorted_100"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_undistorted_100</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_undistorted_25"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_undistorted_25</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_undistorted_50"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_undistorted_50</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.build_undistorted_75"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.build_undistorted_75</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.directory"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.directory</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.quality"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.quality</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.timecode"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.timecode</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.bl_rna_get_subclass"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.bl_rna_get_subclass()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.MovieClipProxy.bl_rna_get_subclass_py"><code class="docutils literal notranslate"><span class="pre">MovieClipProxy.bl_rna_get_subclass_py()</span></code></a></li>
 </ul>
@@ -871,17 +871,6 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.MovieClipProxy.build_record_run">
-<span class="sig-name descname"><span class="pre">build_record_run</span></span><a class="headerlink" href="#bpy.types.MovieClipProxy.build_record_run" title="Link to this definition"></a></dt>
-<dd><p>Build record run time code index (default True)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.MovieClipProxy.build_undistorted_100">
 <span class="sig-name descname"><span class="pre">build_undistorted_100</span></span><a class="headerlink" href="#bpy.types.MovieClipProxy.build_undistorted_100" title="Link to this definition"></a></dt>
 <dd><p>Build proxy resolution 100% of the original undistorted footage dimension (default False)</p>
@@ -943,25 +932,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bpy.types.MovieClipProxy.timecode">
-<span class="sig-name descname"><span class="pre">timecode</span></span><a class="headerlink" href="#bpy.types.MovieClipProxy.timecode" title="Link to this definition"></a></dt>
-<dd><p>(default <code class="docutils literal notranslate"><span class="pre">'NONE'</span></code>)</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>
-None – Ignore generated timecodes, seek in movie stream based on calculated timestamp.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RECORD_RUN</span></code>
-Record Run – Seek based on timestamps read from movie stream, giving the best match between scene and movie times.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FREE_RUN_NO_GAPS</span></code>
-Record Run No Gaps – Effectively convert movie to an image sequence, ignoring incomplete or dropped frames, and changes in frame rate.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Literal[‘NONE’, ‘RECORD_RUN’, ‘FREE_RUN_NO_GAPS’]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1070,7 +1040,7 @@ Record Run No Gaps – Effectively convert movie to an image sequence, ignoring 
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/fc46a3731fc6>fc46a3731fc6</a> - 24/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/90e03b7bdede>90e03b7bdede</a> - 28/05/2026</code>.
       </span></p>
   </div>
 
