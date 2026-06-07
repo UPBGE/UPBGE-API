@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://upbge.org/docs/latest/api/bpy.types.SequencerPreviewOverlay.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=aa05bc33"></script>
+      <script src="_static/documentation_options.js?v=ceca6c77"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            UPBGE 0.5x & Blender 5.2.0 Alpha Python API
+            UPBGE 0.5x & Blender 5.3.0 Alpha Python API
               <img src="_static/upbge_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -105,6 +105,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.ArmatureBones.html">ArmatureBones(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.ArmatureConstraintTargets.html">ArmatureConstraintTargets(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.ArmatureEditBones.html">ArmatureEditBones(bpy_prop_collection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.AssetLibrary.html">AssetLibrary(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.AssetLibraryCollection.html">AssetLibraryCollection(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.AssetLibraryReference.html">AssetLibraryReference(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.AssetMetaData.html">AssetMetaData(bpy_struct)</a></li>
@@ -166,6 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.BlendImportContextItems.html">BlendImportContextItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.BlendImportContextLibraries.html">BlendImportContextLibraries(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.BlendImportContextLibrary.html">BlendImportContextLibrary(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.BlenderProject.html">BlenderProject(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.BlenderRNA.html">BlenderRNA(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.BoidRule.html">BoidRule(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.BoidSettings.html">BoidSettings(bpy_struct)</a></li>
@@ -516,6 +518,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.PoseBoneConstraints.html">PoseBoneConstraints(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.Preferences.html">Preferences(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.PreferencesApps.html">PreferencesApps(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.PreferencesAssetLibraries.html">PreferencesAssetLibraries(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.PreferencesEdit.html">PreferencesEdit(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.PreferencesExperimental.html">PreferencesExperimental(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.PreferencesExtensions.html">PreferencesExtensions(bpy_struct)</a></li>
@@ -575,7 +578,17 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.SequencerCompositorModifierPropertiesEmpty.html">SequencerCompositorModifierPropertiesEmpty(bpy_struct)</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">SequencerPreviewOverlay(bpy_struct)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.composition_guide_color"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.composition_guide_color</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_annotation"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_annotation</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_center"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_center</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_center_diagonal"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_center_diagonal</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_golden"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_golden</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_golden_tria_a"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_golden_tria_a</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_golden_tria_b"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_golden_tria_b</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_guides"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_guides</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_harmony_tri_a"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_harmony_tri_a</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_harmony_tri_b"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_harmony_tri_b</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_composition_thirds"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_composition_thirds</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_cursor"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_cursor</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_image_outline"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_image_outline</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.SequencerPreviewOverlay.show_metadata"><code class="docutils literal notranslate"><span class="pre">SequencerPreviewOverlay.show_metadata</span></code></a></li>
@@ -740,6 +753,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.XrSessionState.html">XrSessionState(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.XrUserPath.html">XrUserPath(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.XrUserPaths.html">XrUserPaths(bpy_prop_collection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.XrViewfinderState.html">XrViewfinderState(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.wmOwnerID.html">wmOwnerID(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.wmOwnerIDs.html">wmOwnerIDs(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.wmTools.html">wmTools(bpy_prop_collection)</a></li>
@@ -750,6 +764,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_array.html">bpy_prop_array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection_idprop.html">bpy_prop_collection_idprop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.bpy_prop_collection.html">bpy_prop_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bpy.types.BlendDataPathMeta.html">BlendDataPathMeta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.ContextTempOverride.html">ContextTempOverride</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.GeometrySet.html">GeometrySet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.types.InlineShaderNodes.html">InlineShaderNodes</a></li>
@@ -796,7 +811,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">UPBGE 0.5x & Blender 5.2.0 Alpha Python API</a>
+          <a href="index.html">UPBGE 0.5x & Blender 5.3.0 Alpha Python API</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -822,9 +837,119 @@
 <dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">SequencerPreviewOverlay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpy_struct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay" title="Link to this definition"></a></dt>
 <dd><dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.composition_guide_color">
+<span class="sig-name descname"><span class="pre">composition_guide_color</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.composition_guide_color" title="Link to this definition"></a></dt>
+<dd><p>Color and alpha for compositional guide overlays (array of 4 items, in [0, inf], default (0.5, 0.5, 0.5, 1.0))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.bpy_prop_array.html#bpy.types.bpy_prop_array" title="bpy.types.bpy_prop_array"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_array</span></code></a>[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_annotation">
 <span class="sig-name descname"><span class="pre">show_annotation</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_annotation" title="Link to this definition"></a></dt>
 <dd><p>Show annotations for this view (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_center">
+<span class="sig-name descname"><span class="pre">show_composition_center</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_center" title="Link to this definition"></a></dt>
+<dd><p>Display center composition guide (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_center_diagonal">
+<span class="sig-name descname"><span class="pre">show_composition_center_diagonal</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_center_diagonal" title="Link to this definition"></a></dt>
+<dd><p>Display diagonal center composition guide (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_golden">
+<span class="sig-name descname"><span class="pre">show_composition_golden</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_golden" title="Link to this definition"></a></dt>
+<dd><p>Display golden ratio composition guide (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_golden_tria_a">
+<span class="sig-name descname"><span class="pre">show_composition_golden_tria_a</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_golden_tria_a" title="Link to this definition"></a></dt>
+<dd><p>Display golden triangle A composition guide (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_golden_tria_b">
+<span class="sig-name descname"><span class="pre">show_composition_golden_tria_b</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_golden_tria_b" title="Link to this definition"></a></dt>
+<dd><p>Display golden triangle B composition guide (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_guides">
+<span class="sig-name descname"><span class="pre">show_composition_guides</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_guides" title="Link to this definition"></a></dt>
+<dd><p>Display composition guides over the preview (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_harmony_tri_a">
+<span class="sig-name descname"><span class="pre">show_composition_harmony_tri_a</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_harmony_tri_a" title="Link to this definition"></a></dt>
+<dd><p>Display harmony A composition guide (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_harmony_tri_b">
+<span class="sig-name descname"><span class="pre">show_composition_harmony_tri_b</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_harmony_tri_b" title="Link to this definition"></a></dt>
+<dd><p>Display harmony B composition guide (default False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.SequencerPreviewOverlay.show_composition_thirds">
+<span class="sig-name descname"><span class="pre">show_composition_thirds</span></span><a class="headerlink" href="#bpy.types.SequencerPreviewOverlay.show_composition_thirds" title="Link to this definition"></a></dt>
+<dd><p>Display rule of thirds composition guide (default False)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -991,7 +1116,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/90e03b7bdede>90e03b7bdede</a> - 28/05/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6795f5305fb6>6795f5305fb6</a> - 06/06/2026</code>.
       </span></p>
   </div>
 
@@ -1010,7 +1135,7 @@
 <div class="footer-contribute">
   <ul>
     <li>
-      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.SequencerPreviewOverlay.rst%60%0D%0ABlender+Version%3A+%605.2%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.2%2Fbpy.types.SequencerPreviewOverlay.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
+      <a href="https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.SequencerPreviewOverlay.rst%60%0D%0ABlender+Version%3A+%605.3%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.3%2Fbpy.types.SequencerPreviewOverlay.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A" class="fa fa-bug"> Report issue
         on this page</a>
     </li>
   </ul>
