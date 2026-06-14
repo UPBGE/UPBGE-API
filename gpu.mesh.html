@@ -190,16 +190,18 @@ and push constants.</p></li>
 </dd>
 </dl>
 <p>Binding tuples use the form:</p>
-<p><code class="docutils literal notranslate"><span class="pre">(binding_index:int,</span> <span class="pre">buffer:GPUStorageBuf|GPUVertBuf|GPUUniformBuf|GPUIndexBuf|str|None,</span></code>
-<code class="docutils literal notranslate"><span class="pre">qualifier:str('read'|'write'|'read_write'),</span> <span class="pre">type_name:str,</span> <span class="pre">bind_name:str)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">(binding_index:int,</span> <span class="pre">buffer:GPUStorageBuf|GPUVertBuf|GPUUniformBuf|GPUIndexBuf|GPUTexture|str|None,</span>
+<span class="pre">qualifier:str('read'|'write'|'read_write')</span> <span class="pre">(ignored</span> <span class="pre">for</span> <span class="pre">GPUTexture),</span>
+<span class="pre">type_name:str('int'|'float'|'mat4'|'sampler2D'...),</span> <span class="pre">bind_name:str)</span></code></p>
 <p>Notes about <code class="docutils literal notranslate"><span class="pre">buffer</span></code>:</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">buffer</span></code> is a string token, it is resolved against the mesh batch cache VBOs.</p></li>
 <li><p>Supported tokens include <code class="docutils literal notranslate"><span class="pre">'Position'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VBO::Position'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CornerNormal'</span></code>
 and <code class="docutils literal notranslate"><span class="pre">'VBO::CornerNormal'</span></code>.</p></li>
 <li><p>Accepted Python buffer wrappers are <a class="reference internal" href="gpu.types.html#gpu.types.GPUStorageBuf" title="gpu.types.GPUStorageBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUStorageBuf</span></code></a>,
-<a class="reference internal" href="gpu.types.html#gpu.types.GPUVertBuf" title="gpu.types.GPUVertBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertBuf</span></code></a>, <a class="reference internal" href="gpu.types.html#gpu.types.GPUUniformBuf" title="gpu.types.GPUUniformBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUUniformBuf</span></code></a>
-(bound as SSBO), <a class="reference internal" href="gpu.types.html#gpu.types.GPUIndexBuf" title="gpu.types.GPUIndexBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUIndexBuf</span></code></a> (bound as SSBO), or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<a class="reference internal" href="gpu.types.html#gpu.types.GPUVertBuf" title="gpu.types.GPUVertBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertBuf</span></code></a>, <a class="reference internal" href="gpu.types.html#gpu.types.GPUUniformBuf" title="gpu.types.GPUUniformBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUUniformBuf</span></code></a>, <a class="reference internal" href="gpu.types.html#gpu.types.GPUIndexBuf" title="gpu.types.GPUIndexBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUIndexBuf</span></code></a>
+(bound as SSBO),
+<a class="reference internal" href="gpu.types.html#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a> (bound as GPUTexture via <code class="docutils literal notranslate"><span class="pre">GPU_texture_bind</span></code>), or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">config</span></code> callable behavior:</p>
 <ul class="simple">
@@ -279,53 +281,14 @@ vertex (object-space positions).</p></li>
 (used as <code class="docutils literal notranslate"><span class="pre">transform_mat[0]</span></code>). If omitted, an identity mat4 is used.</p></li>
 </ul>
 </dd>
-</dl>
-<p>Accepted buffer types (bindings passed to the high-level API):</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="gpu.types.html#gpu.types.GPUStorageBuf" title="gpu.types.GPUStorageBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUStorageBuf</span></code></a> (SSBO)</p></li>
-<li><p><a class="reference internal" href="gpu.types.html#gpu.types.GPUVertBuf" title="gpu.types.GPUVertBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUVertBuf</span></code></a> (VBO wrapper)</p></li>
-<li><p><a class="reference internal" href="gpu.types.html#gpu.types.GPUUniformBuf" title="gpu.types.GPUUniformBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUUniformBuf</span></code></a> (bound as SSBO via <code class="docutils literal notranslate"><span class="pre">GPU_uniformbuf_bind_as_ssbo</span></code>)</p></li>
-<li><p><a class="reference internal" href="gpu.types.html#gpu.types.GPUIndexBuf" title="gpu.types.GPUIndexBuf"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUIndexBuf</span></code></a> (bound as SSBO via <code class="docutils literal notranslate"><span class="pre">GPU_indexbuf_bind_as_ssbo</span></code>)</p></li>
-<li><p>string tokens resolving mesh VBOs (for example <code class="docutils literal notranslate"><span class="pre">'Position'</span></code>, <code class="docutils literal notranslate"><span class="pre">'VBO::Position'</span></code>,
-<code class="docutils literal notranslate"><span class="pre">'CornerNormal'</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
-<p>GLSL helpers injected automatically (topology buffer bound as <cite>int topo[]</cite> at binding 15):</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">face_offsets</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">corner_to_face</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">corner_verts</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">corner_tri</span><span class="p">(</span><span class="nb">int</span> <span class="n">tri_idx</span><span class="p">,</span> <span class="nb">int</span> <span class="n">vert_idx</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">corner_tri_face</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-<span class="n">int2</span> <span class="n">edges</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">corner_edges</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">vert_to_face_offsets</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">vert_to_face</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Specialization constants added automatically:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">normals_domain</span></code>: <code class="docutils literal notranslate"><span class="pre">0</span></code> = vertex normals, <code class="docutils literal notranslate"><span class="pre">1</span></code> = face normals
-(derived from mesh)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">normals_hq</span></code>: <code class="docutils literal notranslate"><span class="pre">0</span></code>/<code class="docutils literal notranslate"><span class="pre">1</span></code> high-quality normals flag
-(from scene perf_flag / workarounds)</p></li>
-</ul>
-<p>Binding indices used by the builtin scatter shader (for reference):</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">binding=0</span></code>: <code class="docutils literal notranslate"><span class="pre">positions_out[]</span></code> (write, <code class="docutils literal notranslate"><span class="pre">VBO::Position</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">binding=1</span></code>: <code class="docutils literal notranslate"><span class="pre">normals_out[]</span></code> (write, <code class="docutils literal notranslate"><span class="pre">VBO::CornerNormal</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">binding=2</span></code>: <code class="docutils literal notranslate"><span class="pre">positions_in[]</span></code> (read, <code class="docutils literal notranslate"><span class="pre">vec4</span></code> SSBO provided by caller)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">binding=3</span></code>: <code class="docutils literal notranslate"><span class="pre">transform_mat[]</span></code> (read, <code class="docutils literal notranslate"><span class="pre">mat4</span></code> SSBO)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">binding=15</span></code>: <code class="docutils literal notranslate"><span class="pre">topo[]</span></code> (read, int SSBO injected automatically)</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
 </dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>RuntimeError</strong> – On failure.</p>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – On failure.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -344,7 +307,7 @@ vertex (object-space positions).</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6795f5305fb6>6795f5305fb6</a> - 06/06/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/c7ed835319cb>c7ed835319cb</a> - 13/06/2026</code>.
       </span></p>
   </div>
 

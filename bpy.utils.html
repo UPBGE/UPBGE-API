@@ -475,7 +475,7 @@ generates a <code class="docutils literal notranslate"><span class="pre">--help<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'USER'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SYSTEM'</em><em>]</em>) – The resource type.</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'USER'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SYSTEM'</em><em>, </em><em>'SYSTEM_LIBS'</em><em>]</em>) – The resource type.</p></li>
 <li><p><strong>major</strong> (<em>int</em><em> | </em><em>None</em>) – Major version. None (the default) uses <code class="docutils literal notranslate"><span class="pre">bpy.app.version[0]</span></code>.</p></li>
 <li><p><strong>minor</strong> (<em>int</em><em> | </em><em>None</em>) – Minor version. None (the default) uses <code class="docutils literal notranslate"><span class="pre">bpy.app.version[1]</span></code>.</p></li>
 </ul>
@@ -487,6 +487,10 @@ generates a <code class="docutils literal notranslate"><span class="pre">--help<
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">SYSTEM_LIBS</span></code> mirrors <code class="docutils literal notranslate"><span class="pre">SYSTEM</span></code> but resolves to the directory for architecture-dependent libraries (typically under <code class="docutils literal notranslate"><span class="pre">/usr/lib/...</span></code> rather than <code class="docutils literal notranslate"><span class="pre">/usr/share/...</span></code>). It is an empty string on builds without a separate library directory, such as portable builds and the Python module.</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1015,7 +1019,7 @@ the libraries are compatible with Blender.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6795f5305fb6>6795f5305fb6</a> - 06/06/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/c7ed835319cb>c7ed835319cb</a> - 13/06/2026</code>.
       </span></p>
   </div>
 
