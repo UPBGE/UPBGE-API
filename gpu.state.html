@@ -347,6 +347,11 @@
 <dt class="sig sig-object py" id="gpu.state.point_size_set">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">point_size_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.point_size_set" title="Link to this definition"></a></dt>
 <dd><p>Specify the diameter of rasterized points.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">program_point_size_set(False)</span></code> is set, this sets the <code class="docutils literal notranslate"><span class="pre">size</span></code>
+uniform of point shaders. Any value set by <code class="docutils literal notranslate"><span class="pre">uniform_float(&quot;size&quot;,</span> <span class="pre">...)</span></code>
+on a point shader will be overwritten by this function. Use
+<code class="docutils literal notranslate"><span class="pre">program_point_size_set(True)</span></code> to disable this override and control
+point size via <code class="docutils literal notranslate"><span class="pre">gl_PointSize</span></code> in the vertex shader.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>size</strong> (<em>float</em>) – New diameter.</p>
@@ -357,10 +362,13 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="gpu.state.program_point_size_set">
 <span class="sig-prename descclassname"><span class="pre">gpu.state.</span></span><span class="sig-name descname"><span class="pre">program_point_size_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.state.program_point_size_set" title="Link to this definition"></a></dt>
-<dd><p>If enabled, the derived point size is taken from the (potentially clipped) shader builtin gl_PointSize.</p>
+<dd><p>When enabled (True), point size is taken from the shader builtin
+<code class="docutils literal notranslate"><span class="pre">gl_PointSize</span></code>. When disabled (False), the global state value can
+be applied to the shader <code class="docutils literal notranslate"><span class="pre">size</span></code> uniform, overwriting any user-set
+value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>enable</strong> (<em>bool</em>) – True for shader builtin gl_PointSize.</p>
+<dd class="field-odd"><p><strong>enable</strong> (<em>bool</em>) – True to use shader <code class="docutils literal notranslate"><span class="pre">gl_PointSize</span></code>, False for global state.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -457,7 +465,7 @@ Note: The viewport state is not saved upon framebuffer rebind.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/c7ed835319cb>c7ed835319cb</a> - 13/06/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abee0b289242>abee0b289242</a> - 19/06/2026</code>.
       </span></p>
   </div>
 

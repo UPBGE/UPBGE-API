@@ -178,6 +178,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.outliner.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.outliner.orphans_manage"><code class="docutils literal notranslate"><span class="pre">orphans_manage()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.outliner.orphans_purge"><code class="docutils literal notranslate"><span class="pre">orphans_purge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.outliner.pack_data"><code class="docutils literal notranslate"><span class="pre">pack_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.outliner.parent_clear"><code class="docutils literal notranslate"><span class="pre">parent_clear()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.outliner.parent_drop"><code class="docutils literal notranslate"><span class="pre">parent_drop()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.outliner.scene_drop"><code class="docutils literal notranslate"><span class="pre">scene_drop()</span></code></a></li>
@@ -893,7 +894,7 @@ Clear Drivers.</p></li>
 <dd><p>General data-block management operations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>]</em>) – <p>ID Data Operation, (optional)</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'UNLINK'</em><em>, </em><em>'LOCAL'</em><em>, </em><em>'SINGLE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'REMAP'</em><em>, </em><em>'COPY'</em><em>, </em><em>'PASTE'</em><em>, </em><em>'ADD_FAKE'</em><em>, </em><em>'CLEAR_FAKE'</em><em>, </em><em>'RENAME'</em><em>, </em><em>'SELECT_LINKED'</em><em>, </em><em>'PACK'</em><em>]</em>) – <p>ID Data Operation, (optional)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">UNLINK</span></code>
 Unlink.</p></li>
@@ -917,6 +918,8 @@ Clear Fake User.</p></li>
 Rename.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SELECT_LINKED</span></code>
 Select Linked.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PACK</span></code>
+Pack – Embed data-blocks into the .blend file.</p></li>
 </ul>
 </p>
 </dd>
@@ -1303,6 +1306,20 @@ Rename.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.outliner.pack_data">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">pack_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.pack_data" title="Link to this definition"></a></dt>
+<dd><p>Embed selected data-blocks into the .blend file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.outliner.parent_clear">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.outliner.</span></span><span class="sig-name descname"><span class="pre">parent_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.outliner.parent_clear" title="Link to this definition"></a></dt>
 <dd><p>Drag to clear parent in Outliner</p>
@@ -1548,7 +1565,7 @@ Subtract – Subtract existing selection.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/c7ed835319cb>c7ed835319cb</a> - 13/06/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abee0b289242>abee0b289242</a> - 19/06/2026</code>.
       </span></p>
   </div>
 

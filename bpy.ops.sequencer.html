@@ -194,6 +194,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_all"><code class="docutils literal notranslate"><span class="pre">select_all()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_box"><code class="docutils literal notranslate"><span class="pre">select_box()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_by_type"><code class="docutils literal notranslate"><span class="pre">select_by_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_circle"><code class="docutils literal notranslate"><span class="pre">select_circle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_grouped"><code class="docutils literal notranslate"><span class="pre">select_grouped()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.sequencer.select_handle"><code class="docutils literal notranslate"><span class="pre">select_handle()</span></code></a></li>
@@ -1735,6 +1736,54 @@ Subtract – Subtract existing selection.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.sequencer.select_by_type">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">select_by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IMAGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_active_channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.select_by_type" title="Link to this definition"></a></dt>
+<dd><p>Select all strips that are of a type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'SCENE'</em><em>, </em><em>'MOVIECLIP'</em><em>, </em><em>'MASK'</em><em>, </em><em>'MOVIE'</em><em>, </em><em>'SOUND'</em><em>, </em><em>'IMAGE'</em><em>, </em><em>'COLOR'</em><em>, </em><em>'TEXT'</em><em>, </em><em>'ADJUSTMENT'</em><em>, </em><em>'COMPOSITOR'</em><em>, </em><em>'EFFECT'</em><em>, </em><em>'VISUAL'</em><em>]</em>) – <p>Type, (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCENE</span></code>
+Scene.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOVIECLIP</span></code>
+Clip.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MASK</span></code>
+Mask.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOVIE</span></code>
+Movie.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SOUND</span></code>
+Sound.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMAGE</span></code>
+Image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COLOR</span></code>
+Color.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEXT</span></code>
+Text.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADJUSTMENT</span></code>
+Adjustment Layer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMPOSITOR</span></code>
+Compositor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EFFECT</span></code>
+Effect.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VISUAL</span></code>
+Visual – All strips that can produce an image in the preview, which includes everything but sound strips.</p></li>
+</ul>
+</p></li>
+<li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection instead of deselecting everything first (optional)</p></li>
+<li><p><strong>use_active_channel</strong> (<em>bool</em>) – Same Channel, If selecting from the timeline, only consider strips on the same channel as the active strip (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.sequencer.select_circle">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.sequencer.</span></span><span class="sig-name descname"><span class="pre">select_circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SET'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_connections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.sequencer.select_circle" title="Link to this definition"></a></dt>
 <dd><p>Select strips using circle selection</p>
@@ -1774,26 +1823,22 @@ Subtract – Subtract existing selection.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'TYPE'</em><em>, </em><em>'TYPE_BASIC'</em><em>, </em><em>'TYPE_EFFECT'</em><em>, </em><em>'DATA'</em><em>, </em><em>'EFFECT'</em><em>, </em><em>'EFFECT_LINK'</em><em>, </em><em>'OVERLAP'</em><em>]</em>) – <p>Type, (optional)</p>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>'TYPE'</em><em>, </em><em>'DATA'</em><em>, </em><em>'STRIPS_UNDER_EFFECT'</em><em>, </em><em>'TIME_OVERLAP'</em><em>, </em><em>'VISUAL_OVERLAP'</em><em>]</em>) – <p>Type, (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">TYPE</span></code>
-Type – Shared strip type.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TYPE_BASIC</span></code>
-Global Type – All strips of same basic type (graphical or sound).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TYPE_EFFECT</span></code>
-Effect Type – Shared strip effect type (if active strip is not an effect one, select all non-effect strips).</p></li>
+Type – Select all strips of the same specific type as the active strip.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code>
-Data – Shared data (scene, image, sound, etc.).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EFFECT</span></code>
-Effect – Shared effects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EFFECT_LINK</span></code>
-Effect/Linked – Other strips affected by the active one (sharing some time, and below or effect-assigned).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OVERLAP</span></code>
-Overlap – Overlapping time.</p></li>
+Data – Select strips referencing the same source data as the active strip, with matching file directory, scene, clip, or mask.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STRIPS_UNDER_EFFECT</span></code>
+Strips Under Effect – Select strips that are inputs to the same effect type as the active strip.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TIME_OVERLAP</span></code>
+Time Overlap – Select strips on any channel whose time range overlaps the active strip.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VISUAL_OVERLAP</span></code>
+Visual Overlap – Select strips on channels below the active strip’s channel whose time range overlaps, plus their full effect chains.</p></li>
 </ul>
 </p></li>
 <li><p><strong>extend</strong> (<em>bool</em>) – Extend, Extend selection instead of deselecting everything first (optional)</p></li>
-<li><p><strong>use_active_channel</strong> (<em>bool</em>) – Same Channel, Only consider strips on the same channel as the active one (optional)</p></li>
+<li><p><strong>use_active_channel</strong> (<em>bool</em>) – Same Channel, If selecting from the timeline, only consider strips on the same channel as the active strip (optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2818,7 +2863,7 @@ All – Reset strip transform location, scale and rotation.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/c7ed835319cb>c7ed835319cb</a> - 13/06/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abee0b289242>abee0b289242</a> - 19/06/2026</code>.
       </span></p>
   </div>
 
