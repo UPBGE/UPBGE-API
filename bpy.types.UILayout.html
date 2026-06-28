@@ -704,6 +704,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.UILayout.enum_item_description"><code class="docutils literal notranslate"><span class="pre">UILayout.enum_item_description()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.UILayout.enum_item_icon"><code class="docutils literal notranslate"><span class="pre">UILayout.enum_item_icon()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.UILayout.textbox"><code class="docutils literal notranslate"><span class="pre">UILayout.textbox()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bpy.types.UILayout.textbox_with_state"><code class="docutils literal notranslate"><span class="pre">UILayout.textbox_with_state()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.UILayout.prop"><code class="docutils literal notranslate"><span class="pre">UILayout.prop()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.UILayout.props_enum"><code class="docutils literal notranslate"><span class="pre">UILayout.props_enum()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bpy.types.UILayout.prop_menu_enum"><code class="docutils literal notranslate"><span class="pre">UILayout.prop_menu_enum()</span></code></a></li>
@@ -822,6 +823,8 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.USDHook.html">USDHook(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.UVLoopLayers.html">UVLoopLayers(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.UVProjector.html">UVProjector(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.UndoStack.html">UndoStack(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.UndoStep.html">UndoStep(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.UnifiedPaintSettings.html">UnifiedPaintSettings(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.UnitSettings.html">UnitSettings(bpy_struct)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.UnknownType.html">UnknownType(bpy_struct)</a></li>
@@ -1388,14 +1391,32 @@ None or Status – Draw with no emboss unless the button has a coloring status l
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.UILayout.textbox">
-<span class="sig-name descname"><span class="pre">textbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">textbox_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placeholder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_ctxt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.textbox" title="Link to this definition"></a></dt>
-<dd><p>textbox</p>
+<span class="sig-name descname"><span class="pre">textbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_visible_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placeholder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_ctxt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.textbox" title="Link to this definition"></a></dt>
+<dd><p>Exposes an RNA string property in the layout using a text-box widget with multi-line support. Text-box state will be stored in the current context region.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a> | None) – Data from which to take property (never None)</p></li>
 <li><p><strong>property</strong> (<em>str</em>) – Identifier of property in data (never None)</p></li>
-<li><p><strong>textbox_state</strong> (<a class="reference internal" href="bpy.types.TextboxState.html#bpy.types.TextboxState" title="bpy.types.TextboxState"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextboxState</span></code></a> | None) – (optional)</p></li>
+<li><p><strong>initial_visible_lines</strong> (<em>int</em>) – Initial Visible Lines, (in [1, inf], optional)</p></li>
+<li><p><strong>placeholder</strong> (<em>str</em>) – Hint describing the expected value when empty (optional)</p></li>
+<li><p><strong>text_ctxt</strong> (<em>str</em>) – Override automatic translation context of the given text (optional)</p></li>
+<li><p><strong>translate</strong> (<em>bool</em>) – Translate the given text, when UI translation is enabled (optional)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.UILayout.textbox_with_state">
+<span class="sig-name descname"><span class="pre">textbox_with_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textbox_state</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">placeholder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_ctxt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UILayout.textbox_with_state" title="Link to this definition"></a></dt>
+<dd><p>Exposes an RNA string property in the layout using a text-box widget with multi-line support</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a> | None) – Data from which to take property (never None)</p></li>
+<li><p><strong>property</strong> (<em>str</em>) – Identifier of property in data (never None)</p></li>
+<li><p><strong>textbox_state</strong> (<a class="reference internal" href="bpy.types.TextboxState.html#bpy.types.TextboxState" title="bpy.types.TextboxState"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextboxState</span></code></a> | None) – Pointer to a pre-allocated text-box state storage (builtin) (never None)</p></li>
 <li><p><strong>placeholder</strong> (<em>str</em>) – Hint describing the expected value when empty (optional)</p></li>
 <li><p><strong>text_ctxt</strong> (<em>str</em>) – Override automatic translation context of the given text (optional)</p></li>
 <li><p><strong>translate</strong> (<em>bool</em>) – Translate the given text, when UI translation is enabled (optional)</p></li>
@@ -3081,7 +3102,7 @@ Swap Node – Replace the selected nodes with the specified type..</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abee0b289242>abee0b289242</a> - 19/06/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/f7f1249bde31>f7f1249bde31</a> - 27/06/2026</code>.
       </span></p>
   </div>
 

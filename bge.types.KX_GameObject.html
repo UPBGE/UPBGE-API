@@ -1939,16 +1939,18 @@ If there is no hit or the hit object is not a static mesh, None is returned as 4
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bge.types.KX_GameObject.reinstancePhysicsMesh">
-<span class="sig-name descname"><span class="pre">reinstancePhysicsMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meshObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dupli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.reinstancePhysicsMesh" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reinstancePhysicsMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meshObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dupli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collapseFactor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.reinstancePhysicsMesh" title="Link to this definition"></a></dt>
 <dd><p>Updates the physics system with the changed mesh.</p>
-<p>If no arguments are given the physics mesh will be re-created from the first mesh assigned to the game object.</p>
+<p>If no arguments are given the physics mesh will be re-created from the evaluated mesh.
+If collapseFactor is &lt; 1.0, a decimated mesh will be used as basis to reinstance the physics mesh (triangle mesh or convex hull only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>gameObject</strong> (string, <a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_GameObject</span></code></a> or None) – optional argument, set the physics shape from this gameObjets mesh.</p></li>
-<li><p><strong>meshObject</strong> (string, <a class="reference internal" href="bge.types.KX_MeshProxy.html#bge.types.KX_MeshProxy" title="bge.types.KX_MeshProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_MeshProxy</span></code></a> or None) – optional argument, set the physics shape from this mesh.</p></li>
+<li><p><strong>meshObject</strong> (string, <a class="reference internal" href="bge.types.KX_MeshProxy.html#bge.types.KX_MeshProxy" title="bge.types.KX_MeshProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_MeshProxy</span></code></a> or None) – optional argument, set the physics shape from this mesh (snapshot of conversion time physics shape).</p></li>
 <li><p><strong>dupli</strong> (<em>boolean</em>) – optional argument, duplicate the physics shape, default to False.</p></li>
 <li><p><strong>evaluated</strong> (<em>boolean</em>) – optional argument, use evaluated object physics shape (Object with modifiers applied, default to True).</p></li>
+<li><p><strong>collapseFactor</strong> (<em>float</em>) – optional argument, set the collapse factor for the decimated mesh, default to 1.0, clamped between 0.0 and 1.0.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2144,7 +2146,7 @@ If there is no hit or the hit object is not a static mesh, None is returned as 4
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/abee0b289242>abee0b289242</a> - 19/06/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/f7f1249bde31>f7f1249bde31</a> - 27/06/2026</code>.
       </span></p>
   </div>
 
