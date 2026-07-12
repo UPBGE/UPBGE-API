@@ -103,6 +103,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.smooth_vert"><code class="docutils literal notranslate"><span class="pre">smooth_vert()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.smooth_laplacian_vert"><code class="docutils literal notranslate"><span class="pre">smooth_laplacian_vert()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.recalc_face_normals"><code class="docutils literal notranslate"><span class="pre">recalc_face_normals()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.relax_edge_loops"><code class="docutils literal notranslate"><span class="pre">relax_edge_loops()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.planar_faces"><code class="docutils literal notranslate"><span class="pre">planar_faces()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.region_extend"><code class="docutils literal notranslate"><span class="pre">region_extend()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#bmesh.ops.rotate_edges"><code class="docutils literal notranslate"><span class="pre">rotate_edges()</span></code></a></li>
@@ -402,6 +403,24 @@ Desbrun, et al. Implicit Fairing of Irregular Meshes using Diffusion and Curvatu
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
 <li><p><strong>faces</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMFace</span></code></a>]) – Input faces.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmesh.ops.relax_edge_loops">
+<span class="sig-prename descclassname"><span class="pre">bmesh.ops.</span></span><span class="sig-name descname"><span class="pre">relax_edge_loops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CUBIC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">even_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.ops.relax_edge_loops" title="Link to this definition"></a></dt>
+<dd><p>Relax Edge Loops.</p>
+<p>Relax the loop, so it is smoother.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bm</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMesh" title="bmesh.types.BMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMesh</span></code></a>) – The bmesh to operate on.</p></li>
+<li><p><strong>geom</strong> (list[<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmesh.types.BMEdge</span></code></a>]) – Input geometry.</p></li>
+<li><p><strong>interpolation</strong> (<em>Literal</em><em>[</em><em>'CUBIC'</em><em>, </em><em>'LINEAR'</em><em>]</em>) – Method used for interpolation.</p></li>
+<li><p><strong>iterations</strong> (<em>int</em>) – Number of relaxation passes.</p></li>
+<li><p><strong>even_spacing</strong> (<em>bool</em>) – Distribute vertices at constant distances along the loop.</p></li>
 </ul>
 </dd>
 </dl>
@@ -2634,7 +2653,7 @@ symmetry are split as needed to enforce symmetry.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/a9e58f3c4f8c>a9e58f3c4f8c</a> - 04/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/774396bb49d4>774396bb49d4</a> - 10/07/2026</code>.
       </span></p>
   </div>
 

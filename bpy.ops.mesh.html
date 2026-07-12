@@ -224,6 +224,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.primitive_uv_sphere_add"><code class="docutils literal notranslate"><span class="pre">primitive_uv_sphere_add()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.quads_convert_to_tris"><code class="docutils literal notranslate"><span class="pre">quads_convert_to_tris()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.region_to_loop"><code class="docutils literal notranslate"><span class="pre">region_to_loop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.relax_edge_loops"><code class="docutils literal notranslate"><span class="pre">relax_edge_loops()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.remove_doubles"><code class="docutils literal notranslate"><span class="pre">remove_doubles()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.reorder_vertices_spatial"><code class="docutils literal notranslate"><span class="pre">reorder_vertices_spatial()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.mesh.reveal"><code class="docutils literal notranslate"><span class="pre">reveal()</span></code></a></li>
@@ -645,7 +646,7 @@ Cutoff – A cutoff at each profile’s end before the intersection.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float</em>) – Factor, Force of the tool (in [0, 1], optional)</p></li>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Circularization factor (in [0, 1], optional)</p></li>
 <li><p><strong>fit_method</strong> (<em>Literal</em><em>[</em><em>'LEAST_SQUARE'</em><em>, </em><em>'CONTRACT'</em><em>]</em>) – <p>Method, Method used for fitting a circle to the vertices (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">LEAST_SQUARE</span></code>
@@ -1580,7 +1581,7 @@ Faces &amp; Edges by Vertices – Split faces and edges connected to selected ve
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float</em>) – Factor, Spacing effect factor (in [0, 1], optional)</p></li>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Flattening factor (in [0, 1], optional)</p></li>
 <li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'BEST_FIT'</em><em>, </em><em>'NORMAL'</em><em>, </em><em>'VIEW'</em><em>]</em>) – <p>Method, Plane on which vertices are flattened (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">BEST_FIT</span></code>
@@ -2912,6 +2913,34 @@ View – Align the new object to the view.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.mesh.relax_edge_loops">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">relax_edge_loops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">even_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CUBIC'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.relax_edge_loops" title="Link to this definition"></a></dt>
+<dd><p>Relax the loop, so it is smoother</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iterations</strong> (<em>int</em>) – Iterations, Number of times the loop is relaxed (in [1, 25], optional)</p></li>
+<li><p><strong>even_spacing</strong> (<em>bool</em>) – Space Evenly, Distribute vertices at constant distances along the loop (optional)</p></li>
+<li><p><strong>interpolation</strong> (<em>Literal</em><em>[</em><em>'CUBIC'</em><em>, </em><em>'LINEAR'</em><em>]</em>) – <p>Interpolation, Algorithm used for interpolation (optional)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CUBIC</span></code>
+Cubic – Natural cubic spline, smooth results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LINEAR</span></code>
+Linear – Relax edge loops using linear interpolation.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.mesh.remove_doubles">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.mesh.</span></span><span class="sig-name descname"><span class="pre">remove_doubles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_centroid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_unselected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sharp_edge_from_normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.mesh.remove_doubles" title="Link to this definition"></a></dt>
 <dd><p>Merge vertices based on their proximity</p>
@@ -3748,7 +3777,7 @@ Reverse – Reverse current order of selected elements.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<em>float</em>) – Factor, Force of the tool (in [0, 1], optional)</p></li>
+<li><p><strong>factor</strong> (<em>float</em>) – Factor, Spacing effect factor (in [0, 1], optional)</p></li>
 <li><p><strong>interpolation</strong> (<em>Literal</em><em>[</em><em>'CUBIC'</em><em>, </em><em>'LINEAR'</em><em>]</em>) – <p>Interpolation, Algorithm used for interpolation (optional)</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CUBIC</span></code>
@@ -4164,7 +4193,7 @@ Linear – Vertices are projected on existing edges.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/a9e58f3c4f8c>a9e58f3c4f8c</a> - 04/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/774396bb49d4>774396bb49d4</a> - 10/07/2026</code>.
       </span></p>
   </div>
 
