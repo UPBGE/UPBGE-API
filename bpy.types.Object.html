@@ -476,6 +476,7 @@
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.Object.children_recursive"><code class="docutils literal notranslate"><span class="pre">Object.children_recursive</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.Object.users_collection"><code class="docutils literal notranslate"><span class="pre">Object.users_collection</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.Object.users_scene"><code class="docutils literal notranslate"><span class="pre">Object.users_scene</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#bpy.types.Object.convert_rotation_mode"><code class="docutils literal notranslate"><span class="pre">Object.convert_rotation_mode()</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.Object.select_get"><code class="docutils literal notranslate"><span class="pre">Object.select_get()</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.Object.select_set"><code class="docutils literal notranslate"><span class="pre">Object.select_set()</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.Object.hide_get"><code class="docutils literal notranslate"><span class="pre">Object.hide_get()</span></code></a></li>
@@ -2620,6 +2621,20 @@ Bone – The object is parented to a bone.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.Object.convert_rotation_mode">
+<span class="sig-name descname"><span class="pre">convert_rotation_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rotation_mode</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.convert_rotation_mode" title="Link to this definition"></a></dt>
+<dd><p>Changes the rotation mode and converts all animation to match that new mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rotation_mode</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/object_rotation_mode_items.html#rna-enum-object-rotation-mode-items"><span class="std std-ref">Object Rotation Mode Items</span></a>]) – Rotation Mode, The rotation mode to change to</p></li>
+<li><p><strong>bake</strong> (<em>bool</em>) – Bake, Insert a key on every frame to ensure interpolation is preserved (optional)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.Object.select_get">
 <span class="sig-name descname"><span class="pre">select_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">view_layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.select_get" title="Link to this definition"></a></dt>
 <dd><p>Test if the object is selected. The selection state is per view layer.</p>
@@ -3237,6 +3252,7 @@ objects that contain geometry data like meshes and curves but not e.g. cameras.<
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name_full" title="bpy.types.ID.name_full"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.name_full</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.id_type" title="bpy.types.ID.id_type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.id_type</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.session_uid" title="bpy.types.ID.session_uid"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.session_uid</span></code></a></p></li>
+<li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.deep_hash" title="bpy.types.ID.deep_hash"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.deep_hash</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_evaluated" title="bpy.types.ID.is_evaluated"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.is_evaluated</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.original" title="bpy.types.ID.original"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.original</span></code></a></p></li>
 <li><p><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal notranslate"><span class="pre">ID.users</span></code></a></p></li>
@@ -3527,7 +3543,7 @@ objects that contain geometry data like meshes and curves but not e.g. cameras.<
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/491e0c223d7e>491e0c223d7e</a> - 16/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6108f7557d8d>6108f7557d8d</a> - 25/07/2026</code>.
       </span></p>
   </div>
 

@@ -72,7 +72,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#overriding-context">Overriding Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#execution-context">Execution Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#execution-context">Execution Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#undo">Undo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="bpy.ops.action.html">Action Operators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.ops.anim.html">Anim Operators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.ops.armature.html">Armature Operators</a></li>
@@ -335,6 +336,24 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
             <span class="k">break</span>
 </pre></div>
 </div>
+</section>
+<section id="undo">
+<span id="operator-undo"></span><h2>Undo<a class="headerlink" href="#undo" title="Link to this heading"></a></h2>
+<p>The optional second positional argument is a boolean that controls whether the
+operator call is pushed onto the undo stack.</p>
+<p>It defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>, so operators run from a script do not add to the undo
+history. Pass <code class="docutils literal notranslate"><span class="pre">True</span></code> when you want the call to be undoable, for instance when
+a script performs an edit the user should be able to undo interactively.</p>
+<p>If this call happens while nested inside another operator call, the argument
+has no effect: the outer call already suppresses undo for everything nested
+inside it, and that only lifts once the outer call returns.</p>
+<p>Like the execution context this argument is optional, but the positional order
+must be kept, so the execution context is given first.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a cube as an undoable operator call.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">primitive_cube_add</span><span class="p">(</span><span class="s1">&#39;EXEC_DEFAULT&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Submodules</span></p>
 <ul>
@@ -436,7 +455,7 @@ interface. For this we need to pass the window, area and sometimes a region.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/491e0c223d7e>491e0c223d7e</a> - 16/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6108f7557d8d>6108f7557d8d</a> - 25/07/2026</code>.
       </span></p>
   </div>
 

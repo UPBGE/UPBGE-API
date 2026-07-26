@@ -69,7 +69,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="bpy.ops.html">Operators (bpy.ops)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.html#calling-operators">Calling Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpy.ops.html#overriding-context">Overriding Context</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="bpy.ops.html#execution-context">Execution Context</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bpy.ops.html#execution-context">Execution Context</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bpy.ops.html#undo">Undo</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="bpy.ops.action.html">Action Operators</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Anim Operators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.change_frame"><code class="docutils literal notranslate"><span class="pre">change_frame()</span></code></a></li>
@@ -127,6 +128,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.replace_action"><code class="docutils literal notranslate"><span class="pre">replace_action()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.replace_action_duplicate"><code class="docutils literal notranslate"><span class="pre">replace_action_duplicate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.replace_action_new"><code class="docutils literal notranslate"><span class="pre">replace_action_new()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.rotation_mode_convert"><code class="docutils literal notranslate"><span class="pre">rotation_mode_convert()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.scene_range_frame"><code class="docutils literal notranslate"><span class="pre">scene_range_frame()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.separate_slots"><code class="docutils literal notranslate"><span class="pre">separate_slots()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bpy.ops.anim.slot_channels_move_to_new_action"><code class="docutils literal notranslate"><span class="pre">slot_channels_move_to_new_action()</span></code></a></li>
@@ -1250,6 +1252,26 @@ Invert – Invert selection of all elements.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bpy.ops.anim.rotation_mode_convert">
+<span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">rotation_mode_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'QUATERNION'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.rotation_mode_convert" title="Link to this definition"></a></dt>
+<dd><p>On all selected, change the rotation mode and convert any existing animation into that new mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (Literal[<a class="reference internal" href="bpy_types_enum_items/object_rotation_mode_items.html#rna-enum-object-rotation-mode-items"><span class="std std-ref">Object Rotation Mode Items</span></a>]) – Rotation Mode, The rotation mode to convert the selection to (optional)</p></li>
+<li><p><strong>bake</strong> (<em>bool</em>) – Bake, Creates a key on every frame before conversion so interpolation is preserved in the new mode (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the operator call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[Literal[<a class="reference internal" href="bpy_types_enum_items/operator_return_items.html#rna-enum-operator-return-items"><span class="std std-ref">Operator Return Items</span></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bpy.ops.anim.scene_range_frame">
 <span class="sig-prename descclassname"><span class="pre">bpy.ops.anim.</span></span><span class="sig-name descname"><span class="pre">scene_range_frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.anim.scene_range_frame" title="Link to this definition"></a></dt>
 <dd><p>Reset the horizontal view to the current scene frame range, taking the preview range into account if it is active</p>
@@ -1444,7 +1466,7 @@ Invert – Invert selection of all elements.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/491e0c223d7e>491e0c223d7e</a> - 16/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6108f7557d8d>6108f7557d8d</a> - 25/07/2026</code>.
       </span></p>
   </div>
 
