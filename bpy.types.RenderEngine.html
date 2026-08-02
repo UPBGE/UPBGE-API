@@ -449,6 +449,8 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementGenerationItems.html">NodeGeometryForeachGeometryElementGenerationItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementInputItems.html">NodeGeometryForeachGeometryElementInputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementMainItems.html">NodeGeometryForeachGeometryElementMainItems(bpy_prop_collection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRasterizePointsItem.html">NodeGeometryRasterizePointsItem(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRasterizePointsItems.html">NodeGeometryRasterizePointsItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRepeatOutputItems.html">NodeGeometryRepeatOutputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
@@ -571,6 +573,8 @@
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.bake"><code class="docutils literal notranslate"><span class="pre">RenderEngine.bake()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.view_update"><code class="docutils literal notranslate"><span class="pre">RenderEngine.view_update()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.view_draw"><code class="docutils literal notranslate"><span class="pre">RenderEngine.view_draw()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.view_pause"><code class="docutils literal notranslate"><span class="pre">RenderEngine.view_pause()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.view_resume"><code class="docutils literal notranslate"><span class="pre">RenderEngine.view_resume()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.update_script_node"><code class="docutils literal notranslate"><span class="pre">RenderEngine.update_script_node()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.update_render_passes"><code class="docutils literal notranslate"><span class="pre">RenderEngine.update_render_passes()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.RenderEngine.update_custom_camera"><code class="docutils literal notranslate"><span class="pre">RenderEngine.update_custom_camera()</span></code></a></li>
@@ -1433,6 +1437,28 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.RenderEngine.view_pause">
+<span class="sig-name descname"><span class="pre">view_pause</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.view_pause" title="Link to this definition"></a></dt>
+<dd><p>Pause viewport render</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> | None) – The context</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.RenderEngine.view_resume">
+<span class="sig-name descname"><span class="pre">view_resume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.view_resume" title="Link to this definition"></a></dt>
+<dd><p>Resume viewport render</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="bpy.types.Context.html#bpy.types.Context" title="bpy.types.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> | None) – The context</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.RenderEngine.update_script_node">
 <span class="sig-name descname"><span class="pre">update_script_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RenderEngine.update_script_node" title="Link to this definition"></a></dt>
 <dd><p>Compile shader script node</p>
@@ -1949,7 +1975,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6108f7557d8d>6108f7557d8d</a> - 25/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/9a92b08bb47b>9a92b08bb47b</a> - 01/08/2026</code>.
       </span></p>
   </div>
 

@@ -497,6 +497,7 @@
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeFlipFaces.html">GeometryNodeFlipFaces(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeForeachGeometryElementInput.html">GeometryNodeForeachGeometryElementInput(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeForeachGeometryElementOutput.html">GeometryNodeForeachGeometryElementOutput(GeometryNode)</a></li>
+<li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeGeometryMaterials.html">GeometryNodeGeometryMaterials(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeGeometryToInstance.html">GeometryNodeGeometryToInstance(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeGetAttributeNames.html">GeometryNodeGetAttributeNames(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeGetGeometryBundle.html">GeometryNodeGetGeometryBundle(GeometryNode)</a></li>
@@ -616,6 +617,7 @@
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodePointsToVertices.html">GeometryNodePointsToVertices(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodePointsToVolume.html">GeometryNodePointsToVolume(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeProximity.html">GeometryNodeProximity(GeometryNode)</a></li>
+<li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeRasterizePoints.html">GeometryNodeRasterizePoints(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeRaycast.html">GeometryNodeRaycast(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeRealizeInstances.html">GeometryNodeRealizeInstances(GeometryNode)</a></li>
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeRemoveAttribute.html">GeometryNodeRemoveAttribute(GeometryNode)</a></li>
@@ -654,6 +656,7 @@
 <li class="toctree-l6"><a class="reference internal" href="bpy.types.GeometryNodeSetGeometryName.html">GeometryNodeSetGeometryName(GeometryNode)</a></li>
 <li class="toctree-l6 current"><a class="current reference internal" href="#">GeometryNodeSetGreasePencilColor(GeometryNode)</a><ul>
 <li class="toctree-l7"><a class="reference internal" href="#bpy.types.GeometryNodeSetGreasePencilColor"><code class="docutils literal notranslate"><span class="pre">GeometryNodeSetGreasePencilColor</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="#bpy.types.GeometryNodeSetGreasePencilColor.mode"><code class="docutils literal notranslate"><span class="pre">GeometryNodeSetGreasePencilColor.mode</span></code></a></li>
 <li class="toctree-l8"><a class="reference internal" href="#bpy.types.GeometryNodeSetGreasePencilColor.is_registered_node_type"><code class="docutils literal notranslate"><span class="pre">GeometryNodeSetGreasePencilColor.is_registered_node_type()</span></code></a></li>
 <li class="toctree-l8"><a class="reference internal" href="#bpy.types.GeometryNodeSetGreasePencilColor.input_template"><code class="docutils literal notranslate"><span class="pre">GeometryNodeSetGreasePencilColor.input_template()</span></code></a></li>
 <li class="toctree-l8"><a class="reference internal" href="#bpy.types.GeometryNodeSetGreasePencilColor.output_template"><code class="docutils literal notranslate"><span class="pre">GeometryNodeSetGreasePencilColor.output_template()</span></code></a></li>
@@ -777,6 +780,8 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementGenerationItems.html">NodeGeometryForeachGeometryElementGenerationItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementInputItems.html">NodeGeometryForeachGeometryElementInputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementMainItems.html">NodeGeometryForeachGeometryElementMainItems(bpy_prop_collection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRasterizePointsItem.html">NodeGeometryRasterizePointsItem(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRasterizePointsItems.html">NodeGeometryRasterizePointsItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRepeatOutputItems.html">NodeGeometryRepeatOutputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
@@ -1142,6 +1147,21 @@
 <dt class="sig sig-object py" id="bpy.types.GeometryNodeSetGreasePencilColor">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bpy.types.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeSetGreasePencilColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GeometryNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSetGreasePencilColor" title="Link to this definition"></a></dt>
 <dd><p>Set color and opacity attributes on Grease Pencil geometry</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bpy.types.GeometryNodeSetGreasePencilColor.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#bpy.types.GeometryNodeSetGreasePencilColor.mode" title="Link to this definition"></a></dt>
+<dd><p>Set the color and opacity for strokes or fills (default <code class="docutils literal notranslate"><span class="pre">'STROKE'</span></code>)</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 5.30: </span>removal planned in version 6.0</p>
+<p>Replaced by ‘.inputs[“Mode”]’.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Literal[<a class="reference internal" href="bpy_types_enum_items/node_grease_pencil_stroke_type_items.html#rna-enum-node-grease-pencil-stroke-type-items"><span class="std std-ref">Node Grease Pencil Stroke Type Items</span></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.GeometryNodeSetGreasePencilColor.is_registered_node_type">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">is_registered_node_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.GeometryNodeSetGreasePencilColor.is_registered_node_type" title="Link to this definition"></a></dt>
@@ -1347,7 +1367,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6108f7557d8d>6108f7557d8d</a> - 25/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/9a92b08bb47b>9a92b08bb47b</a> - 01/08/2026</code>.
       </span></p>
   </div>
 

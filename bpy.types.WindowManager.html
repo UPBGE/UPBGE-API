@@ -393,6 +393,7 @@
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.invoke_search_popup"><code class="docutils literal notranslate"><span class="pre">WindowManager.invoke_search_popup()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.invoke_popup"><code class="docutils literal notranslate"><span class="pre">WindowManager.invoke_popup()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.invoke_confirm"><code class="docutils literal notranslate"><span class="pre">WindowManager.invoke_confirm()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.try_activate_rna_button"><code class="docutils literal notranslate"><span class="pre">WindowManager.try_activate_rna_button()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.popmenu_begin__internal"><code class="docutils literal notranslate"><span class="pre">WindowManager.popmenu_begin__internal()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.popmenu_end__internal"><code class="docutils literal notranslate"><span class="pre">WindowManager.popmenu_end__internal()</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="#bpy.types.WindowManager.popover_begin__internal"><code class="docutils literal notranslate"><span class="pre">WindowManager.popover_begin__internal()</span></code></a></li>
@@ -570,6 +571,8 @@
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementGenerationItems.html">NodeGeometryForeachGeometryElementGenerationItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementInputItems.html">NodeGeometryForeachGeometryElementInputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryForeachGeometryElementMainItems.html">NodeGeometryForeachGeometryElementMainItems(bpy_prop_collection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRasterizePointsItem.html">NodeGeometryRasterizePointsItem(bpy_struct)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRasterizePointsItems.html">NodeGeometryRasterizePointsItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryRepeatOutputItems.html">NodeGeometryRepeatOutputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometrySimulationOutputItems.html">NodeGeometrySimulationOutputItems(bpy_prop_collection)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bpy.types.NodeGeometryViewerItem.html">NodeGeometryViewerItem(bpy_struct)</a></li>
@@ -1484,6 +1487,30 @@ to ensure the context is still valid.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bpy.types.WindowManager.try_activate_rna_button">
+<span class="sig-name descname"><span class="pre">try_activate_rna_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">warp_cursor_at_button</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.try_activate_rna_button" title="Link to this definition"></a></dt>
+<dd><p>Attempt to activate an button referencing an RNA property. If any other button in the screen is active, it will be deactivated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal notranslate"><span class="pre">Region</span></code></a> | None) – (never None)</p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="bpy.types.AnyType.html#bpy.types.AnyType" title="bpy.types.AnyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnyType</span></code></a> | None) – (never None)</p></li>
+<li><p><strong>property</strong> (<em>str</em>) – Identifier of property in data (never None)</p></li>
+<li><p><strong>state</strong> (<em>Literal</em><em>[</em><em>'HIGHLIGHT'</em><em>, </em><em>'WAIT_KEY_EVENT'</em><em>, </em><em>'NUM_EDITING'</em><em>, </em><em>'TEXT_EDITING'</em><em>]</em>) – State, Activation state for button. Some states are specific to certain button types; when an incompatible state is provided, the button will be activated with the ‘HIGHLIGHT’ state.</p></li>
+<li><p><strong>warp_cursor_at_button</strong> (<em>bool</em>) – warp_cursor_at_button, (optional)</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index, RNA index of the button when a single member of the referenced RNA property is accessed (in [-inf, inf], optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>xy, The center point of the button in window coordinates when successfully activated (array of 2 items, in [-inf, inf])</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="bpy.types.bpy_prop_array.html#bpy.types.bpy_prop_array" title="bpy.types.bpy_prop_array"><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy_prop_array</span></code></a>[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bpy.types.WindowManager.popmenu_begin__internal">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">popmenu_begin__internal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NONE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.WindowManager.popmenu_begin__internal" title="Link to this definition"></a></dt>
 <dd><p>popmenu_begin__internal</p>
@@ -1989,7 +2016,7 @@ It gets the specified arguments as input with the mouse position (<code class="d
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6108f7557d8d>6108f7557d8d</a> - 25/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/9a92b08bb47b>9a92b08bb47b</a> - 01/08/2026</code>.
       </span></p>
   </div>
 

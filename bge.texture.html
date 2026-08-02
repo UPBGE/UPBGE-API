@@ -227,6 +227,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#texture-classes">Texture classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bge.texture.Texture"><code class="docutils literal notranslate"><span class="pre">Texture</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bge.texture.Texture.gpuTexture"><code class="docutils literal notranslate"><span class="pre">Texture.gpuTexture</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bge.texture.Texture.gpuDepthTexture"><code class="docutils literal notranslate"><span class="pre">Texture.gpuDepthTexture</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bge.texture.Texture.close"><code class="docutils literal notranslate"><span class="pre">Texture.close()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bge.texture.Texture.mipmap"><code class="docutils literal notranslate"><span class="pre">Texture.mipmap</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bge.texture.Texture.refresh"><code class="docutils literal notranslate"><span class="pre">Texture.refresh()</span></code></a></li>
@@ -372,10 +373,14 @@
 <span id="video-texture-bge-texture"></span><h1>Video Texture (bge.texture)<a class="headerlink" href="#module-bge.texture" title="Link to this heading"></a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>(Doc not fully updated)</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> module allows you to manipulate textures during the game.
 Several sources for texture are possible: video files, image files, video capture,
-memory buffer, camera render or a mix of that.
-The video and image files can be loaded from the Internet using a URL instead of a file name.
+memory buffer, camera render or a mix of that.</p>
+<p>The texture list is created from ImageTexture nodes found in object Shader Editor.
+ImageTexture nodes used can be linked directly or indirectly to Material Output node,
+but ImageTexture not linked can also be used as render target if needed.</p>
+<p>The video and image files can be loaded from the Internet using a URL instead of a file name.
 In addition, you can apply filters on the images before sending them to the GPU,
 allowing video effect: blue screen, color band, gray, normal map.
 <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> uses FFmpeg to load images and videos.
@@ -394,8 +399,8 @@ including but not limited to:</p>
 <section id="how-it-works">
 <h3>How it works<a class="headerlink" href="#how-it-works" title="Link to this heading"></a></h3>
 <p>The principle is simple: first you identify a texture on an existing object using the
-<a class="reference internal" href="#bge.texture.materialID" title="bge.texture.materialID"><code class="xref py py-func docutils literal notranslate"><span class="pre">materialID()</span></code></a> function, then you create a new texture with dynamic content
-and swap the two textures in the GPU.</p>
+<a class="reference internal" href="#bge.texture.materialID" title="bge.texture.materialID"><code class="xref py py-func docutils literal notranslate"><span class="pre">materialID()</span></code></a> function AND an ImageTexture node name then you create
+a new texture with dynamic content and swap the two textures in the GPU.</p>
 <p>The game engine is not aware of the substitution and continues to display the object as always,
 except that you are now in control of the texture.</p>
 <p>When the texture object is deleted, the new texture is deleted and the old texture restored.</p>
@@ -1343,7 +1348,10 @@ or Python object implementing the buffer protocol (f.ex. bytes)) – Buffer to l
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bge.texture.ImageMirror.colorBindCode">
 <span class="sig-name descname"><span class="pre">colorBindCode</span></span><a class="headerlink" href="#bge.texture.ImageMirror.colorBindCode" title="Link to this definition"></a></dt>
-<dd><p>Off-screen color texture bind code.</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.5.0: </span>(replaced with bge.texture.gpuTexture(See <a class="reference internal" href="#bge.texture.Texture" title="bge.texture.Texture"><code class="xref py py-class docutils literal notranslate"><span class="pre">Texture</span></code></a> and <a class="reference internal" href="gpu.types.html#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>))</p>
+</div>
+<p>Off-screen color texture bind code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer</p>
@@ -1756,7 +1764,10 @@ otherwise on the default framebuffer.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bge.texture.ImageRender.colorBindCode">
 <span class="sig-name descname"><span class="pre">colorBindCode</span></span><a class="headerlink" href="#bge.texture.ImageRender.colorBindCode" title="Link to this definition"></a></dt>
-<dd><p>Off-screen color texture bind code.</p>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.5.0: </span>(replaced with bge.texture.gpuTexture(See <a class="reference internal" href="#bge.texture.Texture" title="bge.texture.Texture"><code class="xref py py-class docutils literal notranslate"><span class="pre">Texture</span></code></a> and <a class="reference internal" href="gpu.types.html#gpu.types.GPUTexture" title="gpu.types.GPUTexture"><code class="xref py py-class docutils literal notranslate"><span class="pre">gpu.types.GPUTexture</span></code></a>))</p>
+</div>
+<p>Off-screen color texture bind code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer</p>
@@ -1939,7 +1950,7 @@ Evaluated scene has to be used for performance reasons.</p>
 
     <span class="c1"># send uniforms to 2D filter to do the compositing between main render and overlay</span>
     <span class="k">if</span> <span class="nb">filter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">filter</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">bge</span><span class="o">.</span><span class="n">overlayTex</span><span class="o">.</span><span class="n">bindId</span><span class="p">,</span> <span class="s2">&quot;overlayTex&quot;</span><span class="p">)</span>
+        <span class="nb">filter</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="s2">&quot;overlayTex&quot;</span><span class="p">,</span> <span class="n">bge</span><span class="o">.</span><span class="n">overlayTex</span><span class="o">.</span><span class="n">gpuTexture</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py attribute">
@@ -2432,15 +2443,14 @@ as a single image in top-bottom order, left eye on top.</p>
 <h2>Texture classes<a class="headerlink" href="#texture-classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="bge.texture.Texture">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">Texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameObj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">materialID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureObj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.texture.Texture" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bge.texture.</span></span><span class="sig-name descname"><span class="pre">Texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameObj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">materialID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ImageTextureNodeName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureObj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bge.texture.Texture" title="Link to this definition"></a></dt>
 <dd><p>Class that creates the <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object that loads the dynamic texture on the GPU.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>gameObj</strong> (<a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">KX_GameObject</span></code></a>) – Game object to be created a video texture on.</p></li>
-<li><p><strong>materialID</strong> (<em>int</em>) – Material ID default, 0 is the first material. (optional)</p></li>
-<li><p><strong>textureID</strong> (<em>int</em>) – Texture index in case of multi-texture channel, 0 = first channel by default.
-In case of UV texture, this parameter should always be 0. (optional)</p></li>
+<li><p><strong>materialID</strong> (<em>int</em>) – Material ID default, 0 is the first material.</p></li>
+<li><p><strong>ImageTextureNodeName</strong> (<em>str</em>) – Image Texture node name in the shader editor (matches the texture name normally).</p></li>
 <li><p><strong>textureObj</strong> (<a class="reference internal" href="#bge.texture.Texture" title="bge.texture.Texture"><code class="xref py py-class docutils literal notranslate"><span class="pre">Texture</span></code></a>) – Reference to another <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object with shared bindId
 which he user might want to reuse the texture.
 If this argument is used, you should not create any source on this texture
@@ -2452,7 +2462,18 @@ provide the texture for both materials/textures.(optional)</p></li>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="bge.texture.Texture.gpuTexture">
 <span class="sig-name descname"><span class="pre">gpuTexture</span></span><a class="headerlink" href="#bge.texture.Texture.gpuTexture" title="Link to this definition"></a></dt>
-<dd><p>GPUTexture. (readonly)</p>
+<dd><p>GPUTexture, Color Texture from ImageRender or other VideoTexture sources (readonly)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">GPUTexture</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bge.texture.Texture.gpuDepthTexture">
+<span class="sig-name descname"><span class="pre">gpuDepthTexture</span></span><a class="headerlink" href="#bge.texture.Texture.gpuDepthTexture" title="Link to this definition"></a></dt>
+<dd><p>GPUTexture, Depth Texture from ImageRender only (readonly)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">GPUTexture</span></code></p>
@@ -3229,7 +3250,7 @@ ordinary runtime time errors are not written.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright UPBGE &amp; Blender Authors.
-      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/6108f7557d8d>6108f7557d8d</a> - 25/07/2026</code>.
+      <span class="commit">Revision <code><a href=https://projects.blender.org/blender/blender/commit/9a92b08bb47b>9a92b08bb47b</a> - 01/08/2026</code>.
       </span></p>
   </div>
 
